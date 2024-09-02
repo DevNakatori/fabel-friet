@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body>main {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body>main section {
+    padding: 0;
+    position: relative;
+    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));
+    width: 100%;
+    height: 100vh; 
+}
+
+.bannerlogo {
+
+    max-width: 196px;
+    max-height: 96px;
+    margin: 0 auto;
+}
+
+body>main section video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner_overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1340px;
+}
+
+.banner_title_text {
+    max-width: 1030px;
+    margin: 0 auto;
+}
+
+.banner_title_text h1 {
+    color: #F6C738;
+    text-align: center;
+    font-family: "Rufina", serif;
+    font-optical-sizing: auto;
+    font-size: 110px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    /* 110px */
+    text-transform: capitalize;
+}
+
+
+.banner_content_text {
+    max-width: 965px;
+    margin: 0 auto;
+}
+
+.banner_content_text p {
+    color: #EFEBE7;
+    text-align: center;
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.banner_bottombtn {
+    overflow: hidden;
+    color: #EFEBE7;
+    text-overflow: ellipsis;
+    font-family: "Work Sans", sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 260px;
+    height: 47px;
+    border: solid 2px #F6C738;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border-radius: 30px;
+    justify-content: center;
+    margin: 30px auto;
+}
