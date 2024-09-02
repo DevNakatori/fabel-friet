@@ -91,7 +91,7 @@ const HomePage = () => {
                         </a>
                     )}
                 </div>
-                {/* <p>{data.bannerText}</p> */}
+                <p>{data.bannerText}</p>
                 {/* <img src={data.bannerImage.asset.url} alt="Banner" /> */}
             </div>
         </section>
