@@ -20,7 +20,7 @@ const HomePage = () => {
           bannerImage
         }`);
 
-                console.log('Banner Data:', bannerData);
+                console.log('Banner Datas:', bannerData);
 
                 setBanner(bannerData);
             } catch (err) {
