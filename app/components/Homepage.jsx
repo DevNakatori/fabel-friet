@@ -90,8 +90,13 @@ const HomePage = () => {
                             {data.bannerButton.buttonText}
                         </a>
                     )}
+
+                    <div className="bannerrotate_text">
+                        <p>{data.bannerText}</p>
+                    </div>
+
                 </div>
-                <p>{data.bannerText}</p>
+
                 {/* <img src={data.bannerImage.asset.url} alt="Banner" /> */}
             </div>
         </section>
