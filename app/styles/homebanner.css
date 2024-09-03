@@ -42,7 +42,7 @@ nav.header-menu-desktop {
 .footer,
 .header-ctas,
 .header a.active {
-    display: none;
+    display: none !important;
 }
 
 .header .header-menu-item {
