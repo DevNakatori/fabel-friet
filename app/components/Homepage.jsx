@@ -2,12 +2,21 @@ import { useEffect, useState } from 'react';
 import { client } from '../../sanityClient';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
-
+import { TextPlugin } from 'gsap/TextPlugin';
+gsap.registerPlugin(TextPlugin);
 const HomePage = () => {
     const [bannerData, setBanner] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    useEffect(() => {
+        if (!loading) {
+            gsap.to('.loadersite', {
+                duration: 5, opacity: 0, onComplete: () => {
+                    document.querySelector('.loadersite').style.display = 'none';
+                }
+            });
+        }
+    }, [loading]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,10 +40,8 @@ const HomePage = () => {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
-
     useEffect(() => {
         const video = document.getElementById('myVideo');
         const overlayMain = document.querySelector('.banner_overlaymain');
@@ -46,50 +53,62 @@ const HomePage = () => {
             button: document.querySelector('.banner_bottombtn'),
             rotateText: document.querySelector('.bannerrotate_text')
         };
-
         if (video) {
             video.autoplay = true;
-
             video.addEventListener('ended', () => {
                 video.classList.add('hidden');
                 if (overlayMain) {
-                    overlayMain.classList.add('overlay-blue');
+                    gsap.to(overlayMain, {
+                        duration: 2,
+                        opacity: 1,
+                        scale: 1,
+                        ease: 'power2.out',
+                        delay: 0.1
+                    });
                 }
                 if (overlay) {
                     gsap.to(overlay, {
-                        duration: 1,
+                        duration: 2,
                         opacity: 1,
-                        ease: 'power2.out'
+                        ease: 'power2.out',
+                        delay: 0.2
                     });
                 }
-
-                // Animate elements one by one
-                gsap.fromTo(elements.logo, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 0.5 });
-                gsap.fromTo(elements.title, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1 });
-                gsap.fromTo(elements.content, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
-                gsap.fromTo(elements.button, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2 });
-                gsap.fromTo(elements.rotateText, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.out', delay: 2.5 });
+                gsap.to('.overlaybannehand-bottom', {
+                    duration: 1.5,
+                    bottom: '0px',
+                    ease: 'power1.inOut',
+                    delay: 0.1
+                });
+                gsap.fromTo(elements.logo, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1 });
+                gsap.fromTo(elements.title, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 });
+                gsap.fromTo(elements.content, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2 });
+                gsap.fromTo(elements.button, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2.5 });
+                gsap.to('.overlaybannehand-left', {
+                    duration: 1,
+                    left: '0px',
+                    ease: 'power1.inOut',
+                    delay: 3
+                });
+                gsap.to('.overlaybannehand-right', {
+                    duration: 1,
+                    right: '0px',
+                    ease: 'power1.inOut',
+                    delay: 3
+                });
+                gsap.fromTo(elements.rotateText, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4 });
+                gsap.fromTo(elements.rotateText,
+                    { text: '' },
+                    { text: data.bannerText, duration: data.bannerText.length * 0.05, ease: 'none', delay: 4.5 }
+                );
             });
         }
-
         return () => {
             if (video) {
                 video.removeEventListener('ended', () => { });
             }
         };
     }, [bannerData]);
-
-
-    useEffect(() => {
-        if (!loading) {
-            gsap.to('.loadersite', {
-                duration: 5, opacity: 0, onComplete: () => {
-                    document.querySelector('.loadersite').style.display = 'none';
-                }
-            });
-        }
-    }, [loading]);
-
     if (loading) return <div className='loadersite'>
         <div className='logosvg'>
             <svg width="131" height="96" viewBox="0 0 131 96" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -109,7 +128,6 @@ const HomePage = () => {
             <span></span>
             <span></span></div></div>;
     if (error) return <div>{error}</div>;
-
     const placeholderData = {
         bannerVideo:
             'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
@@ -142,7 +160,7 @@ const HomePage = () => {
     return (
         <section>
             <div className="banner_video">
-                {data.bannerVideo && <video id="myVideo" src={data.bannerVideo} autoPlay muted />}
+                {data.bannerVideo && <video id="myVideo" src={data.bannerVideo} autoPlay muted playsinline />}
             </div>
             <div className="banner_overlaymain">
                 <div className="banner_overlay">
@@ -169,7 +187,11 @@ const HomePage = () => {
                     </div>
 
                 </div>
-                <div className="overlaybannehand"></div>
+                <div className="overlaybannehand">
+                    <div className='overlaybannehand-left'></div>
+                    <div className='overlaybannehand-right'></div>
+                    <div className='overlaybannehand-bottom'></div>
+                </div>
             </div>
         </section>
     );
