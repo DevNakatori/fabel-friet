@@ -52,9 +52,12 @@ nav.header-menu-desktop {
 }
 
 .footer,
-.header-ctas,
-.header a.active {
+.header-ctas {
     display: none !important;
+}
+
+.header>a.active strong {
+    display: none;
 }
 
 .header .header-menu-item {
