@@ -25,14 +25,14 @@ body>main section {
 
 .header {
     align-items: center;
-    background: transparent;
+    background: transparent !important;
     display: flex;
     height: var(--header-height);
-    padding: 0 1rem;
-    position: fixed;
-    top: 25px;
-    z-index: 1;
-    width: calc(100% - 2rem);
+    padding: 0 1rem !important;
+    position: fixed !important;
+    top: 25px !important;
+    z-index: 1 !important;
+    width: calc(100% - 2rem) !important;
 }
 
 nav.header-menu-desktop {
