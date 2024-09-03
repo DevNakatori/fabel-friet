@@ -72,6 +72,9 @@ const HomePage = () => {
             <div className="banner_video">
                 {/* {data.bannerVideo && <video src={data.bannerVideo} autoPlay muted />} */}
 
+                {/* <img src={data.bannerImage.asset.url} alt="Banner" /> */}
+            </div>
+            <div className="banner_overlaymain">
                 <div className="banner_overlay">
                     <div className="bannerlogo">
                         <img src={data.bannerLogo.asset.url} alt="Logo" />
@@ -96,8 +99,7 @@ const HomePage = () => {
                     </div>
 
                 </div>
-
-                {/* <img src={data.bannerImage.asset.url} alt="Banner" /> */}
+                <div className="overlaybannehand"></div>
             </div>
         </section>
     );
