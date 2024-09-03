@@ -97,6 +97,7 @@ body>main section video {
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 1340px;
+    z-index: 1;
 }
 
 .banner_title_text {
