@@ -103,12 +103,30 @@ const HomePage = () => {
                 );
             });
         }
+
         return () => {
             if (video) {
                 video.removeEventListener('ended', () => { });
             }
         };
+
     }, [bannerData]);
+
+
+    // Apply text manipulation to the banner text
+    useEffect(() => {
+        const paragraph = document.getElementById('text');
+        if (paragraph) {
+            const words = paragraph.innerText.split(' ');
+
+            if (words.length >= 5) {
+                words[1] = `<span class="bold">${words[1]}</span>`;
+                words[4] = `<span class="bold">${words[4]}</span>`;
+                paragraph.innerHTML = words.join(' ');
+            }
+        }
+    }, [bannerData]);
+
     if (loading) return <div className='loadersite'>
         <div className='logosvg'>
             <svg width="131" height="96" viewBox="0 0 131 96" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -173,7 +191,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="banner_content_text">
-                        <p>{data.bannerContent}</p>
+                        <p id="text">{data.bannerContent}</p>
                     </div>
 
                     {data.bannerButton && (
