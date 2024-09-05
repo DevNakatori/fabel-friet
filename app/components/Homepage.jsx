@@ -16,6 +16,7 @@ const HomePage = () => {
                 }
             });
         }
+        document.body.classList.add('hiddenoverflow');
     }, [loading]);
     useEffect(() => {
         const fetchData = async () => {
@@ -101,6 +102,11 @@ const HomePage = () => {
                     { text: '' },
                     { text: data.bannerText, duration: data.bannerText.length * 0.05, ease: 'none', delay: 4.5 }
                 );
+                gsap.to("body", { delay: 3.5, onComplete: removeClass });
+
+                function removeClass() {
+                    document.body.classList.remove('hiddenoverflow');
+                }
             });
         }
 
@@ -125,6 +131,11 @@ const HomePage = () => {
                 paragraph.innerHTML = words.join(' ');
             }
         }
+    }, [bannerData]);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
     }, [bannerData]);
 
     if (loading) return <div className='loadersite'>
@@ -176,7 +187,7 @@ const HomePage = () => {
     };
 
     return (
-        <section>
+        <section className='bannersection'>
             <div className="banner_video">
                 {data.bannerVideo && <video id="myVideo" src={data.bannerVideo} autoPlay muted playsinline />}
             </div>
