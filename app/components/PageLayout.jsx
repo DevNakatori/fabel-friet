@@ -10,7 +10,7 @@ import {
 } from '~/components/SearchFormPredictive';
 import { SearchResultsPredictive } from '~/components/SearchResultsPredictive';
 import HomePage from '~/components/Homepage';
-
+import Onzefriet from '~/components/Onzefriet';
 /**
  * @param {PageLayoutProps}
  */
@@ -37,6 +37,7 @@ export function PageLayout({
             )}
             <main>
                 <HomePage />
+                <Onzefriet />
             </main>
             <Footer
                 footer={footer}
