@@ -20,7 +20,7 @@ const Onzefriet = () => {
                     start: 'top top',
                     end: '+=1000',
                     scrub: true,
-                    markers: true,
+                    markers: false,
                 }
             }
         );
@@ -32,14 +32,14 @@ const Onzefriet = () => {
             duration: 1,
             ease: 'power2.out',
             paused: true,
-            markers: true,
+            markers: false,
         });
 
         ScrollTrigger.create({
             trigger: '.wrappertest',
             start: 'center 90%',
             end: 'bottom bottom',
-            markers: true,
+            markers: false,
             onEnter: () => overlayAnimation.play(),
             onLeaveBack: () => overlayAnimation.reverse(),
         });
@@ -51,7 +51,7 @@ const Onzefriet = () => {
     }, []);
 
     return (
-        <section>
+        <section className='secondesection'>
             <div className="wrapper">
                 <div className="roundimage">
                     <img

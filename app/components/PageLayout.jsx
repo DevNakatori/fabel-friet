@@ -9,6 +9,8 @@ import {
     SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
 import { SearchResultsPredictive } from '~/components/SearchResultsPredictive';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
 import Onzefriet from '~/components/Onzefriet';
 /**
