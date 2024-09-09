@@ -51,7 +51,7 @@ const Onzefriet = () => {
     }, []);
 
     return (
-        <section className='secondesection'>
+        <section className='panel secondesection' id="section2">
             <div className="wrapper">
                 <div className="roundimage">
                     <img

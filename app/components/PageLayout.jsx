@@ -13,6 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
 import Onzefriet from '~/components/Onzefriet';
+import ScrollNav from '~/components/ScrollNav';
 /**
  * @param {PageLayoutProps}
  */
@@ -40,6 +41,7 @@ export function PageLayout({
             <main>
                 <HomePage />
                 <Onzefriet />
+                <ScrollNav />
             </main>
             <Footer
                 footer={footer}
