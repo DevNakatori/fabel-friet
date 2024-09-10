@@ -7,9 +7,11 @@ import { TextPlugin } from 'gsap/TextPlugin';
 gsap.registerPlugin(TextPlugin);
 
 const HomePage = () => {
+
     const [bannerData, setBanner] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
 
     useEffect(() => {
 
@@ -48,14 +50,13 @@ const HomePage = () => {
         fetchData();
     }, []);
 
-
     useEffect(() => {
         if (!loading) {
             gsap.to('.loadersite', {
                 duration: 1, opacity: 0, onComplete: () => {
-                    document.querySelector('.loadersite').style.display = 'none';
-
+                    // document.querySelector('.loadersite').style.display = 'none';
                     document.body.classList.add('hiddenoverflow');
+
                     gsap.to('.banner_video', {
                         autoAlpha: 1,
                         duration: 0,
@@ -65,10 +66,7 @@ const HomePage = () => {
                 }
             });
         }
-
     }, [loading]);
-
-
 
 
 

@@ -496,6 +496,11 @@ button.reset:hover:not(:has(> *)) {
 
 
 /* hd */
+
+a:hover {
+    text-decoration: none;
+}
+
 html {
     scrollbar-width: none;
 }

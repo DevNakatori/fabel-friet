@@ -39,9 +39,10 @@ export function PageLayout({
                 />
             )}
             <main>
+                <ScrollNav />
                 <HomePage />
                 <Onzefriet />
-                <ScrollNav />
+
             </main>
             <Footer
                 footer={footer}
