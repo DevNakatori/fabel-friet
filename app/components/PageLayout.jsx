@@ -40,7 +40,7 @@ export function PageLayout({
             )}
             <main>
                 <ScrollNav />
-                <HomePage />
+                {/* <HomePage /> */}
                 <Onzefriet />
 
             </main>
