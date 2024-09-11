@@ -531,7 +531,7 @@ section {
     right: 25px;
     top: 50%;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 6;
 }
 
 .rightsidebullets ul li button {
@@ -566,3 +566,109 @@ section {
 .rightsidebullets ul li:nth-child(3) a img {
     transform: rotate(-172.622deg);
 }
+
+
+
+
+
+/* mouse scroll */
+.icon-scroll,
+.icon-scroll:before {
+    position: absolute;
+    left: 50%;
+}
+
+.icon-scroll {
+    width: 25px;
+    height: 45px;
+    margin-left: -20px;
+    bottom: 10px;
+    margin-top: -35px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    z-index: 9;
+}
+
+@media (max-width: 767px) {
+    .icon-scroll {
+        position: relative;
+    }
+}
+
+.icon-scroll:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    margin-left: -4px;
+    top: 8px;
+    border-radius: 3px;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+}
+
+@-webkit-keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+}
+
+.scroll-down p {
+    color: #EFEBE7;
+    font-family: "Work Sans", sans-serif;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    line-height: 30px;
+}
+
+
+.scroll-down {
+    position: absolute;
+    bottom: 5px;
+    height: 100px;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.scroll-down .icon-scroll {
+    position: relative;
+    bottom: -5px;
+    left: 0;
+    transform: translateX(-0%);
+    margin: 0;
+}
+
+
+.scroll-down:hover p {
+    color: #F6C738;
+}
+
+/* mouse scroll */

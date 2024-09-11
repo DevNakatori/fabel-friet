@@ -7,6 +7,8 @@ import '../styles/onzefriet.css';
 import onzie_one from '../assets/threeimg/Rectangle47.png';
 import onzie_two from '../assets/threeimg/Rectangle45.png';
 import onzie_three from '../assets/threeimg/Rectangle46.png';
+import onzie_leftvidep from '../assets/threeimg/Rectangle43.png';
+import bannerlogo from '../assets/logobanner.png'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +39,7 @@ const Onzefriet = () => {
             }, "<")
             .to(".gradient-purple", {
                 scale: 1,
-                borderRadius: 60,
+                borderRadius: 0,
                 ease: "power3.easeIn",
                 scrollTrigger: {
                     trigger: '.wrappertest',
@@ -46,6 +48,25 @@ const Onzefriet = () => {
                     scrub: true
                 }
             }, 0);
+
+        const container = document.querySelector("#container");
+        const flTests = document.querySelector(".fl-tests");
+
+        gsap.to(container, {
+            x: () => -(container.offsetWidth - innerWidth) + "px",
+            ease: "none",
+            scrollTrigger: {
+                scroller: ".fl-tests",
+                trigger: "#container",
+                start: "center center",
+                pin: true,
+                scrub: 0.5,
+                invalidateOnRefresh: true,
+                end: () => "+=" + (container.offsetWidth - innerWidth),
+                markers: true,
+            }
+        });
+
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
@@ -54,6 +75,9 @@ const Onzefriet = () => {
     return (
         <section className='panel secondesection' id="section2">
             <div className="wrapper">
+                <div className='bannersectinlogo'>
+                    <img src={bannerlogo}></img>
+                </div>
                 <div className='wrappermain'>
                     <img
                         className="media"
@@ -72,10 +96,14 @@ const Onzefriet = () => {
                         </h3>
                     </div>
                     <div className="roundimage"></div>
+                    <div className='scroll-down'>
+                        <div className="icon-scroll"></div>
+                        <p>Scroll down</p>
+                    </div>
                 </div>
             </div>
             <div className="wrappertest">
-                <section class="section hero"></section>
+                <section className="section hero"></section>
                 <div className="gradient-purple">
                     <h4>onze friet</h4>
                     <p>Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet van Amsterdam te bakken. Daarbij maken wij gebruik van de beste kwaliteit Agria aardappelen van Nederlandse bodem welke speciaal zijn ontwikkeld voor friet. </p>
@@ -91,6 +119,304 @@ const Onzefriet = () => {
                                 <img src={onzie_three} alt="img" />
                             </li>
                         </ul>
+                    </div>
+                    <div className='whitebgbox'>
+                        <div className='whitewithvideomainbox'>
+                            <div className='leftvideobox'>
+                                <img src={onzie_leftvidep} alt="img" />
+                            </div>
+                            <div className='righttextbox'>
+                                <h5>
+                                    Lorem ipsum <br />dolor sit amet
+                                </h5>
+                                <p>
+                                    Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet van Amsterdam te bakken. Daarbij maken wij gebruik van de beste kwaliteit Agria aardappelen van Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='whatpeople-section'>
+                            <h6>
+                                What people say about us
+                            </h6>
+
+                            <div class="fl-tests">
+                                <div id="container">
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="module">
+                                        <div className='wharpeoplebox'>
+                                            <p>
+                                                „Super lekkere friet, leuke zaak, in een historisch pandje, aardig personeel. Echt een aanrader“
+                                            </p>
+                                            <b>
+                                                Stefan E.
+                                            </b>
+                                            <ul className='starrating'>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='star'></i>
+                                                </li>
+                                                <li>
+                                                    <i className='blackstar'> </i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
             </div>
