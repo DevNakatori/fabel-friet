@@ -22,7 +22,7 @@
     "aos": "^2.3.4",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
-    "gsap": "^3.12.5",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
     "isbot": "^3.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

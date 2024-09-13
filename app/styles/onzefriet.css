@@ -25,11 +25,22 @@
     position: absolute;
 }
 
-.allfiressections {
+/* .allfiressections {
     max-width: 100%;
     position: absolute;
     margin: 0 auto;
     height: 865px;
+    width: 100%;
+    top: 0;
+    left: 0;
+} */
+
+
+.allfiressections {
+    max-width: 100%;
+    position: absolute;
+    margin: 0 auto;
+    height: 100vh;
     width: 100%;
     top: 0;
     left: 0;
@@ -39,6 +50,7 @@
     position: absolute;
     display: none;
 }
+
 .allfiressections img:nth-child(1) {
     position: absolute;
     display: block;
@@ -68,7 +80,7 @@
     height: 547.547px;
     flex-shrink: 0;
     top: 0;
-    left: 8%;
+    left: -3%;
 }
 
 
@@ -102,7 +114,7 @@
     height: 472.639px;
     flex-shrink: 0;
     top: 28%;
-    right: 0;
+    right: -10%;
 }
 
 
@@ -326,7 +338,7 @@
     width: 707px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    margin: 60px auto 60px;
+    margin: 10px auto 52px;
 }
 
 
@@ -387,7 +399,7 @@
 
 
 
-.whitebgbox {
+/*.whitebgbox {
     background-image: url('../assets/resizeimgs/stone-texture.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -402,9 +414,24 @@
     top: -180px;
     margin-bottom: -180px;
     padding: 0 50px;
+}*/
+
+.whitebgbox {
+    background-image: url('../assets/resizeimgs/stone-texture.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: calc(100% + 0px);
+    position: relative;
+    z-index: 99;
+    left: -50px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    -webkit-box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
+    top: -135px;
+    margin-bottom: -135px;
+    padding: 0 50px;
 }
-
-
 
 .whitebgbox .whitewithvideomainbox .leftvideobox {
     max-width: 874px;
@@ -770,7 +797,7 @@
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
-    margin: 40px 0 0px;
+    margin: 85px 0 0px;
 }
 
 .roundtext h2,
@@ -798,14 +825,15 @@
 .accordion-content {
     display: none;
     overflow: hidden;
-    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    transition: opacity 0.3s ease;
+    /* Smooth transition for opacity */
     opacity: 0;
-  }
-  
-  .accordion-content.show {
+}
+
+.accordion-content.show {
     display: block;
     opacity: 1;
-  }
+}
 
 .accordion-header {
     display: flex;
@@ -823,13 +851,13 @@
     position: absolute;
     right: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='16' viewBox='0 0 29 16' fill='none'%3E%3Cpath d='M28 1L14.5 14.9518L1 0.999999' stroke='%230D1E4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-background-repeat: no-repeat no-repeat;
-background-position: center center;
-background-size: cover;
-width: 29px;
-height: 16px;
-display: block;
-top: 40%;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 29px;
+    height: 16px;
+    display: block;
+    top: 40%;
     transform: translateX(-50%);
 }
 
@@ -851,6 +879,7 @@ top: 40%;
 .accordion-item:last-child {
     border-bottom: none;
 }
+
 .main-accordian {
     max-width: 1708px;
     padding-top: 80px;
@@ -885,7 +914,7 @@ top: 40%;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
-    margin:0 0 40px;
+    margin: 0 0 40px;
     font-family: "Rufina", serif;
     font-optical-sizing: auto;
     font-size: clamp(20px, 10vw, 50px);
@@ -954,7 +983,7 @@ top: 40%;
 .bottomsection .scroll-down {
     width: 150px;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
 }
 
