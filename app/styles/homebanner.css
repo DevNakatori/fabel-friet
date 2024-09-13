@@ -184,6 +184,12 @@ body>main section video {
     top: 0;
 }
 
+.banner_content_text p span.bold svg {
+    position: absolute;
+    width: 65px;
+    height: 100%;
+}
+
 
 
 .bannerlogo {
@@ -224,7 +230,6 @@ body>main section video {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    overflow: hidden;
 }
 
 .banner_bottombtn {
