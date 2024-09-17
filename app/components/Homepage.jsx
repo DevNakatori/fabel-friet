@@ -338,7 +338,7 @@ const HomePage = () => {
             <div className="banner_overlaymain">
                 <div className="banner_overlay">
                     <div className="bannerlogo">
-                        <img src={data.bannerLogo.asset.url} alt="Logo" />
+                        <img src={data.bannerLogo.asset._ref} alt="Logo" />
                     </div>
 
                     <div className="banner_title_text">
