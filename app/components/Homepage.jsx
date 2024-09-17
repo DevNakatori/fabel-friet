@@ -42,18 +42,27 @@ const HomePage = () => {
 
         const fetchData = async () => {
             try {
-                const bannerData = await client.fetch(`*[_type == "homebanner"][0]{
-          bannerVideo,
-          bannerLogo,
-          title,
-          bannerContent,
-          bannerButton,
-          bannerText,
-          bannerImage
-        }`);
-                console.log('Banner Data:', bannerData);
+                const languageQuery = `*[defined(language)].language`;
+                const languages = await client.fetch(languageQuery);
+                const uniqueLanguages = [...new Set(languages)];
+               // console.log('Unique languages:', uniqueLanguages);
+                const bannersByLanguage = await Promise.all(
+                    uniqueLanguages.map(async (lang) => {
+                        const data = await client.fetch(`*[_type == "homebanner" && language == $lang]{
+                          bannerVideo,
+                          bannerLogo,
+                          title,
+                          bannerContent,
+                          bannerButton,
+                          bannerText,
+                        }`, { lang });
 
-                setBanner(bannerData);
+                        console.log(`Banner Data for ${lang}:`, data);
+                        return { language: lang, data };
+                    })
+                );
+
+                setBanner(bannersByLanguage);
             } catch (err) {
                 console.error('Error fetching data:', err);
                 setError('Failed to load data');
@@ -70,7 +79,7 @@ const HomePage = () => {
                 duration: 1,
                 opacity: 0,
                 onComplete: () => {
-                    // document.querySelector('.loadersite').style.display = 'none';
+
                     document.body.classList.add('hiddenoverflow');
 
                     gsap.to('.banner_video', {
@@ -302,6 +311,7 @@ const HomePage = () => {
         );
     if (error) return <div>{error}</div>;
 
+    // Modify how you use data to handle multiple languages if needed
     const placeholderData = {
         bannerVideo:
             'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
@@ -318,18 +328,10 @@ const HomePage = () => {
             buttonText: 'Ontdek Fabel Friet',
         },
         bannerText: 'lekkerste friet van Amsterdam!',
-        bannerImage: { asset: { url: '/path/to/placeholder/banner.jpg' } },
     };
 
-    const data = {
-        bannerVideo: bannerData?.bannerVideo || placeholderData.bannerVideo,
-        bannerLogo: bannerData?.bannerLogo || placeholderData.bannerLogo,
-        title: bannerData?.title || placeholderData.title,
-        bannerContent: bannerData?.bannerContent || placeholderData.bannerContent,
-        bannerButton: bannerData?.bannerButton || placeholderData.bannerButton,
-        bannerText: bannerData?.bannerText || placeholderData.bannerText,
-        bannerImage: bannerData?.bannerImage || placeholderData.bannerImage,
-    };
+    // Here you might want to select a default language or combine bannersByLanguage
+    const data = bannerData?.length > 0 ? bannerData[0].data[0] : placeholderData;
 
     return (
         <section className="bannersection" id="section1">

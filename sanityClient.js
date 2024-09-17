@@ -1,22 +1,4 @@
-//import sanityClient from '@sanity/client';
-//import { createClient } from '@sanity/client';
-// export const client = sanityClient({
-//   projectId: '6tlmpa5b',
-//   dataset: 'production',
-//   apiVersion: '2024-01-01',
-//   useCdn: true,
-// });
-
-// export const client = createClient({
-//   projectId: '6tlmpa5b',
-//   dataset: 'production',
-//   useCdn: true,
-// });
-
-
-
 import sanityClient from '@sanity/client'
-
 export const client = sanityClient({
   projectId: '6tlmpa5b',
   dataset: 'production',
