@@ -26,15 +26,10 @@ import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-
-
-
 const Onzefriet = () => {
-
     const circleRef = useRef(null);
     const circleElement = circleRef.current;
     const [isHidden, setIsHidden] = useState(false);
-
 
     useEffect(() => {
         const container = document.querySelector('#container');
@@ -58,7 +53,6 @@ const Onzefriet = () => {
                 once: true,
             },
         },
-
             gsap
                 .timeline({
                     scrollTrigger: {
@@ -231,7 +225,7 @@ const Onzefriet = () => {
                     scroller: '.fl-tests',
                     trigger: '#container',
                     start: 'top top',
-                    end: 'bottom botttom',
+                    //end: 'bottom botttom',
                     pin: true,
                     scrub: 0.5,
                     invalidateOnRefresh: true,
@@ -320,8 +314,6 @@ const Onzefriet = () => {
 
     return (
         <section className="panel secondesection" id="section2">
-
-
             <div className="wrapper">
                 <div className="bannersectinlogo">
                     <img src={bannerlogo}></img>
@@ -796,7 +788,7 @@ const Onzefriet = () => {
                     </div>
                 </div>
             </div>
-        </section >
+        </section>
     );
 };
 

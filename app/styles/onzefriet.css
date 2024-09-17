@@ -1063,14 +1063,29 @@
     top: 110px;
 }
 
-
-
 .roundmainsvg {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 9;
-    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1e46b3 0%, #1c41a8 12.99%, #1b3e9e 23.44%, #193a95 31.71%, #18378d 38.19%, #163485 43.26%, #15317e 47.31%, #142f78 50.7%, #132c72 53.82%, #122a6c 57.05%, #112867 60.77%, #112662 65.35%, #10245d 71.19%, #0f2258 78.66%, #0e2053 88.13%, #0d1e4d 100%));
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
     display: flex;
     align-items: center;
     align-content: center;
@@ -1088,10 +1103,10 @@
     fill: transparent;
     stroke: #c6a77d;
     stroke-width: 1;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .roundmainsvg svg circle {
-    stroke: #F6C738;
+    stroke: #f6c738;
     stroke-width: 2;
 }
