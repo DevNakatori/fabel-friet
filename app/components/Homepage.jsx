@@ -3,7 +3,7 @@ import { client } from '../../sanityClient';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 
@@ -18,12 +18,11 @@ const HomePage = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-
         const smoother = ScrollSmoother.create({
             smooth: 3,
-            effects: true
+            effects: true,
         });
-        smoother.effects(".allfiressections img", { speed: "auto" });
+        //smoother.effects(".gradient-threebox img", { speed: "auto" });
 
         gsap.fromTo(
             'nav.header-menu-desktop .header-menu-item',
@@ -37,9 +36,6 @@ const HomePage = () => {
                 delay: 2,
             },
         );
-
-
-
         const fetchData = async () => {
             try {
                 const bannerData = await client.fetch(`*[_type == "homebanner"][0]{
@@ -183,7 +179,7 @@ const HomePage = () => {
                         delay: 4.5,
                     },
                 );
-                gsap.to('body', { delay: 3.5, onComplete: removeClass });
+
 
                 gsap.fromTo(
                     '.banner_content_text p span.bold img.imgerasr_one',
@@ -198,7 +194,6 @@ const HomePage = () => {
                         delay: 5,
                     },
                 );
-
                 gsap.fromTo(
                     '.banner_content_text p span.bold img.imgerasr_two',
                     {
@@ -212,35 +207,37 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
-
-
                 gsap.fromTo(
                     '#target',
-                    { drawSVG: "0 0", },
+                    { drawSVG: '0 0' },
                     {
                         //opacity: 1,
                         // y: 0,
-                        drawSVG: "100% -175%",
+                        drawSVG: '100% -175%',
                         duration: 1,
-                        ease: "none",
+                        ease: 'none',
                         repeat: 0,
-                        delay: 6
-                    }
+                        delay: 6,
+                    },
                 );
-
                 gsap.fromTo(
                     '#target_one',
-                    { drawSVG: "0 0", },
+                    { drawSVG: '0 0' },
                     {
                         //opacity: 1,
                         // y: 0,
-                        drawSVG: "100% -175%",
+                        drawSVG: '100% -175%',
                         duration: 1,
-                        ease: "none",
+                        ease: 'none',
                         repeat: 0,
-                        delay: 6.5
-                    }
+                        delay: 6.5,
+                    },
                 );
+
+                gsap.to('body', { delay: 7, onComplete: removeClass });
+                function removeClass() {
+                    document.body.classList.remove('hiddenoverflow');
+                }
 
                 gsap.fromTo(
                     '.rightsidebullets ul li',
@@ -255,9 +252,7 @@ const HomePage = () => {
                     },
                 );
 
-                function removeClass() {
-                    document.body.classList.remove('hiddenoverflow');
-                }
+
             });
         }
 
@@ -272,14 +267,17 @@ const HomePage = () => {
         const paragraph = document.getElementById('text');
         if (paragraph) {
             const words = paragraph.innerText.split(' ');
-
             if (words.length >= 5) {
                 words[1] = `<span class="bold"><svg version="1.0" x="0px" y="0px" viewBox="0 0 260 152" style="enable-background:new 0 0 260 152;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><path id="target" class="st0" d="M16.8,61.9c0,0,44.4-36.5,79.7-53.5c0,0-70.3,59.4-88.2,85c0,0,86.5-72.4,190.3-85c0,0-103.5,72.1-162.7,116.5c0,0,142.1-77.5,215.9-105.5c0,0-88.2,73.7-115,98.4c0,0,55.9-34.7,79.7-39.1c0,0-6,23.4-48.5,65c0,0,16.3-15.1,41.8-23.5"/></svg> ${words[1]} </span>`;
                 words[4] = `<span class="bold"><svg version="1.0" x="0px" y="0px" viewBox="0 0 260 152" style="enable-background:new 0 0 260 152;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><path id="target_one" class="st0" d="M16.8,61.9c0,0,44.4-36.5,79.7-53.5c0,0-70.3,59.4-88.2,85c0,0,86.5-72.4,190.3-85c0,0-103.5,72.1-162.7,116.5c0,0,142.1-77.5,215.9-105.5c0,0-88.2,73.7-115,98.4c0,0,55.9-34.7,79.7-39.1c0,0-6,23.4-48.5,65c0,0,16.3-15.1,41.8-23.5"/></svg> ${words[4]} </span>`;
                 paragraph.innerHTML = words.join(' ');
             }
         }
+
+
     }, [bannerData]);
+
+
 
     useEffect(() => {
         window.scrollTo(0, 0);

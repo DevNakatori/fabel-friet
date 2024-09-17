@@ -20,12 +20,18 @@ import fries_six from '../assets/resizeimgs/Rectangle91.png';
 import fries_seven from '../assets/resizeimgs/Rectangle92.png';
 import fries_eight from '../assets/resizeimgs/Rectangle93.png';
 
+import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
+import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-
     useEffect(() => {
+        const container = document.querySelector('#container');
+        const flTests = document.querySelector('.fl-tests');
+        const list = document.querySelectorAll('.gradient-threebox');
+
         gsap
             .timeline({
                 scrollTrigger: {
@@ -70,104 +76,183 @@ const Onzefriet = () => {
                 0,
             );
 
-
-
-        gsap.to(".leftvideobox", {
-            scrollTrigger: {
-                trigger: ".whitewithvideomainbox",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-                // Additional settings if needed
+        gsap.fromTo(
+            '.allfiressections img',
+            { y: -100, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 3,
+                ease: 'bounce.out',
+                scrollTrigger: {
+                    trigger: '.allfiressections',
+                    start: 'top top',
+                    end: '50% 50%',
+                    scrub: true,
+                    pin: true,
+                    once: true,
+                },
             },
-            x: 0, // Final position (default 0)
-            opacity: 1, // Final opacity
-            ease: "power1.out", // Ease for the animation
-            duration: 1 // Duration of the animation
+        );
+
+        gsap.to('.allfiressections img', {
+            y: 20,
+            repeat: -1,
+            yoyo: true,
+            duration: 6,
+            ease: 'sine.inOut',
         });
 
-        // Animation for the right box
-        gsap.to(".righttextbox", {
-            scrollTrigger: {
-                trigger: ".whitewithvideomainbox",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-                // Additional settings if needed
+        gsap.fromTo(
+            '.gradient-purple h4',
+            {
+                opacity: 0,
+                y: 50,
+                scale: 0.5,
             },
-            x: 0, // Final position (default 0)
-            opacity: 1, // Final opacity
-            ease: "power1.out", // Ease for the animation
-            duration: 1 // Duration of the animation
-        });
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.gradient-purple',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true,
+                    markers: false,
+                },
+            },
+        );
 
+        gsap.fromTo(
+            '.gradient-purple p',
+            {
+                opacity: 0,
+                scale: 0.5,
+                y: 50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.gradient-purple h4',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true,
+                    markers: false,
+                },
+            },
+        );
 
+        const textContent = 'lekkerste friet van Amsterdam!';
+        const textLength = textContent.length;
+        const duration = textLength * 0.05;
+        gsap.fromTo(
+            '#animated-text',
+            { text: '' },
+            {
+                text: textContent,
+                duration: duration,
+                ease: 'none',
+                delay: 2,
+                scrollTrigger: {
+                    trigger: '.whitewithvideomainbox',
+                    start: 'top 75%',
+                    end: 'top 25%',
+                    toggleActions: 'play none none none',
+                },
+            },
+        );
 
-
-        // gsap.fromTo('.leftvideobox',
-        //     { opacity: 1, y: -30 },
-        //     {
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.2,
-        //         duration: 1,
-        //         ease: 'power2.out',
-        //         delay: 2,
-        //         scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'center center', scrub: true, repeat: 0 }
-        //     },
-        // );
-
-        // gsap.fromTo('.righttextbox',
-        //     { opacity: 1, y: -30 },
-        //     {
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.2,
-        //         duration: 1,
-        //         ease: 'power2.out',
-        //         delay: 2,
-        //         scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'center center', scrub: true, repeat: 0 }
-        //     },
-        // );
-
-
-        var split = new SplitText("#lodo", { type: "chars" });
-        gsap.from(split.chars, {
+        gsap.to('.leftvideobox', {
+            scrollTrigger: {
+                trigger: '.whitewithvideomainbox',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+            x: 0,
+            opacity: 1,
+            ease: 'power1.out',
             duration: 1,
-            y: 100,
-            autoAlpha: 0,
-            stagger: 0.05
         });
 
-
-        // gsap.fromTo('.righttextbox',
-        //     { x: '100vw', opacity: 0 },
-        //     { x: 0, opacity: 1, scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'top center', scrub: true } }
-        // );
-
-        const container = document.querySelector('#container');
-        const flTests = document.querySelector('.fl-tests');
-
-        gsap.to(container, {
-            x: () => -(container.offsetWidth - innerWidth) + 'px',
-            ease: 'none',
+        gsap.to('.righttextbox', {
             scrollTrigger: {
-                scroller: '.fl-tests',
-                trigger: '#container',
-                start: 'center center',
-                pin: true,
-                scrub: 0.5,
-                invalidateOnRefresh: true,
-                end: () => '+=' + (container.offsetWidth - innerWidth),
-                markers: false,
+                trigger: '.whitewithvideomainbox',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
             },
+            x: 0,
+            opacity: 1,
+            ease: 'power1.out',
+            duration: 1,
+        });
+
+        if (container && flTests) {
+            gsap.to(container, {
+                x: () => -(container.offsetWidth - window.innerWidth) + 'px',
+                ease: 'none',
+                scrollTrigger: {
+                    scroller: '.fl-tests',
+                    trigger: '#container',
+                    start: 'center center',
+                    pin: true,
+                    scrub: 0.5,
+                    invalidateOnRefresh: true,
+                    end: () => '+=' + (container.offsetWidth - window.innerWidth),
+                    markers: false,
+                },
+            });
+        }
+
+        list.forEach((list) => {
+            const items = list.querySelectorAll('ul li');
+            const firstItem = items[0];
+            const lastItem = items[items.length - 1];
+
+            gsap.fromTo(
+                firstItem,
+                { rotation: 0, opacity: 0 },
+                {
+                    opacity: 1,
+                    rotation: -8,
+                    scrollTrigger: {
+                        trigger: '.gradient-purple',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: false,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                lastItem,
+                { rotation: 0, opacity: 0 },
+                {
+                    opacity: 1,
+                    rotation: 8,
+                    scrollTrigger: {
+                        trigger: '.gradient-purple',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: false,
+                    },
+                },
+            );
         });
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
-
 
     const toggleAccordion = (e) => {
         const trigger = e.currentTarget;
@@ -230,7 +315,7 @@ const Onzefriet = () => {
             <div className="wrappertest">
                 <section className="section hero"></section>
                 <div className="gradient-purple">
-                    <div className='allfiressections'>
+                    <div className="allfiressections">
                         <img src={fries_one} alt="img" />
                         <img src={fries_two} alt="img" />
                         <img src={fries_three} alt="img" />
@@ -239,7 +324,7 @@ const Onzefriet = () => {
                         <img src={fries_seven} alt="img" />
                         <img src={fries_eight} alt="img" />
                     </div>
-                    <h4 >onze friet</h4>
+                    <h4>onze friet</h4>
                     <p id="lodo">
                         Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte
                         Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet
@@ -250,6 +335,9 @@ const Onzefriet = () => {
                     <div className="gradient-threebox">
                         <ul>
                             <li>
+                                <div className="threeboxleftlogobar">
+                                    <img src={fabelfrietsticker2} alt="img" />
+                                </div>
                                 <img src={onzie_one} alt="img" />
                             </li>
                             <li>
@@ -263,9 +351,14 @@ const Onzefriet = () => {
                     <div className="whitebgbox">
                         <div className="whitewithvideomainbox">
                             <div className="leftvideobox">
+                                <div className="leftlogobar">
+                                    <img src={fabelfrie_tsticker2} alt="img" />
+                                </div>
                                 <img src={onzie_leftvidep} alt="img" />
                             </div>
                             <div className="righttextbox">
+                                <h3 id="animated-text"></h3>
+                                <img className="arrowimage" src={arrow_blue} alt="img" />
                                 <h5>
                                     Lorem ipsum <br />
                                     dolor sit amet
@@ -662,7 +755,7 @@ const Onzefriet = () => {
                             </div>
                         </div>
 
-                        <div className='overlaybannehand-bottoms'></div>
+                        <div className="overlaybannehand-bottoms"></div>
                         <div className="bottomsection">
                             <div className="scroll-down">
                                 <div className="icon-scroll"></div>
