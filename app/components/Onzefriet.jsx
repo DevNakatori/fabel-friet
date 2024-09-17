@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
@@ -26,55 +26,82 @@ import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+
+
+
 const Onzefriet = () => {
+
+    const circleRef = useRef(null);
+    const circleElement = circleRef.current;
+    const [isHidden, setIsHidden] = useState(false);
+
+
     useEffect(() => {
         const container = document.querySelector('#container');
         const flTests = document.querySelector('.fl-tests');
         const list = document.querySelectorAll('.gradient-threebox');
 
-        gsap
-            .timeline({
-                scrollTrigger: {
-                    trigger: '.wrapper',
-                    start: 'center center',
-                    end: '+=150%',
-                    pin: true,
-                    scrub: true,
-                    markers: false,
-                },
-            })
-            .to('.roundimage,.roundtext', {
-                scale: 4,
-                z: 350,
-                transformOrigin: 'center center',
-                ease: 'power1.inOut',
+        '.allfiressections img',
+            { y: -100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 3,
+            ease: 'bounce.out',
+            scrollTrigger: {
+                trigger: '.allfiressections',
+                start: 'top top',
+                end: '50% 50%',
                 scrub: true,
-                zIndex: 5,
-            })
-            .to(
-                '.section.hero',
-                {
-                    scale: 1.1,
+                pin: true,
+                once: true,
+            },
+        },
+
+            gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: '.wrapper',
+                        start: 'center center',
+                        end: '+=150%',
+                        pin: true,
+                        scrub: true,
+                        markers: false,
+                    },
+                })
+                .to('.roundimage,.roundtext', {
+                    scale: 4,
+                    z: 350,
                     transformOrigin: 'center center',
                     ease: 'power1.inOut',
-                },
-                '<',
-            )
-            .to(
-                '.gradient-purple',
-                {
-                    scale: 1,
-                    borderRadius: 0,
-                    ease: 'power3.easeIn',
-                    scrollTrigger: {
-                        trigger: '.wrappertest',
-                        start: 'top top-500',
-                        end: 'top top-200',
-                        scrub: true,
+                    scrub: true,
+                    zIndex: 5,
+                })
+                .to(
+                    '.section.hero',
+                    {
+                        scale: 1.1,
+                        transformOrigin: 'center center',
+                        ease: 'power1.inOut',
                     },
-                },
-                0,
-            );
+                    '<',
+                )
+                .to(
+                    '.gradient-purple',
+                    {
+                        scale: 1,
+                        borderRadius: 0,
+                        ease: 'power3.easeIn',
+                        scrollTrigger: {
+                            trigger: '.wrappertest',
+                            start: 'top top-500',
+                            end: 'top top-200',
+                            scrub: true,
+                        },
+                    },
+                    0,
+                );
 
         gsap.fromTo(
             '.allfiressections img',
@@ -198,12 +225,13 @@ const Onzefriet = () => {
 
         if (container && flTests) {
             gsap.to(container, {
-                x: () => -(container.offsetWidth - window.innerWidth) + 'px',
+                x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
                 ease: 'none',
                 scrollTrigger: {
                     scroller: '.fl-tests',
                     trigger: '#container',
-                    start: 'center center',
+                    start: 'top top',
+                    end: 'bottom botttom',
                     pin: true,
                     scrub: 0.5,
                     invalidateOnRefresh: true,
@@ -292,6 +320,8 @@ const Onzefriet = () => {
 
     return (
         <section className="panel secondesection" id="section2">
+
+
             <div className="wrapper">
                 <div className="bannersectinlogo">
                     <img src={bannerlogo}></img>
@@ -312,6 +342,7 @@ const Onzefriet = () => {
                     </div>
                 </div>
             </div>
+
             <div className="wrappertest">
                 <section className="section hero"></section>
                 <div className="gradient-purple">
@@ -765,7 +796,7 @@ const Onzefriet = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

@@ -180,7 +180,6 @@ const HomePage = () => {
                     },
                 );
 
-
                 gsap.fromTo(
                     '.banner_content_text p span.bold img.imgerasr_one',
                     {
@@ -251,8 +250,6 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
-
-
             });
         }
 
@@ -273,11 +270,7 @@ const HomePage = () => {
                 paragraph.innerHTML = words.join(' ');
             }
         }
-
-
     }, [bannerData]);
-
-
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -302,7 +295,7 @@ const HomePage = () => {
 
     const placeholderData = {
         bannerVideo:
-            'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+            'https://cdn.shopify.com/videos/c/o/v/e2c8bdae81af4d86897ffd5615167648.mp4',
         bannerLogo: {
             asset: {
                 url: 'https://cdn.sanity.io/images/6tlmpa5b/production/57be1a377f95630454781e0f4b57c8f82ce20a4f-2374x1409.png',
