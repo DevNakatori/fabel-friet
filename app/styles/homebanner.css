@@ -20,7 +20,24 @@ a:hover {
 /* reset css */
 /* loader */
 .loadersite {
-    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
     width: 100%;
     height: 100vh;
     z-index: 99;
@@ -145,8 +162,8 @@ nav.header-menu-desktop {
 
 .header .header-menu-item {
     cursor: pointer;
-    color: #EFEBE7 !important;
-    font-family: "Work Sans", sans-serif;
+    color: #efebe7 !important;
+    font-family: 'Work Sans', sans-serif;
     font-size: clamp(20px, 5vw, 20px);
     font-style: normal;
     font-weight: 600;
@@ -155,7 +172,7 @@ nav.header-menu-desktop {
 }
 
 .header .header-menu-item:hover {
-    color: #F6C738 !important;
+    color: #f6c738 !important;
 }
 
 /* header */
@@ -190,8 +207,6 @@ body>main section video {
     height: 100%;
 }
 
-
-
 .bannerlogo {
     max-width: 196px;
     max-height: 96px;
@@ -215,16 +230,15 @@ body>main section video {
     margin: 0 auto;
 }
 
-
 .banner_content_text {
     max-width: 965px;
     margin: 0 auto;
 }
 
 .banner_content_text p {
-    color: #EFEBE7;
+    color: #efebe7;
     text-align: center;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-optical-sizing: auto;
     font-size: clamp(20px, 10vw, 23px);
     font-style: normal;
@@ -234,17 +248,17 @@ body>main section video {
 
 .banner_bottombtn {
     overflow: hidden;
-    color: #EFEBE7;
+    color: #efebe7;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 21px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     width: 260px;
     height: 47px;
-    border: solid 2px #F6C738;
+    border: solid 2px #f6c738;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -266,7 +280,7 @@ body>main section video {
 
 .banner_bottombtn:hover {
     color: #fff;
-    border-color: #F6C738;
+    border-color: #f6c738;
 }
 
 .banner_bottombtn:before {
@@ -285,9 +299,9 @@ body>main section video {
     -webkit-transition: all 0.35s;
     -o-transition: all 0.35s;
     transition: all 0.35s;
-    background-color: #F6C738;
+    background-color: #f6c738;
     z-index: -1;
-    content: "";
+    content: '';
 }
 
 .banner_bottombtn:hover:before {
@@ -305,10 +319,10 @@ body>main section video {
     -ms-transform: translateY(-50%) rotate(15.706deg) !important;
     transform: translateY(-50%) rotate(15.706deg) !important;
     max-width: 270px;
-    color: #EFEBE7;
+    color: #efebe7;
     text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-    font-family: "Permanent Marker", cursive;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Permanent Marker', cursive;
     font-size: clamp(12px, 4vw, 30px);
     font-style: normal;
     font-weight: 400;
@@ -316,10 +330,10 @@ body>main section video {
 }
 
 .bannerrotate_text p {
-    color: #EFEBE7;
+    color: #efebe7;
     text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-    font-family: "Permanent Marker", cursive;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Permanent Marker', cursive;
     font-size: 30px;
     font-style: normal;
     font-weight: 400;
@@ -336,7 +350,6 @@ body>main section video {
 .overlaybannehand {
     overflow: hidden;
 }
-
 
 .hidden {
     display: none;
@@ -377,7 +390,24 @@ body>main section video {
 }
 
 .banner_video {
-    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
     -webkit-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
@@ -391,7 +421,24 @@ body>main section video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
     -webkit-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
@@ -399,7 +446,24 @@ body>main section video {
 }
 
 .banner_overlaymain.overlay-blue {
-    background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
     opacity: 1;
 }
 
@@ -409,10 +473,7 @@ body>main section video {
 
 .banner_content_text p span.bold {
     position: relative;
-
 }
-
-
 
 .banner_content_text p span.bold img {
     width: 60px;
@@ -426,14 +487,14 @@ body>main section video {
 
 .banner_title_text h1 {
     text-align: center;
-    font-family: "Rufina", serif;
+    font-family: 'Rufina', serif;
     font-optical-sizing: auto;
     font-size: clamp(20px, 10vw, 100px);
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
     text-transform: capitalize;
-    background: url("../assets/resizeimgs/plain-gold-background.png");
+    background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: 0.5s;
@@ -453,7 +514,6 @@ body>main section video {
     right: 0;
 }
 
-
 .overlaybannehand-left {
     position: absolute;
     bottom: 0;
@@ -466,7 +526,6 @@ body>main section video {
     background-size: cover;
     z-index: 1;
 }
-
 
 .overlaybannehand-right {
     content: '';
@@ -482,11 +541,9 @@ body>main section video {
     z-index: 1;
 }
 
+@media (min-width: 1200px) {}
 
-@media (min-width:1200px) {}
-
-@media (min-width:1201px) and (max-width:1399px) {
-
+@media (min-width: 1201px) and (max-width: 1399px) {
     .bannerlogo {
         margin: 30px auto 30px;
     }
@@ -512,10 +569,9 @@ body>main section video {
         -ms-transform-origin: bottom right;
         transform-origin: bottom right;
     }
-
 }
 
-@media (min-width:992px) and (max-width:1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     .header {
         top: 0px !important;
         -webkit-box-pack: center;
@@ -535,7 +591,6 @@ body>main section video {
     .bannerrotate_text {
         max-width: 200px;
         font-size: clamp(12px, 3vw, 30px);
-
     }
 
     .bannerrotate_text {
@@ -544,7 +599,6 @@ body>main section video {
         max-width: 174px;
         font-size: clamp(12px, 2vw, 30px);
     }
-
 
     .banner_content_text {
         padding: 0 15px;
@@ -557,7 +611,7 @@ body>main section video {
     }
 }
 
-@media (min-width:768px) and (max-width:991px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .header {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -576,7 +630,6 @@ body>main section video {
     .bannerrotate_text {
         max-width: 200px;
         font-size: clamp(12px, 3vw, 30px);
-
     }
 
     .bannerrotate_text {
@@ -594,13 +647,10 @@ body>main section video {
     }
 }
 
-@media (max-width:767px) {
-
-
+@media (max-width: 767px) {
     .bannerlogo {
         display: none;
     }
-
 
     .banner_content_text {
         padding: 0 15px;
@@ -616,5 +666,4 @@ body>main section video {
     .banner_title_text {
         padding: 0 12px;
     }
-
 }
