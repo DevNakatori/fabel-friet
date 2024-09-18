@@ -13,6 +13,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
 import Onzefriet from '~/components/Onzefriet';
+import Onzelocaties from '~/components/Onzelocaties';
+import Hetmenu from '~/components/Hetmenu';
+import Onzeimpact from '~/components/Onzeimpact';
+import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 /**
  * @param {PageLayoutProps}
@@ -44,6 +48,10 @@ export function PageLayout({
                     <div id="smooth-content">
                         <HomePage />
                         <Onzefriet />
+                        <Onzelocaties />
+                        <Hetmenu />
+                        <Onzeimpact />
+                        <Getintouch />
                     </div>
                 </div>
             </main>

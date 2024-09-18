@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-const sections = ['section1', 'section2'];
+const sections = ['section1', 'section2', 'section3', 'section4', 'section5', 'section6'];
 
 const ScrollNav = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleScroll = () => {
         const scrollPos = window.scrollY;
-        const sectionOffsets = sections.map(id => {
+        const sectionOffsets = sections.map((id) => {
             const section = document.getElementById(id);
             return {
                 id,
                 offset: section ? section.offsetTop : 0,
-                height: section ? section.offsetHeight : 0
+                height: section ? section.offsetHeight : 0,
             };
         });
 
-        const newIndex = sectionOffsets.findIndex(({ offset, height }) =>
-            scrollPos >= offset && scrollPos < offset + height
+        const newIndex = sectionOffsets.findIndex(
+            ({ offset, height }) => scrollPos >= offset && scrollPos < offset + height,
         );
 
         if (newIndex === -1 && sectionOffsets.length) {
@@ -62,12 +62,15 @@ const ScrollNav = () => {
     };
 
     return (
-        <div className='rightsidebullets'>
+        <div className="rightsidebullets">
             <ul>
                 {sections.map((section, index) => (
-                    <li key={index} className={activeIndex === index ? 'activebullets' : ''}>
+                    <li
+                        key={index}
+                        className={activeIndex === index ? 'activebullets' : ''}
+                    >
                         <button onClick={() => scrollToSection(index)}>
-                            <span className='bullets'></span>
+                            <span className="bullets"></span>
                         </button>
                     </li>
                 ))}
