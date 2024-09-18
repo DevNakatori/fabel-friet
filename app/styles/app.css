@@ -526,12 +526,16 @@ section {
     overflow: hidden;
 }
 
+.hiddenoverflow .rightsidebullets {
+    z-index: inherit;
+}
+
 .rightsidebullets {
     position: fixed;
     right: 25px;
     top: 50%;
     transform: translateX(-50%);
-    z-index: 6;
+    z-index: 1;
 }
 
 .rightsidebullets ul li button {
@@ -669,6 +673,74 @@ section {
 
 .scroll-down:hover p {
     color: #F6C738;
+}
+
+
+
+
+
+.language-switcher {
+    font-family: Roboto, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    z-index: 5;
+    right: 16px;
+    top: 38px;
+}
+
+.language-switcher label {
+    margin-right: 10px;
+    font-weight: 500;
+    color: #333;
+}
+
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+.select-container select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 60px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+
+.select-container .arrow {
+    position: absolute;
+    top: 54%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.select-container::after {
+    content: attr(data-flag);
+    position: absolute;
+    left: 12px;
+    font-size: 18px;
+}
+
+.select-container select option {
+    padding: 10px;
 }
 
 /* mouse scroll */

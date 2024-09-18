@@ -6,6 +6,7 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import writingicon from '../assets/resizeimgs/writingicon.png';
@@ -16,13 +17,22 @@ const HomePage = () => {
     const [bannerData, setBanner] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [currentLanguage, setCurrentLanguage] = useState('nl'); // Default language
+
+    useEffect(() => {
+        // Load language from cookie on mount
+        const savedLanguage = Cookies.get('language');
+        if (savedLanguage) {
+            setCurrentLanguage(savedLanguage);
+        }
+    }, []);
 
     useEffect(() => {
         const smoother = ScrollSmoother.create({
             smooth: 3,
             effects: true,
         });
-        //smoother.effects(".gradient-threebox img", { speed: "auto" });
+        smoother.effects('.allfiressections img', { speed: 'auto' });
 
         gsap.fromTo(
             'nav.header-menu-desktop .header-menu-item',
@@ -36,22 +46,35 @@ const HomePage = () => {
                 delay: 2,
             },
         );
+
         const fetchData = async () => {
             try {
-                const bannerData = await client.fetch(`*[_type == "homebanner"][0]{
-          bannerVideo,
-          bannerLogo,
-          title,
-          bannerContent,
-          bannerButton,
-          bannerText,
-          bannerImage
-        }`);
-                console.log('Banner Data:', bannerData);
+                const languageQuery = `*[defined(language)].language`;
+                const languages = await client.fetch(languageQuery);
+                const uniqueLanguages = [...new Set(languages)];
+                // console.log('Unique languages:', uniqueLanguages);
+                const bannersByLanguage = await Promise.all(
+                    uniqueLanguages.map(async (lang) => {
+                        const data = await client.fetch(
+                            `*[_type == "homebanner" && language == $lang]{
+                          bannerVideo,
+                          bannerLogo,
+                          title,
+                          bannerContent,
+                          bannerButton,
+                          bannerText,
+                        }`,
+                            { lang },
+                        );
 
-                setBanner(bannerData);
+                        // console.log(`Banner Data for ${lang}:`, data);
+                        return { language: lang, data };
+                    }),
+                );
+
+                setBanner(bannersByLanguage);
             } catch (err) {
-                console.error('Error fetching data:', err);
+                // console.error('Error fetching data:', err);
                 setError('Failed to load data');
             } finally {
                 setLoading(false);
@@ -66,7 +89,6 @@ const HomePage = () => {
                 duration: 1,
                 opacity: 0,
                 onComplete: () => {
-                    // document.querySelector('.loadersite').style.display = 'none';
                     document.body.classList.add('hiddenoverflow');
 
                     gsap.to('.banner_video', {
@@ -169,16 +191,17 @@ const HomePage = () => {
                     { opacity: 0, y: -50 },
                     { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4 },
                 );
-                gsap.fromTo(
-                    elements.rotateText,
-                    { text: '' },
-                    {
-                        text: data.bannerText,
-                        duration: data.bannerText.length * 0.05,
-                        ease: 'none',
-                        delay: 4.5,
-                    },
-                );
+                // gsap.fromTo(
+                //     elements.rotateText,
+                //     { text: '' },
+                //     {
+                //         text: data.bannerText,
+                //         duration: data.bannerText.length * 0.05,
+                //         ease: 'none',
+                //         delay: 4.5,
+                //     },
+                // );
+                gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
                 gsap.fromTo(
                     '.banner_content_text p span.bold img.imgerasr_one',
@@ -193,6 +216,7 @@ const HomePage = () => {
                         delay: 5,
                     },
                 );
+
                 gsap.fromTo(
                     '.banner_content_text p span.bold img.imgerasr_two',
                     {
@@ -206,6 +230,7 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
+
                 gsap.fromTo(
                     '#target',
                     { drawSVG: '0 0' },
@@ -219,6 +244,7 @@ const HomePage = () => {
                         delay: 6,
                     },
                 );
+
                 gsap.fromTo(
                     '#target_one',
                     { drawSVG: '0 0' },
@@ -233,11 +259,6 @@ const HomePage = () => {
                     },
                 );
 
-                gsap.to('body', { delay: 7, onComplete: removeClass });
-                function removeClass() {
-                    document.body.classList.remove('hiddenoverflow');
-                }
-
                 gsap.fromTo(
                     '.rightsidebullets ul li',
                     { opacity: 0, y: -30 },
@@ -250,6 +271,10 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
+
+                function removeClass() {
+                    document.body.classList.remove('hiddenoverflow');
+                }
             });
         }
 
@@ -264,6 +289,7 @@ const HomePage = () => {
         const paragraph = document.getElementById('text');
         if (paragraph) {
             const words = paragraph.innerText.split(' ');
+
             if (words.length >= 5) {
                 words[1] = `<span class="bold"><svg version="1.0" x="0px" y="0px" viewBox="0 0 260 152" style="enable-background:new 0 0 260 152;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><path id="target" class="st0" d="M16.8,61.9c0,0,44.4-36.5,79.7-53.5c0,0-70.3,59.4-88.2,85c0,0,86.5-72.4,190.3-85c0,0-103.5,72.1-162.7,116.5c0,0,142.1-77.5,215.9-105.5c0,0-88.2,73.7-115,98.4c0,0,55.9-34.7,79.7-39.1c0,0-6,23.4-48.5,65c0,0,16.3-15.1,41.8-23.5"/></svg> ${words[1]} </span>`;
                 words[4] = `<span class="bold"><svg version="1.0" x="0px" y="0px" viewBox="0 0 260 152" style="enable-background:new 0 0 260 152;" xml:space="preserve"><style type="text/css">.st0{fill:none;stroke:#FFFFFF;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style><path id="target_one" class="st0" d="M16.8,61.9c0,0,44.4-36.5,79.7-53.5c0,0-70.3,59.4-88.2,85c0,0,86.5-72.4,190.3-85c0,0-103.5,72.1-162.7,116.5c0,0,142.1-77.5,215.9-105.5c0,0-88.2,73.7-115,98.4c0,0,55.9-34.7,79.7-39.1c0,0-6,23.4-48.5,65c0,0,16.3-15.1,41.8-23.5"/></svg> ${words[4]} </span>`;
@@ -275,6 +301,33 @@ const HomePage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [bannerData]);
+
+    const LanguageSwitcher = () => {
+        const handleLanguageChange = (e) => {
+            const newLanguage = e.target.value;
+            setCurrentLanguage(newLanguage);
+            Cookies.set('language', newLanguage, { expires: 365 }); // Set cookie for 1 year
+        };
+        return (
+
+            <div className="language-switcher">
+                {/* <label htmlFor="language-select">Select Language:</label> */}
+                <div className="select-container">
+                    <select id="language-select" value={currentLanguage} onChange={handleLanguageChange}>
+                        <option value="en" data-flag="🇬🇧">EN</option>
+                        <option value="nl" data-flag="🇳🇱">NL</option>
+                    </select>
+                    <div className="arrow"></div>
+                </div>
+            </div>
+
+
+        );
+    };
+
+    useEffect(() => {
+        // If the language changes, you may want to perform additional actions or re-fetch data
+    }, [currentLanguage]);
 
     if (loading)
         return (
@@ -293,9 +346,10 @@ const HomePage = () => {
         );
     if (error) return <div>{error}</div>;
 
+    // Modify how you use data to handle multiple languages if needed
     const placeholderData = {
         bannerVideo:
-            'https://cdn.shopify.com/videos/c/o/v/e2c8bdae81af4d86897ffd5615167648.mp4',
+            'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
         bannerLogo: {
             asset: {
                 url: 'https://cdn.sanity.io/images/6tlmpa5b/production/57be1a377f95630454781e0f4b57c8f82ce20a4f-2374x1409.png',
@@ -309,63 +363,89 @@ const HomePage = () => {
             buttonText: 'Ontdek Fabel Friet',
         },
         bannerText: 'lekkerste friet van Amsterdam!',
-        bannerImage: { asset: { url: '/path/to/placeholder/banner.jpg' } },
     };
 
-    const data = {
-        bannerVideo: bannerData?.bannerVideo || placeholderData.bannerVideo,
-        bannerLogo: bannerData?.bannerLogo || placeholderData.bannerLogo,
-        title: bannerData?.title || placeholderData.title,
-        bannerContent: bannerData?.bannerContent || placeholderData.bannerContent,
-        bannerButton: bannerData?.bannerButton || placeholderData.bannerButton,
-        bannerText: bannerData?.bannerText || placeholderData.bannerText,
-        bannerImage: bannerData?.bannerImage || placeholderData.bannerImage,
+    // Data fetching and animation logic (as in your original code)...
+
+    const filteredData = bannerData?.find(
+        (banner) => banner.language === currentLanguage,
+    );
+    const data = filteredData ? filteredData.data[0] : placeholderData;
+    // Here you might want to select a default language or combine bannersByLanguage
+    //  const data = bannerData?.length > 0 ? bannerData[0].data[0] : placeholderData;
+
+
+    const getImageUrl = (ref) => {
+        // Remove the initial part of the reference
+        const baseRef = ref.slice(6);
+
+        // Determine the file extension and replace suffixes accordingly
+        const fileExtension = baseRef.includes('-svg') ? '.svg'
+            : baseRef.includes('-png') ? '.png'
+                : baseRef.includes('-jpg') ? '.jpg'
+                    : '';
+
+        // Remove the suffix and add the correct extension
+        const formattedRef = baseRef
+            .replace('-svg', fileExtension)
+            .replace('-png', fileExtension)
+            .replace('-jpg', fileExtension);
+
+        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
     };
 
     return (
-        <section className="bannersection" id="section1">
-            <div className="banner_video">
-                {data.bannerVideo && (
-                    <video
-                        id="myVideo"
-                        src={data.bannerVideo}
-                        autoPlay
-                        muted
-                        playsInline
-                    />
-                )}
-            </div>
-            <div className="banner_overlaymain">
-                <div className="banner_overlay">
-                    <div className="bannerlogo">
-                        <img src={data.bannerLogo.asset._ref} alt="Logo" />
-                    </div>
-
-                    <div className="banner_title_text">
-                        <h1>{data.title}</h1>
-                    </div>
-
-                    <div className="banner_content_text">
-                        <p id="text">{data.bannerContent}</p>
-                    </div>
-
-                    {data.bannerButton && (
-                        <a className="banner_bottombtn" href={data.bannerButton.buttonLink}>
-                            {data.bannerButton.buttonText}
-                        </a>
+        <>
+            <LanguageSwitcher />
+            <section className="bannersection" id="section1">
+                <div className="banner_video">
+                    {data.bannerVideo && (
+                        <video
+                            id="myVideo"
+                            src={data.bannerVideo}
+                            autoPlay
+                            muted
+                            playsInline
+                        />
                     )}
+                </div>
+                <div className="banner_overlaymain">
+                    <div className="banner_overlay">
+                        <div className="bannerlogo">
+                            {/* <img src={data.bannerLogo.asset.url} alt="Logo" />  */}
+                            {/* <img src={(`https://cdn.sanity.io/images/6tlmpa5b/production/${data.bannerLogo.asset._ref.slice(6)}`)} /> */}
+                            <img src={getImageUrl(data.bannerLogo.asset._ref)} alt="Banner Logo" />
+                        </div>
 
-                    <div className="bannerrotate_text">
-                        <p>{data.bannerText}</p>
+                        <div className="banner_title_text">
+                            <h1>{data.title}</h1>
+                        </div>
+
+                        <div className="banner_content_text">
+                            <p id="text">{data.bannerContent}</p>
+                        </div>
+
+                        {data.bannerButton && (
+                            <a
+                                className="banner_bottombtn"
+                                href={data.bannerButton.buttonLink}
+                            >
+                                {data.bannerButton.buttonText}
+                            </a>
+                        )}
+
+                        <div className="bannerrotate_text">
+                            <p>{data.bannerText}</p>
+                        </div>
+                    </div>
+                    <div className="overlaybannehand">
+                        <div className="overlaybannehand-left"></div>
+                        <div className="overlaybannehand-right"></div>
+                        <div className="overlaybannehand-bottom"></div>
                     </div>
                 </div>
-                <div className="overlaybannehand">
-                    <div className="overlaybannehand-left"></div>
-                    <div className="overlaybannehand-right"></div>
-                    <div className="overlaybannehand-bottom"></div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
