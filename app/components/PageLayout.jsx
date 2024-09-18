@@ -39,9 +39,9 @@ export function PageLayout({
                 />
             )}
             <main>
+                <ScrollNav />
                 <div id="smooth-wrapper">
                     <div id="smooth-content">
-                        <ScrollNav />
                         <HomePage />
                         <Onzefriet />
                     </div>

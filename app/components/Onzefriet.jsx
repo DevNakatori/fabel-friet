@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
@@ -20,154 +20,261 @@ import fries_six from '../assets/resizeimgs/Rectangle91.png';
 import fries_seven from '../assets/resizeimgs/Rectangle92.png';
 import fries_eight from '../assets/resizeimgs/Rectangle93.png';
 
+import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
+import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
+    const circleRef = useRef(null);
+    const circleElement = circleRef.current;
+    const [isHidden, setIsHidden] = useState(false);
 
     useEffect(() => {
-        gsap
-            .timeline({
+        const container = document.querySelector('#container');
+        const flTests = document.querySelector('.fl-tests');
+        const list = document.querySelectorAll('.gradient-threebox');
+
+        '.allfiressections img',
+            { y: -100, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            stagger: 0.2,
+            duration: 3,
+            ease: 'bounce.out',
+            scrollTrigger: {
+                trigger: '.allfiressections',
+                start: 'top top',
+                end: '50% 50%',
+                scrub: true,
+                pin: true,
+                once: true,
+            },
+        },
+            gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: '.wrapper',
+                        start: 'center center',
+                        end: '+=150%',
+                        pin: true,
+                        scrub: true,
+                        markers: false,
+                    },
+                })
+                .to('.roundimage,.roundtext', {
+                    scale: 4,
+                    z: 350,
+                    transformOrigin: 'center center',
+                    ease: 'power1.inOut',
+                    scrub: true,
+                    zIndex: 5,
+                })
+                .to(
+                    '.section.hero',
+                    {
+                        scale: 1.1,
+                        transformOrigin: 'center center',
+                        ease: 'power1.inOut',
+                    },
+                    '<',
+                )
+                .to(
+                    '.gradient-purple',
+                    {
+                        scale: 1,
+                        borderRadius: 0,
+                        ease: 'power3.easeIn',
+                        scrollTrigger: {
+                            trigger: '.wrappertest',
+                            start: 'top top-500',
+                            end: 'top top-200',
+                            scrub: true,
+                        },
+                    },
+                    0,
+                );
+
+        gsap.fromTo(
+            '.allfiressections img',
+            { y: -100, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                duration: 3,
+                ease: 'bounce.out',
                 scrollTrigger: {
-                    trigger: '.wrapper',
-                    start: 'center center',
-                    end: '+=150%',
+                    trigger: '.allfiressections',
+                    start: 'top top',
+                    end: '50% 50%',
+                    scrub: true,
                     pin: true,
+                    once: true,
+                },
+            },
+        );
+
+        gsap.to('.allfiressections img', {
+            y: 20,
+            repeat: -1,
+            yoyo: true,
+            duration: 6,
+            ease: 'sine.inOut',
+        });
+
+        gsap.fromTo(
+            '.gradient-purple h4',
+            {
+                opacity: 0,
+                y: 50,
+                scale: 0.5,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.gradient-purple',
+                    start: 'top 80%',
+                    end: 'top 50%',
                     scrub: true,
                     markers: false,
                 },
-            })
-            .to('.roundimage,.roundtext', {
-                scale: 4,
-                z: 350,
-                transformOrigin: 'center center',
-                ease: 'power1.inOut',
-                scrub: true,
-                zIndex: 5,
-            })
-            .to(
-                '.section.hero',
-                {
-                    scale: 1.1,
-                    transformOrigin: 'center center',
-                    ease: 'power1.inOut',
+            },
+        );
+
+        gsap.fromTo(
+            '.gradient-purple p',
+            {
+                opacity: 0,
+                scale: 0.5,
+                y: 50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.gradient-purple h4',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: true,
+                    markers: false,
                 },
-                '<',
-            )
-            .to(
-                '.gradient-purple',
+            },
+        );
+
+        const textContent = 'lekkerste friet van Amsterdam!';
+        const textLength = textContent.length;
+        const duration = textLength * 0.05;
+        gsap.fromTo(
+            '#animated-text',
+            { text: '' },
+            {
+                text: textContent,
+                duration: duration,
+                ease: 'none',
+                delay: 2,
+                scrollTrigger: {
+                    trigger: '.whitewithvideomainbox',
+                    start: 'top 75%',
+                    end: 'top 25%',
+                    toggleActions: 'play none none none',
+                },
+            },
+        );
+
+        gsap.to('.leftvideobox', {
+            scrollTrigger: {
+                trigger: '.whitewithvideomainbox',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+            x: 0,
+            opacity: 1,
+            ease: 'power1.out',
+            duration: 1,
+        });
+
+        gsap.to('.righttextbox', {
+            scrollTrigger: {
+                trigger: '.whitewithvideomainbox',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+            x: 0,
+            opacity: 1,
+            ease: 'power1.out',
+            duration: 1,
+        });
+
+        if (container && flTests) {
+            gsap.to(container, {
+                x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
+                ease: 'none',
+                scrollTrigger: {
+                    scroller: '.fl-tests',
+                    trigger: '#container',
+                    start: 'top top',
+                    //end: 'bottom botttom',
+                    pin: true,
+                    scrub: 0.5,
+                    invalidateOnRefresh: true,
+                    end: () => '+=' + (container.offsetWidth - window.innerWidth),
+                    markers: false,
+                },
+            });
+        }
+
+        list.forEach((list) => {
+            const items = list.querySelectorAll('ul li');
+            const firstItem = items[0];
+            const lastItem = items[items.length - 1];
+
+            gsap.fromTo(
+                firstItem,
+                { rotation: 0, opacity: 0 },
                 {
-                    scale: 1,
-                    borderRadius: 0,
-                    ease: 'power3.easeIn',
+                    opacity: 1,
+                    rotation: -8,
                     scrollTrigger: {
-                        trigger: '.wrappertest',
-                        start: 'top top-500',
-                        end: 'top top-200',
-                        scrub: true,
+                        trigger: '.gradient-purple',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: false,
                     },
                 },
-                0,
             );
 
-
-
-        gsap.to(".leftvideobox", {
-            scrollTrigger: {
-                trigger: ".whitewithvideomainbox",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-                // Additional settings if needed
-            },
-            x: 0, // Final position (default 0)
-            opacity: 1, // Final opacity
-            ease: "power1.out", // Ease for the animation
-            duration: 1 // Duration of the animation
-        });
-
-        // Animation for the right box
-        gsap.to(".righttextbox", {
-            scrollTrigger: {
-                trigger: ".whitewithvideomainbox",
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-                // Additional settings if needed
-            },
-            x: 0, // Final position (default 0)
-            opacity: 1, // Final opacity
-            ease: "power1.out", // Ease for the animation
-            duration: 1 // Duration of the animation
-        });
-
-
-
-
-        // gsap.fromTo('.leftvideobox',
-        //     { opacity: 1, y: -30 },
-        //     {
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.2,
-        //         duration: 1,
-        //         ease: 'power2.out',
-        //         delay: 2,
-        //         scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'center center', scrub: true, repeat: 0 }
-        //     },
-        // );
-
-        // gsap.fromTo('.righttextbox',
-        //     { opacity: 1, y: -30 },
-        //     {
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.2,
-        //         duration: 1,
-        //         ease: 'power2.out',
-        //         delay: 2,
-        //         scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'center center', scrub: true, repeat: 0 }
-        //     },
-        // );
-
-
-        var split = new SplitText("#lodo", { type: "chars" });
-        gsap.from(split.chars, {
-            duration: 1,
-            y: 100,
-            autoAlpha: 0,
-            stagger: 0.05
-        });
-
-
-        // gsap.fromTo('.righttextbox',
-        //     { x: '100vw', opacity: 0 },
-        //     { x: 0, opacity: 1, scrollTrigger: { trigger: '.whitewithvideomainbox', start: 'center center', end: 'top center', scrub: true } }
-        // );
-
-        const container = document.querySelector('#container');
-        const flTests = document.querySelector('.fl-tests');
-
-        gsap.to(container, {
-            x: () => -(container.offsetWidth - innerWidth) + 'px',
-            ease: 'none',
-            scrollTrigger: {
-                scroller: '.fl-tests',
-                trigger: '#container',
-                start: 'center center',
-                pin: true,
-                scrub: 0.5,
-                invalidateOnRefresh: true,
-                end: () => '+=' + (container.offsetWidth - innerWidth),
-                markers: false,
-            },
+            gsap.fromTo(
+                lastItem,
+                { rotation: 0, opacity: 0 },
+                {
+                    opacity: 1,
+                    rotation: 8,
+                    scrollTrigger: {
+                        trigger: '.gradient-purple',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: false,
+                    },
+                },
+            );
         });
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
-
 
     const toggleAccordion = (e) => {
         const trigger = e.currentTarget;
@@ -227,10 +334,11 @@ const Onzefriet = () => {
                     </div>
                 </div>
             </div>
+
             <div className="wrappertest">
                 <section className="section hero"></section>
                 <div className="gradient-purple">
-                    <div className='allfiressections'>
+                    <div className="allfiressections">
                         <img src={fries_one} alt="img" />
                         <img src={fries_two} alt="img" />
                         <img src={fries_three} alt="img" />
@@ -239,7 +347,7 @@ const Onzefriet = () => {
                         <img src={fries_seven} alt="img" />
                         <img src={fries_eight} alt="img" />
                     </div>
-                    <h4 >onze friet</h4>
+                    <h4>onze friet</h4>
                     <p id="lodo">
                         Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte
                         Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet
@@ -250,6 +358,9 @@ const Onzefriet = () => {
                     <div className="gradient-threebox">
                         <ul>
                             <li>
+                                <div className="threeboxleftlogobar">
+                                    <img src={fabelfrietsticker2} alt="img" />
+                                </div>
                                 <img src={onzie_one} alt="img" />
                             </li>
                             <li>
@@ -263,9 +374,14 @@ const Onzefriet = () => {
                     <div className="whitebgbox">
                         <div className="whitewithvideomainbox">
                             <div className="leftvideobox">
+                                <div className="leftlogobar">
+                                    <img src={fabelfrie_tsticker2} alt="img" />
+                                </div>
                                 <img src={onzie_leftvidep} alt="img" />
                             </div>
                             <div className="righttextbox">
+                                <h3 id="animated-text"></h3>
+                                <img className="arrowimage" src={arrow_blue} alt="img" />
                                 <h5>
                                     Lorem ipsum <br />
                                     dolor sit amet
@@ -662,7 +778,7 @@ const Onzefriet = () => {
                             </div>
                         </div>
 
-                        <div className='overlaybannehand-bottoms'></div>
+                        <div className="overlaybannehand-bottoms"></div>
                         <div className="bottomsection">
                             <div className="scroll-down">
                                 <div className="icon-scroll"></div>
