@@ -684,7 +684,7 @@ section {
     display: flex;
     align-items: center;
     margin: 0;
-    position: absolute;
+    position: fixed;
     z-index: 5;
     right: 16px;
     top: 38px;
@@ -699,23 +699,23 @@ section {
 .select-container {
     position: relative;
     display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
 }
 
 .select-container select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 60px;
     padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
     font-size: 16px;
     color: #333;
     cursor: pointer;
     outline: none;
-    transition: border-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
     display: flex;
     align-items: center;
 }

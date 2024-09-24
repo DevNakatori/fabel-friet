@@ -1,9 +1,12 @@
 import { Await, Link } from '@remix-run/react';
 import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Aside } from '~/components/Aside';
 import { Footer } from '~/components/Footer';
 import { Header, HeaderMenu } from '~/components/Header';
 import { CartMain } from '~/components/CartMain';
+import { LanguageProvider } from '~/components/LanguageContext';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
 import {
     SEARCH_ENDPOINT,
     SearchFormPredictive,
@@ -44,16 +47,19 @@ export function PageLayout({
             )}
             <main>
                 <ScrollNav />
-                <div id="smooth-wrapper">
-                    <div id="smooth-content">
-                        <HomePage />
-                        <Onzefriet />
-                        <Onzelocaties />
-                        <Hetmenu />
-                        <Onzeimpact />
-                        <Getintouch />
+                <LanguageProvider>
+                    <LanguageSwitcher />
+                    <div id="smooth-wrapper">
+                        <div id="smooth-content">
+                            <HomePage />
+                            <Onzefriet />
+                            <Onzelocaties />
+                            {/* <Hetmenu />
+                            <Onzeimpact />
+                            <Getintouch /> */}
+                        </div>
                     </div>
-                </div>
+                </LanguageProvider>
             </main>
             <Footer
                 footer={footer}
@@ -63,7 +69,6 @@ export function PageLayout({
         </Aside.Provider>
     );
 }
-
 /**
  * @param {{cart: PageLayoutProps['cart']}}
  */
@@ -80,7 +85,6 @@ function CartAside({ cart }) {
         </Aside>
     );
 }
-
 function SearchAside() {
     return (
         <Aside type="search" heading="SEARCH">

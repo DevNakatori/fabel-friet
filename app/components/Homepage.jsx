@@ -1,87 +1,59 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
-import Cookies from 'js-cookie'; // Import js-cookie
-
+import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 
-gsap.registerPlugin(TextPlugin, ScrollSmoother, SplitText, DrawSVGPlugin);
+gsap.registerPlugin(
+    TextPlugin,
+    ScrollSmoother,
+    SplitText,
+    DrawSVGPlugin,
+    ScrollTrigger,
+);
 
 const HomePage = () => {
-    const [bannerData, setBanner] = useState(null);
+    const { language } = useLanguage();
+    const [bannerData, setBanner] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [currentLanguage, setCurrentLanguage] = useState('nl'); // Default language
 
     useEffect(() => {
-        // Load language from cookie on mount
-        const savedLanguage = Cookies.get('language');
-        if (savedLanguage) {
-            setCurrentLanguage(savedLanguage);
-        }
-    }, []);
-
-    useEffect(() => {
+        /* animation start */
         const smoother = ScrollSmoother.create({
             smooth: 3,
             effects: true,
         });
         smoother.effects('.allfiressections img', { speed: 'auto' });
+        /* animation end */
 
-        gsap.fromTo(
-            'nav.header-menu-desktop .header-menu-item',
-            { opacity: 0, y: -30 },
-            {
-                opacity: 1,
-                y: 0,
-                stagger: 0.2,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 2,
-            },
-        );
-
+        /* data fatched */
         const fetchData = async () => {
             try {
-                const languageQuery = `*[defined(language)].language`;
-                const languages = await client.fetch(languageQuery);
-                const uniqueLanguages = [...new Set(languages)];
-                // console.log('Unique languages:', uniqueLanguages);
-                const bannersByLanguage = await Promise.all(
-                    uniqueLanguages.map(async (lang) => {
-                        const data = await client.fetch(
-                            `*[_type == "homebanner" && language == $lang]{
-                          bannerVideo,
-                          bannerLogo,
-                          title,
-                          bannerContent,
-                          bannerButton,
-                          bannerText,
-                        }`,
-                            { lang },
-                        );
-
-                        // console.log(`Banner Data for ${lang}:`, data);
-                        return { language: lang, data };
-                    }),
+                const data = await client.fetch(
+                    `*[_type == "homebanner" && language == $lang]`,
+                    { lang: language },
                 );
-
-                setBanner(bannersByLanguage);
+                console.log('Fetched setBanner Data:', data);
+                setBanner(data);
             } catch (err) {
-                // console.error('Error fetching data:', err);
+                console.error('Error fetching data:', err);
                 setError('Failed to load data');
             } finally {
                 setLoading(false);
             }
         };
         fetchData();
-    }, []);
+    }, [language]);
+    /* data fatched */
 
     useEffect(() => {
         if (!loading) {
@@ -113,19 +85,25 @@ const HomePage = () => {
             rotateText: document.querySelector('.bannerrotate_text'),
         };
 
+        gsap.fromTo(
+            'nav.header-menu-desktop .header-menu-item',
+            { opacity: 0, y: -30 },
+            {
+                opacity: 1,
+                y: 0,
+                stagger: 0.2,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 2,
+                repeat: 0,
+            },
+        );
+
         if (video) {
             video.autoplay = true;
             video.addEventListener('ended', () => {
                 video.classList.add('hidden');
                 if (overlayMain) {
-                    // gsap.to(overlayMain, {
-                    //     duration: 2,
-                    //     opacity: 1,
-                    //     scale: 1,
-                    //     ease: 'slow(0.5,0.5,false)',
-                    //     delay: 0.1
-                    // });
-
                     gsap.fromTo(
                         overlayMain,
                         {
@@ -195,8 +173,8 @@ const HomePage = () => {
                 //     elements.rotateText,
                 //     { text: '' },
                 //     {
-                //         text: data.bannerText,
-                //         duration: data.bannerText.length * 0.05,
+                //         text: bannerData[0].bannerText,
+                //         duration: bannerData[0].bannerText.length * 0.05,
                 //         ease: 'none',
                 //         delay: 4.5,
                 //     },
@@ -235,8 +213,6 @@ const HomePage = () => {
                     '#target',
                     { drawSVG: '0 0' },
                     {
-                        //opacity: 1,
-                        // y: 0,
                         drawSVG: '100% -175%',
                         duration: 1,
                         ease: 'none',
@@ -249,8 +225,6 @@ const HomePage = () => {
                     '#target_one',
                     { drawSVG: '0 0' },
                     {
-                        //opacity: 1,
-                        // y: 0,
                         drawSVG: '100% -175%',
                         duration: 1,
                         ease: 'none',
@@ -271,19 +245,18 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
-
-                function removeClass() {
-                    document.body.classList.remove('hiddenoverflow');
-                }
             });
         }
-
         return () => {
             if (video) {
                 video.removeEventListener('ended', () => { });
             }
         };
     }, [bannerData]);
+
+    function removeClass() {
+        document.body.classList.remove('hiddenoverflow');
+    }
 
     useEffect(() => {
         const paragraph = document.getElementById('text');
@@ -302,32 +275,21 @@ const HomePage = () => {
         window.scrollTo(0, 0);
     }, [bannerData]);
 
-    const LanguageSwitcher = () => {
-        const handleLanguageChange = (e) => {
-            const newLanguage = e.target.value;
-            setCurrentLanguage(newLanguage);
-            Cookies.set('language', newLanguage, { expires: 365 }); // Set cookie for 1 year
-        };
-        return (
-
-            <div className="language-switcher">
-                {/* <label htmlFor="language-select">Select Language:</label> */}
-                <div className="select-container">
-                    <select id="language-select" value={currentLanguage} onChange={handleLanguageChange}>
-                        <option value="en" data-flag="🇬🇧">EN</option>
-                        <option value="nl" data-flag="🇳🇱">NL</option>
-                    </select>
-                    <div className="arrow"></div>
-                </div>
-            </div>
-
-
-        );
+    const getImageUrl = (ref) => {
+        const baseRef = ref.slice(6);
+        const fileExtension = baseRef.includes('-svg')
+            ? '.svg'
+            : baseRef.includes('-png')
+                ? '.png'
+                : baseRef.includes('-jpg')
+                    ? '.jpg'
+                    : '';
+        const formattedRef = baseRef
+            .replace('-svg', fileExtension)
+            .replace('-png', fileExtension)
+            .replace('-jpg', fileExtension);
+        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
     };
-
-    useEffect(() => {
-        // If the language changes, you may want to perform additional actions or re-fetch data
-    }, [currentLanguage]);
 
     if (loading)
         return (
@@ -346,107 +308,56 @@ const HomePage = () => {
         );
     if (error) return <div>{error}</div>;
 
-    // Modify how you use data to handle multiple languages if needed
-    const placeholderData = {
-        bannerVideo:
-            'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
-        bannerLogo: {
-            asset: {
-                url: 'https://cdn.sanity.io/images/6tlmpa5b/production/57be1a377f95630454781e0f4b57c8f82ce20a4f-2374x1409.png',
-            },
-        },
-        title: 'eCHTE VERSE HOLLANDSE FRIET',
-        bannerContent:
-            'Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet van Amsterdam te bakken. Daarbij maken wij gebruik van de beste kwaliteit Agria aardappelen van Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.',
-        bannerButton: {
-            buttonLink: '#',
-            buttonText: 'Ontdek Fabel Friet',
-        },
-        bannerText: 'lekkerste friet van Amsterdam!',
-    };
-
-    // Data fetching and animation logic (as in your original code)...
-
-    const filteredData = bannerData?.find(
-        (banner) => banner.language === currentLanguage,
-    );
-    const data = filteredData ? filteredData.data[0] : placeholderData;
-    // Here you might want to select a default language or combine bannersByLanguage
-    //  const data = bannerData?.length > 0 ? bannerData[0].data[0] : placeholderData;
-
-
-    const getImageUrl = (ref) => {
-        // Remove the initial part of the reference
-        const baseRef = ref.slice(6);
-
-        // Determine the file extension and replace suffixes accordingly
-        const fileExtension = baseRef.includes('-svg') ? '.svg'
-            : baseRef.includes('-png') ? '.png'
-                : baseRef.includes('-jpg') ? '.jpg'
-                    : '';
-
-        // Remove the suffix and add the correct extension
-        const formattedRef = baseRef
-            .replace('-svg', fileExtension)
-            .replace('-png', fileExtension)
-            .replace('-jpg', fileExtension);
-
-        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
-    };
-
     return (
-        <>
-            <LanguageSwitcher />
-            <section className="bannersection" id="section1">
-                <div className="banner_video">
-                    {data.bannerVideo && (
-                        <video
-                            id="myVideo"
-                            src={data.bannerVideo}
-                            autoPlay
-                            muted
-                            playsInline
+        <section className="bannersection" id="section1">
+            <div className="banner_video">
+                {bannerData[0].bannerVideo && (
+                    <video
+                        id="myVideo"
+                        src={bannerData[0].bannerVideo}
+                        autoPlay
+                        muted
+                        playsInline
+                    />
+                )}
+            </div>
+            <div className="banner_overlaymain">
+                <div className="banner_overlay">
+                    <div className="bannerlogo">
+                        <img
+                            src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
+                            alt="Banner Logo"
                         />
+                    </div>
+
+                    <div className="banner_title_text">
+                        <h1>{bannerData[0].title}</h1>
+                    </div>
+
+                    <div className="banner_content_text">
+                        <p id="text">{bannerData[0].bannerContent}</p>
+                    </div>
+
+                    {bannerData[0].bannerButton && (
+                        <a
+                            className="banner_bottombtn"
+                            href={bannerData[0].bannerButton.buttonLink}
+                        >
+                            {bannerData[0].bannerButton.buttonText}
+                        </a>
                     )}
-                </div>
-                <div className="banner_overlaymain">
-                    <div className="banner_overlay">
-                        <div className="bannerlogo">
-                            {/* <img src={data.bannerLogo.asset.url} alt="Logo" />  */}
-                            {/* <img src={(`https://cdn.sanity.io/images/6tlmpa5b/production/${data.bannerLogo.asset._ref.slice(6)}`)} /> */}
-                            <img src={getImageUrl(data.bannerLogo.asset._ref)} alt="Banner Logo" />
-                        </div>
 
-                        <div className="banner_title_text">
-                            <h1>{data.title}</h1>
-                        </div>
-
-                        <div className="banner_content_text">
-                            <p id="text">{data.bannerContent}</p>
-                        </div>
-
-                        {data.bannerButton && (
-                            <a
-                                className="banner_bottombtn"
-                                href={data.bannerButton.buttonLink}
-                            >
-                                {data.bannerButton.buttonText}
-                            </a>
-                        )}
-
-                        <div className="bannerrotate_text">
-                            <p>{data.bannerText}</p>
-                        </div>
-                    </div>
-                    <div className="overlaybannehand">
-                        <div className="overlaybannehand-left"></div>
-                        <div className="overlaybannehand-right"></div>
-                        <div className="overlaybannehand-bottom"></div>
+                    <div className="bannerrotate_text">
+                        <p>{bannerData[0].bannerText}</p>
                     </div>
                 </div>
-            </section>
-        </>
+                <div className="overlaybannehand">
+                    <div className="overlaybannehand-left"></div>
+                    <div className="overlaybannehand-right"></div>
+                    <div className="overlaybannehand-bottom"></div>
+                </div>
+            </div>
+        </section>
     );
 };
-
 export default HomePage;
