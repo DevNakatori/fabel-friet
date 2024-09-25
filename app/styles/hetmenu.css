@@ -1,3 +1,27 @@
+.fourthsection {
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
+    -webkit-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
 .wrapper-hetmenu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -77,4 +101,104 @@
     background-repeat: no-repeat;
     z-index: 1;
     background-position: center center;
+}
+
+
+
+.fourthsection .gradient-purple h4 {
+    text-align: center;
+    font-family: 'Rufina', serif;
+    font-optical-sizing: auto;
+    font-size: clamp(20px, 10vw, 120px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: capitalize;
+    background: url('../assets/resizeimgs/plain-gold-background.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    margin: 0px 0 30px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fourthsection .gradient-purple p {
+    color: #efebe7;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: clamp(20px, 5vw, 23px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 920px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin: 10px auto 52px;
+}
+
+.fourthsection .whitebgbox {
+    top: -300px;
+    margin-bottom: -300px;
+    padding: 0 50px;
+    margin-top: 0;
+    padding-top: 100px;
+}
+
+.fourthsection .gradient-threebox-menu {
+    max-width: 90%;
+    margin: 90px auto;
+    position: relative;
+    z-index: 999;
+}
+
+.fourthsection .gradient-threebox-menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.fourthsection .gradient-threebox-menu ul li {
+    width: calc(100% / 3);
+}
+
+
+.instagramfeedimages {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    margin: 60px 0;
+}
+
+.instagramfeedimagesimain {
+    height: 590px;
+    overflow: hidden;
+}
+
+
+
+.instagramfeedimages .contaernrul {
+    display: flex;
+    flex-wrap: nowrap;
+
+    overflow: hidden;
+}
+
+.instagramfeedimages .contaernrul .contaernrulitem {
+    margin: 0;
+    max-width: 405px;
+    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 405px;
+    flex: 0 0 405px;
+}
+
+.instagramfeedimages .contaernrul .contaernrulitem:nth-child(even) {
+    position: relative;
+    transform: scale(0.85);
+    transform-origin: center center;
 }

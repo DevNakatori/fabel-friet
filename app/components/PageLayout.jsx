@@ -54,6 +54,7 @@ export function PageLayout({
                             <HomePage />
                             <Onzefriet />
                             <Onzelocaties />
+                            <Hetmenu />
                             {/* <Hetmenu />
                             <Onzeimpact />
                             <Getintouch /> */}
