@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const sections = ['section1', 'section2', 'section3'];
+const sections = ['section1', 'section2', 'section3', 'section4'];
 
 const ScrollNav = () => {
     const [activeIndex, setActiveIndex] = useState(0);

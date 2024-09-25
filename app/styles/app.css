@@ -492,9 +492,6 @@ button.reset:hover:not(:has(> *)) {
     display: inline-block;
 }
 
-
-
-
 /* hd */
 
 a:hover {
@@ -514,7 +511,6 @@ body {
     position: relative;
     /*background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));*/
     width: 100%;
-
 }
 
 section {
@@ -570,10 +566,6 @@ section {
 .rightsidebullets ul li:nth-child(3) a img {
     transform: rotate(-172.622deg);
 }
-
-
-
-
 
 /* mouse scroll */
 .icon-scroll,
@@ -638,8 +630,8 @@ section {
 }
 
 .scroll-down p {
-    color: #EFEBE7;
-    font-family: "Work Sans", sans-serif;
+    color: #efebe7;
+    font-family: 'Work Sans', sans-serif;
     font-size: 23px;
     font-style: normal;
     font-weight: 600;
@@ -649,7 +641,6 @@ section {
     display: flex;
     line-height: 30px;
 }
-
 
 .scroll-down {
     position: absolute;
@@ -670,14 +661,9 @@ section {
     margin: 0;
 }
 
-
 .scroll-down:hover p {
-    color: #F6C738;
+    color: #f6c738;
 }
-
-
-
-
 
 .language-switcher {
     font-family: Roboto, Arial, sans-serif;
@@ -710,7 +696,7 @@ section {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    padding: 10px 12px;
+    padding: 10px 30px 12px 10px;
     font-size: 16px;
     color: #333;
     cursor: pointer;
@@ -719,7 +705,6 @@ section {
     display: flex;
     align-items: center;
 }
-
 
 .select-container .arrow {
     position: absolute;
