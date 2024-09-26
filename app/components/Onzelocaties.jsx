@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
@@ -15,6 +17,11 @@ import Onzelocaties_lefttwo from '../assets/resizeimgs/Rectangle62.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
+    const { language } = useLanguage();
+    const [onzelocaties, setOnzelocaties] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
         const timelines = gsap.timeline({
             scrollTrigger: {
@@ -111,117 +118,102 @@ const Onzelocaties = () => {
         return () => {
             timelines.scrollTrigger.kill();
         };
-    }, []);
+    }, [onzelocaties]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await client.fetch(
+                    `*[_type == "onzelocaties" && language == $lang]`,
+                    { lang: language },
+                );
+                console.log('Fetched setOnzelocaties Data:', data);
+                setOnzelocaties(data);
+            } catch (err) {
+                console.error('Error Onzelocat fetching data:', err);
+                setError('Failed to load data');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
+
+
     return (
         <section className="panel thirdesection" id="section3">
-            <div className="wrapper-onzelocation">
-                <div className="bannersectinlogo">
-                    <img src={bannerlogo} alt="Banner Logo" />
-                </div>
-                <div className="wrappermain">
-                    <img className="media" src={mainbannerbg} alt="Main Background" />
-                </div>
-
-                <div className="roundimages">
-                    <div className="roundtext-onzelocation">
-                        <h2>onze</h2>
-                        <h3>locaties</h3>
-                    </div>
-                    <div className="roundimage-onzelocation"></div>
-                    <div className="scroll-down">
-                        <div className="icon-scroll"></div>
-                        <p>Scroll down</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="wrappertest">
-                <section className="section hero"></section>
-                <div className="gradient-purple">
-                    <h4>locaties</h4>
-                    <p id="">
-                        Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte
-                        Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet
-                        van Amsterdam te bakken. Daarbij maken wij gebruik van de beste
-                        kwaliteit Agria aardappelen van Nederlandse bodem welke speciaal
-                        zijn ontwikkeld voor friet.
-                    </p>
-                    <a href="#" className="locatebutton">
-                        Zie dichtsbijzijnde locatie
-                    </a>
-                    <div className="whitebgbox">
-                        <div className="whitewithvideomainbox">
-                            <div className="leftvideobox">
-                                <img src={Onzelocaties_leftone} alt="img" />
-                            </div>
-                            <div className="righttextbox">
-                                <h5> Runstraat</h5>
-                                <div className="locationmaoaddress">
-                                    <div className="locationicon">
-                                        <i className="mapicon"></i>
-                                    </div>
-                                    <div className="locationaddtext">
-                                        <ul>
-                                            <li>Runstraat 1 | 1016 GJ Amsterdam</li>
-                                            <li>Mon-Sun: 11:00 - 21:00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p>
-                                    Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij
-                                    echte Hollandse friet. Elke dag weer geven wij alles om de
-                                    lekkerste friet van Amsterdam te bakken. Daarbij maken wij
-                                    gebruik van de beste kwaliteit Agria aardappelen van
-                                    Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.{' '}
-                                </p>
-
-                                <a href="#" className="routbtn">
-                                    Route
-                                </a>
-                            </div>
+            {onzelocaties.map((locationData) => (
+                <div key={locationData._id}>
+                    <div className="wrapper-onzelocation">
+                        <div className="bannersectinlogo">
+                            <img src={bannerlogo} alt="Banner Logo" />
+                        </div>
+                        <div className="wrappermain">
+                            <img className="media" src={mainbannerbg} alt="" />
                         </div>
 
-                        <div className="whitewithvideomainbox">
-                            <div className="leftvideobox">
-                                <img src={Onzelocaties_lefttwo} alt="img" />
+                        <div className="roundimages">
+                            <div className="roundtext-onzelocation">
+                                <h2>{locationData.transitionSection.topTitle}</h2>
+                                <h3>{locationData.transitionSection.bottomTitle}</h3>
                             </div>
-                            <div className="righttextbox">
-                                <h5> Runstraat</h5>
-                                <div className="locationmaoaddress">
-                                    <div className="locationicon">
-                                        <i className="mapicon"></i>
-                                    </div>
-                                    <div className="locationaddtext">
-                                        <ul>
-                                            <li>Runstraat 1 | 1016 GJ Amsterdam</li>
-                                            <li>Mon-Sun: 11:00 - 21:00</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <p>
-                                    Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij
-                                    echte Hollandse friet. Elke dag weer geven wij alles om de
-                                    lekkerste friet van Amsterdam te bakken. Daarbij maken wij
-                                    gebruik van de beste kwaliteit Agria aardappelen van
-                                    Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.{' '}
-                                </p>
-
-                                <a href="#" className="routbtn">
-                                    Route
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="overlaybannehand-bottoms"></div>
-                        <div className="bottomsection">
+                            <div className="roundimage-onzelocation"></div>
                             <div className="scroll-down">
                                 <div className="icon-scroll"></div>
                                 <p>Scroll down</p>
                             </div>
                         </div>
                     </div>
+                    <div className="wrappertest">
+                        <section className="section hero"></section>
+                        <div className="gradient-purple">
+                            <h4>{locationData.contentSection.heading}</h4>
+                            <p>{locationData.contentSection.description}</p>
+                            <a href="#" className="locatebutton">
+                                {locationData.contentSection.btn_label}
+                            </a>
+                            <div className="whitebgbox">
+                                {locationData.locationSection.location.map((loc) => (
+                                    <div key={loc._key}>
+                                        <div className="whitewithvideomainbox">
+                                            <div className="leftvideobox">
+                                                <img src={Onzelocaties_leftone} alt="img" />
+                                            </div>
+                                            <div className="righttextbox">
+                                                <h5>{loc.locationName}</h5>
+                                                <div className="locationmaoaddress">
+                                                    <div className="locationicon">
+                                                        <i className="mapicon"></i>
+                                                    </div>
+                                                    <div className="locationaddtext">
+                                                        <ul>
+                                                            <li>{loc.address}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <p>{loc.info}</p>
+                                                <a href="#" className="routbtn">
+                                                    {loc.btn_label}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                                <div className="overlaybannehand-bottoms"></div>
+                                <div className="bottomsection">
+                                    <div className="scroll-down">
+                                        <div className="icon-scroll"></div>
+                                        <p>Scroll down</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            ))}
         </section>
     );
 };
