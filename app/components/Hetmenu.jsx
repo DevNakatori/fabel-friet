@@ -13,6 +13,9 @@ import menu_one from '../assets/resizeimgs/menu_one.png';
 import menu_two from '../assets/resizeimgs/menu_two.png';
 import menu_three from '../assets/resizeimgs/menu_three.png';
 import insta_3 from '../assets/resizeimgs/insta_3.png';
+import hetberoemd from '../assets/resizeimgs/hetinmiddelsberoemde.png';
+
+import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -199,33 +202,33 @@ const Hetmenu = () => {
                         </div>
 
                         <div className="whitewithvideomainbox">
-                            <div className="leftvideobox">
-                                <img src="" alt="img" />
-                            </div>
                             <div className="righttextbox">
-                                <h5> Runstraat</h5>
-                                <div className="locationmaoaddress">
-                                    <div className="locationicon">
-                                        <i className="mapicon"></i>
-                                    </div>
-                                    <div className="locationaddtext">
-                                        <ul>
-                                            <li>Runstraat 1 | 1016 GJ Amsterdam</li>
-                                            <li>Mon-Sun: 11:00 - 21:00</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <h5> Lorem ipsum dolor sit amet</h5>
                                 <p>
                                     Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij
                                     echte Hollandse friet. Elke dag weer geven wij alles om de
                                     lekkerste friet van Amsterdam te bakken. Daarbij maken wij
                                     gebruik van de beste kwaliteit Agria aardappelen van
-                                    Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.{' '}
+                                    Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.
                                 </p>
-
-                                <a href="#" className="routbtn">
-                                    Route
-                                </a>
+                            </div>
+                            <div className="leftvideobox">
+                                <img src={hetberoemd} alt="img" />
+                                <div className="bluearrowbottom">
+                                    <img src={arrow_blue1} alt="img" />
+                                </div>
+                                <h3>Onze specialiteit</h3>
+                                <p>
+                                    Friet met vers geraspte Parmezaanse kaas en huisgemaakte
+                                    Truffel mayonaise.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="overlaybannehand-bottoms"></div>
+                        <div className="bottomsection">
+                            <div className="scroll-down">
+                                <div className="icon-scroll"></div>
+                                <p>Scroll down</p>
                             </div>
                         </div>
                     </div>
