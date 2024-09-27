@@ -669,8 +669,9 @@
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
     top: 48px;
+    max-width: 130px;
 }
 
 .whatpeople-section {

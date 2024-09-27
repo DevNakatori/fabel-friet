@@ -6,10 +6,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
 
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/8bdb17523f8d73487022194d9774c1d3.png';
-
-import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 import Onzelocaties_leftone from '../assets/resizeimgs/Rectangle48.png';
 import Onzelocaties_lefttwo from '../assets/resizeimgs/Rectangle62.png';
@@ -142,6 +139,21 @@ const Onzelocaties = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
+    const getImageUrlss = (refss) => {
+        const baseRefss = refss.slice(6);
+        const fileExtensionss = baseRefss.includes('-svg')
+            ? '.svg'
+            : baseRefss.includes('-png')
+                ? '.png'
+                : baseRefss.includes('-jpg')
+                    ? '.jpg'
+                    : '';
+        const formattedRefss = baseRefss
+            .replace('-svg', fileExtensionss)
+            .replace('-png', fileExtensionss)
+            .replace('-jpg', fileExtensionss);
+        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefss}`;
+    };
 
     return (
         <section className="panel thirdesection" id="section3">
@@ -149,7 +161,10 @@ const Onzelocaties = () => {
                 <div key={locationData._id}>
                     <div className="wrapper-onzelocation">
                         <div className="bannersectinlogo">
-                            <img src={bannerlogo} alt="Banner Logo" />
+                            <img
+                                src={getImageUrlss(locationData.logoImage.asset._ref)}
+                                alt={locationData.logoImage.alt}
+                            />
                         </div>
                         <div className="wrappermain">
                             <img className="media" src={mainbannerbg} alt="" />
@@ -180,7 +195,10 @@ const Onzelocaties = () => {
                                     <div key={loc._key}>
                                         <div className="whitewithvideomainbox">
                                             <div className="leftvideobox">
-                                                <img src={Onzelocaties_leftone} alt="img" />
+                                                <img
+                                                    src={getImageUrlss(loc.image.asset._ref)}
+                                                    alt={loc.image.alt}
+                                                />
                                             </div>
                                             <div className="righttextbox">
                                                 <h5>{loc.locationName}</h5>
