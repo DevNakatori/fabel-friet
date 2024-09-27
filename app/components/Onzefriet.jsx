@@ -351,6 +351,58 @@ const Onzefriet = () => {
         return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefs}`;
     };
 
+
+    /*const leftVideoBoxAnimation = {
+        from: {
+            x: '-50%',
+            autoAlpha: 0,
+        },
+        to: {
+            autoAlpha: 1,
+            duration: 0.5,
+            x: '0%',
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#section2 .whitewithvideomainbox',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                scrub: 1,
+                once: true,
+            },
+        },
+    };
+
+    gsap.utils.toArray('#section2 .leftvideobox').forEach((inzefrietleft) => {
+        gsap.fromTo(inzefrietleft, leftVideoBoxAnimation.from, leftVideoBoxAnimation.to);
+    });
+
+
+    const rightTextBoxAnimation = {
+        from: {
+            x: '100%',
+            autoAlpha: 0,
+        },
+        to: {
+            autoAlpha: 1,
+            duration: 0.5,
+            x: '0%',
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '#section2 .whitewithvideomainbox',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                scrub: 1,
+                once: true,
+            },
+        },
+    };
+
+    gsap.utils.toArray('#section2 .righttextbox').forEach((inzefrietright) => {
+        gsap.fromTo(inzefrietright, rightTextBoxAnimation.from, rightTextBoxAnimation.to);
+    });*/
+
+
+
     return (
         <section className="panel secondesection" id="section2">
             {/* {onzefriet.map((content, idx) => (
