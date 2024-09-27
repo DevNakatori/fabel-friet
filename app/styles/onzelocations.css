@@ -221,6 +221,7 @@
     font-weight: 700;
     line-height: normal;
     margin-bottom: 0;
+    max-width: 400px;
 }
 
 .whitebgbox .whitewithvideomainbox .righttextbox h5 {
