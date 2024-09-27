@@ -160,6 +160,34 @@ const Onzelocaties = () => {
             },
         );
 
+
+        gsap.fromTo(
+            '.locatebutton',
+            {
+                opacity: 0,
+                y: 50,
+                scale: 1,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.locatebutton',
+                    start: 'top 80%',
+                    end: 'top 50%',
+
+                    markers: false,
+                },
+            },
+        );
+
+
+
+
+
         return () => {
             timelines.scrollTrigger.kill();
         };
