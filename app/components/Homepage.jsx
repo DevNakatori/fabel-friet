@@ -169,16 +169,16 @@ const HomePage = () => {
                     { opacity: 0, y: -50 },
                     { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4 },
                 );
-                // gsap.fromTo(
-                //     elements.rotateText,
-                //     { text: '' },
-                //     {
-                //         text: bannerData[0].bannerText,
-                //         duration: bannerData[0].bannerText.length * 0.05,
-                //         ease: 'none',
-                //         delay: 4.5,
-                //     },
-                // );
+                gsap.fromTo(
+                    elements.rotateText,
+                    { text: '' },
+                    {
+                        text: bannerData[0].bannerText,
+                        duration: bannerData[0].bannerText.length * 0.05,
+                        ease: 'none',
+                        delay: 4.5,
+                    },
+                );
                 gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
                 gsap.fromTo(
