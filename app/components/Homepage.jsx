@@ -326,7 +326,7 @@ const HomePage = () => {
                     <div className="bannerlogo">
                         <img
                             src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
-                            alt="Banner Logo"
+                            alt={bannerData[0].bannerLogo.alt}
                         />
                     </div>
 

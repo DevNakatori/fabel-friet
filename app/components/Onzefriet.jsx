@@ -6,11 +6,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
 
-import onzie_one from '../assets/resizeimgs/Rectangle47.png';
-import onzie_two from '../assets/resizeimgs/Rectangle45.png';
-import onzie_three from '../assets/resizeimgs/Rectangle46.png';
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
+
 import mainbannerbg from '../assets/resizeimgs/c275d393c488ff040abd318900bf7f3b.png';
 import fries_one from '../assets/resizeimgs/Rectangle89.png';
 import fries_two from '../assets/resizeimgs/Rectangle88.png';
@@ -338,6 +335,22 @@ const Onzefriet = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
+    const getImageUrls = (refs) => {
+        const baseRefs = refs.slice(6);
+        const fileExtensions = baseRefs.includes('-svg')
+            ? '.svg'
+            : baseRefs.includes('-png')
+                ? '.png'
+                : baseRefs.includes('-jpg')
+                    ? '.jpg'
+                    : '';
+        const formattedRefs = baseRefs
+            .replace('-svg', fileExtensions)
+            .replace('-png', fileExtensions)
+            .replace('-jpg', fileExtensions);
+        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefs}`;
+    };
+
     return (
         <section className="panel secondesection" id="section2">
             {/* {onzefriet.map((content, idx) => (
@@ -350,13 +363,15 @@ const Onzefriet = () => {
                 <div key={idx}>
                     <div className="wrapper">
                         <div className="bannersectinlogo">
-                            <img src={bannerlogo}></img>
+                            <img
+                                src={getImageUrls(content.logoImage.asset._ref)}
+                                alt={content.logoImage.alt}
+                            />
                         </div>
                         <div
                             className="wrappermain"
                             style={{ backgroundImage: `url(${mainbannerbg})` }}
-                        >
-                        </div>
+                        ></div>
                         <div className="roundimages">
                             <div className="roundtext">
                                 {content.transitionSection && (
@@ -394,18 +409,19 @@ const Onzefriet = () => {
                             )}
                             <div className="gradient-threebox">
                                 <ul>
-                                    <li>
-                                        <div className="threeboxleftlogobar">
-                                            <img src={fabelfrietsticker2} alt="img" />
-                                        </div>
-                                        <img src={onzie_one} alt="img" />
-                                    </li>
-                                    <li>
-                                        <img src={onzie_two} alt="img" />
-                                    </li>
-                                    <li>
-                                        <img src={onzie_three} alt="img" />
-                                    </li>
+                                    {content.contentSection.three_image.map((image, index) => (
+                                        <li key={image._key}>
+                                            {index === 0 && (
+                                                <div className="threeboxleftlogobar">
+                                                    <img src={fabelfrietsticker2} alt={image.alt} />
+                                                </div>
+                                            )}
+                                            <img
+                                                src={getImageUrls(image.asset._ref)}
+                                                alt={image.alt}
+                                            />
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <div className="whitebgbox">
