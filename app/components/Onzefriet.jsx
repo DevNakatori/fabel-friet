@@ -76,25 +76,69 @@ const Onzefriet = () => {
         };
     }, [onzefriet]);
 
+    // useEffect(() => {
+    //     const container = document.querySelector('#container');
+    //     const flTests = document.querySelector('.fl-tests');
+
+    //     if (container && flTests) {
+    //         const timelinereview = gsap.to(container, {
+    //             x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
+    //             ease: 'none',
+    //             scrollTrigger: {
+    //                 scroller: '.fl-tests',
+    //                 trigger: '#container',
+    //                 start: 'top top',
+    //                 pin: true,
+    //                 scrub: 0.5,
+    //                 invalidateOnRefresh: true,
+    //                 end: () => '+=' + (container.offsetWidth - window.innerWidth),
+    //                 markers: false,
+    //             },
+    //         });
+    //         return () => {
+    //             if (timelinereview.scrollTrigger) {
+    //                 timelinereview.scrollTrigger.kill();
+    //             }
+    //         };
+    //     }
+    // }, [onzefriet]);
+
+
     useEffect(() => {
         const container = document.querySelector('#container');
         const flTests = document.querySelector('.fl-tests');
+        //const progressBar = document.getElementById('progress-bar');
+
+
+        const scrollbar = document.querySelector('.scrollbar');
+        const handler = document.querySelector('#progress-bar');
+
+
+        // Update the progress bar based on scroll
+        function updateHandler(progress) {
+            console.log(progress)
+            const range = gsap.utils.mapRange(0, 1, 0, 1420, progress); // 150
+            gsap.set(handler, { x: range });
+        }
 
         if (container && flTests) {
             const timelinereview = gsap.to(container, {
                 x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
                 ease: 'none',
                 scrollTrigger: {
-                    scroller: '.fl-tests',
+                    scroller: flTests, // Ensure this is the scrollable container
                     trigger: '#container',
                     start: 'top top',
                     pin: true,
                     scrub: 0.5,
                     invalidateOnRefresh: true,
                     end: () => '+=' + (container.offsetWidth - window.innerWidth),
-                    markers: false,
+                    onUpdate: self => updateHandler(self.progress), // Call updateProgressBar on scroll update
+                    markers: false, // Set to true for debugging
                 },
             });
+
+            // Cleanup function to kill the ScrollTrigger on unmount
             return () => {
                 if (timelinereview.scrollTrigger) {
                     timelinereview.scrollTrigger.kill();
@@ -102,6 +146,9 @@ const Onzefriet = () => {
             };
         }
     }, [onzefriet]);
+
+
+
 
     useEffect(() => {
         const list = document.querySelectorAll('.gradient-threebox');
@@ -179,7 +226,7 @@ const Onzefriet = () => {
             '.gradient-purple p',
             {
                 opacity: 0,
-                scale: 0.5,
+                scale: 1,
                 y: 50,
             },
             {
@@ -192,7 +239,6 @@ const Onzefriet = () => {
                     trigger: '.gradient-purple h4',
                     start: 'top 80%',
                     end: 'top 50%',
-
                     markers: false,
                 },
             },
@@ -596,6 +642,10 @@ const Onzefriet = () => {
                                                     </div>
                                                 ))}
                                             </div>
+                                        </div>
+
+                                        <div id="progress-container">
+                                            <div id="progress-bar"></div>
                                         </div>
                                     </div>
                                 )}
