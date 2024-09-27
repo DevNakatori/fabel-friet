@@ -66,6 +66,56 @@ const Onzelocaties = () => {
             0,
         );
 
+
+
+        const leftVideoAnimation = {
+            from: {
+                x: '-50%',
+                autoAlpha: 0,
+            },
+            to: {
+                duration: 0.5,
+                autoAlpha: 1,
+                x: '0%',
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#section3 .whitewithvideomainbox',
+                    start: 'top 80%',
+                    end: 'bottom 50%',
+                    scrub: 1,
+                    once: true,
+                },
+            },
+        };
+
+        const rightTextBoxAnimation = {
+            from: {
+                x: '100%',
+                autoAlpha: 0,
+            },
+            to: {
+                duration: 0.5,
+                x: '0%',
+                autoAlpha: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#section3 .whitewithvideomainbox',
+                    start: 'top 80%',
+                    end: 'bottom 50%',
+                    scrub: 1,
+                    once: true,
+                },
+            },
+        };
+
+        gsap.utils.toArray('#section3 .leftvideobox').forEach((locationleft) => {
+            gsap.fromTo(locationleft, leftVideoAnimation.from, leftVideoAnimation.to);
+        });
+
+        gsap.utils.toArray('#section3 .righttextbox').forEach((locationright) => {
+            gsap.fromTo(locationright, rightTextBoxAnimation.from, rightTextBoxAnimation.to,);
+        });
+
         gsap.fromTo(
             '.gradient-purple h4',
             {
@@ -80,10 +130,9 @@ const Onzelocaties = () => {
                 duration: 1,
                 ease: 'power2.out',
                 scrollTrigger: {
-                    trigger: '.gradient-purple',
+                    trigger: '#section3 .gradient-purple',
                     start: 'top 80%',
                     end: 'top 50%',
-
                     markers: false,
                 },
             },
@@ -103,10 +152,9 @@ const Onzelocaties = () => {
                 duration: 1,
                 ease: 'power2.out',
                 scrollTrigger: {
-                    trigger: '.gradient-purple h4',
+                    trigger: '#section3 .gradient-purple h4',
                     start: 'top 80%',
                     end: 'top 50%',
-
                     markers: false,
                 },
             },

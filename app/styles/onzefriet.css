@@ -852,6 +852,7 @@
     -o-transition: 0.5s;
     transition: 0.5s;
     margin: 0;
+    max-width: 500px;
 }
 
 .gradient-purple h4 {
