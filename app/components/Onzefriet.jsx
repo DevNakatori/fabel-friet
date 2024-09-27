@@ -274,6 +274,77 @@ const Onzefriet = () => {
                     },
                 },
             );
+
+
+            gsap.fromTo(
+                '.whitewithvideomainbox',
+                {
+                    opacity: 0,
+                    y: 50,
+                    scale: 1,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: '.whitewithvideomainbox',
+                        start: 'top 80%',
+                        end: 'top 50%',
+
+                        markers: false,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                '.whatpeople-section',
+                {
+                    opacity: 0,
+                    y: 50,
+                    scale: 1,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: '.whatpeople-section',
+                        start: 'top 80%',
+                        end: 'top 50%',
+
+                        markers: false,
+                    },
+                },
+            );
+
+            gsap.fromTo(
+                '.main-accordian',
+                {
+                    opacity: 0,
+                    y: 50,
+                    scale: 1,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: '.main-accordian',
+                        start: 'top 80%',
+                        end: 'top 50%',
+
+                        markers: false,
+                    },
+                },
+            );
+
         });
     }, [onzefriet]);
 
@@ -400,8 +471,6 @@ const Onzefriet = () => {
     gsap.utils.toArray('#section2 .righttextbox').forEach((inzefrietright) => {
         gsap.fromTo(inzefrietright, rightTextBoxAnimation.from, rightTextBoxAnimation.to);
     });*/
-
-
 
     return (
         <section className="panel secondesection" id="section2">
