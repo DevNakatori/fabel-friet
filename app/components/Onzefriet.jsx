@@ -2,9 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
+import { Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+
 
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
 
@@ -76,79 +82,7 @@ const Onzefriet = () => {
         };
     }, [onzefriet]);
 
-    // useEffect(() => {
-    //     const container = document.querySelector('#container');
-    //     const flTests = document.querySelector('.fl-tests');
-
-    //     if (container && flTests) {
-    //         const timelinereview = gsap.to(container, {
-    //             x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
-    //             ease: 'none',
-    //             scrollTrigger: {
-    //                 scroller: '.fl-tests',
-    //                 trigger: '#container',
-    //                 start: 'top top',
-    //                 pin: true,
-    //                 scrub: 0.5,
-    //                 invalidateOnRefresh: true,
-    //                 end: () => '+=' + (container.offsetWidth - window.innerWidth),
-    //                 markers: false,
-    //             },
-    //         });
-    //         return () => {
-    //             if (timelinereview.scrollTrigger) {
-    //                 timelinereview.scrollTrigger.kill();
-    //             }
-    //         };
-    //     }
-    // }, [onzefriet]);
-
-
-    useEffect(() => {
-        const container = document.querySelector('#container');
-        const flTests = document.querySelector('.fl-tests');
-        //const progressBar = document.getElementById('progress-bar');
-
-
-        const scrollbar = document.querySelector('.scrollbar');
-        const handler = document.querySelector('#progress-bar');
-
-
-        // Update the progress bar based on scroll
-        function updateHandler(progress) {
-            console.log(progress)
-            const range = gsap.utils.mapRange(0, 1, 0, 1420, progress); // 150
-            gsap.set(handler, { x: range });
-        }
-
-        if (container && flTests) {
-            const timelinereview = gsap.to(container, {
-                x: () => -(container.offsetWidth - window.innerWidth + 1500) + 'px',
-                ease: 'none',
-                scrollTrigger: {
-                    scroller: flTests, // Ensure this is the scrollable container
-                    trigger: '#container',
-                    start: 'top top',
-                    pin: true,
-                    scrub: 0.5,
-                    invalidateOnRefresh: true,
-                    end: () => '+=' + (container.offsetWidth - window.innerWidth),
-                    onUpdate: self => updateHandler(self.progress), // Call updateProgressBar on scroll update
-                    markers: false, // Set to true for debugging
-                },
-            });
-
-            // Cleanup function to kill the ScrollTrigger on unmount
-            return () => {
-                if (timelinereview.scrollTrigger) {
-                    timelinereview.scrollTrigger.kill();
-                }
-            };
-        }
-    }, [onzefriet]);
-
-
-
+    
 
     useEffect(() => {
         const list = document.querySelectorAll('.gradient-threebox');
@@ -200,7 +134,7 @@ const Onzefriet = () => {
         });
 
         gsap.fromTo(
-            '.gradient-purple h4',
+            '.gradient-purple h4.onzefrienttitle',
             {
                 opacity: 0,
                 y: 50,
@@ -211,9 +145,10 @@ const Onzefriet = () => {
                 y: 0,
                 scale: 1,
                 duration: 1,
+                delay: 1,
                 ease: 'power2.out',
                 scrollTrigger: {
-                    trigger: '.gradient-purple',
+                    trigger: '#onzefriendescriptiononzefriet',
                     start: 'top 80%',
                     end: 'top 50%',
 
@@ -223,10 +158,10 @@ const Onzefriet = () => {
         );
 
         gsap.fromTo(
-            '.gradient-purple p',
+            '.gradient-purple p.onzefriendescription',
             {
                 opacity: 0,
-                scale: 1,
+                scale: 0.5,
                 y: 50,
             },
             {
@@ -235,8 +170,33 @@ const Onzefriet = () => {
                 scale: 1,
                 duration: 1,
                 ease: 'power2.out',
+                delay: 2,
                 scrollTrigger: {
-                    trigger: '.gradient-purple h4',
+                    trigger: '#onzefriendescriptiononzefriet',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    markers: false,
+                },
+            },
+        );
+
+
+        gsap.fromTo(
+            '.gradient-purple p.onzeptag',
+            {
+                opacity: 0,
+                scale: 0.5,
+                y: 50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 2,
+                scrollTrigger: {
+                    trigger: '#onzefriendescriptiononzefriet',
                     start: 'top 80%',
                     end: 'top 50%',
                     markers: false,
@@ -292,35 +252,90 @@ const Onzefriet = () => {
             const items = list.querySelectorAll('ul li');
             const firstItem = items[0];
             const lastItem = items[items.length - 1];
+            const middleItem = items[1];
+           
 
-            gsap.fromTo(
-                firstItem,
-                { rotation: 0, opacity: 0 },
-                {
-                    opacity: 1,
+            const onzefritthreeimageleft = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.gradient-purple',
+                    start: 'top top',
+                    end: 'bottom top',
+                },
+            });
+
+            onzefritthreeimageleft
+                .fromTo(
+                    firstItem,
+                    { left: '-50vw', rotation: 0, opacity: 0 },
+                    {
+                        left: '-10vw',
+                        opacity: 1,
+                        delay: 0,
+                        duration: 1,
+                    },
+                )
+                .to(firstItem, {
+                    // left: '-10vw',
                     rotation: -8,
+                    duration: 1,
+                    delay: 1,
+                });
+
+
+
+                const onzefritthreeimagecenter = gsap.timeline({
                     scrollTrigger: {
                         trigger: '.gradient-purple',
                         start: 'top top',
                         end: 'bottom top',
                     },
-                },
-            );
+                });
+    
+                onzefritthreeimagecenter
+                    .fromTo(
+                        middleItem,
+                        { bottom: '-55vh', rotation: 0, opacity: 0 },
+                        {
+                            //bottom: '0vh',
+                            delay: 1,
+                            duration: 1,
+                        },
+                    )
+                    .to(middleItem, {
+                        rotation: 0,
+                        bottom: '0vh',
+                        duration: 1,
+                        opacity: 1,
+                        delay: 1,
+                    });
 
-            gsap.fromTo(
-                lastItem,
-                { rotation: 0, opacity: 0 },
-                {
-                    opacity: 1,
+            const onzefritthreeimageright = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.gradient-purple',
+                    start: 'top top',
+                    end: 'bottom top',
+                },
+            });
+
+            onzefritthreeimageright
+                .fromTo(
+                    lastItem,
+                    { right: '-50vw', rotation: 0, opacity: 0 },
+                    {
+                        right: '-10vw',
+                        opacity: 1,
+                        delay: 0,
+                        duration: 1,
+                    },
+                )
+                .to(lastItem, {
+                    // right: '-10vw',
                     rotation: 8,
-                    scrollTrigger: {
-                        trigger: '.gradient-purple',
-                        start: 'top top',
-                        end: 'bottom top',
-                    },
-                },
-            );
+                    duration: 1,
+                    delay: 1,
+                });
 
+            
 
             gsap.fromTo(
                 '.whitewithvideomainbox',
@@ -390,7 +405,6 @@ const Onzefriet = () => {
                     },
                 },
             );
-
         });
     }, [onzefriet]);
 
@@ -468,56 +482,6 @@ const Onzefriet = () => {
         return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefs}`;
     };
 
-
-    /*const leftVideoBoxAnimation = {
-        from: {
-            x: '-50%',
-            autoAlpha: 0,
-        },
-        to: {
-            autoAlpha: 1,
-            duration: 0.5,
-            x: '0%',
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: '#section2 .whitewithvideomainbox',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                scrub: 1,
-                once: true,
-            },
-        },
-    };
-
-    gsap.utils.toArray('#section2 .leftvideobox').forEach((inzefrietleft) => {
-        gsap.fromTo(inzefrietleft, leftVideoBoxAnimation.from, leftVideoBoxAnimation.to);
-    });
-
-
-    const rightTextBoxAnimation = {
-        from: {
-            x: '100%',
-            autoAlpha: 0,
-        },
-        to: {
-            autoAlpha: 1,
-            duration: 0.5,
-            x: '0%',
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: '#section2 .whitewithvideomainbox',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                scrub: 1,
-                once: true,
-            },
-        },
-    };
-
-    gsap.utils.toArray('#section2 .righttextbox').forEach((inzefrietright) => {
-        gsap.fromTo(inzefrietright, rightTextBoxAnimation.from, rightTextBoxAnimation.to);
-    });*/
-
     return (
         <section className="panel secondesection" id="section2">
             {/* {onzefriet.map((content, idx) => (
@@ -558,7 +522,7 @@ const Onzefriet = () => {
 
                     <div className="wrappertest">
                         <section className="section hero"></section>
-                        <div className="gradient-purple">
+                        <div className="gradient-purple" id="onzefriendescriptiononzefriet">
                             <div className="allfiressections">
                                 <img src={fries_one} alt="img" />
                                 <img src={fries_two} alt="img" />
@@ -570,8 +534,12 @@ const Onzefriet = () => {
                             </div>
                             {content.contentSection && (
                                 <>
-                                    <h4>{content.contentSection.heading}</h4>
-                                    <p id="lodo">{content.contentSection.description}</p>
+                                    <h4 className="onzefrienttitle">
+                                        {content.contentSection.heading}
+                                    </h4>
+                                    <p className="onzefriendescription" id="lodo">
+                                        {content.contentSection.description}
+                                    </p>
                                 </>
                             )}
                             <div className="gradient-threebox">
@@ -606,22 +574,53 @@ const Onzefriet = () => {
                                             </h3>
                                             <img className="arrowimage" src={arrow_blue} alt="img" />
                                             <h5>{content.videoSection.videoHeading}</h5>
-                                            <p>{content.videoSection.videoDescription}</p>
+                                            <p className='onzeptag'>{content.videoSection.videoDescription}</p>
                                         </div>
                                     </div>
                                 )}
+                               
+
                                 {content.reviewSection && (
                                     <div className="whatpeople-section">
                                         <h6>{content.reviewSection.reviewHeading}</h6>
-
-                                        <div className="fl-tests">
-                                            <div id="container">
-                                                {content.reviewSection.reviews.map((review, idx) => (
-                                                    <div className="module" key={review._key}>
-                                                        <div className="wharpeoplebox">
-                                                            <p>"{review.reviewContent}"</p>
-                                                            <b>-{review.reviewCustName}</b>
-                                                            <ul className="starrating">
+                                        <div className='fl-tests'>
+                                            <Swiper
+                                                slidesPerView={4}
+                                                spaceBetween={10}
+                                                scrollbar={{
+                                                    hide: true,
+                                                }}
+                                                pagination={{
+                                                    clickable: true,
+                                                }}
+                                                autoplay={{
+                                                    delay: 2500,
+                                                    disableOnInteraction: false,
+                                                  }}
+                                                breakpoints={{
+                                                    640: {
+                                                        slidesPerView: 2,
+                                                        spaceBetween: 20,
+                                                    },
+                                                    768: {
+                                                        slidesPerView: 4,
+                                                        spaceBetween: 40,
+                                                    },
+                                                    1024: {
+                                                        slidesPerView: 4,
+                                                        spaceBetween: 50,
+                                                    },
+                                                }}
+                                                modules={[Pagination, Scrollbar]}
+                                                className="mySwiper"
+                                                >
+                                                {content.reviewSection.reviews.map((review) => (
+                                                    <SwiperSlide key={review._key}>
+                                                        <div className="module">
+                                                            <div className="wharpeoplebox">
+                                                                <p className='onzeptag'>"{review.reviewContent}"</p>
+                                                                <b>-{review.reviewCustName}</b>
+                                                                <ul className="starrating">
                                                                 <li>
                                                                     <i className="star"></i>
                                                                 </li>
@@ -638,14 +637,15 @@ const Onzefriet = () => {
                                                                     <i className="blackstar"> </i>
                                                                 </li>
                                                             </ul>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
 
-                                        <div id="progress-container">
-                                            <div id="progress-bar"></div>
+                                                    </SwiperSlide>
+                                                ))}
+
+                                                <div className="swiper-pagination"></div>
+                                                {/* <div className="swiper-scrollbar"></div> */}
+                                            </Swiper>
                                         </div>
                                     </div>
                                 )}
@@ -671,6 +671,7 @@ const Onzefriet = () => {
                                         </div>
                                     </div>
                                 )}
+
                                 <div className="overlaybannehand-bottoms"></div>
                                 <div className="bottomsection">
                                     <div className="scroll-down">

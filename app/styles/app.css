@@ -1,3 +1,13 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css');
+
+/* fonts */
+
+
 :root {
     --aside-width: 400px;
     --cart-aside-summary-height-with-discount: 300px;
@@ -493,7 +503,6 @@ button.reset:hover:not(:has(> *)) {
 }
 
 /* hd */
-
 a:hover {
     text-decoration: none;
 }
@@ -726,6 +735,25 @@ section {
 
 .select-container select option {
     padding: 10px;
+}
+
+
+
+
+i.en{
+   
+width: 20px;
+height: 20px;
+display: inline-block;
+}
+
+
+
+i.nl{
+    
+width: 20px;
+height: 20px;
+display: inline-block;
 }
 
 /* mouse scroll */
