@@ -255,6 +255,32 @@ const Onzefriet = () => {
             const middleItem = items[1];
            
 
+            const onzefritthreeimagecenter = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.gradient-purple',
+                    start: 'top top',
+                    end: 'bottom top',
+                },
+            });
+
+            onzefritthreeimagecenter
+                .fromTo(
+                    middleItem,
+                    { bottom: '-55vh', rotation: 0, opacity: 0 },
+                    {
+                        //bottom: '0vh',
+                        delay: 0,
+                        duration: 1,
+                    },
+                )
+                .to(middleItem, {
+                    rotation: 0,
+                    bottom: '0vh',
+                    duration: 1,
+                    opacity: 1,
+                    delay: 0,
+                });
+
             const onzefritthreeimageleft = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.gradient-purple',
@@ -283,31 +309,7 @@ const Onzefriet = () => {
 
 
 
-                const onzefritthreeimagecenter = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: '.gradient-purple',
-                        start: 'top top',
-                        end: 'bottom top',
-                    },
-                });
-    
-                onzefritthreeimagecenter
-                    .fromTo(
-                        middleItem,
-                        { bottom: '-55vh', rotation: 0, opacity: 0 },
-                        {
-                            //bottom: '0vh',
-                            delay: 1,
-                            duration: 1,
-                        },
-                    )
-                    .to(middleItem, {
-                        rotation: 0,
-                        bottom: '0vh',
-                        duration: 1,
-                        opacity: 1,
-                        delay: 1,
-                    });
+                
 
             const onzefritthreeimageright = gsap.timeline({
                 scrollTrigger: {
@@ -406,6 +408,73 @@ const Onzefriet = () => {
                 },
             );
         });
+
+
+
+        
+
+        let animation = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".whatpeople-section",
+              start: 'top 50%',
+              end: 'bottom bottom',
+            }
+          });
+
+        let split = new SplitText(".whatpeople-section h6", {type:"chars"})
+        animation.from(split.chars, { 
+          opacity:0,
+          y:50,
+          ease:"back(4)",
+          stagger:{
+            from:"start", 
+            each:0.05
+          }
+        })
+
+
+
+        let animations = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".main-accordian",
+              start: 'top 50%',
+              end: 'bottom bottom',
+            }
+          });
+
+        let splits = new SplitText(".main-accordian h6", {type:"chars"})
+        animations.from(splits.chars, { 
+          opacity:0,
+          y:50,
+          ease:"back(4)",
+          stagger:{
+            from:"start", 
+            each:0.05
+          }
+        })
+
+
+        let animationshs = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".whitewithvideomainbox",
+              start: 'top 50%',
+              end: 'bottom bottom',
+            }
+          });
+
+        let splitss = new SplitText(".whitebgbox .whitewithvideomainbox .righttextbox h5", {type:"chars"})
+        animationshs.from(splitss.chars, { 
+          opacity:0,
+          y:50,
+          ease:"back(4)",
+          stagger:{
+            from:"start", 
+            each:0.05
+          }
+        })
+  
+
+
     }, [onzefriet]);
 
     const toggleAccordion = (e) => {
@@ -611,7 +680,7 @@ const Onzefriet = () => {
                                                         spaceBetween: 50,
                                                     },
                                                 }}
-                                                modules={[Pagination, Scrollbar]}
+                                                modules={[Pagination, Scrollbar, Autoplay]}
                                                 className="mySwiper"
                                                 >
                                                 {content.reviewSection.reviews.map((review) => (

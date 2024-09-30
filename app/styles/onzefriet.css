@@ -846,10 +846,11 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    background: url('../assets/resizeimgs/plain-gold-background.png');
+    /* background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     -webkit-transition: 0.5s;
+    color:#af8f2d;
     -o-transition: 0.5s;
     transition: 0.5s;
     margin: 0;
@@ -857,7 +858,7 @@
 
 .whitebgbox .whitewithvideomainbox .righttextbox h5 {
     overflow: hidden;
-    color: #f6c738;
+    color: #af8f2d;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     font-family: 'Rufina', serif;
@@ -869,9 +870,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-transform: capitalize;
-    background: url('../assets/resizeimgs/plain-gold-background.png');
+    /* background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
@@ -1000,9 +1001,9 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    background: url('../assets/resizeimgs/plain-gold-background.png');
+    /* background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
@@ -1012,6 +1013,7 @@
     font-size: clamp(20px, 10vw, 50px);
     font-style: normal;
     font-weight: 700;
+    color:#af8f2d;
 }
 
 .accordion-container {
@@ -1214,3 +1216,5 @@
 
 
 .fl-tests .swiper-pagination-bullet-active {background: #0d1e4d;}
+
+
