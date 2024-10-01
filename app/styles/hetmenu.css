@@ -220,6 +220,16 @@
     transform-origin: right;
 } */
 
+
+
+.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox {
+    max-width: 735px;
+    width: 50%;
+    padding-left: 45px;
+    position: relative;
+    top: 5em;
+}
+
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5 {
     overflow: hidden;
     color: #f6c738;
@@ -234,6 +244,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     max-width: 526px;
+    margin-bottom: 60px;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p {
@@ -245,6 +256,15 @@
     line-height: normal;
     max-width: 993px;
     flex-shrink: 0;
+}
+
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox {
+    max-width: 874px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 50%;
+    position: relative;
+    margin-top: -90px;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {
@@ -271,14 +291,23 @@
     margin: 0;
 }
 
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
+    width: 75%;
+    margin-left: auto;
+    display: flex;
+}
+
+
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
     position: relative;
-    top: -10em;
-    left: 10em;
-    margin-bottom: -5em;
+    top: -12em;
+    left: 12em;
+    margin-bottom: -10em;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img {
     max-width: 100%;
     width: inherit;
+    width: inherit;
+    margin: 0;
 }

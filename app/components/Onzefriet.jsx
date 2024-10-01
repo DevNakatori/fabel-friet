@@ -10,6 +10,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
 import { Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 
 
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
@@ -535,21 +536,7 @@ const Onzefriet = () => {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
-    const getImageUrls = (refs) => {
-        const baseRefs = refs.slice(6);
-        const fileExtensions = baseRefs.includes('-svg')
-            ? '.svg'
-            : baseRefs.includes('-png')
-                ? '.png'
-                : baseRefs.includes('-jpg')
-                    ? '.jpg'
-                    : '';
-        const formattedRefs = baseRefs
-            .replace('-svg', fileExtensions)
-            .replace('-png', fileExtensions)
-            .replace('-jpg', fileExtensions);
-        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefs}`;
-    };
+    
 
     return (
         <section className="panel secondesection" id="section2">
@@ -564,7 +551,7 @@ const Onzefriet = () => {
                     <div className="wrapper">
                         <div className="bannersectinlogo">
                             <img
-                                src={getImageUrls(content.logoImage.asset._ref)}
+                                src={getImageUrl(content.logoImage.asset._ref)}
                                 alt={content.logoImage.alt}
                             />
                         </div>
@@ -621,7 +608,7 @@ const Onzefriet = () => {
                                                 </div>
                                             )}
                                             <img
-                                                src={getImageUrls(image.asset._ref)}
+                                                src={getImageUrl(image.asset._ref)}
                                                 alt={image.alt}
                                             />
                                         </li>

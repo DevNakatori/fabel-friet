@@ -78,3 +78,180 @@
     z-index: 1;
     background-position: center center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist {
+    background: #0D1E4D;
+    box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+
+
+
+
+#section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5 {
+    overflow: hidden;
+    color: #F6C738;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-family: 'Rufina', serif;
+    font-size: 40px;
+    font-size: clamp(20px, 5vw, 40px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45px;
+    background: url('/app/assets/resizeimgs/plain-gold-background.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    max-width: 455px;
+}
+
+
+#section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist p {
+    color: #EFEBE7;
+    font-family: "Work Sans";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 485px;
+}
+
+#section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+#section5 .whitebgbox .whitewithvideomainbox .leftvideobox {
+    max-width: 590px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 590px;
+    position: relative;
+}
+
+
+#section5 .whitebgbox .whitewithvideomainbox .righttextbox {
+    max-width: calc((100% - 557px) + 150px + 120px);
+    margin-right: -120px;
+    padding-left: 0;
+    width: inherit;
+}
+
+
+#section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4 {
+    overflow: hidden;
+    color: #F6C738;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-family: 'Rufina', serif;
+    font-size: clamp(20px, 7vw, 80px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 85px;
+    background: url('/app/assets/resizeimgs/plain-gold-background.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    max-width: 100%;
+    opacity: 1;
+    text-align: left;
+    margin: 0;
+    transform: translateY(0px);
+}
+
+
+#section5 .whitewithvideomainboxs {
+    max-width: 1708px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 90px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    border-bottom: solid 1px #0d1e4d;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 170px 0;
+}
+
+
+#section5 .whitebgbox .whitewithvideomainboxs .leftvideobox {
+    max-width: 874px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 50%;
+    position: relative;
+}
+
+
+#section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3 {
+    overflow: hidden;
+    color: #F6C738;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-family: 'Rufina', serif;
+    font-size: clamp(20px, 7vw, 80px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 85px;
+    background: url('/app/assets/resizeimgs/plain-gold-background.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    max-width: 100%;
+    opacity: 1;
+    text-align: left;
+    margin: 0;
+    transform: translateY(0px);
+    max-width: 642px;
+}
+
+#section5 .whitebgbox .whitewithvideomainboxs .righttextbox {
+    max-width: 735px;
+    width: 50%;
+    padding-left: 45px;
+    position: relative;
+}
+
+#section5 .whitebgbox .whitewithvideomainboxs .righttextbox p {
+    color: #0D1E4D;
+    font-family: "Work Sans";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 736px;
+    flex-shrink: 0;
+    text-align: left;
+    margin: 0;
+}

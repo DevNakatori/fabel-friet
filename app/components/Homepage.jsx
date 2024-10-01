@@ -12,6 +12,8 @@ import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 
+import { getImageUrl } from '../js/imagesurl';
+
 gsap.registerPlugin(
     TextPlugin,
     ScrollSmoother,
@@ -275,21 +277,7 @@ const HomePage = () => {
         window.scrollTo(0, 0);
     }, [bannerData]);
 
-    const getImageUrl = (ref) => {
-        const baseRef = ref.slice(6);
-        const fileExtension = baseRef.includes('-svg')
-            ? '.svg'
-            : baseRef.includes('-png')
-                ? '.png'
-                : baseRef.includes('-jpg')
-                    ? '.jpg'
-                    : '';
-        const formattedRef = baseRef
-            .replace('-svg', fileExtension)
-            .replace('-png', fileExtension)
-            .replace('-jpg', fileExtension);
-        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
-    };
+    
 
     if (loading)
         return (
