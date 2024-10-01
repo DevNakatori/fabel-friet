@@ -13,31 +13,29 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
     useEffect(() => {
-        gsap
-            .timeline({
+        const timelineimpact = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.wrapper-impact',
                     start: 'center center',
                     end: '+=150%',
                     pin: true,
-                    scrub: true,
+                    scrub: 0.5,
                     markers: false,
                 },
             })
-            .to(
+            timelineimpact.to(
                 '.roundimage-impact, .roundtext-impact',
                 {
                     scale: 4,
                     z: 350,
                     transformOrigin: 'center center',
                     ease: 'power1.inOut',
-                    scrub: true,
                     zIndex: 5,
                 },
                 0,
             );
         return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+            timelineimpact.scrollTrigger.kill();
         };
     }, []);
     return (

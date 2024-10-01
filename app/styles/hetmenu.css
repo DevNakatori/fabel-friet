@@ -176,6 +176,8 @@
     overflow: hidden;
     margin: 105px 0 0;
     margin-right: -60px;
+    width: calc(100% + 120px);
+    margin-left: -60px;
 }
 
 .fourthsection .whitewithvideomainbox {
@@ -198,7 +200,7 @@
     flex: 0 0 405px;
 }
 
-.instagramfeedimages .contaernrul .contaernrulitem:nth-child(even) {
+.instagramfeedimages .contaernrul .swiper .swiper-wrapper .swiper-slide:nth-child(even) .contaernrulitem {
     position: relative;
     transform: scale(0.85);
     transform-origin: center center;
@@ -265,6 +267,7 @@
     width: 50%;
     position: relative;
     margin-top: -90px;
+    z-index: 1;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {

@@ -2,10 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
 import { getImageUrl } from '../js/imagesurl';
+
+
 
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
@@ -30,10 +35,10 @@ const Hetmenu = () => {
         const timelineshetmenu = gsap.timeline({
             scrollTrigger: {
                 trigger: '.wrapper-hetmenu',
-                start: 'center center',
+                start: 'top top',
                 end: '+=150%',
                 pin: true,
-                scrub: true,
+                scrub: 0.5,
                 markers: false,
             },
         });
@@ -42,7 +47,7 @@ const Hetmenu = () => {
             z: 350,
             transformOrigin: 'center center',
             ease: 'power1.inOut',
-            scrub: true,
+       
             zIndex: 5,
         });
         timelineshetmenu.to(
@@ -69,7 +74,7 @@ const Hetmenu = () => {
             0,
         );
 
-        gsap.fromTo(
+        const timelineshetmenuone = gsap.fromTo(
             '.gradient-purplemenu',
             {
                 opacity: 0,
@@ -92,7 +97,7 @@ const Hetmenu = () => {
             },
         );
 
-        gsap.fromTo(
+        const timelineshetmenutwo = gsap.fromTo(
             '.gradient-purpletext',
             {
                 opacity: 0,
@@ -192,36 +197,88 @@ const Hetmenu = () => {
                         <div className="instagramfeedimagesimain">
                             <div className="instagramfeedimages">
                                 <div className="contaernrul">
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
-                                    <div className="contaernrulitem">
-                                        <img src={insta_3} alt="img" />
-                                    </div>
+                                    <Swiper
+                                        slidesPerView={5}
+                                        spaceBetween={0}
+                                        loop={true}
+                                        scrollbar={{
+                                            hide: true,
+                                        }}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        autoplay={{
+                                            delay: 2500,
+                                            disableOnInteraction: false,
+                                        }}
+                                        breakpoints={{
+                                            640: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 0,
+                                            },
+                                            768: {
+                                                slidesPerView: 4,
+                                                spaceBetween: 0,
+                                            },
+                                            1024: {
+                                                slidesPerView: 5,
+                                                spaceBetween: 0,
+                                            },
+                                        }}
+                                        modules={[Autoplay]}
+                                        className="mySwipers"
+                                    >
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                        <SwiperSlide>
+                                            <div className="contaernrulitem">
+                                                <img src={insta_3} alt="img" />
+                                            </div>
+                                        </SwiperSlide>
+                                    </Swiper>
                                 </div>
                             </div>
                         </div>

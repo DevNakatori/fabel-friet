@@ -5,11 +5,10 @@ import gsap from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Scrollbar, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
 
 
@@ -643,6 +642,7 @@ const Onzefriet = () => {
                                             <Swiper
                                                 slidesPerView={4}
                                                 spaceBetween={10}
+                                                loop={true}
                                                 scrollbar={{
                                                     hide: true,
                                                 }}
@@ -667,7 +667,7 @@ const Onzefriet = () => {
                                                         spaceBetween: 50,
                                                     },
                                                 }}
-                                                modules={[Pagination, Scrollbar, Autoplay]}
+                                                modules={[Pagination, Autoplay]}
                                                 className="mySwiper"
                                                 >
                                                 {content.reviewSection.reviews.map((review) => (
