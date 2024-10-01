@@ -5,13 +5,12 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
+import { getImageUrl } from '../js/imagesurl';
 
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 
-import menu_one from '../assets/resizeimgs/menu_one.png';
-import menu_two from '../assets/resizeimgs/menu_two.png';
-import menu_three from '../assets/resizeimgs/menu_three.png';
+
 import insta_3 from '../assets/resizeimgs/insta_3.png';
 import hetberoemd from '../assets/resizeimgs/hetinmiddelsberoemde.png';
 
@@ -20,6 +19,13 @@ import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
+
+    const { language } = useLanguage();
+    const [hetmenu, sethetmenu] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
     useEffect(() => {
         const timelineshetmenu = gsap.timeline({
             scrollTrigger: {
@@ -112,7 +118,34 @@ const Hetmenu = () => {
         return () => {
             timelineshetmenu.scrollTrigger.kill();
         };
-    }, []);
+    }, [hetmenu]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await client.fetch(
+                    `*[_type == "hetmenu" && language == $lang]`,
+                    { lang: language },
+                );
+                console.log('Fetched sethetmenu Data:', data);
+                sethetmenu(data);
+            } catch (err) {
+                console.error('Error fetching data:', err);
+                setError('Failed to load data');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [language]);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+
+    if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
+
+    const { contentSection, bottomContentSection, menuSection, transitionSection } = hetmenu[0];
 
     return (
         <section className="panel fourthsection" id="section4">
@@ -126,8 +159,8 @@ const Hetmenu = () => {
 
                 <div className="roundimages">
                     <div className="roundtext-hetmenu">
-                        <h2>het</h2>
-                        <h3>menu</h3>
+                        <h2>{transitionSection.topTitle}</h2>
+                        <h3>{transitionSection.bottomTitle}</h3>
                     </div>
                     <div className="roundimage-hetmenu"></div>
                     <div className="scroll-down">
@@ -140,26 +173,18 @@ const Hetmenu = () => {
             <div className="wrappertest">
                 <section className="section hero"></section>
                 <div className="gradient-purple">
-                    <h4 className="gradient-purplemenu">menu</h4>
+                    <h4 className="gradient-purplemenu">{contentSection.heading}</h4>
                     <p className="gradient-purpletext">
-                        Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij echte
-                        Hollandse friet. Elke dag weer geven wij alles om de lekkerste friet
-                        van Amsterdam te bakken. Daarbij maken wij gebruik van de beste
-                        kwaliteit Agria aardappelen van Nederlandse bodem welke speciaal
-                        zijn ontwikkeld voor friet.
+                        {contentSection.description}
                     </p>
 
                     <div className="gradient-threebox-menu">
                         <ul>
-                            <li>
-                                <img src={menu_one} alt="img" />
-                            </li>
-                            <li>
-                                <img src={menu_two} alt="img" />
-                            </li>
-                            <li>
-                                <img src={menu_three} alt="img" />
-                            </li>
+                            {menuSection.Menu.map((item) => (
+                                <li key={item._key}>
+                                    <img src={getImageUrl(item.image.asset._ref)} alt={`Menu item ${item._key}`} style={{ maxWidth: '100%', height: 'auto' }} />
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -203,24 +228,19 @@ const Hetmenu = () => {
 
                         <div className="whitewithvideomainbox">
                             <div className="righttextbox">
-                                <h5> Lorem ipsum dolor sit amet</h5>
+                                <h5>{bottomContentSection.bottomHeading}</h5>
                                 <p>
-                                    Geen Franse friet of Vlaamse friet, bij Fabel Friet bakken wij
-                                    echte Hollandse friet. Elke dag weer geven wij alles om de
-                                    lekkerste friet van Amsterdam te bakken. Daarbij maken wij
-                                    gebruik van de beste kwaliteit Agria aardappelen van
-                                    Nederlandse bodem welke speciaal zijn ontwikkeld voor friet.
+                                    {bottomContentSection.bottomDescription}
                                 </p>
                             </div>
                             <div className="leftvideobox">
-                                <img src={hetberoemd} alt="img" />
+                                <img src={getImageUrl(bottomContentSection.bottomImage.asset._ref)} alt="img" />
                                 <div className="bluearrowbottom">
                                     <img src={arrow_blue1} alt="img" />
                                 </div>
-                                <h3>Onze specialiteit</h3>
+                                <h3>{bottomContentSection.bottomHeading}</h3>
                                 <p>
-                                    Friet met vers geraspte Parmezaanse kaas en huisgemaakte
-                                    Truffel mayonaise.
+                                    {bottomContentSection.bottomContent}
                                 </p>
                             </div>
                         </div>

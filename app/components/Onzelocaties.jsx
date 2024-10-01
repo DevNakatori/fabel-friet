@@ -6,6 +6,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
 
+import { getImageUrl } from '../js/imagesurl';
+
 import mainbannerbg from '../assets/resizeimgs/8bdb17523f8d73487022194d9774c1d3.png';
 
 import Onzelocaties_leftone from '../assets/resizeimgs/Rectangle48.png';
@@ -183,11 +185,6 @@ const Onzelocaties = () => {
                 },
             },
         );
-
-
-
-
-
         return () => {
             timelines.scrollTrigger.kill();
         };
@@ -215,22 +212,6 @@ const Onzelocaties = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
-    const getImageUrlss = (refss) => {
-        const baseRefss = refss.slice(6);
-        const fileExtensionss = baseRefss.includes('-svg')
-            ? '.svg'
-            : baseRefss.includes('-png')
-                ? '.png'
-                : baseRefss.includes('-jpg')
-                    ? '.jpg'
-                    : '';
-        const formattedRefss = baseRefss
-            .replace('-svg', fileExtensionss)
-            .replace('-png', fileExtensionss)
-            .replace('-jpg', fileExtensionss);
-        return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRefss}`;
-    };
-
     return (
         <section className="panel thirdesection" id="section3">
             {onzelocaties.map((locationData) => (
@@ -238,7 +219,7 @@ const Onzelocaties = () => {
                     <div className="wrapper-onzelocation">
                         <div className="bannersectinlogo">
                             <img
-                                src={getImageUrlss(locationData.logoImage.asset._ref)}
+                                src={getImageUrl(locationData.logoImage.asset._ref)}
                                 alt={locationData.logoImage.alt}
                             />
                         </div>
@@ -272,7 +253,7 @@ const Onzelocaties = () => {
                                         <div className="whitewithvideomainbox">
                                             <div className="leftvideobox">
                                                 <img
-                                                    src={getImageUrlss(loc.image.asset._ref)}
+                                                    src={getImageUrl(loc.image.asset._ref)}
                                                     alt={loc.image.alt}
                                                 />
                                             </div>
