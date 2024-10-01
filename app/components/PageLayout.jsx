@@ -55,7 +55,7 @@ export function PageLayout({
                             <Onzefriet />
                             <Onzelocaties />
                             <Hetmenu />
-                            <Onzeimpact />
+                            {/* <Onzeimpact />  */}
                             {/* <Onzeimpact /> */}
                             {/* <Getintouch /> */}
                         </div>
