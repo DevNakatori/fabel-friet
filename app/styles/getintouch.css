@@ -79,3 +79,15 @@
     z-index: 1;
     background-position: center center;
 }
+
+
+
+.nl .roundtext-getintouch h2 {
+    left: -380px;
+    line-height: 120%;
+}
+
+.nl .roundtext-getintouch h3 {
+    right: -465px;
+    width: 495px;
+}
