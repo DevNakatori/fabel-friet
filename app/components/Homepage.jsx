@@ -28,6 +28,19 @@ const HomePage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [currentLanguage, setCurrentLanguage] = useState(language);
+
+    useEffect(() => {
+        document.body.classList.add(currentLanguage);
+        return () => {
+            document.body.classList.remove(currentLanguage);
+        };
+    }, [currentLanguage]);
+
+    useEffect(() => {
+        setCurrentLanguage(language);
+    }, [language]);
+
     useEffect(() => {
         /* animation start */
         const smoother = ScrollSmoother.create({

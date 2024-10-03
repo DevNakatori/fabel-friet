@@ -185,6 +185,52 @@ const Onzelocaties = () => {
                 },
             },
         );
+        gsap.fromTo(
+            '#section6 .gradient-purple h4.onzefrienttitle',
+            {
+                opacity: 0,
+                y: 50,
+                scale: 0.5,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                delay: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '#onzefriendescriptiononzefriet',
+                    start: 'top 80%',
+                    end: 'top 50%',
+
+                    markers: false,
+                },
+            },
+        );
+
+        gsap.fromTo(
+            '#section6 .gradient-purple p.onzefriendescription',
+            {
+                opacity: 0,
+                scale: 0.5,
+                y: 50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 2,
+                scrollTrigger: {
+                    trigger: '#onzefriendescriptiononzefriet',
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    markers: false,
+                },
+            },
+        );
         return () => {
             timelines.scrollTrigger.kill();
         };
