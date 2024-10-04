@@ -147,7 +147,7 @@
 
 .fourthsection .gradient-threebox-menu {
     max-width: 90%;
-    margin: 90px auto;
+    margin: 90px auto -120px;
     position: relative;
     z-index: 999;
 }
@@ -174,7 +174,7 @@
 .instagramfeedimagesimain {
     height: 590px;
     overflow: hidden;
-    margin: 105px 0 0;
+    margin:20px 0;
     margin-right: -60px;
     width: calc(100% + 120px);
     margin-left: -60px;
@@ -206,12 +206,25 @@
     transform-origin: center center;
 }
 
-.fourthsection .whitewithvideomainbox {
+/* .fourthsection .whitewithvideomainbox {
     padding-top: 0;
     margin: 0 -60px;
     padding-left: 60px;
     max-width: calc(100% + 60px);
     margin-top: -10em;
+} */
+
+
+.fourthsection .whitewithvideomainbox {
+    position: relative;
+    padding-top: 0;
+    margin: 0 -60px;
+    padding-left: 60px;
+    max-width: calc(100% + 60px);
+    margin-top: 0;
+    top: 0em;
+    margin-bottom: 0em;
+    border-bottom: none;
 }
 
 /* .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
@@ -230,6 +243,7 @@
     padding-left: 45px;
     position: relative;
     top: 5em;
+    margin-bottom: 10em;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5 {
@@ -247,7 +261,17 @@
     -webkit-line-clamp: 2;
     max-width: 526px;
     margin-bottom: 60px;
+    background: url('../assets/resizeimgs/plain-gold-background.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.fourthsection .whitebgbox {
+    position: relative;
+    top: 0;
+    margin-bottom: 0;
+}
+
 
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p {
     color: #0d1e4d;
@@ -258,6 +282,7 @@
     line-height: normal;
     max-width: 993px;
     flex-shrink: 0;
+    white-space: break-spaces;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox {
@@ -295,17 +320,19 @@
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
-    width: 75%;
+    width: 100%;
     margin-left: auto;
     display: flex;
+    position: relative;
+    top: -10rem;
+    margin-bottom: 10px;
 }
-
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
     position: relative;
     top: -12em;
     left: 12em;
-    margin-bottom: -10em;
+    margin-bottom: -20em;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img {

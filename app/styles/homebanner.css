@@ -14,7 +14,7 @@ a:hover {
 
 /* reset css */
 /* loader */
-.loadersite {
+/* .loadersite {
     background: var(--radical-background,
             radial-gradient(50% 50% at 50% 50%,
                 #1e46b3 0%,
@@ -52,7 +52,7 @@ a:hover {
     align-items: center;
     -ms-flex-line-pack: center;
     align-content: center;
-}
+} */
 
 .loader1 {
     display: inline-block;
@@ -139,6 +139,7 @@ a:hover {
     top: 25px !important;
     z-index: 5 !important;
     width: calc(100% - 8rem) !important;
+    display: none;
 }
 
 nav.header-menu-desktop {
@@ -409,6 +410,7 @@ body>main section video {
     transition: background-color 0.5s ease;
     position: relative;
     z-index: 7;
+    opacity: 0;
 }
 
 .banner_overlaymain {
@@ -438,7 +440,7 @@ body>main section video {
     -webkit-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
-    opacity: 0;
+    
 }
 
 .banner_overlaymain.overlay-blue {
@@ -663,3 +665,65 @@ body>main section video {
         padding: 0 12px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .loadersite {
+    background: var(--radical-background,
+            radial-gradient(50% 50% at 50% 50%,
+                #1e46b3 0%,
+                #1c41a8 12.99%,
+                #1b3e9e 23.44%,
+                #193a95 31.71%,
+                #18378d 38.19%,
+                #163485 43.26%,
+                #15317e 47.31%,
+                #142f78 50.7%,
+                #132c72 53.82%,
+                #122a6c 57.05%,
+                #112867 60.77%,
+                #112662 65.35%,
+                #10245d 71.19%,
+                #0f2258 78.66%,
+                #0e2053 88.13%,
+                #0d1e4d 100%));
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+} 

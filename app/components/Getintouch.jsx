@@ -56,6 +56,30 @@ const Getintouch = () => {
             },
             0,
         );
+
+        timelinegetintouch.to(".sixthsection .wrappertest", {
+            scrollTrigger: {
+                trigger: ".sixthsection",
+                start: "30% 30%",
+                end: "50% 50%",
+                scrub: true,
+                once: false,
+            },
+            borderRadius: "0vw 0vw 0px 0px",
+            ease: "power1.inOut",
+        });
+
+
+        timelinegetintouch.to(
+            '.section.hero',
+            {
+                scale: 1.1,
+                transformOrigin: 'center center',
+                ease: 'power1.inOut',
+            },
+            '<',
+        );
+
         return () => {
             timelinegetintouch.scrollTrigger.kill();
         };
@@ -89,7 +113,7 @@ const Getintouch = () => {
     const { contentSection, logoImage, transitionSection } = getintouch;
 
     return (
-        <section className="panel secondesection" id="section6">
+        <section className="panel sixthsection" id="section6">
             <div className="wrapper-getintouch">
                 <div className="bannersectinlogo">
                     <img src={getImageUrl(logoImage?.asset?._ref)} />
@@ -114,10 +138,10 @@ const Getintouch = () => {
             <div className="wrappertest">
                 <section className="section hero"></section>
                 <div className="gradient-purple" id="onzefriendescriptiononzefriet">
-                    <h4 className="onzefrienttitle">
+                    <h4 className="onzefrienttitle" >
                         {contentSection.heading}
                     </h4>
-                    <p className="onzefriendescription" id="lodo">
+                    <p className="onzefriendescription" >
                         {contentSection.description}
                     </p>
                     <div className="gradient-threebox">
@@ -131,7 +155,7 @@ const Getintouch = () => {
                     </div>
                     <div className="whitebgbox">
                         <div className='socialtitle'>
-                            <h3>{contentSection.socialMedia[0].title}</h3>
+                            <h3 >{contentSection.socialMedia[0].title}</h3>
                         </div>
                         <div className='socialiconlist'>
                             <ul>

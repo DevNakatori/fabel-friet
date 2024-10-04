@@ -45,9 +45,13 @@ const HomePage = () => {
         /* animation start */
         const smoother = ScrollSmoother.create({
             smooth: 3,
+            normalizeScroll: false, 
+            ignoreMobileResize: true, 
             effects: true,
+            preventDefault: false,
         });
         smoother.effects('.allfiressections img', { speed: 'auto' });
+
         /* animation end */
 
         /* data fatched */
@@ -63,31 +67,57 @@ const HomePage = () => {
                 console.error('Error fetching data:', err);
                 setError('Failed to load data');
             } finally {
-                setLoading(false);
+                setTimeout(() => {
+                    setLoading(false);
+                    const languageSwitchers = document.getElementsByClassName('language-switcher');
+                    if (languageSwitchers.length > 0) {
+                        languageSwitchers[0].style.display = 'block';
+                    }
+                    const header = document.getElementsByClassName('header');
+                    if (header.length > 0) {
+                        header[0].style.display = 'block';
+                    }
+                    gsap.fromTo(
+                        'nav.header-menu-desktop .header-menu-item',
+                        { opacity: 0, y: -30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            stagger: 0,
+                            duration: 1,
+                            ease: 'power2.out',
+                            delay: 1,
+                            repeat: 0,
+                        },
+                    );
+                }, 0);
             }
         };
         fetchData();
     }, [language]);
     /* data fatched */
 
+    /* loading animation start */
     useEffect(() => {
         if (!loading) {
             gsap.to('.loadersite', {
-                duration: 1,
+                duration: 0,
                 opacity: 0,
                 onComplete: () => {
                     document.body.classList.add('hiddenoverflow');
-
                     gsap.to('.banner_video', {
+                        duration: 5,
+                        delay: 0,
                         autoAlpha: 1,
-                        duration: 0,
-                        delay: 0.1,
+                        ease: "expo.inOut"
                     });
                 },
             });
         }
     }, [loading]);
+    /* loading animation end */
 
+    /* all overlay banner animation start */
     useEffect(() => {
         const video = document.getElementById('myVideo');
         const overlayMain = document.querySelector('.banner_overlaymain');
@@ -99,21 +129,6 @@ const HomePage = () => {
             button: document.querySelector('.banner_bottombtn'),
             rotateText: document.querySelector('.bannerrotate_text'),
         };
-
-        gsap.fromTo(
-            'nav.header-menu-desktop .header-menu-item',
-            { opacity: 0, y: -30 },
-            {
-                opacity: 1,
-                y: 0,
-                stagger: 0.2,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 2,
-                repeat: 0,
-            },
-        );
-
         if (video) {
             video.autoplay = true;
             video.addEventListener('ended', () => {
@@ -122,12 +137,12 @@ const HomePage = () => {
                     gsap.fromTo(
                         overlayMain,
                         {
-                            x: '-100%',
+                            y: '-100%',
                         },
                         {
-                            duration: 0.5,
-                            x: '0%',
-                            ease: 'power2.out',
+                            y: '0%',
+                            ease: 'expo.inOut',
+                            duration: 2,
                             delay: 0,
                             opacity: 1,
                         },
@@ -146,43 +161,46 @@ const HomePage = () => {
                     bottom: '0px',
                     ease: 'power1.inOut',
                     delay: 0.1,
+                    stagger: 0.1,
                 });
                 gsap.fromTo(
                     elements.logo,
                     { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1 },
+                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1, stagger: 0.2 },
                 );
                 gsap.fromTo(
                     elements.title,
                     { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5 },
+                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5, stagger: 0.3 },
                 );
                 gsap.fromTo(
                     elements.content,
                     { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2 },
+                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2, stagger: 0.4 },
                 );
                 gsap.fromTo(
                     elements.button,
                     { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2.5 },
+                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2.5, stagger: 0.5 },
                 );
                 gsap.to('.overlaybannehand-left', {
                     duration: 1,
                     left: '0px',
                     ease: 'power1.inOut',
                     delay: 3,
+                    stagger: 0.6
                 });
                 gsap.to('.overlaybannehand-right', {
                     duration: 1,
                     right: '0px',
                     ease: 'power1.inOut',
                     delay: 3,
+                    stagger: 0.6
                 });
                 gsap.fromTo(
                     elements.rotateText,
                     { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4 },
+                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4, stagger: 0.7 },
                 );
                 gsap.fromTo(
                     elements.rotateText,
@@ -192,6 +210,7 @@ const HomePage = () => {
                         duration: bannerData[0].bannerText.length * 0.05,
                         ease: 'none',
                         delay: 4.5,
+                        stagger: 0.8
                     },
                 );
                 gsap.to('body', { delay: 3.5, onComplete: removeClass });
@@ -247,7 +266,6 @@ const HomePage = () => {
                         delay: 6.5,
                     },
                 );
-
                 gsap.fromTo(
                     '.rightsidebullets ul li',
                     { opacity: 0, y: -30 },
@@ -260,6 +278,7 @@ const HomePage = () => {
                         delay: 5.5,
                     },
                 );
+
             });
         }
         return () => {
@@ -268,11 +287,15 @@ const HomePage = () => {
             }
         };
     }, [bannerData]);
+    /* all overlay banner animation end */
 
+    /* remove body class */
     function removeClass() {
         document.body.classList.remove('hiddenoverflow');
     }
+    /* remove body class */
 
+    /* Scribble doodle animation start */
     useEffect(() => {
         const paragraph = document.getElementById('text');
         if (paragraph) {
@@ -285,13 +308,14 @@ const HomePage = () => {
             }
         }
     }, [bannerData]);
+    /* Scribble doodle animation end */
 
+    /* forcefully scroll top */
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [bannerData]);
-
+    /* forcefully scroll top */
     
-
     if (loading)
         return (
             <div className="loadersite">
@@ -308,7 +332,6 @@ const HomePage = () => {
             </div>
         );
     if (error) return <div>{error}</div>;
-
     return (
         <section className="bannersection" id="section1">
             <div className="banner_video">
@@ -330,15 +353,12 @@ const HomePage = () => {
                             alt={bannerData[0].bannerLogo.alt}
                         />
                     </div>
-
                     <div className="banner_title_text">
                         <h1>{bannerData[0].title}</h1>
                     </div>
-
                     <div className="banner_content_text">
                         <p id="text">{bannerData[0].bannerContent}</p>
                     </div>
-
                     {bannerData[0].bannerButton && (
                         <a
                             className="banner_bottombtn"
@@ -347,7 +367,6 @@ const HomePage = () => {
                             {bannerData[0].bannerButton.buttonText}
                         </a>
                     )}
-
                     <div className="bannerrotate_text">
                         <p>{bannerData[0].bannerText}</p>
                     </div>

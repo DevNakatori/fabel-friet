@@ -47,9 +47,21 @@ const Hetmenu = () => {
             z: 350,
             transformOrigin: 'center center',
             ease: 'power1.inOut',
-       
             zIndex: 5,
         });
+
+        timelineshetmenu.to(".fourthsection .wrappertest", {
+            scrollTrigger: {
+                trigger: ".fourthsection",
+                start: "20% 20%",
+                end: "40% 40%",
+                scrub: true,
+                once: false,
+            },
+            borderRadius: "0vw 0vw 0px 0px",
+            ease: "power1.inOut",
+        });
+
         timelineshetmenu.to(
             '.section.hero',
             {
@@ -74,51 +86,222 @@ const Hetmenu = () => {
             0,
         );
 
-        const timelineshetmenuone = gsap.fromTo(
-            '.gradient-purplemenu',
-            {
-                opacity: 0,
-                y: 50,
-                scale: 0.5,
-            },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '.gradient-purple',
-                    start: 'top 80%',
-                    end: 'top 50%',
+        
 
-                    markers: false,
-                },
-            },
-        );
-
-        const timelineshetmenutwo = gsap.fromTo(
-            '.gradient-purpletext',
+        const hetmenufour = gsap.fromTo(
+            '.gradient-purple h4.hetmenuntitle',
+            {opacity: 0, y: -30},
             {
-                opacity: 0,
-                scale: 0.5,
-                y: 50,
+              opacity: 1,
+              y: 0,
+              stagger: 0,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1.5,
+              repeat: 0,
+              scrollTrigger: {
+                trigger: '#hetmenusection',
+              },
+            },
+          );
+      
+          const hetmenufourp = gsap.fromTo(
+            '.gradient-purple p.hetmenuescription',
+            {opacity: 0, y: -30},
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              repeat: 0,
+              scrollTrigger: {
+                trigger: '#hetmenusection',
+              },
+            },
+          );
+
+
+
+        gsap.fromTo(
+            '#section4 .gradient-threebox-menu',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
             },
             {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '.gradient-purple h4',
-                    start: 'top 80%',
-                    end: 'top 50%',
-
-                    markers: false,
-                },
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: '#section4 .gradient-purple',
+                markers: false,
+              },
             },
-        );
+          );
+      
+          gsap.fromTo(
+            '#section4 .instagramfeedimagesimain',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .gradient-purple',
+                markers: false,
+              },
+            },
+          );
+      
+          gsap.fromTo(
+            '#section4 .whitewithvideomainbox',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+
+          gsap.fromTo(
+            '#section4 .whitewithvideomainbox .righttextbox h5',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+          gsap.fromTo(
+            '#section4 .whitewithvideomainbox .righttextbox p',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+          gsap.fromTo(
+            '.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+          gsap.fromTo(
+            '.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+          gsap.fromTo(
+            '.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '#section4 .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+          
+          
 
         return () => {
             timelineshetmenu.scrollTrigger.kill();
@@ -177,9 +360,9 @@ const Hetmenu = () => {
 
             <div className="wrappertest">
                 <section className="section hero"></section>
-                <div className="gradient-purple">
-                    <h4 className="gradient-purplemenu">{contentSection.heading}</h4>
-                    <p className="gradient-purpletext">
+                <div className="gradient-purple" id="hetmenusection">
+                    <h4 className="hetmenuntitle">{contentSection.heading}</h4>
+                    <p className="hetmenuescription">
                         {contentSection.description}
                     </p>
 
@@ -285,28 +468,30 @@ const Hetmenu = () => {
 
                         <div className="whitewithvideomainbox">
                             <div className="righttextbox">
-                                <h5>{bottomContentSection.bottomHeading}</h5>
-                                <p>
+                                <h5 >{bottomContentSection.bottomHeading}</h5>
+                                <p >
                                     {bottomContentSection.bottomDescription}
                                 </p>
                             </div>
                             <div className="leftvideobox">
-                                <img src={getImageUrl(bottomContentSection.bottomImage.asset._ref)} alt="img" />
+                                <img src={getImageUrl(bottomContentSection.bottomImage.asset._ref)} alt="img" data-speed="auto"/>
                                 <div className="bluearrowbottom">
-                                    <img src={arrow_blue1} alt="img" />
+                                    <img src={arrow_blue1} alt="img" data-speed="auto"/>
                                 </div>
-                                <h3>{bottomContentSection.bottomHeading}</h3>
-                                <p>
+                                <h3 >{bottomContentSection.bottomHeading}</h3>
+                                <p >
                                     {bottomContentSection.bottomContent}
                                 </p>
                             </div>
                         </div>
+                        <div className='hetmenufixed'>
                         <div className="overlaybannehand-bottoms"></div>
                         <div className="bottomsection">
                             <div className="scroll-down">
                                 <div className="icon-scroll"></div>
                                 <p>Scroll down</p>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
