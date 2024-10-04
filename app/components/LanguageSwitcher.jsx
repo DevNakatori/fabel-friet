@@ -262,12 +262,16 @@ const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const animation = gsap.to('.language-switcher', {
-            duration: 1,
-            opacity: 1,
-            y: 0,
-
-        });
+        const animation = gsap.fromTo('.language-switcher', 
+            { opacity: 0, y: -30 }, 
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 2,
+                repeat: 0,
+            });
 
         return () => {
             gsap.killTweensOf('.language-switcher');

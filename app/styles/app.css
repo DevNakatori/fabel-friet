@@ -503,6 +503,8 @@ button.reset:hover:not(:has(> *)) {
 }
 
 /* hd */
+
+.header{display: none;}
 a:hover {
     text-decoration: none;
 }
@@ -533,6 +535,7 @@ section {
 
 .hiddenoverflow .rightsidebullets {
     z-index: inherit;
+    
 }
 
 .rightsidebullets {
@@ -541,6 +544,7 @@ section {
     top: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    
 }
 
 .rightsidebullets ul li button {
@@ -682,7 +686,8 @@ section {
     position: fixed;
     z-index: 5;
     right: 16px;
-    top: 38px;
+    top: 12px;
+    display: none;
 }
 
 .language-switcher label {

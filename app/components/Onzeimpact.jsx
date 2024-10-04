@@ -43,53 +43,176 @@ const Onzeimpact = () => {
             0,
         );
 
-
-        gsap.fromTo(
-            '.gradient-purple h4.onzefrienttitle',
-            {
-                opacity: 0,
-                y: 50,
-                scale: 0.5,
+        timelineimpact.to(".fifthesection .wrappertest", {
+            scrollTrigger: {
+                trigger: ".fifthesection",
+                start: "20% 20%",
+                end: "40% 40%",
+                scrub: true,
+                once: false,
             },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                delay: 1,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: '#onzefriendescriptiononzefriet',
-                    start: 'top 80%',
-                    end: 'top 50%',
+            borderRadius: "0vw 0vw 0px 0px",
+            ease: "power1.inOut",
+        });
 
-                    markers: false,
-                },
+        timelineimpact.to(
+            '.section.hero',
+            {
+                scale: 1.1,
+                transformOrigin: 'center center',
+                ease: 'power1.inOut',
             },
+            '<',
         );
 
-        gsap.fromTo(
-            '.gradient-purple p.onzefriendescription',
+
+        const timelineimpactfour = gsap.fromTo(
+            '.gradient-purple h4.onzeimpacttitle',
+            {opacity: 0, y: -30},
             {
-                opacity: 0,
-                scale: 0.5,
-                y: 50,
+              opacity: 1,
+              y: 0,
+              stagger: 0,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1.5,
+              repeat: 0,
+              scrollTrigger: {
+                trigger: '#onzeimpactnonzefriet',
+              },
+            },
+          );
+      
+          const timelineimpactfourp = gsap.fromTo(
+            '.gradient-purple p.onzeimpactdescription',
+            {opacity: 0, y: -30},
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              repeat: 0,
+              scrollTrigger: {
+                trigger: '#onzeimpactnonzefriet',
+              },
+            },
+          );
+
+
+          gsap.fromTo(
+            '.fifthesection .gradient-threebox',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
             },
             {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 2,
-                scrollTrigger: {
-                    trigger: '#onzefriendescriptiononzefriet',
-                    start: 'top 80%',
-                    end: 'top 50%',
-                    markers: false,
-                },
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1,
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: '.fifthesection .gradient-purple',
+                markers: false,
+              },
             },
-        );
+          );
+      
+          gsap.fromTo(
+            '.fifthesection .whitewithvideomainbox',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '.fifthesection .gradient-purple',
+                markers: false,
+              },
+            },
+          );
+      
+          gsap.fromTo(
+            '.fifthesection .whitewithvideomainboxs',
+            {
+              opacity: 0,
+              y: 50,
+              scale: 1,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 2,
+              stagger: 0.3,
+              scrollTrigger: {
+                trigger: '.fifthesection .whitewithvideomainbox',
+                markers: false,
+              },
+            },
+          );
+
+        // gsap.fromTo(
+        //     '.gradient-purple h4.onzefrienttitle',
+        //     {
+        //         opacity: 0,
+        //         y: 50,
+        //         scale: 0.5,
+        //     },
+        //     {
+        //         opacity: 1,
+        //         y: 0,
+        //         scale: 1,
+        //         duration: 1,
+        //         delay: 1,
+        //         ease: 'power2.out',
+        //         scrollTrigger: {
+        //             trigger: '#onzefriendescriptiononzefriet',
+        //             start: 'top 80%',
+        //             end: 'top 50%',
+
+        //             markers: false,
+        //         },
+        //     },
+        // );
+
+        // gsap.fromTo(
+        //     '.gradient-purple p.onzefriendescription',
+        //     {
+        //         opacity: 0,
+        //         scale: 0.5,
+        //         y: 50,
+        //     },
+        //     {
+        //         opacity: 1,
+        //         y: 0,
+        //         scale: 1,
+        //         duration: 1,
+        //         ease: 'power2.out',
+        //         delay: 2,
+        //         scrollTrigger: {
+        //             trigger: '#onzefriendescriptiononzefriet',
+        //             start: 'top 80%',
+        //             end: 'top 50%',
+        //             markers: false,
+        //         },
+        //     },
+        // );
         
         return () => {
             timelineimpact.scrollTrigger.kill();
@@ -125,7 +248,7 @@ const Onzeimpact = () => {
 
 
     return (
-        <section className="panel secondesection" id="section5">
+        <section className="panel fifthesection" id="section5">
             <div className="wrapper-impact">
                 <div className="bannersectinlogo">
                     <img src={bannerlogo}></img>
@@ -148,12 +271,12 @@ const Onzeimpact = () => {
             </div>
             <div className="wrappertest">
                 <section className="section hero"></section>
-                <div className="gradient-purple" id="onzefriendescriptiononzefriet">
+                <div className="gradient-purple" id="onzeimpactnonzefriet">
 
-                    <h4 className="onzefrienttitle">
+                    <h4 className="onzeimpacttitle">
                         {data.contentSection.heading}
                     </h4>
-                    <p className="onzefriendescription" id="lodo">
+                    <p className="onzeimpactdescription">
                         {data.contentSection.description}
                     </p>
                     <div className="gradient-threebox">
@@ -167,7 +290,7 @@ const Onzeimpact = () => {
                     </div>
                     <div className="whitebgbox">
                         <div className='qrcodeimagebox'>
-                            <img src={getImageUrl(data.cardSection.qrImage.asset._ref)} alt="QR Code" />
+                            <img src={getImageUrl(data.cardSection.qrImage.asset._ref)} alt="QR Code" data-speed="auto"/>
                         </div>
                         <div className="whitewithvideomainbox">
                             <div className="leftvideobox">
@@ -195,7 +318,7 @@ const Onzeimpact = () => {
 
                         <div className="whitewithvideomainboxs">
                             <div className="leftvideobox">
-                                <img src={getImageUrl(data.bottomSection.image.asset._ref)} alt="Bottom Section Image" />
+                                <img src={getImageUrl(data.bottomSection.image.asset._ref)} alt="Bottom Section Image" data-speed="auto"/>
                             </div>
                             <div className="righttextbox">
                                 <h3>
@@ -217,7 +340,7 @@ const Onzeimpact = () => {
                                 </div>
                             </div>
                             <div className='binimagebox'>
-                                <img src={getImageUrl(data.bottomSection.sideImage.asset._ref)} alt="Bin Imagebox" />
+                                <img src={getImageUrl(data.bottomSection.sideImage.asset._ref)} alt="Bin Imagebox" data-speed="auto"/>
                             </div>
                         </div>
                         <div className="overlaybannehand-bottoms"></div>
