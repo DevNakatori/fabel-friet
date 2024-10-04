@@ -132,6 +132,7 @@ const HomePage = () => {
         if (video) {
             video.autoplay = true;
             video.addEventListener('ended', () => {
+                
                 video.classList.add('hidden');
                 if (overlayMain) {
                     gsap.fromTo(
