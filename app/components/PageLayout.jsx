@@ -5,22 +5,14 @@ import { Aside } from '~/components/Aside';
 import { Footer } from '~/components/Footer';
 import { Header, HeaderMenu } from '~/components/Header';
 import { CartMain } from '~/components/CartMain';
-import { LanguageProvider } from '~/components/LanguageContext';
-import LanguageSwitcher from '~/components/LanguageSwitcher';
+
 import {
     SEARCH_ENDPOINT,
     SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
 import { SearchResultsPredictive } from '~/components/SearchResultsPredictive';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import HomePage from '~/components/Homepage';
-import Onzefriet from '~/components/Onzefriet';
-import Onzelocaties from '~/components/Onzelocaties';
-import Hetmenu from '~/components/Hetmenu';
-import Onzeimpact from '~/components/Onzeimpact';
-import Getintouch from '~/components/Getintouch';
-import ScrollNav from '~/components/ScrollNav';
+
+
 /**
  * @param {PageLayoutProps}
  */
@@ -46,20 +38,7 @@ export function PageLayout({
                 />
             )}
             <main>
-                <ScrollNav />
-                <LanguageProvider>
-                    <LanguageSwitcher />
-                    <div id="smooth-wrapper">
-                        <div id="smooth-content">
-                            <HomePage />
-                            <Onzefriet />
-                            <Onzelocaties />
-                            <Hetmenu />
-                            <Onzeimpact />
-                            <Getintouch />
-                        </div>
-                    </div>
-                </LanguageProvider>
+                {children}
             </main>
             <Footer
                 footer={footer}
