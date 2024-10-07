@@ -282,6 +282,7 @@ const HomePage = () => {
 
             });
         }
+        
         return () => {
             if (video) {
                 video.removeEventListener('ended', () => { });

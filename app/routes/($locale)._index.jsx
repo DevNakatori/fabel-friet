@@ -89,7 +89,6 @@ export default function Homepage() {
             <Hetmenu />
             <Onzeimpact />
             <Getintouch />
-
           </div>
         </div>
       </LanguageProvider>
