@@ -135,19 +135,19 @@ const HomePage = () => {
                 console.log('video end');
                 video.classList.add('hidden');
                 if (overlayMain) {
-                    // gsap.fromTo(
-                    //     overlayMain,
-                    //     {
-                    //         y: '-100%',
-                    //     },
-                    //     {
-                    //         y: '0%',
-                    //         ease: 'expo.inOut',
-                    //         duration: 2,
-                    //         delay: 0,
-                    //         opacity: 1,
-                    //     },
-                    // );
+                    gsap.fromTo(
+                        overlayMain,
+                        {
+                            y: '-100%',
+                        },
+                        {
+                            y: '0%',
+                            ease: 'expo.inOut',
+                            duration: 2,
+                            delay: 0,
+                            opacity: 1,
+                        },
+                    );
                 }
                 if (overlay) {
                     gsap.to(overlay, {
