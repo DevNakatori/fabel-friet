@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import gsap from 'gsap';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
+import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import {getImageUrl} from '../js/imagesurl';
 import SplitText from 'gsap/SplitText';
@@ -206,8 +207,7 @@ const Getintouch = () => {
               ))}
             </ul>
           </div>
-          <div
-            className="whitebgbox">
+          <div className="whitebgbox">
             <div className="socialtitle">
               <h3
                 data-aos="fade-up"
@@ -480,17 +480,11 @@ const Getintouch = () => {
                 )}
               </div>
             </div>
-
             <div className="overlaybannehand-bottoms"></div>
-            <div className="bottomsection">
-              <div className="scroll-down">
-                <div className="icon-scroll"></div>
-                <p>Scroll down</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
+      <Newfooter />
     </section>
   );
 };
