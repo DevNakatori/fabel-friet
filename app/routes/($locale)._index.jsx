@@ -1,4 +1,5 @@
 import { defer } from '@shopify/remix-oxygen';
+import React, { useEffect, useState } from 'react';
 import { Await, useLoaderData, Link } from '@remix-run/react';
 import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -76,6 +77,17 @@ function loadDeferredData({ context }) {
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
+
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1200,
+      mirror: true,
+      debounceDelay: 50, 
+  throttleDelay: 99,
+     });
+}, []);
+
   return (
     <div className="home">
       <ScrollNav />
@@ -88,7 +100,7 @@ export default function Homepage() {
             <Onzelocaties />
             <Hetmenu />
             <Onzeimpact />
-            <Getintouch />
+            {/* <Getintouch /> */}
           </div>
         </div>
       </LanguageProvider>

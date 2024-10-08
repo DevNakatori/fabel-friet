@@ -130,40 +130,6 @@ const Onzefriet = () => {
 
   /* other text and section animation start */
   useEffect(() => {
-    const onxehfour = gsap.fromTo(
-      '.gradient-purple h4.onzefrienttitle',
-      {opacity: 0, y: -30},
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1,
-        repeat: 0,
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-        },
-      },
-    );
-
-    const onxehfourp = gsap.fromTo(
-      '.gradient-purple p.onzefriendescription',
-      {opacity: 0, y: -30},
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1,
-        repeat: 0,
-        scrollTrigger: {
-          trigger: '#onzefriendescriptiononzefriet',
-        },
-      },
-    );
-
     const list = document.querySelectorAll('.gradient-threebox');
     list.forEach((list) => {
       const items = list.querySelectorAll('ul li');
@@ -266,96 +232,6 @@ const Onzefriet = () => {
           start: 'top 75%',
           end: 'top 25%',
           toggleActions: 'play none none none',
-        },
-      },
-    );
-
-    gsap.to('.leftvideobox', {
-      scrollTrigger: {
-        trigger: '.whitewithvideomainbox',
-        start: 'top top',
-        end: 'bottom top',
-      },
-      x: 0,
-      opacity: 1,
-      ease: 'power1.out',
-      duration: 1,
-    });
-
-    gsap.to('.righttextbox', {
-      scrollTrigger: {
-        trigger: '.whitewithvideomainbox',
-        start: 'top top',
-        end: 'bottom top',
-      },
-      x: 0,
-      opacity: 1,
-      ease: 'power1.out',
-      duration: 1,
-    });
-
-    gsap.fromTo(
-      '.whitewithvideomainbox',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.whitewithvideomainbox',
-          markers: false,
-        },
-      },
-    );
-
-    gsap.fromTo(
-      '.whatpeople-section',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 2,
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '.whatpeople-section',
-          markers: false,
-        },
-      },
-    );
-
-    gsap.fromTo(
-      '.main-accordian',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 3.5,
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '.whatpeople-section',
-          markers: false,
         },
       },
     );
@@ -463,11 +339,23 @@ const Onzefriet = () => {
               {content.contentSection && (
                 <>
                   <div className="line">
-                    <h4 className="onzefrienttitle">
+                    <h4
+                      className="onzefrienttitle"
+                      data-aos="fade-up"
+                      data-aos-anchor-placement="top-center"
+                      data-aos-easing="ease-out-cubic"
+                      data-aos-duration="2000"
+                    >
                       {content.contentSection.heading}
                     </h4>
                   </div>
-                  <p className="onzefriendescription">
+                  <p
+                    className="onzefriendescription"
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-center"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  >
                     {content.contentSection.description}
                   </p>
                 </>
@@ -503,17 +391,34 @@ const Onzefriet = () => {
               <div className="whitebgbox">
                 {content.videoSection && (
                   <div className="whitewithvideomainbox">
-                    <div className="leftvideobox">
+                    <div
+                      className="leftvideobox"
+                      data-aos="fade-left"
+                      data-aos-easing="ease-in-sine"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
                       <div className="leftlogobar">
                         <img src={fabelfrie_tsticker2} alt="img" />
                       </div>
                       <img src={onzie_leftvidep} alt="img" data-speed="auto" />
                     </div>
-                    <div className="righttextbox">
+                    <div
+                      className="righttextbox"
+                      data-aos="fade-right"
+                      data-aos-easing="ease-in-sine"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
                       <h3 id="animated-text">
                         {content.videoSection.videoHandwritingText}
                       </h3>
-                      <img className="arrowimage" src={arrow_blue} alt="img" data-speed="auto" />
+                      <img
+                        className="arrowimage"
+                        src={arrow_blue}
+                        alt="img"
+                        data-speed="auto"
+                      />
                       <h5>{content.videoSection.videoHeading}</h5>
                       <p className="onzeptag">
                         {content.videoSection.videoDescription}
@@ -524,8 +429,21 @@ const Onzefriet = () => {
 
                 {content.reviewSection && (
                   <div className="whatpeople-section">
-                    <h6>{content.reviewSection.reviewHeading}</h6>
-                    <div className="fl-tests">
+                    <h6
+                      data-aos="fade-down"
+                      ddata-aos-easing="linear"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
+                      {content.reviewSection.reviewHeading}
+                    </h6>
+                    <div
+                      className="fl-tests"
+                      data-aos="fade-down"
+                      data-aos-easing="linear"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
                       <Swiper
                         slidesPerView={4}
                         spaceBetween={10}
@@ -559,7 +477,13 @@ const Onzefriet = () => {
                       >
                         {content.reviewSection.reviews.map((review) => (
                           <SwiperSlide key={review._key}>
-                            <div className="module">
+                            <div
+                              className="module"
+                              data-aos="fade"
+                              ddata-aos-easing="linear"
+                              data-aos-offset="500"
+                              data-aos-duration="500"
+                            >
                               <div className="wharpeoplebox">
                                 <p className="onzeptag">
                                   "{review.reviewContent}"
@@ -596,8 +520,21 @@ const Onzefriet = () => {
 
                 {content.accordionSection && (
                   <div className="main-accordian">
-                    <h6>{content.accordionSection.accordionHeading}</h6>
-                    <div className="accordion-container">
+                    <h6
+                      data-aos="fade-down"
+                      ddata-aos-easing="linear"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
+                      {content.accordionSection.accordionHeading}
+                    </h6>
+                    <div
+                      className="accordion-container"
+                      data-aos="fade-down"
+                      ddata-aos-easing="linear"
+                      data-aos-offset="500"
+                      data-aos-duration="500"
+                    >
                       {content.accordionSection.faq.map((faq) => (
                         <div className="accordion-item" key={faq._key}>
                           <button
