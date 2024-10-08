@@ -81,115 +81,6 @@ const Onzelocaties = () => {
       0,
     );
 
-    const locationfour = gsap.fromTo(
-      '.gradient-purple h4.locationtitle',
-      {opacity: 0, y: -30},
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1.5,
-        repeat: 0,
-        scrollTrigger: {
-          trigger: '#locationtiononzefriet',
-        },
-      },
-    );
-
-    const locationfourp = gsap.fromTo(
-      '.gradient-purple p.locationescription',
-      {opacity: 0, y: -30},
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 2,
-        repeat: 0,
-        scrollTrigger: {
-          trigger: '#locationtiononzefriet',
-        },
-      },
-    );
-
-    const leftVideoAnimation = {
-      from: {
-        x: '-50%',
-        autoAlpha: 0,
-      },
-      to: {
-        duration: 0.5,
-        autoAlpha: 1,
-        x: '0%',
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '#section3 .whitewithvideomainbox',
-          start: 'top 80%',
-          end: 'bottom 50%',
-          scrub: 1,
-          once: true,
-        },
-      },
-    };
-
-    const rightTextBoxAnimation = {
-      from: {
-        x: '100%',
-        autoAlpha: 0,
-      },
-      to: {
-        duration: 0.5,
-        x: '0%',
-        autoAlpha: 1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '#section3 .whitewithvideomainbox',
-          start: 'top 80%',
-          end: 'bottom 50%',
-          scrub: 1,
-          once: true,
-        },
-      },
-    };
-
-    gsap.utils.toArray('#section3 .leftvideobox').forEach((locationleft) => {
-      gsap.fromTo(locationleft, leftVideoAnimation.from, leftVideoAnimation.to);
-    });
-
-    gsap.utils.toArray('#section3 .righttextbox').forEach((locationright) => {
-      gsap.fromTo(
-        locationright,
-        rightTextBoxAnimation.from,
-        rightTextBoxAnimation.to,
-      );
-    });
-
-    gsap.fromTo(
-      '.locatebutton',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        delay:2.5,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.locatebutton',
-          start: 'top 80%',
-          end: 'top 50%',
-          markers: false,
-        },
-      },
-    );
-
     return () => {
       timelines.scrollTrigger.kill();
     };
@@ -247,28 +138,72 @@ const Onzelocaties = () => {
           <div className="wrappertest">
             <section className="section hero"></section>
             <div className="gradient-purple" id="locationtiononzefriet">
-              <h4 className="locationtitle">
+              <h4
+                className="locationtitle"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-center"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
                 {locationData.contentSection.heading}
               </h4>
-              <p className="locationescription">
+              <p
+                className="locationescription"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-center"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
                 {locationData.contentSection.description}
               </p>
-              <a href="#" className="locatebutton">
+              <a
+                href="#"
+                className="locatebutton"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-center"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
                 {locationData.contentSection.btn_label}
               </a>
               <div className="whitebgbox">
                 {locationData.locationSection.location.map((loc) => (
                   <div key={loc._key}>
                     <div className="whitewithvideomainbox">
-                      <div className="leftvideobox">
+                      <div
+                        className="leftvideobox"
+                        data-aos="fade-left"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-offset="500"
+                        data-aos-duration="500"
+                      >
                         <img
                           src={getImageUrl(loc.image.asset._ref)}
                           alt={loc.image.alt}
                         />
                       </div>
-                      <div className="righttextbox">
-                        <h5>{loc.locationName}</h5>
-                        <div className="locationmaoaddress">
+                      <div
+                        className="righttextbox"
+                        data-aos="fade-right"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-offset="500"
+                        data-aos-duration="500"
+                      >
+                        <h5
+                          data-aos="fade-up"
+                          data-aos-anchor-placement="top-center"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
+                          {loc.locationName}
+                        </h5>
+                        <div
+                          className="locationmaoaddress"
+                          data-aos="fade-up"
+                          data-aos-anchor-placement="top-center"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
                           <div className="locationicon">
                             <i className="mapicon"></i>
                           </div>
@@ -278,8 +213,22 @@ const Onzelocaties = () => {
                             </ul>
                           </div>
                         </div>
-                        <p>{loc.info}</p>
-                        <a href="#" className="routbtn">
+                        <p
+                          data-aos="fade-up"
+                          data-aos-anchor-placement="top-center"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
+                          {loc.info}
+                        </p>
+                        <a
+                          href="#"
+                          className="routbtn"
+                          data-aos="fade-up"
+                          data-aos-anchor-placement="top-center"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
                           {loc.btn_label}
                         </a>
                       </div>
