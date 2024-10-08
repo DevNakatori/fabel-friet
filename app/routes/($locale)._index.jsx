@@ -100,7 +100,7 @@ export default function Homepage() {
             <Onzelocaties />
             <Hetmenu />
             <Onzeimpact />
-            {/* <Getintouch /> */}
+            <Getintouch />
           </div>
         </div>
       </LanguageProvider>
