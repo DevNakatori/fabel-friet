@@ -129,163 +129,166 @@ const HomePage = () => {
             button: document.querySelector('.banner_bottombtn'),
             rotateText: document.querySelector('.bannerrotate_text'),
         };
+
+        const handleVideoEnd = () => {
+            console.log('video end');
+            video.classList.add('hidden');
+
+            if (overlayMain) {
+                gsap.fromTo(
+                    overlayMain,
+                    { y: '-100%' },
+                    { y: '0%', ease: 'expo.inOut', duration: 2, opacity: 1 }
+                );
+            }
+
+            if (overlay) {
+                gsap.to(overlay, {
+                    duration: 2,
+                    opacity: 1,
+                    ease: 'power2.out',
+                    delay: 0.2,
+                });
+            }
+
+            gsap.to('.overlaybannehand-bottom', {
+                duration: 1.5,
+                bottom: '0px',
+                ease: 'power1.inOut',
+                delay: 0.1,
+                stagger: 0.1,
+            });
+
+            gsap.fromTo(
+                elements.logo,
+                { opacity: 0, y: -50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1, stagger: 0.2 }
+            );
+
+            gsap.fromTo(
+                elements.title,
+                { opacity: 0, y: -50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5, stagger: 0.3 }
+            );
+
+            gsap.fromTo(
+                elements.content,
+                { opacity: 0, y: -50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2, stagger: 0.4 }
+            );
+
+            gsap.fromTo(
+                elements.button,
+                { opacity: 0, y: -50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2.5, stagger: 0.5 }
+            );
+
+            gsap.to('.overlaybannehand-left', {
+                duration: 1,
+                left: '0px',
+                ease: 'power1.inOut',
+                delay: 3,
+                stagger: 0.6,
+            });
+
+            gsap.to('.overlaybannehand-right', {
+                duration: 1,
+                right: '0px',
+                ease: 'power1.inOut',
+                delay: 3,
+                stagger: 0.6,
+            });
+
+            gsap.fromTo(
+                elements.rotateText,
+                { opacity: 0, y: -50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4, stagger: 0.7 }
+            );
+
+            gsap.fromTo(
+                elements.rotateText,
+                { text: '' },
+                {
+                    text: bannerData[0].bannerText,
+                    duration: bannerData[0].bannerText.length * 0.05,
+                    ease: 'none',
+                    delay: 4.5,
+                    stagger: 0.8,
+                }
+            );
+
+            gsap.to('body', { delay: 3.5, onComplete: removeClass });
+
+            gsap.fromTo(
+                '.banner_content_text p span.bold img.imgerasr_one',
+                { y: '-100%' },
+                {
+                    duration: 0.5,
+                    y: '0%',
+                    ease: 'power2.out',
+                    opacity: 1,
+                    delay: 5,
+                }
+            );
+
+            gsap.fromTo(
+                '.banner_content_text p span.bold img.imgerasr_two',
+                { y: '-100%' },
+                {
+                    duration: 0.5,
+                    y: '0%',
+                    ease: 'power2.out',
+                    opacity: 1,
+                    delay: 5.5,
+                }
+            );
+
+            gsap.fromTo(
+                '#target',
+                { drawSVG: '0 0' },
+                {
+                    drawSVG: '100% -175%',
+                    duration: 1,
+                    ease: 'none',
+                    repeat: 0,
+                    delay: 6,
+                }
+            );
+
+            gsap.fromTo(
+                '#target_one',
+                { drawSVG: '0 0' },
+                {
+                    drawSVG: '100% -175%',
+                    duration: 1,
+                    ease: 'none',
+                    repeat: 0,
+                    delay: 6.5,
+                }
+            );
+
+            gsap.fromTo(
+                '.rightsidebullets ul li',
+                { opacity: 0, y: -30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.5,
+                    duration: 1,
+                    ease: 'power2.out',
+                    delay: 5.5,
+                }
+            );
+        };
+
         if (video) {
             video.autoplay = true;
-            video.addEventListener('ended', () => {
-                console.log('video end');
-                video.classList.add('hidden');
-                if (overlayMain) {
-                    gsap.fromTo(
-                        overlayMain,
-                        {
-                            y: '-100%',
-                        },
-                        {
-                            y: '0%',
-                            ease: 'expo.inOut',
-                            duration: 2,
-                            delay: 0,
-                            opacity: 1,
-                        },
-                    );
-                }
-                if (overlay) {
-                    gsap.to(overlay, {
-                        duration: 2,
-                        opacity: 1,
-                        ease: 'power2.out',
-                        delay: 0.2,
-                    });
-                }
-                gsap.to('.overlaybannehand-bottom', {
-                    duration: 1.5,
-                    bottom: '0px',
-                    ease: 'power1.inOut',
-                    delay: 0.1,
-                    stagger: 0.1,
-                });
-                gsap.fromTo(
-                    elements.logo,
-                    { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1, stagger: 0.2 },
-                );
-                gsap.fromTo(
-                    elements.title,
-                    { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 1.5, stagger: 0.3 },
-                );
-                gsap.fromTo(
-                    elements.content,
-                    { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2, stagger: 0.4 },
-                );
-                gsap.fromTo(
-                    elements.button,
-                    { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 2.5, stagger: 0.5 },
-                );
-                gsap.to('.overlaybannehand-left', {
-                    duration: 1,
-                    left: '0px',
-                    ease: 'power1.inOut',
-                    delay: 3,
-                    stagger: 0.6
-                });
-                gsap.to('.overlaybannehand-right', {
-                    duration: 1,
-                    right: '0px',
-                    ease: 'power1.inOut',
-                    delay: 3,
-                    stagger: 0.6
-                });
-                gsap.fromTo(
-                    elements.rotateText,
-                    { opacity: 0, y: -50 },
-                    { opacity: 1, y: 0, duration: 1, ease: 'power2.out', delay: 4, stagger: 0.7 },
-                );
-                gsap.fromTo(
-                    elements.rotateText,
-                    { text: '' },
-                    {
-                        text: bannerData[0].bannerText,
-                        duration: bannerData[0].bannerText.length * 0.05,
-                        ease: 'none',
-                        delay: 4.5,
-                        stagger: 0.8
-                    },
-                );
-                gsap.to('body', { delay: 3.5, onComplete: removeClass });
-
-                gsap.fromTo(
-                    '.banner_content_text p span.bold img.imgerasr_one',
-                    {
-                        y: '-100%',
-                    },
-                    {
-                        duration: 0.5,
-                        y: '0%',
-                        ease: 'power2.out',
-                        opacity: 1,
-                        delay: 5,
-                    },
-                );
-
-                gsap.fromTo(
-                    '.banner_content_text p span.bold img.imgerasr_two',
-                    {
-                        y: '-100%',
-                    },
-                    {
-                        duration: 0.5,
-                        y: '0%',
-                        ease: 'power2.out',
-                        opacity: 1,
-                        delay: 5.5,
-                    },
-                );
-
-                gsap.fromTo(
-                    '#target',
-                    { drawSVG: '0 0' },
-                    {
-                        drawSVG: '100% -175%',
-                        duration: 1,
-                        ease: 'none',
-                        repeat: 0,
-                        delay: 6,
-                    },
-                );
-
-                gsap.fromTo(
-                    '#target_one',
-                    { drawSVG: '0 0' },
-                    {
-                        drawSVG: '100% -175%',
-                        duration: 1,
-                        ease: 'none',
-                        repeat: 0,
-                        delay: 6.5,
-                    },
-                );
-                gsap.fromTo(
-                    '.rightsidebullets ul li',
-                    { opacity: 0, y: -30 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        stagger: 0.5,
-                        duration: 1,
-                        ease: 'power2.out',
-                        delay: 5.5,
-                    },
-                );
-
-            });
+            video.addEventListener('ended', handleVideoEnd);
         }
-        
+
         return () => {
             if (video) {
-                video.removeEventListener('ended', () => { });
+                video.removeEventListener('ended', handleVideoEnd);
             }
         };
     }, [bannerData]);
