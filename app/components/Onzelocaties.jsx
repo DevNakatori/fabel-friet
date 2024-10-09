@@ -87,22 +87,35 @@ const Onzelocaties = () => {
   }, [onzelocaties]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch(
-          `*[_type == "onzelocaties" && language == $lang]`,
-          {lang: language},
-        );
-        console.log('Fetched setOnzelocaties Data:', data);
-        setOnzelocaties(data);
-      } catch (err) {
-        console.error('Error Onzelocat fetching data:', err);
-        setError('Failed to load data');
-      } finally {
+    const fetchDataOnzelocaties = async () => {
+      const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
+      //console.log('onzelocatiesData Cached Data:', cachedData);
+
+      if (cachedData) {
+        setOnzelocaties(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzelocaties" && language == $lang]`,
+            {lang: language},
+          );
+          // console.log('Fetched onzelocatiesData Data:', data);
+          localStorage.setItem(
+            `onzelocatiesData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzelocaties(data);
+        } catch (err) {
+          console.error('Error fetching Onzelocaties data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
-    fetchData();
+    fetchDataOnzelocaties();
   }, [language]);
 
   if (loading) return <p>Loading...</p>;

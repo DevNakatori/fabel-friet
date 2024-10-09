@@ -92,22 +92,34 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch(
-          `*[_type == "onzeimpact" && language == $lang]`,
-          {lang: language},
-        );
-        console.log('Fetched onzeimpact Data:', data);
-        setonzeimpact(data);
-      } catch (err) {
-        console.error('Error fetching onzeimpact data:', err);
-        setError('Failed to load data');
-      } finally {
+    const fetchDataonzeimpactData = async () => {
+      const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
+      //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
+      if (cachedData) {
+        setonzeimpact(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzeimpact" && language == $lang]`,
+            {lang: language},
+          );
+          // console.log('Fetched fetchDataonzeimpactData Data:', data);
+          localStorage.setItem(
+            `onzeimpactData_${language}`,
+            JSON.stringify(data),
+          );
+          setonzeimpact(data);
+        } catch (err) {
+          console.error('Error fetching Onzeimpact data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
-    fetchData();
+    fetchDataonzeimpactData();
   }, [language]);
 
   if (loading) return <p>Loading...</p>;
@@ -168,9 +180,8 @@ const Onzeimpact = () => {
               data-aos-duration="2000"
             >
               {data.imageSection.image.map((img) => (
-                <li>
+                <li key={img._key}>
                   <img
-                    key={img._key}
                     src={getImageUrl(img.image.asset._ref)}
                     alt="Descriptive Alt Text"
                   />

@@ -109,22 +109,32 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch(
-          `*[_type == "hetmenu" && language == $lang]`,
-          {lang: language},
-        );
-        console.log('Fetched sethetmenu Data:', data);
-        sethetmenu(data);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data');
-      } finally {
+    const fetchDatahetmenuData = async () => {
+      const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+      //console.log('fetchDatahetmenuData Cached Data:', cachedData);
+
+      if (cachedData) {
+        sethetmenu(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "hetmenu" && language == $lang]`,
+            {lang: language},
+          );
+          // console.log('Fetched fetchDatahetmenuData Data:', data);
+          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          sethetmenu(data);
+        } catch (err) {
+          console.error('Error fetching Hetmenu data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
-    fetchData();
+    fetchDatahetmenuData();
   }, [language]);
 
   if (loading) return <div>Loading...</div>;

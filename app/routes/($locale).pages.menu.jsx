@@ -1,6 +1,7 @@
 import { json } from '@shopify/remix-oxygen';
 import React, { useState } from 'react';
 import { useLoaderData } from '@remix-run/react';
+import Newfooter from '~/components/Newfooter';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -80,7 +81,9 @@ export default function Page() {
             </section>
             {/* qr code menu footer */}
 
-            <section className="footer"></section>
+            <section className="footer">
+            <Newfooter />
+            </section>
         </div>
     );
 }
