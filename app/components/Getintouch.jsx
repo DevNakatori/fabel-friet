@@ -122,13 +122,13 @@ const Getintouch = () => {
   /* accordian end */
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData_Getintouch = async () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
           {lang: language},
         );
-        console.log('Fetched ongetintouch Data:', data);
+        //console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
       } catch (err) {
         console.error('Error fetching ongetintouch data:', err);
@@ -137,7 +137,7 @@ const Getintouch = () => {
         setLoading(false);
       }
     };
-    fetchData();
+    fetchData_Getintouch();
   }, [language]);
 
   if (loading) return <p>Loading...</p>;
@@ -350,7 +350,7 @@ const Getintouch = () => {
                         viewBox="0 0 39 39"
                         fill="none"
                       >
-                        <g clip-path="url(#clip0_887_340)">
+                        <g clipPath="url(#clip0_887_340)">
                           <mask
                             id="mask0_887_340"
                             style={{maskType: 'luminance'}}
@@ -403,8 +403,9 @@ const Getintouch = () => {
                             data-aos-anchor-placement="top-center"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
+                            key={location._key}
                           >
-                            <p key={location._key}>
+                            <p>
                               <i className="location">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -413,7 +414,7 @@ const Getintouch = () => {
                                   viewBox="0 0 49 49"
                                   fill="none"
                                 >
-                                  <g clip-path="url(#clip0_887_348)">
+                                  <g clipPath="url(#clip0_887_348)">
                                     <path
                                       d="M24.5 3.0625C20.0344 3.06793 15.7533 4.84428 12.5957 8.00192C9.43805 11.1596 7.6617 15.4407 7.65627 19.9062C7.65099 23.5556 8.8432 27.1059 11.05 30.0125C11.05 30.0125 11.5094 30.6166 11.5832 30.7042L23.7373 45.038C24.1367 45.509 24.8633 45.509 25.2627 45.038L37.4222 30.6976C37.4874 30.6194 37.9123 30.0615 37.9477 30.015C37.9495 30.0127 37.9508 30.0107 37.9524 30.0082C40.1578 27.1027 41.3492 23.554 41.3438 19.9062C41.3383 15.4407 39.562 11.1596 36.4044 8.00192C33.2467 4.84428 28.9656 3.06793 24.5 3.0625ZM24.5 26.0312C23.2886 26.0312 22.1044 25.672 21.0972 24.999C20.0899 24.326 19.3048 23.3694 18.8413 22.2502C18.3777 21.131 18.2564 19.8995 18.4927 18.7113C18.729 17.5232 19.3124 16.4318 20.169 15.5752C21.0256 14.7186 22.117 14.1353 23.3051 13.8989C24.4932 13.6626 25.7248 13.7839 26.844 14.2475C27.9632 14.7111 28.9197 15.4961 29.5928 16.5034C30.2658 17.5106 30.625 18.6948 30.625 19.9062C30.6232 21.5301 29.9773 23.087 28.829 24.2353C27.6808 25.3835 26.1239 26.0294 24.5 26.0312Z"
                                       fill="#0D1E4D"

@@ -279,22 +279,35 @@ const Onzefriet = () => {
 
   /* fatch data start */
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch(
-          `*[_type == "onzefriet" && language == $lang]`,
-          {lang: language},
-        );
-        console.log('Fetched setOnzefriet Data:', data);
-        setOnzefriet(data);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data');
-      } finally {
+    const fetchDataonzefriet = async () => {
+      const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+      //console.log('onzefrietData Cached Data:', cachedData);
+
+      if (cachedData) {
+        setOnzefriet(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzefriet" && language == $lang]`,
+            {lang: language},
+          );
+          //console.log('Fetched Onzefriet Data:', data);
+          localStorage.setItem(
+            `onzefrietData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzefriet(data);
+        } catch (err) {
+          console.error('Error fetching data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
-    fetchData();
+    fetchDataonzefriet();
   }, [language]);
   /* fatch data end */
 

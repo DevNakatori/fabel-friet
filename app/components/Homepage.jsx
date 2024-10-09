@@ -28,6 +28,8 @@ const HomePage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [loadings, setLoadings] = useState(true);
+
     const [currentLanguage, setCurrentLanguage] = useState(language);
 
     useEffect(() => {
@@ -43,57 +45,55 @@ const HomePage = () => {
 
     useEffect(() => {
         /* animation start */
-        const smoother = ScrollSmoother.create({
-            smooth: 3,
+        // const smoother = ScrollSmoother.create({
+        //     smooth: 3,
+        //     normalizeScroll: false, 
+        //     ignoreMobileResize: true, 
+        //     effects: true,
+        //     preventDefault: false,
+        // });
+       // smoother.effects('.allfiressections img', { speed: 'auto' });
+
+       const smoother = ScrollSmoother.create({
+            smooth: 1,
             normalizeScroll: false, 
             ignoreMobileResize: true, 
             effects: true,
             preventDefault: false,
         });
-        smoother.effects('.allfiressections img', { speed: 'auto' });
 
         /* animation end */
 
         /* data fatched */
-        const fetchData = async () => {
-            try {
+        const fetchData_HomePage = async () => {
+            const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+            //console.log('homeBannerData Cached Data:', cachedData);
+            if (cachedData) {
+              setBanner(JSON.parse(cachedData));
+              setLoading(false); 
+            } else {
+              try {
+                setLoading(true); 
                 const data = await client.fetch(
-                    `*[_type == "homebanner" && language == $lang]`,
-                    { lang: language },
+                  `*[_type == "homebanner" && language == $lang]`,
+                  {lang: language},
                 );
-                console.log('Fetched setBanner Data:', data);
-                setBanner(data);
-            } catch (err) {
+                // console.log('Fetched Data:', data);
+                localStorage.setItem(
+                  `homeBannerData_${language}`,
+                  JSON.stringify(data),
+                );
+                setBanner(data); 
+              } catch (err) {
                 console.error('Error fetching data:', err);
                 setError('Failed to load data');
-            } finally {
-                setTimeout(() => {
-                    setLoading(false);
-                    const languageSwitchers = document.getElementsByClassName('language-switcher');
-                    if (languageSwitchers.length > 0) {
-                        languageSwitchers[0].style.display = 'block';
-                    }
-                    const header = document.getElementsByClassName('header');
-                    if (header.length > 0) {
-                        header[0].style.display = 'block';
-                    }
-                    gsap.fromTo(
-                        'nav.header-menu-desktop .header-menu-item',
-                        { opacity: 0, y: -30 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            stagger: 0,
-                            duration: 1,
-                            ease: 'power2.out',
-                            delay: 1,
-                            repeat: 0,
-                        },
-                    );
-                }, 0);
+              } finally {
+                setLoading(false); 
+              }
             }
-        };
-        fetchData();
+          };
+      
+          fetchData_HomePage();
     }, [language]);
     /* data fatched */
 
@@ -111,6 +111,30 @@ const HomePage = () => {
                         autoAlpha: 1,
                         ease: "expo.inOut"
                     });
+                    setTimeout(() => {
+                        setLoading(false);
+                        const languageSwitchers = document.getElementsByClassName('language-switcher');
+                        if (languageSwitchers.length > 0) {
+                            languageSwitchers[0].style.display = 'block';
+                        }
+                        const header = document.getElementsByClassName('header');
+                        if (header.length > 0) {
+                            header[0].style.display = 'block';
+                        }
+                        gsap.fromTo(
+                            'nav.header-menu-desktop .header-menu-item',
+                            { opacity: 0, y: -30 },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                stagger: 0,
+                                duration: 1,
+                                ease: 'power2.out',
+                                delay: 1,
+                                repeat: 0,
+                            },
+                        );
+                    }, 0);
                 },
             });
         }
@@ -337,6 +361,7 @@ const HomePage = () => {
             </div>
         );
     if (error) return <div>{error}</div>;
+
     return (
         <section className="bannersection" id="section1">
             <div className="banner_video">
