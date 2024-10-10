@@ -1,7 +1,23 @@
 import {defer} from '@shopify/remix-oxygen';
+import React, {useEffect, useState} from 'react';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
+import {Routes, Route} from 'react-router-dom';
 import {Image, Money} from '@shopify/hydrogen';
+import {LanguageProvider} from '~/components/LanguageContext';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
+
+import 'aos/dist/aos.css';
+import HomePage from '~/components/Homepage';
+import Onzefriet from '~/components/Onzefriet';
+import Onzelocaties from '~/components/Onzelocaties';
+import Hetmenu from '~/components/Hetmenu';
+import Onzeimpact from '~/components/Onzeimpact';
+import Getintouch from '~/components/Getintouch';
+import ScrollNav from '~/components/ScrollNav';
+import AOS from 'aos';
+
+
 
 /**
  * @type {MetaFunction}
@@ -54,7 +70,7 @@ function loadDeferredData({context}) {
       return null;
     });
 
-  return { 
+  return {
     recommendedProducts,
   };
 }
@@ -62,12 +78,45 @@ function loadDeferredData({context}) {
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      duration: 1200,
+      mirror: true,
+      debounceDelay: 50,
+      throttleDelay: 99,
+    });
+  }, []);
+
+ 
+
   return (
     <div className="home">
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+      <ScrollNav />
+      <LanguageProvider>
+        <LanguageSwitcher />
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <HomePage />
+            <Onzefriet />
+            <Onzelocaties />
+            <Hetmenu />
+            <Onzeimpact />
+            <Getintouch />
+          </div>
+        </div>
+      </LanguageProvider>
     </div>
   );
+
+
+  if (loading) {
+    return <div className="loading-spinner">Loading...</div>;
+}
+
+
 }
 
 /**
