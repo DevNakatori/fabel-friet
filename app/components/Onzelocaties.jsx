@@ -5,6 +5,10 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import {Pagination, Autoplay} from 'swiper/modules';
 
 import {getImageUrl} from '../js/imagesurl';
 
@@ -161,7 +165,7 @@ const Onzelocaties = () => {
                 {locationData.contentSection.heading}
               </h4>
               <p
-                className="locationescription"
+                className="locationescription onlydesktop"
                 data-aos="fade-up"
                 data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
@@ -171,7 +175,7 @@ const Onzelocaties = () => {
               </p>
               <a
                 href="#"
-                className="locatebutton"
+                className="locatebutton onlydesktop"
                 data-aos="fade-up"
                 data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
@@ -179,9 +183,98 @@ const Onzelocaties = () => {
               >
                 {locationData.contentSection.btn_label}
               </a>
-              <div className="whitebgbox">
+
+              {/* mobile location slider */}
+              <div className="whitebgbox ">
+                <div className="onlymobile slideraddress">
+                  <Swiper
+                    loop={true}
+                    scrollbar={{
+                      hide: true,
+                    }}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    breakpoints={{
+                      640: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                      },
+                      768: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                      },
+                      1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                      },
+                    }}
+                    modules={[Pagination]}
+                    className="mySwiper"
+                  >
+                    {locationData.locationSection.location.map((loc) => (
+                      <SwiperSlide key={loc._key}>
+                        <div
+                          className="module"
+                          data-aos="fade"
+                          ddata-aos-easing="linear"
+                          data-aos-offset="500"
+                          data-aos-duration="500"
+                        >
+                          <div className="wharpeoplebox">
+                            <h5
+                              data-aos="fade-up"
+                              data-aos-anchor-placement="top-center"
+                              data-aos-easing="ease-out-cubic"
+                              data-aos-duration="2000"
+                            >
+                              {loc.locationName}
+                            </h5>
+
+                            <div className="sliderwhitebg">
+                              <img
+                                src={getImageUrl(loc.image.asset._ref)}
+                                alt={loc.image.alt}
+                              />
+                              <h4>Opening hours</h4>
+                              <p>Mon-Sun: 11:00 - 20:00</p>
+                              <div className="locationmaoaddress">
+                                <div className="locationicon">
+                                  <i className="mapicon"></i>
+                                </div>
+                                <div className="locationaddtext">
+                                  <ul>
+                                    <li>Runstraat 1 | 1016 GJ Amsterdam</li>
+                                  </ul>
+                                </div>
+                              </div>
+
+                              <a href="#" className="routbtn">
+                                {loc.btn_label}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+
+                    <div className="swiper-pagination"></div>
+                    {/* <div className="swiper-scrollbar"></div> */}
+                  </Swiper>
+
+                  <p className='siwprtext'>Swipe to see the locations <i><svg xmlns="http://www.w3.org/2000/svg" width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9" stroke="#EFEBE7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></p>
+                </div>
+                {/* mobile location slider */}
+
                 {locationData.locationSection.location.map((loc) => (
-                  <div key={loc._key}>
+                  <div className="onlydesktop" key={loc._key}>
                     <div className="whitewithvideomainbox">
                       <div
                         className="leftvideobox"

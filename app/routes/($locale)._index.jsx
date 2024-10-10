@@ -99,12 +99,12 @@ export default function Homepage() {
         <LanguageSwitcher />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            <HomePage />
-            <Onzefriet />
-            <Onzelocaties />
-            <Hetmenu />
+              <HomePage />
+              <Onzefriet />
+              <Onzelocaties />
+            {/* <Hetmenu />
             <Onzeimpact />
-            <Getintouch />
+            <Getintouch />  */}
           </div>
         </div>
       </LanguageProvider>
