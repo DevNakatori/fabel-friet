@@ -41,8 +41,10 @@ const Onzefriet = () => {
         start: 'center center',
         end: '+=150%',
         pin: true,
-        scrub: true,
+        scrub: 1,
         markers: false,
+        smoothTouch: 0.1, // reduce smoothness for touch device
+        
       },
     });
 
@@ -458,8 +460,7 @@ const Onzefriet = () => {
                       data-aos-duration="500"
                     >
                       <Swiper
-                        slidesPerView={4}
-                        spaceBetween={10}
+                        
                         loop={true}
                         scrollbar={{
                           hide: true,
@@ -477,12 +478,12 @@ const Onzefriet = () => {
                             spaceBetween: 20,
                           },
                           768: {
-                            slidesPerView: 4,
-                            spaceBetween: 40,
+                            slidesPerView: 2,
+                            spaceBetween: 20,
                           },
                           1024: {
                             slidesPerView: 4,
-                            spaceBetween: 50,
+                            spaceBetween: 40,
                           },
                         }}
                         modules={[Pagination, Autoplay]}

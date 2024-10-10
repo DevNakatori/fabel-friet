@@ -56,10 +56,10 @@ const HomePage = () => {
 
        const smoother = ScrollSmoother.create({
             smooth: 1,
-            normalizeScroll: false, 
-            ignoreMobileResize: true, 
             effects: true,
-            preventDefault: false,
+            smoothTouch: 0.1 ,  
+            normalizeScroll: true, 
+            ignoreMobileResize: true 
         });
 
         /* animation end */

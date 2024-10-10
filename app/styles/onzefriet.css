@@ -1314,3 +1314,239 @@ padding: 100px 50px 0;}
 .line {
     overflow: hidden;
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+
+#section2 .roundimage, #section2 .roundtext {
+    will-change: transform;
+  }
+ 
+  .roundimage {
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url('../assets/resizeimgs/mobilebgblue.png');
+    border-radius: 0%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    background-position: center center;
+}
+.roundtext {
+    position: absolute;
+    max-width: 0vw;
+    max-height: 50vh;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.roundtext h2 {
+    position: absolute;
+    left: -180px;
+    top: 58px;
+    z-index: 1;
+    margin: 0;
+}
+.roundtext h3 {
+    position: absolute;
+    right: -140px;
+    bottom: 45px;
+    margin: 0;
+}
+
+
+.secondesection .gradient-purple h4{font-size: 30px;}
+.secondesection .gradient-purple p {
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 315px;
+    margin: 15px auto;
+}
+.overlaybannehand-bottoms{background-image: url('/app/assets/resizeimgs/mobilepotatos.png');
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;width: calc(100% + 150px);height: 103px;left:0}
+
+    .secondesection .whatpeople-section h6,
+    .secondesection .main-accordian h6{
+        font-size: 20px;
+        line-height: 30px;
+    } 
+    
+    .secondesection .main-accordian h6{
+        margin-bottom: 0;
+    } 
+    
+    .secondesection .fl-tests {
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0 10px;
+    }
+
+    .secondesection .fl-tests .swiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 50px;
+    }
+
+    .secondesection .fl-tests .swiper-pagination-bullet {
+        width: 10px;
+        height: 3px;
+        border-radius: 0;
+    }
+
+    .secondesection .whitebgbox{padding: 0 20px;width: calc(100% + 60px);}
+
+    .secondesection .whatpeople-section {
+        height: auto;
+    }
+
+    .secondesection .fl-tests .swiper-pagination {
+        bottom: 0;
+    }
+    .secondesection .fl-tests .module .wharpeoplebox{box-shadow: none;}
+    .secondesection .accordion-item button.accordion-header{font-size: 12px;line-height: 16px;padding: 15px 0;}
+    .secondesection .gradient-purple .accordion-content p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .secondesection .accordion-header .icon {
+        width: 15px;
+        height: 15px;
+    }
+    .secondesection .whitewithvideomainbox {
+        flex-wrap: wrap;
+        padding-bottom: 40px;
+    }
+
+    .allfiressections img{display: none!important;}
+
+    .secondesection .fl-tests .module .wharpeoplebox p.onzeptag {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .secondesection .whitebgbox .whitewithvideomainbox .leftvideobox {
+        max-width: 874px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+        position: relative;
+    }
+
+    .secondesection .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar {
+        position: absolute;
+        right: -15px;
+        top: -25px;
+        width: 90px;
+    }
+
+    .secondesection .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar img {
+        width: 100%;
+    }
+
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox {
+        max-width: 735px;
+        width: 100%;
+        padding-left: 0;
+        position: relative;
+    }
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h3 {
+        color: #0d1e4d;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        max-width: 110px;
+        margin: 0;
+        margin-left: auto;
+        margin-bottom: 0;
+    }
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h5 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox p {
+        max-width: 736px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        color: #0d1e4d;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 17px;
+        width: 100%;
+        text-align: left;
+        margin: 20px 0 0;
+    }
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage{display: none;}
+
+    .secondesection .main-accordian {
+        padding-top: 35px;
+        padding-bottom: 10px;
+    }
+
+
+    .secondesection .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 280px;
+        margin-left: -50px;
+        margin-right: -50px;
+    }
+    .secondesection .gradient-threebox ul li {
+        width: 45%;
+        height: auto;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .secondesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 13px;
+        top: 0;
+        transform: rotate(-10deg);
+        z-index: 1;
+        width: 50px;
+    }
+
+    .secondesection .wharpeoplebox b{font-size:14px;}
+    .secondesection .star,.secondesection .blackstar{width: 20px;height: 20px;}
+    
+
+    
+
+    .secondesection .gradient-purple .bottomsection .scroll-down p {
+        font-size: 12px;
+        line-height: 14px;
+        max-width: 315px;
+        margin: 5px auto 0;
+    }
+
+}
