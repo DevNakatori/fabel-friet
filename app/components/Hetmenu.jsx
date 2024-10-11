@@ -41,8 +41,64 @@ const Hetmenu = () => {
       ease: 'power1.inOut',
       zIndex: 5,
     });
-    
-    // Other GSAP animations...
+
+    timelineshetmenu.to('.fourthsection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.fourthsection',
+        start: '20% 20%',
+        end: '40% 40%',
+        scrub: true,
+        once: false,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
+
+    timelineshetmenu.to(
+      '.section.hero',
+      {
+        scale: 1.1,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+    timelineshetmenu.to(
+      '.gradient-purple',
+      {
+        scale: 1,
+        borderRadius: 0,
+        ease: 'power3.easeIn',
+        scrollTrigger: {
+          trigger: '.wrappertest',
+          start: 'top top-500',
+          end: 'top top-200',
+        },
+      },
+      0,
+    );
+
+    gsap.fromTo(
+      '#section4 .gradient-threebox-menu',
+      {
+        opacity: 0,
+        y: 50,
+        scale: 1,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 2,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: '#section4 .gradient-purple',
+          markers: false,
+        },
+      },
+    );
 
     return () => {
       timelineshetmenu.scrollTrigger.kill();

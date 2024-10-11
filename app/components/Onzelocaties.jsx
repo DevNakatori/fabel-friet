@@ -269,7 +269,7 @@ const Onzelocaties = () => {
                     {/* <div className="swiper-scrollbar"></div> */}
                   </Swiper>
 
-                  <p className='siwprtext'>Swipe to see the locations <i><svg xmlns="http://www.w3.org/2000/svg" width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9" stroke="#EFEBE7" stroke-linecap="round" stroke-linejoin="round"/></svg></i></p>
+                  <p className='siwprtext'>Swipe to see the locations <i><svg xmlns="http://www.w3.org/2000/svg" width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9" stroke="#EFEBE7" strokeLinecap="round" strokeLinejoin="round"/></svg></i></p>
                 </div>
                 {/* mobile location slider */}
 

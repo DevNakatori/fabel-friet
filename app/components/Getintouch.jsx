@@ -83,6 +83,116 @@ const Getintouch = () => {
     };
   }, [getIntouch]);
 
+  useEffect(() => {
+    const list = document.querySelectorAll('.gradient-threebox');
+    list.forEach((list) => {
+      const items = list.querySelectorAll('ul li');
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+      const middleItem = items[1];
+
+      const onzefritthreeimagecenter = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.wrappertest',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimagecenter
+        .fromTo(
+          middleItem,
+          {bottom: '-55vh', rotation: 0, opacity: 0},
+          {
+            //bottom: '0vh',
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(middleItem, {
+          rotation: 0,
+          bottom: '0vh',
+          duration: 1,
+          opacity: 1,
+          delay: 0,
+        });
+
+      const onzefritthreeimageleft = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.gradient-purple',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimageleft
+        .fromTo(
+          firstItem,
+          {left: '-50vw', rotation: 0, opacity: 0},
+          {
+            left: '-9vw',
+            opacity: 1,
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(firstItem, {
+          // left: '-10vw',
+          rotation: -8,
+          duration: 1,
+          delay: 1,
+        });
+
+      const onzefritthreeimageright = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.gradient-purple',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimageright
+        .fromTo(
+          lastItem,
+          {right: '-50vw', rotation: 0, opacity: 0},
+          {
+            right: '-9vw',
+            opacity: 1,
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(lastItem, {
+          // right: '-10vw',
+          rotation: 8,
+          duration: 1,
+          delay: 1,
+        });
+    });
+
+    const textContent = 'lekkerste friet van Amsterdam!';
+    const textLength = textContent.length;
+    const duration = textLength * 0.05;
+    gsap.fromTo(
+      '#animated-text',
+      {text: ''},
+      {
+        text: textContent,
+        duration: duration,
+        ease: 'none',
+        delay: 2,
+        scrollTrigger: {
+          trigger: '.whitewithvideomainbox',
+          start: 'top 75%',
+          end: 'top 25%',
+          toggleActions: 'play none none none',
+        },
+      },
+    );
+
+    /* other text and section animation end */
+  }, [getIntouch]);
+
   /* accordian start */
   const toggleAccordion = (e) => {
     const trigger = e.currentTarget;
@@ -268,6 +378,7 @@ const Getintouch = () => {
               data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
+              className="onlydesktop"
             >
               {contactSection.heading}
             </h4>
@@ -278,7 +389,19 @@ const Getintouch = () => {
                 data-aos-easing="ease-in-sine"
                 data-aos-offset="500"
                 data-aos-duration="500"
-              ></div>
+              >
+                <h4
+                  data-aos="fade-up"
+                  data-aos-anchor-placement="top-center"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  className="onlymobile"
+                >
+                  {contactSection.heading}
+                </h4>
+
+                <div className="leftvideoboxinner"></div>
+              </div>
               <div
                 className="righttextbox"
                 data-aos="fade-right"
