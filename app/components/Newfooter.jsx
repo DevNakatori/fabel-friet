@@ -2,17 +2,18 @@ import React, {useEffect, useState} from 'react';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
-
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import '../styles/newfooter.css';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 
 import {getImageUrl} from '../js/imagesurl';
+gsap.registerPlugin(ScrollTrigger);
 
 const Newfooter = () => {
   return (
     <section className="newfooter">
       <div className="newcontainer">
-        <div className="footerlogo">
+        <div className="footerlogo onlydesktop">
           <img src={bannerlogo} alt="logo" />
         </div>
         <div className="allmenulist">
@@ -134,6 +135,9 @@ const Newfooter = () => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="footerlogo onlymobile">
+          <img src={bannerlogo} alt="logo" />
         </div>
       </div>
     </section>

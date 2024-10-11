@@ -266,11 +266,16 @@
 .sixthsection .whitewithvideomainboxss .leftvideobox {
     max-width: 832px;
     width: 45%;
-    height: 454px;
+
     flex-shrink: 0;
+
+}
+
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner {
     border-radius: 30px;
     background: #0D1E4D;
     box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
+    height: 454px;
 }
 
 
@@ -406,7 +411,9 @@ a.Whatsappbtn {
     font-size: 37px;
 }
 
-.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:last-child:after{display: none;}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:last-child:after {
+    display: none;
+}
 
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele {
     display: inline-block;
@@ -463,8 +470,10 @@ a.Whatsappbtn:before {
 }
 
 
-.sixthsection .roundtext-getintouch h2, 
-.sixthsection .roundtext-getintouch h3{line-height: 120%;}
+.sixthsection .roundtext-getintouch h2,
+.sixthsection .roundtext-getintouch h3 {
+    line-height: 120%;
+}
 
 
 
@@ -495,6 +504,328 @@ a.Whatsappbtn:before {
     height: 800px;
 }
 
-.sixthsection .gradient-purple h4{opacity: 1;}
+.sixthsection .gradient-purple h4 {
+    opacity: 1;
+}
 
-.sixthsection .gradient-threebox ul li{height: auto;}
+.sixthsection .gradient-threebox ul li {
+    height: auto;
+}
+
+.locationbox ul li p {
+    color: #0D1E4D;
+    font-family: "Work Sans";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    width: 100%;
+    margin: 0px 0;
+}
+
+
+@media (max-width: 767px) {
+
+    #section6 .roundimage,
+    #section6 .roundtext {
+        will-change: transform;
+    }
+
+    .roundimage-getintouch {
+        max-width: 100%;
+        max-height: 100%;
+        background-image: url('../assets/resizeimgs/mobilebgblue.png');
+        border-radius: 0%;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 1;
+        background-position: center center;
+    }
+
+    .roundtext-getintouch {
+        position: absolute;
+        max-width: 0vw;
+        max-height: 50vh;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    .roundtext-getintouch h2 {
+        position: absolute;
+        left: -180px;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+
+    .roundtext-getintouch h3 {
+        position: absolute;
+        right: -140px;
+        bottom: 45px;
+        margin: 0;
+    }
+
+    .sixthsection .whitebgbox {
+        padding: 0 20px;
+        width: calc(100% + 60px);
+        padding-top: 130px;
+    }
+
+    .sixthsection .main-accordian {
+        padding-top: 35px;
+        padding-bottom: 10px;
+    }
+
+    .sixthsection .main-accordian h6 {
+        margin-bottom: 0;
+    }
+
+    .sixthsection .whatpeople-section h6,
+    .sixthsection .main-accordian h6,
+    .sixthsection .locationbox h5 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .sixthsection .gradient-purple .whitebgbox h4 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 15px;
+    }
+
+    .sixthsection .accordion-item button.accordion-header {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 15px 0;
+        width: 90%;
+    }
+
+    .locationbox p i.location {
+        width: 19px;
+        height: 24px;
+        display: flex;
+        margin-right: 10px;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .locationbox p i.location svg {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+
+    .sixthsection .locationbox p {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        max-width: 300px;
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        align-content: flex-start;
+
+    }
+
+    .sixthsection .accordion-header .icon {
+        width: 15px;
+        height: 15px;
+        right: -10%;
+    }
+
+    .sixthsection .gradient-purple .accordion-content p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .overlaybannehand-bottoms {
+        background-image: url('/app/assets/resizeimgs/mobilepotatos.png');
+        background-repeat: no-repeat no-repeat;
+        background-position: center center;
+        width: calc(100% + 150px);
+        height: 103px;
+        left: 0
+    }
+
+
+    .sixthsection .whitebgbox .whitewithvideomainboxss {
+        flex-wrap: wrap;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox {
+
+        width: 100%;
+
+    }
+
+    .sixthsection .whitewithvideomainboxss .leftvideobox {
+
+        width: 100%;
+        order: 2;
+
+    }
+
+    .locationbox ul li {
+        margin-bottom: 16px;
+    }
+
+    .locationbox h5 {
+        margin-bottom: 15px;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        border-bottom: solid 1px #0D1E4D;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li {
+        color: #0D1E4D;
+        font-family: "Work Sans";
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 0 0 15px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+        margin: 0 10px 0 0;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .sixthsection .gradient-purple .whitebgbox h4 {
+
+        margin: 15px auto;
+        border-top: solid 1px #0D1E4D;
+        padding-top: 15px;
+
+    }
+
+    a.Whatsappbtn {
+        width: 142px;
+        height: 20px;
+        flex-shrink: 0;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text {
+        font-size: 20px;
+        width: 250px;
+        margin-bottom: -10px;
+    }
+
+    .bottomwhatsapp {
+        border-bottom: solid 1px #0D1E4D;
+        padding-bottom: 0;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .bottomwhatsapp a.Whatsappbtn {
+        margin: 15px 0;
+    }
+
+    .socialiconlist ul li a {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+    }
+
+    .Insta:after,
+    .Whatsapp:after,
+    .Twitter:after,
+    .Tiktok:after,
+    .Facebook:after,
+    .Linkedin:after {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sixthsection .whitebgbox .socialtitle h3 {
+        margin: 15px 0;
+        font-size: 20px;
+        line-height: 29px;
+    }
+
+
+    .sixthsection .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 430px;
+        margin-left: -50px;
+        margin-right: -50px;
+    }
+
+    .sixthsection .gradient-threebox ul li {
+        width: 45%;
+        height: auto;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sixthsection .gradient-purple p {
+        font-size: 12px;
+        line-height: 14px;
+        max-width: 315px;
+        margin: 15px 0;
+    }
+
+    .sixthsection .gradient-purple h4 {
+        font-size: 30px;
+    }
+
+    .sixthsection .socialiconlist ul {
+        max-width: 605px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+
+    #section6 .wrappertest {
+        padding-top: 30px;
+    }
+}

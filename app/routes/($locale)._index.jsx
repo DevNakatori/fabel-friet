@@ -6,7 +6,6 @@ import {Routes, Route} from 'react-router-dom';
 import {Image, Money} from '@shopify/hydrogen';
 import {LanguageProvider} from '~/components/LanguageContext';
 import LanguageSwitcher from '~/components/LanguageSwitcher';
-
 import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
 import Onzefriet from '~/components/Onzefriet';
@@ -16,9 +15,12 @@ import Onzeimpact from '~/components/Onzeimpact';
 import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 import AOS from 'aos';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-
-
+gsap.registerPlugin(
+  ScrollTrigger
+);
 /**
  * @type {MetaFunction}
  */
@@ -80,6 +82,7 @@ export default function Homepage() {
   const data = useLoaderData();
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -90,21 +93,111 @@ export default function Homepage() {
     });
   }, []);
 
+
+  useEffect(() => {
+
+
+      // const app = () => {
+      //   let Sections = gsap.utils.toArray("section");
+        
+      //   const getTotalWidth = () => {
+      //     let width = 0;
+      //     Sections.forEach(el => (width += el.offsetWidth));
+      //     return width;
+      //   };
+        
+      //   let snap;
+        
+      //   gsap.to(Sections, {
+      //     x: () => -getTotalWidth() + window.innerWidth,
+      //     ease: "none",
+      //     scrollTrigger: {
+      //       trigger: "#smooth-wrapper",
+      //       pin: false,
+      //       start: 0,
+      //       end: () =>
+      //         "+=" + (document.querySelector("#smooth-wrapper").scrollWidth - window.innerWidth),
+      //       invalidateOnRefresh: true,
+      //       onRefresh() {
+      //         let totalWidth = getTotalWidth(),
+      //           accumulatedWidth = 0,
+      //           progressArray = Sections.map(el => {
+      //             accumulatedWidth += el.offsetWidth;
+      //             return accumulatedWidth / totalWidth;
+      //           });
+      //         progressArray.unshift(0);
+      //         snap = gsap.utils.snap(progressArray);
+      //       },
+      //       scrub: true,
+      //       markers: false,
+      //     },
+      //   });
+  
+      //   gsap.to("progress", {
+      //     value: 100,
+      //     ease: "none",
+      //     scrollTrigger: { scrub: 0.3 },
+      //   });
+      // };
+  
+      // app();
+  
+      // Clean up GSAP instances on component unmount
+      // return () => {
+      //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // };
+    
+    // gsap.to('progress', {
+    //   value: 100,
+    //   ease: 'none',
+    //   scrollTrigger: { scrub: 0.3 }
+    // });
+  }, []);
+
+
+  const [showHomePage, setShowHomePage] = useState(false);
+  const [showOnzefriet, setShowOnzefriet] = useState(false);
+  const [showOnzelocaties, setShowOnzelocaties] = useState(false);
+  const [showHetmenu, setShowHetmenu] = useState(false);
+  const [showOnzeimpact, setShowOnzeimpact] = useState(false);
+  const [showGetintouch, setShowGetintouch] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShowHomePage(true), 1000); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 2000); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 3000); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 4000); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 5000); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 6000); // show after 6 seconds
+  }, []);
+
  
 
   return (
     <div className="home">
+      {/* <progress max="100" value="0"></progress> */}
       <ScrollNav />
       <LanguageProvider>
         <LanguageSwitcher />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-              <HomePage />
+              {/* <HomePage />
               <Onzefriet />
-              <Onzelocaties />
-            {/* <Hetmenu />
+              <Onzelocaties /> */}
+              {/* <Hetmenu />
             <Onzeimpact />
             <Getintouch />  */}
+            
+            
+            {showHomePage && <HomePage />}
+        {showOnzefriet && <Onzefriet />}
+        {showOnzelocaties && <Onzelocaties />}
+        {showHetmenu && <Hetmenu />}
+        {showOnzeimpact && <Onzeimpact />}
+        {showGetintouch && <Getintouch />}
+
+
+            
           </div>
         </div>
       </LanguageProvider>
