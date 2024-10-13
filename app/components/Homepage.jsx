@@ -113,28 +113,6 @@ const HomePage = () => {
           });
           setTimeout(() => {
             setLoading(false);
-            const languageSwitchers =
-              document.getElementsByClassName('language-switcher');
-            if (languageSwitchers.length > 0) {
-              languageSwitchers[0].style.display = 'block';
-            }
-            const header = document.getElementsByClassName('header');
-            if (header.length > 0) {
-              header[0].style.display = 'block';
-            }
-            gsap.fromTo(
-              'nav.header-menu-desktop .header-menu-item',
-              {opacity: 0, y: -30},
-              {
-                opacity: 1,
-                y: 0,
-                stagger: 0,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 1,
-                repeat: 0,
-              },
-            );
           }, 0);
         },
       });
@@ -159,11 +137,35 @@ const HomePage = () => {
       console.log('video end');
       video.classList.add('hidden');
 
+
+      const languageSwitchers =
+              document.getElementsByClassName('language-switcher');
+            if (languageSwitchers.length > 0) {
+              languageSwitchers[0].style.display = 'block';
+            }
+            const header = document.getElementsByClassName('header');
+            if (header.length > 0) {
+              header[0].style.display = 'block';
+            }
+            gsap.fromTo(
+              'nav.header-menu-desktop .header-menu-item',
+              {opacity: 0, y: -30},
+              {
+                opacity: 1,
+                y: 0,
+                stagger: 0.2,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 1,
+                repeat: 0,
+              },
+            );
+
       if (overlayMain) {
         gsap.fromTo(
           overlayMain,
           {y: '-100%'},
-          {y: '0%', ease: 'expo.inOut', duration: 2, opacity: 1},
+          {y: '0%', ease: 'expo.inOut', duration: 1, opacity: 1},
         );
       }
 

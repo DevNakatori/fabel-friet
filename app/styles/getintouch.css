@@ -525,6 +525,11 @@ a.Whatsappbtn:before {
 }
 
 
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg {
+    width: 100%;
+    height: 100%;
+}
+
 @media (max-width: 767px) {
 
     #section6 .roundimage,

@@ -18,9 +18,7 @@ import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(
-  ScrollTrigger
-);
+gsap.registerPlugin(ScrollTrigger);
 /**
  * @type {MetaFunction}
  */
@@ -82,7 +80,6 @@ export default function Homepage() {
   const data = useLoaderData();
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     AOS.init({
       once: true,
@@ -93,67 +90,56 @@ export default function Homepage() {
     });
   }, []);
 
-
   useEffect(() => {
-
-
-      // const app = () => {
-      //   let Sections = gsap.utils.toArray("section");
-        
-      //   const getTotalWidth = () => {
-      //     let width = 0;
-      //     Sections.forEach(el => (width += el.offsetWidth));
-      //     return width;
-      //   };
-        
-      //   let snap;
-        
-      //   gsap.to(Sections, {
-      //     x: () => -getTotalWidth() + window.innerWidth,
-      //     ease: "none",
-      //     scrollTrigger: {
-      //       trigger: "#smooth-wrapper",
-      //       pin: false,
-      //       start: 0,
-      //       end: () =>
-      //         "+=" + (document.querySelector("#smooth-wrapper").scrollWidth - window.innerWidth),
-      //       invalidateOnRefresh: true,
-      //       onRefresh() {
-      //         let totalWidth = getTotalWidth(),
-      //           accumulatedWidth = 0,
-      //           progressArray = Sections.map(el => {
-      //             accumulatedWidth += el.offsetWidth;
-      //             return accumulatedWidth / totalWidth;
-      //           });
-      //         progressArray.unshift(0);
-      //         snap = gsap.utils.snap(progressArray);
-      //       },
-      //       scrub: true,
-      //       markers: false,
-      //     },
-      //   });
-  
-      //   gsap.to("progress", {
-      //     value: 100,
-      //     ease: "none",
-      //     scrollTrigger: { scrub: 0.3 },
-      //   });
-      // };
-  
-      // app();
-  
-      // Clean up GSAP instances on component unmount
-      // return () => {
-      //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      // };
-    
+    // const app = () => {
+    //   let Sections = gsap.utils.toArray("section");
+    //   const getTotalWidth = () => {
+    //     let width = 0;
+    //     Sections.forEach(el => (width += el.offsetWidth));
+    //     return width;
+    //   };
+    //   let snap;
+    //   gsap.to(Sections, {
+    //     x: () => -getTotalWidth() + window.innerWidth,
+    //     ease: "none",
+    //     scrollTrigger: {
+    //       trigger: "#smooth-wrapper",
+    //       pin: false,
+    //       start: 0,
+    //       end: () =>
+    //         "+=" + (document.querySelector("#smooth-wrapper").scrollWidth - window.innerWidth),
+    //       invalidateOnRefresh: true,
+    //       onRefresh() {
+    //         let totalWidth = getTotalWidth(),
+    //           accumulatedWidth = 0,
+    //           progressArray = Sections.map(el => {
+    //             accumulatedWidth += el.offsetWidth;
+    //             return accumulatedWidth / totalWidth;
+    //           });
+    //         progressArray.unshift(0);
+    //         snap = gsap.utils.snap(progressArray);
+    //       },
+    //       scrub: true,
+    //       markers: false,
+    //     },
+    //   });
+    //   gsap.to("progress", {
+    //     value: 100,
+    //     ease: "none",
+    //     scrollTrigger: { scrub: 0.3 },
+    //   });
+    // };
+    // app();
+    // Clean up GSAP instances on component unmount
+    // return () => {
+    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // };
     // gsap.to('progress', {
     //   value: 100,
     //   ease: 'none',
     //   scrollTrigger: { scrub: 0.3 }
     // });
   }, []);
-
 
   const [showHomePage, setShowHomePage] = useState(false);
   const [showOnzefriet, setShowOnzefriet] = useState(false);
@@ -171,8 +157,6 @@ export default function Homepage() {
     setTimeout(() => setShowGetintouch(true), 6000); // show after 6 seconds
   }, []);
 
- 
-
   return (
     <div className="home">
       {/* <progress max="100" value="0"></progress> */}
@@ -181,35 +165,21 @@ export default function Homepage() {
         <LanguageSwitcher />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-              {/* <HomePage />
-              <Onzefriet />
-              <Onzelocaties /> */}
-              {/* <Hetmenu />
-            <Onzeimpact />
-            <Getintouch />  */}
-            
-            
             {showHomePage && <HomePage />}
-        {showOnzefriet && <Onzefriet />}
-        {showOnzelocaties && <Onzelocaties />}
-        {showHetmenu && <Hetmenu />}
-        {showOnzeimpact && <Onzeimpact />}
-        {showGetintouch && <Getintouch />}
-
-
-            
+            {showOnzefriet && <Onzefriet />}
+            {showOnzelocaties && <Onzelocaties />}
+            {showHetmenu && <Hetmenu />}
+            {showOnzeimpact && <Onzeimpact />}
+            {showGetintouch && <Getintouch />}
           </div>
         </div>
       </LanguageProvider>
     </div>
   );
 
-
   if (loading) {
     return <div className="loading-spinner">Loading...</div>;
-}
-
-
+  }
 }
 
 /**
