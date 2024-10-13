@@ -412,4 +412,67 @@
         bottom: 30px;
         margin: 0;
     }
+
+
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox {
+        width: 100%;
+        padding-left: 0;
+        margin-bottom: 0;
+        top: 0;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .fourthsection .whitewithvideomainbox {
+        padding: 0px 20px 0;
+        width: calc(100% + 60px);
+    }
+    .fourthsection .whitewithvideomainbox {
+        padding: 0px 20px 0;
+        width: calc(100% + 100px);
+        margin: 0 -50px;
+        flex-wrap: wrap;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
+        right: -20px;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {
+        font-size: 16px;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p,
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{display: none;}
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5 {
+        margin-bottom: 0;
+        line-height: 15px;
+    }
+
+    .fourthsection .gradient-purple h4 {
+        font-size: 30px;
+    }
+    .fourthsection .gradient-purple p {
+        font-size: 12px;
+        line-height: 14px;
+        max-width: 315px;
+        margin: 15px 0;
+    }
+
+
+    
 }

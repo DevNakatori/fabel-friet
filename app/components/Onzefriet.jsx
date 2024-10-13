@@ -44,28 +44,15 @@ const Onzefriet = () => {
         scrub: 1,
         markers: false,
         smoothTouch: 0.1, // reduce smoothness for touch device
-        
       },
     });
 
     timelinesonzefriet.to('#section2 .roundimage, #section2 .roundtext', {
-      scale: 4,
+      scale: 2.5,
       z: 350,
       transformOrigin: 'center center',
       ease: 'power1.inOut',
       zIndex: 5,
-    });
-
-    timelinesonzefriet.to('.secondesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.secondesection',
-        start: '10% 10%',
-        end: '30% 30%',
-        scrub: true,
-        once: true,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
     });
 
     timelinesonzefriet.to(
@@ -86,12 +73,24 @@ const Onzefriet = () => {
         ease: 'power3.easeIn',
         scrollTrigger: {
           trigger: '#section2 .wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
+          start: 'top top-100',
+          end: 'top top-300',
         },
       },
       0, // Start this animation at the same time as the previous one
     );
+
+    timelinesonzefriet.to('.secondesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.secondesection',
+        start: '10% 10%',
+        end: '30% 30%',
+        scrub: true,
+        once: true,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
 
     gsap.fromTo(
       '.allfiressections img',
@@ -357,7 +356,6 @@ const Onzefriet = () => {
                     <h4
                       className="onzefrienttitle"
                       data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -367,7 +365,6 @@ const Onzefriet = () => {
                   <p
                     className="onzefriendescription"
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -404,169 +401,167 @@ const Onzefriet = () => {
               </div>
 
               <div className="whitebgbox">
-                {content.videoSection && (
-                  <div className="whitewithvideomainbox">
-                    <div
-                      className="leftvideobox"
-                      data-aos="fade-left"
-                      data-aos-easing="ease-in-sine"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      <div className="leftlogobar">
-                        <img src={fabelfrie_tsticker2} alt="img" />
-                      </div>
-                      <img src={onzie_leftvidep} alt="img" data-speed="auto" />
-                    </div>
-                    <div
-                      className="righttextbox"
-                      data-aos="fade-right"
-                      data-aos-easing="ease-in-sine"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      <h3 id="animated-text">
-                        {content.videoSection.videoHandwritingText}
-                      </h3>
-                      <img
-                        className="arrowimage"
-                        src={arrow_blue}
-                        alt="img"
-                        data-speed="auto"
-                      />
-                      <h5>{content.videoSection.videoHeading}</h5>
-                      <p className="onzeptag">
-                        {content.videoSection.videoDescription}
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {content.reviewSection && (
-                  <div className="whatpeople-section">
-                    <h6
-                      data-aos="fade-down"
-                      ddata-aos-easing="linear"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      {content.reviewSection.reviewHeading}
-                    </h6>
-                    <div
-                      className="fl-tests"
-                      data-aos="fade-down"
-                      data-aos-easing="linear"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      <Swiper
-                        
-                        loop={true}
-                        scrollbar={{
-                          hide: true,
-                        }}
-                        pagination={{
-                          clickable: true,
-                        }}
-                        autoplay={{
-                          delay: 2500,
-                          disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                          640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                          },
-                          768: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                          },
-                          1024: {
-                            slidesPerView: 4,
-                            spaceBetween: 40,
-                          },
-                        }}
-                        modules={[Pagination, Autoplay]}
-                        className="mySwiper"
+                <div className="appcontainers">
+                  {content.videoSection && (
+                    <div className="whitewithvideomainbox">
+                      <div
+                        className="leftvideobox"
+                        data-aos="fade-left"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="500"
                       >
-                        {content.reviewSection.reviews.map((review) => (
-                          <SwiperSlide key={review._key}>
-                            <div
-                              className="module"
-                              data-aos="fade"
-                              ddata-aos-easing="linear"
-                              data-aos-offset="500"
-                              data-aos-duration="500"
-                            >
-                              <div className="wharpeoplebox">
-                                <p className="onzeptag">
-                                  "{review.reviewContent}"
-                                </p>
-                                <b>-{review.reviewCustName}</b>
-                                <ul className="starrating">
-                                  <li>
-                                    <i className="star"></i>
-                                  </li>
-                                  <li>
-                                    <i className="star"></i>
-                                  </li>
-                                  <li>
-                                    <i className="star"></i>
-                                  </li>
-                                  <li>
-                                    <i className="star"></i>
-                                  </li>
-                                  <li>
-                                    <i className="blackstar"> </i>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </SwiperSlide>
-                        ))}
-
-                        <div className="swiper-pagination"></div>
-                        {/* <div className="swiper-scrollbar"></div> */}
-                      </Swiper>
-                    </div>
-                  </div>
-                )}
-
-                {content.accordionSection && (
-                  <div className="main-accordian">
-                    <h6
-                      data-aos="fade-down"
-                      ddata-aos-easing="linear"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      {content.accordionSection.accordionHeading}
-                    </h6>
-                    <div
-                      className="accordion-container"
-                      data-aos="fade-down"
-                      ddata-aos-easing="linear"
-                      data-aos-offset="500"
-                      data-aos-duration="500"
-                    >
-                      {content.accordionSection.faq.map((faq) => (
-                        <div className="accordion-item" key={faq._key}>
-                          <button
-                            className="accordion-header"
-                            onClick={toggleAccordion}
-                          >
-                            {faq.question}
-                            <span className="icon"></span>
-                          </button>
-                          <div className="accordion-content">
-                            <p>{faq.answer}</p>
-                          </div>
+                        <div className="leftlogobar">
+                          <img src={fabelfrie_tsticker2} alt="img" />
                         </div>
-                      ))}
+                        <img
+                          src={onzie_leftvidep}
+                          alt="img"
+                          data-speed="auto"
+                        />
+                      </div>
+                      <div
+                        className="righttextbox"
+                        data-aos="fade-right"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="500"
+                      >
+                        <h3 id="animated-text">
+                          {content.videoSection.videoHandwritingText}
+                        </h3>
+                        <img
+                          className="arrowimage"
+                          src={arrow_blue}
+                          alt="img"
+                          data-speed="auto"
+                        />
+                        <h5>{content.videoSection.videoHeading}</h5>
+                        <p className="onzeptag">
+                          {content.videoSection.videoDescription}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
+                  {content.reviewSection && (
+                    <div className="whatpeople-section">
+                      <h6
+                        data-aos="fade-down"
+                        ddata-aos-easing="linear"
+                        data-aos-duration="500"
+                      >
+                        {content.reviewSection.reviewHeading}
+                      </h6>
+                      <div
+                        className="fl-tests"
+                        data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="500"
+                      >
+                        <Swiper
+                          loop={true}
+                          scrollbar={{
+                            hide: true,
+                          }}
+                          pagination={{
+                            clickable: true,
+                          }}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
+                          breakpoints={{
+                            640: {
+                              slidesPerView: 2,
+                              spaceBetween: 20,
+                            },
+                            768: {
+                              slidesPerView: 2,
+                              spaceBetween: 20,
+                            },
+                            1024: {
+                              slidesPerView: 4,
+                              spaceBetween: 40,
+                            },
+                          }}
+                          modules={[Pagination, Autoplay]}
+                          className="mySwiper"
+                        >
+                          {content.reviewSection.reviews.map((review) => (
+                            <SwiperSlide key={review._key}>
+                              <div
+                                className="module"
+                                data-aos="fade"
+                                ddata-aos-easing="linear"
+                                data-aos-duration="500"
+                              >
+                                <div className="wharpeoplebox">
+                                  <p className="onzeptag">
+                                    "{review.reviewContent}"
+                                  </p>
+                                  <b>-{review.reviewCustName}</b>
+                                  <ul className="starrating">
+                                    <li>
+                                      <i className="star"></i>
+                                    </li>
+                                    <li>
+                                      <i className="star"></i>
+                                    </li>
+                                    <li>
+                                      <i className="star"></i>
+                                    </li>
+                                    <li>
+                                      <i className="star"></i>
+                                    </li>
+                                    <li>
+                                      <i className="blackstar"> </i>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </SwiperSlide>
+                          ))}
+
+                          <div className="swiper-pagination"></div>
+                          {/* <div className="swiper-scrollbar"></div> */}
+                        </Swiper>
+                      </div>
+                    </div>
+                  )}
+
+                  {content.accordionSection && (
+                    <div className="main-accordian">
+                      <h6
+                        data-aos="fade-down"
+                        ddata-aos-easing="linear"
+                        data-aos-duration="500"
+                      >
+                        {content.accordionSection.accordionHeading}
+                      </h6>
+                      <div
+                        className="accordion-container"
+                        data-aos="fade-down"
+                        ddata-aos-easing="linear"
+                        data-aos-offset="500"
+                        data-aos-duration="500"
+                      >
+                        {content.accordionSection.faq.map((faq) => (
+                          <div className="accordion-item" key={faq._key}>
+                            <button
+                              className="accordion-header"
+                              onClick={toggleAccordion}
+                            >
+                              {faq.question}
+                              <span className="icon"></span>
+                            </button>
+                            <div className="accordion-content">
+                              <p>{faq.answer}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="overlaybannehand-bottoms"></div>
                 <div className="bottomsection">
                   <div className="scroll-down">

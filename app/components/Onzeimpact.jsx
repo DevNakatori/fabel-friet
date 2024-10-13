@@ -33,7 +33,7 @@ const Onzeimpact = () => {
     timelineimpact.to(
       '.roundimage-impact, .roundtext-impact',
       {
-        scale: 4,
+        scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
@@ -41,18 +41,6 @@ const Onzeimpact = () => {
       },
       0,
     );
-
-    timelineimpact.to('.fifthesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.fifthesection',
-        start: '20% 20%',
-        end: '40% 40%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
 
     timelineimpact.to(
       '.section.hero',
@@ -63,6 +51,33 @@ const Onzeimpact = () => {
       },
       '<',
     );
+
+    timelineimpact.to(
+      '#section5 .gradient-purple',
+      {
+        scale: 1,
+        borderRadius: 0,
+        ease: 'power3.easeIn',
+        scrollTrigger: {
+          trigger: '#section5 .wrappertest',
+          start: 'top top-100',
+          end: 'top top-300',
+        },
+      },
+      0, // Start this animation at the same time as the previous one
+    );
+
+    timelineimpact.to('.fifthesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.fifthesection',
+        start: '10% 10%',
+        end: '30% 30%',
+        scrub: true,
+        once: false,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
 
     gsap.fromTo(
       '.fifthesection .gradient-threebox',
@@ -157,7 +172,6 @@ const Onzeimpact = () => {
           <h4
             className="onzeimpacttitle"
             data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
@@ -166,7 +180,6 @@ const Onzeimpact = () => {
           <p
             className="onzeimpactdescription"
             data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
@@ -175,7 +188,6 @@ const Onzeimpact = () => {
           <div className="gradient-threebox">
             <ul
               data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
@@ -190,151 +202,142 @@ const Onzeimpact = () => {
             </ul>
           </div>
           <div className="whitebgbox">
-            <div
-              className="qrcodeimagebox"
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              <img
-                src={getImageUrl(data.cardSection.qrImage.asset._ref)}
-                alt="QR Code"
-                data-speed="auto"
-              />
-            </div>
-            <div className="whitewithvideomainbox">
+            <div className="appcontainers">
               <div
-                className="leftvideobox"
-                data-aos="fade-left"
-                data-aos-easing="ease-in-sine"
-                data-aos-offset="500"
-                data-aos-duration="500"
-              >
-                <h4>{data.cardSection.secTitle}</h4>
-              </div>
-              <div
-                className="righttextbox"
-                data-aos="fade-right"
-                data-aos-easing="ease-in-sine"
-                data-aos-offset="500"
-                data-aos-duration="500"
-              >
-                <ul className="onzeimpacttwolist">
-                  {data.cardSection.card.map((card) => (
-                    <li
-                      key={card._key}
-                      data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
-                      data-aos-easing="ease-out-cubic"
-                      data-aos-duration="2000"
-                    >
-                      <div className="onzeimpacttwolistlist">
-                        <h5
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          {card.cardTitle}
-                        </h5>
-                        <p
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          {card.cardDescription}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div
-              className="whitewithvideomainboxs"
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              <div
-                className="leftvideobox"
-                data-aos="fade-leftt"
-                data-aos-easing="ease-in-sine"
-                data-aos-offset="500"
-                data-aos-duration="500"
+                className="qrcodeimagebox"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
               >
                 <img
-                  src={getImageUrl(data.bottomSection.image.asset._ref)}
-                  alt="Bottom Section Image"
+                  src={getImageUrl(data.cardSection.qrImage.asset._ref)}
+                  alt="QR Code"
                   data-speed="auto"
                 />
               </div>
-              <div
-                className="righttextbox"
-                data-aos="fade-right"
-                data-aos-easing="ease-in-sine"
-                data-aos-offset="500"
-                data-aos-duration="500"
-              >
-                <h3
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                >
-                  {data.bottomSection.secTitle}
-                </h3>
-                <p
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                >
-                  {data.bottomSection.secDescription}
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="binimageboxmain"
-              data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              <div className="binimageboxieft">
-                <h6
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                >
-                  {data.bottomSection.sideText}
-                </h6>
+              <div className="whitewithvideomainbox">
                 <div
-                  className="binarrowimg"
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
+                  className="leftvideobox"
+                  data-aos="fade-left"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-offset="500"
+                  data-aos-duration="500"
                 >
-                  <img src={arrow_bluebottom} alt="Bin Imagebox" />
+                  <h4>{data.cardSection.secTitle}</h4>
+                </div>
+                <div
+                  className="righttextbox"
+                  data-aos="fade-right"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-offset="500"
+                  data-aos-duration="500"
+                >
+                  <ul className="onzeimpacttwolist">
+                    {data.cardSection.card.map((card) => (
+                      <li
+                        key={card._key}
+                        data-aos="fade-up"
+                        data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000"
+                      >
+                        <div className="onzeimpacttwolistlist">
+                          <h5
+                            data-aos="fade-up"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            {card.cardTitle}
+                          </h5>
+                          <p
+                            data-aos="fade-up"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            {card.cardDescription}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div className="binimagebox">
-                <img
-                  src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
-                  alt="Bin Imagebox"
-                  data-speed="auto"
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                />
+
+              <div
+                className="whitewithvideomainboxs"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
+                <div
+                  className="leftvideobox"
+                  data-aos="fade-leftt"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-offset="500"
+                  data-aos-duration="500"
+                >
+                  <img
+                    src={getImageUrl(data.bottomSection.image.asset._ref)}
+                    alt="Bottom Section Image"
+                    data-speed="auto"
+                  />
+                </div>
+                <div
+                  className="righttextbox"
+                  data-aos="fade-right"
+                  data-aos-easing="ease-in-sine"
+                  data-aos-offset="500"
+                  data-aos-duration="500"
+                >
+                  <h3
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  >
+                    {data.bottomSection.secTitle}
+                  </h3>
+                  <p
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  >
+                    {data.bottomSection.secDescription}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                className="binimageboxmain"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
+                <div className="binimageboxieft">
+                  <h6
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  >
+                    {data.bottomSection.sideText}
+                  </h6>
+                  <div
+                    className="binarrowimg"
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  >
+                    <img src={arrow_bluebottom} alt="Bin Imagebox" />
+                  </div>
+                </div>
+                <div className="binimagebox">
+                  <img
+                    src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
+                    alt="Bin Imagebox"
+                    data-speed="auto"
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                  />
+                </div>
               </div>
             </div>
             <div className="overlaybannehand-bottoms"></div>

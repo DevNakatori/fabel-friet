@@ -39,7 +39,7 @@ const Onzelocaties = () => {
     timelines.to(
       '.roundimage-onzelocation, .roundtext-onzelocation',
       {
-        scale: 4,
+        scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
@@ -48,18 +48,6 @@ const Onzelocaties = () => {
       },
       0,
     );
-
-    timelines.to('.thirdesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.thirdesection',
-        start: '20% 20%',
-        end: '40% 40%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
 
     timelines.to(
       '.section.hero',
@@ -78,12 +66,24 @@ const Onzelocaties = () => {
         ease: 'power3.easeIn',
         scrollTrigger: {
           trigger: '.wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
+          start: 'top top-100',
+          end: 'top top-300',
         },
       },
       0,
     );
+
+    timelines.to('.thirdesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.thirdesection',
+        start: '10% 10%',
+        end: '30% 30%',
+        scrub: true,
+        once: false,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
 
     return () => {
       timelines.scrollTrigger.kill();
@@ -186,161 +186,181 @@ const Onzelocaties = () => {
 
               {/* mobile location slider */}
               <div className="whitebgbox ">
-                <div className="onlymobile slideraddress">
-                  <Swiper
-                    loop={true}
-                    scrollbar={{
-                      hide: true,
-                    }}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    autoplay={{
-                      delay: 2500,
-                      disableOnInteraction: false,
-                    }}
-                    breakpoints={{
-                      640: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        centeredSlides: true,
-                      },
-                      768: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        centeredSlides: true,
-                      },
-                      1024: {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        centeredSlides: true,
-                      },
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                  >
-                    {locationData.locationSection.location.map((loc) => (
-                      <SwiperSlide key={loc._key}>
+                <div className="appcontainers">
+                  <div className="onlymobile slideraddress">
+                    <Swiper
+                      loop={true}
+                      scrollbar={{
+                        hide: true,
+                      }}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                      }}
+                      breakpoints={{
+                        640: {
+                          slidesPerView: 1,
+                          spaceBetween: 30,
+                          centeredSlides: true,
+                        },
+                        768: {
+                          slidesPerView: 1,
+                          spaceBetween: 30,
+                          centeredSlides: true,
+                        },
+                        1024: {
+                          slidesPerView: 1,
+                          spaceBetween: 30,
+                          centeredSlides: true,
+                        },
+                      }}
+                      modules={[Pagination]}
+                      className="mySwiper"
+                    >
+                      {locationData.locationSection.location.map((loc) => (
+                        <SwiperSlide key={loc._key}>
+                          <div
+                            className="module"
+                            data-aos="fade"
+                            ddata-aos-easing="linear"
+                            data-aos-offset="500"
+                            data-aos-duration="500"
+                          >
+                            <div className="wharpeoplebox">
+                              <h5
+                                data-aos="fade-up"
+                                data-aos-anchor-placement="top-center"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                              >
+                                {loc.locationName}
+                              </h5>
+
+                              <div className="sliderwhitebg">
+                                <img
+                                  src={getImageUrl(loc.image.asset._ref)}
+                                  alt={loc.image.alt}
+                                />
+                                <h4>Opening hours</h4>
+                                <p>Mon-Sun: 11:00 - 20:00</p>
+                                <div className="locationmaoaddress">
+                                  <div className="locationicon">
+                                    <i className="mapicon"></i>
+                                  </div>
+                                  <div className="locationaddtext">
+                                    <ul>
+                                      <li>Runstraat 1 | 1016 GJ Amsterdam</li>
+                                    </ul>
+                                  </div>
+                                </div>
+
+                                <a href="#" className="routbtn">
+                                  {loc.btn_label}
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                      ))}
+
+                      <div className="swiper-pagination"></div>
+                      {/* <div className="swiper-scrollbar"></div> */}
+                    </Swiper>
+
+                    <p className="siwprtext">
+                      Swipe to see the locations{' '}
+                      <i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="10"
+                          viewBox="0 0 22 10"
+                          fill="none"
+                        >
+                          <path
+                            d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9"
+                            stroke="#EFEBE7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </i>
+                    </p>
+                  </div>
+                  {/* mobile location slider */}
+
+                  {locationData.locationSection.location.map((loc) => (
+                    <div className="onlydesktop" key={loc._key}>
+                      <div className="whitewithvideomainbox">
                         <div
-                          className="module"
-                          data-aos="fade"
-                          ddata-aos-easing="linear"
+                          className="leftvideobox"
+                          data-aos="fade-left"
+                          data-aos-easing="ease-in-sine"
                           data-aos-offset="500"
                           data-aos-duration="500"
                         >
-                          <div className="wharpeoplebox">
-                            <h5
-                              data-aos="fade-up"
-                              data-aos-anchor-placement="top-center"
-                              data-aos-easing="ease-out-cubic"
-                              data-aos-duration="2000"
-                            >
-                              {loc.locationName}
-                            </h5>
-
-                            <div className="sliderwhitebg">
-                              <img
-                                src={getImageUrl(loc.image.asset._ref)}
-                                alt={loc.image.alt}
-                              />
-                              <h4>Opening hours</h4>
-                              <p>Mon-Sun: 11:00 - 20:00</p>
-                              <div className="locationmaoaddress">
-                                <div className="locationicon">
-                                  <i className="mapicon"></i>
-                                </div>
-                                <div className="locationaddtext">
-                                  <ul>
-                                    <li>Runstraat 1 | 1016 GJ Amsterdam</li>
-                                  </ul>
-                                </div>
-                              </div>
-
-                              <a href="#" className="routbtn">
-                                {loc.btn_label}
-                              </a>
+                          <img
+                            src={getImageUrl(loc.image.asset._ref)}
+                            alt={loc.image.alt}
+                          />
+                        </div>
+                        <div
+                          className="righttextbox"
+                          data-aos="fade-right"
+                          data-aos-easing="ease-in-sine"
+                          data-aos-offset="500"
+                          data-aos-duration="500"
+                        >
+                          <h5
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-center"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            {loc.locationName}
+                          </h5>
+                          <div
+                            className="locationmaoaddress"
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-center"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            <div className="locationicon">
+                              <i className="mapicon"></i>
+                            </div>
+                            <div className="locationaddtext">
+                              <ul>
+                                <li>{loc.address}</li>
+                              </ul>
                             </div>
                           </div>
+                          <p
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-center"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            {loc.info}
+                          </p>
+                          <a
+                            href="#"
+                            className="routbtn"
+                            data-aos="fade-up"
+                            data-aos-anchor-placement="top-center"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            {loc.btn_label}
+                          </a>
                         </div>
-                      </SwiperSlide>
-                    ))}
-
-                    <div className="swiper-pagination"></div>
-                    {/* <div className="swiper-scrollbar"></div> */}
-                  </Swiper>
-
-                  <p className='siwprtext'>Swipe to see the locations <i><svg xmlns="http://www.w3.org/2000/svg" width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9" stroke="#EFEBE7" strokeLinecap="round" strokeLinejoin="round"/></svg></i></p>
-                </div>
-                {/* mobile location slider */}
-
-                {locationData.locationSection.location.map((loc) => (
-                  <div className="onlydesktop" key={loc._key}>
-                    <div className="whitewithvideomainbox">
-                      <div
-                        className="leftvideobox"
-                        data-aos="fade-left"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-offset="500"
-                        data-aos-duration="500"
-                      >
-                        <img
-                          src={getImageUrl(loc.image.asset._ref)}
-                          alt={loc.image.alt}
-                        />
-                      </div>
-                      <div
-                        className="righttextbox"
-                        data-aos="fade-right"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-offset="500"
-                        data-aos-duration="500"
-                      >
-                        <h5
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          {loc.locationName}
-                        </h5>
-                        <div
-                          className="locationmaoaddress"
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          <div className="locationicon">
-                            <i className="mapicon"></i>
-                          </div>
-                          <div className="locationaddtext">
-                            <ul>
-                              <li>{loc.address}</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <p
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          {loc.info}
-                        </p>
-                        <a
-                          href="#"
-                          className="routbtn"
-                          data-aos="fade-up"
-                          data-aos-anchor-placement="top-center"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          {loc.btn_label}
-                        </a>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
                 <div className="overlaybannehand-bottoms"></div>
                 <div className="bottomsection">
                   <div className="scroll-down">
