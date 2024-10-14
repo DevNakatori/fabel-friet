@@ -10,7 +10,7 @@ import '../styles/getintouch.css';
 
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/d4f1c7ef00981f46b3a68aed3d06dc01-min.png';
-
+import backgroundImageUrl from '../assets/resizeimgs/tiktiokbg.png';
 import facebookIcon from '../assets/resizeimgs/fb.png';
 import instagramIcon from '../assets/resizeimgs/insta.png';
 import linkedinIcon from '../assets/resizeimgs/in.png';
@@ -310,11 +310,62 @@ const Getintouch = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {contentSection.mobileImages.map((img) => (
+              {/* {contentSection.mobileImages.map((img) => (
                 <li key={img._key}>
                   <img src={getImageUrl(img.image.asset._ref)} alt="" />
                 </li>
-              ))}
+              ))} */}
+
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '446px',
+                  height: '861px',
+                }}
+              >
+                <iframe
+                  src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
+
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '446px',
+                  height: '861px',
+                }}
+              >
+                <iframe
+                  src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
+
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '446px',
+                  height: '861px',
+                }}
+              >
+                <iframe
+                  src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
             </ul>
           </div>
           <div className="whitebgbox">

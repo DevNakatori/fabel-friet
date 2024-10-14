@@ -379,6 +379,7 @@
     background-color: #1e46b3;
     top: -400px;
     margin-bottom: -400px;
+    z-index: 9;
 }
 
 
@@ -1195,10 +1196,17 @@
     margin-bottom: 50px;
 }
 
-.whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
+/* .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
     position: absolute;
     right: 120px;
     top: 110px;
+} */
+
+.whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
+    position: relative;
+    right: 8%;
+    top: -30px;
+    float: right;
 }
 
 .roundmainsvg {

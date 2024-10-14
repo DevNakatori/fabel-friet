@@ -92,27 +92,27 @@ const Onzefriet = () => {
       ease: 'power1.inOut',
     });
 
-    gsap.fromTo(
-      '.allfiressections img',
-      {y: -50, opacity: 0},
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 1,
-        ease: 'bounce.out',
-        force3D: true,
-        yoyo: true,
-        scrollTrigger: {
-          trigger: '#section2 .wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
-          pin: true,
-          once: true,
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.allfiressections img',
+    //   {y: -50, opacity: 0},
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.2,
+    //     duration: 1,
+    //     ease: 'bounce.out',
+    //     force3D: true,
+    //     yoyo: true,
+    //     scrollTrigger: {
+    //       trigger: '#section2 .wrappertest',
+    //       start: 'top top-500',
+    //       end: 'top top-200',
+    //       pin: true,
+    //       once: true,
+    //       markers: false,
+    //     },
+    //   },
+    // );
 
     gsap.to('.allfiressections img', {
       y: 20,
@@ -482,6 +482,10 @@ const Onzefriet = () => {
                               slidesPerView: 4,
                               spaceBetween: 40,
                             },
+                            1200: {
+                              slidesPerView: 3,
+                              spaceBetween: 40,
+                            }
                           }}
                           modules={[Pagination, Autoplay]}
                           className="mySwiper"
