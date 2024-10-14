@@ -310,13 +310,13 @@ const Getintouch = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {/* {contentSection.mobileImages.map((img) => (
+              {contentSection.mobileImages.map((img) => (
                 <li key={img._key}>
                   <img src={getImageUrl(img.image.asset._ref)} alt="" />
                 </li>
-              ))} */}
+              ))}
 
-              <li
+              {/* <li
                 style={{
                   backgroundImage: `url(${backgroundImageUrl})`,
                   backgroundSize: 'cover',
@@ -365,7 +365,7 @@ const Getintouch = () => {
                   allow="autoplay"
                   loop
                 ></iframe>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="whitebgbox">

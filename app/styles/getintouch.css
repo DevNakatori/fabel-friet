@@ -501,8 +501,10 @@ a.Whatsappbtn:before {
 
 
 .sixthsection .gradient-threebox ul {
-    height: 977px;
+    height: 800px;
 }
+
+
 
 .sixthsection .gradient-purple h4 {
     opacity: 1;
@@ -880,13 +882,25 @@ a.Whatsappbtn:before {
     }
 
 
-    .sixthsection .gradient-threebox ul {
+    /*.sixthsection .gradient-threebox ul {
         display: flex;
         justify-content: center;
         align-items: center;
         perspective: 1000px;
         overflow: hidden;
         height: 790px;
+        margin-left: -50px;
+        margin-right: -50px;
+    }*/
+
+
+    .sixthsection .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 350px;
         margin-left: -50px;
         margin-right: -50px;
     }
