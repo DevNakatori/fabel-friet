@@ -6,6 +6,10 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
 import {getImageUrl} from '../js/imagesurl';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import {Pagination, Autoplay} from 'swiper/modules';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
 import onzie_leftvidep from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
@@ -104,6 +108,94 @@ const Onzeimpact = () => {
     return () => {
       timelineimpact.scrollTrigger.kill();
     };
+  }, [onzeimpact]);
+
+  useEffect(() => {
+    const list = document.querySelectorAll('.gradient-threebox');
+    list.forEach((list) => {
+      const items = list.querySelectorAll('ul li');
+      const firstItem = items[0];
+      const lastItem = items[items.length - 1];
+      const middleItem = items[1];
+
+      const onzefritthreeimagecenter = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.wrappertest',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimagecenter
+        .fromTo(
+          middleItem,
+          {bottom: '-55vh', rotation: 0, opacity: 0},
+          {
+            //bottom: '0vh',
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(middleItem, {
+          rotation: 0,
+          bottom: '0vh',
+          duration: 1,
+          opacity: 1,
+          delay: 0,
+        });
+
+      const onzefritthreeimageleft = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.gradient-purple',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimageleft
+        .fromTo(
+          firstItem,
+          {left: '-50vw', rotation: 0, opacity: 0},
+          {
+            left: '-9vw',
+            opacity: 1,
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(firstItem, {
+          // left: '-10vw',
+          rotation: -8,
+          duration: 1,
+          delay: 1,
+        });
+
+      const onzefritthreeimageright = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.gradient-purple',
+          start: 'top top',
+          end: 'bottom top',
+        },
+      });
+
+      onzefritthreeimageright
+        .fromTo(
+          lastItem,
+          {right: '-50vw', rotation: 0, opacity: 0},
+          {
+            right: '-9vw',
+            opacity: 1,
+            delay: 0,
+            duration: 1,
+          },
+        )
+        .to(lastItem, {
+          // right: '-10vw',
+          rotation: 8,
+          duration: 1,
+          delay: 1,
+        });
+    });
   }, [onzeimpact]);
 
   useEffect(() => {
@@ -232,33 +324,102 @@ const Onzeimpact = () => {
                   data-aos-offset="500"
                   data-aos-duration="500"
                 >
-                  <ul className="onzeimpacttwolist">
-                    {data.cardSection.card.map((card) => (
-                      <li
-                        key={card._key}
-                        data-aos="fade-up"
-                        data-aos-easing="ease-out-cubic"
-                        data-aos-duration="2000"
+                  <div className="onlydesktop">
+                    <ul className="onzeimpacttwolist">
+                      {data.cardSection.card.map((card) => (
+                        <li
+                          key={card._key}
+                          data-aos="fade-up"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
+                          <div className="onzeimpacttwolistlist">
+                            <h5
+                              data-aos="fade-up"
+                              data-aos-easing="ease-out-cubic"
+                              data-aos-duration="2000"
+                            >
+                              {card.cardTitle}
+                            </h5>
+                            <p
+                              data-aos="fade-up"
+                              data-aos-easing="ease-out-cubic"
+                              data-aos-duration="2000"
+                            >
+                              {card.cardDescription}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="onlymobile">
+                    <ul className="onzeimpacttwolist">
+                      <Swiper
+                        loop={true}
+                        scrollbar={{
+                          hide: true,
+                        }}
+                        pagination={{
+                          clickable: true,
+                        }}
+                        autoplay={{
+                          delay: 2500,
+                          disableOnInteraction: false,
+                        }}
+                        breakpoints={{
+                          640: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                            centeredSlides: true,
+                          },
+                          768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                            centeredSlides: true,
+                          },
+                          1024: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                            centeredSlides: true,
+                            enabled: false,
+                          },
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
                       >
-                        <div className="onzeimpacttwolistlist">
-                          <h5
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            {card.cardTitle}
-                          </h5>
-                          <p
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            {card.cardDescription}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                        {data.cardSection.card.map((card) => (
+                          <SwiperSlide key={card._key}>
+                            <li
+                              data-aos="fade-up"
+                              data-aos-easing="ease-out-cubic"
+                              data-aos-duration="2000"
+                            >
+                              <div className="onzeimpacttwolistlist">
+                                <h5
+                                  data-aos="fade-up"
+                                  data-aos-easing="ease-out-cubic"
+                                  data-aos-duration="2000"
+                                >
+                                  {card.cardTitle}
+                                </h5>
+                                <p
+                                  data-aos="fade-up"
+                                  data-aos-easing="ease-out-cubic"
+                                  data-aos-duration="2000"
+                                >
+                                  {card.cardDescription}
+                                </p>
+                              </div>
+                            </li>
+                          </SwiperSlide>
+                        ))}
+                        <div className="swiper-pagination"></div>
+                        {/* <div className="swiper-scrollbar"></div> */}
+                      </Swiper>
+                    </ul>
+                  </div>
                 </div>
               </div>
 

@@ -342,7 +342,79 @@
     margin: 0;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) 
+{
 
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
+        position: relative;
+        top: -5em;
+        left: 12em;
+        margin-bottom: -15em;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) 
+{
+    .roundtext-hetmenu h2 {
+        position: absolute;
+        left: -225px;
+        top: 40px;
+        z-index: 1;
+        margin: 0;
+    }
+    .roundtext-hetmenu h3 {
+        position: absolute;
+        right: -220px;
+        bottom: -20px;
+        margin: 0;
+    }
+    .fourthsection .gradient-purple p {
+        width: 100%;
+    }
+    .fourthsection .whitewithvideomainbox {
+        flex-wrap: wrap;
+        padding-left: 0;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox {
+        max-width: 735px;
+        width: 100%;
+        padding-left: 45px;
+        position: relative;
+        top: 5em;
+        margin-bottom: 10em;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox {
+        max-width: 874px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 100%;
+        position: relative;
+        margin-top: 50px;
+        z-index: 1;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {
+
+        margin: 0 0 10px 50px;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p {
+        margin: 0 0 0 50px;
+    }
+
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
+        width: 100%;
+        margin-left: auto;
+        display: flex;
+        position: relative;
+        top: -9rem;
+        margin-bottom: 10px;
+        right: -50px;
+    }
+}
 
 @media (max-width: 767px) {
 
@@ -473,6 +545,33 @@
         margin: 15px 0;
     }
 
+    .fourthsection .whitebgbox .tabs button {
+        width: calc((100% / 3) - 5px);
+        margin: 0;
+        font-size: 12px;
+        padding: 5px 0;
+    }
+    .fourthsection .whitebgbox .tabs.onlymobile {
+        display: flex !important;
+        justify-content: space-between;
+    }
+    .fourthsection .whitebgbox .tabs button {
+        color: #f6c738;
+        width: calc((100% / 3) - 5px);
+        margin: 0;
+        font-size: 12px;
+        padding: 5px 0;
+    }
+    .fourthsection .whitebgbox .tabs button.active {
+        color: #fff;
+        
+    }
+
+    .fourthsection .whitebgbox {
+        position: relative;
+        top: 20px;
+        margin-bottom: 0;
+    }
 
     
 }

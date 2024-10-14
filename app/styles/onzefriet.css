@@ -1322,7 +1322,116 @@
 
 
 
+@media (min-width: 992px) and (max-width: 1199px) 
+{
 
+    .allfiressections img{display: none !important;}
+    .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 425px;
+    }
+    .gradient-threebox ul li {
+        width: calc(100% / 3);
+        height: auto;
+    }
+    .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 15px;
+        top: 7px;
+        transform: rotate(-10deg);
+        z-index: 1;
+        width: 50px;
+    }
+    .whitebgbox .whitewithvideomainbox .righttextbox h5 {
+        font-size: clamp(20px, 5vw, 60px);
+        line-height: 60px;
+    }
+    .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
+        position: absolute;
+        right: 120px;
+        top: 60px;
+    }
+
+    .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar {
+        position: absolute;
+        right: -30px;
+        top: -60px;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) 
+{
+    
+    .roundtext h2 {
+        position: absolute;
+        left: -240px;
+        top: -20px;
+        z-index: 1;
+        margin: 0;
+    }
+
+    .roundtext h3 {
+        position: absolute;
+        right: -210px;
+        bottom: -40px;
+        margin: 0;
+    }
+
+    .gradient-purple p {
+        width: 100%;
+    }
+    .allfiressections img{display: none !important;}
+    .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 340px;
+    }
+    .gradient-threebox ul li {
+        width: calc(100% / 3);
+        height: auto;
+    }
+    .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 15px;
+        top: 7px;
+        transform: rotate(-10deg);
+        z-index: 1;
+        width: 50px;
+    }
+    .whitewithvideomainbox {
+        flex-wrap: wrap;
+    }
+    .whitebgbox .whitewithvideomainbox .leftvideobox {
+        width: 100%;
+        
+    }
+    .whitebgbox .whitewithvideomainbox .righttextbox {
+        max-width: 735px;
+        width: 100%;
+        padding-left: 0;
+        position: relative;
+        margin-top: 50px;
+    }
+    .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar {
+        position: absolute;
+        right: -10px;
+        top: -40px;
+    }
+    .whitebgbox .whitewithvideomainbox .righttextbox h5 {
+        font-size: clamp(20px, 5vw, 60px);
+        line-height: 45px;
+    }
+
+}
 
 
 @media (max-width: 767px) {
