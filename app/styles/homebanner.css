@@ -140,7 +140,7 @@ header {
   display: flex;
   height: var(--header-height);
   padding: 0 1rem !important;
-  position: fixed !important;
+  position: absolute ;
   top: 25px !important;
   z-index: 5 !important;
   width: calc(100% - 8rem) !important;
@@ -590,7 +590,7 @@ body>main section video {
   
 }
 
-@media (min-width: 1201px) and (max-width: 1499px) {
+@media (min-width: 1201px) and (max-width: 1600px) {
 
   .rightsidebullets {
     position: fixed;
