@@ -286,7 +286,10 @@ const Hetmenu = () => {
               </div>
 
               {/* Tab Section */}
-              <div className="tabs onlymobile">
+              <div className="tabs onlymobile" data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-offset="500"
+                    data-aos-duration="500">
                 {tabs.map((tab, index) => (
                   <button
                     key={index}
@@ -297,7 +300,10 @@ const Hetmenu = () => {
                   </button>
                 ))}
               </div>
-              <div className="content onlymobile">
+              <div className="content onlymobile" data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-offset="500"
+                    data-aos-duration="500">
                 {tabs[activeTab].content}
               </div>
 
