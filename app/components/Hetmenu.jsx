@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 
 import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [hetmenu, sethetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -36,7 +36,7 @@ const Hetmenu = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           sethetmenu(data);
@@ -105,7 +105,7 @@ const Hetmenu = () => {
         start: '10% 10%',
         end: '30% 30%',
         scrub: true,
-        once: false,
+        once: true,
       },
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
@@ -142,7 +142,7 @@ const Hetmenu = () => {
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
-  const {contentSection, bottomContentSection, menuSection, transitionSection} =
+  const { contentSection, bottomContentSection, menuSection, transitionSection } =
     hetmenu[0];
 
   // Define tab content inside the component to have access to menuSection
@@ -154,7 +154,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[0].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[0]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </li>
         )}
@@ -170,7 +170,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[1].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[1]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </li>
         )}
@@ -186,7 +186,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[2].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[2]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </li>
         )}
@@ -196,9 +196,9 @@ const Hetmenu = () => {
 
   // Define tabs with their respective content
   const tabs = [
-    {label: 'Fries', content: friesContent},
-    {label: 'Snacks', content: snacksContent},
-    {label: 'Drinks', content: drinksContent},
+    { label: 'Fries', content: friesContent },
+    { label: 'Snacks', content: snacksContent },
+    { label: 'Drinks', content: drinksContent },
   ];
 
   return (
@@ -234,7 +234,6 @@ const Hetmenu = () => {
           <h4
             className="hetmenuntitle"
             data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
@@ -243,7 +242,6 @@ const Hetmenu = () => {
           <p
             className="hetmenuescription"
             data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="2000"
           >
@@ -253,7 +251,6 @@ const Hetmenu = () => {
           <div className="gradient-threebox-menu onlydesktop">
             <ul
               data-aos="fade-up"
-              data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
@@ -262,7 +259,7 @@ const Hetmenu = () => {
                   <img
                     src={getImageUrl(item.image.asset._ref)}
                     alt={`Menu item ${item._key}`}
-                    style={{maxWidth: '100%', height: 'auto'}}
+                    style={{ maxWidth: '100%', height: 'auto' }}
                   />
                 </li>
               ))}
@@ -271,7 +268,10 @@ const Hetmenu = () => {
 
           <div className="whitebgbox">
             <div className="appcontainers">
-              <div className="instagramfeedimagesimain">
+              <div
+                className="instagramfeedimagesimain"
+
+              >
                 <div className="instagramfeedimages">
                   <div
                     className="contaernrul"
@@ -280,16 +280,19 @@ const Hetmenu = () => {
                     data-aos-offset="500"
                     data-aos-duration="500"
                   >
-                    {/* <InstagramFeed accessToken="IGQWROSmZAyY2dYT0NCUjFfVi1yRXhlUU15anhORXp6dWRXUjVGMUdtOUtHU2thNlFKR1l4Tkh4N08xbFYwMHpGTEhSSGRGdExNWnBic293NTdUZAFUyMDNqZA2Eya01vOGdzNUNTM0ZAwWFZA2ZAEcxb1VnWHl2bk91NWcZD" /> */}
+                    <InstagramFeed accessToken="IGQWRNdWVOZAjJMQ20xd0ZAWQXZA6NGVBM2RwLURBdGtubC1Hd1IwSE1iNXBKN0NzbmNWUDdib1NCczJvQnhXNGk4RC1EdGJKWVBza3ZADU3hVdENFNXRiVkMwRGo4Sm9ieUZAJcGVteDFEc2RkZAE52TldEU2gyTjlfLW8ZD" />
                   </div>
                 </div>
               </div>
 
               {/* Tab Section */}
-              <div className="tabs onlymobile" data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-offset="500"
-                    data-aos-duration="500">
+              <div
+                className="tabs onlymobile"
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-offset="500"
+                data-aos-duration="500"
+              >
                 {tabs.map((tab, index) => (
                   <button
                     key={index}
@@ -300,10 +303,12 @@ const Hetmenu = () => {
                   </button>
                 ))}
               </div>
-              <div className="content onlymobile" data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-offset="500"
-                    data-aos-duration="500">
+              <div
+                className="content onlymobile"
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="500"
+              >
                 {tabs[activeTab].content}
               </div>
 
@@ -313,12 +318,10 @@ const Hetmenu = () => {
                   className="righttextbox"
                   data-aos="fade-right"
                   data-aos-easing="ease-in-sine"
-                  data-aos-offset="500"
                   data-aos-duration="500"
                 >
                   <h5
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -326,7 +329,6 @@ const Hetmenu = () => {
                   </h5>
                   <p
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -337,7 +339,6 @@ const Hetmenu = () => {
                   className="leftvideobox"
                   data-aos="fade-left"
                   data-aos-easing="ease-in-sine"
-                  data-aos-offset="500"
                   data-aos-duration="500"
                 >
                   <img
@@ -350,7 +351,6 @@ const Hetmenu = () => {
                   <div
                     className="bluearrowbottom"
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -358,7 +358,6 @@ const Hetmenu = () => {
                   </div>
                   <h3
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -366,7 +365,6 @@ const Hetmenu = () => {
                   </h3>
                   <p
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >

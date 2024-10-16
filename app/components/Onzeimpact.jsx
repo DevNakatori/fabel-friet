@@ -1,15 +1,15 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import {getImageUrl} from '../js/imagesurl';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getImageUrl } from '../js/imagesurl';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
 import onzie_leftvidep from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
@@ -18,7 +18,7 @@ import arrow_bluebottom from '../assets/resizeimgs/arrow_bluebottom.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -77,7 +77,7 @@ const Onzeimpact = () => {
         start: '10% 10%',
         end: '30% 30%',
         scrub: true,
-        once: false,
+        once: true,
       },
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
@@ -111,90 +111,159 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    const list = document.querySelectorAll('.gradient-threebox');
-    list.forEach((list) => {
-      const items = list.querySelectorAll('ul li');
-      const firstItem = items[0];
-      const lastItem = items[items.length - 1];
-      const middleItem = items[1];
-
-      const onzefritthreeimagecenter = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.wrappertest',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
-
-      onzefritthreeimagecenter
-        .fromTo(
-          middleItem,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
-          {
-            //bottom: '0vh',
-            delay: 0,
-            duration: 1,
+    const listimpact = document.querySelectorAll('.gradient-threeboxonzeimpact');
+    listimpact.forEach((listimpact) => {
+      const itemslistimpact = listimpact.querySelectorAll('ul li.threeboxonzeimpactlist');
+      const firstItemimpact = itemslistimpact[0];
+      const lastItemimpact = itemslistimpact[itemslistimpact.length - 1];
+      const middleItemimpact = itemslistimpact[1];
+      const mobileMediaQuerys = window.matchMedia("(max-width: 768px)");
+      // GSAP animation for desktop
+      const animateDesktopimpact = () => {
+        const onzefritthreeimagecenterimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .wrappertest',
+            start: 'top top',
+            end: 'center center',
           },
-        )
-        .to(middleItem, {
-          rotation: 0,
-          bottom: '0vh',
-          duration: 1,
-          opacity: 1,
-          delay: 0,
         });
 
-      const onzefritthreeimageleft = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
+        onzefritthreeimagecenterimpact
+          .fromTo(
+            middleItemimpact,
+            { bottom: '-55vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 1,
+              opacity: 1,
+            }
+          );
 
-      onzefritthreeimageleft
-        .fromTo(
-          firstItem,
-          {left: '-50vw', rotation: 0, opacity: 0},
-          {
-            left: '-9vw',
-            opacity: 1,
-            delay: 0,
-            duration: 1,
+        const onzefritthreeimageleftimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(firstItem, {
-          // left: '-10vw',
-          rotation: -8,
-          duration: 1,
-          delay: 1,
         });
 
-      const onzefritthreeimageright = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
-
-      onzefritthreeimageright
-        .fromTo(
-          lastItem,
-          {right: '-50vw', rotation: 0, opacity: 0},
-          {
-            right: '-9vw',
-            opacity: 1,
-            delay: 0,
+        onzefritthreeimageleftimpact
+          .fromTo(
+            firstItemimpact,
+            { left: '-50vw', rotation: 0, opacity: 0 },
+            {
+              left: '-9vw',
+              opacity: 1,
+              duration: 1,
+            }
+          )
+          .to(firstItemimpact, {
+            rotation: -8,
             duration: 1,
+            delay: 1,
+          });
+
+        const onzefritthreeimagerightimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(lastItem, {
-          // right: '-10vw',
-          rotation: 8,
-          duration: 1,
-          delay: 1,
         });
+
+        onzefritthreeimagerightimpact
+          .fromTo(
+            lastItemimpact,
+            { right: '-50vw', rotation: 0, opacity: 0 },
+            {
+              right: '-9vw',
+              opacity: 1,
+              duration: 1,
+            }
+          )
+          .to(lastItemimpact, {
+            rotation: 8,
+            duration: 1,
+            delay: 1,
+          });
+      };
+
+      // GSAP animation for mobile
+      const animateMobileimpact = () => {
+        const mobileTimelineCenter = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .wrappertest',
+            start: '0 0',
+            markers: false,
+          },
+        });
+
+        mobileTimelineCenter
+          .fromTo(
+            middleItemimpact,
+            { bottom: '-30vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 0.7,
+              opacity: 1,
+            }
+          );
+
+        const mobileTimelineLeft = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileTimelineLeft
+          .fromTo(
+            firstItemimpact,
+            { left: '-30vw', rotation: 0, opacity: 0 },
+            {
+              left: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            }
+          )
+          .to(firstItemimpact, {
+            rotation: -4,
+            duration: 0.7,
+            delay: 1,
+          });
+
+        const mobileTimelineRight = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.fifthesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileTimelineRight
+          .fromTo(
+            lastItemimpact,
+            { right: '-30vw', rotation: 0, opacity: 0 },
+            {
+              right: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            }
+          )
+          .to(lastItemimpact, {
+            rotation: 4,
+            duration: 0.7,
+            delay: 1,
+          });
+      };
+
+      // Execute appropriate animation based on the device
+      if (mobileMediaQuerys.matches) {
+        animateMobileimpact();
+      } else {
+        animateDesktopimpact();
+      }
     });
   }, [onzeimpact]);
 
@@ -210,7 +279,7 @@ const Onzeimpact = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzeimpact" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           // console.log('Fetched fetchDataonzeimpactData Data:', data);
           localStorage.setItem(
@@ -277,14 +346,14 @@ const Onzeimpact = () => {
           >
             {data.contentSection.description}
           </p>
-          <div className="gradient-threebox">
+          <div className="gradient-threebox gradient-threeboxonzeimpact">
             <ul
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
               {data.imageSection.image.map((img) => (
-                <li key={img._key}>
+                <li key={img._key} className='threeboxonzeimpactlist'>
                   <img
                     src={getImageUrl(img.image.asset._ref)}
                     alt="Descriptive Alt Text"
@@ -312,7 +381,6 @@ const Onzeimpact = () => {
                   className="leftvideobox"
                   data-aos="fade-left"
                   data-aos-easing="ease-in-sine"
-                  data-aos-offset="500"
                   data-aos-duration="500"
                 >
                   <h4>{data.cardSection.secTitle}</h4>
@@ -321,7 +389,6 @@ const Onzeimpact = () => {
                   className="righttextbox"
                   data-aos="fade-right"
                   data-aos-easing="ease-in-sine"
-                  data-aos-offset="500"
                   data-aos-duration="500"
                 >
                   <div className="onlydesktop">
@@ -433,7 +500,8 @@ const Onzeimpact = () => {
                   className="leftvideobox"
                   data-aos="fade-leftt"
                   data-aos-easing="ease-in-sine"
-                  data-aos-offset="500"
+                  data-aos-anchor=".gradient-threebox"
+                  data-aos-offset="300"
                   data-aos-duration="500"
                 >
                   <img
@@ -446,6 +514,7 @@ const Onzeimpact = () => {
                   className="righttextbox"
                   data-aos="fade-right"
                   data-aos-easing="ease-in-sine"
+                  data-aos-anchor=".gradient-threebox"
                   data-aos-offset="500"
                   data-aos-duration="500"
                 >

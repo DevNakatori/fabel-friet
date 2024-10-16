@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 
 import mainbannerbg from '../assets/resizeimgs/8bdb17523f8d73487022194d9774c1d3.png';
 
@@ -20,7 +20,7 @@ import Onzelocaties_lefttwo from '../assets/resizeimgs/Rectangle62.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzelocaties, setOnzelocaties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -77,7 +77,7 @@ const Onzelocaties = () => {
       scrollTrigger: {
         trigger: '.thirdesection',
         start: '10% 10%',
-        end: '30% 30%',
+        end: '35% 35%',
         scrub: true,
         once: false,
       },
@@ -103,7 +103,7 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           // console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
@@ -158,7 +158,6 @@ const Onzelocaties = () => {
               <h4
                 className="locationtitle"
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
@@ -167,7 +166,6 @@ const Onzelocaties = () => {
               <p
                 className="locationescription onlydesktop"
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
@@ -177,7 +175,6 @@ const Onzelocaties = () => {
                 href="#"
                 className="locatebutton onlydesktop"
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
@@ -232,7 +229,6 @@ const Onzelocaties = () => {
                             <div className="wharpeoplebox">
                               <h5
                                 data-aos="fade-up"
-                                data-aos-anchor-placement="top-center"
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
                               >
@@ -299,7 +295,6 @@ const Onzelocaties = () => {
                           className="leftvideobox"
                           data-aos="fade-left"
                           data-aos-easing="ease-in-sine"
-                          data-aos-offset="500"
                           data-aos-duration="500"
                         >
                           <img
@@ -311,12 +306,10 @@ const Onzelocaties = () => {
                           className="righttextbox"
                           data-aos="fade-right"
                           data-aos-easing="ease-in-sine"
-                          data-aos-offset="500"
                           data-aos-duration="500"
                         >
                           <h5
                             data-aos="fade-up"
-                            data-aos-anchor-placement="top-center"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >
@@ -325,7 +318,6 @@ const Onzelocaties = () => {
                           <div
                             className="locationmaoaddress"
                             data-aos="fade-up"
-                            data-aos-anchor-placement="top-center"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >
@@ -340,7 +332,6 @@ const Onzelocaties = () => {
                           </div>
                           <p
                             data-aos="fade-up"
-                            data-aos-anchor-placement="top-center"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >
@@ -350,7 +341,6 @@ const Onzelocaties = () => {
                             href="#"
                             className="routbtn"
                             data-aos="fade-up"
-                            data-aos-anchor-placement="top-center"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >

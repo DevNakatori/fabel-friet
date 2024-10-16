@@ -153,7 +153,7 @@
     font-size: clamp(20px, 5vw, 23px);
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 47px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;

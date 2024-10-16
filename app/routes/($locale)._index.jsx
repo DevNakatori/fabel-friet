@@ -1,10 +1,10 @@
-import {defer} from '@shopify/remix-oxygen';
-import React, {useEffect, useState} from 'react';
-import {Await, useLoaderData, Link} from '@remix-run/react';
-import {Suspense} from 'react';
-import {Routes, Route} from 'react-router-dom';
-import {Image, Money} from '@shopify/hydrogen';
-import {LanguageProvider} from '~/components/LanguageContext';
+import { defer } from '@shopify/remix-oxygen';
+import React, { useEffect, useState } from 'react';
+import { Await, useLoaderData, Link } from '@remix-run/react';
+import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Image, Money } from '@shopify/hydrogen';
+import { LanguageProvider } from '~/components/LanguageContext';
 import LanguageSwitcher from '~/components/LanguageSwitcher';
 import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
@@ -26,7 +26,7 @@ gsap.registerPlugin(ScrollTrigger);
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'FabelFriet | Home'}];
+  return [{ title: 'FabelFriet | Home' }];
 };
 
 /**
@@ -39,7 +39,7 @@ export async function loader(args) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return defer({...deferredData, ...criticalData});
+  return defer({ ...deferredData, ...criticalData });
 }
 
 /**
@@ -47,8 +47,8 @@ export async function loader(args) {
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  * @param {LoaderFunctionArgs}
  */
-async function loadCriticalData({context}) {
-  const [{collections}] = await Promise.all([
+async function loadCriticalData({ context }) {
+  const [{ collections }] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -64,7 +64,7 @@ async function loadCriticalData({context}) {
  * Make sure to not throw any errors here, as it will cause the page to 500.
  * @param {LoaderFunctionArgs}
  */
-function loadDeferredData({context}) {
+function loadDeferredData({ context }) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error) => {
@@ -163,18 +163,18 @@ export default function Homepage() {
   return (
     <div className="home">
       {/* <progress max="100" value="0"></progress> */}
-      
+
       <ScrollNav />
       <LanguageProvider>
         <LanguageSwitcher />
-         <Newheader/>
+        <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {showHomePage && <HomePage />}
+            {showHomePage && <HomePage />} 
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}
-            {showOnzeimpact && <Onzeimpact />}
+            {showOnzeimpact && <Onzeimpact />} 
             {showGetintouch && <Getintouch />}
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function Homepage() {
  *   collection: FeaturedCollectionFragment;
  * }}
  */
-function FeaturedCollection({collection}) {
+function FeaturedCollection({ collection }) {
   if (!collection) return null;
   const image = collection?.image;
   return (
@@ -211,7 +211,7 @@ function FeaturedCollection({collection}) {
  *   products: Promise<RecommendedProductsQuery | null>;
  * }}
  */
-function RecommendedProducts({products}) {
+function RecommendedProducts({ products }) {
   return (
     <div className="recommended-products">
       <h2>Recommended Products</h2>
@@ -221,22 +221,22 @@ function RecommendedProducts({products}) {
             <div className="recommended-products-grid">
               {response
                 ? response.products.nodes.map((product) => (
-                    <Link
-                      key={product.id}
-                      className="recommended-product"
-                      to={`/products/${product.handle}`}
-                    >
-                      <Image
-                        data={product.images.nodes[0]}
-                        aspectRatio="1/1"
-                        sizes="(min-width: 45em) 20vw, 50vw"
-                      />
-                      <h4>{product.title}</h4>
-                      <small>
-                        <Money data={product.priceRange.minVariantPrice} />
-                      </small>
-                    </Link>
-                  ))
+                  <Link
+                    key={product.id}
+                    className="recommended-product"
+                    to={`/products/${product.handle}`}
+                  >
+                    <Image
+                      data={product.images.nodes[0]}
+                      aspectRatio="1/1"
+                      sizes="(min-width: 45em) 20vw, 50vw"
+                    />
+                    <h4>{product.title}</h4>
+                    <small>
+                      <Money data={product.priceRange.minVariantPrice} />
+                    </small>
+                  </Link>
+                ))
                 : null}
             </div>
           )}

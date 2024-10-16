@@ -12,36 +12,36 @@ const InstagramFeed = ({ accessToken }) => {
 
   return (
     <Swiper
-    slidesPerView={5}
-    spaceBetween={0}
-    loop={true}
-    scrollbar={{
-      hide: true,
-    }}
-    pagination={{
-      clickable: true,
-    }}
-    autoplay={{
-      delay: 2500,
-      disableOnInteraction: false,
-    }}
-    breakpoints={{
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 0,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 0,
-      },
-      1024: {
-        slidesPerView: 5,
-        spaceBetween: 0,
-      },
-    }}
-    modules={[Autoplay]}
-    className="mySwipers"
-  >
+      slidesPerView={5}
+      spaceBetween={0}
+      loop={true}
+      scrollbar={{
+        hide: true,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      breakpoints={{
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 0,
+        },
+      }}
+      modules={[Autoplay]}
+      className="mySwipers"
+    >
       {feed.map((post) => (
         <SwiperSlide key={post.id}>
           <div className="insta-slide-item contaernrulitem">
@@ -50,7 +50,7 @@ const InstagramFeed = ({ accessToken }) => {
             ) : (
               <video src={post.media_url} controls />
             )}
-            <p>{post.caption}</p>
+            {/* <p>{post.caption}</p> */}
           </div>
         </SwiperSlide>
       ))}

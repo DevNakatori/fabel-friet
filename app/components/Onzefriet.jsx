@@ -1,15 +1,15 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
 import mainbannerbg from '../assets/resizeimgs/c275d393c488ff040abd318900bf7f3b.png';
@@ -28,7 +28,7 @@ import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,35 +84,35 @@ const Onzefriet = () => {
       scrollTrigger: {
         trigger: '.secondesection',
         start: '10% 10%',
-        end: '30% 30%',
+        end: '25% 25%',
         scrub: true,
-        once: true,
+        once: false,
       },
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
     });
 
-    // gsap.fromTo(
-    //   '.allfiressections img',
-    //   {y: -50, opacity: 0},
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.2,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     force3D: true,
-    //     yoyo: true,
-    //     scrollTrigger: {
-    //       trigger: '#section2 .wrappertest',
-    //       start: 'top top-500',
-    //       end: 'top top-200',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
-    //     },
-    //   },
-    // );
+    gsap.fromTo(
+      '.allfiressections img',
+      { y: -50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'bounce.out',
+        force3D: true,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section2 .wrappertest',
+          start: 'top top-500',
+          end: 'top top-200',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
 
     gsap.to('.allfiressections img', {
       y: 20,
@@ -131,98 +131,172 @@ const Onzefriet = () => {
 
   /* other text and section animation start */
   useEffect(() => {
-    const list = document.querySelectorAll('.gradient-threebox');
+    const list = document.querySelectorAll('.gradient-threeboxonzefritimgli');
     list.forEach((list) => {
-      const items = list.querySelectorAll('ul li');
+      const items = list.querySelectorAll('ul li.onzefritimgli');
       const firstItem = items[0];
       const lastItem = items[items.length - 1];
       const middleItem = items[1];
 
-      const onzefritthreeimagecenter = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.wrappertest',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
+      // Define media queries
+      const mobileMediaQuery = window.matchMedia("(max-width: 768px)");
 
-      onzefritthreeimagecenter
-        .fromTo(
-          middleItem,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
-          {
-            //bottom: '0vh',
-            delay: 0,
-            duration: 1,
+      // GSAP animation for desktop
+      const animateDesktop = () => {
+        const onzefritthreeimagecenter = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .wrappertest',
+            start: 'top top',
+            end: 'center center',
+            markers: false,
           },
-        )
-        .to(middleItem, {
-          rotation: 0,
-          bottom: '0vh',
-          duration: 1,
-          opacity: 1,
-          delay: 0,
         });
 
-      const onzefritthreeimageleft = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
+        onzefritthreeimagecenter
+          .fromTo(
+            middleItem,
+            { bottom: '-55vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 1,
+              opacity: 1,
+            },
+          );
 
-      onzefritthreeimageleft
-        .fromTo(
-          firstItem,
-          {left: '-50vw', rotation: 0, opacity: 0},
-          {
-            left: '-9vw',
-            opacity: 1,
-            delay: 0,
-            duration: 1,
+        const onzefritthreeimageleft = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(firstItem, {
-          // left: '-10vw',
-          rotation: -8,
-          duration: 1,
-          delay: 1,
         });
 
-      const onzefritthreeimageright = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
-
-      onzefritthreeimageright
-        .fromTo(
-          lastItem,
-          {right: '-50vw', rotation: 0, opacity: 0},
-          {
-            right: '-9vw',
-            opacity: 1,
-            delay: 0,
+        onzefritthreeimageleft
+          .fromTo(
+            firstItem,
+            { left: '-50vw', rotation: 0, opacity: 0 },
+            {
+              left: '-8vw',
+              opacity: 1,
+              duration: 1,
+            },
+          )
+          .to(firstItem, {
+            rotation: -8,
             duration: 1,
+            delay: 1,
+          });
+
+        const onzefritthreeimageright = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(lastItem, {
-          // right: '-10vw',
-          rotation: 8,
-          duration: 1,
-          delay: 1,
         });
+
+        onzefritthreeimageright
+          .fromTo(
+            lastItem,
+            { right: '-50vw', rotation: 0, opacity: 0 },
+            {
+              right: '-8vw',
+              opacity: 1,
+              duration: 1,
+            },
+          )
+          .to(lastItem, {
+            rotation: 8,
+            duration: 1,
+            delay: 1,
+          });
+      };
+
+      // GSAP animation for mobile
+      const animateMobile = () => {
+        const mobileTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .wrappertest',
+            start: '0 0',
+            markers: false,
+          },
+        });
+
+        mobileTimeline
+          .fromTo(
+            middleItem,
+            { bottom: '-30vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 0.7,
+              opacity: 1,
+            },
+          );
+
+        const mobileImageLeft = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileImageLeft
+          .fromTo(
+            firstItem,
+            { left: '-30vw', rotation: 0, opacity: 0 },
+            {
+              left: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            },
+          )
+          .to(firstItem, {
+            rotation: -4,
+            duration: 0.7,
+            delay: 1,
+          });
+
+        const mobileImageRight = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.secondesection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileImageRight
+          .fromTo(
+            lastItem,
+            { right: '-30vw', rotation: 0, opacity: 0 },
+            {
+              right: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            },
+          )
+          .to(lastItem, {
+            rotation: 4,
+            duration: 0.7,
+            delay: 1,
+          });
+      };
+
+      // Execute appropriate animation based on the device
+      if (mobileMediaQuery.matches) {
+        animateMobile();
+      } else {
+        animateDesktop();
+      }
     });
+
 
     const textContent = 'lekkerste friet van Amsterdam!';
     const textLength = textContent.length;
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -271,7 +345,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -292,7 +366,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -328,7 +402,7 @@ const Onzefriet = () => {
             </div>
             <div
               className="wrappermain"
-              style={{backgroundImage: `url(${mainbannerbg})`}}
+              style={{ backgroundImage: `url(${mainbannerbg})` }}
             ></div>
             <div className="roundimages">
               <div className="roundtext">
@@ -356,6 +430,7 @@ const Onzefriet = () => {
                     <h4
                       className="onzefrienttitle"
                       data-aos="fade-up"
+
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -365,6 +440,7 @@ const Onzefriet = () => {
                   <p
                     className="onzefriendescription"
                     data-aos="fade-up"
+
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -372,10 +448,10 @@ const Onzefriet = () => {
                   </p>
                 </>
               )}
-              <div className="gradient-threebox">
+              <div className="gradient-threebox gradient-threeboxonzefritimgli">
                 <ul>
                   {content.contentSection.three_image.map((image, index) => (
-                    <li key={image._key}>
+                    <li key={image._key} className='onzefritimgli'>
                       {index === 0 && (
                         <div className="threeboxleftlogobar">
                           <img src={fabelfrietsticker2} alt={image.alt} />
@@ -407,7 +483,10 @@ const Onzefriet = () => {
                       <div
                         className="leftvideobox"
                         data-aos="fade-left"
+                        data-aos-anchor=".gradient-threebox"
                         data-aos-easing="ease-in-sine"
+                        data-aos-anchor-placement="top-center"
+                        data-aos-offset="200"
                         data-aos-duration="500"
                       >
                         <div className="leftlogobar">
@@ -545,7 +624,6 @@ const Onzefriet = () => {
                         className="accordion-container"
                         data-aos="fade-down"
                         ddata-aos-easing="linear"
-                        data-aos-offset="500"
                         data-aos-duration="500"
                       >
                         {content.accordionSection.faq.map((faq) => (
