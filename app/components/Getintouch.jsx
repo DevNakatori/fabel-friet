@@ -1,10 +1,10 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 
@@ -28,7 +28,7 @@ const Getintouch = () => {
     tiktok: tiktokIcon,
   };
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -70,7 +70,7 @@ const Getintouch = () => {
       scrollTrigger: {
         trigger: '.sixthsection',
         start: '10% 10%',
-        end: '30% 30%',
+        end: '25% 25%',
         scrub: true,
         once: false,
       },
@@ -84,98 +84,183 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    const list = document.querySelectorAll('.gradient-threebox');
-    list.forEach((list) => {
-      const items = list.querySelectorAll('ul li');
-      const firstItem = items[0];
-      const lastItem = items[items.length - 1];
-      const middleItem = items[1];
+    // const list = document.querySelectorAll('.gradient-threeboxgetintouch');
+    const listgetintouch = document.querySelectorAll('.gradient-threeboxgetintouch');
+    listgetintouch.forEach((listgetintouch) => {
+      const itemsgetintouch = listgetintouch.querySelectorAll('ul li.gradientgetintouchlist');
+      const firstItemgetintouch = itemsgetintouch[0];
+      const lastItemgetintouch = itemsgetintouch[itemsgetintouch.length - 1];
+      const middleItemgetintouch = itemsgetintouch[1];
 
-      const onzefritthreeimagecenter = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.wrappertest',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
 
-      onzefritthreeimagecenter
-        .fromTo(
-          middleItem,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
-          {
-            //bottom: '0vh',
-            delay: 0,
-            duration: 1,
+
+      const mobileMediaQuerygetintouch = window.matchMedia("(max-width: 768px)");
+
+      let animateMobileTimeline;
+      let animateDesktopTimeline;
+
+      // GSAP animation for desktop
+      const animateDesktopgetintouch = () => {
+        // Kill existing animations
+        if (animateMobileTimeline) animateMobileTimeline.scrollTrigger.kill();
+
+        const onzefritthreeimagecentergetintouch = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection .wrappertest',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(middleItem, {
-          rotation: 0,
-          bottom: '0vh',
-          duration: 1,
-          opacity: 1,
-          delay: 0,
         });
 
-      const onzefritthreeimageleft = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
+        onzefritthreeimagecentergetintouch
+          .fromTo(
+            middleItemgetintouch,
+            { bottom: '-55vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 1,
+              opacity: 1,
+            }
+          );
 
-      onzefritthreeimageleft
-        .fromTo(
-          firstItem,
-          {left: '-50vw', rotation: 0, opacity: 0},
-          {
-            left: '-9vw',
-            opacity: 1,
-            delay: 0,
-            duration: 1,
+        const onzefritthreeimageleftgetintouch = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection  .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(firstItem, {
-          // left: '-10vw',
-          rotation: -8,
-          duration: 1,
-          delay: 1,
         });
 
-      const onzefritthreeimageright = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.gradient-purple',
-          start: 'top top',
-          end: 'bottom top',
-        },
-      });
-
-      onzefritthreeimageright
-        .fromTo(
-          lastItem,
-          {right: '-50vw', rotation: 0, opacity: 0},
-          {
-            right: '-9vw',
-            opacity: 1,
-            delay: 0,
+        onzefritthreeimageleftgetintouch
+          .fromTo(
+            firstItemgetintouch,
+            { left: '-50vw', rotation: 0, opacity: 0 },
+            {
+              left: '-9vw',
+              opacity: 1,
+              duration: 1,
+            }
+          )
+          .to(firstItemgetintouch, {
+            rotation: -8,
             duration: 1,
+            delay: 1,
+          });
+
+        const onzefritthreeimagerightgetintouch = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
           },
-        )
-        .to(lastItem, {
-          // right: '-10vw',
-          rotation: 8,
-          duration: 1,
-          delay: 1,
         });
+
+        onzefritthreeimagerightgetintouch
+          .fromTo(
+            lastItemgetintouch,
+            { right: '-50vw', rotation: 0, opacity: 0 },
+            {
+              right: '-9vw',
+              opacity: 1,
+              duration: 1,
+            }
+          )
+          .to(lastItemgetintouch, {
+            rotation: 8,
+            duration: 1,
+            delay: 1,
+          });
+      };
+
+      // GSAP animation for mobile
+      const animateMobilegetintouch = () => {
+
+        // Kill existing animations
+        if (animateDesktopTimeline) animateDesktopTimeline.scrollTrigger.kill();
+
+        const mobileTimelineCenter = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection .wrappertest',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileTimelineCenter
+          .fromTo(
+            middleItemgetintouch,
+            { bottom: '-30vh', rotation: 0, opacity: 0 },
+            {
+              bottom: '0vh',
+              duration: 0.7,
+              opacity: 1,
+            }
+          );
+
+        const mobileTimelineLeft = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileTimelineLeft
+          .fromTo(
+            firstItemgetintouch,
+            { left: '-30vw', rotation: 0, opacity: 0 },
+            {
+              left: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            }
+          )
+          .to(firstItemgetintouch, {
+            rotation: -4,
+            duration: 0.7,
+            delay: 1,
+          });
+
+        const mobileTimelineRight = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.sixthsection .gradient-purple',
+            start: 'top top',
+            end: 'bottom top',
+          },
+        });
+
+        mobileTimelineRight
+          .fromTo(
+            lastItemgetintouch,
+            { right: '-30vw', rotation: 0, opacity: 0 },
+            {
+              right: '0vw',
+              opacity: 1,
+              duration: 0.7,
+            }
+          )
+          .to(lastItemgetintouch, {
+            rotation: 4,
+            duration: 0.7,
+            delay: 1,
+          });
+      };
+
+      // Execute appropriate animation based on the device
+      if (mobileMediaQuerygetintouch.matches) {
+        animateMobilegetintouch();
+      } else {
+        animateDesktopgetintouch();
+      }
     });
+
 
     const textContent = 'lekkerste friet van Amsterdam!';
     const textLength = textContent.length;
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -224,7 +309,7 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -236,7 +321,7 @@ const Getintouch = () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
         //console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
@@ -254,7 +339,7 @@ const Getintouch = () => {
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const {contactSection, contentSection, transitionSection} = getIntouch;
+  const { contactSection, contentSection, transitionSection } = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -303,27 +388,27 @@ const Getintouch = () => {
           >
             {contentSection.description}
           </p>
-          <div className="gradient-threebox">
+          <div className="gradient-threebox gradient-threeboxgetintouch">
             <ul
               data-aos="fade-up"
               data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {contentSection.mobileImages.map((img) => (
-                <li key={img._key}>
+              {/* {contentSection.mobileImages.map((img) => (
+                <li key={img._key} className='gradientgetintouchlist'>
                   <img src={getImageUrl(img.image.asset._ref)} alt="" />
                 </li>
-              ))}
+              ))} */}
 
-              {/* <li
+               <li
                 style={{
                   backgroundImage: `url(${backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   width: '446px',
                   height: '861px',
-                }}
+                }} className='gradientgetintouchlist'
               >
                 <iframe
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
@@ -340,7 +425,7 @@ const Getintouch = () => {
                   backgroundPosition: 'center',
                   width: '446px',
                   height: '861px',
-                }}
+                }} className='gradientgetintouchlist'
               >
                 <iframe
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
@@ -357,7 +442,7 @@ const Getintouch = () => {
                   backgroundPosition: 'center',
                   width: '446px',
                   height: '861px',
-                }}
+                }} className='gradientgetintouchlist'
               >
                 <iframe
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
@@ -365,7 +450,7 @@ const Getintouch = () => {
                   allow="autoplay"
                   loop
                 ></iframe>
-              </li> */}
+              </li> 
             </ul>
           </div>
           <div className="whitebgbox">
@@ -373,7 +458,6 @@ const Getintouch = () => {
               <div className="socialtitle">
                 <h3
                   data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="2000"
                 >
@@ -383,7 +467,6 @@ const Getintouch = () => {
               <div className="socialiconlist">
                 <ul
                   data-aos="fade-up"
-                  data-aos-anchor-placement="top-center"
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="2000"
                 >
@@ -409,7 +492,6 @@ const Getintouch = () => {
               <div
                 className="bottomwhatsapp"
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
@@ -428,7 +510,6 @@ const Getintouch = () => {
               </div>
               <h4
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
                 className="onlydesktop"
@@ -445,7 +526,6 @@ const Getintouch = () => {
                 >
                   <h4
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                     className="onlymobile"
@@ -465,7 +545,6 @@ const Getintouch = () => {
                   <h3
                     id="animated-text"
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -475,7 +554,6 @@ const Getintouch = () => {
                     <div
                       key="whatsapp"
                       data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -492,7 +570,6 @@ const Getintouch = () => {
                   <ul className="emailtelbox">
                     <li
                       data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -514,7 +591,6 @@ const Getintouch = () => {
                     </li>
                     <li
                       data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -529,7 +605,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{maskType: 'luminance'}}
+                              style={{ maskType: 'luminance' }}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -558,13 +634,11 @@ const Getintouch = () => {
                   <div
                     className="locationbox"
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
                     <h5
                       data-aos="fade-up"
-                      data-aos-anchor-placement="top-center"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -576,7 +650,6 @@ const Getintouch = () => {
                           (location) => (
                             <li
                               data-aos="fade-up"
-                              data-aos-anchor-placement="top-center"
                               data-aos-easing="ease-out-cubic"
                               data-aos-duration="2000"
                               key={location._key}
@@ -624,21 +697,19 @@ const Getintouch = () => {
               <div
                 className="main-accordian"
                 data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
                 <div className="accordion-container">
                   <h6
                     data-aos="fade-up"
-                    data-aos-anchor-placement="top-center"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
                     {contactSection.contactDetails?.faqSection?.heading}
                   </h6>
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                  0 ? (
+                    0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button

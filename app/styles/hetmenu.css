@@ -172,7 +172,7 @@
 }
 
 .instagramfeedimagesimain {
-    height: 590px;
+    height: 610px;
     overflow: hidden;
     margin:20px 0;
     margin-right: -60px;
@@ -198,6 +198,9 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 405px;
     flex: 0 0 405px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    overflow: hidden;
 }
 
 .instagramfeedimages .contaernrul .swiper .swiper-wrapper .swiper-slide:nth-child(even) .contaernrulitem {
@@ -240,7 +243,8 @@
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox {
     max-width: 735px;
     width: 50%;
-    padding-left: 45px;
+    padding-right: 45px;
+    padding-left: 0;
     position: relative;
     top: 5em;
     margin-bottom: 10em;
@@ -326,6 +330,7 @@
     position: relative;
     top: -10rem;
     margin-bottom: 10px;
+    right:-2vw;
 }
 
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
@@ -340,6 +345,24 @@
     width: inherit;
     width: inherit;
     margin: 0;
+}
+
+
+.instagramfeedimages .contaernrul .contaernrulitem video {
+    width: 100%;
+    height: 100%;
+    max-height: 490px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.instagramfeedimages .contaernrul .contaernrulitem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 490px;
+    object-fit: cover;
+    object-position: center center;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) 
@@ -381,7 +404,8 @@
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox {
         max-width: 735px;
         width: 100%;
-        padding-left: 45px;
+        padding-right: 45px;
+        padding-left: 0;
         position: relative;
         top: 5em;
         margin-bottom: 10em;
