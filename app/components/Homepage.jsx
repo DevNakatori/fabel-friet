@@ -143,20 +143,20 @@ const HomePage = () => {
             if (languageSwitchers.length > 0) {
               languageSwitchers[0].style.display = 'block';
             }
-            const header = document.getElementsByClassName('header');
+            const header = document.getElementsByClassName('headernew');
             if (header.length > 0) {
               header[0].style.display = 'block';
             }
             gsap.fromTo(
-              'nav.header-menu-desktop .header-menu-item',
-              {opacity: 0, y: -30},
+              '.headernew .desktop-menu li',
+              {opacity: 0, y: -50},
               {
                 opacity: 1,
                 y: 0,
                 stagger: 0.2,
-                duration: 1,
+                duration: 2,
                 ease: 'power2.out',
-                delay: 1,
+                delay: 2,
                 repeat: 0,
               },
             );

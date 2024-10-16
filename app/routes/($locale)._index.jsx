@@ -14,6 +14,9 @@ import Hetmenu from '~/components/Hetmenu';
 import Onzeimpact from '~/components/Onzeimpact';
 import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
+import Newheader from '~/components/Newheader';
+
+
 import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -160,9 +163,11 @@ export default function Homepage() {
   return (
     <div className="home">
       {/* <progress max="100" value="0"></progress> */}
+      
       <ScrollNav />
       <LanguageProvider>
         <LanguageSwitcher />
+         <Newheader/>
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
@@ -176,10 +181,6 @@ export default function Homepage() {
       </LanguageProvider>
     </div>
   );
-
-  if (loading) {
-    return <div className="loading-spinner">Loading...</div>;
-  }
 }
 
 /**
