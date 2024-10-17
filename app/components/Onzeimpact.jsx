@@ -1,24 +1,22 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import { getImageUrl } from '../js/imagesurl';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {getImageUrl} from '../js/imagesurl';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
-import mainbannerbg from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
+import {Pagination, Autoplay} from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
 import arrow_bluebottom from '../assets/resizeimgs/arrow_bluebottom.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -111,13 +109,17 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    const listimpact = document.querySelectorAll('.gradient-threeboxonzeimpact');
+    const listimpact = document.querySelectorAll(
+      '.gradient-threeboxonzeimpact',
+    );
     listimpact.forEach((listimpact) => {
-      const itemslistimpact = listimpact.querySelectorAll('ul li.threeboxonzeimpactlist');
+      const itemslistimpact = listimpact.querySelectorAll(
+        'ul li.threeboxonzeimpactlist',
+      );
       const firstItemimpact = itemslistimpact[0];
       const lastItemimpact = itemslistimpact[itemslistimpact.length - 1];
       const middleItemimpact = itemslistimpact[1];
-      const mobileMediaQuerys = window.matchMedia("(max-width: 768px)");
+      const mobileMediaQuerys = window.matchMedia('(max-width: 768px)');
       // GSAP animation for desktop
       const animateDesktopimpact = () => {
         const onzefritthreeimagecenterimpact = gsap.timeline({
@@ -128,16 +130,15 @@ const Onzeimpact = () => {
           },
         });
 
-        onzefritthreeimagecenterimpact
-          .fromTo(
-            middleItemimpact,
-            { bottom: '-55vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 1,
-              opacity: 1,
-            }
-          );
+        onzefritthreeimagecenterimpact.fromTo(
+          middleItemimpact,
+          {bottom: '-55vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 1,
+            opacity: 1,
+          },
+        );
 
         const onzefritthreeimageleftimpact = gsap.timeline({
           scrollTrigger: {
@@ -150,12 +151,12 @@ const Onzeimpact = () => {
         onzefritthreeimageleftimpact
           .fromTo(
             firstItemimpact,
-            { left: '-50vw', rotation: 0, opacity: 0 },
+            {left: '-50vw', rotation: 0, opacity: 0},
             {
               left: '-9vw',
               opacity: 1,
               duration: 1,
-            }
+            },
           )
           .to(firstItemimpact, {
             rotation: -8,
@@ -174,12 +175,12 @@ const Onzeimpact = () => {
         onzefritthreeimagerightimpact
           .fromTo(
             lastItemimpact,
-            { right: '-50vw', rotation: 0, opacity: 0 },
+            {right: '-50vw', rotation: 0, opacity: 0},
             {
               right: '-9vw',
               opacity: 1,
               duration: 1,
-            }
+            },
           )
           .to(lastItemimpact, {
             rotation: 8,
@@ -198,16 +199,15 @@ const Onzeimpact = () => {
           },
         });
 
-        mobileTimelineCenter
-          .fromTo(
-            middleItemimpact,
-            { bottom: '-30vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 0.7,
-              opacity: 1,
-            }
-          );
+        mobileTimelineCenter.fromTo(
+          middleItemimpact,
+          {bottom: '-30vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 0.7,
+            opacity: 1,
+          },
+        );
 
         const mobileTimelineLeft = gsap.timeline({
           scrollTrigger: {
@@ -220,12 +220,12 @@ const Onzeimpact = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemimpact,
-            { left: '-30vw', rotation: 0, opacity: 0 },
+            {left: '-30vw', rotation: 0, opacity: 0},
             {
               left: '0vw',
               opacity: 1,
               duration: 0.7,
-            }
+            },
           )
           .to(firstItemimpact, {
             rotation: -4,
@@ -244,12 +244,12 @@ const Onzeimpact = () => {
         mobileTimelineRight
           .fromTo(
             lastItemimpact,
-            { right: '-30vw', rotation: 0, opacity: 0 },
+            {right: '-30vw', rotation: 0, opacity: 0},
             {
               right: '0vw',
               opacity: 1,
               duration: 0.7,
-            }
+            },
           )
           .to(lastItemimpact, {
             rotation: 4,
@@ -279,9 +279,9 @@ const Onzeimpact = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzeimpact" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
-          // console.log('Fetched fetchDataonzeimpactData Data:', data);
+          //console.log('Fetched fetchDataonzeimpactData Data:', data);
           localStorage.setItem(
             `onzeimpactData_${language}`,
             JSON.stringify(data),
@@ -309,10 +309,21 @@ const Onzeimpact = () => {
     <section className="panel fifthesection" id="section5">
       <div className="wrapper-impact">
         <div className="bannersectinlogo">
-          <img src={bannerlogo}></img>
+          <img
+            src={getImageUrl(data.logoImage.asset._ref)}
+            alt="Logo"
+            width="10"
+            height="10"
+          />
         </div>
         <div className="wrappermain">
-          <img className="media" src={mainbannerbg} alt="Round Image" />
+          <img
+            className="media"
+            src={getImageUrl(data.transitionSection.image.asset._ref)}
+            alt={data.transitionSection.image.alt}
+            width="10"
+            height="10"
+          />
         </div>
 
         <div className="roundimages">
@@ -353,10 +364,12 @@ const Onzeimpact = () => {
               data-aos-duration="2000"
             >
               {data.imageSection.image.map((img) => (
-                <li key={img._key} className='threeboxonzeimpactlist'>
+                <li key={img._key} className="threeboxonzeimpactlist">
                   <img
                     src={getImageUrl(img.image.asset._ref)}
                     alt="Descriptive Alt Text"
+                    width="10"
+                    height="10"
                   />
                 </li>
               ))}
@@ -374,6 +387,8 @@ const Onzeimpact = () => {
                   src={getImageUrl(data.cardSection.qrImage.asset._ref)}
                   alt="QR Code"
                   data-speed="auto"
+                  width="10"
+                  height="10"
                 />
               </div>
               <div className="whitewithvideomainbox">
@@ -508,6 +523,8 @@ const Onzeimpact = () => {
                     src={getImageUrl(data.bottomSection.image.asset._ref)}
                     alt="Bottom Section Image"
                     data-speed="auto"
+                    width="10"
+                    height="10"
                   />
                 </div>
                 <div
@@ -555,7 +572,12 @@ const Onzeimpact = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <img src={arrow_bluebottom} alt="Bin Imagebox" />
+                    <img
+                      src={arrow_bluebottom}
+                      alt="Bin Imagebox"
+                      width="10"
+                      height="10"
+                    />
                   </div>
                 </div>
                 <div className="binimagebox">
@@ -566,6 +588,8 @@ const Onzeimpact = () => {
                     data-aos="fade-up"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
+                    width="10"
+                    height="10"
                   />
                 </div>
               </div>

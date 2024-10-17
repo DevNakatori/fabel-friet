@@ -260,6 +260,7 @@
 
 #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox img {
     width: 100%;
+    height: auto;
 }
 
 .qrcodeimagebox {

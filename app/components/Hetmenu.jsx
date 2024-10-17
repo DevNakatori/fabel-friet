@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import {Autoplay} from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 
 import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
-import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [hetmenu, sethetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -36,8 +35,9 @@ const Hetmenu = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
+          //console.log('Fetched hetmenu Data:', data);
           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           sethetmenu(data);
         } catch (err) {
@@ -142,7 +142,7 @@ const Hetmenu = () => {
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
-  const { contentSection, bottomContentSection, menuSection, transitionSection } =
+  const {contentSection, bottomContentSection, menuSection, transitionSection} =
     hetmenu[0];
 
   // Define tab content inside the component to have access to menuSection
@@ -154,7 +154,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[0].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[0]._key}`}
-              style={{ maxWidth: '100%', height: 'auto' }}
+              style={{maxWidth: '100%', height: 'auto'}}
             />
           </li>
         )}
@@ -170,7 +170,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[1].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[1]._key}`}
-              style={{ maxWidth: '100%', height: 'auto' }}
+              style={{maxWidth: '100%', height: 'auto'}}
             />
           </li>
         )}
@@ -186,7 +186,7 @@ const Hetmenu = () => {
             <img
               src={getImageUrl(menuSection.Menu[2].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[2]._key}`}
-              style={{ maxWidth: '100%', height: 'auto' }}
+              style={{maxWidth: '100%', height: 'auto'}}
             />
           </li>
         )}
@@ -196,9 +196,9 @@ const Hetmenu = () => {
 
   // Define tabs with their respective content
   const tabs = [
-    { label: 'Fries', content: friesContent },
-    { label: 'Snacks', content: snacksContent },
-    { label: 'Drinks', content: drinksContent },
+    {label: 'Fries', content: friesContent},
+    {label: 'Snacks', content: snacksContent},
+    {label: 'Drinks', content: drinksContent},
   ];
 
   return (
@@ -210,8 +210,10 @@ const Hetmenu = () => {
         <div className="wrappermain">
           <img
             className="media"
-            src={mainbannerbg}
-            alt="Main banner background"
+            src={getImageUrl(transitionSection.image.asset._ref)}
+            alt={transitionSection.image.alt}
+            width="10"
+            height="10"
           />
         </div>
 
@@ -259,7 +261,7 @@ const Hetmenu = () => {
                   <img
                     src={getImageUrl(item.image.asset._ref)}
                     alt={`Menu item ${item._key}`}
-                    style={{ maxWidth: '100%', height: 'auto' }}
+                    style={{maxWidth: '100%', height: 'auto'}}
                   />
                 </li>
               ))}
@@ -268,10 +270,7 @@ const Hetmenu = () => {
 
           <div className="whitebgbox">
             <div className="appcontainers">
-              <div
-                className="instagramfeedimagesimain"
-
-              >
+              <div className="instagramfeedimagesimain">
                 <div className="instagramfeedimages">
                   <div
                     className="contaernrul"

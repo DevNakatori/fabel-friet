@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
+import {Pagination, Autoplay} from 'swiper/modules';
 
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 
 import mainbannerbg from '../assets/resizeimgs/8bdb17523f8d73487022194d9774c1d3.png';
 
@@ -20,7 +20,7 @@ import Onzelocaties_lefttwo from '../assets/resizeimgs/Rectangle62.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzelocaties, setOnzelocaties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -103,7 +103,7 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           // console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
@@ -133,11 +133,21 @@ const Onzelocaties = () => {
             <div className="bannersectinlogo">
               <img
                 src={getImageUrl(locationData.logoImage.asset._ref)}
-                alt={locationData.logoImage.alt}
+                alt="Logo"
+                width="10"
+                height="10"
               />
             </div>
             <div className="wrappermain">
-              <img className="media" src={mainbannerbg} alt="" />
+              <img
+                className="media"
+                src={getImageUrl(
+                  locationData.transitionSection.image.asset._ref,
+                )}
+                alt={locationData.transitionSection.image.alt}
+                width="10"
+                height="10"
+              />
             </div>
 
             <div className="roundimages">
@@ -239,6 +249,8 @@ const Onzelocaties = () => {
                                 <img
                                   src={getImageUrl(loc.image.asset._ref)}
                                   alt={loc.image.alt}
+                                  width="10"
+                                  height="10"
                                 />
                                 <h4>Opening hours</h4>
                                 <p>Mon-Sun: 11:00 - 20:00</p>
@@ -300,6 +312,8 @@ const Onzelocaties = () => {
                           <img
                             src={getImageUrl(loc.image.asset._ref)}
                             alt={loc.image.alt}
+                            width="10"
+                            height="10"
                           />
                         </div>
                         <div

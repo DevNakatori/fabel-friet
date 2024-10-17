@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import gsap from 'gsap';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 
@@ -28,7 +28,7 @@ const Getintouch = () => {
     tiktok: tiktokIcon,
   };
 
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -85,16 +85,19 @@ const Getintouch = () => {
 
   useEffect(() => {
     // const list = document.querySelectorAll('.gradient-threeboxgetintouch');
-    const listgetintouch = document.querySelectorAll('.gradient-threeboxgetintouch');
+    const listgetintouch = document.querySelectorAll(
+      '.gradient-threeboxgetintouch',
+    );
     listgetintouch.forEach((listgetintouch) => {
-      const itemsgetintouch = listgetintouch.querySelectorAll('ul li.gradientgetintouchlist');
+      const itemsgetintouch = listgetintouch.querySelectorAll(
+        'ul li.gradientgetintouchlist',
+      );
       const firstItemgetintouch = itemsgetintouch[0];
       const lastItemgetintouch = itemsgetintouch[itemsgetintouch.length - 1];
       const middleItemgetintouch = itemsgetintouch[1];
 
-
-
-      const mobileMediaQuerygetintouch = window.matchMedia("(max-width: 768px)");
+      const mobileMediaQuerygetintouch =
+        window.matchMedia('(max-width: 768px)');
 
       let animateMobileTimeline;
       let animateDesktopTimeline;
@@ -112,16 +115,15 @@ const Getintouch = () => {
           },
         });
 
-        onzefritthreeimagecentergetintouch
-          .fromTo(
-            middleItemgetintouch,
-            { bottom: '-55vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 1,
-              opacity: 1,
-            }
-          );
+        onzefritthreeimagecentergetintouch.fromTo(
+          middleItemgetintouch,
+          {bottom: '-55vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 1,
+            opacity: 1,
+          },
+        );
 
         const onzefritthreeimageleftgetintouch = gsap.timeline({
           scrollTrigger: {
@@ -134,12 +136,12 @@ const Getintouch = () => {
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            { left: '-50vw', rotation: 0, opacity: 0 },
+            {left: '-50vw', rotation: 0, opacity: 0},
             {
               left: '-9vw',
               opacity: 1,
               duration: 1,
-            }
+            },
           )
           .to(firstItemgetintouch, {
             rotation: -8,
@@ -158,12 +160,12 @@ const Getintouch = () => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            { right: '-50vw', rotation: 0, opacity: 0 },
+            {right: '-50vw', rotation: 0, opacity: 0},
             {
               right: '-9vw',
               opacity: 1,
               duration: 1,
-            }
+            },
           )
           .to(lastItemgetintouch, {
             rotation: 8,
@@ -174,7 +176,6 @@ const Getintouch = () => {
 
       // GSAP animation for mobile
       const animateMobilegetintouch = () => {
-
         // Kill existing animations
         if (animateDesktopTimeline) animateDesktopTimeline.scrollTrigger.kill();
 
@@ -186,16 +187,15 @@ const Getintouch = () => {
           },
         });
 
-        mobileTimelineCenter
-          .fromTo(
-            middleItemgetintouch,
-            { bottom: '-30vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 0.7,
-              opacity: 1,
-            }
-          );
+        mobileTimelineCenter.fromTo(
+          middleItemgetintouch,
+          {bottom: '-30vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 0.7,
+            opacity: 1,
+          },
+        );
 
         const mobileTimelineLeft = gsap.timeline({
           scrollTrigger: {
@@ -208,12 +208,12 @@ const Getintouch = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            { left: '-30vw', rotation: 0, opacity: 0 },
+            {left: '-30vw', rotation: 0, opacity: 0},
             {
               left: '0vw',
               opacity: 1,
               duration: 0.7,
-            }
+            },
           )
           .to(firstItemgetintouch, {
             rotation: -4,
@@ -232,12 +232,12 @@ const Getintouch = () => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            { right: '-30vw', rotation: 0, opacity: 0 },
+            {right: '-30vw', rotation: 0, opacity: 0},
             {
               right: '0vw',
               opacity: 1,
               duration: 0.7,
-            }
+            },
           )
           .to(lastItemgetintouch, {
             rotation: 4,
@@ -254,13 +254,12 @@ const Getintouch = () => {
       }
     });
 
-
     const textContent = 'lekkerste friet van Amsterdam!';
     const textLength = textContent.length;
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      { text: '' },
+      {text: ''},
       {
         text: textContent,
         duration: duration,
@@ -309,7 +308,7 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -321,7 +320,7 @@ const Getintouch = () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
-          { lang: language },
+          {lang: language},
         );
         //console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
@@ -339,7 +338,7 @@ const Getintouch = () => {
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const { contactSection, contentSection, transitionSection } = getIntouch;
+  const {contactSection, contentSection, transitionSection} = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -353,7 +352,13 @@ const Getintouch = () => {
           )}
         </div>
         <div className="wrappermain">
-          <img className="media" src={mainbannerbg} alt="Round Image" />
+          <img
+            className="media"
+            src={getImageUrl(getIntouch.transitionSection.image.asset._ref)}
+            alt={transitionSection.topTitle}
+            width="10"
+            height="10"
+          />
         </div>
         <div className="roundimages">
           <div className="roundtext-getintouch">
@@ -401,16 +406,16 @@ const Getintouch = () => {
                 </li>
               ))} */}
 
-               <li
+              <li
                 style={{
                   backgroundImage: `url(${backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  width: '446px',
-                  height: '861px',
-                }} className='gradientgetintouchlist'
+                }}
+                className="gradientgetintouchlist"
               >
                 <iframe
+                  title="tiktok"
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
                   muted
                   allow="autoplay"
@@ -423,11 +428,11 @@ const Getintouch = () => {
                   backgroundImage: `url(${backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  width: '446px',
-                  height: '861px',
-                }} className='gradientgetintouchlist'
+                }}
+                className="gradientgetintouchlist"
               >
                 <iframe
+                  title="tiktok"
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
                   muted
                   allow="autoplay"
@@ -440,17 +445,17 @@ const Getintouch = () => {
                   backgroundImage: `url(${backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  width: '446px',
-                  height: '861px',
-                }} className='gradientgetintouchlist'
+                }}
+                className="gradientgetintouchlist"
               >
                 <iframe
+                  title="tiktok"
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
                   muted
                   allow="autoplay"
                   loop
                 ></iframe>
-              </li> 
+              </li>
             </ul>
           </div>
           <div className="whitebgbox">
@@ -478,6 +483,7 @@ const Getintouch = () => {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={platform}
                             className={
                               platform.charAt(0).toUpperCase() +
                               platform.slice(1)
@@ -500,6 +506,7 @@ const Getintouch = () => {
                     <a
                       href={contactSection.contactDetails.whatsAppLabel}
                       target="_blank"
+                      aria-label="whatsapp"
                       rel="noopener noreferrer"
                       className="Whatsappbtn"
                     >
@@ -605,7 +612,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{ maskType: 'luminance' }}
+                              style={{maskType: 'luminance'}}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -637,13 +644,13 @@ const Getintouch = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <h5
+                    <h6
                       data-aos="fade-up"
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
                       Locaties
-                    </h5>
+                    </h6>
                     <ul>
                       {contactSection.contactDetails.locations?.length > 0 ? (
                         contactSection.contactDetails.locations.map(
@@ -694,22 +701,23 @@ const Getintouch = () => {
                 </div>
               </div>
 
-              <div
-                className="main-accordian"
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-              >
-                <div className="accordion-container">
-                  <h6
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
-                    {contactSection.contactDetails?.faqSection?.heading}
-                  </h6>
+              <div className="main-accordian">
+                <h6
+                  data-aos="fade-down"
+                  ddata-aos-easing="linear"
+                  data-aos-duration="500"
+                >
+                  {contactSection.contactDetails?.faqSection?.heading}
+                </h6>
+
+                <div
+                  className="accordion-container"
+                  data-aos="fade-down"
+                  ddata-aos-easing="linear"
+                  data-aos-duration="500"
+                >
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                    0 ? (
+                  0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button
