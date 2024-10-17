@@ -1,15 +1,15 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
 import mainbannerbg from '../assets/resizeimgs/c275d393c488ff040abd318900bf7f3b.png';
@@ -28,7 +28,7 @@ import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -94,7 +94,7 @@ const Onzefriet = () => {
 
     gsap.fromTo(
       '.allfiressections img',
-      { y: -50, opacity: 0 },
+      {y: -50, opacity: 0},
       {
         y: 0,
         opacity: 1,
@@ -139,7 +139,7 @@ const Onzefriet = () => {
       const middleItem = items[1];
 
       // Define media queries
-      const mobileMediaQuery = window.matchMedia("(max-width: 768px)");
+      const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
 
       // GSAP animation for desktop
       const animateDesktop = () => {
@@ -152,16 +152,15 @@ const Onzefriet = () => {
           },
         });
 
-        onzefritthreeimagecenter
-          .fromTo(
-            middleItem,
-            { bottom: '-55vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 1,
-              opacity: 1,
-            },
-          );
+        onzefritthreeimagecenter.fromTo(
+          middleItem,
+          {bottom: '-55vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 1,
+            opacity: 1,
+          },
+        );
 
         const onzefritthreeimageleft = gsap.timeline({
           scrollTrigger: {
@@ -174,7 +173,7 @@ const Onzefriet = () => {
         onzefritthreeimageleft
           .fromTo(
             firstItem,
-            { left: '-50vw', rotation: 0, opacity: 0 },
+            {left: '-50vw', rotation: 0, opacity: 0},
             {
               left: '-8vw',
               opacity: 1,
@@ -198,7 +197,7 @@ const Onzefriet = () => {
         onzefritthreeimageright
           .fromTo(
             lastItem,
-            { right: '-50vw', rotation: 0, opacity: 0 },
+            {right: '-50vw', rotation: 0, opacity: 0},
             {
               right: '-8vw',
               opacity: 1,
@@ -222,16 +221,15 @@ const Onzefriet = () => {
           },
         });
 
-        mobileTimeline
-          .fromTo(
-            middleItem,
-            { bottom: '-30vh', rotation: 0, opacity: 0 },
-            {
-              bottom: '0vh',
-              duration: 0.7,
-              opacity: 1,
-            },
-          );
+        mobileTimeline.fromTo(
+          middleItem,
+          {bottom: '-30vh', rotation: 0, opacity: 0},
+          {
+            bottom: '0vh',
+            duration: 0.7,
+            opacity: 1,
+          },
+        );
 
         const mobileImageLeft = gsap.timeline({
           scrollTrigger: {
@@ -244,7 +242,7 @@ const Onzefriet = () => {
         mobileImageLeft
           .fromTo(
             firstItem,
-            { left: '-30vw', rotation: 0, opacity: 0 },
+            {left: '-30vw', rotation: 0, opacity: 0},
             {
               left: '0vw',
               opacity: 1,
@@ -268,7 +266,7 @@ const Onzefriet = () => {
         mobileImageRight
           .fromTo(
             lastItem,
-            { right: '-30vw', rotation: 0, opacity: 0 },
+            {right: '-30vw', rotation: 0, opacity: 0},
             {
               right: '0vw',
               opacity: 1,
@@ -290,13 +288,12 @@ const Onzefriet = () => {
       }
     });
 
-
     const textContent = 'lekkerste friet van Amsterdam!';
     const textLength = textContent.length;
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      { text: '' },
+      {text: ''},
       {
         text: textContent,
         duration: duration,
@@ -345,7 +342,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -366,7 +363,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -402,7 +399,7 @@ const Onzefriet = () => {
             </div>
             <div
               className="wrappermain"
-              style={{ backgroundImage: `url(${mainbannerbg})` }}
+              style={{backgroundImage: `url(${mainbannerbg})`}}
             ></div>
             <div className="roundimages">
               <div className="roundtext">
@@ -430,7 +427,6 @@ const Onzefriet = () => {
                     <h4
                       className="onzefrienttitle"
                       data-aos="fade-up"
-
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
@@ -440,7 +436,6 @@ const Onzefriet = () => {
                   <p
                     className="onzefriendescription"
                     data-aos="fade-up"
-
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
@@ -451,7 +446,7 @@ const Onzefriet = () => {
               <div className="gradient-threebox gradient-threeboxonzefritimgli">
                 <ul>
                   {content.contentSection.three_image.map((image, index) => (
-                    <li key={image._key} className='onzefritimgli'>
+                    <li key={image._key} className="onzefritimgli">
                       {index === 0 && (
                         <div className="threeboxleftlogobar">
                           <img src={fabelfrietsticker2} alt={image.alt} />
@@ -563,8 +558,12 @@ const Onzefriet = () => {
                             },
                             1200: {
                               slidesPerView: 3,
-                              spaceBetween: 40,
-                            }
+                              spaceBetween: 20,
+                            },
+                            1910: {
+                              slidesPerView: 4,
+                              spaceBetween: 20,
+                            },
                           }}
                           modules={[Pagination, Autoplay]}
                           className="mySwiper"
@@ -574,30 +573,42 @@ const Onzefriet = () => {
                               <div
                                 className="module"
                                 data-aos="fade"
-                                ddata-aos-easing="linear"
+                                data-aos-easing="linear"
                                 data-aos-duration="500"
                               >
                                 <div className="wharpeoplebox">
                                   <p className="onzeptag">
                                     "{review.reviewContent}"
                                   </p>
-                                  <b>-{review.reviewCustName}</b>
+                                  <b>- {review.reviewCustName}</b>
                                   <ul className="starrating">
-                                    <li>
-                                      <i className="star"></i>
-                                    </li>
-                                    <li>
-                                      <i className="star"></i>
-                                    </li>
-                                    <li>
-                                      <i className="star"></i>
-                                    </li>
-                                    <li>
-                                      <i className="star"></i>
-                                    </li>
-                                    <li>
-                                      <i className="blackstar"> </i>
-                                    </li>
+                                    {[...Array(5)].map((_, index) => {
+                                      if (
+                                        index < Math.floor(review.reviewRating)
+                                      ) {
+                                        return (
+                                          <li key={index}>
+                                            <i className="star"></i>
+                                          </li>
+                                        ); // Full star
+                                      } else if (
+                                        index ===
+                                          Math.floor(review.reviewRating) &&
+                                        review.reviewRating % 1 !== 0
+                                      ) {
+                                        return (
+                                          <li key={index}>
+                                            <i className="halfstar"></i>
+                                          </li>
+                                        ); // Half star
+                                      } else {
+                                        return (
+                                          <li key={index}>
+                                            <i className="blackstar"></i>
+                                          </li>
+                                        ); // Empty star
+                                      }
+                                    })}
                                   </ul>
                                 </div>
                               </div>
