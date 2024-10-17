@@ -143,6 +143,7 @@
 
 .whitebgbox .whitewithvideomainbox .leftvideobox img {
     width: 100%;
+    height: auto;
 }
 
 .locatebutton {

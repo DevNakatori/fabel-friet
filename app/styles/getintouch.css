@@ -326,7 +326,7 @@ a.Whatsappbtn {
 
 
 
-.locationbox h5 {
+.locationbox h6 {
     overflow: hidden;
     color: #EFEBE7;
     text-overflow: ellipsis;
@@ -546,31 +546,53 @@ a.Whatsappbtn:before {
 }
 
 
-@media (min-width: 992px) and (max-width: 1199px) 
-{
+.sixthsection .gradient-threebox ul {
+    height: 590px;
+}
+
+.sixthsection .gradient-threebox ul li {
+    height: 500px;
+    width: 265px;
+}
+
+.sixthsection .gradient-threebox ul li iframe {
+    width: 80%;
+    height: 328px;
+    display: block;
+    border: none;
+    top: 5px;
+    position: relative;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
 
     .nl .roundtext-getintouch h2 {
         position: absolute;
         left: -231px;
         top: -50px;
     }
+
     .nl .roundtext-getintouch h3 {
         right: -335px;
         width: 495px;
         bottom: -60px;
     }
+
     .sixthsection .gradient-threebox ul {
         height: 580px;
     }
+
     .sixthsection .whitebgbox .whitewithvideomainboxss {
         flex-wrap: wrap;
     }
+
     .sixthsection .whitewithvideomainboxss .leftvideobox {
         max-width: 100%;
         width: 100%;
         flex-shrink: 0;
         margin-bottom: 50px;
     }
+
     .sixthsection .whitewithvideomainboxss .righttextbox {
         max-width: 100%;
         width: 100%;
@@ -579,38 +601,66 @@ a.Whatsappbtn:before {
 }
 
 
-@media (min-width: 768px) and (max-width: 991px) 
-{
-    
+@media (min-width: 768px) and (max-width: 991px) {
+
 
     .nl .roundtext-getintouch h2 {
         position: absolute;
         left: -231px;
         top: -50px;
     }
+
     .nl .roundtext-getintouch h3 {
         right: -335px;
         width: 495px;
         bottom: -60px;
     }
+
     .sixthsection .gradient-threebox ul {
-        height: 440px;
+        height: 590px;
+    }
+
+
+    .sixthsection .gradient-threebox ul li iframe {
+        width: calc(100% - 50px);
+        height: calc(100% - 36px);
+        display: block;
+        border: none;
+        top: -2px;
+        position: relative;
+        z-index: -1;
+        border-radius: 18px;
+    }
+
+    .sixthsection .gradient-threebox ul li {
+       
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 15px;
+    }
+
+
+    .sixthsection .gradient-threebox ul li:nth-child(2) {
+        z-index: 9;
     }
 
     .sixthsection .whitebgbox .whitewithvideomainboxss {
         flex-wrap: wrap;
     }
+
     .sixthsection .whitewithvideomainboxss .leftvideobox {
         max-width: 832px;
         width: 100%;
         flex-shrink: 0;
         margin-bottom: 50px;
     }
+
     .sixthsection .whitewithvideomainboxss .righttextbox {
         max-width: 731px;
         width: 100%;
         flex-shrink: 0;
     }
+
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li {
         color: #0D1E4D;
         font-family: "Work Sans";
@@ -677,7 +727,7 @@ a.Whatsappbtn:before {
     .roundtext-getintouch h3 {
         position: absolute;
         right: -140px;
-        bottom: 45px;
+        bottom: 0px;
         margin: 0;
     }
 
@@ -788,7 +838,7 @@ a.Whatsappbtn:before {
         margin-bottom: 16px;
     }
 
-    .locationbox h5 {
+    .locationbox h6 {
         margin-bottom: 15px;
     }
 
@@ -944,9 +994,52 @@ a.Whatsappbtn:before {
         padding-top: 30px;
     }
 
-    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after{display: none;}
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after {
+        display: none;
+    }
+
     .nl .roundtext-getintouch h2 {
         left: -190px;
         line-height: 120%;
+    }
+
+
+
+    .sixthsection .gradient-threebox ul li iframe {
+        width: calc(100% - 9px);
+        height: calc(100% - 38px);
+        display: block;
+        border: none;
+        top: -2px;
+        position: relative;
+        z-index: -1;
+        border-radius: 18px;
+    }
+
+    .sixthsection .gradient-threebox ul li {
+        width: 45%;
+        height: 380px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 15px;
+    }
+
+    .sixthsection .gradient-threebox ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        height: 425px;
+        margin-left: -50px;
+        margin-right: -50px;
+    }
+
+    .sixthsection .gradient-threebox ul li:nth-child(2) {
+        z-index: 9;
     }
 }

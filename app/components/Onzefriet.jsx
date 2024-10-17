@@ -12,7 +12,7 @@ import {Pagination, Autoplay} from 'swiper/modules';
 import {getImageUrl} from '../js/imagesurl';
 
 import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
-import mainbannerbg from '../assets/resizeimgs/c275d393c488ff040abd318900bf7f3b.png';
+
 import fries_one from '../assets/resizeimgs/Rectangle89.png';
 import fries_two from '../assets/resizeimgs/Rectangle88.png';
 import fries_three from '../assets/resizeimgs/AdobeStock_616168104.png';
@@ -246,13 +246,14 @@ const Onzefriet = () => {
             {
               left: '0vw',
               opacity: 1,
-              duration: 0.7,
+              duration: 3,
+              ease: 'power2.out',
             },
           )
           .to(firstItem, {
             rotation: -4,
-            duration: 0.7,
-            delay: 1,
+            duration: 5,
+            delay: 3,
           });
 
         const mobileImageRight = gsap.timeline({
@@ -270,13 +271,14 @@ const Onzefriet = () => {
             {
               right: '0vw',
               opacity: 1,
-              duration: 0.7,
+              duration: 3,
+              ease: 'power2.out',
             },
           )
           .to(lastItem, {
             rotation: 4,
-            duration: 0.7,
-            delay: 1,
+            duration: 5,
+            delay: 3,
           });
       };
 
@@ -394,12 +396,18 @@ const Onzefriet = () => {
             <div className="bannersectinlogo">
               <img
                 src={getImageUrl(content.logoImage.asset._ref)}
-                alt={content.logoImage.alt}
+                alt="Logo"
+                width="10"
+                height="10"
               />
             </div>
             <div
               className="wrappermain"
-              style={{backgroundImage: `url(${mainbannerbg})`}}
+              style={{
+                backgroundImage: `url(${getImageUrl(
+                  content.transitionSection.image.asset._ref,
+                )})`,
+              }}
             ></div>
             <div className="roundimages">
               <div className="roundtext">
@@ -449,12 +457,19 @@ const Onzefriet = () => {
                     <li key={image._key} className="onzefritimgli">
                       {index === 0 && (
                         <div className="threeboxleftlogobar">
-                          <img src={fabelfrietsticker2} alt={image.alt} />
+                          <img
+                            src={fabelfrietsticker2}
+                            alt={image.alt}
+                            width="10"
+                            height="10"
+                          />
                         </div>
                       )}
                       <img
                         src={getImageUrl(image.asset._ref)}
                         alt={image.alt}
+                        width="10"
+                        height="10"
                       />
                     </li>
                   ))}
@@ -462,13 +477,13 @@ const Onzefriet = () => {
               </div>
 
               <div className="allfiressections">
-                <img src={fries_one} alt="img" />
-                <img src={fries_two} alt="img" />
-                <img src={fries_three} alt="img" />
-                <img src={fries_five} alt="img" />
-                <img src={fries_six} alt="img" />
-                <img src={fries_seven} alt="img" />
-                <img src={fries_eight} alt="img" />
+                <img src={fries_one} alt="img" width="10" height="10" />
+                <img src={fries_two} alt="img" width="10" height="10" />
+                <img src={fries_three} alt="img" width="10" height="10" />
+                <img src={fries_five} alt="img" width="10" height="10" />
+                <img src={fries_six} alt="img" width="10" height="10" />
+                <img src={fries_seven} alt="img" width="10" height="10" />
+                <img src={fries_eight} alt="img" width="10" height="10" />
               </div>
 
               <div className="whitebgbox">
@@ -485,12 +500,19 @@ const Onzefriet = () => {
                         data-aos-duration="500"
                       >
                         <div className="leftlogobar">
-                          <img src={fabelfrie_tsticker2} alt="img" />
+                          <img
+                            src={fabelfrie_tsticker2}
+                            alt="img"
+                            width="10"
+                            height="10"
+                          />
                         </div>
                         <img
                           src={onzie_leftvidep}
                           alt="img"
                           data-speed="auto"
+                          width="10"
+                          height="10"
                         />
                       </div>
                       <div
@@ -507,6 +529,8 @@ const Onzefriet = () => {
                           src={arrow_blue}
                           alt="img"
                           data-speed="auto"
+                          width="10"
+                          height="10"
                         />
                         <h5>{content.videoSection.videoHeading}</h5>
                         <p className="onzeptag">
