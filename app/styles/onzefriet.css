@@ -938,6 +938,17 @@
     display: block;
 }
 
+
+.halfstar {
+    background-image: url('../assets/resizeimgs/halfstar.png');
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 29.819px;
+    height: 27.831px;
+    display: block;
+}
+
 .whatpeople-section h6 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
