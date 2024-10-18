@@ -300,10 +300,10 @@ const LanguageSwitcher = () => {
                                 setIsOpen(false);
 
                                 const body = document.body;
-                                if (body.classList.contains('hiddenoverflow ')) {
+                                if (body.classList.contains('hiddenoverflow')) {
                                     setTimeout(() => {
-                                        body.classList.remove('hiddenoverflow ');
-                                    }, 5000); 
+                                        body.classList.remove('hiddenoverflow');
+                                    }, 10000); 
                                 }
                             }}
                         >
