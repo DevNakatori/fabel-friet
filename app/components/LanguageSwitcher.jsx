@@ -303,7 +303,7 @@ const LanguageSwitcher = () => {
                                 if (body.classList.contains('hiddenoverflow ')) {
                                     setTimeout(() => {
                                         body.classList.remove('hiddenoverflow ');
-                                    }, 300); 
+                                    }, 5000); 
                                 }
                             }}
                         >

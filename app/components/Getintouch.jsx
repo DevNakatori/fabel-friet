@@ -81,7 +81,7 @@ const Getintouch = () => {
       scrollTrigger: {
         trigger: '.sixthsection',
         start: '10% 10%',
-        end: '25% 25%',
+        end: '30% 30%',
         scrub: true,
         once: false,
       },
