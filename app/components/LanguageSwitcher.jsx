@@ -298,13 +298,8 @@ const LanguageSwitcher = () => {
                             onClick={() => {
                                 switchLanguage(lang.code);
                                 setIsOpen(false);
-
                                 const body = document.body;
-                                if (body.classList.contains('hiddenoverflow')) {
-                                    setTimeout(() => {
-                                        body.classList.remove('hiddenoverflow');
-                                    }, 10000); 
-                                }
+                                
                             }}
                         >
                             <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span>

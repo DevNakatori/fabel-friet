@@ -107,7 +107,7 @@ const HomePage = () => {
         duration: 0,
         opacity: 0,
         onComplete: () => {
-          document.body.classList.add('hiddenoverflow');
+         // document.body.classList.add('hiddenoverflow');
           gsap.to('.banner_video', {
             duration: 1,
             delay: 0,
@@ -349,6 +349,7 @@ const HomePage = () => {
     if (video) {
       video.autoplay = true;
       video.addEventListener('ended', handleVideoEnd);
+      //document.body.classList.add('hiddenoverflow');
     }
 
     return () => {
