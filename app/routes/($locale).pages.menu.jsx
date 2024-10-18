@@ -2,7 +2,7 @@ import {json} from '@shopify/remix-oxygen';
 import React, {useState, useEffect, useRef} from 'react';
 import {useLoaderData} from '@remix-run/react';
 import gsap from 'gsap';
-import Newfooter from '~/components/Newfooter';
+import Newfootermenu from '~/components/Newfootermenu';
 import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
 /**
  * @type {MetaFunction<typeof loader>}
@@ -126,7 +126,7 @@ export default function Page() {
       {/* qr code menu footer */}
 
       <section className="footer">
-        <Newfooter />
+        <Newfootermenu />
       </section>
     </div>
   );
