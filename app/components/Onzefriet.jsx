@@ -25,6 +25,10 @@ import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
 import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
+import fabelfrie_bottomlogo from '../assets/resizeimgs/120370700_177300s284025419_49173006.png';
+
+
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
@@ -459,6 +463,17 @@ const Onzefriet = () => {
                         <div className="threeboxleftlogobar">
                           <img
                             src={fabelfrietsticker2}
+                            alt={image.alt}
+                            width="10"
+                            height="10"
+                          />
+                        </div>
+                      )}
+
+                      {index === 1 && (
+                        <div className="threeboxleftlogobar lastbottomimg">
+                          <img
+                            src={fabelfrie_bottomlogo}
                             alt={image.alt}
                             width="10"
                             height="10"

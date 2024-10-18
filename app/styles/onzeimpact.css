@@ -266,10 +266,14 @@
 .qrcodeimagebox {
     position: absolute;
     left: 0px;
-    top: 45%;
+    top: 25%;
     transform: translateY(-50%);
 }
 
+.qrcodeimagebox img {
+    width: 100%;
+    height: auto;
+}
 
 .binimagebox {
     position: relative;
@@ -320,6 +324,30 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+.binimagebox img {
+    width: 100%;
+    height: auto;
+}
+
+
+.binimageboxmain .binimageboxieft .binarrowimg img {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 1201px) and (max-width: 1281px) 
+{
+#section5 .whitebgbox .whitewithvideomainbox .leftvideobox {
+    max-width: 590px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 375px;
+    position: relative;
+}
+
+}
+
 
 @media (min-width: 992px) and (max-width: 1199px) 
 {

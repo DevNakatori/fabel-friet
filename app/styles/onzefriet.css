@@ -563,12 +563,29 @@
     transition: 0.5s;
 }
 
-.gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+.secondesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
     position: absolute;
-    right: 0px;
-    top: -30px;
+    right: 25px;
+    top: 5px;
     transform: rotate(-10deg);
     z-index: 1;
+    width: 150px;
+}
+
+.fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+    position: absolute;
+    right: 25px;
+    top: 5px;
+    transform: rotate(-10deg);
+    z-index: 1;
+    width: 150px;
+}
+
+.threeboxleftlogobar.lastbottomimg {
+    position: absolute;
+    z-index: 2;
+    right: -15px;
+    bottom: 10px;
 }
 
 .gradient-threebox ul li:nth-child(2) img {
@@ -798,9 +815,11 @@
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    z-index: 2;
-    top: 48px;
+    z-index: 3;
+    top: 1vh;
     max-width: 130px;
+    width: 131px;
+    height: 96px;
 }
 
 .whatpeople-section {
@@ -1031,6 +1050,8 @@
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
+    background-size: 100% 100%;
+    background-position: left center;
 }
 
 .accordion-content {
@@ -1217,9 +1238,11 @@
 
 .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
     position: relative;
-    right: 8%;
-    top: -30px;
+    right: 20%;
+    top: -48px;
     float: right;
+    width: 98px;
+    height: 75px;
 }
 
 .roundmainsvg {

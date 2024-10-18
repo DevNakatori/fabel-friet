@@ -204,8 +204,11 @@ body>main section video {
 
 .banner_content_text p span.bold svg {
   position: absolute;
-  width: 65px;
-  height: 100%;
+  width: 55px;
+  height: 55px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  top: 50%;
 }
 
 .bannerlogo {
@@ -500,6 +503,7 @@ body>main section video {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: 0.5s;
+  background-position: 97px -83px;
 }
 
 .overlaybannehand-bottom {

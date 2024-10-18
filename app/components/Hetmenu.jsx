@@ -10,18 +10,20 @@ import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
 import {getImageUrl} from '../js/imagesurl';
 
-import InstagramFeed from './InstagramFeed';
+// import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
+import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  
   const {language} = useLanguage();
   const [hetmenu, sethetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
 
   // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
@@ -142,8 +144,7 @@ const Hetmenu = () => {
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
-  const {contentSection, bottomContentSection, menuSection, transitionSection} =
-    hetmenu[0];
+  const {contentSection, bottomContentSection, menuSection, transitionSection, logoImage} = hetmenu[0];
 
   // Define tab content inside the component to have access to menuSection
   const friesContent = (
@@ -205,16 +206,18 @@ const Hetmenu = () => {
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
         <div className="bannersectinlogo">
-          <img src={bannerlogo} alt="Banner logo" />
+          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" />
+          
         </div>
         <div className="wrappermain">
-          <img
-            className="media"
-            src={getImageUrl(transitionSection.image.asset._ref)}
-            alt={transitionSection.image.alt}
-            width="10"
-            height="10"
-          />
+        <img
+          className="media"
+          // src={getImageUrl(transitionSection.image.asset._ref)}
+          src={mainbannerbg}
+          alt="Transition Section"
+          width="100" // Adjust size as needed
+          height="100"
+        />
         </div>
 
         <div className="roundimages">
@@ -279,7 +282,7 @@ const Hetmenu = () => {
                     data-aos-offset="500"
                     data-aos-duration="500"
                   >
-                    <InstagramFeed accessToken="IGQWRNdWVOZAjJMQ20xd0ZAWQXZA6NGVBM2RwLURBdGtubC1Hd1IwSE1iNXBKN0NzbmNWUDdib1NCczJvQnhXNGk4RC1EdGJKWVBza3ZADU3hVdENFNXRiVkMwRGo4Sm9ieUZAJcGVteDFEc2RkZAE52TldEU2gyTjlfLW8ZD" />
+                    {/* <InstagramFeed accessToken="IGQWRNdWVOZAjJMQ20xd0ZAWQXZA6NGVBM2RwLURBdGtubC1Hd1IwSE1iNXBKN0NzbmNWUDdib1NCczJvQnhXNGk4RC1EdGJKWVBza3ZADU3hVdENFNXRiVkMwRGo4Sm9ieUZAJcGVteDFEc2RkZAE52TldEU2gyTjlfLW8ZD" /> */}
                   </div>
                 </div>
               </div>

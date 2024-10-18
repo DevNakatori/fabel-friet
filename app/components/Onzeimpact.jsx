@@ -13,6 +13,10 @@ import {Pagination, Autoplay} from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/e4a873c11067a15b870b670abefd5396-min.png';
 import arrow_bluebottom from '../assets/resizeimgs/arrow_bluebottom.png';
 
+import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
+import fabelfrie_bottomlogo from '../assets/resizeimgs/120370700_177300s284025419_49173006.png';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
@@ -363,16 +367,35 @@ const Onzeimpact = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {data.imageSection.image.map((img) => (
-                <li key={img._key} className="threeboxonzeimpactlist">
-                  <img
-                    src={getImageUrl(img.image.asset._ref)}
-                    alt="Descriptive Alt Text"
-                    width="10"
-                    height="10"
-                  />
-                </li>
-              ))}
+              {data.imageSection.image.map((img, index) => (
+    <li key={img._key} className="threeboxonzeimpactlist">
+      {index === 0 && (
+                        <div className="threeboxleftlogobar">
+                          <img
+                            src={fabelfrietsticker2}
+                            width="10"
+                            height="10"
+                          />
+                        </div>
+                      )}
+
+                      {index === 1 && (
+                        <div className="threeboxleftlogobar lastbottomimg">
+                          <img
+                            src={fabelfrie_bottomlogo}
+                            width="10"
+                            height="10"
+                          />
+                        </div>
+                      )}
+      <img
+        src={getImageUrl(img.image.asset._ref)}
+        alt="Descriptive Alt Text"
+        width="10"
+        height="10"
+      />
+    </li>
+  ))}
             </ul>
           </div>
           <div className="whitebgbox">
