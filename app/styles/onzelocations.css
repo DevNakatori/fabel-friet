@@ -700,6 +700,8 @@
     .slideraddress .wharpeoplebox .sliderwhitebg img {
         margin: -8px -7px;
         max-width: calc(100% + 14px);
+        width: calc(100% + 14px);
+        height: auto;
     }
 
 

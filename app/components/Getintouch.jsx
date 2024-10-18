@@ -17,6 +17,17 @@ import linkedinIcon from '../assets/resizeimgs/in.png';
 import twitterIcon from '../assets/resizeimgs/twitter.png';
 import tiktokIcon from '../assets/resizeimgs/tiktok.png';
 
+
+import arrow_blue_2 from '../assets/resizeimgs/arrow_blue_2.png';
+import arrow_blue_1 from '../assets/resizeimgs/arrow_blue_1.png';
+
+
+
+import liek_1 from '../assets/resizeimgs/like1.png';
+import liek_2 from '../assets/resizeimgs/like2.png';
+import liek_3 from '../assets/resizeimgs/like3.png';
+import liek_4 from '../assets/resizeimgs/like4.png';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
@@ -77,7 +88,6 @@ const Getintouch = () => {
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
     });
-
     return () => {
       timelinegetintouch.scrollTrigger.kill();
     };
@@ -274,6 +284,39 @@ const Getintouch = () => {
       },
     );
 
+
+
+
+    gsap.fromTo(
+      '.likeimagelist img',
+      {y: -50, opacity: 0},
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'bounce.out',
+        force3D: true,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section6 .wrappertest',
+          start: 'top top',
+          end: 'top top',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
+
+    gsap.to('.likeimagelist img', {
+      y: 20,
+      repeat: -1,
+      yoyo: true,
+      duration: 5,
+      ease: 'sine.inOut',
+    });
+
     /* other text and section animation end */
   }, [getIntouch]);
 
@@ -322,7 +365,7 @@ const Getintouch = () => {
           `*[_type == "getintouch" && language == $lang]`,
           {lang: language},
         );
-        //console.log('Fetched ongetintouch Data:', data);
+        console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
       } catch (err) {
         console.error('Error fetching ongetintouch data:', err);
@@ -375,6 +418,14 @@ const Getintouch = () => {
       <div className="wrappertest">
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
+
+          <div className='likeimagelist'>
+            <img src={liek_1} />
+            <img src={liek_2} />
+            <img src={liek_3} />
+            <img src={liek_4} />
+          </div>
+
           <h4
             data-aos="fade-up"
             data-aos-anchor-placement="top-center"
@@ -457,6 +508,24 @@ const Getintouch = () => {
                 ></iframe>
               </li>
             </ul>
+
+            <div className='lefttiktoktext' >
+                <img src={arrow_blue_2} data-aos="fade-up"
+             data-aos-easing="ease-out-cubic"/>
+              <p data-aos="fade-up"
+             data-aos-easing="ease-out-cubic">{contentSection.mobileImages[0].leftText}</p>
+            </div>
+
+            <div className='righttiktoktext' >
+            <img src={arrow_blue_1}  data-aos="fade-up"
+             
+             data-aos-easing="ease-out-cubic" />
+              <p data-aos="fade-up"
+             data-aos-easing="ease-out-cubic">{contentSection.mobileImages[0].rightText}</p>
+            </div>
+
+            
+            
           </div>
           <div className="whitebgbox">
             <div className="appcontainers">
