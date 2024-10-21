@@ -215,6 +215,7 @@ body>main section video {
   max-width: 196px;
   max-height: 96px;
   margin: 0 auto 70px;
+  text-align: center;
 }
 
 .banner_overlay {
@@ -813,7 +814,7 @@ body>main section video {
 
   .overlaybannehand-right {
     width: 344.332px;
-    height: 230.925px;
+    height: 279.925px;
     flex-shrink: 0;
     background-image: url('/app/assets/resizeimgs/mobilerighhand.png');
     background-repeat: no-repeat no-repeat;

@@ -1127,4 +1127,31 @@ a.Whatsappbtn:before {
     .sixthsection .gradient-threebox ul li:nth-child(2) {
         z-index: 9;
     }
+    .likeimagelist{display: none !important;}
+    .lefttiktoktext {
+        position: relative;
+        left: 0;
+        width: 100%;
+        max-width: 332px;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .righttiktoktext {
+        position: relative;
+        right: 0;
+        width: 100%;
+        max-width: 332px;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .lefttiktoktext img {
+        display: none;
+    }
+    .righttiktoktext img {
+        display: none;
+    }
 }

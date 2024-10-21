@@ -1,9 +1,9 @@
 .headernew {
     background-color: transparent;
-    padding: 0rem 1rem;
-    position: absolute;
+    padding: 0rem 50px;
+    position: fixed;
     z-index: 9;
-    top: 25px;
+    top: 56px;
     display: flex;
     height: 24px;
     align-items: center;

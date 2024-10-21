@@ -161,7 +161,7 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 9!important;
 }
 
 .wrappertest {
@@ -687,7 +687,10 @@
     position: absolute;
     right: -60px;
     top: -60px;
+    transform: rotate(5deg);
 }
+
+.secondesection .wrappertest .gradient-purple p{max-width: 920px;width: 100%;}
 
 .whitewithvideomainbox {
     max-width: 1708px;
@@ -704,7 +707,7 @@
     align-items: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    border-bottom: solid 1px #0d1e4d;
+    border-bottom: solid 2px #0d1e4d;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -740,7 +743,7 @@
     align-items: flex-start;
     -ms-flex-line-pack: start;
     align-content: flex-start;
-    border-bottom: solid 1px #0d1e4d;
+    border-bottom: solid 2px #0d1e4d;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -981,9 +984,9 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    /* background: url('../assets/resizeimgs/plain-gold-background.png');
+    background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
     -webkit-transition: 0.5s;
     color: #af8f2d;
     -o-transition: 0.5s;
@@ -1005,14 +1008,16 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-transform: capitalize;
-    /* background: url('../assets/resizeimgs/plain-gold-background.png');
+    background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
     margin: 0;
     max-width: 500px;
+    background-size: contain;
+    background-position: 0px -20px;
 }
 
 .gradient-purple h4 {
@@ -1078,10 +1083,15 @@
     font-size: 18px;
 }
 
+.secondesection .wrappertest .gradient-purple .accordion-content p {
+    width: 100%;
+    max-width: 100%;
+}
+
 .accordion-header .icon {
     transition: transform 0.3s;
     position: absolute;
-    right: 0;
+    right: -15px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='16' viewBox='0 0 29 16' fill='none'%3E%3Cpath d='M28 1L14.5 14.9518L1 0.999999' stroke='%230D1E4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat no-repeat;
     background-position: center center;
@@ -1095,7 +1105,7 @@
 
 .accordion-header.active .icon {
     transform: rotate(180deg);
-    right: 13px;
+    right: 0px;
 }
 
 .accordion-content p {
@@ -1137,9 +1147,9 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    /* background: url('../assets/resizeimgs/plain-gold-background.png');
+    background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s;
@@ -1229,6 +1239,8 @@
     margin-left: auto;
     margin-bottom: 50px;
 }
+
+.secondesection .whitebgbox .whitewithvideomainbox .righttextbox h3{max-width: 275px;}
 
 /* .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
     position: absolute;
