@@ -136,6 +136,11 @@ const HomePage = () => {
       rotateText: document.querySelector('.bannerrotate_text'),
     };
 
+    const handlePlay = () => {
+      console.log('The video has started playing.');
+      document.body.classList.add('hiddenoverflow');
+    };
+
     const handleVideoEnd = () => {
       console.log('video end');
       video.classList.add('hidden');
@@ -348,6 +353,7 @@ const HomePage = () => {
 
     if (video) {
       video.autoplay = true;
+      video.addEventListener('play', handlePlay);
       video.addEventListener('ended', handleVideoEnd);
       //document.body.classList.add('hiddenoverflow');
     }

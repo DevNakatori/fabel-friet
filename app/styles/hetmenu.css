@@ -147,7 +147,7 @@
 
 .fourthsection .gradient-threebox-menu {
     max-width: 90%;
-    margin: 90px auto -120px;
+    margin: 90px auto -280px;
     position: relative;
     z-index: 999;
 }
@@ -520,6 +520,7 @@
         padding-left: 0;
         margin-bottom: 0;
         top: 0;
+        padding-right: 0;
     }
 
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox {

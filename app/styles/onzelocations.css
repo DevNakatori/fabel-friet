@@ -22,6 +22,11 @@
     transition: background-color 0.5s ease;
 }
 
+.thirdesection p.locationescription {
+    max-width: 920px;
+    width: 100%;
+}
+
 .wrapper-onzelocation {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -559,6 +564,7 @@
     .thirdesection .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
         display: none;
     }
+
 
     .thirdesection .main-accordian {
         padding-top: 35px;
