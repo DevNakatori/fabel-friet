@@ -9,6 +9,7 @@
     align-items: center;
     align-content: center;
     display: none;
+    transition: all .4s;
 }
 .scrolled .headernew{z-index: 10!important;}
 .wrapper {
