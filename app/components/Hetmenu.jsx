@@ -65,9 +65,9 @@ const Hetmenu = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        onEnter: () => document.body.classList.remove('scrolled'),
-        onLeave: () => document.body.classList.add('scrolled'),
-        onEnterBack: () => document.body.classList.remove('scrolled'),
+        // onEnter: () => document.body.classList.remove('scrolled'),
+        // onLeave: () => document.body.classList.add('scrolled'),
+        // onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
 
@@ -99,8 +99,8 @@ const Hetmenu = () => {
           trigger: '.wrappertest',
           start: 'top top-500',
           end: 'top top-200',
-          onEnter: () => document.body.classList.add('scrolled'),
-          onEnterBack: () => document.body.classList.add('scrolled'),
+          // onEnter: () => document.body.classList.add('scrolled'),
+          // onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
       0,
@@ -361,7 +361,7 @@ const Hetmenu = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <img src={arrow_blue1} alt="Blue arrow" data-speed="auto" />
+                    <img src={arrow_blue1} alt="Blue arrow" data-speed="auto" className='swings'/>
                   </div>
                   <h3
                     data-aos="fade-up"

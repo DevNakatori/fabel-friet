@@ -454,8 +454,8 @@ const HomePage = () => {
           </div>
         </div>
         <div className="overlaybannehand">
-          <div className="overlaybannehand-left"></div>
-          <div className="overlaybannehand-right"></div>
+          <div className="overlaybannehand-left swingshand"></div>
+          <div className="overlaybannehand-right swingshand"></div>
           <div className="overlaybannehand-bottom"></div>
         </div>
       </div>
