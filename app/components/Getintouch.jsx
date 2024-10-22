@@ -654,7 +654,7 @@ const Getintouch = () => {
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
-                      <i className="tele">
+                      <i className="tele shake">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="33"
@@ -675,7 +675,7 @@ const Getintouch = () => {
                       data-aos-easing="ease-out-cubic"
                       data-aos-duration="2000"
                     >
-                      <i className="tele">
+                      <i className="tele shake">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="39"
@@ -736,7 +736,7 @@ const Getintouch = () => {
                               key={location._key}
                             >
                               <p>
-                                <i className="location">
+                                <i className="location bouncemap">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="49"
