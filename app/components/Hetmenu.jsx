@@ -10,7 +10,7 @@ import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
 import {getImageUrl} from '../js/imagesurl';
 
-// import InstagramFeed from './InstagramFeed';
+import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
@@ -287,7 +287,7 @@ const Hetmenu = () => {
                     data-aos-offset="500"
                     data-aos-duration="500"
                   >
-                    {/* <InstagramFeed accessToken="IGQWRNdWVOZAjJMQ20xd0ZAWQXZA6NGVBM2RwLURBdGtubC1Hd1IwSE1iNXBKN0NzbmNWUDdib1NCczJvQnhXNGk4RC1EdGJKWVBza3ZADU3hVdENFNXRiVkMwRGo4Sm9ieUZAJcGVteDFEc2RkZAE52TldEU2gyTjlfLW8ZD" /> */}
+                    <InstagramFeed accessToken="IGQWRQQjBjX3EyUGgzb2dsU2Q3YTM1VDVaRnN4M0RlQmVBOTVMTDNOWGtnTzRQNy1LX1NWOWN0YlB5YTF1ZAV9uS3NIOGh4NkhoTVlMeGlpaklfOXhxdHNtV0F0T3ZAGRHVNWE13VjkwVUxqOVRSZAlYyb1g2Y051ZAHMZD" />
                   </div>
                 </div>
               </div>
