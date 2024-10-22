@@ -53,6 +53,9 @@ const Getintouch = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
+        onEnter: () => document.body.classList.remove('scrolled'),
+        onLeave: () => document.body.classList.add('scrolled'),
+        onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
     timelinegetintouch.to(
@@ -140,6 +143,8 @@ const Getintouch = () => {
             trigger: '.sixthsection  .gradient-purple',
             start: 'top top',
             end: 'bottom top',
+            onEnter: () => document.body.classList.add('scrolled'),
+            onEnterBack: () => document.body.classList.add('scrolled'),
           },
         });
 
@@ -287,33 +292,33 @@ const Getintouch = () => {
 
 
 
-    gsap.fromTo(
-      '.likeimagelist img',
-      {y: -50, opacity: 0},
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 1,
-        ease: 'bounce.out',
-        force3D: true,
-        yoyo: true,
-        scrollTrigger: {
-          trigger: '#section6 .wrappertest',
-          start: 'top top',
-          end: 'top top',
-          pin: true,
-          once: true,
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.likeimagelist img',
+    //   {y: -50, opacity: 0},
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.2,
+    //     duration: 1,
+    //     ease: 'bounce.out',
+    //     force3D: true,
+    //     yoyo: true,
+    //     scrollTrigger: {
+    //       trigger: '#section6 .wrappertest',
+    //       start: 'top top',
+    //       end: 'top top',
+    //       pin: true,
+    //       once: true,
+    //       markers: false,
+    //     },
+    //   },
+    // );
 
     gsap.to('.likeimagelist img', {
       y: 20,
       repeat: -1,
       yoyo: true,
-      duration: 5,
+      duration: 2,
       ease: 'sine.inOut',
     });
 

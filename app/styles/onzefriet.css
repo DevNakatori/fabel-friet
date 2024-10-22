@@ -16,9 +16,24 @@
     position: relative;
 }
 
-.panel.secondesection.active {
+.panel.active {
     position: relative;
-    /* z-index: 6; */
+     z-index: 9;
+}
+
+
+.scrolled .language-switcher {
+    z-index: 11;
+    top: 2px;
+}
+
+.scrolled .headernew {
+    z-index: 10!important;
+    background: rgba(30, 70, 179,0.7);
+    width: 100%;
+    padding: 15px;
+    top: 0;
+    opacity: 1;
 }
 
 .allfiressections img {
@@ -581,11 +596,22 @@
     width: 150px;
 }
 
-.threeboxleftlogobar.lastbottomimg {
+.secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar {
+    position: absolute;
+    top: 0;
+    left: -90px;
+    z-index: 9;
+    transform: rotate(-8deg);
+}
+
+.secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg {
     position: absolute;
     z-index: 2;
     right: -15px;
     bottom: 10px;
+    top: inherit;
+    left: inherit;
+    transform: inherit;
 }
 
 .gradient-threebox ul li:nth-child(2) img {
@@ -1038,6 +1064,11 @@
     margin: 25px 0 0px;
     opacity: 0;
 }
+
+.secondesection .gradient-purple h4{ margin: 100px 0 50px;}
+.secondesection .gradient-purple p {margin:10px auto 75px;}
+.secondesection .gradient-purple .fl-tests .swiper-slide .module p {margin:0 0 25px;}
+
 
 .roundtext h2,
 .roundtext h3 {
@@ -1792,7 +1823,8 @@
     }
 
     .secondesection .star,
-    .secondesection .blackstar {
+    .secondesection .blackstar,
+    .secondesection .halfstar {
         width: 20px;
         height: 20px;
     }

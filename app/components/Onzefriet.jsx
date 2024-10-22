@@ -48,6 +48,9 @@ const Onzefriet = () => {
         scrub: 1,
         markers: false,
         smoothTouch: 0.1, // reduce smoothness for touch device
+        onEnter: () => document.body.classList.remove('scrolled'),
+        onLeave: () => document.body.classList.add('scrolled'),
+        onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
 
@@ -57,6 +60,7 @@ const Onzefriet = () => {
       transformOrigin: 'center center',
       ease: 'power1.inOut',
       zIndex: 5,
+      
     });
 
     timelinesonzefriet.to(
@@ -79,6 +83,9 @@ const Onzefriet = () => {
           trigger: '#section2 .wrappertest',
           start: 'top top-100',
           end: 'top top-300',
+          onEnter: () => document.body.classList.add('scrolled'),
+          onEnterBack: () => document.body.classList.add('scrolled'),
+          //onLeave: () => document.body.classList.remove('scrolled'),
         },
       },
       0, // Start this animation at the same time as the previous one
@@ -94,29 +101,30 @@ const Onzefriet = () => {
       },
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
+      
     });
 
-    gsap.fromTo(
-      '.allfiressections img',
-      {y: -50, opacity: 0},
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 1,
-        ease: 'bounce.out',
-        force3D: true,
-        yoyo: true,
-        scrollTrigger: {
-          trigger: '#section2 .wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
-          pin: true,
-          once: true,
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.allfiressections img',
+    //   {y: -50, opacity: 0},
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.2,
+    //     duration: 1,
+    //     ease: 'bounce.out',
+    //     force3D: true,
+    //     yoyo: true,
+    //     scrollTrigger: {
+    //       trigger: '#section2 .wrappertest',
+    //       start: 'top top-500',
+    //       end: 'top top-200',
+    //       pin: true,
+    //       once: true,
+    //       markers: false,
+    //     },
+    //   },
+    // );
 
     gsap.to('.allfiressections img', {
       y: 20,
@@ -128,6 +136,7 @@ const Onzefriet = () => {
 
     return () => {
       timelinesonzefriet.scrollTrigger.kill();
+      document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
 
@@ -179,13 +188,13 @@ const Onzefriet = () => {
             firstItem,
             {left: '-50vw', rotation: 0, opacity: 0},
             {
-              left: '-8vw',
+              left: '-11vw',
               opacity: 1,
               duration: 1,
             },
           )
           .to(firstItem, {
-            rotation: -8,
+            rotation: -3,
             duration: 1,
             delay: 1,
           });
@@ -203,13 +212,13 @@ const Onzefriet = () => {
             lastItem,
             {right: '-50vw', rotation: 0, opacity: 0},
             {
-              right: '-8vw',
+              right: '-11vw',
               opacity: 1,
               duration: 1,
             },
           )
           .to(lastItem, {
-            rotation: 8,
+            rotation: 3,
             duration: 1,
             delay: 1,
           });
@@ -230,7 +239,7 @@ const Onzefriet = () => {
           {bottom: '-30vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
-            duration: 0.7,
+            duration: 1,
             opacity: 1,
           },
         );
@@ -397,14 +406,7 @@ const Onzefriet = () => {
       {onzefriet.map((content, idx) => (
         <div key={idx}>
           <div className="wrapper">
-            <div className="bannersectinlogo">
-              <img
-                src={getImageUrl(content.logoImage.asset._ref)}
-                alt="Logo"
-                width="10"
-                height="10"
-              />
-            </div>
+            
             <div
               className="wrappermain"
               style={{
@@ -414,6 +416,14 @@ const Onzefriet = () => {
               }}
             ></div>
             <div className="roundimages">
+            <div className="bannersectinlogo">
+              <img
+                src={getImageUrl(content.logoImage.asset._ref)}
+                alt="Logo"
+                width="10"
+                height="10"
+              />
+            </div>
               <div className="roundtext">
                 {content.transitionSection && (
                   <>
@@ -459,7 +469,7 @@ const Onzefriet = () => {
                 <ul>
                   {content.contentSection.three_image.map((image, index) => (
                     <li key={image._key} className="onzefritimgli">
-                      {index === 0 && (
+                      {index === 1 && (
                         <div className="threeboxleftlogobar">
                           <img
                             src={fabelfrietsticker2}

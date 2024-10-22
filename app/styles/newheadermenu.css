@@ -1,9 +1,38 @@
 .headernew {
     background-color: transparent;
-    padding: 0rem 50px;
+    padding: 0rem 15px;
     position: fixed;
     z-index: 9;
-    top: 56px;
+    top: 25px;
+    display: flex;
+    height: 24px;
+    align-items: center;
+    align-content: center;
+    display: none;
+}
+.scrolled .headernew{z-index: 10!important;}
+.wrapper {
+    z-index: 8 !important;
+}
+
+.mainheader {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    width: calc(100% - 30px);
+    padding: 0 15px;
+    top: 5px;
+}
+
+.mainheader .headernew {
+    background-color: transparent;
+    padding: 0rem 15px;
+    position: relative;
+    z-index: inherit;
+    top: inherit;
     display: flex;
     height: 24px;
     align-items: center;

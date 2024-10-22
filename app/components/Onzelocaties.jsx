@@ -34,6 +34,9 @@ const Onzelocaties = () => {
         pin: true,
         scrub: true,
         markers: false,
+        onEnter: () => document.body.classList.remove('scrolled'),
+        onLeave: () => document.body.classList.add('scrolled'),
+        onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
     timelines.to(
@@ -68,6 +71,8 @@ const Onzelocaties = () => {
           trigger: '.wrappertest',
           start: 'top top-100',
           end: 'top top-300',
+          onEnter: () => document.body.classList.add('scrolled'),
+          onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
       0,
