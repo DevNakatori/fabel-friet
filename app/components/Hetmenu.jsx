@@ -65,6 +65,9 @@ const Hetmenu = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
+        onEnter: () => document.body.classList.remove('scrolled'),
+        onLeave: () => document.body.classList.add('scrolled'),
+        onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
 
@@ -96,6 +99,8 @@ const Hetmenu = () => {
           trigger: '.wrappertest',
           start: 'top top-500',
           end: 'top top-200',
+          onEnter: () => document.body.classList.add('scrolled'),
+          onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
       0,

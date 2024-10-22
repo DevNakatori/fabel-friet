@@ -602,7 +602,7 @@ body>main section video {
     right: 0px;
     top: 50%;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
   }
 
   .appcontainers {
@@ -733,7 +733,7 @@ body>main section video {
   right: 0px;
   top: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 3;
 }
 }
 

@@ -181,15 +181,15 @@ Sections.forEach((section, index) => {
       </div>
       <ScrollNav />
       <LanguageProvider>
-        <LanguageSwitcher />
-        <Newheader />
+      <LanguageSwitcher />
+      <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {showHomePage && <HomePage />}
+            {showHomePage && <HomePage />} 
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />} 
-            {showOnzeimpact && <Onzeimpact />} 
+            {showOnzeimpact && <Onzeimpact />}  
             {showGetintouch && <Getintouch />} 
           </div>
         </div>
