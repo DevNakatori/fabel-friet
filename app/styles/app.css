@@ -557,6 +557,10 @@ section {
   z-index: 10;
 }
 
+.scrolled .rightsidebullets {
+  z-index: 9;
+}
+
 .rightsidebullets ul li {
   opacity: 0;
 }
