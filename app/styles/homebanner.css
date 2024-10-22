@@ -11,6 +11,10 @@ a:hover {
   text-decoration: none;
 }
 
+
+
+
+
 /* reset css */
 /* loader */
 /* .loadersite {
@@ -505,6 +509,8 @@ body>main section video {
   -webkit-text-fill-color: transparent;
   transition: 0.5s;
   background-position: 97px -83px;
+  max-width: 800px;
+  margin: 2rem auto;
 }
 
 .overlaybannehand-bottom {
@@ -885,3 +891,6 @@ body>main section video {
 
 
 }
+
+
+

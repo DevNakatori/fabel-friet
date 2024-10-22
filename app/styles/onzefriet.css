@@ -1054,7 +1054,7 @@
     font-size: clamp(20px, 10vw, 120px);
     font-style: normal;
     font-weight: 700;
-    line-height: 100%;
+    line-height: 120%;
     text-transform: capitalize;
     background: url('../assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
@@ -1218,6 +1218,19 @@
     border-bottom: solid 2px #0d1e4d;
 }
 
+
+
+.swing {
+    animation: swing ease-in-out 0.5s infinite alternate;
+    transform-origin: center -40px;
+}
+
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+
 .overlaybannehand-bottoms,
 .overlaybannehand-bottomsmenu {
     position: relative;
@@ -1283,8 +1296,8 @@
 
 .whitebgbox .whitewithvideomainbox .righttextbox img.arrowimage {
     position: relative;
-    right: 20%;
-    top: -48px;
+    right: 10%;
+    top: -30px;
     float: right;
     width: 98px;
     height: 75px;

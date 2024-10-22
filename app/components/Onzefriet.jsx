@@ -48,9 +48,9 @@ const Onzefriet = () => {
         scrub: 1,
         markers: false,
         smoothTouch: 0.1, // reduce smoothness for touch device
-        onEnter: () => document.body.classList.remove('scrolled'),
-        onLeave: () => document.body.classList.add('scrolled'),
-        onEnterBack: () => document.body.classList.remove('scrolled'),
+        // onEnter: () => document.body.classList.remove('scrolled'),
+        // onLeave: () => document.body.classList.add('scrolled'),
+        // onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
 
@@ -83,8 +83,8 @@ const Onzefriet = () => {
           trigger: '#section2 .wrappertest',
           start: 'top top-100',
           end: 'top top-300',
-          onEnter: () => document.body.classList.add('scrolled'),
-          onEnterBack: () => document.body.classList.add('scrolled'),
+          // onEnter: () => document.body.classList.add('scrolled'),
+          // onEnterBack: () => document.body.classList.add('scrolled'),
           //onLeave: () => document.body.classList.remove('scrolled'),
         },
       },
@@ -136,7 +136,7 @@ const Onzefriet = () => {
 
     return () => {
       timelinesonzefriet.scrollTrigger.kill();
-      document.body.classList.remove('scrolled');
+     // document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
 
@@ -550,7 +550,7 @@ const Onzefriet = () => {
                           {content.videoSection.videoHandwritingText}
                         </h3>
                         <img
-                          className="arrowimage"
+                          className="arrowimage swing"
                           src={arrow_blue}
                           alt="img"
                           data-speed="auto"

@@ -1,7 +1,7 @@
 .headernew {
     background-color: transparent;
     padding: 0rem 15px;
-    position: fixed;
+    position: absolute;
     z-index: 9;
     top: 25px;
     display: flex;

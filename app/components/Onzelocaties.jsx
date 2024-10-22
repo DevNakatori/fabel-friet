@@ -34,9 +34,9 @@ const Onzelocaties = () => {
         pin: true,
         scrub: true,
         markers: false,
-        onEnter: () => document.body.classList.remove('scrolled'),
-        onLeave: () => document.body.classList.add('scrolled'),
-        onEnterBack: () => document.body.classList.remove('scrolled'),
+        // onEnter: () => document.body.classList.remove('scrolled'),
+        // onLeave: () => document.body.classList.add('scrolled'),
+        // onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
     timelines.to(
@@ -71,8 +71,8 @@ const Onzelocaties = () => {
           trigger: '.wrappertest',
           start: 'top top-100',
           end: 'top top-300',
-          onEnter: () => document.body.classList.add('scrolled'),
-          onEnterBack: () => document.body.classList.add('scrolled'),
+          // onEnter: () => document.body.classList.add('scrolled'),
+          // onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
       0,
@@ -341,7 +341,7 @@ const Onzelocaties = () => {
                             data-aos-duration="2000"
                           >
                             <div className="locationicon">
-                              <i className="mapicon"></i>
+                              <i className="mapicon bouncemap"></i>
                             </div>
                             <div className="locationaddtext">
                               <ul>

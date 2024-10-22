@@ -53,9 +53,9 @@ const Getintouch = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        onEnter: () => document.body.classList.remove('scrolled'),
-        onLeave: () => document.body.classList.add('scrolled'),
-        onEnterBack: () => document.body.classList.remove('scrolled'),
+        // onEnter: () => document.body.classList.remove('scrolled'),
+        // onLeave: () => document.body.classList.add('scrolled'),
+        // onEnterBack: () => document.body.classList.remove('scrolled'),
       },
     });
     timelinegetintouch.to(
@@ -143,8 +143,8 @@ const Getintouch = () => {
             trigger: '.sixthsection  .gradient-purple',
             start: 'top top',
             end: 'bottom top',
-            onEnter: () => document.body.classList.add('scrolled'),
-            onEnterBack: () => document.body.classList.add('scrolled'),
+            // onEnter: () => document.body.classList.add('scrolled'),
+            // onEnterBack: () => document.body.classList.add('scrolled'),
           },
         });
 
@@ -516,7 +516,7 @@ const Getintouch = () => {
 
             <div className='lefttiktoktext' >
                 <img src={arrow_blue_2} data-aos="fade-up"
-             data-aos-easing="ease-out-cubic"/>
+             data-aos-easing="ease-out-cubic" className='swingsd'/>
               <p data-aos="fade-up"
              data-aos-easing="ease-out-cubic">{contentSection.mobileImages[0].leftText}</p>
             </div>
@@ -524,7 +524,7 @@ const Getintouch = () => {
             <div className='righttiktoktext' >
             <img src={arrow_blue_1}  data-aos="fade-up"
              
-             data-aos-easing="ease-out-cubic" />
+             data-aos-easing="ease-out-cubic" className='swingsd'/>
               <p data-aos="fade-up"
              data-aos-easing="ease-out-cubic">{contentSection.mobileImages[0].rightText}</p>
             </div>
