@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 const languages = [
     { code: 'en', name: 'English', flag: 'flag-icon-us' },
     { code: 'nl', name: 'Dutch', flag: 'flag-icon-nl' },
+    { code: 'de', name: 'Germany', flag: 'flag-icon-de' },
     
     // { code: 'ad', name: 'Andorra', flag: 'flag-icon-ad' },
     // { code: 'ae', name: 'United Arab Emirates', flag: 'flag-icon-ae' },

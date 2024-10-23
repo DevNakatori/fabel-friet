@@ -138,7 +138,7 @@ const HomePage = () => {
 
     const handlePlay = () => {
       console.log('The video has started playing.');
-      document.body.classList.add('hiddenoverflow');
+      //document.body.classList.add('hiddenoverflow');
     };
 
     const handleVideoEnd = () => {
@@ -169,11 +169,12 @@ const HomePage = () => {
       );
 
       if (overlayMain) {
-        gsap.to('.overlayMain', {
+        gsap.to('.banner_overlaymain', {
           duration: 1,
           delay: 0,
           autoAlpha: 1,
           ease: 'expo.inOut',
+          zIndex:7
         });
       }
 
@@ -368,7 +369,7 @@ const HomePage = () => {
 
   /* remove body class */
   function removeClass() {
-    document.body.classList.remove('hiddenoverflow');
+   // document.body.classList.remove('hiddenoverflow');
   }
   /* remove body class */
 
