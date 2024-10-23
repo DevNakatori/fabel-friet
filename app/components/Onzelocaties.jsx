@@ -214,9 +214,10 @@ const Onzelocaties = () => {
                       }}
                       breakpoints={{
                         640: {
-                          slidesPerView: 1,
-                          spaceBetween: 30,
+                          spaceBetween: 10,
+                          slidesPerView: 1.5,
                           centeredSlides: true,
+                          loop:true,
                         },
                         768: {
                           slidesPerView: 1,
