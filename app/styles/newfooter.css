@@ -99,6 +99,78 @@ footer.footer {
   max-width: 320px;
 }
 
+
+
+.newfooter .newcontainer .allmenulist .footerblock {
+  position: relative;
+}
+
+.newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after {
+  content: '';
+  background: #EFEBE7;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+}
+
+.newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before {
+  content: '';
+  background: #EFEBE7;
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: -80px;
+  transform: translateY(-50%);
+}
+
+
+@media (min-width: 1500px) and (max-width: 1699px) 
+{
+
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after 
+  {
+    right:20px;
+  }
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before {
+    left: -40px;
+}
+
+}
+
+
+@media (min-width: 1201px) and (max-width: 1499px) 
+{
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after {
+    content: '';
+    background: #EFEBE7;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+  }
+  
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before {
+    content: '';
+    background: #EFEBE7;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+  }
+
+
+
+}
+
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .newfooter .newcontainer {
     padding: 0 15px;
@@ -108,9 +180,17 @@ footer.footer {
     max-width: 1708px;
     margin: 0 auto;
   }
+
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display: none;}
+
+  
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display: none;}
 
   .menu-section p,
   .menu-section ul li {
@@ -175,6 +255,10 @@ footer.footer {
     order: 2;
     width: 50%;
   }
+
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display: none;}
+
 }
 
 @media (max-width: 767px) {
@@ -300,4 +384,7 @@ footer.footer {
 
     margin: 0 6px;
   }
+
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,
+  .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display: none;}
 }
