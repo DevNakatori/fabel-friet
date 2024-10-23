@@ -179,6 +179,20 @@
     margin: 0;
 }
 
+.socialiconlist ul li:nth-child(1) {
+    order: 0;
+}
+
+.socialiconlist ul li:nth-child(3) {
+    order: -1;
+}
+
+.newfooter .newcontainer .footerblock ul li a svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
 .socialiconlist ul li a {
     display: flex;
     align-items: center;
@@ -191,7 +205,17 @@
     flex: 0 0 70px;
 }
 
+a.Whatsappbtn svg {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    left: -5px;
+    fill:#0D1E4D;
 
+}
+
+a.Whatsappbtn:hover svg{fill:#fff;}
 
 
 .Tiktok:after {
