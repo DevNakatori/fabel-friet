@@ -319,7 +319,8 @@ const Onzelocaties = () => {
                             src={getImageUrl(loc.image.asset._ref)}
                             alt={loc.image.alt}
                             width="10"
-                            height="10"
+                            height="10" 
+                            className='whitewithvideomainboximg'
                           />
                         </div>
                         <div

@@ -16,7 +16,7 @@ import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 import Newheader from '~/components/Newheader';
 
-
+import '../styles/media.css';
 import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -173,6 +173,14 @@ Sections.forEach((section, index) => {
 
   return (
     <div className="home">
+      <div className='mobilerotate'>
+          <div className='innermobile'>
+          <div className="phone"></div>
+            <div className="message">
+              Please rotate your device!
+            </div>
+            </div>
+      </div>
       <div className='footerwithscrollbar onlymobile'>
         <progress max="100" value="0"></progress>
         <div className='scroll-down'>
@@ -185,7 +193,7 @@ Sections.forEach((section, index) => {
       <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-             {showHomePage && <HomePage />} 
+            {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />} 
