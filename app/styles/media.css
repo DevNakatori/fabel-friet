@@ -1,3 +1,6 @@
+.roundtext h3{right:-7vw;}
+.roundtext h2{left:-12vw;}
+
 @media (min-width:1501px) and (max-width:1921px){
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-7vw;}
@@ -16,6 +19,76 @@
 }
 @media (min-width:1201px) and (max-width:1600px){
     .roundtext-onzelocation h2,.roundtext-onzelocation h3,.roundtext-getintouch h2,.roundtext-getintouch h3,.roundtext-hetmenu h2,.roundtext-hetmenu h3,.roundtext-impact h2,.roundtext-impact h3{font-size:clamp(20px,10vw,80px)!important;}
+    .en .roundtext-onzelocation h2 {
+        left: -12%!important;
+    }
+    .en .roundtext-hetmenu h2 {
+        position: absolute;
+        left: 0vw;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+    .en .roundtext-hetmenu h3 {
+        position: absolute;
+        right: -5vw;
+        bottom: 0;
+        margin: 0;
+    }
+    .en .roundtext-impact h2 {
+        position: absolute;
+        left: -5vw;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+    .en .roundtext-impact h3 {
+        position: absolute;
+        right: -9vw;
+        bottom: 0;
+        margin: 0;
+    }
+    .en .roundtext-getintouch h2 {
+        position: absolute;
+        left: -5vw;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+    .en .roundtext-getintouch h3 {
+        position: absolute;
+        right: -15vw;
+        bottom: 0;
+        margin: 0;
+        text-align: left!important;
+    }
+
+    .nl .roundtext-hetmenu h2 {
+        position: absolute;
+        left: -5vw;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+    .nl .roundtext-hetmenu h3 {
+        position: absolute;
+        right: -6vw;
+        bottom: 0;
+        margin: 0;
+    }
+    .nl .roundtext-impact h2 {
+        position: absolute;
+        left: -7vw;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+    .nl .roundtext-impact h3 {
+        position: absolute;
+        right: -8vw;
+        bottom: 0;
+        margin: 0;
+    }
 }
 @media (min-width:1201px) and (max-width:1499px){
     .roundtext h3{right:-7vw;}
@@ -66,6 +139,11 @@
     a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:8px;}
     .headernew{position:fixed;z-index:11;}
     .language-switcher{z-index:11;}
+
+
+    .roundtext h3{right:-140px;}
+    .roundtext h2{left:-180px;}
+
 }
 @media only screen and (max-device-width:935px) and (orientation:landscape){
     .mobilerotate{display:block;background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1E46B3 0%,#1C41A8 12.99%,#1B3E9E 23.44%,#193A95 31.71%,#18378D 38.19%,#163485 43.26%,#15317E 47.31%,#142F78 50.7%,#132C72 53.82%,#122A6C 57.05%,#112867 60.77%,#112662 65.35%,#10245D 71.19%,#0F2258 78.66%,#0E2053 88.13%,#0D1E4D 100%));width:100vw;height:100vh;position:fixed;z-index:9999;}
