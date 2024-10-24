@@ -55,7 +55,7 @@ a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;borde
 .bottomwhatsapp{display:flex;justify-content:center;margin:30px auto 0;}
 .sixthsection .roundtext-getintouch h2,.sixthsection .roundtext-getintouch h3{line-height:120%;}
 .sixthsection .gradient-purple .whitebgbox h4{overflow:hidden;color:#F6C738;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:80px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-align:left;max-width:1708px;max-width:1708px;margin:40px auto 0;border-top:solid 2px #0D1E4D;padding-top:40px;opacity:1;}
-
+a.Whatsappbtn{width: max-content;padding:0 15px;}
 /* .sixthsection .gradient-threebox ul {
     height: 800px;
 } */

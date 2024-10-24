@@ -1,8 +1,9 @@
 footer.footer{display:none;}
-.newfooter{background:#0D1E4D;box-shadow:0px -5px 20px 5px rgba(0,0,0,0.25);padding:60px 0;z-index:2;position:relative;}
+.newfooter{background:#0D1E4D;box-shadow:0px -5px 20px 5px rgba(0,0,0,0.25);padding:60px 0;z-index:9;position:relative;}
 .newfooter .newcontainer{padding:0;width:100%;display:flex;justify-content:space-between;max-width:1708px;margin:0 auto;}
 .newfooter .newcontainer .footerblock h6{color:#FEDE03;font-family:'Rufina',serif;font-size:23px;font-style:normal;font-weight:700;line-height:25px;  /* 108.696% */background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 30px;}
-.newfooter .newcontainer .footerblock ul li a,.newfooter .newcontainer .footerblock ul li{color:#FFF;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:500;line-height:40px;  /* 200% */}
+.newfooter .newcontainer .footerblock ul li a{color:#FFF;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:500;line-height:40px;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; overflow: hidden;}
+.newfooter .newcontainer .footerblock ul li{color:#FFF;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:500;line-height:40px;}
 .newfooter .newcontainer .footerblock:nth-child(1) .footerlistbox ul{margin-right:50px;display:flex;flex-direction:row;flex-wrap:wrap;}
 .newfooter .newcontainer .footerblock ul li a:hover{color:#f6c738;}
 .newfooter .newcontainer .footerblock .footerlistbox{display:flex;}
@@ -43,7 +44,8 @@ footer.footer{display:none;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,.newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display:none;}
 }
 @media (max-width:767px){
-  .newfooter .newcontainer .footerblock ul li a,.newfooter .newcontainer .footerblock ul li{color:#FFF;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:500;line-height:20px;margin-bottom:0;}
+  .newfooter .newcontainer .footerblock ul li a,
+  .newfooter .newcontainer .footerblock ul li{color:#FFF;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:500;line-height:20px;margin-bottom:0;}
   .newfooter .newcontainer .footerblock ul li a svg{width:13px;height:13px;display:flex;}
   .newfooter .newcontainer .footerblock h6{font-size:12px;line-height:25px;margin:0 0 13px;}
   .menu-section p,.menu-section ul li{display:flex;}
