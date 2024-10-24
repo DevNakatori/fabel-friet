@@ -545,7 +545,10 @@ const Getintouch = () => {
                   {Object.entries(contentSection.socialMedia || {}).map(
                     ([platform, url]) =>
                       platform !== 'title' && (
-                        <li key={platform}>
+                        <li key={platform}  className={
+                          platform.charAt(0).toUpperCase() +
+                          platform.slice(1)
+                        }>
                           <a
                             href={url}
                             target="_blank"
@@ -562,6 +565,13 @@ const Getintouch = () => {
                 </ul>
               </div>
 
+              <div className='whatsappbuttonarrow'>
+              <img
+                src={arrow_blue_1}
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                className="swingsd"
+              />
               <div
                 className="bottomwhatsapp"
                 data-aos="fade-up"
@@ -618,6 +628,7 @@ const Getintouch = () => {
                     </a>
                   </div>
                 )}
+              </div>
               </div>
               <h4
                 data-aos="fade-up"

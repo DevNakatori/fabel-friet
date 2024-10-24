@@ -85,6 +85,24 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
 .likeimagelist img:nth-child(2){display:block;position:relative;top:-19vh;transform:translate3d(10px,10px,10px);left:10vw;}
 .likeimagelist img:nth-child(3){display:block;position:relative;top:-17vh;transform:translate3d(10px,10px,10px);}
 .likeimagelist img:nth-child(4){display:block;position:relative;top:-84vh;transform:translate3d(10px,10px,10px);left:77vw;}
+.socialiconlist ul li.Whatsapp {
+    order: -1;
+}
+.socialiconlist ul li a:hover {
+    background: #f6c738;
+}
+.whatsappbuttonarrow {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 400px;
+}
+.whatsappbuttonarrow img {
+    position: absolute;
+    right: -56px;
+    top: 30px;
+}
 @media (min-width:992px) and (max-width:1199px){
     .nl .roundtext-getintouch h2{position:absolute;left:-231px;top:-50px;}
     .nl .roundtext-getintouch h3{right:-335px;width:495px;bottom:-60px;}
