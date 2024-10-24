@@ -266,11 +266,13 @@ const Hetmenu = () => {
             >
               {menuSection.Menu.map((item) => (
                 <li key={item._key}>
+                  <div className='bordrframe'>
                   <img
                     src={getImageUrl(item.image.asset._ref)}
                     alt={`Menu item ${item._key}`}
                     style={{maxWidth: '100%', height: 'auto'}}
                   />
+                  </div>
                 </li>
               ))}
             </ul>

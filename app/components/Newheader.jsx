@@ -212,6 +212,7 @@ const Newheader = () => {
             <li key={item._key}>
               <a
                 href={item.link}
+                target="_blank"
                 onClick={(event) => handleMenuItemClick(event, item.link)}
               >
                 {item.label}

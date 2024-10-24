@@ -113,6 +113,23 @@
     z-index: 1;
     background-position: center center;
 }
+.fourthsection .gradient-threebox-menu ul li{padding: 0 15px;}
+.fourthsection .gradient-threebox-menu ul li .bordrframe {
+    background-image: url('/app/assets/resizeimgs/glodenframe.png');
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+}
+
+.fourthsection .gradient-threebox-menu ul li .bordrframe img {
+    width: calc(100% - 50px);
+    padding: 25px;
+}
 
 .fourthsection .gradient-purple h4 {
     text-align: center;
@@ -495,6 +512,7 @@
         z-index: 1;
         background-position: center center;
     }
+
 
     .roundtext-hetmenu {
         position: absolute;

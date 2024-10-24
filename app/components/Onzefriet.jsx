@@ -25,7 +25,7 @@ import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
 import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
-import fabelfrie_bottomlogo from '../assets/resizeimgs/120370700_177300s284025419_49173006.png';
+import fabelfrie_bottomlogo from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 
 
@@ -188,7 +188,7 @@ const Onzefriet = () => {
             firstItem,
             {left: '-50vw', rotation: 0, opacity: 0},
             {
-              left: '-11vw',
+              left: '-9vw',
               opacity: 1,
               duration: 1,
             },
@@ -212,7 +212,7 @@ const Onzefriet = () => {
             lastItem,
             {right: '-50vw', rotation: 0, opacity: 0},
             {
-              right: '-11vw',
+              right: '-9vw',
               opacity: 1,
               duration: 1,
             },
