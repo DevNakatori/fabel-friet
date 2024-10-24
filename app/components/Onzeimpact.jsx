@@ -15,7 +15,7 @@ import arrow_bluebottom from '../assets/resizeimgs/arrow_bluebottom.png';
 
 import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
-import fabelfrie_bottomlogo from '../assets/resizeimgs/120370700_177300s284025419_49173006.png';
+import fabelfrie_bottomlogo from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

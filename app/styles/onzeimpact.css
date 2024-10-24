@@ -241,7 +241,7 @@
     font-size: clamp(20px, 7vw, 80px);
     font-style: normal;
     font-weight: 700;
-    line-height: 85px;
+    line-height: 120%;
     background: url('/app/assets/resizeimgs/plain-gold-background.png');
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -5,6 +5,7 @@ import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import {getImageUrl} from '../js/imagesurl';
+
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 
@@ -387,20 +388,13 @@ const Getintouch = () => {
       <div className="wrapper-getintouch">
         <div className="bannersectinlogo">
           {getIntouch.logoImage && (
-            <img
-              src={getImageUrl(getIntouch.logoImage.asset._ref)}
-              alt="Logo"
-            />
+            <img src={getImageUrl(getIntouch.logoImage.asset._ref)} alt="Logo" />
           )}
         </div>
         <div className="wrappermain">
-          <img
-            className="media"
-            src={getImageUrl(getIntouch.transitionSection.image.asset._ref)}
-            alt={transitionSection.topTitle}
-            width="10"
-            height="10"
-          />
+          {getIntouch.transitionSection && (
+            <img className="media" src={getImageUrl(getIntouch.transitionSection.image.asset._ref)} alt="Logo" width="10" height="10"/>
+          )}
         </div>
         <div className="roundimages">
           <div className="roundtext-getintouch">
@@ -589,9 +583,9 @@ const Getintouch = () => {
                         version="1.1"
                         id="Layer_1"
                         xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 308 308"
-                        xml:space="preserve"
+                        xmlSpace="preserve"
                       >
                         <g id="XMLID_468_">
                           <path
@@ -686,9 +680,9 @@ const Getintouch = () => {
                           version="1.1"
                           id="Layer_1"
                           xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
                           viewBox="0 0 308 308"
-                          xml:space="preserve"
+                          xmlSpace="preserve"
                         >
                           <g id="XMLID_468_">
                             <path
