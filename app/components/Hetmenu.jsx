@@ -76,7 +76,7 @@ const Hetmenu = () => {
       z: 350,
       transformOrigin: 'center center',
       ease: 'power1.inOut',
-      zIndex: 5,
+      //zIndex: 5,
     });
 
     timelineshetmenu.to(

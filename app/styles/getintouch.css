@@ -19,7 +19,7 @@
 .nl .roundtext-getintouch h2{left:-380px;line-height:120%;}
 .nl .roundtext-getintouch h3{right:-465px;width:495px;}
 .sixthsection .whitebgbox{padding-top:160px;}
-.sixthsection .whitebgbox .socialtitle h3{max-width:665px;margin:40px auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#F6C738;text-align:center;text-overflow:ellipsis;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,5vw,60px);font-style:normal;font-weight:700;line-height:70px;    /* 108.333% */text-transform:capitalize;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;}
+.sixthsection .whitebgbox .socialtitle h3{max-width:1000px;margin:40px auto;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#F6C738;text-align:center;text-overflow:ellipsis;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,5vw,60px);font-style:normal;font-weight:700;line-height:70px;    /* 108.333% */text-transform:capitalize;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;}
 .socialiconlist ul{max-width:605px;display:flex;gap:37px;align-items:center;align-content:center;margin:0 auto;}
 .socialiconlist ul li{margin:0;}
 .socialiconlist ul li:nth-child(1){order:0;}
@@ -41,15 +41,23 @@ a.Whatsappbtn:hover svg{fill:#fff;}
 .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{color:#0D1E4D;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,2vw,35px);font-style:normal;font-weight:700;line-height:normal;margin:0 0 15px;}
 a.Whatsappbtn{width:299px;height:47px;flex-shrink:0;overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:600;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #f6c738;border-radius:40px;display:flex;align-items:center;align-content:center;justify-content:center;margin:30px 0;position:relative;}
 .locationbox h6{overflow:hidden;color:#EFEBE7;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:35px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 30px;}
-.locationbox p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;max-width:430px;margin:0;text-align:left;display:flex;width:100%;}
+.locationbox p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;max-width:455px;margin:0;text-align:left;display:flex;width:100%;}
 .locationbox p i.location{width:49px;height:49px;display:inline-flex;margin-right:16px;}
 .locationbox ul li{margin-bottom:28px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox{display:flex;align-items:center;align-content:center;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;margin:0;display:flex;align-items:center;align-content:center;margin-right:25px;position:relative;}
-.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after{content:"|";position:absolute;right:-10px;width:1px;height:123px;top:-11px;line-height:50px;font-size:37px;}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after{content:"|";position:absolute;right:-10px;width:1px;height:123px;top:-11px;line-height:50px;font-size:37px;font-weight:300;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:last-child:after{display:none;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele{display:inline-block;width:33px;height:33px;flex-shrink:0;margin:0 10px 0 0;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox{display:flex;align-items:center;align-content:center;border-bottom:solid 3px #0D1E4D;padding-bottom:30px;margin-bottom:30px;}
+
+.sixthsection .main-accordian {
+    border-top: solid 2px #0D1E4D;
+    padding-top: 80px;
+    margin-top: 80px;
+}
+
+
 a.Whatsappbtn:hover{color:#fff;border-color:#f6c738;background:#f6c738;}
 a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;border-radius:30px;-webkit-transform:translate(-100%,0) rotate(50deg);-ms-transform:translate(-100%,0) rotate(50deg);transform:translate(-100%,0) rotate(50deg);-webkit-transform-origin:top left;-ms-transform-origin:top left;transform-origin:top left;-webkit-transition:all 0.35s;-o-transition:all 0.35s;transition:all 0.35s;background-color:#f6c738;z-index:-1;content:'';}
 .bottomwhatsapp{display:flex;justify-content:center;margin:30px auto 0;}
@@ -76,8 +84,8 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     top: 5px;
     position: relative;
 } */
-.lefttiktoktext{position:absolute;left:-55px;width:100%;max-width:332px;bottom:-45px;display:flex;flex-direction:column;justify-content:center;}
-.righttiktoktext{position:absolute;right:-55px;width:100%;max-width:332px;bottom:-45px;display:flex;flex-direction:column;justify-content:center;}
+.lefttiktoktext{position:absolute;left:26px;width:100%;max-width:332px;bottom:-45px;display:flex;flex-direction:column;justify-content:center;}
+.righttiktoktext{position:absolute;right:26px;width:100%;max-width:332px;bottom:-45px;display:flex;flex-direction:column;justify-content:center;}
 .lefttiktoktext img,.righttiktoktext img{width:100px;height:100px;margin:0 auto;}
 .lefttiktoktext p,.righttiktoktext p{width:100%;color:#0D1E4D;text-align:center;font-family:"Permanent Marker";font-size:30px;font-style:normal;font-weight:400;line-height:35px;margin:0;display:flex;justify-content:center;}
 .likeimagelist{position:absolute;width:100%;left:0;}
@@ -103,6 +111,14 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     right: -56px;
     top: 30px;
 }
+.footerlogo.onlydesktop{position: relative;}
+.footerlogo.onlydesktop img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{color: #0D1E4D;font-family: "Work Sans";font-size: 23px;font-style: normal;font-weight: 700;line-height: normal;margin-left: 5px;}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a:hover{color:#f6c738;}
 @media (min-width:992px) and (max-width:1199px){
     .nl .roundtext-getintouch h2{position:absolute;left:-231px;top:-50px;}
     .nl .roundtext-getintouch h3{right:-335px;width:495px;bottom:-60px;}
@@ -138,7 +154,7 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .locationbox p i.location{width:19px;height:24px;display:flex;margin-right:10px;align-items:flex-start;align-content:flex-start;}
     .locationbox p i.location svg{width:100%;height:100%;}
     .sixthsection .locationbox p{font-size:12px;font-style:normal;font-weight:600;max-width:300px;display:flex;width:100%;align-items:flex-start;align-content:flex-start;}
-    .sixthsection .accordion-header .icon{width:15px;height:15px;right:-10%;}
+    .sixthsection .accordion-header .icon{width:15px;height:15px;right:-45px;}
     .sixthsection .gradient-purple .accordion-content p{max-width:100%;font-size:12px;line-height:16px;}
     .overlaybannehand-bottoms{background-image:url('/app/assets/resizeimgs/mobilepotatos.png');background-repeat:no-repeat no-repeat;background-position:center center;width:calc(100% + 150px);height:103px;left:0}
     .sixthsection .whitebgbox .whitewithvideomainboxss{flex-wrap:wrap;}
@@ -150,13 +166,14 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:700;line-height:normal;margin:0 0 15px;display:flex;align-items:center;align-content:center;margin-right:0;width:100%;}
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele{display:inline-block;width:17px;height:17px;flex-shrink:0;margin:0 10px 0 0;}
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg{width:100%;height:100%;}
+    .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{color:#0D1E4D;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:700;}
     .sixthsection .gradient-purple .whitebgbox h4{margin:15px auto;border-top:solid 1px #0D1E4D;padding-top:15px;}
     a.Whatsappbtn{width:142px;height:20px;flex-shrink:0;font-size:12px;line-height:12px;}
     .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size:20px;width:250px;margin-bottom:-10px;}
     .bottomwhatsapp{border-bottom:solid 1px #0D1E4D;padding-bottom:0;margin-bottom:15px;margin-top:10px;}
     .bottomwhatsapp a.Whatsappbtn{margin:15px 0;}
     .socialiconlist ul li a{width:30px;height:30px;flex:0 0 30px;}
-    .Insta:after,.Whatsapp:after,.Twitter:after,.Tiktok:after,.Facebook:after,.Linkedin:after{width:20px;height:20px;}
+    .Insta:after,.Whatsapp:after,.Twitter:after,.Tiktok:after,.Facebook:after,.Linkedin:after{width:15px;height:15px;}
     .sixthsection .whitebgbox .socialtitle h3{margin:15px 0;font-size:20px;line-height:29px;}
 
     /*.sixthsection .gradient-threebox ul {
@@ -171,13 +188,13 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     }*/
     .sixthsection .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:350px;margin-left:-50px;margin-right:-50px;}
     .sixthsection .gradient-threebox ul li{width:45%;height:auto;position:absolute;display:flex;justify-content:center;align-items:center;}
-    .sixthsection .gradient-purple p{font-size:12px;line-height:14px;max-width:315px;margin:15px 0;}
+    .sixthsection .gradient-purple p{font-size:12px;line-height:14px;max-width:315px;margin:15px auto;}
     .sixthsection .gradient-purple h4{font-size:30px;}
     .sixthsection .socialiconlist ul{max-width:605px;display:flex;gap:15px;align-items:center;align-content:center;margin:0 auto;justify-content:center;}
     #section6 .wrappertest{padding-top:30px;}
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after{display:none;}
     .nl .roundtext-getintouch h2{left:-190px;line-height:120%;}
-    .sixthsection .gradient-threebox ul li iframe{width:calc(100% - 9px);height:calc(100% - 38px);display:block;border:none;top:-2px;position:relative;z-index:-1;border-radius:18px;}
+    .sixthsection .gradient-threebox ul li iframe{width:calc(100% - 32px);height:calc(100% - 38px);display:block;border:none;top:-2px;position:relative;z-index:-1;border-radius:18px;}
     .sixthsection .gradient-threebox ul li{width:45%;height:380px;position:absolute;display:flex;justify-content:center;align-items:center;overflow:hidden;z-index:1;border-radius:15px;}
     .sixthsection .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:425px;margin-left:-50px;margin-right:-50px;}
     .sixthsection .gradient-threebox ul li:nth-child(2){z-index:9;}
@@ -186,4 +203,33 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .righttiktoktext{position:relative;right:0;width:100%;max-width:332px;bottom:0;display:flex;flex-direction:column;justify-content:center;}
     .lefttiktoktext img{display:none;}
     .righttiktoktext img{display:none;}
+
+    .whatsappbuttonarrow img {
+        position: absolute;
+        right: 0px;
+        top: -5px;
+    }
+
+    .lefttiktoktext,.righttiktoktext{display: none;}
+    .bottomwhatsapp {
+        border-bottom: solid 1px #0D1E4D;
+        padding-bottom: 0;
+        margin-bottom: 15px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .righttextbox .locationbox h6 {
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    .newfooter .newcontainer .footerblock ul li a svg {
+        width: 13px;
+        height: 13px;
+        display: block;
+    }
+    .accordion-header.active .icon {
+        transform: rotate(180deg);
+        right: -38px !important;
+    }
 }
