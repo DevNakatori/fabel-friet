@@ -86,7 +86,7 @@ const Newfooter = () => {
             <div className="footerlistbox">
               <ul>
                 <li>
-                  <a href="">{contact.phone}</a>
+                  <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                 </li>
                 <li>
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>

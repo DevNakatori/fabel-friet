@@ -59,7 +59,7 @@ const Onzefriet = () => {
       z: 350,
       transformOrigin: 'center center',
       ease: 'power1.inOut',
-      zIndex: 5,
+      //zIndex: 5,
       
     });
 
@@ -188,13 +188,13 @@ const Onzefriet = () => {
             firstItem,
             {left: '-50vw', rotation: 0, opacity: 0},
             {
-              left: '-9vw',
+              left: '-10%',
               opacity: 1,
               duration: 1,
             },
           )
           .to(firstItem, {
-            rotation: -3,
+            rotation: -8,
             duration: 1,
             delay: 1,
           });
@@ -212,13 +212,13 @@ const Onzefriet = () => {
             lastItem,
             {right: '-50vw', rotation: 0, opacity: 0},
             {
-              right: '-9vw',
+              right: '-10%',
               opacity: 1,
               duration: 1,
             },
           )
           .to(lastItem, {
-            rotation: 3,
+            rotation: 8,
             duration: 1,
             delay: 1,
           });
@@ -259,14 +259,14 @@ const Onzefriet = () => {
             {
               left: '0vw',
               opacity: 1,
-              duration: 3,
+              duration: 1,
               ease: 'power2.out',
             },
           )
           .to(firstItem, {
-            rotation: -4,
-            duration: 5,
-            delay: 3,
+            rotation: -6,
+            duration: 1,
+            delay: 1,
           });
 
         const mobileImageRight = gsap.timeline({
@@ -284,14 +284,14 @@ const Onzefriet = () => {
             {
               right: '0vw',
               opacity: 1,
-              duration: 3,
+              duration: 1,
               ease: 'power2.out',
             },
           )
           .to(lastItem, {
-            rotation: 4,
-            duration: 5,
-            delay: 3,
+            rotation: 6,
+            duration: 1,
+            delay: 1,
           });
       };
 

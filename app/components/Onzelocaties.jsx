@@ -47,7 +47,7 @@ const Onzelocaties = () => {
         transformOrigin: 'center center',
         ease: 'power1.inOut',
         scrub: true,
-        zIndex: 5,
+        //zIndex: 5,
       },
       0,
     );
@@ -208,6 +208,9 @@ const Onzelocaties = () => {
                       pagination={{
                         clickable: true,
                       }}
+                      slidesPerView={1.5}
+                      
+                      centeredSlides={true}
                       autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,

@@ -1,7 +1,11 @@
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-12vw;}
 
+@media (min-width:1921px) and (max-width:4000px){
+.banner_title_text,.banner_title_text h1{max-width: 1030px;}
+}
 @media (min-width:1501px) and (max-width:1921px){
+    .banner_title_text h1,.banner_title_text{max-width: 1030px;}
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-7vw;}
     .en .roundtext-onzelocation h2{left:-7vw;}
@@ -114,13 +118,18 @@
     .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
 }
 @media (min-width:992px) and (max-width:1199px){
+    .headernew{padding: 0rem 25px;}
+    .headernew nav ul li a {
+        font-size: clamp(16px,5vw,16px);
+    }
+    .headernew nav ul.desktop-menu{gap: 25px;}
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
     .fourthsection .whitewithvideomainbox{margin:0;}
     .likeimagelist{display:none;}
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:60px;}
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:55px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:60px;}
     .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:530px;}
     .gradient-threebox ul li{width:355px;height:432px;position:absolute;display:flex;justify-content:center;align-items:center;}
     .fourthsection .gradient-threebox-menu ul li .bordrframe img{width:100%;padding:0;}
@@ -132,11 +141,11 @@
     .lefttiktoktext img{display:none;}
 }
 @media (max-width:767px){
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:50px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
     .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-top:50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p,.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{width:100%;font-size:12px;line-height:16px;}
-    .bottomwhatsapp a.Whatsappbtn{margin:15px 0;width:max-content;padding:10px;}
-    a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:8px;}
+    .bottomwhatsapp a.Whatsappbtn{margin:15px 0;width:max-content;padding:10px 10px;}
+    a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:10px;}
     .headernew{position:fixed;z-index:11;}
     .language-switcher{z-index:11;}
 

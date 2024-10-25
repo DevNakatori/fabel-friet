@@ -63,7 +63,7 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-        zIndex: 5,
+        //zIndex: 5,
       },
       0,
     );
@@ -745,7 +745,7 @@ const Getintouch = () => {
                           />
                         </svg>
                       </i>
-                      Telephone | {contactSection.contactDetails?.telephone}
+                      Telephone | <a href={`tel:${contactSection.contactDetails?.telephone}`}>{contactSection.contactDetails?.telephone}</a>
                     </li>
                     <li
                       data-aos="fade-up"
@@ -786,7 +786,7 @@ const Getintouch = () => {
                           </defs>
                         </svg>
                       </i>
-                      Email | {contactSection.contactDetails?.email}
+                      Email | <a href={`mailto:${contactSection.contactDetails?.email}`}>{contactSection.contactDetails?.email}</a>
                     </li>
                   </ul>
                   <div
