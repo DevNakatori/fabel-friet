@@ -100,6 +100,235 @@ const HomePage = () => {
   }, [language]);
   /* data fatched */
 
+  const handleSkipVideo = () => {
+    const videos = document.getElementById('myVideo');
+    if (videos) {
+      videos.pause();
+      videos.currentTime = videos.duration;
+      document.body.classList.remove('hiddenoverflow');
+
+      videos.classList.add('hidden');
+
+      const video = document.getElementById('myVideo');
+      const overlayMain = document.querySelector('.banner_overlaymain');
+      const overlay = document.querySelector('.banner_overlay');
+      const elements = {
+        logo: document.querySelector('.bannerlogo'),
+        title: document.querySelector('.banner_title_text'),
+        content: document.querySelector('.banner_content_text'),
+        button: document.querySelector('.banner_bottombtn'),
+        rotateText: document.querySelector('.bannerrotate_text'),
+      };
+
+      const languageSwitchers =
+        document.getElementsByClassName('language-switcher');
+      if (languageSwitchers.length > 0) {
+        languageSwitchers[0].style.display = 'block';
+      }
+      const header = document.getElementsByClassName('headernew');
+      if (header.length > 0) {
+        header[0].style.display = 'block';
+      }
+      gsap.fromTo(
+        '.headernew .desktop-menu li',
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 2,
+          ease: 'power2.out',
+          delay: 2,
+          repeat: 0,
+        },
+      );
+
+      if (overlayMain) {
+        gsap.to('.banner_overlaymain', {
+          duration: 1,
+          delay: 0,
+          autoAlpha: 1,
+          ease: 'expo.inOut',
+          zIndex:7
+        });
+      }
+
+      if (overlay) {
+        gsap.to(overlay, {
+          duration: 2,
+          opacity: 1,
+          ease: 'power2.out',
+          delay: 0.2,
+        });
+      }
+
+      gsap.to('.overlaybannehand-bottom', {
+        duration: 1.5,
+        bottom: '0px',
+        ease: 'power1.inOut',
+        delay: 0.1,
+        stagger: 0.1,
+      });
+
+      gsap.fromTo(
+        elements.logo,
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 1,
+          stagger: 0.2,
+        },
+      );
+
+      gsap.fromTo(
+        elements.title,
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 1.5,
+          stagger: 0.3,
+        },
+      );
+
+      gsap.fromTo(
+        elements.content,
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 2,
+          stagger: 0.4,
+        },
+      );
+
+      gsap.fromTo(
+        elements.button,
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 2.5,
+          stagger: 0.5,
+        },
+      );
+
+      gsap.to('.overlaybannehand-left', {
+        duration: 1,
+        left: '0px',
+        ease: 'power1.inOut',
+        delay: 3,
+        stagger: 0.6,
+      });
+
+      gsap.to('.overlaybannehand-right', {
+        duration: 1,
+        right: '0px',
+        ease: 'power1.inOut',
+        delay: 3,
+        stagger: 0.6,
+      });
+
+      gsap.fromTo(
+        elements.rotateText,
+        {opacity: 0, y: -50},
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 4,
+          stagger: 0.7,
+        },
+      );
+
+      gsap.fromTo(
+        elements.rotateText,
+        {text: ''},
+        {
+          text: bannerData[0].bannerText,
+          duration: bannerData[0].bannerText.length * 0.05,
+          ease: 'none',
+          delay: 4.5,
+          stagger: 0.8,
+        },
+      );
+
+      gsap.to('body', {delay: 3.5, onComplete: removeClass});
+
+      gsap.fromTo(
+        '.banner_content_text p span.bold img.imgerasr_one',
+        {y: '-100%'},
+        {
+          duration: 0.5,
+          y: '0%',
+          ease: 'power2.out',
+          opacity: 1,
+          delay: 5,
+        },
+      );
+
+      gsap.fromTo(
+        '.banner_content_text p span.bold img.imgerasr_two',
+        {y: '-100%'},
+        {
+          duration: 0.5,
+          y: '0%',
+          ease: 'power2.out',
+          opacity: 1,
+          delay: 5.5,
+        },
+      );
+
+      gsap.fromTo(
+        '#target',
+        {drawSVG: '0 0'},
+        {
+          drawSVG: '100% -175%',
+          duration: 1,
+          ease: 'none',
+          repeat: 0,
+          delay: 6,
+        },
+      );
+
+      gsap.fromTo(
+        '#target_one',
+        {drawSVG: '0 0'},
+        {
+          drawSVG: '100% -175%',
+          duration: 1,
+          ease: 'none',
+          repeat: 0,
+          delay: 6.5,
+        },
+      );
+
+      gsap.fromTo(
+        '.rightsidebullets ul li',
+        {opacity: 0, y: -30},
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.5,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 5.5,
+        },
+      );
+      
+    }
+  };
+
   /* loading animation start */
   useEffect(() => {
     if (!loading) {
@@ -138,7 +367,7 @@ const HomePage = () => {
 
     const handlePlay = () => {
       console.log('The video has started playing.');
-      //document.body.classList.add('hiddenoverflow');
+      document.body.classList.add('hiddenoverflow');
     };
 
     const handleVideoEnd = () => {
@@ -369,8 +598,11 @@ const HomePage = () => {
 
   /* remove body class */
   function removeClass() {
-   // document.body.classList.remove('hiddenoverflow');
+    document.body.classList.remove('hiddenoverflow');
   }
+
+
+  // Skip video functionality
   /* remove body class */
 
   /* Scribble doodle animation start */
@@ -427,6 +659,21 @@ const HomePage = () => {
             playsInline
           />
         )}
+        <button className='skipvideo' onClick={handleSkipVideo}>
+          <i className='skipicon'>
+        <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1">
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+        <g id="skip" transform="translate(0.000000, 0.000000)" fill="#000000">
+            <g id="add" transform="translate(128.000000, 128.000000)">
+                <path d="M213.333333,-2.84217094e-14 L213.333333,256 L256,256 L256,-2.84217094e-14 L213.333333,-2.84217094e-14 Z M2.84217094e-14,-2.84217094e-14 L2.84217094e-14,256 L213.333333,128 L2.84217094e-14,-2.84217094e-14 Z M42.6666667,75.328 L130.432,128 L42.6666667,180.650667 L42.6666667,75.328 Z" id="Shape">
+
+</path>
+            </g>
+        </g>
+    </g>
+</svg></i>
+          Skip Video
+        </button>
       </div>
       <div className="banner_overlaymain">
         <div className="banner_overlay">
