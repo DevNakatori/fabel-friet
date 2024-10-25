@@ -123,6 +123,111 @@
         font-size: clamp(16px,5vw,16px);
     }
     .headernew nav ul.desktop-menu{gap: 25px;}
+
+    .roundtext h2 {
+        left: -24vw;
+    }
+    .roundtext h3 {
+        right: -18vw;
+    }
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar {
+        width: 110px;
+    }
+    .star,.blackstar,.halfstar {
+        width: 15.819px;
+        height: 15.831px;
+        
+    }
+    .roundtext-hetmenu h2 {
+        position: absolute;
+        left: -170px;
+        top: 58px;
+        z-index: 1;
+        margin: 0;
+    }
+
+    .fourthsection .whitewithvideomainbox {
+      
+        padding-bottom: 0;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
+        
+        margin-bottom: -13rem;
+    }
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
+        position: relative;
+        top: 0;
+        left: 12em;
+        margin-bottom: 0;
+    }
+
+    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 25px;
+        top: 5px;
+        transform: rotate(-10deg);
+        z-index: 1;
+        width: 100px;
+    }
+    .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg {
+        width: 100px;
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        right: 0;
+    }
+    .nl .roundtext-getintouch h3 {
+        font-size: clamp(20px,10vw,80px);
+    }
+    .nl .roundtext-getintouch h2 {
+        font-size: clamp(20px,10vw,80px);
+    }
+
+    .likeimagelist img:nth-child(2) {
+        display: block;
+        position: relative;
+        top: -19vh;
+        transform: translate3d(10px,10px,10px);
+        left: 0vw;
+    }
+    .likeimagelist img:nth-child(3) {
+        display: block;
+        position: relative;
+        top: -17vh;
+        transform: translate3d(10px,10px,10px);
+        left: -9vw;
+    }
+    .righttiktoktext {
+        position: absolute;
+        right: -6vw;
+        width: 100%;
+        max-width: 332px;
+        bottom: -73px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .lefttiktoktext {
+        position: absolute;
+        left: -6vw;
+        width: 100%;
+        max-width: 332px;
+        bottom: -73px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sixthsection .whitebgbox .socialtitle h3 {
+    margin: 80px auto 40px;
+    }
+    .sixthsection .gradient-purple .whitebgbox .appcontainers h4 {
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    .likeimagelist img:nth-child(1) {
+        top: 15vh;
+    }
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
