@@ -78,6 +78,7 @@
 @media (min-width:768px) and (max-width:991px){
     .roundtext-onzelocation h2{position:absolute;left:-220px;top:-10px;z-index:1;margin:0;}
     .roundtext-onzelocation h3{position:absolute;right:-220px;bottom:-50px;margin:0;}
+    #section3 .whitebgbox .whitewithvideomainbox .righttextbox {max-width: 100%;width: 100%;padding-left: 0;position: relative;}
 }
 @media (max-width:767px){
     .onlymobile{display:block!important;}
