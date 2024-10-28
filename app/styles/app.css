@@ -248,9 +248,13 @@ li.language-item.active{display:none;}
 .menu-section p.firsttext{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:400;line-height:normal;margin-bottom:45px;}
 .menu-section h2{font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,6vw,50px);font-style:normal;font-weight:700;line-height:125%;text-transform:capitalize;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 20px;display:flex;align-items:center;}
 .menu-section ul{list-style:none;margin-bottom:0px;}
-.menu-section ul li{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:600;line-height:normal;margin-bottom:6px;}
+.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 600;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;}
 .price{float:right;color:#333;font-weight:bold;}
 ul ul{margin-top:10px;margin-left:20px;}
+summary {padding: 0;display: block;padding-left: 20px;position: relative;cursor: pointer;user-select: none;}
+summary:before {content: '';border-width: .4rem;border-style: solid;border-color: transparent transparent transparent #0d1e4d;position: absolute;top: 5px;left: 5px;transform: rotate(0);transform-origin: .2rem 50%;transition: .25s transform ease;}
+details[open] > summary:before {transform: rotate(90deg);}
+details summary::-webkit-details-marker {display:none;}
 
 /* Tabs */
 .tabs{display:flex;justify-content:space-around;margin-bottom:20px;}
@@ -370,7 +374,6 @@ progress{position:fixed;bottom:48px;left:0;-webkit-appearance:none;appearance:no
 .bannersectinlogo img{width:75px!important;height:auto!important;}
 }
 .bannersectinlogo img{width:130px;height:95px;}
-
 .mobilerotate{display: none;}
 .phone{height:50px;width:100px;border:3px solid white;border-radius:10px;animation:rotate 1.5s ease-in-out infinite alternate;display:none;margin: 0 auto;}
 .message{color:white;font-size:1em;margin-top:40px;display:none;}

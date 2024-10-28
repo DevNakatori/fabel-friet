@@ -159,23 +159,32 @@ const allContent = (menuData) => {
   return (
     <div className="content">
       {menuData.tabContant.friet.map((section) => (
-        <section className="menu-section" key={section._key}>
-          <h2>
-            {section.title} <span className="info-icon"></span>
-          </h2>
-          <p className="firsttext">{section.subTitle}</p>
-          <ul>
-            {section.menu.map((menuItem) => (
-              <li key={menuItem._key}>
+  <section className="menu-section" key={section._key}>
+    <h2>
+      {section.title} <span className="info-icon"></span>
+    </h2>
+    <p className="firsttext">{section.subTitle}</p>
+    <ul>
+      {section.menu.map((menuItem) => (
+        <li key={menuItem._key}>
+          {menuItem.recipedetails ? (
+            <details>
+              <summary>
                 <span>{menuItem.recipe}</span>
-                {menuItem.price && (
-                  <span className="price">{menuItem.price}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
+              </summary>
+              <p>{menuItem.recipedetails}</p>
+            </details>
+          ) : (
+            <span>{menuItem.recipe}</span>
+          )}
+          {menuItem.price && (
+            <span className="price">{menuItem.price}</span>
+          )}
+        </li>
       ))}
+    </ul>
+  </section>
+))}
     </div>
   );
 };
