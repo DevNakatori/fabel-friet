@@ -251,10 +251,11 @@ li.language-item.active{display:none;}
 .menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 600;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;}
 .price{float:right;color:#333;font-weight:bold;}
 ul ul{margin-top:10px;margin-left:20px;}
-summary {padding: 0;display: block;padding-left: 20px;position: relative;cursor: pointer;user-select: none;}
-summary:before {content: '';border-width: .4rem;border-style: solid;border-color: transparent transparent transparent #0d1e4d;position: absolute;top: 5px;left: 5px;transform: rotate(0);transform-origin: .2rem 50%;transition: .25s transform ease;}
-details[open] > summary:before {transform: rotate(90deg);}
+summary {padding: 0;display: block;padding-left: 25px;position: relative;cursor: pointer;user-select: none;}
+summary:before{content:'';background-image:url(/app/assets/resizeimgs/qr_info.png);background-repeat:no-repeat no-repeat;background-position:center center;background-size:cover;width:20px;height:20px;flex-shrink:0;display:inline-block;margin:0;position:absolute;top:1px;left:0;transform:rotate(0);transition:.25s transform ease;}
 details summary::-webkit-details-marker {display:none;}
+.mainmenututles summary:before{display:none;}
+.mainmenututles summary{padding-left: 0;}
 
 /* Tabs */
 .tabs{display:flex;justify-content:space-around;margin-bottom:20px;}

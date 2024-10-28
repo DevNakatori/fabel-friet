@@ -43,14 +43,14 @@ export default function Page() {
   /** @type {LoaderReturnData} */
 
   const {page} = useLoaderData();
-  const [menuData, setMenuData] = useState({tabContant: {friet: []}}); // Default structure
+  const [menuData, setMenuData] = useState({tabContant: {friet: []}}); 
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const query = '*[_type == "qrmenu"]';
       const datas = await client.fetch(query);
-      setMenuData(datas[0] || {tabContant: {friet: []}}); // Ensure structure
+      setMenuData(datas[0] || {tabContant: {friet: []}}); 
       console.log('Fetched Data:', datas);
     };
 
@@ -82,7 +82,7 @@ export default function Page() {
     };
   }, []);
 
-  // Declare tabs outside of setTimeout
+
   const tabs = [
     {label: 'Fries', content: friesContent(menuData)},
     {label: 'Snacks', content: snacksContent(menuData)},
@@ -96,10 +96,7 @@ export default function Page() {
 
   return (
     <div className="page menumainppage">
-      {/* <main dangerouslySetInnerHTML={{__html: page.body}} /> */}
-      {/* qr code menu header */}
       <section className="header"></section>
-      {/* qr code menu main content */}
       <section
         className="menulanding"
         style={{backgroundImage: `url(${Fabel3DPreview})`}}
@@ -135,15 +132,9 @@ export default function Page() {
         </div>
         <div className="whightimagebf">
           <div className="content">{tabs[activeTab].content}</div>
-
-          {/* <h1>{menuData.title}</h1>
-      <p>{menuData.subTitle}</p> */}
-
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>
       </section>
-      {/* qr code menu footer */}
-
       <section className="footer">
         <Newfootermenu />
       </section>
@@ -159,32 +150,36 @@ const allContent = (menuData) => {
   return (
     <div className="content">
       {menuData.tabContant.friet.map((section) => (
-  <section className="menu-section" key={section._key}>
-    <h2>
-      {section.title} <span className="info-icon"></span>
-    </h2>
-    <p className="firsttext">{section.subTitle}</p>
-    <ul>
-      {section.menu.map((menuItem) => (
-        <li key={menuItem._key}>
-          {menuItem.recipedetails ? (
-            <details>
-              <summary>
-                <span>{menuItem.recipe}</span>
-              </summary>
-              <p>{menuItem.recipedetails}</p>
-            </details>
-          ) : (
-            <span>{menuItem.recipe}</span>
-          )}
-          {menuItem.price && (
-            <span className="price">{menuItem.price}</span>
-          )}
-        </li>
+        <section className="menu-section" key={section._key}>
+          <details className="mainmenututles">
+            <summary>
+              <h2>
+                {section.title} <span className="info-icon"></span>
+              </h2>
+            </summary>
+            <p className="firsttext">{section.subTitle}</p>
+          </details>
+          <ul>
+            {section.menu.map((menuItem) => (
+              <li key={menuItem._key}>
+                {menuItem.recipedetails ? (
+                  <details>
+                    <summary>
+                      <span>{menuItem.recipe}</span>
+                    </summary>
+                    <p>{menuItem.recipedetails}</p>
+                  </details>
+                ) : (
+                  <span>{menuItem.recipe}</span>
+                )}
+                {menuItem.price && (
+                  <span className="price">{menuItem.price}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
       ))}
-    </ul>
-  </section>
-))}
     </div>
   );
 };
@@ -277,7 +272,7 @@ const friesContent = () => (
   </>
 );
 
-// Snacks Tab Content
+
 const snacksContent = () => (
   <>
     <section className="menu-section">
@@ -369,7 +364,6 @@ const snacksContent = () => (
   </>
 );
 
-// Drinks Tab Content
 const drinksContent = () => (
   <>
     <section className="menu-section">
