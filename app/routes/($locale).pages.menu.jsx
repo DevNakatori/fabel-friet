@@ -43,31 +43,19 @@ export default function Page() {
   /** @type {LoaderReturnData} */
 
   const {page} = useLoaderData();
-
-  const [menuData, setMenuData] = useState({});
-  
+  const [menuData, setMenuData] = useState({tabContant: {friet: []}}); // Default structure
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const query = '*[_type == "qrmenu"]';
       const datas = await client.fetch(query);
-      setMenuData(datas[0] || {});
+      setMenuData(datas[0] || {tabContant: {friet: []}}); // Ensure structure
       console.log('Fetched Data:', datas);
-      setLoadingmenu(false);
     };
 
     fetchData();
   }, []);
-  
-  const [activeTab, setActiveTab] = useState(0);
-  const tabs = [
-    // {label: 'Fries', content: friesContent()},
-    // {label: 'Snacks', content: snacksContent()},
-    // {label: 'Drinks', content: drinksContent()},
-    {label: 'All', content: allContent()},
-  ];
-
-  
 
   useEffect(() => {
     const button = document.querySelector('.okunderstood');
@@ -94,10 +82,18 @@ export default function Page() {
     };
   }, []);
 
+  // Declare tabs outside of setTimeout
+  const tabs = [
+    {label: 'Fries', content: friesContent(menuData)},
+    {label: 'Snacks', content: snacksContent(menuData)},
+    {label: 'Drinks', content: drinksContent(menuData)},
+    {label: 'All', content: allContent(menuData)},
+  ];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div className="page menumainppage">
       {/* <main dangerouslySetInnerHTML={{__html: page.body}} /> */}
@@ -138,29 +134,10 @@ export default function Page() {
           </div>
         </div>
         <div className="whightimagebf">
-          {/* <div className="content">{tabs[activeTab].content}</div> */}
+          <div className="content">{tabs[activeTab].content}</div>
 
           {/* <h1>{menuData.title}</h1>
       <p>{menuData.subTitle}</p> */}
-      <div className='content'>
-      {menuData.tabContant?.friet.map((section) => (
-        <section className="menu-section" key={section._key}>
-          <h2>
-            {section.title} <span className="info-icon"></span>
-          </h2>
-          <p className="firsttext">{section.subTitle}</p>
-          <ul>
-            {section.menu.map((menuItem) => (
-              <li key={menuItem._key}>
-                <span>{menuItem.recipe}</span>
-                {menuItem.price && <span className="price">{menuItem.price}</span>}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-      </div>
-
 
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>
@@ -173,6 +150,35 @@ export default function Page() {
     </div>
   );
 }
+
+const allContent = (menuData) => {
+  if (!menuData.tabContant || !menuData.tabContant.friet) {
+    return <div>No menu data available.</div>;
+  }
+
+  return (
+    <div className="content">
+      {menuData.tabContant.friet.map((section) => (
+        <section className="menu-section" key={section._key}>
+          <h2>
+            {section.title} <span className="info-icon"></span>
+          </h2>
+          <p className="firsttext">{section.subTitle}</p>
+          <ul>
+            {section.menu.map((menuItem) => (
+              <li key={menuItem._key}>
+                <span>{menuItem.recipe}</span>
+                {menuItem.price && (
+                  <span className="price">{menuItem.price}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+};
 
 const friesContent = () => (
   <>
@@ -400,229 +406,6 @@ const drinksContent = () => (
         </li>
       </ul>
     </section>
-  </>
-);
-
-const allContent = () => (
-  <>
-    {/* <section className="menu-section">
-      <h2>
-        Friet | Fries <span className="info-icon"></span>
-      </h2>
-      <p>
-        <span>Friet (medium) | Fries (medium)</span>{' '}
-        <span className="price">€3,95</span>
-      </p>
-    </section>
-    <section className="menu-section">
-      <h2>
-        Toppings <span className="info-icon"></span>
-      </h2>
-      <p className="firsttext">1. Kies je topping | Choose your topping</p>
-      <ul>
-        <li>
-          <span>Parmezaanse kaas | Parmesan cheese </span>
-          <span className="price">€1,50</span>
-        </li>
-        <li>
-          <span>Cheddar kaas | Cheddar cheese</span>{' '}
-          <span className="price">€1,50</span>
-        </li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <h2>
-        Sauzen | Sauces <span className="info-icon"></span>
-      </h2>
-      <p className="firsttext">2. Kies je saus | Choose your sauce</p>
-      <ul>
-        <li>
-          <span>1 saus | 1 sauce</span>
-          <span className="price">€0,95</span>
-        </li>
-        <li>
-          <span>2 sauzen | 2 sauces</span> <span className="price">€1,50</span>
-        </li>
-        <li>
-          <span>Uitjes | Chopped onions</span>{' '}
-          <span className="price">€0,10</span>
-        </li>
-      </ul>
-      <ul>
-        <li>Mayonaise | Mayonnaise</li>
-        <li>Zure mayo | Sour mayo</li>
-        <li>Truffel mayo | Truffle mayo</li>
-        <li>Pittige mayo | Spicy mayo</li>
-        <li>Piccalilly mayo</li>
-        <li>Vegan mayo</li>
-        <li>Ketchup | Tomato ketchup</li>
-        <li>Curry | Curry ketchup</li>
-        <li>Pindasaus | Peanut sauce</li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <h2>
-        Onze keuze | Our choice <span className="info-icon"></span>
-      </h2>
-      <ul>
-        <li>
-          <span>
-            Friet Parmezaan en truffel mayonaise | Fries Parmesan and truffle
-            mayonnaise{' '}
-          </span>
-          <span className="price">€6,40</span>
-        </li>
-        <li>
-          <span>
-            Friet speciaal (mayo, curry en ui) | Fries mayo, curry ketchup and
-            onion
-          </span>{' '}
-          <span className="price">€5,55</span>
-        </li>
-        <li>
-          <span>
-            Friet oorlog (mayo, pindasaus en ui) | Fries mayo, peanut sauce and
-            onion
-          </span>{' '}
-          <span className="price">€5,55</span>
-        </li>
-      </ul>
-    </section>
-
-    <section className="menu-section">
-      <h2>
-        Kroketten | CROQUETTES <span className="info-icon"></span>
-      </h2>
-      <p className="firsttext">
-        Croquettes are a traditional Dutch snack made with a filling of savoury
-        ragout, coated in breadcrumbs and deep-fried until crispy. Holtkamp, the
-        renowned Amsterdam patisserie, is famous for their delicious croquettes
-        made with high-quality ingredients.
-      </p>
-      <ul>
-        <li>
-          <span>Rund (Holtkamp) | Beef</span>{' '}
-          <span className="price">€3,25</span>
-        </li>
-        <li>
-          <span>Kalf (Holtkamp) | Veal</span>
-          <span className="price">€3,25</span>
-        </li>
-        <li>
-          <span>Kaas (Holtkamp) | Cheese</span>
-          <span className="price">€3,25</span>
-        </li>
-        <li>
-          <span>Garnaal (Holtkamp) | Shrimp</span>
-          <span className="price">€4,25</span>
-        </li>
-      </ul>
-      <ul className="breadextra">
-        <li>
-          <span>+ Brood | Bread</span> <span className="price">€0,65</span>
-        </li>
-        <li>
-          <span>+ Saus | Sauce</span>
-          <span className="price">€0,75</span>
-        </li>
-      </ul>
-    </section>
-
-    <section className="menu-section">
-      <h2>
-        Frikandel <span className="info-icon"></span>
-      </h2>
-      <p className="firsttext">
-        A frikandel is a deep-fried sausage made from minced meat, spices, and
-        seasonings.
-      </p>
-      <ul>
-        <li>
-          <span>Frikandel</span> <span className="price">€2,95</span>
-        </li>
-      </ul>
-      <ul className="breadextra">
-        <li>
-          <span>+ Brood | Bread</span> <span className="price">€0,65</span>
-        </li>
-        <li>
-          <span>+ Saus | Sauce</span>
-          <span className="price">€0,75</span>
-        </li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <h2>
-        KAASSOUFFLÉ | CHEESE SOUFFLE <span className="info-icon"></span>
-      </h2>
-      <p className="firsttext">
-        A cheese soufflé is a deep-fried, breaded snack that consists of a
-        filling of melted Gouda cheese.
-      </p>
-      <ul>
-        <li>
-          <span>Kaassoufflé | Cheese soufflé</span>{' '}
-          <span className="price">€2,95</span>
-        </li>
-      </ul>
-      <ul className="breadextra">
-        <li>
-          <span>+ Brood | Bread</span> <span className="price">€0,65</span>
-        </li>
-        <li>
-          <span>+ Saus | Sauce</span>
-          <span className="price">€0,75</span>
-        </li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <h2>
-        Drankjes | Drinks <span className="info-icon"></span>
-      </h2>
-      <ul>
-        <li>
-          <span>Coca-Cola</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Coca-Cola Zero</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Fanta</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Sprite</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Fuze Tea Peach</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Fuze Tea Mango</span> <span className="price">€3,00</span>
-        </li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <ul>
-        <li>
-          <span>Water | Water</span> <span className="price">€3,00</span>
-        </li>
-        <li>
-          <span>Bruisend water | Sparkling water</span>{' '}
-          <span className="price">€3,00</span>
-        </li>
-      </ul>
-    </section>
-    <section className="menu-section">
-      <ul>
-        <li>
-          <span>Heineken</span> <span className="price">€3,15</span>
-        </li>
-      </ul>
-    </section> */}
-
-
-
-
-    
   </>
 );
 

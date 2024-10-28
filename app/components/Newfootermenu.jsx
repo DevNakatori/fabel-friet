@@ -125,9 +125,9 @@ const Newfootermenu = () => {
                     <path
                       d="M7.1 13C4.28336 13 2 15.3504 2 18.25C2 21.1496 4.28336 23.5 7.1 23.5C9.91673 23.5 12.2 21.1496 12.2 18.25V2.5C12.7666 4.25 14.92 7.75 19 7.75"
                       stroke="#EFEBE7"
-                      stroke-width="4"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </a>
