@@ -41,16 +41,33 @@ export async function loader({params, request, context}) {
 
 export default function Page() {
   /** @type {LoaderReturnData} */
+
   const {page} = useLoaderData();
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [menuData, setMenuData] = useState({});
+  
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = '*[_type == "qrmenu"]';
+      const datas = await client.fetch(query);
+      setMenuData(datas[0] || {});
+      console.log('Fetched Data:', datas);
+      setLoadingmenu(false);
+    };
+
+    fetchData();
+  }, []);
+  
+  const [activeTab, setActiveTab] = useState(0);
   const tabs = [
-    {label: 'Fries', content: friesContent()},
-    {label: 'Snacks', content: snacksContent()},
-    {label: 'Drinks', content: drinksContent()},
+    // {label: 'Fries', content: friesContent()},
+    // {label: 'Snacks', content: snacksContent()},
+    // {label: 'Drinks', content: drinksContent()},
     {label: 'All', content: allContent()},
   ];
+
+  
 
   useEffect(() => {
     const button = document.querySelector('.okunderstood');
@@ -80,7 +97,7 @@ export default function Page() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   return (
     <div className="page menumainppage">
       {/* <main dangerouslySetInnerHTML={{__html: page.body}} /> */}
@@ -121,7 +138,30 @@ export default function Page() {
           </div>
         </div>
         <div className="whightimagebf">
-          <div className="content">{tabs[activeTab].content}</div>
+          {/* <div className="content">{tabs[activeTab].content}</div> */}
+
+          {/* <h1>{menuData.title}</h1>
+      <p>{menuData.subTitle}</p> */}
+      <div className='content'>
+      {menuData.tabContant?.friet.map((section) => (
+        <section className="menu-section" key={section._key}>
+          <h2>
+            {section.title} <span className="info-icon"></span>
+          </h2>
+          <p className="firsttext">{section.subTitle}</p>
+          <ul>
+            {section.menu.map((menuItem) => (
+              <li key={menuItem._key}>
+                <span>{menuItem.recipe}</span>
+                {menuItem.price && <span className="price">{menuItem.price}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+      </div>
+
+
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>
       </section>
@@ -365,7 +405,7 @@ const drinksContent = () => (
 
 const allContent = () => (
   <>
-    <section className="menu-section">
+    {/* <section className="menu-section">
       <h2>
         Friet | Fries <span className="info-icon"></span>
       </h2>
@@ -577,7 +617,11 @@ const allContent = () => (
           <span>Heineken</span> <span className="price">€3,15</span>
         </li>
       </ul>
-    </section>
+    </section> */}
+
+
+
+
     
   </>
 );
