@@ -106,7 +106,7 @@ const Newfooter = () => {
             <ul className="footersociallist">
             {socials.facebook && (
                 <li>
-                  <a aria-label="socials">
+                  <a href="www.whatsup.com" aria-label="socials">
                     <svg fill="#EFEBE7" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
                         viewBox="0 0 308 308" xmlSpace="preserve">
                           <g id="XMLID_468_">

@@ -1,98 +1,44 @@
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-12vw;}
-
-@media (min-width:1921px) and (max-width:4000px){
+button.skipvideo.hidden {display: none;}
+@media (min-width:1921px) and (max-width:4000px)
+{
 .banner_title_text,.banner_title_text h1{max-width: 1030px;}
+.bannerrotate_text{right:-3vw;}
 }
 @media (min-width:1501px) and (max-width:1921px){
-    .banner_title_text h1,.banner_title_text{max-width: 1030px;}
-    .roundtext h3{right:-7vw;}
-    .roundtext h2{left:-7vw;}
-    .en .roundtext-onzelocation h2{left:-7vw;}
-    .nl .roundtext h2{left:-12vw;}
-    .de .roundtext h3{right:-20vw;}
-    .de .roundtext h2{left:-15vw;}
-    .de .roundtext-hetmenu h3{right:-27vw;line-height:120%;}
-    .de .roundtext-hetmenu h2{left:-1vw;}
-    .de .roundtext-impact h3{right:-25vw;line-height:120%;}
-    .de .roundtext-impact h2{left:-8vw;}
-    .de .roundtext-getintouch h3{right:-27vw;}
-    .de .roundtext-getintouch h2{left:-22vw}
-    .de .roundtext-impact h2,.de .roundtext-impact h3{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
-    .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+.banner_title_text h1,.banner_title_text{max-width:1030px;}
+.roundtext h3{right:-7vw;}
+.roundtext h2{left:-7vw;}
+.en .roundtext-onzelocation h2{left:-7vw;}
+.nl .roundtext h2{left:-12vw;}
+.de .roundtext h3{right:-20vw;}
+.de .roundtext h2{left:-15vw;}
+.de .roundtext-hetmenu h3{right:-27vw;line-height:120%;}
+.de .roundtext-hetmenu h2{left:-1vw;}
+.de .roundtext-impact h3{right:-25vw;line-height:120%;}
+.de .roundtext-impact h2{left:-8vw;}
+.de .roundtext-getintouch h3{right:-27vw;}
+.de .roundtext-getintouch h2{left:-22vw}
+.de .roundtext-impact h2,.de .roundtext-impact h3{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
+.roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+.bannerrotate_text{right:-50px;}
 }
 @media (min-width:1201px) and (max-width:1600px){
     .roundtext-onzelocation h2,.roundtext-onzelocation h3,.roundtext-getintouch h2,.roundtext-getintouch h3,.roundtext-hetmenu h2,.roundtext-hetmenu h3,.roundtext-impact h2,.roundtext-impact h3{font-size:clamp(20px,10vw,80px)!important;}
-    .en .roundtext-onzelocation h2 {
-        left: -12%!important;
-    }
-    .en .roundtext-hetmenu h2 {
-        position: absolute;
-        left: 0vw;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-    .en .roundtext-hetmenu h3 {
-        position: absolute;
-        right: -5vw;
-        bottom: 0;
-        margin: 0;
-    }
-    .en .roundtext-impact h2 {
-        position: absolute;
-        left: -5vw;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-    .en .roundtext-impact h3 {
-        position: absolute;
-        right: -9vw;
-        bottom: 0;
-        margin: 0;
-    }
-    .en .roundtext-getintouch h2 {
-        position: absolute;
-        left: -5vw;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-    .en .roundtext-getintouch h3 {
-        position: absolute;
-        right: -15vw;
-        bottom: 0;
-        margin: 0;
-        text-align: left!important;
-    }
-
-    .nl .roundtext-hetmenu h2 {
-        position: absolute;
-        left: -5vw;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-    .nl .roundtext-hetmenu h3 {
-        position: absolute;
-        right: -6vw;
-        bottom: 0;
-        margin: 0;
-    }
-    .nl .roundtext-impact h2 {
-        position: absolute;
-        left: -7vw;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-    .nl .roundtext-impact h3 {
-        position: absolute;
-        right: -8vw;
-        bottom: 0;
-        margin: 0;
-    }
+    .en .roundtext-onzelocation h2{left:-12%!important;}
+    .en .roundtext-hetmenu h2{position:absolute;left:0vw;top:58px;z-index:1;margin:0;}
+    .en .roundtext-hetmenu h3{position:absolute;right:-5vw;bottom:0;margin:0;}
+    .en .roundtext-impact h2{position:absolute;left:-5vw;top:58px;z-index:1;margin:0;}
+    .en .roundtext-impact h3{position:absolute;right:-9vw;bottom:0;margin:0;}
+    .en .roundtext-getintouch h2{position:absolute;left:-5vw;top:58px;z-index:1;margin:0;}
+    .en .roundtext-getintouch h3{position:absolute;right:-15vw;bottom:0;margin:0;text-align:left!important;}
+    .nl .roundtext-hetmenu h2{position:absolute;left:-5vw;top:58px;z-index:1;margin:0;}
+    .nl .roundtext-hetmenu h3{position:absolute;right:-6vw;bottom:0;margin:0;}
+    .nl .roundtext-impact h2{position:absolute;left:-7vw;top:58px;z-index:1;margin:0;}
+    .nl .roundtext-impact h3{position:absolute;right:-8vw;bottom:0;margin:0;}
+    .bannerrotate_text{right:-3vw;}
+    
 }
 @media (min-width:1201px) and (max-width:1499px){
     .roundtext h3{right:-7vw;}
@@ -108,7 +54,9 @@
     .de .roundtext-getintouch h3{right:-27vw;}
     .de .roundtext-getintouch h2{left:-22vw}
     .banner_title_text h1,.gradient-purple h4,.fourthsection .gradient-purple h4{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
+    .bannerrotate_text{right:4vw;}
 }
+@media (min-width:1282px) and (max-width:1367px){.bannerrotate_text{right:10vw;}}
 @media (min-width:1201px) and (max-width:1281px){
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-12vw;}
@@ -116,118 +64,31 @@
     .de .roundtext h3{right:-20vw;}
     .de .roundtext h2{left:-15vw;}
     .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+    .bannerrotate_text{right:9vw;}
 }
 @media (min-width:992px) and (max-width:1199px){
-    .headernew{padding: 0rem 25px;}
-    .headernew nav ul li a {
-        font-size: clamp(16px,5vw,16px);
-    }
-    .headernew nav ul.desktop-menu{gap: 25px;}
-
-    .roundtext h2 {
-        left: -24vw;
-    }
-    .roundtext h3 {
-        right: -18vw;
-    }
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar {
-        width: 110px;
-    }
-    .star,.blackstar,.halfstar {
-        width: 15.819px;
-        height: 15.831px;
-        
-    }
-    .roundtext-hetmenu h2 {
-        position: absolute;
-        left: -170px;
-        top: 58px;
-        z-index: 1;
-        margin: 0;
-    }
-
-    .fourthsection .whitewithvideomainbox {
-      
-        padding-bottom: 0;
-    }
-    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
-        
-        margin-bottom: -13rem;
-    }
-    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom {
-        position: relative;
-        top: 0;
-        left: 12em;
-        margin-bottom: 0;
-    }
-
-    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
-        position: absolute;
-        right: 25px;
-        top: 5px;
-        transform: rotate(-10deg);
-        z-index: 1;
-        width: 100px;
-    }
-    .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg {
-        width: 100px;
-        position: absolute;
-        z-index: 2;
-        bottom: 0;
-        right: 0;
-    }
-    .nl .roundtext-getintouch h3 {
-        font-size: clamp(20px,10vw,80px);
-    }
-    .nl .roundtext-getintouch h2 {
-        font-size: clamp(20px,10vw,80px);
-    }
-
-    .likeimagelist img:nth-child(2) {
-        display: block;
-        position: relative;
-        top: -19vh;
-        transform: translate3d(10px,10px,10px);
-        left: 0vw;
-    }
-    .likeimagelist img:nth-child(3) {
-        display: block;
-        position: relative;
-        top: -17vh;
-        transform: translate3d(10px,10px,10px);
-        left: -9vw;
-    }
-    .righttiktoktext {
-        position: absolute;
-        right: -6vw;
-        width: 100%;
-        max-width: 332px;
-        bottom: -73px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .lefttiktoktext {
-        position: absolute;
-        left: -6vw;
-        width: 100%;
-        max-width: 332px;
-        bottom: -73px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .sixthsection .whitebgbox .socialtitle h3 {
-    margin: 80px auto 40px;
-    }
-    .sixthsection .gradient-purple .whitebgbox .appcontainers h4 {
-        font-size: 35px;
-        margin-bottom: 30px;
-    }
-
-    .likeimagelist img:nth-child(1) {
-        top: 15vh;
-    }
+    .headernew{padding:0rem 25px;}
+    .headernew nav ul li a{font-size:clamp(16px,5vw,16px);}
+    .headernew nav ul.desktop-menu{gap:25px;}
+    .roundtext h2{left:-24vw;}
+    .roundtext h3{right:-18vw;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{width:110px;}
+    .star,.blackstar,.halfstar{width:15.819px;height:15.831px;}
+    .roundtext-hetmenu h2{position:absolute;left:-170px;top:58px;z-index:1;margin:0;}
+    .fourthsection .whitewithvideomainbox{padding-bottom:0;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{margin-bottom:-13rem;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:0;left:12em;margin-bottom:0;}
+    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:25px;top:5px;transform:rotate(-10deg);z-index:1;width:100px;}
+    .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{width:100px;position:absolute;z-index:2;bottom:0;right:0;}
+    .nl .roundtext-getintouch h3{font-size:clamp(20px,10vw,80px);}
+    .nl .roundtext-getintouch h2{font-size:clamp(20px,10vw,80px);}
+    .likeimagelist img:nth-child(2){display:block;position:relative;top:-19vh;transform:translate3d(10px,10px,10px);left:0vw;}
+    .likeimagelist img:nth-child(3){display:block;position:relative;top:-17vh;transform:translate3d(10px,10px,10px);left:-9vw;}
+    .righttiktoktext{position:absolute;right:-6vw;width:100%;max-width:332px;bottom:-73px;display:flex;flex-direction:column;justify-content:center;}
+    .lefttiktoktext{position:absolute;left:-6vw;width:100%;max-width:332px;bottom:-73px;display:flex;flex-direction:column;justify-content:center;}
+    .sixthsection .whitebgbox .socialtitle h3{margin:80px auto 40px;}
+    .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:35px;margin-bottom:30px;}
+    .likeimagelist img:nth-child(1){top:15vh;}
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
@@ -253,11 +114,9 @@
     a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:10px;}
     .headernew{position:fixed;z-index:11;}
     .language-switcher{z-index:11;}
-
-
     .roundtext h3{right:-140px;}
     .roundtext h2{left:-180px;}
-
+    .bannersectinlogo{display: none;}
 }
 @media only screen and (max-device-width:935px) and (orientation:landscape){
     .mobilerotate{display:block;background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1E46B3 0%,#1C41A8 12.99%,#1B3E9E 23.44%,#193A95 31.71%,#18378D 38.19%,#163485 43.26%,#15317E 47.31%,#142F78 50.7%,#132C72 53.82%,#122A6C 57.05%,#112867 60.77%,#112662 65.35%,#10245D 71.19%,#0F2258 78.66%,#0E2053 88.13%,#0D1E4D 100%));width:100vw;height:100vh;position:fixed;z-index:9999;}
