@@ -251,6 +251,7 @@ background: transparent;
                     .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar{position:absolute;right:-10px;top:-40px;}
                     .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size:clamp(20px,5vw,60px);line-height:45px;}
                     .scrolled .headernew{background:transparent;}
+                    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox {max-width: 100%;width: 100%;padding-left: 0;position: relative;}
                 }
                 @media (max-width:767px){
                     #section2 .roundimage,#section2 .roundtext{will-change:transform;}

@@ -55,6 +55,7 @@ button.skipvideo.hidden {display: none;}
     .de .roundtext-getintouch h2{left:-22vw}
     .banner_title_text h1,.gradient-purple h4,.fourthsection .gradient-purple h4{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
     .bannerrotate_text{right:4vw;}
+    #section5 .whitewithvideomainboxs{padding: 170px 0 210px;}
 }
 @media (min-width:1282px) and (max-width:1367px){.bannerrotate_text{right:10vw;}}
 @media (min-width:1201px) and (max-width:1281px){
@@ -65,6 +66,7 @@ button.skipvideo.hidden {display: none;}
     .de .roundtext h2{left:-15vw;}
     .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
     .bannerrotate_text{right:9vw;}
+    #section5 .whitewithvideomainboxs{padding: 170px 0 210px;}
 }
 @media (min-width:992px) and (max-width:1199px){
     .headernew{padding:0rem 25px;}

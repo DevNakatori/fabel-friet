@@ -118,7 +118,8 @@ button.skipvideo i.skipicon{width:30px;height:30px;display:flex;align-items:cent
 button.skipvideo i.skipicon svg{width:100%;height:100%;}
 button.skipvideo i.skipicon svg g{fill:#f6c738;}
 button.skipvideo:hover i.skipicon svg g{fill:#0D1E4D;}
-@media (min-width:1200px){.logoonlymobilefirstsection{display: none;}}
+.logoonlymobilefirstsection{display: none;}
+@media (min-width:1200px){}
 @media (min-width:1201px) and (max-width:1600px){
   .rightsidebullets{position:fixed;right:0px;top:50%;transform:translateX(-50%);z-index:3;}
   .appcontainers{max-width:1200px;margin:0 auto;}
