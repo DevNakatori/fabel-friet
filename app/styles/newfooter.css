@@ -16,14 +16,8 @@ footer.footer{display:none;}
 .newfooter .newcontainer .allmenulist .footerblock{position:relative;}
 .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{content:'';background:#EFEBE7;width:2px;height:100%;position:absolute;top:50%;right:0px;transform:translateY(-50%);}
 .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before{content:'';background:#EFEBE7;width:2px;height:100%;position:absolute;top:50%;left:-80px;transform:translateY(-50%);}
-
-
-.newfooter .newcontainer .footerblock ul li a:hover svg, .newfooter .newcontainer .footerblock ul li a:hover svg path {
-  fill: #f6c738;
-}
-.newfooter .newcontainer .footerblock ul li:last-child a:hover svg path{stroke: #f6c738;fill:none;}
-
-
+.newfooter .newcontainer .footerblock ul li a:hover svg,.newfooter .newcontainer .footerblock ul li a:hover svg path{fill:#f6c738;}
+.newfooter .newcontainer .footerblock ul li:last-child a:hover svg path{stroke:#f6c738;fill:none;}
 @media (min-width:1500px) and (max-width:1699px){
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{right:20px;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before{left:-40px;}

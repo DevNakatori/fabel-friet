@@ -158,6 +158,11 @@ const Newheader = () => {
             </svg>
           </i>
         </button>
+        <div className='logoonlymobilefirstsection'>
+          <img
+              src={bannerlogo}
+            />
+        </div>
         <div
           className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
           ref={mobileMenuRef}

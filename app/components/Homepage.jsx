@@ -33,6 +33,8 @@ const HomePage = () => {
 
   const [currentLanguage, setCurrentLanguage] = useState(language);
 
+  const skipbuttons = document.getElementById('skipvideobtn');
+
   useEffect(() => {
     document.body.classList.add(currentLanguage);
     return () => {
@@ -102,12 +104,14 @@ const HomePage = () => {
 
   const handleSkipVideo = () => {
     const videos = document.getElementById('myVideo');
+    const skipbuttons = document.getElementById('skipvideobtn');
+    skipbuttons.classList.add('hidden');
     if (videos) {
       videos.pause();
       videos.currentTime = videos.duration;
       document.body.classList.remove('hiddenoverflow');
-
       videos.classList.add('hidden');
+      skipbuttons.classList.add('hidden');
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -373,6 +377,9 @@ const HomePage = () => {
     const handleVideoEnd = () => {
       console.log('video end');
       video.classList.add('hidden');
+      const skipbuttons = document.getElementById('skipvideobtn');
+      skipbuttons.classList.add('hidden');
+
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
@@ -659,7 +666,7 @@ const HomePage = () => {
             playsInline
           />
         )}
-        <button className='skipvideo' onClick={handleSkipVideo}>
+        <button id="skipvideobtn" className='skipvideo' onClick={handleSkipVideo}>
           <i className='skipicon'>
         <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1">
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

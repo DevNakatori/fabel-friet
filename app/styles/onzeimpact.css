@@ -48,7 +48,6 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
     #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:100%;-ms-flex-negative:0;flex-shrink:0;width:100%;position:relative;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox{max-width:100%;margin-right:0;padding-left:0;width:inherit;}
     .qrcodeimagebox{position:absolute;left:0px;top:30%;transform:translateY(-50%);width:35%;}
-
     #section5 .whitewithvideomainboxs{padding-bottom: 170px;}
 }
 @media (min-width:768px) and (max-width:991px){
@@ -60,25 +59,9 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
     #section5 .whitebgbox .whitewithvideomainboxs .righttextbox{max-width:735px;width:100%;padding-left:0;position:relative;}
     .qrcodeimagebox{position:absolute;left:0px;top:39%;transform:translateY(-50%);width:35%;}
     .binimagebox{position:relative;right:0px;bottom:0;display:flex;align-items:center;width:210px;}
-
-    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
-        position: absolute;
-        right: inherit;
-        top: 26px;
-        transform: rotate(-38deg);
-        z-index: 1;
-        width: 90px;
-        left: 31px;
-    }
-    .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg {
-        position: absolute;
-        z-index: 2;
-        width: 90px;
-        height: auto;
-        bottom: 0;
-        right: 0;
-    }
-    #section5 .whitewithvideomainboxs{padding-bottom: 170px;}
+    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:inherit;top:26px;transform:rotate(-38deg);z-index:1;width:90px;left:31px;}
+    .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;width:90px;height:auto;bottom:0;right:0;}
+    #section5 .whitewithvideomainboxs{padding-bottom:170px;}
 }
 @media (max-width:767px){
     .onlymobile{display:block!important;}
@@ -108,36 +91,9 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size:15px;font-style:normal;font-weight:700;line-height:18px;        /* 120% */}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist p{color:#EFEBE7;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:400;line-height:normal;}
     .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar img{width:55px;transform:rotate(-18deg);}
-
-    .fifthesection p.onzeimpactdescription.aos-init.aos-animate {
-    width: 100%;
-    max-width: 920px;
-    display: none;
-}
-
-.fifthesection .threeboxleftlogobar.lastbottomimg {
-    position: absolute;
-    z-index: 2;
-    width: 60px;
-    height: 60px;
-    bottom: -16px;
-    right: 0;
-}
-.fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar {
-    position: absolute;
-    right: -44px;
-    top: -6px;
-    transform: rotate(-10deg);
-    width: 150px;
-    z-index: 1;
-}
-#section5 .whitebgbox .whitewithvideomainboxs .leftvideobox,
-#section5 .whitebgbox .whitewithvideomainbox .leftvideobox {
-    display: none;
-}
-
-#section5 .whitebgbox {
-    width: calc(100% + 50px);
-    padding: 0 25px;
-}
+    .fifthesection p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;display:none;}
+    .fifthesection .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;width:60px;height:60px;bottom:-16px;right:0;}
+    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:-44px;top:-6px;transform:rotate(-10deg);width:150px;z-index:1;}
+    #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox,#section5 .whitebgbox .whitewithvideomainbox .leftvideobox{display:none;}
+    #section5 .whitebgbox{width:calc(100% + 50px);padding:0 25px;}
 }
