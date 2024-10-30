@@ -190,4 +190,5 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .accordion-header.active .icon{transform:rotate(180deg);right:-38px!important;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers .whitewithvideomainboxss .leftvideobox  h4{font-size:20px;}
     .sixthsection .gradient-purple p{margin: 15px 0;}
+    .sixthsection #onzefriendescriptiononzefriet p.onzefriendescription {display: none;}
 }

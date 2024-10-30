@@ -157,11 +157,13 @@ const Hetmenu = () => {
       <ul>
         {menuSection.Menu.length > 0 && (
           <li key={menuSection.Menu[0]._key}>
+            <div className='bordrframe'>
             <img
               src={getImageUrl(menuSection.Menu[0].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[0]._key}`}
               style={{maxWidth: '100%', height: 'auto'}}
             />
+            </div>
           </li>
         )}
       </ul>
@@ -173,11 +175,13 @@ const Hetmenu = () => {
       <ul>
         {menuSection.Menu.length > 1 && (
           <li key={menuSection.Menu[1]._key}>
+             <div className='bordrframe'>
             <img
               src={getImageUrl(menuSection.Menu[1].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[1]._key}`}
               style={{maxWidth: '100%', height: 'auto'}}
             />
+            </div>
           </li>
         )}
       </ul>
@@ -189,11 +193,13 @@ const Hetmenu = () => {
       <ul>
         {menuSection.Menu.length > 2 && (
           <li key={menuSection.Menu[2]._key}>
+            <div className='bordrframe'>
             <img
               src={getImageUrl(menuSection.Menu[2].image.asset._ref)}
               alt={`Menu item ${menuSection.Menu[2]._key}`}
               style={{maxWidth: '100%', height: 'auto'}}
             />
+            </div>
           </li>
         )}
       </ul>
