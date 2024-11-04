@@ -2,9 +2,13 @@ import {json} from '@shopify/remix-oxygen';
 import React, {useState, useEffect, useRef} from 'react';
 import {client} from '../../sanityClient';
 import {useLoaderData} from '@remix-run/react';
+import { LanguageProvider } from '~/components/LanguageContext';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
+import Newfooter from '~/components/Newfooter';
 import gsap from 'gsap';
 import Newfootermenu from '~/components/Newfootermenu';
 import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import Qrmenuheader from '~/components/Qrmenuheader';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -69,6 +73,7 @@ export default function Page() {
       console.log('Button clicked!');
       gsap.to(divs, {bottom: 0, duration: 1});
       gsap.set(body, {overflow: 'visible'});
+      document.body.classList.add('seconsection');
     };
 
     if (button) {
@@ -84,19 +89,33 @@ export default function Page() {
 
 
   const tabs = [
+    {label: 'All', content: allContent(menuData)},
     {label: 'Fries', content: friesContent(menuData)},
     {label: 'Snacks', content: snacksContent(menuData)},
     {label: 'Drinks', content: drinksContent(menuData)},
-    {label: 'All', content: allContent(menuData)},
+    
   ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    const redirectToSection = () => {
+      const currentUrl = window.location.href;
+      if (currentUrl.includes('/pages/menu#section2')) {
+        window.location.href = '#section2';
+      }
+    };
+    redirectToSection(); 
+  }, []); 
+
   return (
+
+    <LanguageProvider>
+    <LanguageSwitcher />
+    <Qrmenuheader />
     <div className="page menumainppage">
-      <section className="header"></section>
       <section
         className="menulanding"
         style={{backgroundImage: `url(${Fabel3DPreview})`}}
@@ -135,10 +154,16 @@ export default function Page() {
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>
       </section>
+      </div>
+     
       <section className="footer">
         <Newfootermenu />
       </section>
-    </div>
+    </LanguageProvider>
+
+    
+      
+    
   );
 }
 
