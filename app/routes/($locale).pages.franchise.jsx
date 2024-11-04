@@ -1,9 +1,13 @@
 import {json} from '@shopify/remix-oxygen';
 import React, {useState, useEffect, useRef} from 'react';
 import {useLoaderData} from '@remix-run/react';
+import { LanguageProvider } from '~/components/LanguageContext';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
+import Newfooter from '~/components/Newfooter';
 import gsap from 'gsap';
 import Newfootermenu from '~/components/Newfootermenu';
 import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import Qrmenuheader from '~/components/Qrmenuheader';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -44,6 +48,9 @@ export default function Page() {
 
 
   return (
+    <LanguageProvider>
+    <LanguageSwitcher />
+    <Qrmenuheader />
     <div className="page menumainppage">
       {/* <main dangerouslySetInnerHTML={{__html: page.body}} /> */}
       {/* qr code menu header */}
@@ -65,6 +72,10 @@ export default function Page() {
       </section>
       {/* qr code menu footer */}
     </div>
+    <section className="footer">
+        <Newfootermenu />
+      </section>
+    </LanguageProvider>
   );
 }
 
