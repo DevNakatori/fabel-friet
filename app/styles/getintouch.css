@@ -96,6 +96,27 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a:hover{color:#f6c738;}
 .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:50px;margin-bottom:30px;}
 .en .sixthsection .roundtext-getintouch h3 {max-width: 400px;}
+
+
+
+.socialiconlist ul li.Whatsapp {
+    order: 1;
+}
+.socialiconlist ul li.Twitter {
+    order: 2;
+}
+.socialiconlist ul li.Insta {
+    order: 3;
+}
+.socialiconlist ul li.Linkedin {
+    order: 4;
+}
+.socialiconlist ul li.Facebook {
+    order: 5;
+}
+.socialiconlist ul li.Tiktok {
+    order: 6;
+}
 @media (min-width:992px) and (max-width:1199px){
     .nl .roundtext-getintouch h2{position:absolute;left:-231px;top:-50px;}
     .nl .roundtext-getintouch h3{right:-335px;width:495px;bottom:-60px;}

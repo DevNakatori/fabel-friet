@@ -67,6 +67,7 @@ export default function Page() {
     const body = document.querySelectorAll('body');
 
     gsap.set(divs, {bottom: '-100vh'});
+    gsap.set(divs, { display: 'block' });
     gsap.set(body, {overflow: 'hidden'});
 
     const handleClick = () => {
