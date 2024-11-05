@@ -91,6 +91,22 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
+
+    const scrollToSection = (hash) => {
+      const section = document.querySelector(hash);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth'});
+      }
+    };
+
+    if (window.location.hash) {
+      setTimeout(() => {
+        scrollToSection(window.location.hash);
+        document.body.classList.remove('hiddenoverflow');
+      }, 1000);
+    }
+
+
   }, []);
 
   
@@ -103,17 +119,17 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 1000); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 2000); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 3000); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 4000); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 5000); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 6000); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 0); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 0); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 0); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 0); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 0); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
   }, []);
 
 
   useEffect(() => {
-    const app = () => {
+  const app = () => {
       let Sections = gsap.utils.toArray("section");
 
 Sections.forEach((section, index) => {
