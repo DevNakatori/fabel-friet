@@ -112,5 +112,5 @@
     section.menu-section:last-child{padding-bottom:0px;border-bottom:none;margin-bottom:40px;margin-top:-25vh;}
     .fourthsection section.menu-section ul li{padding:0 15px;}
     .fourthsection section.menu-section ul li .bordrframe{background-image:url('/app/assets/resizeimgs/GoldFrameSquare.png');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
-    .fourthsection section.menu-section ul li .bordrframe img{width:calc(100% - 50px);padding:25px;}
+    .fourthsection section.menu-section ul li .bordrframe img{width:calc(100% - 0px);padding:0px;}
 }
