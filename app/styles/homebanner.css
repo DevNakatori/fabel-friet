@@ -121,7 +121,7 @@ button.skipvideo:hover i.skipicon svg g{fill:#0D1E4D;}
 .logoonlymobilefirstsection{display: none;}
 @media (min-width:1200px){}
 @media (min-width:1201px) and (max-width:1600px){
-  .rightsidebullets{position:fixed;right:0px;top:50%;transform:translateX(-50%);z-index:3;}
+  .rightsidebullets{position:fixed;right:0px;top:50%;transform:translateX(-50%);z-index:8;}
   .appcontainers{max-width:1200px;margin:0 auto;}
   .bannerlogo{margin:30px auto 30px;}
   .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li,
