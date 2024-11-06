@@ -61,6 +61,10 @@ section.mainmenusection {
       width: 90%;
   }
 }
+.mobile-menu .logosvg img {
+  max-width: 100%;
+}
+
 /* Mobile Styles */
 @media (max-width:6000px){
     body .headernew{position:absolute!important;z-index:11!important;}
