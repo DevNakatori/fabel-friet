@@ -10,7 +10,7 @@ const Qrmenuheader = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const mobileMenuRef = useRef(null); // Reference for the mobile menu
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const fetchData_newheader = async () => {
@@ -65,9 +65,7 @@ const Qrmenuheader = () => {
   if (error) return <div>{error}</div>;
 
   const handleMenuItemClick = (event, link) => {
-    event.preventDefault();
-    setMobileMenuOpen(false); // Close the mobile menu immediately
-
+    setMobileMenuOpen(false);
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
@@ -196,45 +194,21 @@ const Qrmenuheader = () => {
             </svg>
           </button>
           <ul>
-            <li>
-              <a href="/#section1">Home</a>
-            </li>
-            <li>
-              <a href="/#section2">Onze Friet</a>
-            </li>
-            <li>
-              <a href="/#section3">Locaties</a>
-            </li>
-            <li>
-              <a href="/#section4">Menu</a>
-            </li>
-            <li>
-              <a href="/#section5">Onze impact</a>
-            </li>
-            <li>
-              <a href="/#section6">Contact</a>
-            </li>
-            <li>
-              <a href="/pages/franchise">Franchise</a>
-            </li>
+            {headerData[0].header.menu.map((item) => (
+              <li key={item._key}>
+                <a
+                  href={`/${item.link}`}
+                  onClick={(event) => handleMenuItemClick(event, item.link)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
           <div className="logosvg">
             <img src={bannerlogo} alt="logo" />
           </div>
         </div>
-        <ul className="desktop-menu">
-          {headerData[0].header.menu.map((item) => (
-            <li key={item._key}>
-              <a
-                href={item.link}
-                target="_blank"
-                onClick={(event) => handleMenuItemClick(event, item.link)}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
       </nav>
     </div>
   );
