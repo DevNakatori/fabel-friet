@@ -109,7 +109,7 @@ footer.footer{display:none}
     .newfooter .newcontainer{padding:0 15px;width:calc(100% - 30px);display:flex;justify-content:space-between;max-width:1708px;margin:0 auto}
 }
 @media (min-width:768px) and (max-width:991px){
-    .topmenublock .tabs button{width:calc(100% / 3);}
+    .topmenublock .tabs button{width:calc((100% / 3) - 7px);}
     .menu-section p,.menu-section ul li{display:flex}
     .menu-section p span,.menu-section ul li span{width:80%}
     .menu-section p span.price,.menu-section ul li span.price{width:30%;text-align:right}
