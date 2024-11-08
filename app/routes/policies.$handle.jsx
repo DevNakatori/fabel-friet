@@ -55,7 +55,7 @@ export default function Policy() {
       <LanguageProvider>
         <LanguageSwitcher />
         <Qrmenuheader />
-        <div class="page menumainppage">
+        <div className="page menumainppage">
           <div className="policy">
             {/* <br />
       <br />
