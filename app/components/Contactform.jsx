@@ -4,7 +4,7 @@ import useWeb3Forms from '@web3forms/react';
 import '../styles/contactform.css';
 
 
-const ContactForm = () => {
+const Contactform = () => {
   const {
     register,
     reset,
@@ -106,4 +106,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default Contactform;
