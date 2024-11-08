@@ -1,5 +1,11 @@
 import {json} from '@shopify/remix-oxygen';
 import {Link, useLoaderData} from '@remix-run/react';
+import {client} from '../../sanityClient';
+import {LanguageProvider} from '~/components/LanguageContext';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
+import Qrmenuheader from '~/components/Qrmenuheader';
+import Newfootermenu from '~/components/Newfootermenu';
+import '../styles/policy.css';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -45,16 +51,36 @@ export default function Policy() {
   const {policy} = useLoaderData();
 
   return (
-    <div className="policy">
-      <br />
+    <>
+      <LanguageProvider>
+        <LanguageSwitcher />
+        <Qrmenuheader />
+        <div class="page menumainppage">
+          <div className="policy">
+            {/* <br />
       <br />
       <div>
         <Link to="/policies">← Back to Policies</Link>
       </div>
-      <br />
-      <h1>{policy.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: policy.body}} />
-    </div>
+      <br /> */}
+            <section className="mainmenusection">
+              <div className="topmenublock">
+              
+                <h1>{policy.title}</h1>
+              </div>
+            </section>
+            <div className="whightimagebf">
+              <div className="content">
+                <div dangerouslySetInnerHTML={{__html: policy.body}} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <section className="footer">
+          <Newfootermenu />
+        </section>
+      </LanguageProvider>
+    </>
   );
 }
 
