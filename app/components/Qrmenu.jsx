@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '~/components/LanguageContext';
-import { client } from '../../sanityClient';
+import React, {useState, useEffect, useRef} from 'react';
+import {useLanguage} from '~/components/LanguageContext';
+import {client} from '../../sanityClient';
 import gsap from 'gsap';
 import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
 
-const MenuSection = ({ id, title, subTitle, menuData }) => {
+const MenuSection = ({id, title, subTitle, menuData}) => {
   return (
     <div id={id}>
       {menuData.length > 0 ? (
@@ -31,7 +31,9 @@ const MenuSection = ({ id, title, subTitle, menuData }) => {
                   ) : (
                     <span>{menuItem.recipe}</span>
                   )}
-                  {menuItem.price && <span className="price">{menuItem.price}</span>}
+                  {menuItem.price && (
+                    <span className="price">{menuItem.price}</span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -45,12 +47,13 @@ const MenuSection = ({ id, title, subTitle, menuData }) => {
 };
 
 const Qrmenu = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [menuData, setMenuData] = useState({
-    tabContant: { friet: [], snacks: [], drinks: [] },
+    tabContant: {friet: [], snacks: [], drinks: []},
   });
   const [error, setError] = useState(null);
   const buttonRef = useRef(null);
+  const tabsRef = useRef(null);
 
   // Fetch menu data
   useEffect(() => {
@@ -64,10 +67,12 @@ const Qrmenu = () => {
         try {
           const data = await client.fetch(
             `*[_type == "qrmenu" && language == $lang]`,
-            { lang: language }
+            {lang: language},
           );
           console.log('Fetched menu data:', data);
-          const menu = data[0] || { tabContant: { friet: [], snacks: [], drinks: [] } };
+          const menu = data[0] || {
+            tabContant: {friet: [], snacks: [], drinks: []},
+          };
           localStorage.setItem(`qrmenu_${language}`, JSON.stringify(menu));
           setMenuData(menu);
         } catch (err) {
@@ -85,13 +90,13 @@ const Qrmenu = () => {
     const divs = document.querySelectorAll('.mainmenusection');
     const body = document.querySelector('body');
 
-    gsap.set(divs, { bottom: '-100vh' });
-    gsap.set(divs, { display: 'block' });
-    gsap.set(body, { overflow: 'hidden' });
+    gsap.set(divs, {bottom: '-100vh'});
+    gsap.set(divs, {display: 'block'});
+    gsap.set(body, {overflow: 'hidden'});
 
     const handleClick = () => {
-      gsap.to(divs, { bottom: 0, duration: 1 });
-      gsap.set(body, { overflow: 'visible' });
+      gsap.to(divs, {bottom: 0, duration: 1});
+      gsap.set(body, {overflow: 'visible'});
       document.body.classList.add('seconsection');
     };
 
@@ -107,12 +112,19 @@ const Qrmenu = () => {
     };
   }, []);
 
+  // Handle smooth scroll
   const handleMenuItemClick = (event, link) => {
     event.preventDefault();
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offset = window.innerWidth <= 768 ? 100 : 10;
+        window.scrollTo({
+          top: targetPosition - offset,
+          behavior: 'smooth',
+        });
       }
     } else {
       window.location.href = link;
@@ -130,7 +142,29 @@ const Qrmenu = () => {
     const menuLis = document.querySelectorAll('.tabs button');
     menuLis.forEach((btn) => btn.addEventListener('click', handleTabClick));
     return () => {
-      menuLis.forEach((btn) => btn.removeEventListener('click', handleTabClick));
+      menuLis.forEach((btn) =>
+        btn.removeEventListener('click', handleTabClick),
+      );
+    };
+  }, []);
+
+  // Add scroll event listener to toggle sticky class
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tabsRef.current) {
+        if (window.scrollY > tabsRef.current.offsetTop) {
+          tabsRef.current.classList.add('sticky');
+        } else {
+          tabsRef.current.classList.remove('sticky');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -141,12 +175,15 @@ const Qrmenu = () => {
 
   return (
     <div className="page menumainppage">
-      <section className="menulanding" style={{ backgroundImage: `url(${Fabel3DPreview})` }}>
+      <section
+        className="menulanding"
+        style={{backgroundImage: `url(${Fabel3DPreview})`}}
+      >
         <div className="landingcontainer">
           <h2>Dear customers</h2>
           <p>
-            We kindly ask you to respect our neighbours by not eating your fries in front of their house.
-            Instead, find a nice spot by the canal.
+            We kindly ask you to respect our neighbours by not eating your fries
+            in front of their house. Instead, find a nice spot by the canal.
           </p>
           <p>Thank you for your understanding and cooperation!</p>
           <button ref={buttonRef} className="okunderstood">
@@ -159,17 +196,23 @@ const Qrmenu = () => {
         <div className="topmenublock">
           <h1>Menu</h1>
           <p>
-            <i className="qrinfo"></i>Click on the information button behind each item to view allergens
+            <i className="qrinfo"></i>Click on the information button behind
+            each item to view allergens
           </p>
-          <div className="tabs">
-            {['All', 'Fries', 'Snacks', 'Drinks'].map((label, index) => {
-              const sectionId = label.toLowerCase() === 'all' ? 'fries-section' : `${label.toLowerCase()}-section`;
+          <div className="tabs" ref={tabsRef}>
+            {['Fries', 'Snacks', 'Drinks'].map((label, index) => {
+              const sectionId =
+                label.toLowerCase() === 'all'
+                  ? 'fries-section'
+                  : `${label.toLowerCase()}-section`;
               return (
                 <button key={label} className={index === 0 ? 'active' : ''}>
                   <a
                     href={`#${sectionId}`}
                     className="menubuttonlink"
-                    onClick={(e) => handleMenuItemClick(e, e.target.getAttribute('href'))}
+                    onClick={(e) =>
+                      handleMenuItemClick(e, e.target.getAttribute('href'))
+                    }
                   >
                     {label}
                   </a>
@@ -182,9 +225,24 @@ const Qrmenu = () => {
         <div className="whightimagebf">
           <div className="content">
             {/* Dynamic Content Sections */}
-            <MenuSection id="fries-section" title="Fries" subTitle="Our delicious fries!" menuData={menuData.tabContant.friet} />
-            <MenuSection id="snacks-section" title="Snacks" subTitle="Tasty snacks to pair" menuData={menuData.tabContant.snacks} />
-            <MenuSection id="drinks-section" title="Drinks" subTitle="Refreshing drinks" menuData={menuData.tabContant.drinks} />
+            <MenuSection
+              id="fries-section"
+              title="Fries"
+              subTitle="Our delicious fries!"
+              menuData={menuData.tabContant.friet}
+            />
+            <MenuSection
+              id="snacks-section"
+              title="Snacks"
+              subTitle="Tasty snacks to pair"
+              menuData={menuData.tabContant.snacks}
+            />
+            <MenuSection
+              id="drinks-section"
+              title="Drinks"
+              subTitle="Refreshing drinks"
+              menuData={menuData.tabContant.drinks}
+            />
           </div>
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>
