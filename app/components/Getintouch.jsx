@@ -5,6 +5,8 @@ import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import {getImageUrl} from '../js/imagesurl';
+import ContactForm from '~/components/ContactForm';
+
 
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
@@ -655,7 +657,9 @@ const Getintouch = () => {
                     {contactSection.heading}
                   </h4>
 
-                  <div className="leftvideoboxinner"></div>
+                  <div className="leftvideoboxinner">
+                    <ContactForm/>
+                  </div>
                 </div>
                 <div
                   className="righttextbox"
