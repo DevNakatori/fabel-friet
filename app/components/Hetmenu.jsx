@@ -132,27 +132,27 @@ const Hetmenu = () => {
       ease: 'power1.inOut',
     });
 
-    gsap.fromTo(
-      '#section4 .gradient-threebox-menu',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 2,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '#section4 .gradient-purple',
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '#section4 .gradient-threebox-menu',
+    //   {
+    //     opacity: 0,
+    //     y: 50,
+    //     scale: 1,
+    //   },
+    //   {
+    //     opacity: 1,
+    //     y: 0,
+    //     scale: 1,
+    //     duration: 1,
+    //     ease: 'power2.out',
+    //     delay: 2,
+    //     stagger: 0.2,
+    //     scrollTrigger: {
+    //       trigger: '#section4 .gradient-purple',
+    //       markers: false,
+    //     },
+    //   },
+    // );
 
     gsap.to('.allfiressectionsmenu img', {
       y: 20,
