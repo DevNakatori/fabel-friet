@@ -103,7 +103,7 @@ export default function Homepage() {
       setTimeout(() => {
         scrollToSection(window.location.hash);
         document.body.classList.remove('hiddenoverflow');
-      }, 1000);
+      }, 2000);
     }
 
 
@@ -119,12 +119,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 0); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 0); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 0); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 0); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 0); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 1); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 1); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 2); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 1); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 1); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 1); // show after 6 seconds
   }, []);
 
 
