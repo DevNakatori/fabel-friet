@@ -15,6 +15,19 @@ import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 
+
+
+import menu_one from '../assets/resizeimgs/menu1.png';
+import menu_two from '../assets/resizeimgs/menu2.png';
+import menu_three from '../assets/resizeimgs/menu3.png';
+import menu_four from '../assets/resizeimgs/menu4.png';
+import menu_five from '../assets/resizeimgs/menu5.png';
+import menu_six from '../assets/resizeimgs/menu6.png';
+import menu_seven from '../assets/resizeimgs/menu7.png';
+import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
+import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
@@ -141,6 +154,15 @@ const Hetmenu = () => {
       },
     );
 
+    gsap.to('.allfiressectionsmenu img', {
+      y: 20,
+      repeat: -1,
+      yoyo: true,
+      duration: 5,
+      ease: 'sine.inOut',
+    });
+
+
     return () => {
       timelineshetmenu.scrollTrigger.kill();
     };
@@ -221,6 +243,15 @@ const Hetmenu = () => {
           </p>
 
           <div className="whitebgbox">
+          <div className="allfiressectionsmenu">
+                <img src={menu_one} alt="img" width="10" height="10" />
+                <img src={menu_two} alt="img" width="10" height="10" />
+                <img src={menu_three} alt="img" width="10" height="10" />
+                <img src={menu_four} alt="img" width="10" height="10" />
+                <img src={menu_five} alt="img" width="10" height="10" />
+                <img src={menu_six} alt="img" width="10" height="10" />
+                <img src={menu_seven} alt="img" width="10" height="10" />
+              </div>
             <div className="menudynamic onlydesktop">
               <ul className="categotyfilter">
                 <li>
