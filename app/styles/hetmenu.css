@@ -221,7 +221,7 @@
     .fourthsection section.menu-section ul li .bordrframe{background-image:url('/app/assets/resizeimgs/GoldFrameSquare.png');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
     .fourthsection section.menu-section ul li .bordrframe img{width:calc(100% - 0px);padding:0px;}
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:-40vh auto 0;display:block!important;padding:15px;width:calc(100% - 30px)!important;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:-40vh auto 0;display:block!important;padding:15px;width:calc(100% - 30px)!important;top:0;}
     .fourthsection .whitebgbox{position:relative;top:30vh;margin-bottom:12vh;}
     #section4 .wrappertest{padding:0 15px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:8.024px;font-style:normal;font-weight:600;line-height:normal;}
@@ -245,5 +245,18 @@
     .fourthsection .whitewithvideomainbox{padding:0px 40px 0;width:calc(100% + 70px);margin:30px -35px 0;flex-wrap:wrap;order:4;}
 
     .allfiressectionsmenu{display: none;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px;    font-style: italic; /* 131.25% */}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext svg {
+        width: 12px;
+        height: 12px;
+    }
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span small,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span small,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color: #FFF;
+        font-size: 6.679px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 8.766px;}
 
 }
