@@ -192,7 +192,7 @@ Sections.forEach((section, index) => {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
         window.location.reload();  
-      }, 500);  
+      }, 1000);  
     }
   }, []);
 
