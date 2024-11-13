@@ -193,7 +193,7 @@ Sections.forEach((section, index) => {
       setTimeout(() => {
         window.location.reload();  
         console.log('add');
-      }, 1800);  
+      }, 1500);  
     }
   }, []);
 
