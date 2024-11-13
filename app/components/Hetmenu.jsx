@@ -188,9 +188,12 @@ const Hetmenu = () => {
     }
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({behavior: 'smooth'});
+      const yOffset = window.innerWidth <= 768 ? 20 : 10;  
+      const yPosition = section.getBoundingClientRect().top + window.pageYOffset - yOffset;
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
     }
   };
+  
 
   return (
     <section className="panel fourthsection" id="section4">
