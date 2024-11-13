@@ -247,204 +247,167 @@ const Hetmenu = () => {
 
           <div className="whitebgbox">
           <div className="allfiressectionsmenu">
-                <img src={menu_one} alt="img" width="10" height="10" />
-                <img src={menu_two} alt="img" width="10" height="10" />
-                <img src={menu_three} alt="img" width="10" height="10" />
-                <img src={menu_four} alt="img" width="10" height="10" />
-                <img src={menu_five} alt="img" width="10" height="10" />
-                <img src={menu_six} alt="img" width="10" height="10" />
-                <img src={menu_seven} alt="img" width="10" height="10" />
-              </div>
-            <div className="menudynamic onlydesktop">
-              <ul className="categotyfilter">
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('friet-section')}
-                    className={
-                      activeSection === 'friet-section' ? 'active' : ''
-                    }
-                  >
-                    Friet
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('snacks-section')}
-                    className={
-                      activeSection === 'snacks-section' ? 'active' : ''
-                    }
-                  >
-                    Snacks
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('drinks-section')}
-                    className={
-                      activeSection === 'drinks-section' ? 'active' : ''
-                    }
-                  >
-                    Drinks
-                  </button>
-                </li>
-              </ul>
-              <div className="innermenudynamicone">
-                <div className="innermenudynamictwo">
-                  <section className="menu-section">
-                    {/* Display Friet */}
-                    <div id="friet-section">
-                      {menuSection?.friet?.map((frietCategory) => (
-                        <div
-                          key={frietCategory._key}
-                          className="friet-category"
-                        >
-                          <h2>{frietCategory.title}</h2>
-                          <div className="menu-item">
-                            {frietCategory.menu.map((frietItem) => (
-                              <div key={frietItem._key}>
-                                {frietItem.recipedetails ? (
-                                  <details>
-                                    <summary>
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: frietItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: frietItem.price,
-                                        }}
-                                      />
-                                    </summary>
-                                    <p>{frietItem.recipedetails}</p>
-                                  </details>
-                                ) : (
-                                  <div className="menutextdetails">
-                                    <p
-                                      className="summerytext"
-                                      dangerouslySetInnerHTML={{
-                                        __html: frietItem.recipe,
-                                      }}
-                                    />
-                                    <span
-                                      dangerouslySetInnerHTML={{
-                                        __html: frietItem.price,
-                                      }}
-                                    />
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+  <img src={menu_one} alt="img" width="10" height="10" />
+  <img src={menu_two} alt="img" width="10" height="10" />
+  <img src={menu_three} alt="img" width="10" height="10" />
+  <img src={menu_four} alt="img" width="10" height="10" />
+  <img src={menu_five} alt="img" width="10" height="10" />
+  <img src={menu_six} alt="img" width="10" height="10" />
+  <img src={menu_seven} alt="img" width="10" height="10" />
+</div>
 
-                    {/* Display Snacks */}
-                    <div id="snacks-section">
-                      {menuSection?.snacks?.map((snackCategory) => (
-                        <div
-                          key={snackCategory._key}
-                          className="snack-category"
-                        >
-                          <h2>{snackCategory.title}</h2>
-                          <div className="menu-item">
-                            {snackCategory.menu.map((snackItem) => (
-                              <div key={snackItem._key}>
-                                {snackItem.recipedetails ? (
-                                  <details>
-                                    <summary>
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: snackItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: snackItem.price,
-                                        }}
-                                      />
-                                    </summary>
-                                    <p>{snackItem.recipedetails}</p>
-                                  </details>
-                                ) : (
-                                  <div className="menutextdetails">
-                                    <p
-                                      className="summerytext"
-                                      dangerouslySetInnerHTML={{
-                                        __html: snackItem.recipe,
-                                      }}
-                                    />
-                                    <span
-                                      dangerouslySetInnerHTML={{
-                                        __html: snackItem.price,
-                                      }}
-                                    />
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
+<div className="menudynamic onlydesktop">
+  <ul className="categotyfilter">
+    <li>
+      <button
+        onClick={() => handleScrollToSection('friet-section')}
+        className={activeSection === 'friet-section' ? 'active' : ''}
+      >
+        Friet
+      </button>
+    </li>
+    <li>
+      <button
+        onClick={() => handleScrollToSection('snacks-section')}
+        className={activeSection === 'snacks-section' ? 'active' : ''}
+      >
+        Snacks
+      </button>
+    </li>
+    <li>
+      <button
+        onClick={() => handleScrollToSection('drinks-section')}
+        className={activeSection === 'drinks-section' ? 'active' : ''}
+      >
+        Drinks
+      </button>
+    </li>
+  </ul>
+  
+  <div className="innermenudynamicone">
+    <div className="innermenudynamictwo">
+      <section className="menu-section">
+        {/* Display Friet */}
+        <div id="friet-section">
+          {menuSection?.friet?.length > 0 ? (
+            menuSection.friet.map((frietCategory) => (
+              <div key={frietCategory._key} className="friet-category">
+                <h2>{frietCategory.title}</h2>
+                <div className="menu-item">
+                  {frietCategory.menu.map((frietItem) => (
+                    <div key={frietItem._key}>
+                      {frietItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: frietItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: frietItem.price }} />
+                          </summary>
+                          <p>{frietItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: frietItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: frietItem.price }} />
                         </div>
-                      ))}
+                      )}
                     </div>
-
-                    {/* Display Drinks */}
-                    <div id="drinks-section">
-                      {menuSection?.drinks?.map((drinksCategory) => (
-                        <div
-                          key={drinksCategory._key}
-                          className="drinks-category"
-                        >
-                          <h2>{drinksCategory.title}</h2>
-                          <div className="menu-item">
-                            {drinksCategory.menu.map((drinkItem) => (
-                              <div key={drinkItem._key}>
-                                {drinkItem.recipedetails && (
-                                  <details>
-                                    <summary>
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: drinkItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: drinkItem.price,
-                                        }}
-                                      />
-                                    </summary>
-                                    <p>{drinkItem.recipedetails}</p>
-                                  </details>
-                                )}
-                                {!drinkItem.recipedetails && (
-                                  <div className="menutextdetails">
-                                    <p
-                                      className="summerytext"
-                                      dangerouslySetInnerHTML={{
-                                        __html: drinkItem.recipe,
-                                      }}
-                                    />
-                                    <span
-                                      dangerouslySetInnerHTML={{
-                                        __html: drinkItem.price,
-                                      }}
-                                    />
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+
+        {/* Display Snacks */}
+        <div id="snacks-section">
+          {menuSection?.snacks?.length > 0 ? (
+            menuSection.snacks.map((snackCategory) => (
+              <div key={snackCategory._key} className="snack-category">
+                <h2>{snackCategory.title}</h2>
+                <div className="menu-item">
+                  {snackCategory.menu.map((snackItem) => (
+                    <div key={snackItem._key}>
+                      {snackItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: snackItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: snackItem.price }} />
+                          </summary>
+                          <p>{snackItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: snackItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: snackItem.price }} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+
+        {/* Display Drinks */}
+        <div id="drinks-section">
+          {menuSection?.drinks?.length > 0 ? (
+            menuSection.drinks.map((drinksCategory) => (
+              <div key={drinksCategory._key} className="drinks-category">
+                <h2>{drinksCategory.title}</h2>
+                <div className="menu-item">
+                  {drinksCategory.menu.map((drinkItem) => (
+                    <div key={drinkItem._key}>
+                      {drinkItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: drinkItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: drinkItem.price }} />
+                          </summary>
+                          <p>{drinkItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: drinkItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: drinkItem.price }} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
 
             <div className="appcontainers">
               <div className="instagramfeedimagesimain">
