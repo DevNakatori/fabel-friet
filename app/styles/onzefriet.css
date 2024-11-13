@@ -297,4 +297,7 @@ background: transparent;
                     .secondesection .wrappertest .gradient-purple p.onzefriendescription {display: none;}
                     .secondesection .gradient-purple h4 {margin: 50px 0 10px;}
                     .secondesection .whitewithvideomainbox{padding-top: 120px;}
+
+
+                    #section2 .wrappertest,#section3 .wrappertest,#section4 .wrappertest,#section5 .wrappertest,#section6 .wrappertest{z-index: 99;}
                 }
