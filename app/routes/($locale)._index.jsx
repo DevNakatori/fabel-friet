@@ -221,8 +221,8 @@ Sections.forEach((section, index) => {
           <div id="smooth-content">
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
-             {showOnzelocaties && <Onzelocaties />}
-             {showHetmenu && <Hetmenu />} 
+            {showOnzelocaties && <Onzelocaties />}
+            {showHetmenu && <Hetmenu />} 
             {showOnzeimpact && <Onzeimpact />}  
             {showGetintouch && <Getintouch />}  
           </div>
