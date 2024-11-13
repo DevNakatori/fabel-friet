@@ -1,12 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+
 const LanguageContext = createContext();
+
 export const useLanguage = () => useContext(LanguageContext);
+
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('nl'); // Default language
   const switchLanguage = (lang) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
   };
+
+  // Detect language on mount
   useEffect(() => {
     const detectLanguage = async () => {
       const savedLanguage = localStorage.getItem('language');
@@ -18,6 +23,7 @@ export const LanguageProvider = ({ children }) => {
           const langCode = browserLanguage.split('-')[0];
           switchLanguage(langCode);
         }
+
         try {
           const response = await fetch('https://ipapi.co/json/');
           const data = await response.json();
@@ -40,10 +46,18 @@ export const LanguageProvider = ({ children }) => {
     };
     detectLanguage();
   }, []);
+
+  // Scroll to top whenever the language changes
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      console.log('upper');
+    }, 100);
+  }, [language]); // This will run every time the `language` state changes
+
   return (
     <LanguageContext.Provider value={{ language, switchLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
 };
-
