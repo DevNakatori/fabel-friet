@@ -235,7 +235,7 @@ Sections.forEach((section, index) => {
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
-            {/* {showHetmenu && <Hetmenu />}  */}
+            {showHetmenu && <Hetmenu />} 
             {showOnzeimpact && <Onzeimpact />}  
             {showGetintouch && <Getintouch />}  
           </div>

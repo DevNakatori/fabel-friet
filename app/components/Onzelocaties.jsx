@@ -32,7 +32,7 @@ const Onzelocaties = () => {
         start: 'center center',
         end: '+=150%',
         pin: true,
-        scrub: true,
+        scrub: 1,
         markers: false,
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
