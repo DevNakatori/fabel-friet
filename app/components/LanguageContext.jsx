@@ -10,7 +10,10 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
+    
   };
 
   // Detect language on mount
@@ -49,13 +52,13 @@ export const LanguageProvider = ({ children }) => {
     detectLanguage();
   }, []);
 
-  // Scroll to top whenever the language changes
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-      console.log('upper');
-    }, 100);
-  }, [language]); // This will run every time the `language` state changes
+  // // Scroll to top whenever the language changes
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     window.scrollTo(0, 0);
+  //     console.log('upper');
+  //   }, 100);
+  // }, [language]); // This will run every time the `language` state changes
 
   return (
     <LanguageContext.Provider value={{ language, switchLanguage }}>
