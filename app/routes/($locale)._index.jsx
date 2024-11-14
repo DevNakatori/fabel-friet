@@ -15,6 +15,7 @@ import Onzeimpact from '~/components/Onzeimpact';
 import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 import Newheader from '~/components/Newheader';
+import bannerlogo from '../assets/resizeimgs/logobanner.png';
 
 import '../styles/media.css';
 import AOS from 'aos';
@@ -199,6 +200,19 @@ Sections.forEach((section, index) => {
 
   return (
     <div className="home">
+      <div id="loadersitetrans" className="loadersitetrans">
+        <div className="logosvg">
+          <img src={bannerlogo} alt="logo" />
+        </div>
+        <div className="loader1">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
       <div className='mobilerotate'>
           <div className='innermobile'>
           <div className="phone"></div>
