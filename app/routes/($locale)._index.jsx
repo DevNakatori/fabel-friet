@@ -87,7 +87,7 @@ export default function Homepage() {
   useEffect(() => {
     AOS.init({
       once: true,
-      duration: 100,
+      duration: 101,
       mirror: true,
       debounceDelay: 50,
       throttleDelay: 99,
