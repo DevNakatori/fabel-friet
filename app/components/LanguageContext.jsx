@@ -9,6 +9,8 @@ export const LanguageProvider = ({ children }) => {
   const switchLanguage = (lang) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
+    console.log(`Language changed to: ${lang}`);  // Log language change here
+    window.location.reload();
   };
 
   // Detect language on mount
