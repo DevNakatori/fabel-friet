@@ -10,6 +10,7 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
+    window.scrollTo(0, 0);
     setTimeout(() => {
       window.location.reload();
     }, 200);
