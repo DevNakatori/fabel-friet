@@ -13,7 +13,7 @@ export const LanguageProvider = ({ children }) => {
     window.scrollTo(0, 0);
     setTimeout(() => {
       window.location.reload();
-    }, 200);
+    }, 500);
     
   };
 
