@@ -1,3 +1,7 @@
+@font-face{font-family:'Optima';font-style:normal;font-weight:normal;src:local('Optima'),url('../fonts/OPTIMA.woff') format('woff');}
+@font-face{font-family:'Optima Italic';font-style:normal;font-weight:normal;src:local('Optima Italic'),url('../fonts/Optima_Italic.woff') format('woff');}
+@font-face{font-family:'Optima Medium';font-style:normal;font-weight:normal;src:local('Optima Medium'),url('../fonts/Optima Medium.woff') format('woff');}
+@font-face{font-family:'Optima Bold';font-style:normal;font-weight:normal;src:local('Optima Bold'),url('../fonts/OPTIMA_B.woff') format('woff');}
 .swings{animation:swings ease-in-out 0.5s infinite alternate;transform-origin:center -40px;}
 @keyframes swings{
     0%{transform:rotate(3deg);}
@@ -15,7 +19,7 @@
 .fourthsection .gradient-threebox-menu ul li .bordrframe img{width:calc(100% - 16px);padding:8px;}
 .fourthsection .gradient-purple h4{text-align:center;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,10vw,120px);font-style:normal;font-weight:700;line-height:100%;text-transform:capitalize;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0px 0 30px;opacity:0;transform:translateY(50px);}
 .fourthsection .gradient-purple p{color:#efebe7;text-align:center;font-family:'Work Sans',sans-serif;font-size:clamp(20px,5vw,23px);font-style:normal;font-weight:500;line-height:normal;width:920px;-ms-flex-negative:0;flex-shrink:0;margin:10px auto 52px;}
-.fourthsection .whitebgbox{top:-300px;margin-bottom:-300px;padding:0 50px;margin-top:0;padding-top:100px;}
+
 .fourthsection .gradient-threebox-menu{max-width:90%;margin:90px auto -280px;position:relative;z-index:999;}
 .fourthsection .gradient-threebox-menu ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;}
 .fourthsection .gradient-threebox-menu ul li{width:calc(100% / 3);}
@@ -26,22 +30,12 @@
 .instagramfeedimages .contaernrul .contaernrulitem{margin:0;max-width:405px;width:100%;-webkit-box-flex:0;-ms-flex:0 0 405px;flex:0 0 405px;box-shadow:0px 4px 10px 2px rgba(0,0,0,0.25);border-radius:25px;overflow:hidden;}
 .instagramfeedimages .contaernrul .swiper .swiper-wrapper .swiper-slide:nth-child(even) .contaernrulitem{position:relative;transform:scale(0.85);transform-origin:center center;}
 
-/* .fourthsection .whitewithvideomainbox {
-    padding-top: 0;
-    margin: 0 -60px;
-    padding-left: 60px;
-    max-width: calc(100% + 60px);
-    margin-top: -10em;
-} */
-.fourthsection .whitewithvideomainbox{position:relative;padding-top:0;margin:0 -60px;padding-left:60px;max-width:calc(100% + 60px);margin-top:0;top:0em;margin-bottom:0em;border-bottom:none;}
 
-/* .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {
-    position: absolute;
-    top: -15rem;
-    right: -120px;
-    transform: scale(0.8);
-    transform-origin: right;
-} */
+.fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0px auto;padding:40px;width:calc(100% - 80px)!important;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0 auto;background-image:url('/app/assets/resizeimgs/bigframes.jpg');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone{border:6.243px solid #FFF;padding:16px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:6.243px solid #FFF;padding:40px;}
+.fourthsection .whitewithvideomainbox{position:relative;padding-top:0;margin:0 -60px;padding-left:60px;max-width:calc(100% + 60px);margin-top:0;top:0em;margin-bottom:0em;border-bottom:none;}
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox{max-width:993px;width:50%;padding-right:45px;padding-left:0;position:relative;top:5em;margin-bottom:10em;}
 .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{overflow:hidden;color:#f6c738;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:clamp(20px,5vw,80px);font-style:normal;font-weight:700;line-height:85px;    /* 106.25% */display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;max-width:526px;margin-bottom:60px;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .fourthsection .whitebgbox{position:relative;top:0;margin-bottom:0;}
@@ -55,6 +49,100 @@
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{max-width:100%;width:inherit;width:inherit;margin:0;}
 .instagramfeedimages .contaernrul .contaernrulitem video{width:100%;height:100%;max-height:490px;object-fit:cover;object-position:center center;}
 .instagramfeedimages .contaernrul .contaernrulitem img{display:block;width:100%;height:100%;max-height:490px;object-fit:cover;object-position:center center;}
+.fourthsection .whitebgbox{top:500px;margin-bottom:500px;padding:0 50px;margin-top:0;padding-top:100px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop {
+    max-width: 1412px;
+    margin: 0px auto;
+    position: relative;
+    top: -550px;
+    margin-bottom: -550px;
+}
+
+
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:45px;margin-top:0px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:10px;margin-top:20px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;display:flex;align-items:center;align-content:center;justify-content:space-between;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{color:#FFF;font-family:'Optima';font-size:24.972px;font-style:normal;font-weight:400;line-height:normal;}
+.fourthsection section.menu-section:last-child{margin-bottom:0}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item{border:2.341px solid #53647C;padding:14px 17px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{width:822.256px;height:62px;flex-shrink:0;border-radius:40px;border:2.34px solid #FFF;display:flex;align-items:center;align-content:center;margin:50px auto;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li{width:calc(100% / 3);margin:0;height:100%;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:30px;font-style:normal;font-weight:600;line-height:normal;background:transparent;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;border:2.34px solid transparent;border-radius:40px;cursor:pointer;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button.active{background:url('/app/assets/resizeimgs/plain-gold-background.png');color:white;border:2.34px solid #fff;background-size:cover;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:60px!important;margin-bottom:47px!important;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-family:'Optima';font-size:26.533px;font-style:italic;font-weight:400;line-height:32.776px;margin-left: 5px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails{display:flex;align-items:center;align-content:center;justify-content:space-between;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext {width: 85%;display: flex;align-items: center;align-content: center;flex-direction: row;flex-wrap: wrap;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span small,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color:#FFF;font-family:'Optima';font-size:16.388px;font-style:normal;font-weight:400;vertical-align:top;line-height:normal;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span{color:#FFF;font-family:'Optima';font-size:24.972px;font-style:normal;font-weight:400;line-height:normal;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span small{color:#FFF;font-family:'Optima';font-size:16.388px;font-style:normal;font-weight:400;vertical-align:top;}
+
+
+
+.fourthsection .menudynamic.onlydesktop{max-width:1412px;margin:0px auto;padding:40px;width:calc(100% - 80px)!important;}
+.fourthsection .menudynamic.onlydesktop{max-width:1412px;margin:0 auto;background-image:url('/app/assets/resizeimgs/bigframes.jpg');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
+.fourthsection .menudynamic.onlydesktop .innermenudynamicone{border:6.243px solid #FFF;padding:16px;}
+.fourthsection .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:6.243px solid #FFF;padding:40px;}
+.fourthsection .whitewithvideomainbox{position:relative;padding-top:0;margin:0 -60px;padding-left:60px;max-width:calc(100% + 60px);margin-top:0;top:0em;margin-bottom:0em;border-bottom:none;}
+.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox{max-width:993px;width:50%;padding-right:45px;padding-left:0;position:relative;top:5em;margin-bottom:10em;}
+.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{overflow:hidden;color:#f6c738;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:clamp(20px,5vw,80px);font-style:normal;font-weight:700;line-height:85px;    /* 106.25% */display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;max-width:526px;margin-bottom:60px;background:url('../assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.fourthsection .whitebgbox{position:relative;top:0;margin-bottom:0;}
+.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{color:#0d1e4d;font-family:'Work Sans',sans-serif;font-size:clamp(20px,5vw,23px);font-style:normal;font-weight:400;line-height:normal;max-width:993px;flex-shrink:0;white-space:break-spaces;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:874px;-ms-flex-negative:0;flex-shrink:0;width:50%;position:relative;margin-top:-90px;z-index:1;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{max-width:332px;color:#0d1e4d;text-align:left;font-family:'Permanent Marker';font-size:clamp(20px,2vw,30px);font-style:normal;font-weight:400;line-height:35px;margin:0 0 10px;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{max-width:373px;color:#0d1e4d;font-family:'Work Sans';font-size:clamp(20px,5vw,20px);font-style:normal;font-weight:400;line-height:normal;text-align:left;margin:0;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:flex;position:relative;top:-10rem;margin-bottom:10px;right:-2vw;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-16em;left:12em;margin-bottom:-15em;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{top:0;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{max-width:100%;width:inherit;width:inherit;margin:0;}
+.instagramfeedimages .contaernrul .contaernrulitem video{width:100%;height:100%;max-height:490px;object-fit:cover;object-position:center center;}
+.instagramfeedimages .contaernrul .contaernrulitem img{display:block;width:100%;height:100%;max-height:490px;object-fit:cover;object-position:center center;}
+.fourthsection .whitebgbox{top:500px;margin-bottom:500px;padding:0 50px;margin-top:0;padding-top:100px;}
+.fourthsection .menudynamic.onlydesktop{max-width:1412px;margin:-600px auto;}
+.fourthsection .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:45px;margin-top:0px;}
+.fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:10px;margin-top:20px;}
+.fourthsection .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
+.fourthsection .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;display:flex;align-items:center;align-content:center;justify-content:space-between;}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item p span,
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary span{color:#FFF;font-family:'Optima';font-size:24.972px;font-style:normal;font-weight:400;line-height:normal;}
+.fourthsection section.menu-section:last-child{margin-bottom:0}
+.fourthsection .menudynamic.onlydesktop .menu-item{border:2.341px solid #53647C;padding:14px 17px;}
+.fourthsection .menudynamic.onlydesktop ul.categotyfilter{width:822.256px;height:62px;flex-shrink:0;border-radius:40px;border:2.34px solid #FFF;display:flex;align-items:center;align-content:center;margin:50px auto;}
+.fourthsection .menudynamic.onlydesktop ul.categotyfilter li{width:calc(100% / 3);margin:0;height:100%;}
+.fourthsection .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:30px;font-style:normal;font-weight:600;line-height:normal;background:transparent;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;border:2.34px solid transparent;border-radius:40px;cursor:pointer;}
+.fourthsection .menudynamic.onlydesktop ul.categotyfilter li button.active{background:url('/app/assets/resizeimgs/plain-gold-background.png');color:white;border:2.34px solid #fff;background-size:cover;}
+.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:60px!important;margin-bottom:47px!important;}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;}
+.fourthsection .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
+.fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-family:'Optima';font-size:26.533px;font-style:italic;font-weight:400;line-height:32.776px;margin-left: 5px;}
+.fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails{display:flex;align-items:center;align-content:center;justify-content:space-between;}
+.fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext {width: 85%;display: flex;align-items: center;align-content: center;flex-direction: row;flex-wrap: wrap;}
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item p span small,.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary span small,.fourthsection .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color:#FFF;font-family:'Optima';font-size:16.388px;font-style:normal;font-weight:400;vertical-align:top;line-height:normal;}
+.fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails span{color:#FFF;font-family:'Optima';font-size:24.972px;font-style:normal;font-weight:400;line-height:normal;}
+.fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails span small{color:#FFF;font-family:'Optima';font-size:16.388px;font-style:normal;font-weight:400;vertical-align:top;}
+
+
+
+.allfiressectionsmenu{max-width:100%;position:absolute;margin:0 auto;height:100vh;width:100%;top:-110px;left:0;z-index:-1;}
+.allfiressectionsmenu img{position:absolute;display:none;}
+.allfiressectionsmenu img:nth-child(1){position:absolute;display:block;width:346.14px;height:331.798px;flex-shrink:0;top:-8%;left:0;}
+.allfiressectionsmenu img:nth-child(2){position:absolute;display:block;width:346.14px;height:331.798px;flex-shrink:0;top:83%;left:0;transform:translateY(-50%);}
+.allfiressectionsmenu img:nth-child(3){position:absolute;display:block;width:auto;height:auto;flex-shrink:0;top:126%;left:0;}
+.allfiressectionsmenu img:nth-child(4){position:absolute;display:block;width:245px;height:340px;flex-shrink:0;top:209vh;left:3%;}
+.allfiressectionsmenu img:nth-child(5){position:absolute;display:block;width:auto;height:auto;flex-shrink:0;top:0%;right:0%;    /* transform: rotate(11.243deg); */}
+.allfiressectionsmenu img:nth-child(6){position:absolute;display:block;width:auto;height:auto;flex-shrink:0;top:175vh;right:0;z-index:9;}
+.allfiressectionsmenu img:nth-child(7){position:absolute;display:block;width:240.619px;height:330.927px;flex-shrink:0;top:70%;right:8%;}
+
 @media (min-width:992px) and (max-width:1199px){
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-5em;left:12em;margin-bottom:-15em;}
 }
@@ -69,6 +157,25 @@
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{margin:0 0 0 50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{line-height: 100%;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:flex;position:relative;top:-9rem;margin-bottom:10px;right:-50px;}
+
+    #section4 .wrappertest{padding:50px 25px;margin-bottom:-400px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{width:100%;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{margin:30px auto;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop{padding:20px;width:calc(100% -  40px)!important;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:6.243px solid #FFF;padding:20px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{font-size:20.776px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{font-size:30.822px;margin-bottom:20px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{font-size:20.313px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:30px!important;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:30.822px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';top:-4px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:20.972px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:-600px auto 0;}
+    .fourthsection .whitebgbox{margin-bottom:450px;}
+
+    .allfiressectionsmenu{display: none;}
+
+
 }
 @media (max-width:767px){
     .onlymobile{display:block!important;}
@@ -113,4 +220,43 @@
     .fourthsection section.menu-section ul li{padding:0 15px;}
     .fourthsection section.menu-section ul li .bordrframe{background-image:url('/app/assets/resizeimgs/GoldFrameSquare.png');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
     .fourthsection section.menu-section ul li .bordrframe img{width:calc(100% - 0px);padding:0px;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:-40vh auto 0;display:block!important;padding:15px;width:calc(100% - 30px)!important;top:0;}
+    .fourthsection .whitebgbox{position:relative;top:270px;margin-bottom:12vh;}
+    #section4 .wrappertest{padding:0 15px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:8.024px;font-style:normal;font-weight:600;line-height:normal;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{width:100%;height:16px;flex-shrink:0;border-radius:10.698px;border:0.626px solid #FFF;display:flex;align-items:center;align-content:center;margin:15px auto;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button.active{border:0.626px solid #FFF;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{font-size:12.523px;font-style:normal;font-weight:700;line-height:normal;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone{border:0.626px solid #FFF;padding:12px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:0.626px solid #FFF;padding:12px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-size:8.766px;font-style:normal;font-weight:400;line-height:normal;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-size:7.305px;font-style:normal;font-weight:700;line-height:normal;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:16px!important;margin-bottom:16px!important;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-size:12.523px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px; /* 131.25% */}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary:before{width:10px;height:10px;top:4px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px; /* 131.25% */}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{padding-left:10px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-size:6.262px;font-style:normal;font-weight:400;line-height:normal;margin-top:10px;}
+    .fourthsection section.menu-section:last-child{margin-bottom:0;margin-top:0;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2{margin-bottom:15px;}
+    .fourthsection .appcontainers{padding-bottom:0;}
+    .fourthsection .whitewithvideomainbox{padding:0px 40px 0;width:calc(100% + 70px);margin:30px -35px 0;flex-wrap:wrap;order:4;}
+
+    .allfiressectionsmenu{display: none;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px;    font-style: italic; /* 131.25% */}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext svg {
+        width: 12px;
+        height: 12px;
+    }
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span small,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span small,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color: #FFF;
+        font-size: 6.679px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 8.766px;}
+
 }

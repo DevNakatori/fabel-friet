@@ -232,7 +232,7 @@ Sections.forEach((section, index) => {
       <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {showHomePage && <HomePage />}
+            {/* {showHomePage && <HomePage />} */}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />} 

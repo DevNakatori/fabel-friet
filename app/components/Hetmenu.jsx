@@ -15,22 +15,36 @@ import bannerlogo from '../assets/resizeimgs/logobanner.png';
 import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
 import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
 
+
+
+import menu_one from '../assets/resizeimgs/menu1.png';
+import menu_two from '../assets/resizeimgs/menu2.png';
+import menu_three from '../assets/resizeimgs/menu3.png';
+import menu_four from '../assets/resizeimgs/menu4.png';
+import menu_five from '../assets/resizeimgs/menu5.png';
+import menu_six from '../assets/resizeimgs/menu6.png';
+import menu_seven from '../assets/resizeimgs/menu7.png';
+import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
+import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
-  
+  const [activeSection, setActiveSection] = useState('friet-section');
+
   const {language} = useLanguage();
-  const [hetmenu, sethetmenu] = useState(null);
+  const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState(0);
+ // const [activeTab, setActiveTab] = useState(0);
 
   // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
-    const fetchDatahetmenuData = async () => {
+    const fetchDataHetmenuData = async () => {
       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
       if (cachedData) {
-        sethetmenu(JSON.parse(cachedData));
+        setHetmenu(JSON.parse(cachedData));
         setLoading(false);
       } else {
         try {
@@ -39,9 +53,8 @@ const Hetmenu = () => {
             `*[_type == "hetmenu" && language == $lang]`,
             {lang: language},
           );
-          //console.log('Fetched hetmenu Data:', data);
           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
-          sethetmenu(data);
+          setHetmenu(data);
         } catch (err) {
           console.error('Error fetching Hetmenu data:', err);
           setError('Failed to load data');
@@ -50,7 +63,8 @@ const Hetmenu = () => {
         }
       }
     };
-    fetchDatahetmenuData();
+
+    fetchDataHetmenuData();
   }, [language]);
 
   // GSAP Animations for Hetmenu
@@ -63,7 +77,7 @@ const Hetmenu = () => {
         start: 'top top',
         end: '+=150%',
         pin: true,
-        scrub: 0.5,
+        scrub: 1,
         markers: false,
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
@@ -118,27 +132,36 @@ const Hetmenu = () => {
       ease: 'power1.inOut',
     });
 
-    gsap.fromTo(
-      '#section4 .gradient-threebox-menu',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 2,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '#section4 .gradient-purple',
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '#section4 .gradient-threebox-menu',
+    //   {
+    //     opacity: 0,
+    //     y: 50,
+    //     scale: 1,
+    //   },
+    //   {
+    //     opacity: 1,
+    //     y: 0,
+    //     scale: 1,
+    //     duration: 1,
+    //     ease: 'power2.out',
+    //     delay: 2,
+    //     stagger: 0.2,
+    //     scrollTrigger: {
+    //       trigger: '#section4 .gradient-purple',
+    //       markers: false,
+    //     },
+    //   },
+    // );
+
+    // gsap.to('.allfiressectionsmenu img', {
+    //   y: 20,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   duration: 5,
+    //   ease: 'sine.inOut',
+    // });
+
 
     return () => {
       timelineshetmenu.scrollTrigger.kill();
@@ -149,86 +172,44 @@ const Hetmenu = () => {
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
-  const {contentSection, bottomContentSection, menuSection, transitionSection, logoImage} = hetmenu[0];
+  const {
+    contentSection,
+    bottomContentSection,
+    menuSection,
+    transitionSection,
+    logoImage,
+  } = hetmenu[0];
 
-  // Define tab content inside the component to have access to menuSection
-  const friesContent = (
-    <section className="menu-section">
-      <ul>
-        {/* {menuSection.Menu.length > 0 && (
-          <li key={menuSection.Menu[0]._key}>
-            <div className='bordrframe'>
-            <img
-              src={getImageUrl(menuSection.Menu[0].image.asset._ref)}
-              alt={`Menu item ${menuSection.Menu[0]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
-            />
-            </div>
-          </li>
-        )} */}
-      </ul>
-    </section>
-  );
-
-  const snacksContent = (
-    <section className="menu-section">
-      <ul>
-        {/* {menuSection.Menu.length > 1 && (
-          <li key={menuSection.Menu[1]._key}>
-             <div className='bordrframe'>
-            <img
-              src={getImageUrl(menuSection.Menu[1].image.asset._ref)}
-              alt={`Menu item ${menuSection.Menu[1]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
-            />
-            </div>
-          </li>
-        )} */}
-      </ul>
-    </section>
-  );
-
-  const drinksContent = (
-    <section className="menu-section">
-      <ul>
-        {/* {menuSection.Menu.length > 2 && (
-          <li key={menuSection.Menu[2]._key}>
-            <div className='bordrframe'>
-            <img
-              src={getImageUrl(menuSection.Menu[2].image.asset._ref)}
-              alt={`Menu item ${menuSection.Menu[2]._key}`}
-              style={{maxWidth: '100%', height: 'auto'}}
-            />
-            </div>
-          </li>
-        )} */}
-      </ul>
-    </section>
-  );
-
-  // Define tabs with their respective content
-  const tabs = [
-    {label: 'Fries', content: friesContent},
-    {label: 'Snacks', content: snacksContent},
-    {label: 'Drinks', content: drinksContent},
-  ];
+  const handleScrollToSection = (sectionId) => {
+    if (activeSection === sectionId) {
+      setActiveSection(null);
+    } else {
+      setActiveSection(sectionId);
+    }
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const yOffset = window.innerWidth <= 768 ? 20 : 10;  
+      const yPosition = section.getBoundingClientRect().top + window.pageYOffset - yOffset;
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
+    }
+  };
+  
 
   return (
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
         <div className="bannersectinlogo">
           <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" />
-          
         </div>
         <div className="wrappermain">
-        <img
-          className="media"
-          // src={getImageUrl(transitionSection.image.asset._ref)}
-          src={mainbannerbg}
-          alt="Transition Section"
-          width="100" // Adjust size as needed
-          height="100"
-        />
+          <img
+            className="media"
+            // src={getImageUrl(transitionSection.image.asset._ref)}
+            src={mainbannerbg}
+            alt="Transition Section"
+            width="100" // Adjust size as needed
+            height="100"
+          />
         </div>
 
         <div className="roundimages">
@@ -264,27 +245,170 @@ const Hetmenu = () => {
             {contentSection.description}
           </p>
 
-          <div className="gradient-threebox-menu onlydesktop">
-            <ul
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              {/* {menuSection.Menu.map((item) => (
-                <li key={item._key}>
-                  <div className='bordrframe'>
-                  <img
-                    src={getImageUrl(item.image.asset._ref)}
-                    alt={`Menu item ${item._key}`}
-                    style={{maxWidth: '100%', height: 'auto'}}
-                  />
-                  </div>
-                </li>
-              ))} */}
-            </ul>
-          </div>
-
           <div className="whitebgbox">
+          <div className="allfiressectionsmenu">
+  <img src={menu_one} alt="img" width="10" height="10" />
+  <img src={menu_two} alt="img" width="10" height="10" />
+  <img src={menu_three} alt="img" width="10" height="10" />
+  <img src={menu_four} alt="img" width="10" height="10" />
+  <img src={menu_five} alt="img" width="10" height="10" />
+  <img src={menu_six} alt="img" width="10" height="10" />
+  <img src={menu_seven} alt="img" width="10" height="10" />
+</div>
+
+<div className="menudynamic onlydesktop">
+  <ul className="categotyfilter">
+    <li>
+      <button
+        onClick={() => handleScrollToSection('friet-section')}
+        className={activeSection === 'friet-section' ? 'active' : ''}
+      >
+        Friet
+      </button>
+    </li>
+    <li>
+      <button
+        onClick={() => handleScrollToSection('snacks-section')}
+        className={activeSection === 'snacks-section' ? 'active' : ''}
+      >
+        Snacks
+      </button>
+    </li>
+    <li>
+      <button
+        onClick={() => handleScrollToSection('drinks-section')}
+        className={activeSection === 'drinks-section' ? 'active' : ''}
+      >
+        Drinks
+      </button>
+    </li>
+  </ul>
+  
+  <div className="innermenudynamicone">
+    <div className="innermenudynamictwo">
+      <section className="menu-section">
+        {/* Display Friet */}
+        <div id="friet-section">
+          {menuSection?.friet?.length > 0 ? (
+            menuSection.friet.map((frietCategory) => (
+              <div key={frietCategory._key} className="friet-category">
+                <h2>{frietCategory.title}</h2>
+                <div className="menu-item">
+                  {frietCategory.menu.map((frietItem) => (
+                    <div key={frietItem._key}>
+                      {frietItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: frietItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: frietItem.price }} />
+                          </summary>
+                          <p>{frietItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: frietItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: frietItem.price }} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+
+        {/* Display Snacks */}
+        <div id="snacks-section">
+          {menuSection?.snacks?.length > 0 ? (
+            menuSection.snacks.map((snackCategory) => (
+              <div key={snackCategory._key} className="snack-category">
+                <h2>{snackCategory.title}</h2>
+                <div className="menu-item">
+                  {snackCategory.menu.map((snackItem) => (
+                    <div key={snackItem._key}>
+                      {snackItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: snackItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: snackItem.price }} />
+                          </summary>
+                          <p>{snackItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: snackItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: snackItem.price }} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+
+        {/* Display Drinks */}
+        <div id="drinks-section">
+          {menuSection?.drinks?.length > 0 ? (
+            menuSection.drinks.map((drinksCategory) => (
+              <div key={drinksCategory._key} className="drinks-category">
+                <h2>{drinksCategory.title}</h2>
+                <div className="menu-item">
+                  {drinksCategory.menu.map((drinkItem) => (
+                    <div key={drinkItem._key}>
+                      {drinkItem.recipedetails ? (
+                        <details>
+                          <summary>
+                            <p
+                              className="summerytext"
+                              dangerouslySetInnerHTML={{ __html: drinkItem.recipe }}
+                            />
+                            <span dangerouslySetInnerHTML={{ __html: drinkItem.price }} />
+                          </summary>
+                          <p>{drinkItem.recipedetails}</p>
+                        </details>
+                      ) : (
+                        <div className="menutextdetails">
+                          <p
+                            className="summerytext"
+                            dangerouslySetInnerHTML={{ __html: drinkItem.recipe }}
+                          />
+                          <span dangerouslySetInnerHTML={{ __html: drinkItem.price }} />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Data not available</p>
+          )}
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
             <div className="appcontainers">
               <div className="instagramfeedimagesimain">
                 <div className="instagramfeedimages">
@@ -301,7 +425,7 @@ const Hetmenu = () => {
               </div>
 
               {/* Tab Section */}
-              <div
+              {/* <div
                 className="tabs onlymobile"
                 data-aos="fade-down"
                 data-aos-easing="linear"
@@ -317,15 +441,15 @@ const Hetmenu = () => {
                     {tab.label}
                   </button>
                 ))}
-              </div>
-              <div
+              </div> */}
+              {/* <div
                 className="content onlymobile"
                 data-aos="fade-down"
                 data-aos-easing="linear"
                 data-aos-duration="500"
               >
                 {tabs[activeTab].content}
-              </div>
+              </div> */}
 
               {/* Bottom Section */}
               <div className="whitewithvideomainbox">
@@ -369,7 +493,12 @@ const Hetmenu = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <img src={arrow_blue1} alt="Blue arrow" data-speed="auto" className='swings'/>
+                    <img
+                      src={arrow_blue1}
+                      alt="Blue arrow"
+                      data-speed="auto"
+                      className="swings"
+                    />
                   </div>
                   <h3
                     data-aos="fade-up"
