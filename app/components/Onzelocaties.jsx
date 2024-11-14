@@ -33,7 +33,7 @@ const Onzelocaties = () => {
         end: '+=150%',
         pin: true,
         scrub: true,
-        markers: true,
+        markers: false,
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),

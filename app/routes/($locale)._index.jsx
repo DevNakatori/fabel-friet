@@ -87,7 +87,7 @@ export default function Homepage() {
   useEffect(() => {
     AOS.init({
       once: true,
-      duration: 1800,
+      duration: 100,
       mirror: true,
       debounceDelay: 50,
       throttleDelay: 99,
@@ -120,12 +120,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 0); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 0); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 0); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 0); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 0); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 1); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 1); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 1); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 1); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 1); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 1); // show after 6 seconds
   }, []);
 
 
@@ -188,14 +188,14 @@ Sections.forEach((section, index) => {
     // });
   }, []);
 
-  // useEffect(() => {
-  //   if (!localStorage.getItem('hasReloaded')) {
-  //     localStorage.setItem('hasReloaded', 'true');
-  //     setTimeout(() => {
-  //       gsap.restart();
-  //     }, 2000);  
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!localStorage.getItem('hasReloaded')) {
+      localStorage.setItem('hasReloaded', 'true');
+      setTimeout(() => {
+        scrollToSection(window.location.hash);
+      }, 1500);  
+    }
+  }, []);
 
   return (
     <div className="home">
@@ -235,7 +235,7 @@ Sections.forEach((section, index) => {
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
-            {showHetmenu && <Hetmenu />} 
+            {/* {showHetmenu && <Hetmenu />}  */}
             {showOnzeimpact && <Onzeimpact />}  
             {showGetintouch && <Getintouch />}  
           </div>
