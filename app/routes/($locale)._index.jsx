@@ -177,10 +177,10 @@ Sections.forEach((section, index) => {
     }, 0);
   
     // Clean up GSAP instances on component unmount
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    // return () => {
+    //   clearTimeout(timer);
+    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // };
     // gsap.to('progress', {
     //   value: 100,
     //   ease: 'none',
@@ -188,14 +188,14 @@ Sections.forEach((section, index) => {
     // });
   }, []);
 
-  useEffect(() => {
-    if (!localStorage.getItem('hasReloaded')) {
-      localStorage.setItem('hasReloaded', 'true');
-      setTimeout(() => {
-        gsap.restart();
-      }, 2000);  
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem('hasReloaded')) {
+  //     localStorage.setItem('hasReloaded', 'true');
+  //     setTimeout(() => {
+  //       gsap.restart();
+  //     }, 2000);  
+  //   }
+  // }, []);
 
   return (
     <div className="home">
