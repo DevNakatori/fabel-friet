@@ -37,7 +37,7 @@ const Hetmenu = () => {
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState(0);
+ // const [activeTab, setActiveTab] = useState(0);
 
   // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
@@ -78,7 +78,7 @@ const Hetmenu = () => {
         end: '+=150%',
         pin: true,
         scrub: 0.5,
-        markers: false,
+        markers: true,
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),
