@@ -335,11 +335,18 @@ const HomePage = () => {
 
   /* loading animation start */
   useEffect(() => {
+    if (!localStorage.getItem('hasReloaded')) {
+      localStorage.setItem('hasReloaded', 'true');
+      setTimeout(() => {
+        scrollToSection(window.location.hash);
+      }, 1000);  
+    }
+    
     if (!loading) {
       gsap.to('.loadersite', {
         duration: 0,
         opacity: 0,
-        onComplete: () => {
+        onComplete: () => { 
          // document.body.classList.add('hiddenoverflow');
           gsap.to('.banner_video', {
             duration: 1,
@@ -349,7 +356,7 @@ const HomePage = () => {
           });
           setTimeout(() => {
             setLoading(false);
-          }, 0);
+          }, 1500);
         },
       });
     }
