@@ -28,7 +28,7 @@ const Onzelocaties = () => {
   useEffect(() => {
     const timelines = gsap.timeline({
       scrollTrigger: {
-        trigger: '.wrapper-onzelocation',
+        trigger: '#section3 .wrapper-onzelocation',
         start: 'center center',
         end: '+=150%',
         pin: true,
@@ -40,7 +40,7 @@ const Onzelocaties = () => {
       },
     });
     timelines.to(
-      '.roundimage-onzelocation, .roundtext-onzelocation',
+      '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
       {
         scale: 2.5,
         z: 350,
@@ -53,7 +53,7 @@ const Onzelocaties = () => {
     );
 
     timelines.to(
-      '.section.hero',
+      '#section3 .section.hero',
       {
         scale: 1.1,
         transformOrigin: 'center center',
@@ -62,13 +62,13 @@ const Onzelocaties = () => {
       '<',
     );
     timelines.to(
-      '.gradient-purple',
+      '#section3 .gradient-purple',
       {
         scale: 1,
         borderRadius: 0,
         ease: 'power3.easeIn',
         scrollTrigger: {
-          trigger: '.wrappertest',
+          trigger: '#section3 .wrappertest',
           start: 'top top-100',
           end: 'top top-300',
           // onEnter: () => document.body.classList.add('scrolled'),

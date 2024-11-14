@@ -28,7 +28,7 @@ const Onzeimpact = () => {
   useEffect(() => {
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
-        trigger: '.wrapper-impact',
+        trigger: '#section5 .wrapper-impact',
         start: 'center center',
         end: '+=150%',
         pin: true,
@@ -40,7 +40,7 @@ const Onzeimpact = () => {
       },
     });
     timelineimpact.to(
-      '.roundimage-impact, .roundtext-impact',
+      '#section5 .roundimage-impact, #section5 .roundtext-impact',
       {
         scale: 2.5,
         z: 350,
@@ -52,7 +52,7 @@ const Onzeimpact = () => {
     );
 
     timelineimpact.to(
-      '.section.hero',
+      '#section5 .section.hero',
       {
         scale: 1.1,
         transformOrigin: 'center center',

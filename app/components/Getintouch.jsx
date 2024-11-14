@@ -47,7 +47,7 @@ const Getintouch = () => {
   useEffect(() => {
     const timelinegetintouch = gsap.timeline({
       scrollTrigger: {
-        trigger: '.wrapper-getintouch',
+        trigger: '#section6 .wrapper-getintouch',
         start: 'center center',
         end: '+=150%',
         pin: true,
@@ -59,7 +59,7 @@ const Getintouch = () => {
       },
     });
     timelinegetintouch.to(
-      '.roundimage-getintouch, .roundtext-getintouch',
+      '#section6 .roundimage-getintouch, #section6 .roundtext-getintouch',
       {
         scale: 2.5,
         z: 350,
@@ -71,7 +71,7 @@ const Getintouch = () => {
     );
 
     timelinegetintouch.to(
-      '.section.hero',
+      '#section6 .section.hero',
       {
         scale: 1.1,
         transformOrigin: 'center center',
