@@ -46,7 +46,7 @@ const Onzefriet = () => {
         end: '+=150%',
         pin: true,
         scrub: 1,
-        markers: false,
+        markers: true,
         smoothTouch: 0.1, // reduce smoothness for touch device
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
