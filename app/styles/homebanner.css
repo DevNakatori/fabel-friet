@@ -176,7 +176,7 @@ button.skipvideo:hover i.skipicon svg g{fill:#0D1E4D;}
   .banner_title_text{padding:0 12px;}
   .banner_title_text h1{font-size:36px;}
   .banner_content_text p{max-width:353px;font-size:12px;margin:0 auto;line-height:18px;}
-  .banner_bottombtn{font-size:12px;width:142px;height:30px;flex-shrink:0;margin:30px auto;}
+  .banner_bottombtn {font-size: 12px;width: auto;height: 30px;flex-shrink: 0;margin: 30px auto;padding: 0;max-width: max-content;padding: 0 15px;}
   .overlaybannehand-right{width:344.332px;height:279.925px;flex-shrink:0;background-image:url('/app/assets/resizeimgs/mobilerighhand.png');background-repeat:no-repeat no-repeat;bottom:0}
   .overlaybannehand{position:absolute;bottom:0;width:100%;height:90%;}
   .overlaybannehand-left{position:absolute;width:317.926px;height:204.639px;flex-shrink:0;background-image:url('/app/assets/resizeimgs/lefthandmobile.png');background-repeat:no-repeat no-repeat;background-position:center center;background-size:cover;z-index:1;top:0;}
