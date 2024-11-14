@@ -73,7 +73,7 @@ const Hetmenu = () => {
 
     const timelineshetmenu = gsap.timeline({
       scrollTrigger: {
-        trigger: '.wrapper-hetmenu',
+        trigger: '#section4 .wrapper-hetmenu',
         start: 'top top',
         end: '+=150%',
         pin: true,
@@ -85,7 +85,7 @@ const Hetmenu = () => {
       },
     });
 
-    timelineshetmenu.to('.roundimage-hetmenu, .roundtext-hetmenu', {
+    timelineshetmenu.to('#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu', {
       scale: 2.5,
       z: 350,
       transformOrigin: 'center center',
@@ -94,7 +94,7 @@ const Hetmenu = () => {
     });
 
     timelineshetmenu.to(
-      '.section.hero',
+      '#section4 .section.hero',
       {
         scale: 1.1,
         transformOrigin: 'center center',
@@ -104,13 +104,13 @@ const Hetmenu = () => {
     );
 
     timelineshetmenu.to(
-      '.gradient-purple',
+      '#section4 .gradient-purple',
       {
         scale: 1,
         borderRadius: 0,
         ease: 'power3.easeIn',
         scrollTrigger: {
-          trigger: '.wrappertest',
+          trigger: '#section4 .wrappertest',
           start: 'top top-500',
           end: 'top top-200',
           // onEnter: () => document.body.classList.add('scrolled'),
