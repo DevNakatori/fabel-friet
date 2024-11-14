@@ -176,27 +176,17 @@ Sections.forEach((section, index) => {
       app();
     }, 0);
   
-    // Clean up GSAP instances on component unmount
-    // return () => {
-    //   clearTimeout(timer);
-    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    // };
+    //Clean up GSAP instances on component unmount
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
     // gsap.to('progress', {
     //   value: 100,
     //   ease: 'none',
     //   scrollTrigger: { scrub: 0.3 }
     // });
   }, []);
-
-  useEffect(() => {
-    if (!localStorage.getItem('hasReloaded')) {
-      localStorage.setItem('hasReloaded', 'true');
-      setTimeout(() => {
-        scrollToSection(window.location.hash);
-      }, 1500);  
-    }
-  }, []);
-
   return (
     <div className="home">
       <div id="loadersitetrans" className="loadersitetrans">
@@ -237,7 +227,7 @@ Sections.forEach((section, index) => {
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />} 
             {showOnzeimpact && <Onzeimpact />}  
-            {showGetintouch && <Getintouch />}  
+            {showGetintouch && <Getintouch />}   
           </div>
         </div>
       </LanguageProvider>
