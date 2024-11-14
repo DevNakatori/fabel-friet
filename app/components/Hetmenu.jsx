@@ -154,13 +154,13 @@ const Hetmenu = () => {
     //   },
     // );
 
-    gsap.to('.allfiressectionsmenu img', {
-      y: 20,
-      repeat: -1,
-      yoyo: true,
-      duration: 5,
-      ease: 'sine.inOut',
-    });
+    // gsap.to('.allfiressectionsmenu img', {
+    //   y: 20,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   duration: 5,
+    //   ease: 'sine.inOut',
+    // });
 
 
     return () => {

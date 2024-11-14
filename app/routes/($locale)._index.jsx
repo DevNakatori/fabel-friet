@@ -104,7 +104,7 @@ export default function Homepage() {
       setTimeout(() => {
         scrollToSection(window.location.hash);
         document.body.classList.remove('hiddenoverflow');
-      }, 2000);
+      }, 1800);
     }
 
 
@@ -120,12 +120,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 1); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 1); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 1); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 1); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 1); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 1); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 0); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 0); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 0); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 0); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 0); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
   }, []);
 
 
@@ -187,6 +187,16 @@ Sections.forEach((section, index) => {
     //   scrollTrigger: { scrub: 0.3 }
     // });
   }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem('hasReloaded')) {
+      localStorage.setItem('hasReloaded', 'true');
+      setTimeout(() => {
+        scrollToSection(window.location.hash);
+      }, 1500);  
+    }
+  }, []);
+
   return (
     <div className="home">
       <div id="loadersitetrans" className="loadersitetrans">
@@ -227,7 +237,7 @@ Sections.forEach((section, index) => {
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />} 
             {showOnzeimpact && <Onzeimpact />}  
-            {showGetintouch && <Getintouch />}   
+            {showGetintouch && <Getintouch />}  
           </div>
         </div>
       </LanguageProvider>
