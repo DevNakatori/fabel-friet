@@ -192,8 +192,7 @@ Sections.forEach((section, index) => {
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-        window.location.reload();  
-        console.log('add');
+        gsap.restart();
       }, 2000);  
     }
   }, []);
