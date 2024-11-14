@@ -78,7 +78,7 @@ const Hetmenu = () => {
         end: '+=150%',
         pin: true,
         scrub: 0.5,
-        markers: true,
+        markers: false,
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),
