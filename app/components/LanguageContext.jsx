@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+
+
 const LanguageContext = createContext();
 
 export const useLanguage = () => useContext(LanguageContext);
@@ -11,9 +13,11 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
     window.scrollTo(0, 0);
+    document.getElementById('loadersitetrans').style.display = 'flex';
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+      document.getElementById('loadersitetrans').style.display = 'none';
+    }, 1000);
     
   };
 
