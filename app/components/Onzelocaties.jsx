@@ -47,9 +47,9 @@ const Onzelocaties = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-        scrub: true,
+       // scrub: true,
         //zIndex: 5,
-        ease: 'power2.out', // smooth ease
+        //ease: 'power2.out', // smooth ease
       },
       0,
     );
