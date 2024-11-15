@@ -47,13 +47,27 @@ const Onzelocaties = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-       // scrub: true,
+        //scrub: true,
         //zIndex: 5,
         //ease: 'power2.out', // smooth ease
       },
       0,
     );
 
+    timelines.to('.thirdesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.thirdesection',
+        start: '10% 10%',
+        end: '35% 35%',
+        scrub: true,
+        once: false,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
+
+
+    
     timelines.to(
       '#section3 .section.hero',
       {
@@ -80,18 +94,7 @@ const Onzelocaties = () => {
       0,
     );
 
-    timelines.to('.thirdesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.thirdesection',
-        start: '10% 10%',
-        end: '35% 35%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
-
+    
     return () => {
       timelines.scrollTrigger.kill();
     };

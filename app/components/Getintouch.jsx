@@ -70,15 +70,7 @@ const Getintouch = () => {
       0,
     );
 
-    timelinegetintouch.to(
-      '#section6 .section.hero',
-      {
-        scale: 1.1,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      },
-      '<',
-    );
+    
 
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
@@ -91,6 +83,18 @@ const Getintouch = () => {
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
     });
+
+    timelinegetintouch.to(
+      '#section6 .section.hero',
+      {
+        scale: 1.1,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+
+    
     return () => {
       timelinegetintouch.scrollTrigger.kill();
     };

@@ -95,6 +95,18 @@ const Hetmenu = () => {
       },
     );
 
+    timelineshetmenu.to('.fourthsection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.fourthsection',
+        start: '10% 10%',
+        end: '30% 30%',
+        scrub: true,
+        once: true,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
+
     timelineshetmenu.to(
       '#section4 .section.hero',
       {
@@ -122,17 +134,7 @@ const Hetmenu = () => {
       0,
     );
 
-    timelineshetmenu.to('.fourthsection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.fourthsection',
-        start: '10% 10%',
-        end: '30% 30%',
-        scrub: true,
-        once: true,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+    
 
     // gsap.fromTo(
     //   '#section4 .gradient-threebox-menu',

@@ -60,6 +60,18 @@ const Onzefriet = () => {
       //zIndex: 5,
     });
 
+    timelinesonzefriet.to('.secondesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.secondesection',
+        start: '10% 10%',
+        end: '25% 25%',
+        scrub: true,
+        once: false,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
+
     timelinesonzefriet.to(
       '#section2 .section.hero',
       {
@@ -88,17 +100,7 @@ const Onzefriet = () => {
       0, // Start this animation at the same time as the previous one
     );
 
-    timelinesonzefriet.to('.secondesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.secondesection',
-        start: '10% 10%',
-        end: '25% 25%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+    
 
     // gsap.fromTo(
     //   '.allfiressections img',
