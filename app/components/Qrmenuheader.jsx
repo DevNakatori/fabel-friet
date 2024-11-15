@@ -194,14 +194,23 @@ const Qrmenuheader = () => {
             </svg>
           </button>
           <ul>
-            {headerData[0].header.menu.map((item) => (
+            {headerData[0].header.menu.map((item, index, array) => (
               <li key={item._key}>
-                <a
-                  href={`/${item.link}`}
-                  onClick={(event) => handleMenuItemClick(event, item.link)}
-                >
-                  {item.label}
-                </a>
+                {index === array.length - 1 ? (
+                  <a
+                    href={item.link}
+                    onClick={(event) => handleMenuItemClick(event, item.link)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <a
+                    href={`/${item.link}`}
+                    onClick={(event) => handleMenuItemClick(event, item.link)}
+                  >
+                    {item.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

@@ -1,10 +1,10 @@
-import { defer } from '@shopify/remix-oxygen';
-import React, { useEffect, useState } from 'react';
-import { Await, useLoaderData, Link } from '@remix-run/react';
-import { Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Image, Money } from '@shopify/hydrogen';
-import { LanguageProvider } from '~/components/LanguageContext';
+import {defer} from '@shopify/remix-oxygen';
+import React, {useEffect, useState} from 'react';
+import {Await, useLoaderData, Link} from '@remix-run/react';
+import {Suspense} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import {Image, Money} from '@shopify/hydrogen';
+import {LanguageProvider} from '~/components/LanguageContext';
 import LanguageSwitcher from '~/components/LanguageSwitcher';
 import 'aos/dist/aos.css';
 import HomePage from '~/components/Homepage';
@@ -27,7 +27,7 @@ gsap.registerPlugin(ScrollTrigger);
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{ title: 'FabelFriet | Home' }];
+  return [{title: 'FabelFriet | Home'}];
 };
 
 /**
@@ -40,7 +40,7 @@ export async function loader(args) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return defer({ ...deferredData, ...criticalData });
+  return defer({...deferredData, ...criticalData});
 }
 
 /**
@@ -48,8 +48,8 @@ export async function loader(args) {
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  * @param {LoaderFunctionArgs}
  */
-async function loadCriticalData({ context }) {
-  const [{ collections }] = await Promise.all([
+async function loadCriticalData({context}) {
+  const [{collections}] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -65,7 +65,7 @@ async function loadCriticalData({ context }) {
  * Make sure to not throw any errors here, as it will cause the page to 500.
  * @param {LoaderFunctionArgs}
  */
-function loadDeferredData({ context }) {
+function loadDeferredData({context}) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error) => {
@@ -87,16 +87,18 @@ export default function Homepage() {
   useEffect(() => {
     AOS.init({
       once: true,
-      duration: 101,
+      duration: 1200,
       mirror: true,
       debounceDelay: 50,
       throttleDelay: 99,
     });
 
+    AOS.refresh();
+
     const scrollToSection = (hash) => {
       const section = document.querySelector(hash);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth'});
+        section.scrollIntoView({behavior: 'smooth'});
       }
     };
 
@@ -106,11 +108,7 @@ export default function Homepage() {
         document.body.classList.remove('hiddenoverflow');
       }, 1800);
     }
-
-
   }, []);
-
-  
 
   const [showHomePage, setShowHomePage] = useState(false);
   const [showOnzefriet, setShowOnzefriet] = useState(false);
@@ -128,34 +126,33 @@ export default function Homepage() {
     setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
   }, []);
 
-
   useEffect(() => {
-  const app = () => {
-      let Sections = gsap.utils.toArray("section");
+    const app = () => {
+      let Sections = gsap.utils.toArray('section');
 
-Sections.forEach((section, index) => {
-    section.classList.add(`panel-${index}`);
-});
+      Sections.forEach((section, index) => {
+        section.classList.add(`panel-${index}`);
+      });
       const getTotalWidth = () => {
         let width = 0;
-        Sections.forEach(el => (width += el.offsetWidth));
+        Sections.forEach((el) => (width += el.offsetWidth));
         return width;
       };
       let snap;
       gsap.to(Sections, {
         x: () => -getTotalWidth() + window.innerWidth,
-        ease: "none",
+        ease: 'none',
         scrollTrigger: {
-          trigger: "#smooth-wrapper",
+          trigger: '#smooth-wrapper',
           pin: false,
           start: 0,
           end: () =>
-            "+=" + (document.querySelector("#smooth-wrapper").scrollWidth),
+            '+=' + document.querySelector('#smooth-wrapper').scrollWidth,
           invalidateOnRefresh: false,
           onRefresh() {
             let totalWidth = getTotalWidth(),
               accumulatedWidth = 0,
-              progressArray = Sections.map(el => {
+              progressArray = Sections.map((el) => {
                 accumulatedWidth += el.offsetWidth;
                 return accumulatedWidth / totalWidth;
               });
@@ -166,20 +163,20 @@ Sections.forEach((section, index) => {
           markers: false,
         },
       });
-      gsap.to("progress", {
+      gsap.to('progress', {
         value: 100,
-        ease: "none",
-        scrollTrigger: { scrub: 0.3 },
+        ease: 'none',
+        scrollTrigger: {scrub: 0.3},
       });
     };
     const timer = setTimeout(() => {
       app();
     }, 0);
-  
+
     //Clean up GSAP instances on component unmount
     return () => {
       clearTimeout(timer);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
     // gsap.to('progress', {
     //   value: 100,
@@ -193,7 +190,7 @@ Sections.forEach((section, index) => {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
         scrollToSection(window.location.hash);
-      }, 1500);  
+      }, 1500);
     }
   }, []);
 
@@ -212,32 +209,30 @@ Sections.forEach((section, index) => {
         </div>
       </div>
 
-      <div className='mobilerotate'>
-          <div className='innermobile'>
+      <div className="mobilerotate">
+        <div className="innermobile">
           <div className="phone"></div>
-            <div className="message">
-              Please rotate your device!
-            </div>
-            </div>
+          <div className="message">Please rotate your device!</div>
+        </div>
       </div>
-      <div className='footerwithscrollbar onlymobile'>
+      <div className="footerwithscrollbar onlymobile">
         <progress max="100" value="0"></progress>
-        <div className='scroll-down'>
+        <div className="scroll-down">
           <p>Scroll down</p>
         </div>
       </div>
       <ScrollNav />
       <LanguageProvider>
-      <LanguageSwitcher />
-      <Newheader />
+        <LanguageSwitcher />
+        <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
-            {showHetmenu && <Hetmenu />} 
-            {showOnzeimpact && <Onzeimpact />}  
-            {showGetintouch && <Getintouch />}  
+            {showHetmenu && <Hetmenu />}
+            {showOnzeimpact && <Onzeimpact />}
+            {showGetintouch && <Getintouch />}
           </div>
         </div>
       </LanguageProvider>
@@ -250,7 +245,7 @@ Sections.forEach((section, index) => {
  *   collection: FeaturedCollectionFragment;
  * }}
  */
-function FeaturedCollection({ collection }) {
+function FeaturedCollection({collection}) {
   if (!collection) return null;
   const image = collection?.image;
   return (
@@ -273,7 +268,7 @@ function FeaturedCollection({ collection }) {
  *   products: Promise<RecommendedProductsQuery | null>;
  * }}
  */
-function RecommendedProducts({ products }) {
+function RecommendedProducts({products}) {
   return (
     <div className="recommended-products">
       <h2>Recommended Products</h2>
@@ -283,22 +278,22 @@ function RecommendedProducts({ products }) {
             <div className="recommended-products-grid">
               {response
                 ? response.products.nodes.map((product) => (
-                  <Link
-                    key={product.id}
-                    className="recommended-product"
-                    to={`/products/${product.handle}`}
-                  >
-                    <Image
-                      data={product.images.nodes[0]}
-                      aspectRatio="1/1"
-                      sizes="(min-width: 45em) 20vw, 50vw"
-                    />
-                    <h4>{product.title}</h4>
-                    <small>
-                      <Money data={product.priceRange.minVariantPrice} />
-                    </small>
-                  </Link>
-                ))
+                    <Link
+                      key={product.id}
+                      className="recommended-product"
+                      to={`/products/${product.handle}`}
+                    >
+                      <Image
+                        data={product.images.nodes[0]}
+                        aspectRatio="1/1"
+                        sizes="(min-width: 45em) 20vw, 50vw"
+                      />
+                      <h4>{product.title}</h4>
+                      <small>
+                        <Money data={product.priceRange.minVariantPrice} />
+                      </small>
+                    </Link>
+                  ))
                 : null}
             </div>
           )}

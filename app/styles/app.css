@@ -411,3 +411,13 @@ summary:before{width:15px;height:15px;top:0;}
 .tabs.sticky button.active a.menubuttonlink{color: #fff;}
 .tabs.sticky {position: sticky;top: 0;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
 }
+
+
+
+.page.menumainppage.franchise section.menulanding {
+  height: 100%;
+  position: relative;
+}
+.page.menumainppage.franchise section.menulanding .landingcontainer {
+  padding: 15% 0;
+}

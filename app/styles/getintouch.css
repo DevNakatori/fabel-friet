@@ -10,6 +10,7 @@
     30%,50%,70%{transform:translate3d(-4px,0,0);}
     40%,60%{transform:translate3d(4px,0,0);}
 }
+.sixthsection{background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1e46b3 0%,#1c41a8 12.99%,#1b3e9e 23.44%,#193a95 31.71%,#18378d 38.19%,#163485 43.26%,#15317e 47.31%,#142f78 50.7%,#132c72 53.82%,#122a6c 57.05%,#112867 60.77%,#112662 65.35%,#10245d 71.19%,#0f2258 78.66%,#0e2053 88.13%,#0d1e4d 100%));-webkit-transition:background-color 0.5s ease;-o-transition:background-color 0.5s ease;transition:background-color 0.5s ease;}
 .wrapper-getintouch{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100vh;}
 .roundtext-getintouch{position:absolute;max-width:36vw;max-height:70vh;width:100%;height:100%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:2;}
 .roundtext-getintouch h2{position:absolute;left:-140px;top:58px;z-index:1;margin:0;}
@@ -92,6 +93,7 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
 .socialiconlist ul li a:hover{background:#f6c738;}
 .whatsappbuttonarrow{display:flex;position:relative;width:100%;margin:0 auto;max-width:400px;}
 .whatsappbuttonarrow img{position:absolute;right:-56px;top:30px;}
+.de .whatsappbuttonarrow img{position:absolute;right:-65px;top:30px;}
 .footerlogo.onlydesktop{position:relative;}
 .footerlogo.onlydesktop img{position:absolute;top:50%;transform:translateY(-50%);}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;margin-left:5px;}
