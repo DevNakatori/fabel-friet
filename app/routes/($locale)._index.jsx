@@ -190,7 +190,7 @@ export default function Homepage() {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
         scrollToSection(window.location.hash);
-      }, 1500);
+      }, 1800);
     }
   }, []);
 
