@@ -27,8 +27,6 @@ import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
 import fabelfrie_bottomlogo from '../assets/resizeimgs/fabelfriet_sticker2.png';
 
-
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
@@ -45,9 +43,9 @@ const Onzefriet = () => {
         start: 'center center',
         end: '+=150%',
         pin: true,
-        scrub: 1,
+        scrub: 0.5,
         markers: false,
-        //smoothTouch: 0.1, // reduce smoothness for touch device
+        smoothTouch: 0.1, // reduce smoothness for touch device
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),
@@ -60,7 +58,6 @@ const Onzefriet = () => {
       transformOrigin: 'center center',
       ease: 'power1.inOut',
       //zIndex: 5,
-      
     });
 
     timelinesonzefriet.to(
@@ -101,7 +98,6 @@ const Onzefriet = () => {
       },
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
-      
     });
 
     // gsap.fromTo(
@@ -136,7 +132,7 @@ const Onzefriet = () => {
 
     return () => {
       timelinesonzefriet.scrollTrigger.kill();
-     // document.body.classList.remove('scrolled');
+      // document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
 
@@ -229,7 +225,8 @@ const Onzefriet = () => {
         const mobileTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: '.secondesection .wrappertest',
-            start: '0 0',
+            start: 'top top',
+            end: 'center center',
             markers: false,
           },
         });
@@ -334,7 +331,7 @@ const Onzefriet = () => {
       if (accordion !== content) {
         gsap.to(accordion, {
           height: 0,
-          duration: 0.5,
+          duration: 0,
           onComplete: () => (accordion.style.display = 'none'),
         });
         accordion.classList.remove('show');
@@ -349,7 +346,7 @@ const Onzefriet = () => {
     if (content.classList.contains('show')) {
       gsap.to(content, {
         height: 0,
-        duration: 0.5,
+        duration: 0,
         onComplete: () => (content.style.display = 'none'),
       });
       content.classList.remove('show');
@@ -406,7 +403,6 @@ const Onzefriet = () => {
       {onzefriet.map((content, idx) => (
         <div key={idx}>
           <div className="wrapper">
-            
             <div
               className="wrappermain"
               style={{
@@ -416,14 +412,14 @@ const Onzefriet = () => {
               }}
             ></div>
             <div className="roundimages">
-            <div className="bannersectinlogo">
-              <img
-                src={getImageUrl(content.logoImage.asset._ref)}
-                alt="Logo"
-                width="10"
-                height="10"
-              />
-            </div>
+              <div className="bannersectinlogo">
+                <img
+                  src={getImageUrl(content.logoImage.asset._ref)}
+                  alt="Logo"
+                  width="10"
+                  height="10"
+                />
+              </div>
               <div className="roundtext">
                 {content.transitionSection && (
                   <>

@@ -8,19 +8,9 @@ body > main{margin:0;}
 .headernew nav ul.desktop-menu{display:none!important;}
 .headernew .mobile-menu{display:flex!important;}
 section.mainmenusection .topmenublock{padding:200px 0px 90px;}
-.page.menumainppage{margin:0;z-index:99;position:relative;}
-body.seconsection .page.menumainppage{z-index:9;display: block;}
-.logoonlymobilefirstsection {
-  width: 60px;
-  position: absolute;
-  top: -20px;
-  left: 50vw;
-  transform: translateX(-50%);
-  display: block;
-}
-
-
-
+.page.menumainppage{margin:0;z-index:9;position:relative;}
+body.seconsection .page.menumainppage{z-index:9;display:block;}
+.logoonlymobilefirstsection{width:60px;position:absolute;top:-20px;left:50vw;transform:translateX(-50%);display:block;}
 section.mainmenusection{z-index:0;}
 .headernew{background-color:transparent;padding:0rem 60px;position:absolute;z-index:9;top:25px;display:flex;height:24px;align-items:center;align-content:center;display:none;transition:all .4s;}
 .scrolled .headernew{z-index:10!important;}
@@ -31,21 +21,8 @@ section.mainmenusection{z-index:0;}
 .headernew .desktop-menu li{margin:0;}
 .headernew nav ul li a{text-decoration:none;color:#EFEBE7;text-align:center;font-family:"Work Sans";cursor:pointer;font-size:clamp(20px,5vw,20px);font-style:normal;font-weight:600;line-height:normal;text-transform:capitalize;}
 .headernew nav ul li a:hover{color:#f6c738;}
-section.mainmenusection {
-  display: none;
-}
-
-.language-switcher {
-  font-family: Roboto,Arial,sans-serif;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  position: absolute !important;
-  z-index: 10;
-  right: 30px;
-  top: 12px;
-  display: none;
-}
+section.mainmenusection{display:none;}
+.language-switcher{font-family:Roboto,Arial,sans-serif;display:flex;align-items:center;margin:0;position:absolute!important;z-index:10;right:30px;top:12px;display:none;}
 @media (min-width: 1201px) and (max-width: 1600px) {
   .newfooter .newcontainer {
       width: 95% !important;
@@ -64,7 +41,6 @@ section.mainmenusection {
 .mobile-menu .logosvg img {
   max-width: 100%;
 }
-
 /* Mobile Styles */
 @media (max-width:6000px){
     body .headernew{position:absolute!important;z-index:11!important;}

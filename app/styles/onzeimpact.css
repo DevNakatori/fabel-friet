@@ -3,6 +3,7 @@
     0%{transform:rotate(3deg);}
     100%{transform:rotate(-3deg);}
 }
+.fifthesection{background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1e46b3 0%,#1c41a8 12.99%,#1b3e9e 23.44%,#193a95 31.71%,#18378d 38.19%,#163485 43.26%,#15317e 47.31%,#142f78 50.7%,#132c72 53.82%,#122a6c 57.05%,#112867 60.77%,#112662 65.35%,#10245d 71.19%,#0f2258 78.66%,#0e2053 88.13%,#0d1e4d 100%));-webkit-transition:background-color 0.5s ease;-o-transition:background-color 0.5s ease;transition:background-color 0.5s ease;}
 .wrapper-impact{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100vh;}
 .fifthesection 
 p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
@@ -19,7 +20,7 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
 #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:590px;-ms-flex-negative:0;flex-shrink:0;width:590px;position:relative;}
 #section5 .whitebgbox .whitewithvideomainbox .righttextbox{max-width:calc((100% - 557px) + 150px + 120px);margin-right:-120px;padding-left:0;width:inherit;}
 #section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4{overflow:hidden;color:#F6C738;text-overflow:ellipsis;white-space:normal;font-family:'Rufina',serif;font-size:clamp(20px,7vw,80px);font-style:normal;font-weight:700;line-height:85px;background:url('/app/assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;max-width:100%;opacity:1;text-align:left;margin:0;transform:translateY(0px);}
-#section5 .whitewithvideomainboxs{max-width:1708px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;padding-bottom:90px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;border-bottom:none;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:170px 0 90px;}
+#section5 .whitewithvideomainboxs{max-width:1708px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;padding-bottom:90px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;border-bottom:none;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:170px 0 20vh;}
 #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{max-width:874px;-ms-flex-negative:0;flex-shrink:0;width:50%;position:relative;}
 #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3{overflow:hidden;color:#F6C738;text-overflow:ellipsis;white-space:normal;font-family:'Rufina',serif;font-size:clamp(20px,7vw,80px);font-style:normal;font-weight:700;line-height:120%;background:url('/app/assets/resizeimgs/plain-gold-background.png');-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;max-width:100%;opacity:1;text-align:left;margin:0;transform:translateY(0px);max-width:642px;margin-bottom:40px;}
 #section5 .whitebgbox .whitewithvideomainboxs .righttextbox{max-width:735px;width:50%;padding-left:45px;position:relative;}
@@ -76,7 +77,7 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
     .fifthesection .gradient-purple h4{font-size:30px;}
     .fifthesection .gradient-purple p{font-size:12px;line-height:14px;max-width:315px;margin:15px auto;}
     .overlaybannehand-bottoms{background-image:url('/app/assets/resizeimgs/mobilepotatos.png');background-repeat:no-repeat no-repeat;background-position:center center;width:calc(100% + 150px);height:103px;left:0}
-    .fifthesection .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:32vh;margin-left:-75px;margin-right:-75px;}
+    .fifthesection .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:325px;margin-left:-75px;margin-right:-75px;}
     .fifthesection .gradient-threebox ul li{width:45%;height:auto;position:absolute;display:flex;justify-content:center;align-items:center;}
     .qrcodeimagebox,.binimageboxmain{display:none;}
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox,#section5 .whitebgbox .whitewithvideomainbox .leftvideobox{width:100%;}

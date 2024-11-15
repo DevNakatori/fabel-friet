@@ -67,7 +67,6 @@ button.skipvideo.hidden {display: none;}
     .de .roundtext h2{left:-15vw;}
     .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
     .bannerrotate_text{right:9vw;}
-
     .en .bannerrotate_text{right:4vw;}
     #section5 .whitewithvideomainboxs{padding: 170px 0 210px;}
 }
@@ -99,8 +98,8 @@ button.skipvideo.hidden {display: none;}
     .rightsidebullets{display:none;}
     .fourthsection .whitewithvideomainbox{margin:0;}
     .likeimagelist{display:none;}
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:60px;}
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:60px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:90px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:90px;}
     .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:530px;}
     .gradient-threebox ul li{width:355px;height:432px;position:absolute;display:flex;justify-content:center;align-items:center;}
     .fourthsection .gradient-threebox-menu ul li .bordrframe img{width:100%;padding:0;}
@@ -110,6 +109,8 @@ button.skipvideo.hidden {display: none;}
     .lefttiktoktext{position:absolute;left:-55px;width:100%;max-width:332px;bottom:-72px;display:flex;flex-direction:column;justify-content:center;}
     .righttiktoktext img{display:none;}
     .lefttiktoktext img{display:none;}
+    .banner_title_text h1 {font-size: clamp(20px,8vw,110px);}
+    .roundimages .bannersectinlogo{display: none;}.page.menumainppage
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
@@ -122,6 +123,7 @@ button.skipvideo.hidden {display: none;}
     .roundtext h3{right:-140px;}
     .roundtext h2{left:-180px;}
     .bannersectinlogo{display: none;}
+    .bottomsection{display: none;}
 }
 @media only screen and (max-device-width:935px) and (orientation:landscape){
     .mobilerotate{display:block;background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1E46B3 0%,#1C41A8 12.99%,#1B3E9E 23.44%,#193A95 31.71%,#18378D 38.19%,#163485 43.26%,#15317E 47.31%,#142F78 50.7%,#132C72 53.82%,#122A6C 57.05%,#112867 60.77%,#112662 65.35%,#10245D 71.19%,#0F2258 78.66%,#0E2053 88.13%,#0D1E4D 100%));width:100vw;height:100vh;position:fixed;z-index:9999;}

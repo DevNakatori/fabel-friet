@@ -32,8 +32,9 @@ const Onzeimpact = () => {
         start: 'center center',
         end: '+=150%',
         pin: true,
-        scrub: 1,
+        scrub: 0.5,
         markers: false,
+        smoothTouch: 0.1, // reduce smoothness for touch device
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),
@@ -373,34 +374,26 @@ const Onzeimpact = () => {
               data-aos-duration="2000"
             >
               {data.imageSection.image.map((img, index) => (
-    <li key={img._key} className="threeboxonzeimpactlist">
-      {index === 0 && (
-                        <div className="threeboxleftlogobar">
-                          <img
-                            src={fabelfrietsticker2}
-                            width="10"
-                            height="10"
-                          />
-                        </div>
-                      )}
+                <li key={img._key} className="threeboxonzeimpactlist">
+                  {index === 0 && (
+                    <div className="threeboxleftlogobar">
+                      <img src={fabelfrietsticker2} width="10" height="10" />
+                    </div>
+                  )}
 
-                      {index === 1 && (
-                        <div className="threeboxleftlogobar lastbottomimg">
-                          <img
-                            src={fabelfrie_bottomlogo}
-                            width="10"
-                            height="10"
-                          />
-                        </div>
-                      )}
-      <img
-        src={getImageUrl(img.image.asset._ref)}
-        alt="Descriptive Alt Text"
-        width="10"
-        height="10"
-      />
-    </li>
-  ))}
+                  {index === 1 && (
+                    <div className="threeboxleftlogobar lastbottomimg">
+                      <img src={fabelfrie_bottomlogo} width="10" height="10" />
+                    </div>
+                  )}
+                  <img
+                    src={getImageUrl(img.image.asset._ref)}
+                    alt="Descriptive Alt Text"
+                    width="10"
+                    height="10"
+                  />
+                </li>
+              ))}
             </ul>
           </div>
           <div className="whitebgbox">
@@ -605,7 +598,7 @@ const Onzeimpact = () => {
                       alt="Bin Imagebox"
                       width="10"
                       height="10"
-                      className='swingss'
+                      className="swingss"
                     />
                   </div>
                 </div>

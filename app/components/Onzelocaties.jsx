@@ -32,8 +32,9 @@ const Onzelocaties = () => {
         start: 'center center',
         end: '+=150%',
         pin: true,
-        scrub: 1,
+        scrub: 0.5,
         markers: false,
+        smoothTouch: 0.1, // reduce smoothness for touch device
         // onEnter: () => document.body.classList.remove('scrolled'),
         // onLeave: () => document.body.classList.add('scrolled'),
         // onEnterBack: () => document.body.classList.remove('scrolled'),
@@ -48,6 +49,7 @@ const Onzelocaties = () => {
         ease: 'power1.inOut',
         scrub: true,
         //zIndex: 5,
+        ease: 'power2.out', // smooth ease
       },
       0,
     );
@@ -131,7 +133,7 @@ const Onzelocaties = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="panel thirdesection" id="section3">
+    <section className="panel thirdesection" id="section3" data-speed-x="1.2">
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
           <div className="wrapper-onzelocation">
@@ -209,7 +211,6 @@ const Onzelocaties = () => {
                         clickable: true,
                       }}
                       slidesPerView={1.5}
-                      
                       centeredSlides={true}
                       autoplay={{
                         delay: 2500,
@@ -220,7 +221,7 @@ const Onzelocaties = () => {
                           spaceBetween: 10,
                           slidesPerView: 1.5,
                           centeredSlides: true,
-                          loop:true,
+                          loop: true,
                         },
                         768: {
                           slidesPerView: 1,
@@ -322,8 +323,8 @@ const Onzelocaties = () => {
                             src={getImageUrl(loc.image.asset._ref)}
                             alt={loc.image.alt}
                             width="10"
-                            height="10" 
-                            className='whitewithvideomainboximg'
+                            height="10"
+                            className="whitewithvideomainboximg"
                           />
                         </div>
                         <div
