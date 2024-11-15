@@ -52,6 +52,18 @@ const Onzeimpact = () => {
       0,
     );
 
+    timelineimpact.to('.fifthesection .wrappertest', {
+      scrollTrigger: {
+        trigger: '.fifthesection',
+        start: '10% 10%',
+        end: '30% 30%',
+        scrub: true,
+        once: true,
+      },
+      borderRadius: '0vw 0vw 0px 0px',
+      ease: 'power1.inOut',
+    });
+
     timelineimpact.to(
       '#section5 .section.hero',
       {
@@ -79,17 +91,7 @@ const Onzeimpact = () => {
       0, // Start this animation at the same time as the previous one
     );
 
-    timelineimpact.to('.fifthesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.fifthesection',
-        start: '10% 10%',
-        end: '30% 30%',
-        scrub: true,
-        once: true,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+    
 
     gsap.fromTo(
       '.fifthesection .gradient-threebox',
