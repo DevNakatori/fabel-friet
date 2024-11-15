@@ -110,7 +110,7 @@ button.skipvideo.hidden {display: none;}
     .righttiktoktext img{display:none;}
     .lefttiktoktext img{display:none;}
     .banner_title_text h1 {font-size: clamp(20px,8vw,110px);}
-    .roundimages .bannersectinlogo{display: none;}.page.menumainppage
+    .roundimages .bannersectinlogo{display: none;}
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
