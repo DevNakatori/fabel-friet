@@ -55,7 +55,7 @@
 .onlymobile{display:none!important;}
 .onlydesktop{display:block!important;}
 .appcontainers {
-    padding-bottom: 70px;
+    padding-bottom: 0px;
 }
 .appcontainers .onlydesktop:last-child .whitewithvideomainbox {
     border-bottom: none;
