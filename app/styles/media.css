@@ -98,7 +98,8 @@ button.skipvideo.hidden {display: none;}
     .rightsidebullets{display:none;}
     .fourthsection .whitewithvideomainbox{margin:0;}
     .likeimagelist{display:none;}
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:90px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg,
+    .fifthesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:90px;}
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:90px;}
     .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:530px;}
     .gradient-threebox ul li{width:355px;height:432px;position:absolute;display:flex;justify-content:center;align-items:center;}
