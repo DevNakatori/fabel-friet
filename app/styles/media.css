@@ -115,6 +115,11 @@ button.skipvideo.hidden {display: none;}
     .menu-open .headernew {
         z-index: 999;
     }
+    .en .sixthsection .roundtext-getintouch h3 {
+        max-width: 315px;
+        right: -300px;
+        bottom: -78px;
+    }
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
