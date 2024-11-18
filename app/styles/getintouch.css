@@ -196,7 +196,7 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .righttiktoktext{position:relative;right:0;width:100%;max-width:332px;bottom:0;display:flex;flex-direction:column;justify-content:center;}
     .lefttiktoktext img{display:none;}
     .righttiktoktext img{display:none;}
-    .whatsappbuttonarrow img{position:absolute;right:0px;top:-5px;}
+    .whatsappbuttonarrow img {position: absolute;right: 0px;top: 0;width: 80px;}
     .lefttiktoktext,.righttiktoktext{display:none;}
     .bottomwhatsapp{border-bottom:solid 1px #0D1E4D;padding-bottom:0;margin-bottom:15px;margin-top:10px;width:100%;}
     .righttextbox .locationbox h6{margin-bottom:15px;font-size:20px;}
@@ -206,4 +206,18 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .sixthsection .gradient-purple p{margin: 15px 0;}
     .sixthsection #onzefriendescriptiononzefriet p.onzefriendescription {display: none;}
     .de .whatsappbuttonarrow img {position: absolute;right: -27px;top: -5px;}
+}
+
+@media (max-width:390px){
+.sixthsection .gradient-threebox ul li {
+    width: 52%;
+    height: 380px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 15px;
+}
 }

@@ -152,7 +152,7 @@ const Qrmenu = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (tabsRef.current) {
-        if (window.scrollY > tabsRef.current.offsetTop) {
+        if (window.scrollY > tabsRef.current.offsetTop + 50) {
           tabsRef.current.classList.add('sticky');
         } else {
           tabsRef.current.classList.remove('sticky');
