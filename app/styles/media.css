@@ -112,6 +112,9 @@ button.skipvideo.hidden {display: none;}
     .lefttiktoktext img{display:none;}
     .banner_title_text h1 {font-size: clamp(20px,8vw,110px);}
     .roundimages .bannersectinlogo{display: none;}
+    .menu-open .headernew {
+        z-index: 999;
+    }
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
@@ -125,6 +128,9 @@ button.skipvideo.hidden {display: none;}
     .roundtext h2{left:-180px;}
     .bannersectinlogo{display: none;}
     .bottomsection{display: none;}
+    .menu-open .headernew {
+        z-index: 999;
+    }
 }
 @media only screen and (max-device-width:935px) and (orientation:landscape){
     .mobilerotate{display:block;background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1E46B3 0%,#1C41A8 12.99%,#1B3E9E 23.44%,#193A95 31.71%,#18378D 38.19%,#163485 43.26%,#15317E 47.31%,#142F78 50.7%,#132C72 53.82%,#122A6C 57.05%,#112867 60.77%,#112662 65.35%,#10245D 71.19%,#0F2258 78.66%,#0E2053 88.13%,#0D1E4D 100%));width:100vw;height:100vh;position:fixed;z-index:9999;}

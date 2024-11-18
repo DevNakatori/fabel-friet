@@ -42,6 +42,7 @@ const Qrmenuheader = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+    document.body.classList.toggle('menu-open');
   };
 
   // Close the mobile menu if clicked outside
@@ -51,6 +52,7 @@ const Qrmenuheader = () => {
       !mobileMenuRef.current.contains(event.target)
     ) {
       setMobileMenuOpen(false);
+      document.body.classList.remove('menu-open');
     }
   };
 
