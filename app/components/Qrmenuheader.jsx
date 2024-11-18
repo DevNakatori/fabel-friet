@@ -170,7 +170,10 @@ const Qrmenuheader = () => {
         >
           <button
             className="close-menu"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              document.body.classList.remove('menu-open');
+            }}
             aria-label="Close menu"
           >
             <svg
