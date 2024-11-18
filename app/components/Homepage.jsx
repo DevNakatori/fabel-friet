@@ -113,7 +113,7 @@ const HomePage = () => {
       setHasScrolled(true);
       gsap.to('.scrollmeater', {
         duration: 1,
-        y: '-130px', 
+        y: '-225px', 
         ease: 'power2.out',
       });
     }
@@ -130,6 +130,9 @@ const HomePage = () => {
       document.body.classList.remove('hiddenoverflow');
       videos.classList.add('hidden');
       skipbuttons.classList.add('hidden');
+      document.querySelector('.progress-bar-container').classList.add('hidden');
+      document.querySelector('.scrollmeater').classList.add('hidden');
+
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -397,6 +400,8 @@ const HomePage = () => {
       video.classList.add('hidden');
       const skipbuttons = document.getElementById('skipvideobtn');
       skipbuttons.classList.add('hidden');
+      document.querySelector('.progress-bar-container').classList.add('hidden');
+      document.querySelector('.scrollmeater').classList.add('hidden');
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
