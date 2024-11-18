@@ -100,8 +100,6 @@ const Onzefriet = () => {
       0, // Start this animation at the same time as the previous one
     );
 
-    
-
     // gsap.fromTo(
     //   '.allfiressections img',
     //   {y: -50, opacity: 0},
@@ -467,7 +465,7 @@ const Onzefriet = () => {
                 <ul>
                   {content.contentSection.three_image.map((image, index) => (
                     <li key={image._key} className="onzefritimgli">
-                      {index === 1 && (
+                      {index === 0 && (
                         <div className="threeboxleftlogobar">
                           <img
                             src={fabelfrietsticker2}
@@ -479,7 +477,7 @@ const Onzefriet = () => {
                       )}
 
                       {index === 1 && (
-                        <div className="threeboxleftlogobar lastbottomimg">
+                        <div className="threeboxleftlogobar lastbottomimg ">
                           <img
                             src={fabelfrie_bottomlogo}
                             alt={image.alt}
@@ -488,6 +486,7 @@ const Onzefriet = () => {
                           />
                         </div>
                       )}
+
                       <img
                         src={getImageUrl(image.asset._ref)}
                         alt={image.alt}
