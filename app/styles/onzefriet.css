@@ -311,5 +311,12 @@ background: transparent;
                     .secondesection .gradient-purple h4 {margin: 50px 0 10px;}
                     .secondesection .whitewithvideomainbox{padding-top: 120px;}
                     .accordion-header .icon{right:0;}
-                    #section2 .wrappertest,#section3 .wrappertest,#section4 .wrappertest,#section5 .wrappertest,#section6 .wrappertest{z-index: 99;}
+                    #section2.active .wrappertest,
+                    #section3.active .wrappertest,
+                    #section4.active .wrappertest,
+                    #section5.active .wrappertest,
+                    #section6.active .wrappertest{z-index: 99;}
                 }
+
+
+                
