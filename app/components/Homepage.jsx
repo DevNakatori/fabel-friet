@@ -114,7 +114,7 @@ const HomePage = () => {
       gsap.to('.scrollmeater', {
         duration: 1,
         y: '-225px', 
-        ease: 'power2.out',
+        ease: 'bounce.out',
       });
     }
   };
