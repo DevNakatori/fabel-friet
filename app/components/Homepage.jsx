@@ -29,6 +29,9 @@ const HomePage = () => {
   const [error, setError] = useState(null);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
+  const [progressBarWidth, setProgressBarWidth] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
   const [loadings, setLoadings] = useState(true);
 
   const [currentLanguage, setCurrentLanguage] = useState(language);
@@ -102,6 +105,21 @@ const HomePage = () => {
   }, [language]);
   /* data fatched */
 
+  const handleTimeUpdate = (e) => {
+    const video = e.target;
+    const percentage = (video.currentTime / video.duration) * 100;
+    setProgressBarWidth(percentage);
+    if (percentage >= 50 && !hasScrolled) {
+      setHasScrolled(true);
+      gsap.to('.scrollmeater', {
+        duration: 1,
+        y: '-130px', 
+        ease: 'power2.out',
+      });
+    }
+  };
+
+  
   const handleSkipVideo = () => {
     const videos = document.getElementById('myVideo');
     const skipbuttons = document.getElementById('skipvideobtn');
@@ -379,7 +397,6 @@ const HomePage = () => {
       video.classList.add('hidden');
       const skipbuttons = document.getElementById('skipvideobtn');
       skipbuttons.classList.add('hidden');
-
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
@@ -664,8 +681,26 @@ const HomePage = () => {
             autoPlay
             muted
             playsInline
+            onTimeUpdate={handleTimeUpdate}
           />
         )}
+
+        <div className="progress-bar-container">
+          <div
+              className="progress-bar"
+              style={{ width: `${progressBarWidth}%` }}
+          ></div>
+        </div>
+
+        <div className='scrollmeater'>
+            <div className='maskimg'>
+            <img
+              src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
+              alt={bannerData[0].bannerLogo.alt}
+            />
+            </div>   
+        </div>
+
         <button id="skipvideobtn" className='skipvideo' onClick={handleSkipVideo}>
           <i className='skipicon'>
         <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1">
