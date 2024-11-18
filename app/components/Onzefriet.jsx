@@ -225,8 +225,10 @@ const Onzefriet = () => {
         const mobileTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: '.secondesection .wrappertest',
-            start: 'top top',
-            end: 'center center',
+            // start: 'top top',
+            // end: 'center center',
+            start: '10 20',
+            //end: 'bottom bottom',
             markers: false,
           },
         });
@@ -236,7 +238,7 @@ const Onzefriet = () => {
           {bottom: '-30vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
-            duration: 1,
+            duration: 0.3,
             opacity: 1,
           },
         );
@@ -244,8 +246,8 @@ const Onzefriet = () => {
         const mobileImageLeft = gsap.timeline({
           scrollTrigger: {
             trigger: '.secondesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
+            //start: 'top top',
+            //end: 'bottom top',
           },
         });
 
@@ -269,8 +271,8 @@ const Onzefriet = () => {
         const mobileImageRight = gsap.timeline({
           scrollTrigger: {
             trigger: '.secondesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
+//start: 'top top',
+           // end: 'bottom top',
           },
         });
 
