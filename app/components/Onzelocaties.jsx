@@ -213,8 +213,8 @@ const Onzelocaties = () => {
                       pagination={{
                         clickable: true,
                       }}
-                      slidesPerView={1.5}
-                      centeredSlides={true}
+                      slidesPerView={1}
+                      centeredSlides={false}
                       autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
@@ -222,19 +222,19 @@ const Onzelocaties = () => {
                       breakpoints={{
                         640: {
                           spaceBetween: 10,
-                          slidesPerView: 1.5,
-                          centeredSlides: true,
+                          slidesPerView: 1,
+                          centeredSlides: false,
                           loop: true,
                         },
                         768: {
                           slidesPerView: 1,
                           spaceBetween: 30,
-                          centeredSlides: true,
+                          centeredSlides: false,
                         },
                         1024: {
                           slidesPerView: 1,
                           spaceBetween: 30,
-                          centeredSlides: true,
+                          centeredSlides: false,
                         },
                       }}
                       modules={[Pagination]}
