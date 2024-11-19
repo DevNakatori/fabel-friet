@@ -13,11 +13,16 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
     setTimeout(() => {
-     
-      window.scrollTo(0, 0);
-      //document.getElementById('loadersitetrans').style.display = 'none';
-      window.location.reload();
+      if (window.location.pathname !== '/pages/menu') {
+        // Your code if the path is not '/pages/menu'
+        window.scrollTo(0, 0);
+        window.location.reload();
+      } else {
+        // This block runs only when the URL path is '/pages/menu'
+        
+      }
     }, 1500);
+    
     
   };
 

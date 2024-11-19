@@ -94,20 +94,6 @@ export default function Homepage() {
     });
 
    // AOS.refresh();
-
-    const scrollToSection = (hash) => {
-      const section = document.querySelector(hash);
-      if (section) {
-        section.scrollIntoView({behavior: 'smooth'});
-      }
-    };
-
-    if (window.location.hash) {
-      setTimeout(() => {
-        scrollToSection(window.location.hash);
-        document.body.classList.remove('hiddenoverflow');
-      }, 6500);
-    }
   }, []);
 
   const [showHomePage, setShowHomePage] = useState(false);
@@ -191,7 +177,7 @@ export default function Homepage() {
       setTimeout(() => {
         //scrollToSection(window.location.hash);
         window.location.reload();
-      }, 2000);
+      }, 2500);
     }
   }, []);
 
