@@ -201,7 +201,7 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .bottomwhatsapp{border-bottom:solid 1px #0D1E4D;padding-bottom:0;margin-bottom:15px;margin-top:10px;width:100%;}
     .righttextbox .locationbox h6{margin-bottom:15px;font-size:20px;}
     .newfooter .newcontainer .footerblock ul li a svg{width:13px;height:13px;display:block;}
-    .accordion-header.active .icon{transform:rotate(180deg);right:-38px!important;}
+    .accordion-header.active .icon{transform:rotate(180deg);right:8px!important;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers .whitewithvideomainboxss .leftvideobox  h4{font-size:20px;}
     .sixthsection .gradient-purple p{margin: 15px 0;}
     .sixthsection #onzefriendescriptiononzefriet p.onzefriendescription {display: none;}
