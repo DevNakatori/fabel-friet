@@ -13,9 +13,10 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
     setTimeout(() => {
-      //window.location.reload();
+     
       window.scrollTo(0, 0);
       //document.getElementById('loadersitetrans').style.display = 'none';
+      window.location.reload();
     }, 1500);
     
   };
