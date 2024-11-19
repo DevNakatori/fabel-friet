@@ -93,7 +93,7 @@ export default function Homepage() {
       throttleDelay: 99,
     });
 
-    AOS.refresh();
+   // AOS.refresh();
 
     const scrollToSection = (hash) => {
       const section = document.querySelector(hash);
@@ -189,7 +189,8 @@ export default function Homepage() {
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-        scrollToSection(window.location.hash);
+        //scrollToSection(window.location.hash);
+        window.location.reload();
       }, 2000);
     }
   }, []);
