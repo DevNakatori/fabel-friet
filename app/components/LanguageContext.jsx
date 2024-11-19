@@ -12,12 +12,11 @@ export const LanguageProvider = ({ children }) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
-    window.scrollTo(0, 0);
-    document.getElementById('loadersitetrans').style.display = 'flex';
     setTimeout(() => {
-      window.location.reload();
-      document.getElementById('loadersitetrans').style.display = 'none';
-    }, 1000);
+      //window.location.reload();
+      window.scrollTo(0, 0);
+      //document.getElementById('loadersitetrans').style.display = 'none';
+    }, 1500);
     
   };
 
