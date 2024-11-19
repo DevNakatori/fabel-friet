@@ -100,3 +100,17 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox,#section5 .whitebgbox .whitewithvideomainbox .leftvideobox{display:none;}
     #section5 .whitebgbox{width:calc(100% + 50px);padding:0 25px;}
 }
+
+
+@media (min-width:470px) and (max-width:476px){
+.secondesection .gradient-threebox ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    overflow: hidden;
+    height: 315px;
+    margin-left: -75px;
+    margin-right: -75px;
+}
+}

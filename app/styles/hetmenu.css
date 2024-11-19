@@ -237,10 +237,11 @@
     .fourthsection .appcontainers{padding-bottom:0;}
     .fourthsection .whitewithvideomainbox{padding:0px 40px 0;width:calc(100% + 70px);margin:30px -35px 0;flex-wrap:wrap;order:4;}
     .allfiressectionsmenu{display: none;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px;    font-style: italic; /* 131.25% */margin-left: 0;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px;    font-style: italic; /* 131.25% */margin-left: 0;display: block;width: 100%;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext svg {width: 12px;height: 12px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span small,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span small,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color: #FFF;font-size: 6.679px;font-style: normal;font-weight: 400;line-height: 8.766px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;}
 
 }
