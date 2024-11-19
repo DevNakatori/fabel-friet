@@ -608,6 +608,21 @@ const HomePage = () => {
           delay: 5.5,
         },
       );
+
+      const scrollToSection = (hash) => {
+        const section = document.querySelector(hash);
+        if (section) {
+          section.scrollIntoView({behavior: 'smooth'});
+        }
+      };
+  
+      if (window.location.hash) {
+        setTimeout(() => {
+          scrollToSection(window.location.hash);
+          document.body.classList.remove('hiddenoverflow');
+        }, 0);
+      }
+
     };
 
     if (video) {
