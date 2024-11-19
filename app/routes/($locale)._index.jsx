@@ -106,7 +106,7 @@ export default function Homepage() {
       setTimeout(() => {
         scrollToSection(window.location.hash);
         document.body.classList.remove('hiddenoverflow');
-      }, 1800);
+      }, 6500);
     }
   }, []);
 
