@@ -40,7 +40,7 @@ const MenuSection = ({id, title, subTitle, menuData}) => {
           </section>
         ))
       ) : (
-        <div>No {title} data available.</div>
+        <div></div>
       )}
     </div>
   );
@@ -72,6 +72,7 @@ const Qrmenu = () => {
           console.log('Fetched menu data:', data);
           const menu = data[0] || {
             tabContant: {friet: [], snacks: [], drinks: []},
+            tabs: []
           };
           localStorage.setItem(`qrmenu_${language}`, JSON.stringify(menu));
           setMenuData(menu);
@@ -173,6 +174,10 @@ const Qrmenu = () => {
     return <div>{error}</div>;
   }
 
+  // Safely map over the tabs if they exist
+  const tabs = menuData.tabs || [];
+
+
   return (
     <div className="page menumainppage">
       <section
@@ -180,45 +185,45 @@ const Qrmenu = () => {
         style={{backgroundImage: `url(${Fabel3DPreview})`}}
       >
         <div className="landingcontainer">
-          <h2>Dear customers</h2>
-          <p>
-            We kindly ask you to respect our neighbours by not eating your fries
-            in front of their house. Instead, find a nice spot by the canal.
-          </p>
-          <p>Thank you for your understanding and cooperation!</p>
+          <h2>{menuData.qrcustomertitle}</h2>
+          <div dangerouslySetInnerHTML={{ __html: menuData.qrcustomerdescription }} />
           <button ref={buttonRef} className="okunderstood">
-            Ok, understood
+            {menuData.qrcustomerTitle}
           </button>
         </div>
       </section>
 
       <section className="mainmenusection">
         <div className="topmenublock">
-          <h1>Menu</h1>
+          <h1>{menuData.title}</h1>
           <p>
-            <i className="qrinfo"></i>Click on the information button behind
-            each item to view allergens
+            <i className="qrinfo"></i>{menuData.subTitle}
           </p>
           <div className="tabs" ref={tabsRef}>
-            {['Fries', 'Snacks', 'Drinks'].map((label, index) => {
-              const sectionId =
-                label.toLowerCase() === 'all'
-                  ? 'fries-section'
-                  : `${label.toLowerCase()}-section`;
-              return (
-                <button key={label} className={index === 0 ? 'active' : ''}>
-                  <a
-                    href={`#${sectionId}`}
-                    className="menubuttonlink"
-                    onClick={(e) =>
-                      handleMenuItemClick(e, e.target.getAttribute('href'))
-                    }
-                  >
-                    {label}
-                  </a>
-                </button>
-              );
-            })}
+            {/* Render the tabs only if there are tabs available */}
+            {tabs.length > 0 ? (
+              tabs.map((tab, index) => {
+                const sectionId =
+                  tab.lable.toLowerCase() === 'alle'
+                    ? 'fries-section'
+                    : `${tab.lable.toLowerCase()}-section`;
+                return (
+                  <button key={tab._key} className={index === 0 ? 'active' : ''}>
+                    <a
+                      href={`#${sectionId}`}
+                      className="menubuttonlink"
+                      onClick={(e) =>
+                        handleMenuItemClick(e, e.target.getAttribute('href'))
+                      }
+                    >
+                      {tab.lable}
+                    </a>
+                  </button>
+                );
+              })
+            ) : (
+              <p>No tabs available</p>
+            )}
           </div>
         </div>
 
@@ -231,18 +236,24 @@ const Qrmenu = () => {
               subTitle="Our delicious fries!"
               menuData={menuData.tabContant.friet}
             />
-            <MenuSection
-              id="snacks-section"
-              title="Snacks"
-              subTitle="Tasty snacks to pair"
-              menuData={menuData.tabContant.snacks}
-            />
-            <MenuSection
-              id="drinks-section"
-              title="Drinks"
-              subTitle="Refreshing drinks"
-              menuData={menuData.tabContant.drinks}
-            />
+{tabs.map((tab, index) => (
+    <MenuSection
+      key={tab._key}
+      id={`${tab.lable.toLowerCase()}-section`} // Dynamically set the id
+      title={tab.lable} // Use the tab label dynamically
+      subTitle="Description of the section"
+      menuData={menuData.tabContant[tab.lable.toLowerCase()] || []} // Dynamically access the correct menu data
+    />
+  ))}
+{tabs.map((tab, index) => (
+    <MenuSection
+      key={tab._key}
+      id={`${tab.lable.toLowerCase()}-section`} // Dynamically set the id
+      title={tab.lable} // Use the tab label dynamically
+      subTitle="Description of the section"
+      menuData={menuData.tabContant[tab.lable.toLowerCase()] || []} // Dynamically access the correct menu data
+    />
+  ))}
           </div>
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>

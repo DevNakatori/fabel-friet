@@ -223,14 +223,15 @@
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{font-size:12.523px;font-style:normal;font-weight:700;line-height:normal;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone{border:0.626px solid #FFF;padding:12px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:0.626px solid #FFF;padding:12px;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-size:8.766px;font-style:normal;font-weight:400;line-height:normal;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-size:8.766px;font-style:normal;font-weight:400;line-height:normal;display: flex
+        ;align-items: center;align-content: center;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-size:7.305px;font-style:normal;font-weight:700;line-height:normal;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:16px!important;margin-bottom:16px!important;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-size:12.523px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px; /* 131.25% */}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary:before{width:10px;height:10px;top:4px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary:before {width: 10px;height: 10px;top: 50%;position: absolute;transform: translateY(-50%);}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{color:#FFF;font-size:6.679px;font-style:normal;font-weight:400;line-height:8.766px; /* 131.25% */}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{padding-left:10px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{position: relative;padding-left:10px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-size:6.262px;font-style:normal;font-weight:400;line-height:normal;margin-top:10px;}
     .fourthsection section.menu-section:last-child{margin-bottom:0;margin-top:0;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2{margin-bottom:15px;}

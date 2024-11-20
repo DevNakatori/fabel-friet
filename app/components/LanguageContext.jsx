@@ -13,7 +13,7 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`);  // Log language change here
     setTimeout(() => {
-      if (window.location.pathname !== '/pages/menu') {
+      if (window.location.pathname !== '/pages/menu' && window.location.pathname !== '/pages/franchise') {
         // Your code if the path is not '/pages/menu'
         window.scrollTo(0, 0);
         window.location.reload();
