@@ -190,7 +190,7 @@ export default function Homepage() {
     } else {
       console.log('Landscape');
     }
-  })
+})
   }, []);
 
   return (
