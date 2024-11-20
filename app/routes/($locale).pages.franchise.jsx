@@ -6,8 +6,8 @@ import LanguageSwitcher from '~/components/LanguageSwitcher';
 import Newfooter from '~/components/Newfooter';
 import gsap from 'gsap';
 import Newfootermenu from '~/components/Newfootermenu';
-import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
 import Qrmenuheader from '~/components/Qrmenuheader';
+import Franchise from '~/components/Franchise';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -53,33 +53,8 @@ export default function Page() {
       <div className="page menumainppage franchise">
         {/* <main dangerouslySetInnerHTML={{__html: page.body}} /> */}
         {/* qr code menu header */}
-        <section className="header"></section>
         {/* qr code menu main content */}
-        <section
-          className="menulanding"
-          style={{backgroundImage: `url(${Fabel3DPreview})`}}
-        >
-          <div className="landingcontainer">
-            <h2>franchise</h2>
-            <p>
-              We are incredibly proud that many of our customers are so
-              enthusiastic about our fries that they want to open a Fabel Friet
-              themselves. We see that as the ultimate compliment! For now,
-              however, we have chosen to focus entirely on our locations in
-              Amsterdam. We believe in maintaining exclusivity and want Fabel
-              Friet to remain something special, for you and all other chip
-              lovers.
-            </p>
-            <p>
-              Franchising? That sounds exciting! If that ever comes on our
-              agenda, we will definitely let you know on this page. Until then,
-              everyone can enjoy our fresh, artisanal fries at one of our
-              locations!
-            </p>
-            <p>Thank you for your understanding and cooperation!</p>
-            {/* <button className="okunderstood">Ok, understood</button> */}
-          </div>
-        </section>
+        <Franchise/>
         {/* qr code menu footer */}
         <section className="footer">
           <Newfootermenu />

@@ -1,5 +1,5 @@
 import {defer} from '@shopify/remix-oxygen';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef } from 'react';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Routes, Route} from 'react-router-dom';
@@ -183,27 +183,33 @@ export default function Homepage() {
 
 
   const [isLandscape, setIsLandscape] = useState(false);
-  const [hasReloaded, setHasReloaded] = useState(false); 
+  const reloadTriggered = useRef(false); 
+
   const handleOrientationChange = () => {
-    if (window.matchMedia("(orientation: landscape)").matches) {
-      setIsLandscape(true);
-    } else {
-      setIsLandscape(false);
+    if (window.matchMedia("(max-width: 1024px)").matches) {  
+      if (window.matchMedia("(orientation: landscape)").matches) {
+        setIsLandscape(true);
+      } else {
+        setIsLandscape(false);
+      }
     }
   };
+
   const handleOrientationChangeAndReload = () => {
-    if (!hasReloaded) {
-      setHasReloaded(true); 
+    if (!reloadTriggered.current && window.matchMedia("(max-width: 1024px)").matches) {
+      reloadTriggered.current = true; 
       window.location.reload(); 
     }
   };
+
   useEffect(() => {
-    handleOrientationChange();
+    handleOrientationChange(); 
     window.addEventListener('resize', handleOrientationChangeAndReload);
+
     return () => {
       window.removeEventListener('resize', handleOrientationChangeAndReload);
     };
-  }, [hasReloaded]);
+  }, []);
 
   return (
     <div className="home">

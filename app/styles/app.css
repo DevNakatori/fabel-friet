@@ -421,3 +421,9 @@ summary:before{width:15px;height:15px;top:0;}
 .page.menumainppage.franchise section.menulanding .landingcontainer {
   padding: 15% 0;
 }
+
+.page.menumainppage.franchise section.menulanding {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
