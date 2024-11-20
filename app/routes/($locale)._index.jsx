@@ -181,34 +181,16 @@ export default function Homepage() {
     }
   }, []);
 
-
-  const [isLandscape, setIsLandscape] = useState(false);
-  const reloadTriggered = useRef(false); 
-
-  const handleOrientationChange = () => {
-    if (window.matchMedia("(max-width: 1024px)").matches) {  
-      if (window.matchMedia("(orientation: landscape)").matches) {
-        setIsLandscape(true);
-      } else {
-        setIsLandscape(false);
-      }
-    }
-  };
-
-  const handleOrientationChangeAndReload = () => {
-    if (!reloadTriggered.current && window.matchMedia("(max-width: 1024px)").matches) {
-      reloadTriggered.current = true; 
-      window.location.reload(); 
-    }
-  };
-
   useEffect(() => {
-    handleOrientationChange(); 
-    window.addEventListener('resize', handleOrientationChangeAndReload);
-
-    return () => {
-      window.removeEventListener('resize', handleOrientationChangeAndReload);
-    };
+    let portrait = window.matchMedia("(orientation: portrait)");
+    portrait.addEventListener("change", function(e) {
+    if(e.matches) {    
+        console.log('Portrait mode');
+        window.location.reload();
+    } else {
+      console.log('Landscape');
+    }
+  })
   }, []);
 
   return (
