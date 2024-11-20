@@ -71,7 +71,7 @@ const Franchise = () => {
           <div className="landingcontainer">
             <h2>{franchiseData.Franchise.franchisetitle}</h2>
             {/* {franchiseData.Franchise.franchisedescription} */}
-            <div dangerouslySetInnerHTML={{ __html: franchiseData.Franchise.franchisedescription }} />
+            <p dangerouslySetInnerHTML={{ __html: franchiseData.Franchise.franchisedescription }} />
           </div>
         </section>
       </div>
