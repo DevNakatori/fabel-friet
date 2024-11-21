@@ -1,29 +1,31 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-
+import React, {createContext, useContext, useState, useEffect} from 'react';
 
 const LanguageContext = createContext();
 
 export const useLanguage = () => useContext(LanguageContext);
 
-export const LanguageProvider = ({ children }) => {
+export const LanguageProvider = ({children}) => {
   const [language, setLanguage] = useState('nl'); // Default language
   const switchLanguage = (lang) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
-    console.log(`Language changed to: ${lang}`);  // Log language change here
+    console.log(`Language changed to: ${lang}`); // Log language change here
+    const url = new URL(window.location);
+    url.searchParams.set('lang', lang); 
+    window.history.pushState({}, '', url);
+
     setTimeout(() => {
-      if (window.location.pathname !== '/pages/menu' && window.location.pathname !== '/pages/franchise') {
+      if (
+        window.location.pathname !== '/pages/menu' &&
+        window.location.pathname !== '/pages/franchise'
+      ) {
         // Your code if the path is not '/pages/menu'
         window.scrollTo(0, 0);
         window.location.reload();
       } else {
         // This block runs only when the URL path is '/pages/menu'
-        
       }
     }, 1500);
-    
-    
   };
 
   // Detect language on mount
@@ -42,20 +44,20 @@ export const LanguageProvider = ({ children }) => {
         try {
           const response = await fetch('https://ipapi.co/json/');
           const data = await response.json();
-          const country = data.country_code; 
-          
+          const country = data.country_code;
+
           if (country === 'NL') {
-            switchLanguage('nl'); 
+            switchLanguage('nl');
           } else if (country === 'FR') {
             switchLanguage('fr');
           } else if (country === 'DE') {
-            switchLanguage('de'); 
+            switchLanguage('de');
           } else {
-            switchLanguage('en');
+            switchLanguage('nl');
           }
         } catch (error) {
           console.error('Error fetching location:', error);
-          switchLanguage('en'); 
+          switchLanguage('nl');
         }
       }
     };
@@ -71,7 +73,7 @@ export const LanguageProvider = ({ children }) => {
   // }, [language]); // This will run every time the `language` state changes
 
   return (
-    <LanguageContext.Provider value={{ language, switchLanguage }}>
+    <LanguageContext.Provider value={{language, switchLanguage}}>
       {children}
     </LanguageContext.Provider>
   );

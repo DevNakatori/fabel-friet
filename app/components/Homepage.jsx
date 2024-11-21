@@ -74,6 +74,7 @@ const HomePage = () => {
     const fetchData_HomePage = async () => {
       const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
+      
       if (cachedData) {
         setBanner(JSON.parse(cachedData));
         setLoading(false);
@@ -83,14 +84,17 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            {lang: language},
+            { lang: language }
           );
-          // console.log('Fetched Data:', data);
-          localStorage.setItem(
-            `homeBannerData_${language}`,
-            JSON.stringify(data),
-          );
-          setBanner(data);
+          if (data && data.length > 0) {
+            document.querySelector('.language-switcher').classList.add('nomorelanguage');
+            console.log(`Fetched Data for language ${language}:`, data);
+    
+            localStorage.setItem(`homeBannerData_${language}`, JSON.stringify(data));
+            setBanner(data);
+          } else {
+            console.log(`No data found for language: ${language}`);
+          }
         } catch (err) {
           console.error('Error fetching data:', err);
           setError('Failed to load data');
@@ -100,7 +104,7 @@ const HomePage = () => {
         }
       }
     };
-
+    
     fetchData_HomePage();
   }, [language]);
   /* data fatched */

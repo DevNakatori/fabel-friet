@@ -2,7 +2,7 @@
 body>main{margin:0!important;}
 img{max-width:100%;}
 a:hover{text-decoration:none;}
-
+.language-switcher.nomorelanguage {display: none !important;}
 /* reset css */
 
 /* loader */
