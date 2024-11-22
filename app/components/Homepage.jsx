@@ -87,6 +87,10 @@ const HomePage = () => {
             { lang: language }
           );
           if (data && data.length > 0) {
+            setTimeout(() => {
+              //scrollToSection(window.location.hash);
+              window.location.reload();
+            }, 500);
             document.querySelector('.language-switcher').classList.add('nomorelanguage');
             console.log(`Fetched Data for language ${language}:`, data);
     
