@@ -90,8 +90,11 @@ const HomePage = () => {
             setTimeout(() => {
               //scrollToSection(window.location.hash);
               window.location.reload();
-            }, 500);
-            document.querySelector('.language-switcher').classList.add('nomorelanguage');
+            }, 1000);
+            setTimeout(() => {
+              //scrollToSection(window.location.hash);
+              document.querySelector('.language-switcher').classList.add('nomorelanguage');
+            }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
     
             localStorage.setItem(`homeBannerData_${language}`, JSON.stringify(data));
