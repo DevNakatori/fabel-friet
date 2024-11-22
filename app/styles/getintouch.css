@@ -208,6 +208,20 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .de .whatsappbuttonarrow img {position: absolute;right: -27px;top: -5px;}
 }
 
+@media (min-width:395px) and (max-width:414px){
+    .sixthsection .gradient-threebox ul li {
+        width: 47%;
+        height: 380px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 15px;
+    }
+    }
+
 @media (max-width:390px){
 .sixthsection .gradient-threebox ul li {
     width: 52%;
