@@ -12,10 +12,10 @@ import {Pagination, Autoplay} from 'swiper/modules';
 
 import {getImageUrl} from '../js/imagesurl';
 
-import mainbannerbg from '../assets/resizeimgs/8bdb17523f8d73487022194d9774c1d3.png';
+import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
 
-import Onzelocaties_leftone from '../assets/resizeimgs/Rectangle48.png';
-import Onzelocaties_lefttwo from '../assets/resizeimgs/Rectangle62.png';
+import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
+import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

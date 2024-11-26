@@ -3,7 +3,7 @@ import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import '../styles/footermenupage.css';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 import {getImageUrl} from '../js/imagesurl';
 

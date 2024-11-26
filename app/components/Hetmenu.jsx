@@ -11,20 +11,20 @@ import '../styles/hetmenu.css';
 import {getImageUrl} from '../js/imagesurl';
 
 // import InstagramFeed from './InstagramFeed';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
-import mainbannerbg from '../assets/resizeimgs/b31aa7dc7c0527a0ec7d013d969ab561-min.png';
-import arrow_blue1 from '../assets/resizeimgs/arrow_blue1.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
+import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
 
-import menu_one from '../assets/resizeimgs/menu1.png';
-import menu_two from '../assets/resizeimgs/menu2.png';
-import menu_three from '../assets/resizeimgs/menu3.png';
-import menu_four from '../assets/resizeimgs/menu4.png';
-import menu_five from '../assets/resizeimgs/menu5.png';
-import menu_six from '../assets/resizeimgs/menu6.png';
-import menu_seven from '../assets/resizeimgs/menu7.png';
-import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
-import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
-import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
+import menu_one from '../assets/resizeimgs/webp/menu1.webp';
+import menu_two from '../assets/resizeimgs/webp/menu2.webp';
+import menu_three from '../assets/resizeimgs/webp/menu3.webp';
+import menu_four from '../assets/resizeimgs/webp/menu4.webp';
+import menu_five from '../assets/resizeimgs/webp/menu5.webp';
+import menu_six from '../assets/resizeimgs/webp/menu6.webp';
+import menu_seven from '../assets/resizeimgs/webp/menu7.webp';
+import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

@@ -4,7 +4,7 @@ import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import '../styles/newfooter.css';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 import {getImageUrl} from '../js/imagesurl';
 gsap.registerPlugin(ScrollTrigger);

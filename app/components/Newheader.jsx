@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import '../styles/newheadermenu.css';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 const Newheader = () => {
   const { language } = useLanguage();

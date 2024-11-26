@@ -11,21 +11,21 @@ import '../styles/onzefriet.css';
 import {Pagination, Autoplay} from 'swiper/modules';
 import {getImageUrl} from '../js/imagesurl';
 
-import onzie_leftvidep from '../assets/resizeimgs/Rectangle43.png';
+import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 
-import fries_one from '../assets/resizeimgs/Rectangle89.png';
-import fries_two from '../assets/resizeimgs/Rectangle88.png';
-import fries_three from '../assets/resizeimgs/AdobeStock_616168104.png';
-import fries_four from '../assets/resizeimgs/AdobeStock_616168104.png';
-import fries_five from '../assets/resizeimgs/Rectangle90.png';
-import fries_six from '../assets/resizeimgs/Rectangle91.png';
-import fries_seven from '../assets/resizeimgs/Rectangle92.png';
-import fries_eight from '../assets/resizeimgs/Rectangle93.png';
-import arrow_blue from '../assets/resizeimgs/arrow_blue.png';
-import fabelfrietsticker2 from '../assets/resizeimgs/fabelfrietsticker2.png';
-import fabelfrie_tsticker2 from '../assets/resizeimgs/fabelfriet_sticker2.png';
+import fries_one from '../assets/resizeimgs/webp/Rectangle89.webp';
+import fries_two from '../assets/resizeimgs/webp/Rectangle88.webp';
+import fries_three from '../assets/resizeimgs/webp/AdobeStock_616168104.webp';
+import fries_four from '../assets/resizeimgs/webp/AdobeStock_616168104.webp';
+import fries_five from '../assets/resizeimgs/webp/Rectangle90.webp';
+import fries_six from '../assets/resizeimgs/webp/Rectangle91.webp';
+import fries_seven from '../assets/resizeimgs/webp/Rectangle92.webp';
+import fries_eight from '../assets/resizeimgs/webp/Rectangle93.webp';
+import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
+import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
-import fabelfrie_bottomlogo from '../assets/resizeimgs/fabelfriet_sticker2.png';
+import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

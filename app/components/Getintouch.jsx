@@ -10,22 +10,22 @@ import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
-import mainbannerbg from '../assets/resizeimgs/d4f1c7ef00981f46b3a68aed3d06dc01-min.png';
-import backgroundImageUrl from '../assets/resizeimgs/tiktiokbg.png';
-import facebookIcon from '../assets/resizeimgs/fb.png';
-import instagramIcon from '../assets/resizeimgs/insta.png';
-import linkedinIcon from '../assets/resizeimgs/in.png';
-import twitterIcon from '../assets/resizeimgs/twitter.png';
-import tiktokIcon from '../assets/resizeimgs/tiktok.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import mainbannerbg from '../assets/resizeimgs/webp/d4f1c7ef00981f46b3a68aed3d06dc01-min.webp';
+import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
+import facebookIcon from '../assets/resizeimgs/webp/fb.webp';
+import instagramIcon from '../assets/resizeimgs/webp/insta.webp';
+import linkedinIcon from '../assets/resizeimgs/webp/in.webp';
+import twitterIcon from '../assets/resizeimgs/webp/twitter.webp';
+import tiktokIcon from '../assets/resizeimgs/webp/tiktok.webp';
 
-import arrow_blue_2 from '../assets/resizeimgs/arrow_blue_2.png';
-import arrow_blue_1 from '../assets/resizeimgs/arrow_blue_1.png';
+import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
+import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
 
-import liek_1 from '../assets/resizeimgs/like1.png';
-import liek_2 from '../assets/resizeimgs/like2.png';
-import liek_3 from '../assets/resizeimgs/like3.png';
-import liek_4 from '../assets/resizeimgs/like4.png';
+import liek_1 from '../assets/resizeimgs/webp/like1.webp';
+import liek_2 from '../assets/resizeimgs/webp/like2.webp';
+import liek_3 from '../assets/resizeimgs/webp/like3.webp';
+import liek_4 from '../assets/resizeimgs/webp/like4.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 

@@ -3,7 +3,7 @@ import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
