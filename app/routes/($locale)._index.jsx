@@ -15,7 +15,7 @@ import Onzeimpact from '~/components/Onzeimpact';
 import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 import Newheader from '~/components/Newheader';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 import '../styles/media.css';
 import AOS from 'aos';

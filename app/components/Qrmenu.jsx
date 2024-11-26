@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useLanguage} from '~/components/LanguageContext';
 import {client} from '../../sanityClient';
 import gsap from 'gsap';
-import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 
 const MenuSection = ({id, title, subTitle, menuData}) => {
   return (

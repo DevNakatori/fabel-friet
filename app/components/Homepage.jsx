@@ -9,9 +9,9 @@ import {ScrollSmoother} from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 import Cookies from 'js-cookie';
-import bannerlogo from '../assets/resizeimgs/logobanner.png';
-import writingicon from '../assets/resizeimgs/writingicon.png';
-import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import writingicon from '../assets/resizeimgs/webp/writingicon.webp';
+import posterimg from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 import {getImageUrl} from '../js/imagesurl';
 
 gsap.registerPlugin(

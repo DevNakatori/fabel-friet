@@ -8,3 +8,6 @@ node_modules
 .shopify
 sanityClient.js
 app/js/imagesurl.js
+storefrontapi.generated.d.ts
+customer-accountapi.generated.d.ts
+customer-accountapi.generated.d.ts

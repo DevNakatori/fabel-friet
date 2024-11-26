@@ -7,7 +7,7 @@ import LanguageSwitcher from '~/components/LanguageSwitcher';
 import Newfooter from '~/components/Newfooter';
 import gsap from 'gsap';
 
-import Fabel3DPreview from '../assets/resizeimgs/Fabel-3D-Preview.png';
+import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 import Qrmenuheader from '~/components/Qrmenuheader';
 import Qrmenu from '~/components/Qrmenu';
 import Newfootermenu from '~/components/Newfootermenu';
