@@ -52,13 +52,15 @@ export const LanguageProvider = ({children}) => {
             switchLanguage('fr');
           } else if (country === 'DE') {
             switchLanguage('de');
+          } else if (country === 'IN') {
+            switchLanguage('en');
           }  
           else {
             switchLanguage('nl');
           }
         } catch (error) {
           console.error('Error fetching location:', error);
-          switchLanguage('nl');
+          //switchLanguage('nl');
         }
       }
     };

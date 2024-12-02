@@ -427,10 +427,10 @@ const Getintouch = () => {
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
           <div className="likeimagelist">
-            <img src={liek_1} />
-            <img src={liek_2} />
-            <img src={liek_3} />
-            <img src={liek_4} />
+            <img src={liek_1} alt="img" />
+            <img src={liek_2} alt="img" />
+            <img src={liek_3} alt="img" />
+            <img src={liek_4} alt="img" />
           </div>
 
           <h4
@@ -522,6 +522,7 @@ const Getintouch = () => {
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
+                alt="img"
               />
               <p data-aos="fade-up" data-aos-easing="ease-out-cubic">
                 {contentSection.mobileImages[0].leftText}
@@ -534,6 +535,7 @@ const Getintouch = () => {
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
+                alt="img"
               />
               <p data-aos="fade-up" data-aos-easing="ease-out-cubic">
                 {contentSection.mobileImages[0].rightText}
@@ -588,6 +590,7 @@ const Getintouch = () => {
                   data-aos="fade-up"
                   data-aos-easing="ease-out-cubic"
                   className="swingsd"
+                  alt="img"
                 />
                 <div
                   className="bottomwhatsapp"

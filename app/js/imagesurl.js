@@ -14,5 +14,6 @@ export const getImageUrl = (ref) => {
         .replace('-png', fileExtension)
         .replace('-jpg', fileExtension)
         .replace('-webp', fileExtension);
-    return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
+    return `https://cdn.sanity.io/images/6tlmpa5b/development/${formattedRef}`;
+   // return `https://cdn.sanity.io/images/6tlmpa5b/production/${formattedRef}`;
 };

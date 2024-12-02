@@ -379,13 +379,13 @@ const Onzeimpact = () => {
                 <li key={img._key} className="threeboxonzeimpactlist">
                   {index === 0 && (
                     <div className="threeboxleftlogobar">
-                      <img src={fabelfrietsticker2} width="10" height="10" />
+                      <img src={fabelfrietsticker2} width="10" height="10" alt="img" />
                     </div>
                   )}
 
                   {index === 1 && (
                     <div className="threeboxleftlogobar lastbottomimg">
-                      <img src={fabelfrie_bottomlogo} width="10" height="10" />
+                      <img src={fabelfrie_bottomlogo} width="10" height="10" alt="img" />
                     </div>
                   )}
                   <img
@@ -393,6 +393,7 @@ const Onzeimpact = () => {
                     alt="Descriptive Alt Text"
                     width="10"
                     height="10"
+                    alt="img"
                   />
                 </li>
               ))}
