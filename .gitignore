@@ -8,6 +8,11 @@ node_modules
 .shopify
 sanityClient.js
 app/js/imagesurl.js
+<<<<<<< Updated upstream
 storefrontapi.generated.d.ts
 customer-accountapi.generated.d.ts
 customer-accountapi.generated.d.ts
+=======
+sanityClient.js
+app/js/imagesurl.js
+>>>>>>> Stashed changes

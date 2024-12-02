@@ -763,12 +763,19 @@ const HomePage = () => {
             <p id="text">{bannerData[0].bannerContent}</p>
           </div>
           {bannerData[0].bannerButton && (
+            // <a
+            //   className="banner_bottombtn"
+            //   href={bannerData[0].bannerButton.buttonLink}
+            // >
+            //   {bannerData[0].bannerButton.buttonText}
+            // </a>
             <a
-              className="banner_bottombtn"
-              href={bannerData[0].bannerButton.buttonLink}
-            >
-              {bannerData[0].bannerButton.buttonText}
-            </a>
+  className="banner_bottombtn"
+  href={bannerData[0].bannerButton.buttonLink || "#"}
+>
+  {bannerData[0].bannerButton.buttonText}
+</a>
+
           )}
           <div className="bannerrotate_text">
             <p>{bannerData[0].bannerText}</p>
