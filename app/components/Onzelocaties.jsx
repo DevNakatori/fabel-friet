@@ -66,12 +66,10 @@ const Onzelocaties = () => {
       ease: 'power1.inOut',
     });
 
-
-    
     timelines.to(
       '#section3 .section.hero',
       {
-        scale: 1.1,
+        scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       },
@@ -94,7 +92,6 @@ const Onzelocaties = () => {
       0,
     );
 
-    
     return () => {
       timelines.scrollTrigger.kill();
     };
@@ -136,7 +133,7 @@ const Onzelocaties = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="panel thirdesection" id="section3" data-speed-x="1.2">
+    <section className="panel thirdesection" id="section3">
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
           <div className="wrapper-onzelocation">
@@ -193,12 +190,12 @@ const Onzelocaties = () => {
               </p>
               <a
                 href="#"
-                className="locatebutton onlydesktop"
+                className="locatebutton onlydesktop btn-1 hover-filled-slide-down"
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
-                {locationData.contentSection.btn_label}
+                <span>{locationData.contentSection.btn_label}</span>
               </a>
 
               {/* mobile location slider */}

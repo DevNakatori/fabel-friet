@@ -1,5 +1,5 @@
 import {defer} from '@shopify/remix-oxygen';
-import React, {useEffect, useState, useRef } from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Routes, Route} from 'react-router-dom';
@@ -16,11 +16,13 @@ import Getintouch from '~/components/Getintouch';
 import ScrollNav from '~/components/ScrollNav';
 import Newheader from '~/components/Newheader';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-
+import {ScrollSmoother} from 'gsap/ScrollSmoother';
 import '../styles/media.css';
 import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollSmoother);
 
 gsap.registerPlugin(ScrollTrigger);
 /**
@@ -85,6 +87,14 @@ export default function Homepage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const smoother = ScrollSmoother.create({
+      smooth: 1,
+      // effects: true,
+      // smoothTouch: 0.1,
+      // normalizeScroll: true,
+      // ignoreMobileResize: true,
+    });
+
     AOS.init({
       once: true,
       duration: 1200,
@@ -93,7 +103,7 @@ export default function Homepage() {
       throttleDelay: 99,
     });
 
-   // AOS.refresh();
+    // AOS.refresh();
   }, []);
 
   const [showHomePage, setShowHomePage] = useState(false);
@@ -182,20 +192,20 @@ export default function Homepage() {
   }, []);
 
   useEffect(() => {
-    let portrait = window.matchMedia("(orientation: portrait)");
-    portrait.addEventListener("change", function(e) {
-    if(e.matches) {    
+    let portrait = window.matchMedia('(orientation: portrait)');
+    portrait.addEventListener('change', function (e) {
+      if (e.matches) {
         console.log('Portrait mode');
         window.location.reload();
-    } else {
-      console.log('Landscape');
-    }
-})
+      } else {
+        console.log('Landscape');
+      }
+    });
   }, []);
 
   return (
     <div className="home">
-      <div id="loadersitetrans" className="loadersitetrans">
+      {/* <div id="loadersitetrans" className="loadersitetrans">
         <div className="logosvg">
           <img src={bannerlogo} alt="logo" />
         </div>
@@ -206,7 +216,7 @@ export default function Homepage() {
           <span></span>
           <span></span>
         </div>
-      </div>
+      </div> */}
 
       <div className="mobilerotate">
         <div className="innermobile">
@@ -226,11 +236,11 @@ export default function Homepage() {
         <Newheader />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {showHomePage && <HomePage />}
-            {showOnzefriet && <Onzefriet />}
-            {showOnzelocaties && <Onzelocaties />}
+            {/* {showHomePage && <HomePage />} */}
+            {/* {showOnzefriet && <Onzefriet />} */}
+            {/* {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}
-            {showOnzeimpact && <Onzeimpact />}
+            {showOnzeimpact && <Onzeimpact />} */}
             {showGetintouch && <Getintouch />}
           </div>
         </div>

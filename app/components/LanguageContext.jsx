@@ -11,7 +11,7 @@ export const LanguageProvider = ({children}) => {
     localStorage.setItem('language', lang);
     console.log(`Language changed to: ${lang}`); // Log language change here
     const url = new URL(window.location);
-    url.searchParams.set('lang', lang); 
+    url.searchParams.set('lang', lang);
     window.history.pushState({}, '', url);
 
     setTimeout(() => {
@@ -53,9 +53,8 @@ export const LanguageProvider = ({children}) => {
           } else if (country === 'DE') {
             switchLanguage('de');
           } else if (country === 'IN') {
-            switchLanguage('en');
-          }  
-          else {
+            switchLanguage('nl');
+          } else {
             switchLanguage('nl');
           }
         } catch (error) {

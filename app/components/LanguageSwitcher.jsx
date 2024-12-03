@@ -1,316 +1,112 @@
-import React, { useEffect, useState } from 'react';
-import { useLanguage } from '~/components/LanguageContext';
-import { gsap } from 'gsap';
+import React, {useEffect, useRef, useState} from 'react';
+import {useLanguage} from '~/components/LanguageContext';
+import {gsap} from 'gsap';
 
 const languages = [
-    { code: 'en', name: 'English', flag: 'flag-icon-us' },
-    { code: 'nl', name: 'Dutch', flag: 'flag-icon-nl' },
-    { code: 'de', name: 'Germany', flag: 'flag-icon-de' },
-    
-    // { code: 'ad', name: 'Andorra', flag: 'flag-icon-ad' },
-    // { code: 'ae', name: 'United Arab Emirates', flag: 'flag-icon-ae' },
-    // { code: 'af', name: 'Afghanistan', flag: 'flag-icon-af' },
-    // { code: 'ag', name: 'Antigua and Barbuda', flag: 'flag-icon-ag' },
-    // { code: 'ai', name: 'Anguilla', flag: 'flag-icon-ai' },
-    // { code: 'al', name: 'Albania', flag: 'flag-icon-al' },
-    // { code: 'am', name: 'Armenia', flag: 'flag-icon-am' },
-    // { code: 'ao', name: 'Angola', flag: 'flag-icon-ao' },
-    // { code: 'aq', name: 'Antarctica', flag: 'flag-icon-aq' },
-    // { code: 'ar', name: 'Argentina', flag: 'flag-icon-ar' },
-    // { code: 'as', name: 'American Samoa', flag: 'flag-icon-as' },
-    // { code: 'at', name: 'Austria', flag: 'flag-icon-at' },
-    // { code: 'au', name: 'Australia', flag: 'flag-icon-au' },
-    // { code: 'aw', name: 'Aruba', flag: 'flag-icon-aw' },
-    // { code: 'ax', name: 'Åland Islands', flag: 'flag-icon-ax' },
-    // { code: 'az', name: 'Azerbaijan', flag: 'flag-icon-az' },
-    // { code: 'ba', name: 'Bosnia and Herzegovina', flag: 'flag-icon-ba' },
-    // { code: 'bb', name: 'Barbados', flag: 'flag-icon-bb' },
-    // { code: 'bd', name: 'Bangladesh', flag: 'flag-icon-bd' },
-    // { code: 'be', name: 'Belgium', flag: 'flag-icon-be' },
-    // { code: 'bf', name: 'Burkina Faso', flag: 'flag-icon-bf' },
-    // { code: 'bg', name: 'Bulgaria', flag: 'flag-icon-bg' },
-    // { code: 'bh', name: 'Bahrain', flag: 'flag-icon-bh' },
-    // { code: 'bi', name: 'Burundi', flag: 'flag-icon-bi' },
-    // { code: 'bj', name: 'Benin', flag: 'flag-icon-bj' },
-    // { code: 'bl', name: 'Saint Barthélemy', flag: 'flag-icon-bl' },
-    // { code: 'bm', name: 'Bermuda', flag: 'flag-icon-bm' },
-    // { code: 'bn', name: 'Brunei Darussalam', flag: 'flag-icon-bn' },
-    // { code: 'bo', name: 'Bolivia', flag: 'flag-icon-bo' },
-    // { code: 'bq', name: 'Bonaire, Sint Eustatius and Saba', flag: 'flag-icon-bq' },
-    // { code: 'br', name: 'Brazil', flag: 'flag-icon-br' },
-    // { code: 'bs', name: 'Bahamas', flag: 'flag-icon-bs' },
-    // { code: 'bt', name: 'Bhutan', flag: 'flag-icon-bt' },
-    // { code: 'bv', name: 'Bouvet Island', flag: 'flag-icon-bv' },
-    // { code: 'bw', name: 'Botswana', flag: 'flag-icon-bw' },
-    // { code: 'by', name: 'Belarus', flag: 'flag-icon-by' },
-    // { code: 'bz', name: 'Belize', flag: 'flag-icon-bz' },
-    // { code: 'ca', name: 'Canada', flag: 'flag-icon-ca' },
-    // { code: 'cc', name: 'Cocos (Keeling) Islands', flag: 'flag-icon-cc' },
-    // { code: 'cd', name: 'Democratic Republic of the Congo', flag: 'flag-icon-cd' },
-    // { code: 'cf', name: 'Central African Republic', flag: 'flag-icon-cf' },
-    // { code: 'cg', name: 'Republic of the Congo', flag: 'flag-icon-cg' },
-    // { code: 'ch', name: 'Switzerland', flag: 'flag-icon-ch' },
-    // { code: 'ci', name: 'Ivory Coast', flag: 'flag-icon-ci' },
-    // { code: 'ck', name: 'Cook Islands', flag: 'flag-icon-ck' },
-    // { code: 'cl', name: 'Chile', flag: 'flag-icon-cl' },
-    // { code: 'cm', name: 'Cameroon', flag: 'flag-icon-cm' },
-    // { code: 'cn', name: 'China', flag: 'flag-icon-cn' },
-    // { code: 'co', name: 'Colombia', flag: 'flag-icon-co' },
-    // { code: 'cr', name: 'Costa Rica', flag: 'flag-icon-cr' },
-    // { code: 'cu', name: 'Cuba', flag: 'flag-icon-cu' },
-    // { code: 'cv', name: 'Cape Verde', flag: 'flag-icon-cv' },
-    // { code: 'cw', name: 'Curaçao', flag: 'flag-icon-cw' },
-    // { code: 'cx', name: 'Christmas Island', flag: 'flag-icon-cx' },
-    // { code: 'cy', name: 'Cyprus', flag: 'flag-icon-cy' },
-    // { code: 'cz', name: 'Czech Republic', flag: 'flag-icon-cz' },
-    // { code: 'de', name: 'Germany', flag: 'flag-icon-de' },
-    // { code: 'dj', name: 'Djibouti', flag: 'flag-icon-dj' },
-    // { code: 'dk', name: 'Denmark', flag: 'flag-icon-dk' },
-    // { code: 'dm', name: 'Dominica', flag: 'flag-icon-dm' },
-    // { code: 'do', name: 'Dominican Republic', flag: 'flag-icon-do' },
-    // { code: 'dz', name: 'Algeria', flag: 'flag-icon-dz' },
-    // { code: 'ec', name: 'Ecuador', flag: 'flag-icon-ec' },
-    // { code: 'ee', name: 'Estonia', flag: 'flag-icon-ee' },
-    // { code: 'eg', name: 'Egypt', flag: 'flag-icon-eg' },
-    // { code: 'eh', name: 'Western Sahara', flag: 'flag-icon-eh' },
-    // { code: 'er', name: 'Eritrea', flag: 'flag-icon-er' },
-    // { code: 'es', name: 'Spain', flag: 'flag-icon-es' },
-    // { code: 'et', name: 'Ethiopia', flag: 'flag-icon-et' },
-    // { code: 'fi', name: 'Finland', flag: 'flag-icon-fi' },
-    // { code: 'fj', name: 'Fiji', flag: 'flag-icon-fj' },
-    // { code: 'fk', name: 'Falkland Islands', flag: 'flag-icon-fk' },
-    // { code: 'fm', name: 'Federated States of Micronesia', flag: 'flag-icon-fm' },
-    // { code: 'fo', name: 'Faroe Islands', flag: 'flag-icon-fo' },
-    // { code: 'fr', name: 'France', flag: 'flag-icon-fr' },
-    // { code: 'ga', name: 'Gabon', flag: 'flag-icon-ga' },
-    // { code: 'gb', name: 'United Kingdom', flag: 'flag-icon-gb' },
-    // { code: 'gd', name: 'Grenada', flag: 'flag-icon-gd' },
-    // { code: 'ge', name: 'Georgia', flag: 'flag-icon-ge' },
-    // { code: 'gf', name: 'French Guiana', flag: 'flag-icon-gf' },
-    // { code: 'gg', name: 'Guernsey', flag: 'flag-icon-gg' },
-    // { code: 'gh', name: 'Ghana', flag: 'flag-icon-gh' },
-    // { code: 'gi', name: 'Gibraltar', flag: 'flag-icon-gi' },
-    // { code: 'gl', name: 'Greenland', flag: 'flag-icon-gl' },
-    // { code: 'gm', name: 'Gambia', flag: 'flag-icon-gm' },
-    // { code: 'gn', name: 'Guinea', flag: 'flag-icon-gn' },
-    // { code: 'gp', name: 'Guadeloupe', flag: 'flag-icon-gp' },
-    // { code: 'gq', name: 'Equatorial Guinea', flag: 'flag-icon-gq' },
-    // { code: 'gr', name: 'Greece', flag: 'flag-icon-gr' },
-    // { code: 'gs', name: 'South Georgia and the South Sandwich Islands', flag: 'flag-icon-gs' },
-    // { code: 'gt', name: 'Guatemala', flag: 'flag-icon-gt' },
-    // { code: 'gu', name: 'Guam', flag: 'flag-icon-gu' },
-    // { code: 'gw', name: 'Guinea-Bissau', flag: 'flag-icon-gw' },
-    // { code: 'gy', name: 'Guyana', flag: 'flag-icon-gy' },
-    // { code: 'hk', name: 'Hong Kong', flag: 'flag-icon-hk' },
-    // { code: 'hm', name: 'Heard Island and McDonald Islands', flag: 'flag-icon-hm' },
-    // { code: 'hn', name: 'Honduras', flag: 'flag-icon-hn' },
-    // { code: 'hr', name: 'Croatia', flag: 'flag-icon-hr' },
-    // { code: 'ht', name: 'Haiti', flag: 'flag-icon-ht' },
-    // { code: 'hu', name: 'Hungary', flag: 'flag-icon-hu' },
-    // { code: 'id', name: 'Indonesia', flag: 'flag-icon-id' },
-    // { code: 'ie', name: 'Ireland', flag: 'flag-icon-ie' },
-    // { code: 'il', name: 'Israel', flag: 'flag-icon-il' },
-    // { code: 'im', name: 'Isle of Man', flag: 'flag-icon-im' },
-    // { code: 'in', name: 'India', flag: 'flag-icon-in' },
-    // { code: 'io', name: 'British Indian Ocean Territory', flag: 'flag-icon-io' },
-    // { code: 'iq', name: 'Iraq', flag: 'flag-icon-iq' },
-    // { code: 'ir', name: 'Iran', flag: 'flag-icon-ir' },
-    // { code: 'is', name: 'Iceland', flag: 'flag-icon-is' },
-    // { code: 'it', name: 'Italy', flag: 'flag-icon-it' },
-    // { code: 'je', name: 'Jersey', flag: 'flag-icon-je' },
-    // { code: 'jm', name: 'Jamaica', flag: 'flag-icon-jm' },
-    // { code: 'jo', name: 'Jordan', flag: 'flag-icon-jo' },
-    // { code: 'jp', name: 'Japan', flag: 'flag-icon-jp' },
-    // { code: 'ke', name: 'Kenya', flag: 'flag-icon-ke' },
-    // { code: 'kg', name: 'Kyrgyzstan', flag: 'flag-icon-kg' },
-    // { code: 'kh', name: 'Cambodia', flag: 'flag-icon-kh' },
-    // { code: 'ki', name: 'Kiribati', flag: 'flag-icon-ki' },
-    // { code: 'km', name: 'Comoros', flag: 'flag-icon-km' },
-    // { code: 'kn', name: 'Saint Kitts and Nevis', flag: 'flag-icon-kn' },
-    // { code: 'kp', name: 'North Korea', flag: 'flag-icon-kp' },
-    // { code: 'kr', name: 'South Korea', flag: 'flag-icon-kr' },
-    // { code: 'kw', name: 'Kuwait', flag: 'flag-icon-kw' },
-    // { code: 'ky', name: 'Cayman Islands', flag: 'flag-icon-ky' },
-    // { code: 'kz', name: 'Kazakhstan', flag: 'flag-icon-kz' },
-    // { code: 'la', name: 'Laos', flag: 'flag-icon-la' },
-    // { code: 'lb', name: 'Lebanon', flag: 'flag-icon-lb' },
-    // { code: 'lc', name: 'Saint Lucia', flag: 'flag-icon-lc' },
-    // { code: 'li', name: 'Liechtenstein', flag: 'flag-icon-li' },
-    // { code: 'lk', name: 'Sri Lanka', flag: 'flag-icon-lk' },
-    // { code: 'lr', name: 'Liberia', flag: 'flag-icon-lr' },
-    // { code: 'ls', name: 'Lesotho', flag: 'flag-icon-ls' },
-    // { code: 'lt', name: 'Lithuania', flag: 'flag-icon-lt' },
-    // { code: 'lu', name: 'Luxembourg', flag: 'flag-icon-lu' },
-    // { code: 'lv', name: 'Latvia', flag: 'flag-icon-lv' },
-    // { code: 'ly', name: 'Libya', flag: 'flag-icon-ly' },
-    // { code: 'ma', name: 'Morocco', flag: 'flag-icon-ma' },
-    // { code: 'mc', name: 'Monaco', flag: 'flag-icon-mc' },
-    // { code: 'md', name: 'Moldova', flag: 'flag-icon-md' },
-    // { code: 'me', name: 'Montenegro', flag: 'flag-icon-me' },
-    // { code: 'mf', name: 'Saint Martin', flag: 'flag-icon-mf' },
-    // { code: 'mg', name: 'Madagascar', flag: 'flag-icon-mg' },
-    // { code: 'mh', name: 'Marshall Islands', flag: 'flag-icon-mh' },
-    // { code: 'mk', name: 'North Macedonia', flag: 'flag-icon-mk' },
-    // { code: 'ml', name: 'Mali', flag: 'flag-icon-ml' },
-    // { code: 'mm', name: 'Myanmar', flag: 'flag-icon-mm' },
-    // { code: 'mn', name: 'Mongolia', flag: 'flag-icon-mn' },
-    // { code: 'mo', name: 'Macau', flag: 'flag-icon-mo' },
-    // { code: 'mp', name: 'Northern Mariana Islands', flag: 'flag-icon-mp' },
-    // { code: 'mq', name: 'Martinique', flag: 'flag-icon-mq' },
-    // { code: 'mr', name: 'Mauritania', flag: 'flag-icon-mr' },
-    // { code: 'ms', name: 'Montserrat', flag: 'flag-icon-ms' },
-    // { code: 'mt', name: 'Malta', flag: 'flag-icon-mt' },
-    // { code: 'mu', name: 'Mauritius', flag: 'flag-icon-mu' },
-    // { code: 'mv', name: 'Maldives', flag: 'flag-icon-mv' },
-    // { code: 'mw', name: 'Malawi', flag: 'flag-icon-mw' },
-    // { code: 'mx', name: 'Mexico', flag: 'flag-icon-mx' },
-    // { code: 'my', name: 'Malaysia', flag: 'flag-icon-my' },
-    // { code: 'mz', name: 'Mozambique', flag: 'flag-icon-mz' },
-    // { code: 'na', name: 'Namibia', flag: 'flag-icon-na' },
-    // { code: 'nc', name: 'New Caledonia', flag: 'flag-icon-nc' },
-    // { code: 'ne', name: 'Niger', flag: 'flag-icon-ne' },
-    // { code: 'nf', name: 'Norfolk Island', flag: 'flag-icon-nf' },
-    // { code: 'ng', name: 'Nigeria', flag: 'flag-icon-ng' },
-    // { code: 'ni', name: 'Nicaragua', flag: 'flag-icon-ni' },
-    // { code: 'nl', name: 'Netherlands', flag: 'flag-icon-nl' },
-    // { code: 'no', name: 'Norway', flag: 'flag-icon-no' },
-    // { code: 'np', name: 'Nepal', flag: 'flag-icon-np' },
-    // { code: 'nr', name: 'Nauru', flag: 'flag-icon-nr' },
-    // { code: 'nu', name: 'Niue', flag: 'flag-icon-nu' },
-    // { code: 'nz', name: 'New Zealand', flag: 'flag-icon-nz' },
-    // { code: 'om', name: 'Oman', flag: 'flag-icon-om' },
-    // { code: 'pa', name: 'Panama', flag: 'flag-icon-pa' },
-    // { code: 'pe', name: 'Peru', flag: 'flag-icon-pe' },
-    // { code: 'pf', name: 'French Polynesia', flag: 'flag-icon-pf' },
-    // { code: 'pg', name: 'Papua New Guinea', flag: 'flag-icon-pg' },
-    // { code: 'ph', name: 'Philippines', flag: 'flag-icon-ph' },
-    // { code: 'pk', name: 'Pakistan', flag: 'flag-icon-pk' },
-    // { code: 'pl', name: 'Poland', flag: 'flag-icon-pl' },
-    // { code: 'pm', name: 'Saint Pierre and Miquelon', flag: 'flag-icon-pm' },
-    // { code: 'pn', name: 'Pitcairn Islands', flag: 'flag-icon-pn' },
-    // { code: 'pr', name: 'Puerto Rico', flag: 'flag-icon-pr' },
-    // { code: 'ps', name: 'Palestine', flag: 'flag-icon-ps' },
-    // { code: 'pt', name: 'Portugal', flag: 'flag-icon-pt' },
-    // { code: 'pw', name: 'Palau', flag: 'flag-icon-pw' },
-    // { code: 'py', name: 'Paraguay', flag: 'flag-icon-py' },
-    // { code: 'qa', name: 'Qatar', flag: 'flag-icon-qa' },
-    // { code: 're', name: 'Réunion', flag: 'flag-icon-re' },
-    // { code: 'ro', name: 'Romania', flag: 'flag-icon-ro' },
-    // { code: 'rs', name: 'Serbia', flag: 'flag-icon-rs' },
-    // { code: 'ru', name: 'Russia', flag: 'flag-icon-ru' },
-    // { code: 'rw', name: 'Rwanda', flag: 'flag-icon-rw' },
-    // { code: 'sa', name: 'Saudi Arabia', flag: 'flag-icon-sa' },
-    // { code: 'sb', name: 'Solomon Islands', flag: 'flag-icon-sb' },
-    // { code: 'sc', name: 'Seychelles', flag: 'flag-icon-sc' },
-    // { code: 'sd', name: 'Sudan', flag: 'flag-icon-sd' },
-    // { code: 'se', name: 'Sweden', flag: 'flag-icon-se' },
-    // { code: 'sg', name: 'Singapore', flag: 'flag-icon-sg' },
-    // { code: 'sh', name: 'Saint Helena', flag: 'flag-icon-sh' },
-    // { code: 'si', name: 'Slovenia', flag: 'flag-icon-si' },
-    // { code: 'sj', name: 'Svalbard and Jan Mayen', flag: 'flag-icon-sj' },
-    // { code: 'sk', name: 'Slovakia', flag: 'flag-icon-sk' },
-    // { code: 'sl', name: 'Sierra Leone', flag: 'flag-icon-sl' },
-    // { code: 'sm', name: 'San Marino', flag: 'flag-icon-sm' },
-    // { code: 'sn', name: 'Senegal', flag: 'flag-icon-sn' },
-    // { code: 'so', name: 'Somalia', flag: 'flag-icon-so' },
-    // { code: 'sr', name: 'Suriname', flag: 'flag-icon-sr' },
-    // { code: 'ss', name: 'South Sudan', flag: 'flag-icon-ss' },
-    // { code: 'st', name: 'São Tomé and Príncipe', flag: 'flag-icon-st' },
-    // { code: 'sv', name: 'El Salvador', flag: 'flag-icon-sv' },
-    // { code: 'sx', name: 'Sint Maarten', flag: 'flag-icon-sx' },
-    // { code: 'sy', name: 'Syria', flag: 'flag-icon-sy' },
-    // { code: 'sz', name: 'Eswatini', flag: 'flag-icon-sz' },
-    // { code: 'tc', name: 'Turks and Caicos Islands', flag: 'flag-icon-tc' },
-    // { code: 'td', name: 'Chad', flag: 'flag-icon-td' },
-    // { code: 'tf', name: 'French Southern Territories', flag: 'flag-icon-tf' },
-    // { code: 'tg', name: 'Togo', flag: 'flag-icon-tg' },
-    // { code: 'th', name: 'Thailand', flag: 'flag-icon-th' },
-    // { code: 'tj', name: 'Tajikistan', flag: 'flag-icon-tj' },
-    // { code: 'tk', name: 'Tokelau', flag: 'flag-icon-tk' },
-    // { code: 'tl', name: 'Timor-Leste', flag: 'flag-icon-tl' },
-    // { code: 'tm', name: 'Turkmenistan', flag: 'flag-icon-tm' },
-    // { code: 'tn', name: 'Tunisia', flag: 'flag-icon-tn' },
-    // { code: 'to', name: 'Tonga', flag: 'flag-icon-to' },
-    // { code: 'tr', name: 'Turkey', flag: 'flag-icon-tr' },
-    // { code: 'tt', name: 'Trinidad and Tobago', flag: 'flag-icon-tt' },
-    // { code: 'tv', name: 'Tuvalu', flag: 'flag-icon-tv' },
-    // { code: 'tw', name: 'Taiwan', flag: 'flag-icon-tw' },
-    // { code: 'tz', name: 'Tanzania', flag: 'flag-icon-tz' },
-    // { code: 'ua', name: 'Ukraine', flag: 'flag-icon-ua' },
-    // { code: 'ug', name: 'Uganda', flag: 'flag-icon-ug' },
-    // { code: 'um', name: 'United States Minor Outlying Islands', flag: 'flag-icon-um' },
-    // { code: 'us', name: 'United States', flag: 'flag-icon-us' },
-    // { code: 'uy', name: 'Uruguay', flag: 'flag-icon-uy' },
-    // { code: 'uz', name: 'Uzbekistan', flag: 'flag-icon-uz' },
-    // { code: 'va', name: 'Vatican City', flag: 'flag-icon-va' },
-    // { code: 'vc', name: 'Saint Vincent and the Grenadines', flag: 'flag-icon-vc' },
-    // { code: 've', name: 'Venezuela', flag: 'flag-icon-ve' },
-    // { code: 'vg', name: 'British Virgin Islands', flag: 'flag-icon-vg' },
-    // { code: 'vi', name: 'United States Virgin Islands', flag: 'flag-icon-vi' },
-    // { code: 'vn', name: 'Vietnam', flag: 'flag-icon-vn' },
-    // { code: 'vu', name: 'Vanuatu', flag: 'flag-icon-vu' },
-    // { code: 'wf', name: 'Wallis and Futuna', flag: 'flag-icon-wf' },
-    // { code: 'ws', name: 'Samoa', flag: 'flag-icon-ws' },
-    // { code: 'ye', name: 'Yemen', flag: 'flag-icon-ye' },
-    // { code: 'yt', name: 'Mayotte', flag: 'flag-icon-yt' },
-    // { code: 'za', name: 'South Africa', flag: 'flag-icon-za' },
-    // { code: 'zm', name: 'Zambia', flag: 'flag-icon-zm' },
-    // { code: 'zw', name: 'Zimbabwe', flag: 'flag-icon-zw' },
+  {code: 'en', name: 'English', flag: 'flag-icon-us'},
+  {code: 'nl', name: 'Dutch', flag: 'flag-icon-nl'},
+  {code: 'de', name: 'Germany', flag: 'flag-icon-de'},
 ];
 
 const LanguageSwitcher = () => {
-    const { language, switchLanguage } = useLanguage();
-    const [isOpen, setIsOpen] = useState(false);
+  const {language, switchLanguage} = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-    useEffect(() => {
-        const animation = gsap.fromTo('.language-switcher', 
-            { opacity: 0, y: -30 }, 
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power2.out',
-                delay: 2,
-                repeat: 0,
-            });
+  // Log available languages when the component mounts
+  useEffect(() => {
+    console.log('Available Languages:', languages);
+  }, []);
+  
 
-        return () => {
-            gsap.killTweensOf('.language-switcher');
-        };
-    }, []);
+  useEffect(() => {
+    if (isOpen) {
+      gsap.fromTo(
+        '.language-list',
+        {opacity: 0, x: 300},
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+        },
+      );
+    } else {
+      gsap.to('.language-list', {
+        opacity: 0,
+        x: 300,
+        duration: 0.5,
+        ease: 'power2.in',
+      });
+    }
+  }, [isOpen]);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+  useEffect(() => {
+    const animation = gsap.fromTo(
+      '.language-switcher',
+      {opacity: 0, y: -30},
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 8,
+        repeat: 0,
+      },
+    );
+
+    return () => {
+      gsap.killTweensOf('.language-switcher');
+    };
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
     };
 
-    return (
-        <div className="language-switcher">
-            <div className="selected-language" onClick={toggleDropdown}>
-                <span className={`flag-icon ${languages.find(lang => lang.code === language).flag} flag-icon-squared`}></span>
-                {/* <span>{languages.find(lang => lang.code === language).name}</span> */}
-                <div className="arrow"></div>
-            </div>
-            {isOpen && (
-                <ul className="language-list">
-                    {languages.map((lang) => (
-                        <li
-                            key={lang.code}
-                            className={`language-item ${language === lang.code ? 'active' : ''}`}
-                            onClick={() => {
-                                switchLanguage(lang.code);
-                                setIsOpen(false);
-                                const body = document.body;
-                                
-                            }}
-                        >
-                            <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span>
+    document.body.addEventListener('click', handleClickOutside);
 
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    );
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className="language-switcher" ref={dropdownRef}>
+      <div className="selected-language" onClick={toggleDropdown}>
+        <span
+          className={`flag-icon ${
+            languages.find((lang) => lang.code === language).flag
+          } flag-icon-squared`}
+        ></span>
+        <div className="arrow"></div>
+      </div>
+      <ul className={`language-list ${isOpen ? 'open' : ''}`}>
+        {languages.map((lang) => (
+          <li
+            key={lang.code}
+            className={`language-item ${
+              language === lang.code ? 'active' : ''
+            }`}
+            onClick={() => {
+              switchLanguage(lang.code);
+              setIsOpen(false);
+            }}
+          >
+            <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span>
+            <span>{lang.name}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default LanguageSwitcher;
