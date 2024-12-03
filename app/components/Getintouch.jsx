@@ -532,29 +532,29 @@ const Getintouch = () => {
             </ul>
 
             <div className="lefttiktoktext">
-              {/* <img
+              <img
                 src={arrow_blue_2}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              /> */}
+              />
               <p className="zoomanimation">
                 {contentSection.mobileImages[0].leftText}
               </p>
             </div>
 
             <div className="righttiktoktext">
-              {/* <img
+              <p className="zoomanimation">
+                {contentSection.mobileImages[0].rightText}
+              </p>
+              <img
                 src={arrow_blue_1}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              /> */}
-              <p className="zoomanimation">
-                {contentSection.mobileImages[0].rightText}
-              </p>
+              />
             </div>
           </div>
           <div className="whitebgbox">

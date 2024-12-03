@@ -59,7 +59,9 @@ const Newfooter = () => {
   const {contact, logo, menu, socials} = footerData[0];
 
   return (
-    <section className="newfooter">
+    <section className="newfooter" data-aos="fade-down"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
           <img src={bannerlogo} alt="logo" />
@@ -67,17 +69,13 @@ const Newfooter = () => {
         <div className="allmenulist">
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              
             >
               Menu
             </h6>
             <div className="footerlistbox">
               <ul
-                data-aos="fade-down"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="500"
+                
               >
                 {menu.map((item) => (
                   <li key={item._key}>
@@ -98,25 +96,19 @@ const Newfooter = () => {
 
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              
             >
               Contact
             </h6>
             <div className="footerlistbox">
               <ul>
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  
                 >
                   <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                 </li>
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  
                 >
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </li>
@@ -126,9 +118,7 @@ const Newfooter = () => {
                 {contact.address.map((addr) => (
                   <li
                     key={addr._key}
-                    data-aos="fade-down"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="500"
+                    
                   >
                     {addr.text}
                   </li>
@@ -139,18 +129,14 @@ const Newfooter = () => {
 
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              
             >
               Socials
             </h6>
             <ul className="footersociallist">
               {socials.facebook && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  
                 >
                   <a href="www.whatsup.com" aria-label="socials">
                     <svg
@@ -195,9 +181,7 @@ const Newfooter = () => {
               )}
               {socials.facebook && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  
                 >
                   <a href={socials.facebook} aria-label="socials">
                     <svg
@@ -217,9 +201,7 @@ const Newfooter = () => {
               )}
               {socials.insta && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  
                 >
                   <a href={socials.insta} aria-label="socials">
                     <svg
@@ -239,9 +221,6 @@ const Newfooter = () => {
               )}
               {socials.tiktok && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
                 >
                   <a href={socials.tiktok} aria-label="socials">
                     <svg

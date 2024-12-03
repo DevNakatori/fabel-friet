@@ -163,7 +163,7 @@ const Onzeimpact = () => {
             firstItemimpact,
             {left: '-50vw', rotation: 0, opacity: 0},
             {
-              left: '-9vw',
+              left: '-11vw',
               opacity: 1,
               duration: 1,
             },
@@ -187,7 +187,7 @@ const Onzeimpact = () => {
             lastItemimpact,
             {right: '-50vw', rotation: 0, opacity: 0},
             {
-              right: '-9vw',
+              right: '-11vw',
               opacity: 1,
               duration: 1,
             },

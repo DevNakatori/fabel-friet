@@ -89,7 +89,7 @@ export default function Homepage() {
   useEffect(() => {
     if (window.innerWidth >= 1024) {  // Check if the screen width is greater than or equal to 1024px (desktop)
       const smoother = ScrollSmoother.create({
-        smooth: 1,
+        smooth: 3,
         smoothTouch: 0.1,
       });
     }
@@ -236,7 +236,7 @@ export default function Homepage() {
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
-            {/* {showOnzefriet && <Onzefriet />} */}
+            {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}
             {showOnzeimpact && <Onzeimpact />}
