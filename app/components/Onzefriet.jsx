@@ -109,168 +109,6 @@ const Onzefriet = () => {
 
   /* other text and section animation start */
   useEffect(() => {
-    const list = document.querySelectorAll('.gradient-threeboxonzefritimgli');
-    list.forEach((list) => {
-      const items = list.querySelectorAll('ul li.onzefritimgli');
-      const firstItem = items[0];
-      const lastItem = items[items.length - 1];
-      const middleItem = items[1];
-
-      // Define media queries
-      const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
-
-      // GSAP animation for desktop
-      const animateDesktop = () => {
-        const onzefritthreeimagecenter = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .wrappertest',
-            start: 'top top',
-            end: 'center center',
-            markers: false,
-          },
-        });
-
-        onzefritthreeimagecenter.fromTo(
-          middleItem,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
-          {
-            bottom: '0vh',
-            duration: 1,
-            opacity: 1,
-          },
-        );
-
-        const onzefritthreeimageleft = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimageleft
-          .fromTo(
-            firstItem,
-            {left: '-50vw', rotation: 0, opacity: 0},
-            {
-              left: '-10%',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(firstItem, {
-            rotation: -8,
-            duration: 1,
-            delay: 1,
-          });
-
-        const onzefritthreeimageright = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimageright
-          .fromTo(
-            lastItem,
-            {right: '-50vw', rotation: 0, opacity: 0},
-            {
-              right: '-10%',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(lastItem, {
-            rotation: 8,
-            duration: 1,
-            delay: 1,
-          });
-      };
-
-      // GSAP animation for mobile
-      const animateMobile = () => {
-        const mobileTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .wrappertest',
-            // start: 'top top',
-            // end: 'center center',
-            start: '10 20',
-            //end: 'bottom bottom',
-            markers: false,
-          },
-        });
-
-        mobileTimeline.fromTo(
-          middleItem,
-          {bottom: '-30vh', rotation: 0, opacity: 0},
-          {
-            bottom: '0vh',
-            duration: 0.3,
-            opacity: 1,
-          },
-        );
-
-        const mobileImageLeft = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .gradient-purple',
-            //start: 'top top',
-            //end: 'bottom top',
-          },
-        });
-
-        mobileImageLeft
-          .fromTo(
-            firstItem,
-            {left: '-30vw', rotation: 0, opacity: 0},
-            {
-              left: '0vw',
-              opacity: 1,
-              duration: 1,
-              ease: 'power2.out',
-            },
-          )
-          .to(firstItem, {
-            rotation: -6,
-            duration: 1,
-            delay: 1,
-          });
-
-        const mobileImageRight = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.secondesection .gradient-purple',
-            //start: 'top top',
-            // end: 'bottom top',
-          },
-        });
-
-        mobileImageRight
-          .fromTo(
-            lastItem,
-            {right: '-30vw', rotation: 0, opacity: 0},
-            {
-              right: '0vw',
-              opacity: 1,
-              duration: 1,
-              ease: 'power2.out',
-            },
-          )
-          .to(lastItem, {
-            rotation: 6,
-            duration: 1,
-            delay: 1,
-          });
-      };
-
-      // Execute appropriate animation based on the device
-      if (mobileMediaQuery.matches) {
-        animateMobile();
-      } else {
-        animateDesktop();
-      }
-    });
-
     const textContent = 'lekkerste friet van Amsterdam!';
     const textLength = textContent.length;
     const duration = textLength * 0.05;
@@ -366,35 +204,75 @@ const Onzefriet = () => {
   }, [language]);
   /* fatch data end */
 
-  useEffect(() => {
-    function setupSplits() {
-      var tlSplitBurrowing = gsap.timeline(),
-        SplitBurrowing = new SplitText('.onzefriendescription', {
-          type: 'words,chars',
-        }),
-        chars = SplitBurrowing.chars;
-      tlSplitBurrowing.from(
-        chars,
-        {
-          duration: 1,
-          opacity: 0,
-          y: 10,
-          ease: 'circ.out',
-          stagger: 0.01,
-          scrollTrigger: {
-            trigger: '.onzefriendescription',
-            start: 'top 75%',
-            end: 'bottom center',
-            scrub: 1,
-            once: true,
-          },
-        },
-        '+=0',
-      );
-    }
 
-    ScrollTrigger.addEventListener('refresh', setupSplits);
-    setupSplits();
+  useEffect(() => {
+    gsap.set([".image-wrapper"], {
+      xPercent: -50,
+      yPercent: -50
+  });
+  
+  const timeline = gsap.timeline({
+      scrollTrigger: {
+          trigger: ".img-container",
+          start: "top center", 
+          end: "bottom bottom",
+          scrub: 2, // Increased scrub for smoother animation
+          ease: "power3.inOut", // Smoother easing
+          once: true,
+      }
+  });
+  
+  // On scroll, spread images horizontally with rotation
+  timeline
+      .to(".image-wrapper:first-child", {
+          left: "20%",
+          rotation: -5, // Tilt first image
+          duration: 2,
+          ease: "power3.out"
+      })
+      .to(".image-wrapper:nth-child(2)", {
+          left: "50%",
+          duration: 2,
+          ease: "power3.out"
+      }, "<")
+      .to(".image-wrapper:last-child", {
+          left: "80%",
+          rotation: 5, // Tilt last image
+          duration: 2,
+          ease: "power3.out"
+      }, "<");
+  }, [onzefriet]);
+
+
+  useEffect(() => {
+    // function setupSplits() {
+    //   var tlSplitBurrowing = gsap.timeline(),
+    //     SplitBurrowing = new SplitText('.onzefriendescription', {
+    //       type: 'words,chars',
+    //     }),
+    //     chars = SplitBurrowing.chars;
+    //   tlSplitBurrowing.from(
+    //     chars,
+    //     {
+    //       duration: 1,
+    //       opacity: 0,
+    //       y: 10,
+    //       ease: 'circ.out',
+    //       stagger: 0.01,
+    //       scrollTrigger: {
+    //         trigger: '.onzefriendescription',
+    //         start: 'top 75%',
+    //         end: 'bottom center',
+    //         scrub: 1,
+    //         once: true,
+    //       },
+    //     },
+    //     '+=0',
+    //   );
+    // }
+
+    // ScrollTrigger.addEventListener('refresh', setupSplits);
+    // setupSplits();
 
     gsap.from('.allfiressections', {
       y: '-100vh',
@@ -483,9 +361,9 @@ const Onzefriet = () => {
                 </>
               )}
               <div className="gradient-threebox gradient-threeboxonzefritimgli">
-                <ul>
+                <div className='img-container'>
                   {content.contentSection.three_image.map((image, index) => (
-                    <li key={image._key} className="onzefritimgli">
+                    <div key={image._key} className="image-wrapper">
                       {index === 0 && (
                         <div className="threeboxleftlogobar">
                           <img
@@ -514,10 +392,23 @@ const Onzefriet = () => {
                         width="10"
                         height="10"
                       />
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
+
+
+              {/* <div class="img-container">
+                  <div class="image-wrapper" >
+                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img1" alt="Image 1"/>
+                  </div>
+                  <div class="image-wrapper">
+                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img2" alt="Image 2"/>
+                  </div>
+                  <div class="image-wrapper">
+                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img3" alt="Image 3"/>
+                  </div>
+              </div> */}
 
               <div className="allfiressections">
                 <img src={fries_one} alt="img" width="10" height="10" />
@@ -550,12 +441,21 @@ const Onzefriet = () => {
                             height="10"
                           />
                         </div>
-                        <img
+                        {/* <img
                           src={onzie_leftvidep}
                           alt="img"
                           data-speed="auto"
                           width="10"
                           height="10"
+                        /> */}
+
+                        <video
+                          id="myVideos"
+                          src={content.videoSection.videoLink}
+                          autoPlay
+                          muted
+                          playsInline
+                          loop
                         />
                       </div>
                       <div
@@ -708,17 +608,17 @@ const Onzefriet = () => {
                   {content.accordionSection && (
                     <div className="main-accordian">
                       <h6
-                        data-aos="fade"
+                        data-aos="fade-down"
                         data-aos-easing="linear"
-                        data-aos-duration="500"
+                        data-aos-duration="1000"
                       >
                         {content.accordionSection.accordionHeading}
                       </h6>
                       <div
                         className="accordion-container"
-                        data-aos="fade"
+                        data-aos="fade-down"
                         data-aos-easing="linear"
-                        data-aos-duration="500"
+                        data-aos-duration="1000"
                       >
                         {content.accordionSection.faq.map((faq) => (
                           <div className="accordion-item" key={faq._key}>

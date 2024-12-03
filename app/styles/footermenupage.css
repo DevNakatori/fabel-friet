@@ -131,7 +131,7 @@ footer.footer{display:none;}
 .newfooter .newcontainer .footerblock:nth-child(1) .footerlistbox ul{margin-right:50px;display:flex;flex-direction:row;flex-wrap:wrap;}
 .newfooter .newcontainer .footerblock ul li a:hover{color:#f6c738;}
 .newfooter .newcontainer .footerblock .footerlistbox{display:flex;}
-.newfooter .newcontainer .footerblock:nth-child(1) .footerlistbox ul li{width:calc((100% / 2) - 30px);margin-right:30px;height:auto;}
+.newfooter .newcontainer .footerblock:nth-child(1) .footerlistbox ul li{width:calc((100% / 2) - 30px);margin-right:30px;height:auto;-webkit-transition: 0.5s;-o-transition: 0.5s;transition: 0.5s;}
 .newfooter .newcontainer .footerblock ul.footersociallist{display:flex;gap:25px;}
 .newfooter .newcontainer .footerlogo{width:131px;margin-right:95px;}
 .newfooter .newcontainer .allmenulist{width:calc(100% - 226px);display:flex;justify-content:space-between;}
