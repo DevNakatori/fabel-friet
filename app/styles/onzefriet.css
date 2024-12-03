@@ -108,7 +108,7 @@ background: transparent;
         .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:43px;top:5px;transform:rotate(-10deg);z-index:1;width:150px;}
         .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:-90px;z-index:9;transform:rotate(-8deg);}
         .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:-34px;left:-145px;z-index:9;transform:rotate(-8deg);}
-        .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;}
+        .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width: 150px;}
         .gradient-threebox ul li:nth-child(2) img{position:relative;z-index:1;-webkit-transform:scale(0.9);-ms-transform:scale(0.9);transform:scale(0.9);}
         .gradient-threebox ul li:nth-child(1) img{transform:rotate(11deg);}
         .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:700px;}
@@ -142,7 +142,7 @@ background: transparent;
         .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:874px;-ms-flex-negative:0;flex-shrink:0;    /* border-radius: 25px;
             box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25); */width:50%;position:relative;}
             .whitebgbox .whitewithvideomainbox .righttextbox{max-width:735px;width:50%;padding-left:45px;position:relative;}
-            .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar{position:absolute;right:-60px;top:-60px;transform:rotate(5deg);}
+            .whitebgbox .whitewithvideomainbox .leftvideobox .leftlogobar{position:absolute;right:-60px;top:-60px;transform:rotate(5deg);width: 150px;}
             .secondesection .wrappertest .gradient-purple p{max-width:920px;width:100%;}
             .whitewithvideomainbox{max-width:1708px;padding-top:195px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;padding-bottom:90px;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:center;align-content:center;border-bottom:solid 2px #0d1e4d;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;}
             .whitebgbox .whitewithvideomainbox .righttextbox p{max-width:736px;-ms-flex-negative:0;flex-shrink:0;color:#0d1e4d;font-family:'Work Sans',sans-serif;font-size:clamp(20px,5vw,23px);font-style:normal;font-weight:400;line-height:normal;width:100%;text-align:left;margin:20px 0;}
@@ -190,14 +190,29 @@ background: transparent;
                 .main-accordian{max-width:1708px;padding-top:80px;margin:0 auto;display:-webkit-box;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;padding-bottom:35px;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-ms-flex-line-pack:start;align-content:flex-start;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}
                 .main-accordian h6{text-overflow:ellipsis;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 40px;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,10vw,50px);font-style:normal;font-weight:700;color:#af8f2d;}
                 .accordion-container{width:100%;}
-                .accordion-item button.accordion-header{color:#0d1e4d;font-family:'Work Sans',sans-serif;font-size:23px;font-style:normal;font-weight:700;line-height:normal;display:inline-block;text-align:left;border:none;padding:25px 0;cursor:pointer;width:100%;position:relative;}
+                .accordion-item button.accordion-header{color:#0d1e4d;font-family:'Work Sans',sans-serif;font-size:23px;font-style:normal;font-weight:700;line-height:normal;display:inline-block;text-align:left;border:none;padding:25px 0;cursor:pointer;width:100%;position:relative;transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;}
+                .accordion-item button.accordion-header span.icon{-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;}
+                .accordion-item button.accordion-header:hover span.icon {
+                    right: 15px;
+                }
+
+                .accordion-item button.accordion-header:hover {
+                    transform: translate3d(1em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                    transform-style: preserve-3d;
+                    width: calc(100% - 2em);
+                    background: rgba(13,30,77,0.1);
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+
                 .accordion-item{border-bottom:solid 2px #0d1e4d;}
                 .swing{animation:swing ease-in-out 0.5s infinite alternate;transform-origin:center -40px;}
                 @keyframes swing{
                     0%{transform:rotate(3deg);}
                     100%{transform:rotate(-3deg);}
                 }
-                .overlaybannehand-bottoms,.overlaybannehand-bottomsmenu{position:relative;bottom:0;background-image:url("../assets/resizeimgs/webp/PotatoesDisplay_FabelFriet.webp");background-repeat:repeat;background-position:0 0;background-size:cover;width:calc(100% + 150px);height:150px;z-index:0;left:0;right:0;margin-left:-70px;}
+                .overlaybannehand-bottoms,.overlaybannehand-bottomsmenu{position:relative;bottom:0;background-image:url("../assets/resizeimgs/webp/PotatoesDisplay_FabelFriet.webp");background-repeat:repeat;background-position:0 0;background-size:cover;width:calc(100% + 150px);height:228px;z-index:0;left:0;right:0;margin-left:-70px;}
                 .bottomsection{height:163px;flex-shrink:0;background:#0d1e4d;box-shadow:0px -5px 20px 5px rgba(0,0,0,0.25);width:calc(100% + 100px);margin-left:-50px;display:flex;justify-content:center;align-items:center;align-content:center;position:relative;}
                 .bottomsection .scroll-down{width:150px;top:50%;transform:translate(-50%,-50%);left:50%;}
                 .bottomsection .scroll-down p{margin:25px auto;}

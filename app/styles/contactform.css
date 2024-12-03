@@ -8,8 +8,21 @@
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .fullinput .inputboxgroup{overflow:hidden;color:#EFEBE7;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;width:calc(100% - 0px);border:none;margin:0;padding:10px 0px;background:transparent;border-bottom:solid 2px #EFEBE7;border-bottom-left-radius:0;border-bottom-right-radius:0;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .fullinput textarea#message{height:150px;resize:none;color:#EFEBE7;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;width:calc(100% - 0px);border:none;margin:0;padding:10px 0px;background:transparent;border-bottom:solid 2px #EFEBE7;border-bottom-left-radius:0;border-bottom-right-radius:0;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .fullinput:last-child{margin-bottom:0;}
-.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{-webkit-appearance: none;max-width:197px;height:47px;flex-shrink:0;filter:drop-shadow(0px 2px 5px rgba(0,0,0,0.25));overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:600;line-height:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #f6c738;border-radius:40px;display:flex;align-items:center;align-content:center;justify-content:center;cursor:pointer;margin-top:40px;width:100%;background-color: #fff;}
+/*.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{-webkit-appearance: none;max-width:197px;height:47px;flex-shrink:0;filter:drop-shadow(0px 2px 5px rgba(0,0,0,0.25));overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:600;line-height:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #f6c738;border-radius:40px;display:flex;align-items:center;align-content:center;justify-content:center;cursor:pointer;margin-top:40px;width:100%;background-color: #fff;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:hover{color:#fff;border-color:#f6c738;background:#f6c738;}
+*/
+
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{display:block;max-width:197px;;height:47px;line-height:46px;text-decoration:none;text-align:center;border-radius:50px;border:3px solid #f6c738;color:#efebe7;font-size:20px;position:relative;overflow:hidden;background:transparent;transition:all .35s;overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:600;line-height:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #f6c738;border-radius:40px;cursor:pointer;width:100%;margin-top:40px;width:100%;background-color:transparent;}
+
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:before,
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:after{position:absolute;content:"";width:100%;height:100%;top:-100%;left:0;background:#f6c738;z-index:-1;transition:all .35s;}
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:before{opacity:.5;}
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:after{transition-delay:.2s;}
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:hover{color:#fff;}
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:hover:before,
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button:hover:after{top:0;}
+
+
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform span{color:red;font-size:14px;font-weight:500;margin:10px 0;display:inline-block;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .fullinput.lastchildtextbox {margin-bottom: 0;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform p.successfulmsg{color:green;margin:15px 0 0;width:100%;}

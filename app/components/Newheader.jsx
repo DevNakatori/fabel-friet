@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState, useRef} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import '../styles/newheadermenu.css';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 const Newheader = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [headerData, setHeaderData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ const Newheader = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "header" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           localStorage.setItem(`header_${language}`, JSON.stringify(data));
           setHeaderData(data);
@@ -47,7 +47,10 @@ const Newheader = () => {
 
   // Close the mobile menu if clicked outside
   const handleClickOutside = (event) => {
-    if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+    if (
+      mobileMenuRef.current &&
+      !mobileMenuRef.current.contains(event.target)
+    ) {
       setMobileMenuOpen(false);
       document.body.classList.remove('menu-open');
     }
@@ -70,7 +73,7 @@ const Newheader = () => {
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({behavior: 'smooth'});
       }
     } else {
       window.location.href = link;
@@ -160,10 +163,8 @@ const Newheader = () => {
             </svg>
           </i>
         </button>
-        <div className='logoonlymobilefirstsection'>
-          <img
-              src={bannerlogo}
-            />
+        <div className="logoonlymobilefirstsection">
+          <img src={bannerlogo} />
         </div>
         <div
           className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
@@ -180,26 +181,26 @@ const Newheader = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 18 18"
-              style={{ enableBackground: 'new 0 0 18 18' }}
+              style={{enableBackground: 'new 0 0 18 18'}}
               aria-label="Close icon"
             >
               <g>
                 <path
-                  style={{ fill: '#fff' }}
+                  style={{fill: '#fff'}}
                   d="M0.9,17.9c-0.2,0-0.4-0.1-0.5-0.2c-0.3-0.3-0.3-0.8,0-1.1L16.6,0.3c0.3-0.3,0.8-0.3,1.1,0
                   c0.3,0.3,0.3,0.8,0,1.1L1.4,17.7C1.2,17.8,1,17.9,0.9,17.9z"
                 />
               </g>
               <g>
                 <path
-                  style={{ fill: '#fff' }}
+                  style={{fill: '#fff'}}
                   d="M17.1,17.9c-0.2,0-0.4-0.1-0.5-0.2L0.3,1.4C0,1.1,0,0.6,0.3,0.3s0.8-0.3,1.1,0l16.3,16.3
                   c0.3,0.3,0.3,0.8,0,1.1C17.5,17.8,17.3,17.9,17.1,17.9z"
                 />
               </g>
             </svg>
           </button>
-          <ul>
+          {/* <ul>
             {headerData[0].header.menu.map((item) => (
               <li key={item._key}>
                 <a
@@ -210,12 +211,33 @@ const Newheader = () => {
                 </a>
               </li>
             ))}
+          </ul> */}
+
+          <ul>
+            {headerData &&
+            headerData[0] &&
+            headerData[0].header &&
+            headerData[0].header.menu ? (
+              headerData[0].header.menu.map((item) => (
+                <li key={item._key}>
+                  <a
+                    href={item.link}
+                    onClick={(event) => handleMenuItemClick(event, item.link)} // Call handleMenuItemClick here
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            ) : (
+              <li>No menu items available</li> // Fallback message in case menu data is not available
+            )}
           </ul>
+
           <div className="logosvg">
             <img src={bannerlogo} alt="logo" />
           </div>
         </div>
-        <ul className="desktop-menu">
+        {/* <ul className="desktop-menu">
           {headerData[0].header.menu.map((item) => (
             <li key={item._key}>
               <a
@@ -227,6 +249,25 @@ const Newheader = () => {
               </a>
             </li>
           ))}
+        </ul> */}
+        <ul className="desktop-menu">
+          {headerData &&
+          headerData[0] &&
+          headerData[0].header &&
+          headerData[0].header.menu ? (
+            headerData[0].header.menu.map((item) => (
+              <li key={item._key}>
+                <a
+                  href={item.link}
+                  onClick={(event) => handleMenuItemClick(event, item.link)} // Call handleMenuItemClick here
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          ) : (
+            <li>No menu items available</li> // Fallback message in case menu data is not available
+          )}
         </ul>
       </nav>
     </div>

@@ -64,14 +64,24 @@ const Newfootermenu = () => {
         </div>
         <div className="allmenulist">
           <div className="footerblock">
-            <h6>Menu</h6>
+            <h6
+              data-aos="fade-down"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="500"
+            >
+              Menu
+            </h6>
             <div className="footerlistbox">
-              <ul>
+              <ul
+                data-aos="fade-down"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="500"
+              >
                 {menu.map((item, index, array) => (
                   <li key={item._key}>
                     {index === array.length - 1 ? (
                       <a
-                        href={item.link} 
+                        href={item.link}
                         aria-label={item.label}
                         onClick={(event) =>
                           handleMenuItemClicks(event, item.link)
@@ -81,7 +91,7 @@ const Newfootermenu = () => {
                       </a>
                     ) : (
                       <a
-                        href={`/${item.link}`} 
+                        href={`/${item.link}`}
                         aria-label={item.label}
                         onClick={(event) =>
                           handleMenuItemClicks(event, item.link)
@@ -96,28 +106,59 @@ const Newfootermenu = () => {
             </div>
           </div>
           <div className="footerblock">
-            <h6>Contact</h6>
+            <h6
+              data-aos="fade-down"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="500"
+            >
+              Contact
+            </h6>
             <div className="footerlistbox">
               <ul>
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                 </li>
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </li>
               </ul>
               <ul>
                 {contact.address.map((addr) => (
-                  <li key={addr._key}>{addr.text}</li>
+                  <li
+                    key={addr._key}
+                    data-aos="fade-down"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="500"
+                  >
+                    {addr.text}
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
           <div className="footerblock">
-            <h6>Socials</h6>
+            <h6
+              data-aos="fade-down"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="500"
+            >
+              Socials
+            </h6>
             <ul className="footersociallist">
               {socials.facebook && (
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href="www.whatsup.com" aria-label="socials">
                     <svg
                       fill="#EFEBE7"
@@ -160,7 +201,11 @@ const Newfootermenu = () => {
                 </li>
               )}
               {socials.facebook && (
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href={socials.facebook} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +223,11 @@ const Newfootermenu = () => {
                 </li>
               )}
               {socials.insta && (
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href={socials.insta} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +245,11 @@ const Newfootermenu = () => {
                 </li>
               )}
               {socials.tiktok && (
-                <li>
+                <li
+                  data-aos="fade-down"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="500"
+                >
                   <a href={socials.tiktok} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

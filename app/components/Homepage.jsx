@@ -10,8 +10,8 @@ import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-import writingicon from '../assets/resizeimgs/webp/writingicon.webp';
-import posterimg from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
+import writingicon from '../assets/resizeimgs/writingicon.png';
+import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
 import {getImageUrl} from '../js/imagesurl';
 
 gsap.registerPlugin(
@@ -50,31 +50,11 @@ const HomePage = () => {
   }, [language]);
 
   useEffect(() => {
-    /* animation start */
-    // const smoother = ScrollSmoother.create({
-    //     smooth: 3,
-    //     normalizeScroll: false,
-    //     ignoreMobileResize: true,
-    //     effects: true,
-    //     preventDefault: false,
-    // });
-    // smoother.effects('.allfiressections img', { speed: 'auto' });
-
-    // const smoother = ScrollSmoother.create({
-    //   smooth: 1,
-    //   effects: true,
-    //   smoothTouch: 0.1,
-    //   normalizeScroll: true,
-    //   ignoreMobileResize: true,
-    // });
-
-    /* animation end */
-
     /* data fatched */
     const fetchData_HomePage = async () => {
       const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
-      
+
       if (cachedData) {
         setBanner(JSON.parse(cachedData));
         setLoading(false);
@@ -84,7 +64,7 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            { lang: language }
+            {lang: language},
           );
           if (data && data.length > 0) {
             setTimeout(() => {
@@ -93,11 +73,16 @@ const HomePage = () => {
             }, 1000);
             setTimeout(() => {
               //scrollToSection(window.location.hash);
-              document.querySelector('.language-switcher').classList.add('nomorelanguage');
+              document
+                .querySelector('.language-switcher')
+                .classList.add('nomorelanguage');
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
-    
-            localStorage.setItem(`homeBannerData_${language}`, JSON.stringify(data));
+
+            localStorage.setItem(
+              `homeBannerData_${language}`,
+              JSON.stringify(data),
+            );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -111,7 +96,7 @@ const HomePage = () => {
         }
       }
     };
-    
+
     fetchData_HomePage();
   }, [language]);
   /* data fatched */
@@ -124,13 +109,12 @@ const HomePage = () => {
       setHasScrolled(true);
       gsap.to('.scrollmeater', {
         duration: 1,
-        y: '-225px', 
+        y: '-225px',
         ease: 'bounce.out',
       });
     }
   };
 
-  
   const handleSkipVideo = () => {
     const videos = document.getElementById('myVideo');
     const skipbuttons = document.getElementById('skipvideobtn');
@@ -143,7 +127,6 @@ const HomePage = () => {
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
       document.querySelector('.scrollmeater').classList.add('hidden');
-
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -185,7 +168,7 @@ const HomePage = () => {
           delay: 0,
           autoAlpha: 1,
           ease: 'expo.inOut',
-          zIndex:7
+          zIndex: 7,
         });
       }
 
@@ -361,7 +344,6 @@ const HomePage = () => {
           delay: 5.5,
         },
       );
-      
     }
   };
 
@@ -372,7 +354,7 @@ const HomePage = () => {
         duration: 0,
         opacity: 0,
         onComplete: () => {
-         // document.body.classList.add('hiddenoverflow');
+          // document.body.classList.add('hiddenoverflow');
           gsap.to('.banner_video', {
             duration: 1,
             delay: 0,
@@ -443,7 +425,7 @@ const HomePage = () => {
           delay: 0,
           autoAlpha: 1,
           ease: 'expo.inOut',
-          zIndex:7
+          zIndex: 7,
         });
       }
 
@@ -626,14 +608,13 @@ const HomePage = () => {
           section.scrollIntoView({behavior: 'smooth'});
         }
       };
-  
+
       if (window.location.hash) {
         setTimeout(() => {
           scrollToSection(window.location.hash);
           document.body.classList.remove('hiddenoverflow');
         }, 0);
       }
-
     };
 
     if (video) {
@@ -655,7 +636,6 @@ const HomePage = () => {
   function removeClass() {
     document.body.classList.remove('hiddenoverflow');
   }
-
 
   // Skip video functionality
   /* remove body class */
@@ -718,33 +698,54 @@ const HomePage = () => {
 
         <div className="progress-bar-container">
           <div
-              className="progress-bar"
-              style={{ width: `${progressBarWidth}%` }}
+            className="progress-bar"
+            style={{width: `${progressBarWidth}%`}}
           ></div>
         </div>
 
-        <div className='scrollmeater'>
-            <div className='maskimg'>
+        <div className="scrollmeater">
+          <div className="maskimg">
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
             />
-            </div>   
+          </div>
         </div>
 
-        <button id="skipvideobtn" className='skipvideo' onClick={handleSkipVideo}>
-          <i className='skipicon'>
-        <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1">
-    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="skip" transform="translate(0.000000, 0.000000)" fill="#000000">
-            <g id="add" transform="translate(128.000000, 128.000000)">
-                <path d="M213.333333,-2.84217094e-14 L213.333333,256 L256,256 L256,-2.84217094e-14 L213.333333,-2.84217094e-14 Z M2.84217094e-14,-2.84217094e-14 L2.84217094e-14,256 L213.333333,128 L2.84217094e-14,-2.84217094e-14 Z M42.6666667,75.328 L130.432,128 L42.6666667,180.650667 L42.6666667,75.328 Z" id="Shape">
-
-</path>
-            </g>
-        </g>
-    </g>
-</svg></i>
+        <button
+          id="skipvideobtn"
+          className="skipvideo"
+          onClick={handleSkipVideo}
+        >
+          <i className="skipicon">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 512 512"
+              version="1.1"
+            >
+              <g
+                id="Page-1"
+                stroke="none"
+                strokeWidth="1"
+                fill="none"
+                fillRule="evenodd"
+              >
+                <g
+                  id="skip"
+                  transform="translate(0.000000, 0.000000)"
+                  fill="#000000"
+                >
+                  <g id="add" transform="translate(128.000000, 128.000000)">
+                    <path
+                      d="M213.333333,-2.84217094e-14 L213.333333,256 L256,256 L256,-2.84217094e-14 L213.333333,-2.84217094e-14 Z M2.84217094e-14,-2.84217094e-14 L2.84217094e-14,256 L213.333333,128 L2.84217094e-14,-2.84217094e-14 Z M42.6666667,75.328 L130.432,128 L42.6666667,180.650667 L42.6666667,75.328 Z"
+                      id="Shape"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </i>
           Skip Video
         </button>
       </div>
@@ -770,12 +771,11 @@ const HomePage = () => {
             //   {bannerData[0].bannerButton.buttonText}
             // </a>
             <a
-  className="banner_bottombtn"
-  href={bannerData[0].bannerButton.buttonLink || "#"}
->
-  {bannerData[0].bannerButton.buttonText}
-</a>
-
+              className="banner_bottombtn btn-1 hover-filled-slide-down"
+              href={bannerData[0].bannerButton.buttonLink || '#'}
+            >
+              <span>{bannerData[0].bannerButton.buttonText}</span>
+            </a>
           )}
           <div className="bannerrotate_text">
             <p>{bannerData[0].bannerText}</p>

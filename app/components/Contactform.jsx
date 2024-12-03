@@ -3,7 +3,6 @@ import {useForm} from 'react-hook-form';
 import useWeb3Forms from '@web3forms/react';
 import '../styles/contactform.css';
 
-
 const Contactform = () => {
   const {
     register,
@@ -36,68 +35,65 @@ const Contactform = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className='leftvideoboxinnerinnerform'>
-        <div className='halfinput'>
-          <input
-            className='inputboxgroup'
-            id="name"
-            type="text"
-            placeholder='Name*'
-            {...register('name', {required: 'Name is required'})}
-          />
-          {errors.name && <span>{errors.name.message}</span>}
-        </div>
+        <div className="leftvideoboxinnerinnerform">
+          <div className="halfinput">
+            <input
+              className="inputboxgroup"
+              id="name"
+              type="text"
+              placeholder="Name*"
+              {...register('name', {required: 'Name is required'})}
+            />
+            {errors.name && <span>{errors.name.message}</span>}
+          </div>
 
-        <div className='halfinput'>
-          
-          <input
-            className='inputboxgroup'
-            id="email"
-            type="email"
-            placeholder='Email*'
-            {...register('email', {
-              required: 'Email is required',
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: 'Invalid email format',
-              },
-            })}
-          />
-          {errors.email && <span>{errors.email.message}</span>}
-        </div>
+          <div className="halfinput">
+            <input
+              className="inputboxgroup"
+              id="email"
+              type="email"
+              placeholder="Email*"
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: 'Invalid email format',
+                },
+              })}
+            />
+            {errors.email && <span>{errors.email.message}</span>}
+          </div>
 
-        <div className='fullinput'>
-          <input
-            className='inputboxgroup'
-            id="subject"
-            type="text"
-            placeholder='Subject*'
-            {...register('subject', {required: 'Subject is required'})}
-          />
-          {errors.subject && <span>{errors.subject.message}</span>}
-        </div>
+          <div className="fullinput">
+            <input
+              className="inputboxgroup"
+              id="subject"
+              type="text"
+              placeholder="Subject*"
+              {...register('subject', {required: 'Subject is required'})}
+            />
+            {errors.subject && <span>{errors.subject.message}</span>}
+          </div>
 
-        <div className='fullinput lastchildtextbox'>
-          <textarea
-            className='inputboxgroup'
-            id="message"
-            placeholder='Bericht*'
-            {...register('message', {required: 'Message is required'})}
-          />
-          {errors.message && <span>{errors.message.message}</span>}
-        </div>
+          <div className="fullinput lastchildtextbox">
+            <textarea
+              className="inputboxgroup"
+              id="message"
+              placeholder="Bericht*"
+              {...register('message', {required: 'Message is required'})}
+            />
+            {errors.message && <span>{errors.message.message}</span>}
+          </div>
 
-        {result && (
-        <div>
-          {isSuccess ? (
-            <p className='successfulmsg'>Message sent successfully!</p>
-          ) : (
-            <p className='errormsg'>Error: {result}</p>
+          {result && (
+            <div>
+              {isSuccess ? (
+                <p className="successfulmsg">Message sent successfully!</p>
+              ) : (
+                <p className="errormsg">Error: {result}</p>
+              )}
+            </div>
           )}
-        </div>
-      )}
-
-
         </div>
 
         <button type="submit">Send</button>

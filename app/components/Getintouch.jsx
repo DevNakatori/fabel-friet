@@ -70,8 +70,6 @@ const Getintouch = () => {
       0,
     );
 
-    
-
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
         trigger: '.sixthsection',
@@ -87,14 +85,13 @@ const Getintouch = () => {
     timelinegetintouch.to(
       '#section6 .section.hero',
       {
-        scale: 1.1,
+        scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       },
       '<',
     );
 
-    
     return () => {
       timelinegetintouch.scrollTrigger.kill();
     };
@@ -315,12 +312,30 @@ const Getintouch = () => {
     //   },
     // );
 
+    // gsap.to('.likeimagelist img', {
+    //   y: 20,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   duration: 2,
+    //   ease: 'sine.inOut',
+    // });
+
+    gsap.from('.likeimagelist', {
+      y: '-80vh',
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: '#section6 .gradient-purple',
+      },
+    });
+
     gsap.to('.likeimagelist img', {
-      y: 20,
-      repeat: -1,
-      yoyo: true,
+      x: 'random(-20, 20)',
+      y: 'random(-20, 20)',
+      zIndex: 22,
       duration: 2,
-      ease: 'sine.inOut',
+      ease: 'none',
+      yoyo: true,
+      repeat: -1,
     });
 
     /* other text and section animation end */
@@ -517,27 +532,27 @@ const Getintouch = () => {
             </ul>
 
             <div className="lefttiktoktext">
-              <img
+              {/* <img
                 src={arrow_blue_2}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              />
-              <p data-aos="fade-up" data-aos-easing="ease-out-cubic">
+              /> */}
+              <p className="zoomanimation">
                 {contentSection.mobileImages[0].leftText}
               </p>
             </div>
 
             <div className="righttiktoktext">
-              <img
+              {/* <img
                 src={arrow_blue_1}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              />
-              <p data-aos="fade-up" data-aos-easing="ease-out-cubic">
+              /> */}
+              <p className="zoomanimation">
                 {contentSection.mobileImages[0].rightText}
               </p>
             </div>
@@ -585,13 +600,13 @@ const Getintouch = () => {
               </div>
 
               <div className="whatsappbuttonarrow">
-                <img
+                {/* <img
                   src={arrow_blue_1}
                   data-aos="fade-up"
                   data-aos-easing="ease-out-cubic"
                   className="swingsd"
                   alt="img"
-                />
+                /> */}
                 <div
                   className="bottomwhatsapp"
                   data-aos="fade-up"
@@ -605,8 +620,13 @@ const Getintouch = () => {
                         target="_blank"
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
-                        className="Whatsappbtn"
+                        className="Whatsappbtn btn--snakeBorder"
                       >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
                         <svg
                           height="800px"
                           width="800px"
@@ -705,8 +725,12 @@ const Getintouch = () => {
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="Whatsappbtn"
+                        className="Whatsappbtn btn--snakeBorder"
                       >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                         <svg
                           height="800px"
                           width="800px"

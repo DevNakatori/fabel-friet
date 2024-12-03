@@ -110,7 +110,7 @@ const Hetmenu = () => {
     timelineshetmenu.to(
       '#section4 .section.hero',
       {
-        scale: 1.1,
+        scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       },
@@ -133,8 +133,6 @@ const Hetmenu = () => {
       },
       0,
     );
-
-    
 
     // gsap.fromTo(
     //   '#section4 .gradient-threebox-menu',
@@ -165,6 +163,24 @@ const Hetmenu = () => {
     //   duration: 5,
     //   ease: 'sine.inOut',
     // });
+
+    gsap.from('.allfiressectionsmenu', {
+      y: '-80vh',
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: '#section4 .gradient-purple',
+      },
+    });
+
+    gsap.to('.allfiressectionsmenu img', {
+      x: 'random(-20, 20)',
+      y: 'random(-20, 20)',
+      zIndex: 22,
+      duration: 2,
+      ease: 'none',
+      yoyo: true,
+      repeat: -1,
+    });
 
     return () => {
       timelineshetmenu.scrollTrigger.kill();
@@ -207,8 +223,8 @@ const Hetmenu = () => {
         <div className="wrappermain">
           <img
             className="media"
-            // src={getImageUrl(transitionSection.image.asset._ref)}
-            src={mainbannerbg}
+             src={getImageUrl(transitionSection.image.asset._ref)}
+            //src={mainbannerbg}
             alt="Transition Section"
             width="100" // Adjust size as needed
             height="100"
@@ -259,7 +275,12 @@ const Hetmenu = () => {
               <img src={menu_seven} alt="img" width="10" height="10" />
             </div>
 
-            <div className="menudynamic onlydesktop">
+            <div
+              className="menudynamic onlydesktop"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+            >
               <ul className="categotyfilter">
                 <li>
                   <button

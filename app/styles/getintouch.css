@@ -26,8 +26,31 @@
 .socialiconlist ul li:nth-child(1){order:0;}
 .socialiconlist ul li:nth-child(3){order:-1;}
 .newfooter .newcontainer .footerblock ul li a svg{width:32px;height:32px;display:block;}
-.socialiconlist ul li a{display:flex;align-items:center;position:relative;width:70px;height:70px;background:#0D1E4D;border-radius:50%;box-shadow:0px 4px 4px rgba(0,0,0,0.25);flex:0 0 70px;}
+.socialiconlist ul li a{display:flex;align-items:center;position:relative;width:70px;height:70px;background:#0D1E4D;border-radius:50%;box-shadow:0px 4px 4px rgba(0,0,0,0.25);flex:0 0 70px;transition: .5s;}
 a.Whatsappbtn svg{width:30px;height:30px;margin:0 10px;position:relative;left:-5px;fill:#0D1E4D;}
+li.Insta:after,li.Tiktok:after,li.Facebook:after,li.Linkedin:after,li.Whatsapp:after{display:none;}
+.btn--snakeBorder::before{content:"";position:absolute;top:2px;left:2px;bottom:2px;}
+.btn--snakeBorder span{position:absolute;}
+.btn--snakeBorder span:nth-child(1){top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,#0c002b,#0D1E4D);animation:borderAnimation1 2s linear infinite;}
+@keyframes borderAnimation1{
+  0%{transform:translateX(-100%);}
+  100%{transform:translateX(100%);}
+}
+.btn--snakeBorder span:nth-child(2){top:0;right:0;width:2px;height:100%;background:linear-gradient(to bottom,#0c002b,#0D1E4D);animation:borderAnimation2 2s linear infinite;animation-delay:1s;}
+@keyframes borderAnimation2{
+  0%{transform:translateY(-100%);}
+  100%{transform:translateY(100%);}
+}
+.btn--snakeBorder span:nth-child(3){bottom:0;left:0;width:100%;height:2px;background:linear-gradient(to left,#0c002b,#0D1E4D);animation:borderAnimation3 2s linear infinite;}
+@keyframes borderAnimation3{
+  0%{transform:translateX(100%);}
+  100%{transform:translateX(-100%);}
+}
+.btn--snakeBorder span:nth-child(4){top:0;left:0;width:2px;height:100%;background:linear-gradient(to top,#0c002b,#0D1E4D);animation:borderAnimation4 2s linear infinite;animation-delay:1s;}
+@keyframes borderAnimation4{
+  0%{transform:translateY(100%);}
+  100%{transform:translateY(-100%);}
+}
 a.Whatsappbtn:hover svg{fill:#fff;}
 .Tiktok:after{content:'';position:absolute;left:50%;top:50%;width:35.914px;height:35.913px;display:block;background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='30' viewBox='0 0 26 30' fill='none'%3E%3Cpath d='M9 15C5.6863 15 3 17.6862 3 21C3 24.3138 5.6863 27 9 27C12.3138 27 15 24.3138 15 21V3C15.6666 5 18.2 9 23 9' stroke='%23EFEBE7' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat no-repeat;background-position:center center;background-size:contain;transform:translate(-50%,-50%);}
 .Facebook:after{content:'';position:absolute;left:50%;top:50%;width:35.914px;height:35.913px;display:block;background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'%3E%3Cpath d='M33.0625 32.3555H33.0742V32.3438V2.8125V2.80078H33.0625H2.875H2.86328V2.8125V32.3438V32.3555H2.875H19.1906H19.2023V32.3438V21.5376V21.5259H19.1906H14.517V16.2451H19.1861H19.1979V16.2334V12.3223C19.1979 10.055 19.9056 8.30486 21.1293 7.12152C22.353 5.93812 24.0939 5.32031 26.1625 5.32031C28.1343 5.32031 29.8268 5.46337 30.3375 5.52981V10.2539H27.4787C26.3519 10.2539 25.6762 10.5157 25.2827 10.9732C24.8895 11.4303 24.7807 12.08 24.7807 12.8496V16.2378V16.2495H24.7924H30.1517L29.454 21.5303H24.7924H24.7807V21.542V32.3438V32.3555H24.7924H33.0625ZM1.4375 0.0117188H34.5C35.2889 0.0117188 35.9258 0.635131 35.9258 1.40625V33.75C35.9258 34.5211 35.2889 35.1445 34.5 35.1445H1.4375C0.648611 35.1445 0.0117188 34.5211 0.0117188 33.75V1.40625C0.0117188 0.635131 0.648611 0.0117188 1.4375 0.0117188Z' fill='%23EFEBE7' stroke='%23EFEBE7' stroke-width='0.0234375'/%3E%3C/svg%3E");background-repeat:no-repeat no-repeat;background-position:center center;background-size:contain;transform:translate(-50%,-50%);}
@@ -42,7 +65,7 @@ a.Whatsappbtn:hover svg{fill:#fff;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form{width:100%;max-width:100%;}
 .sixthsection .whitewithvideomainboxss .righttextbox{max-width:731px;width:50%;flex-shrink:0;}
 .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{color:#0D1E4D;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,2vw,35px);font-style:normal;font-weight:700;line-height:normal;margin:0 0 15px;}
-a.Whatsappbtn{width:299px;height:47px;flex-shrink:0;overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:clamp(18px,1vw,23px);font-style:normal;font-weight:600;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #f6c738;border-radius:40px;display:flex;align-items:center;align-content:center;justify-content:center;margin:30px 0;position:relative;}
+a.Whatsappbtn{width:299px;height:60px;flex-shrink:0;overflow:hidden;color:#0D1E4D;text-overflow:ellipsis;font-family:"Work Sans";font-size:clamp(18px,1vw,23px);font-style:normal;font-weight:600;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #fff;border-radius:3px;display:flex;align-items:center;align-content:center;justify-content:center;margin:30px 0;position:relative;}
 .locationbox h6{overflow:hidden;color:#EFEBE7;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:35px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 30px;}
 .locationbox p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;max-width:500px;margin:0;text-align:left;display:flex;width:100%;}
 .locationbox p i.location{width:49px;height:49px;display:inline-flex;margin-right:16px;}
@@ -90,7 +113,12 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
 .likeimagelist img:nth-child(3){display:block;position:relative;top:-17vh;transform:translate3d(10px,10px,10px);}
 .likeimagelist img:nth-child(4){display:block;position:relative;top:-84vh;transform:translate3d(10px,10px,10px);left:77vw;}
 .socialiconlist ul li.Whatsapp{order:-1;}
-.socialiconlist ul li a:hover{background:#f6c738;}
+/* .socialiconlist ul li a:hover{background:#f6c738;} */
+.socialiconlist ul li a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #0D1E4D;
+}
+
 .whatsappbuttonarrow{display:flex;position:relative;width:100%;margin:0 auto;max-width:400px;}
 .whatsappbuttonarrow img{position:absolute;right:-56px;top:30px;}
 .de .whatsappbuttonarrow img{position:absolute;right:-65px;top:30px;}
@@ -106,6 +134,12 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
 .socialiconlist ul li.Linkedin{order:4;}
 .socialiconlist ul li.Facebook{order:5;}
 .socialiconlist ul li.Tiktok{order:6;}
+.zoomanimation{animation:zoom-in-zoom-out 2s ease-out infinite;}
+@keyframes zoom-in-zoom-out{
+  0%{transform:scale(1,1);}
+  50%{transform:scale(1.3,1.3);}
+  100%{transform:scale(1,1);}
+}
 @media (min-width:992px) and (max-width:1199px){
     .nl .roundtext-getintouch h2{position:absolute;left:-231px;top:-50px;}
     .nl .roundtext-getintouch h3{right:-335px;width:495px;bottom:-60px;}
@@ -165,7 +199,7 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size:20px;width:250px;margin-bottom:-10px;}
     .bottomwhatsapp{border-bottom:solid 1px #0D1E4D;padding-bottom:0;margin-bottom:15px;margin-top:10px;}
     .bottomwhatsapp a.Whatsappbtn{margin:15px 0;}
-    .socialiconlist ul li a{width:30px;height:30px;flex:0 0 30px;}
+    .socialiconlist ul li a{width:30px;height:30px;flex:0 0 30px;transition: .5s;}
     .Insta:after,.Whatsapp:after,.Twitter:after,.Tiktok:after,.Facebook:after,.Linkedin:after{width:15px;height:15px;}
     .sixthsection .whitebgbox .socialtitle h3{margin:15px 0;font-size:20px;line-height:29px;}
 
@@ -208,30 +242,12 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     .de .whatsappbuttonarrow img {position: absolute;right: -27px;top: -5px;}
 }
 
-@media (min-width:395px) and (max-width:414px){
-    .sixthsection .gradient-threebox ul li {
-        width: 47%;
-        height: 380px;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        z-index: 1;
-        border-radius: 15px;
-    }
-    }
-
-@media (max-width:390px){
-.sixthsection .gradient-threebox ul li {
-    width: 52%;
-    height: 380px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 1;
-    border-radius: 15px;
+@media (min-width:395px) and (max-width:414px)
+{
+  .sixthsection .gradient-threebox ul li{width:47%;height:380px;position:absolute;display:flex;justify-content:center;align-items:center;overflow:hidden;z-index:1;border-radius:15px;}
 }
+
+@media (max-width:390px)
+{
+  .sixthsection .gradient-threebox ul li{width:52%;height:380px;position:absolute;display:flex;justify-content:center;align-items:center;overflow:hidden;z-index:1;border-radius:15px;}
 }

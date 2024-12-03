@@ -67,7 +67,7 @@ const Onzeimpact = () => {
     timelineimpact.to(
       '#section5 .section.hero',
       {
-        scale: 1.1,
+        scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       },
@@ -90,8 +90,6 @@ const Onzeimpact = () => {
       },
       0, // Start this animation at the same time as the previous one
     );
-
-    
 
     gsap.fromTo(
       '.fifthesection .gradient-threebox',
@@ -379,13 +377,23 @@ const Onzeimpact = () => {
                 <li key={img._key} className="threeboxonzeimpactlist">
                   {index === 0 && (
                     <div className="threeboxleftlogobar">
-                      <img src={fabelfrietsticker2} width="10" height="10" alt="img" />
+                      <img
+                        src={fabelfrietsticker2}
+                        width="10"
+                        height="10"
+                        alt="img"
+                      />
                     </div>
                   )}
 
                   {index === 1 && (
                     <div className="threeboxleftlogobar lastbottomimg">
-                      <img src={fabelfrie_bottomlogo} width="10" height="10" alt="img" />
+                      <img
+                        src={fabelfrie_bottomlogo}
+                        width="10"
+                        height="10"
+                        alt="img"
+                      />
                     </div>
                   )}
                   <img
@@ -393,7 +401,6 @@ const Onzeimpact = () => {
                     alt="Descriptive Alt Text"
                     width="10"
                     height="10"
-                    alt="img"
                   />
                 </li>
               ))}
