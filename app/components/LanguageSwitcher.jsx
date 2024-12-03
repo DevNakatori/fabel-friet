@@ -23,10 +23,10 @@ const LanguageSwitcher = () => {
     if (isOpen) {
       gsap.fromTo(
         '.language-list',
-        {opacity: 0, x: 300},
+        {opacity: 0, y: 300},
         {
           opacity: 1,
-          x: 0,
+          y: 0,
           duration: 0.5,
           ease: 'power2.out',
         },
@@ -34,7 +34,7 @@ const LanguageSwitcher = () => {
     } else {
       gsap.to('.language-list', {
         opacity: 0,
-        x: 300,
+        y: 300,
         duration: 0.5,
         ease: 'power2.in',
       });
