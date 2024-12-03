@@ -133,9 +133,8 @@ button.skipvideo.hidden {display: none;}
     .roundtext h2{left:-180px;}
     .bannersectinlogo{display: none;}
     .bottomsection{display: none;}
-    .menu-open .headernew {
-        z-index: 999;
-    }
+    .menu-open .headernew {z-index: 999;}
+    .wrappermain img.media {-o-object-fit: cover;object-fit: cover;}
 }
 
 @media (max-width:767px) and (orientation:landscape)

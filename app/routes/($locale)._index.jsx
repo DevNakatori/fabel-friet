@@ -87,13 +87,12 @@ export default function Homepage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      smooth: 1,
-      // effects: true,
-      // smoothTouch: 0.1,
-      // normalizeScroll: true,
-      // ignoreMobileResize: true,
-    });
+    if (window.innerWidth >= 1024) {  // Check if the screen width is greater than or equal to 1024px (desktop)
+      const smoother = ScrollSmoother.create({
+        smooth: 1,
+        smoothTouch: 0.1,
+      });
+    }
 
     AOS.init({
       once: true,
