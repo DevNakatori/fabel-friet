@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
@@ -119,162 +120,49 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    const listimpact = document.querySelectorAll(
-      '.gradient-threeboxonzeimpact',
-    );
-    listimpact.forEach((listimpact) => {
-      const itemslistimpact = listimpact.querySelectorAll(
-        'ul li.threeboxonzeimpactlist',
-      );
-      const firstItemimpact = itemslistimpact[0];
-      const lastItemimpact = itemslistimpact[itemslistimpact.length - 1];
-      const middleItemimpact = itemslistimpact[1];
-      const mobileMediaQuerys = window.matchMedia('(max-width: 768px)');
-      // GSAP animation for desktop
-      const animateDesktopimpact = () => {
-        const onzefritthreeimagecenterimpact = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .wrappertest',
-            start: 'top top',
-            end: 'center center',
-          },
-        });
-
-        onzefritthreeimagecenterimpact.fromTo(
-          middleItemimpact,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
-          {
-            bottom: '0vh',
-            duration: 1,
-            opacity: 1,
-          },
-        );
-
-        const onzefritthreeimageleftimpact = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimageleftimpact
-          .fromTo(
-            firstItemimpact,
-            {left: '-50vw', rotation: 0, opacity: 0},
-            {
-              left: '-11vw',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(firstItemimpact, {
-            rotation: -8,
-            duration: 1,
-            delay: 1,
-          });
-
-        const onzefritthreeimagerightimpact = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimagerightimpact
-          .fromTo(
-            lastItemimpact,
-            {right: '-50vw', rotation: 0, opacity: 0},
-            {
-              right: '-11vw',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(lastItemimpact, {
-            rotation: 8,
-            duration: 1,
-            delay: 1,
-          });
-      };
-
-      // GSAP animation for mobile
-      const animateMobileimpact = () => {
-        const mobileTimelineCenter = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .wrappertest',
-            start: '0 0',
-            markers: false,
-          },
-        });
-
-        mobileTimelineCenter.fromTo(
-          middleItemimpact,
-          {bottom: '-30vh', rotation: 0, opacity: 0},
-          {
-            bottom: '0vh',
-            duration: 0.7,
-            opacity: 1,
-          },
-        );
-
-        const mobileTimelineLeft = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        mobileTimelineLeft
-          .fromTo(
-            firstItemimpact,
-            {left: '-30vw', rotation: 0, opacity: 0},
-            {
-              left: '0vw',
-              opacity: 1,
-              duration: 0.7,
-            },
-          )
-          .to(firstItemimpact, {
-            rotation: -4,
-            duration: 0.7,
-            delay: 1,
-          });
-
-        const mobileTimelineRight = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.fifthesection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        mobileTimelineRight
-          .fromTo(
-            lastItemimpact,
-            {right: '-30vw', rotation: 0, opacity: 0},
-            {
-              right: '0vw',
-              opacity: 1,
-              duration: 0.7,
-            },
-          )
-          .to(lastItemimpact, {
-            rotation: 4,
-            duration: 0.7,
-            delay: 1,
-          });
-      };
-
-      // Execute appropriate animation based on the device
-      if (mobileMediaQuerys.matches) {
-        animateMobileimpact();
-      } else {
-        animateDesktopimpact();
-      }
+    gsap.set(['.image-wrappers'], {
+      xPercent: -50,
+      yPercent: -50,
     });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.img-containerss',
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: 2, // Increased scrub for smoother animation
+        ease: 'power3.inOut', // Smoother easing
+        once: true,
+      },
+    });
+
+    // On scroll, spread images horizontally with rotation
+    timeline
+      .to('.image-wrappers:first-child', {
+        left: '20%',
+        rotation: -5, // Tilt first image
+        duration: 2,
+        ease: 'power3.out',
+      })
+      .to(
+        '.image-wrappers:nth-child(2)',
+        {
+          left: '50%',
+          duration: 2,
+          ease: 'power3.out',
+        },
+        '<',
+      )
+      .to(
+        '.image-wrappers:last-child',
+        {
+          left: '80%',
+          rotation: 5, // Tilt last image
+          duration: 2,
+          ease: 'power3.out',
+        },
+        '<',
+      );
   }, [onzeimpact]);
 
   useEffect(() => {
@@ -307,6 +195,175 @@ const Onzeimpact = () => {
     };
     fetchDataonzeimpactData();
   }, [language]);
+
+  useEffect(() => {
+    let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsonzeimpacttitle = typeSplitonzeimpacttitle.chars;
+    gsap.from('[data-onzeimpacttitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-onzeimpacttitle]',
+      },
+      onUpdate: function () {
+        charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
+          typeSplitcharsonzeimpacttitleas.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
+          typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
+            'transparent';
+          typeSplitcharsonzeimpacttitleas.style.backgroundPosition =
+            '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitonzeimpactdescription = new SplitType(
+      '[data-onzeimpactdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-onzeimpactdescription] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-onzeimpactdescription]',
+      },
+    });
+
+    let typeSplitleftvideoboxsectitle = new SplitType(
+      '[data-leftvideoboxsectitle]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+    var charsleftvideoboxsectitle = typeSplitleftvideoboxsectitle.chars;
+    gsap.from('[data-leftvideoboxsectitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-leftvideoboxsectitle]',
+      },
+      onUpdate: function () {
+        charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
+          typeSplitleftvideoboxsectitle.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplitleftvideoboxsectitle.style.webkitBackgroundClip = 'text';
+          typeSplitleftvideoboxsectitle.style.webkitTextFillColor =
+            'transparent';
+          typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitrighttextboxtitle = new SplitType('[data-righttextboxtitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsrighttextboxtitle = typeSplitrighttextboxtitle.chars;
+    gsap.from('[data-righttextboxtitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-righttextboxtitle]',
+      },
+      onUpdate: function () {
+        charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
+          typeSplitrighttextboxtitlse.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplitrighttextboxtitlse.style.webkitBackgroundClip = 'text';
+          typeSplitrighttextboxtitlse.style.webkitTextFillColor = 'transparent';
+          typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitonzeonzeimpacttwolistlisttext = new SplitType(
+      '[data-onzeimpacttwolistlisttext]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-onzeimpacttwolistlisttext] .line', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-onzeimpacttwolistlisttext]',
+      },
+    });
+
+    let typeSplitsecdescription = new SplitType('[data-secdescription]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+
+    gsap.from('[data-secdescription]', {
+      y: '100%',
+      opacity: 1,
+      duration: 1,
+      ease: 'power1.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-secdescription]',
+      },
+    });
+
+    let onzeimpacttwolistlisttitle = new SplitType(
+      '[data-onzeimpacttwolistlisttitle]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+    var charsimpacttwolistlisttitle = onzeimpacttwolistlisttitle.chars;
+    gsap.from('[data-onzeimpacttwolistlisttitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.1,
+      ease: 'circ.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-onzeimpacttwolistlisttitle]',
+      },
+      onUpdate: function () {
+        charsimpacttwolistlisttitle.forEach(
+          (typeSplitimpacttwolistlisttitle) => {
+            typeSplitimpacttwolistlisttitle.style.backgroundImage =
+              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            typeSplitimpacttwolistlisttitle.style.webkitBackgroundClip = 'text';
+            typeSplitimpacttwolistlisttitle.style.webkitTextFillColor =
+              'transparent';
+            typeSplitimpacttwolistlisttitle.style.backgroundPosition =
+              '97px -83px';
+          },
+        );
+      },
+    });
+  }, [onzeimpact]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -351,30 +408,19 @@ const Onzeimpact = () => {
       <div className="wrappertest">
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzeimpactnonzefriet">
-          <h4
-            className="onzeimpacttitle"
-            data-aos="fade-up"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-          >
+          <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
             {data.contentSection.heading}
           </h4>
-          <p
-            className="onzeimpactdescription"
-            data-aos="fade-up"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-          >
+          <p className="onzeimpactdescription" data-onzeimpactdescription="">
             {data.contentSection.description}
           </p>
           <div className="gradient-threebox gradient-threeboxonzeimpact">
-            <ul
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
+            <div className="img-containerss">
               {data.imageSection.image.map((img, index) => (
-                <li key={img._key} className="threeboxonzeimpactlist">
+                <div
+                  key={img._key}
+                  className="threeboxonzeimpactlist image-wrappers"
+                >
                   {index === 0 && (
                     <div className="threeboxleftlogobar">
                       <img
@@ -402,9 +448,9 @@ const Onzeimpact = () => {
                     width="10"
                     height="10"
                   />
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="whitebgbox">
             <div className="appcontainers">
@@ -429,7 +475,9 @@ const Onzeimpact = () => {
                   data-aos-easing="ease-in-sine"
                   data-aos-duration="500"
                 >
-                  <h4>{data.cardSection.secTitle}</h4>
+                  <h4 data-leftvideoboxsectitle="">
+                    {data.cardSection.secTitle}
+                  </h4>
                 </div>
                 <div
                   className="righttextbox"
@@ -447,18 +495,10 @@ const Onzeimpact = () => {
                           data-aos-duration="2000"
                         >
                           <div className="onzeimpacttwolistlist">
-                            <h5
-                              data-aos="fade-up"
-                              data-aos-easing="ease-out-cubic"
-                              data-aos-duration="2000"
-                            >
+                            <h5 data-onzeimpacttwolistlisttitle="">
                               {card.cardTitle}
                             </h5>
-                            <p
-                              data-aos="fade-up"
-                              data-aos-easing="ease-out-cubic"
-                              data-aos-duration="2000"
-                            >
+                            <p data-onzeimpacttwolistlisttext="">
                               {card.cardDescription}
                             </p>
                           </div>
@@ -566,18 +606,10 @@ const Onzeimpact = () => {
                   data-aos-offset="500"
                   data-aos-duration="500"
                 >
-                  <h3
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
+                  <h3 data-righttextboxtitle="">
                     {data.bottomSection.secTitle}
                   </h3>
-                  <p
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
+                  <p data-secdescription="">
                     {data.bottomSection.secDescription}
                   </p>
                 </div>

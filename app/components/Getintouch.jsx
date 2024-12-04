@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
@@ -22,10 +23,10 @@ import tiktokIcon from '../assets/resizeimgs/webp/tiktok.webp';
 import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
 import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
 
-import liek_1 from '../assets/resizeimgs/webp/like1.webp';
-import liek_2 from '../assets/resizeimgs/webp/like2.webp';
-import liek_3 from '../assets/resizeimgs/webp/like3.webp';
-import liek_4 from '../assets/resizeimgs/webp/like4.webp';
+import liek_1 from '../assets/resizeimgs/webp/like11.webp';
+import liek_2 from '../assets/resizeimgs/webp/like33.webp';
+import liek_3 from '../assets/resizeimgs/webp/like44.webp';
+import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -338,6 +339,167 @@ const Getintouch = () => {
       repeat: -1,
     });
 
+    gsap.fromTo(
+      '.borderbottomaccordians',
+      {width: 0},
+      {
+        width: '100%',
+        stagger: 0.2,
+        duration: 2,
+        ease: 'power2.out',
+        delay: 2,
+        repeat: 0,
+        scrollTrigger: {
+          trigger: '#section6 .accordion-item',
+          start: 'top center',
+          end: 'bottom top',
+          scrub: true,
+          stagger: 0.3,
+          duration: 2,
+          once: true,
+        },
+      },
+    );
+
+    let typeSplitdatagettouchonzefrientdescription = new SplitType(
+      '[data-gettouchonzefrientdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-gettouchonzefrientdescription] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+
+      scrollTrigger: {
+        trigger: '[data-gettouchonzefrientdescription]',
+      },
+    });
+
+    let typeSplitgettouchonzefrienttitle = new SplitType(
+      '[data-gettouchonzefrienttitle]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+    var charswhatpeoplesectiongettouch = typeSplitgettouchonzefrienttitle.chars;
+    gsap.from('[data-gettouchonzefrienttitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-gettouchonzefrienttitle]',
+      },
+      onUpdate: function () {
+        charswhatpeoplesectiongettouch.forEach(
+          (typeswhatpeoplesectiontouchget) => {
+            typeswhatpeoplesectiontouchget.style.backgroundImage =
+              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
+            typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
+              'transparent';
+            typeswhatpeoplesectiontouchget.style.backgroundPosition =
+              '97px -83px';
+          },
+        );
+      },
+    });
+
+    let typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsgettouchsocil = typeSplitsocialtitle.chars;
+    gsap.from('[data-socialtitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-socialtitle]',
+      },
+      onUpdate: function () {
+        charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
+          typeswhatpeoplesectiontouchgetsocial.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeswhatpeoplesectiontouchgetsocial.style.webkitBackgroundClip =
+            'text';
+          typeswhatpeoplesectiontouchgetsocial.style.webkitTextFillColor =
+            'transparent';
+          typeswhatpeoplesectiontouchgetsocial.style.backgroundPosition =
+            '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitcontactsection = new SplitType('[data-contactsection]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsgettouchcontactsection = typeSplitcontactsection.chars;
+    gsap.from('[data-contactsection] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-contactsection]',
+      },
+      onUpdate: function () {
+        charsgettouchcontactsection.forEach(
+          (typeswhatpeoplesectiontouchgetcontect) => {
+            typeswhatpeoplesectiontouchgetcontect.style.backgroundImage =
+              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            typeswhatpeoplesectiontouchgetcontect.style.webkitBackgroundClip =
+              'text';
+            typeswhatpeoplesectiontouchgetcontect.style.webkitTextFillColor =
+              'transparent';
+            typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
+              '97px -83px';
+          },
+        );
+      },
+    });
+
+    let typeSplitaccordiantitle = new SplitType('[data-accordiantitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsgettouchaccordian = typeSplitaccordiantitle.chars;
+    gsap.from('[data-accordiantitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-accordiantitle]',
+      },
+      onUpdate: function () {
+        charsgettouchaccordian.forEach(
+          (typeswhatpeoplesectiontouchgeaccordian) => {
+            typeswhatpeoplesectiontouchgeaccordian.style.backgroundImage =
+              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            typeswhatpeoplesectiontouchgeaccordian.style.webkitBackgroundClip =
+              'text';
+            typeswhatpeoplesectiontouchgeaccordian.style.webkitTextFillColor =
+              'transparent';
+            typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
+              '97px -83px';
+          },
+        );
+      },
+    });
     /* other text and section animation end */
   }, [getIntouch]);
 
@@ -364,7 +526,7 @@ const Getintouch = () => {
     if (content.classList.contains('show')) {
       gsap.to(content, {
         height: 0,
-        duration: 0,
+        duration: 0.5,
         onComplete: () => (content.style.display = 'none'),
       });
       content.classList.remove('show');
@@ -448,21 +610,12 @@ const Getintouch = () => {
             <img src={liek_4} alt="img" />
           </div>
 
-          <h4
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-            className="onzefrienttitle"
-          >
+          <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
             {contentSection.heading}
           </h4>
           <p
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
             className="onzefriendescription"
+            data-gettouchonzefrientdescription=""
           >
             {contentSection.description}
           </p>
@@ -560,13 +713,7 @@ const Getintouch = () => {
           <div className="whitebgbox">
             <div className="appcontainers">
               <div className="socialtitle">
-                <h3
-                  data-aos="fade-up"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                >
-                  {contentSection.socialMedia?.title}
-                </h3>
+                <h3 data-socialtitle="">{contentSection.socialMedia?.title}</h3>
               </div>
               <div className="socialiconlist">
                 <ul
@@ -670,12 +817,7 @@ const Getintouch = () => {
                   )}
                 </div>
               </div>
-              <h4
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                className="onlydesktop"
-              >
+              <h4 className="onlydesktop" data-contactsection="">
                 {contactSection.heading}
               </h4>
               <div className="whitewithvideomainboxss">
@@ -909,11 +1051,7 @@ const Getintouch = () => {
               </div>
 
               <div className="main-accordian">
-                <h6
-                  data-aos="fade-down"
-                  ddata-aos-easing="linear"
-                  data-aos-duration="500"
-                >
+                <h6 data-accordiantitle="">
                   {contactSection.contactDetails?.faqSection?.heading}
                 </h6>
 
@@ -937,6 +1075,7 @@ const Getintouch = () => {
                         <div className="accordion-content">
                           <p>{faq.answer}</p>
                         </div>
+                        <div className="borderbottomaccordians"></div>
                       </div>
                     ))
                   ) : (

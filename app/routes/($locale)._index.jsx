@@ -13,7 +13,7 @@ import Onzelocaties from '~/components/Onzelocaties';
 import Hetmenu from '~/components/Hetmenu';
 import Onzeimpact from '~/components/Onzeimpact';
 import Getintouch from '~/components/Getintouch';
-import ScrollNav from '~/components/ScrollNav';
+// import ScrollNav from '~/components/ScrollNav';
 import Newheader from '~/components/Newheader';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import {ScrollSmoother} from 'gsap/ScrollSmoother';
@@ -21,6 +21,7 @@ import '../styles/media.css';
 import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+// import Cursor from '~/components/Cursor';
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -88,10 +89,12 @@ export default function Homepage() {
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {  // Check if the screen width is greater than or equal to 1024px (desktop)
-      const smoother = ScrollSmoother.create({
-        smooth: 3,
-        smoothTouch: 0.1,
-      });
+      // const smoother = ScrollSmoother.create({
+      //   smooth: 0,
+      //   smoothTouch: 0.1,
+      // });
+      // smoother.effects("img", { speed: "auto" });
+      // smoother.effects("video", { speed: "auto" });
     }
 
     AOS.init({
@@ -229,10 +232,11 @@ export default function Homepage() {
           <p>Scroll down</p>
         </div>
       </div>
-      <ScrollNav />
+      {/* <ScrollNav /> */}
       <LanguageProvider>
         <LanguageSwitcher />
         <Newheader />
+        {/* <Cursor/> */}
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}

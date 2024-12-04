@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
@@ -129,6 +130,52 @@ const Onzelocaties = () => {
     fetchDataOnzelocaties();
   }, [language]);
 
+  useEffect(() => {
+    let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charslocationtitle = typeSplitlocationtitle.chars;
+    gsap.from('[data-locationtitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-locationtitle]',
+      },
+      onUpdate: function () {
+        charslocationtitle.forEach((typeSplitlocationtitle) => {
+          typeSplitlocationtitle.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplitlocationtitle.style.webkitBackgroundClip = 'text';
+          typeSplitlocationtitle.style.webkitTextFillColor = 'transparent';
+          typeSplitlocationtitle.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitlocationdescription = new SplitType(
+      '[data-locationdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-locationdescription] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-locationdescription]',
+      },
+    });
+  }, [onzelocaties]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
@@ -172,19 +219,12 @@ const Onzelocaties = () => {
           <div className="wrappertest">
             <section className="section hero"></section>
             <div className="gradient-purple" id="locationtiononzefriet">
-              <h4
-                className="locationtitle"
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-              >
+              <h4 className="locationtitle" data-locationtitle="">
                 {locationData.contentSection.heading}
               </h4>
               <p
                 className="locationescription onlydesktop"
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
+                data-locationdescription=""
               >
                 {locationData.contentSection.description}
               </p>
@@ -194,6 +234,7 @@ const Onzelocaties = () => {
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
+                data-aos-delay="1000"
               >
                 <span>{locationData.contentSection.btn_label}</span>
               </a>
