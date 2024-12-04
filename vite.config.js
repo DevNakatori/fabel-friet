@@ -7,7 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
 	resolve: {
     alias: {
-      'split-type': 'node_modules/split-type'
+      'split-type': require.resolve('split-type')
     }
   },
   plugins: [
