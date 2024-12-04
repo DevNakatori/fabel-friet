@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -10,9 +11,7 @@ import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
 import {Pagination, Autoplay} from 'swiper/modules';
 import {getImageUrl} from '../js/imagesurl';
-
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
-
 import fries_one from '../assets/resizeimgs/webp/Rectangle89.webp';
 import fries_two from '../assets/resizeimgs/webp/Rectangle88.webp';
 import fries_three from '../assets/resizeimgs/webp/AdobeStock_616168104.webp';
@@ -155,7 +154,7 @@ const Onzefriet = () => {
     if (content.classList.contains('show')) {
       gsap.to(content, {
         height: 0,
-        duration: 0,
+        duration: 0.5,
         onComplete: () => (content.style.display = 'none'),
       });
       content.classList.remove('show');
@@ -204,76 +203,53 @@ const Onzefriet = () => {
   }, [language]);
   /* fatch data end */
 
-
   useEffect(() => {
-    gsap.set([".image-wrapper"], {
+    gsap.set(['.image-wrapper'], {
       xPercent: -50,
-      yPercent: -50
-  });
-  
-  const timeline = gsap.timeline({
+      yPercent: -50,
+    });
+
+    const timeline = gsap.timeline({
       scrollTrigger: {
-          trigger: ".img-container",
-          start: "top center", 
-          end: "bottom bottom",
-          scrub: 2, // Increased scrub for smoother animation
-          ease: "power3.inOut", // Smoother easing
-          once: true,
-      }
-  });
-  
-  // On scroll, spread images horizontally with rotation
-  timeline
-      .to(".image-wrapper:first-child", {
-          left: "20%",
-          rotation: -5, // Tilt first image
-          duration: 2,
-          ease: "power3.out"
+        trigger: '.img-container',
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: 2, // Increased scrub for smoother animation
+        ease: 'power3.inOut', // Smoother easing
+        once: true,
+      },
+    });
+
+    // On scroll, spread images horizontally with rotation
+    timeline
+      .to('.image-wrapper:first-child', {
+        left: '20%',
+        rotation: -5, // Tilt first image
+        duration: 2,
+        ease: 'power3.out',
       })
-      .to(".image-wrapper:nth-child(2)", {
-          left: "50%",
+      .to(
+        '.image-wrapper:nth-child(2)',
+        {
+          left: '50%',
           duration: 2,
-          ease: "power3.out"
-      }, "<")
-      .to(".image-wrapper:last-child", {
-          left: "80%",
+          ease: 'power3.out',
+        },
+        '<',
+      )
+      .to(
+        '.image-wrapper:last-child',
+        {
+          left: '80%',
           rotation: 5, // Tilt last image
           duration: 2,
-          ease: "power3.out"
-      }, "<");
+          ease: 'power3.out',
+        },
+        '<',
+      );
   }, [onzefriet]);
 
-
   useEffect(() => {
-    // function setupSplits() {
-    //   var tlSplitBurrowing = gsap.timeline(),
-    //     SplitBurrowing = new SplitText('.onzefriendescription', {
-    //       type: 'words,chars',
-    //     }),
-    //     chars = SplitBurrowing.chars;
-    //   tlSplitBurrowing.from(
-    //     chars,
-    //     {
-    //       duration: 1,
-    //       opacity: 0,
-    //       y: 10,
-    //       ease: 'circ.out',
-    //       stagger: 0.01,
-    //       scrollTrigger: {
-    //         trigger: '.onzefriendescription',
-    //         start: 'top 75%',
-    //         end: 'bottom center',
-    //         scrub: 1,
-    //         once: true,
-    //       },
-    //     },
-    //     '+=0',
-    //   );
-    // }
-
-    // ScrollTrigger.addEventListener('refresh', setupSplits);
-    // setupSplits();
-
     gsap.from('.allfiressections', {
       y: '-100vh',
       delay: 0.5,
@@ -285,11 +261,145 @@ const Onzefriet = () => {
     gsap.to('.allfiressections img', {
       x: 'random(-20, 20)',
       y: 'random(-20, 20)',
+      stagger: 0.3,
       zIndex: 22,
       duration: 2,
-      ease: 'none',
+      ease: 'power3.out',
       yoyo: true,
       repeat: -1,
+    });
+
+    let typeSplit = new SplitType('[data-onzefrienttitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsOnzefrienttitle = typeSplit.chars;
+    gsap.from('[data-onzefrienttitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-onzefrienttitle]',
+      },
+      onUpdate: function () {
+        charsOnzefrienttitle.forEach((typeSplit) => {
+          typeSplit.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplit.style.webkitBackgroundClip = 'text';
+          typeSplit.style.webkitTextFillColor = 'transparent';
+          typeSplit.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitonzefriendescription = new SplitType(
+      '[data-onzefriendescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-onzefriendescription] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+
+      scrollTrigger: {
+        trigger: '[data-onzefriendescription]',
+      },
+    });
+
+    let typeSplitvideoDescription = new SplitType('[data-videodescription]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+
+    gsap.from('[data-videodescription]', {
+      y: '100%',
+      opacity: 1,
+      duration: 1,
+      ease: 'power1.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-videodescription]',
+      },
+    });
+
+    let typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charswhatpeoplesection = typeSplitwhatpeoplesection.chars;
+    gsap.from('[data-whatpeoplesection] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-whatpeoplesection]',
+      },
+      onUpdate: function () {
+        charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
+          typeswhatpeoplesection.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeswhatpeoplesection.style.webkitBackgroundClip = 'text';
+          typeswhatpeoplesection.style.webkitTextFillColor = 'transparent';
+          typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    gsap.fromTo(
+      '.borderbottomaccordian',
+      {width: 0},
+      {
+        width: '100%',
+        stagger: 0.2,
+        duration: 2,
+        ease: 'power2.out',
+        delay: 2,
+        repeat: 0,
+        scrollTrigger: {
+          trigger: '.accordion-item',
+          start: 'top center',
+          end: 'bottom top',
+          scrub: true,
+          stagger: 0.3,
+          duration: 2,
+          once: true,
+        },
+      },
+    );
+
+    let typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsaccordionSection = typeSplitaccordionSection.chars;
+    gsap.from('[data-accordionsection] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-accordionsection]',
+      },
+      onUpdate: function () {
+        charsaccordionSection.forEach((typesaccordionSection) => {
+          typesaccordionSection.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typesaccordionSection.style.webkitBackgroundClip = 'text';
+          typesaccordionSection.style.webkitTextFillColor = 'transparent';
+          typesaccordionSection.style.backgroundPosition = '97px -83px';
+        });
+      },
     });
   });
 
@@ -341,27 +451,20 @@ const Onzefriet = () => {
               {content.contentSection && (
                 <>
                   <div className="line">
-                    <h4
-                      className="onzefrienttitle"
-                      data-aos="fade-up"
-                      data-aos-easing="ease-out-cubic"
-                      data-aos-duration="500"
-                    >
+                    <h4 className="onzefrienttitle" data-onzefrienttitle="">
                       {content.contentSection.heading}
                     </h4>
                   </div>
                   <p
                     className="onzefriendescription"
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="500"
+                    data-onzefriendescription=""
                   >
                     {content.contentSection.description}
                   </p>
                 </>
               )}
               <div className="gradient-threebox gradient-threeboxonzefritimgli">
-                <div className='img-container'>
+                <div className="img-container">
                   {content.contentSection.three_image.map((image, index) => (
                     <div key={image._key} className="image-wrapper">
                       {index === 0 && (
@@ -397,20 +500,7 @@ const Onzefriet = () => {
                 </div>
               </div>
 
-
-              {/* <div class="img-container">
-                  <div class="image-wrapper" >
-                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img1" alt="Image 1"/>
-                  </div>
-                  <div class="image-wrapper">
-                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img2" alt="Image 2"/>
-                  </div>
-                  <div class="image-wrapper">
-                      <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ccd2ec9107e2a396f78a9b6272999643d50c6072-504x628.webp" id="img3" alt="Image 3"/>
-                  </div>
-              </div> */}
-
-              <div className="allfiressections">
+              {/* <div className="allfiressections">
                 <img src={fries_one} alt="img" width="10" height="10" />
                 <img src={fries_two} alt="img" width="10" height="10" />
                 <img src={fries_three} alt="img" width="10" height="10" />
@@ -418,7 +508,7 @@ const Onzefriet = () => {
                 <img src={fries_six} alt="img" width="10" height="10" />
                 <img src={fries_seven} alt="img" width="10" height="10" />
                 <img src={fries_eight} alt="img" width="10" height="10" />
-              </div>
+              </div> */}
 
               <div className="whitebgbox">
                 <div className="appcontainers">
@@ -469,6 +559,7 @@ const Onzefriet = () => {
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
                           data-aos-duration="500"
+                          data-videodescription=""
                         >
                           {content.videoSection.videoHandwritingText}
                         </h3>
@@ -489,9 +580,7 @@ const Onzefriet = () => {
                         </h5>
                         <p
                           className="onzeptag"
-                          data-aos="fade"
-                          data-aos-easing="ease-in-sine"
-                          data-aos-duration="500"
+                          data-videodescription=""
                         >
                           {content.videoSection.videoDescription}
                         </p>
@@ -505,6 +594,7 @@ const Onzefriet = () => {
                         data-aos="fade"
                         data-aos-easing="linear"
                         data-aos-duration="500"
+                        data-whatpeoplesection=""
                       >
                         {content.reviewSection.reviewHeading}
                       </h6>
@@ -522,8 +612,9 @@ const Onzefriet = () => {
                           pagination={{
                             clickable: true,
                           }}
+                          speed={10000}
                           autoplay={{
-                            delay: 2500,
+                            delay: 3000,
                             disableOnInteraction: false,
                           }}
                           breakpoints={{
@@ -611,6 +702,7 @@ const Onzefriet = () => {
                         data-aos="fade-down"
                         data-aos-easing="linear"
                         data-aos-duration="1000"
+                        data-accordionsection=""
                       >
                         {content.accordionSection.accordionHeading}
                       </h6>
@@ -618,7 +710,7 @@ const Onzefriet = () => {
                         className="accordion-container"
                         data-aos="fade-down"
                         data-aos-easing="linear"
-                        data-aos-duration="1000"
+                        data-aos-duration="1500"
                       >
                         {content.accordionSection.faq.map((faq) => (
                           <div className="accordion-item" key={faq._key}>
@@ -632,6 +724,7 @@ const Onzefriet = () => {
                             <div className="accordion-content">
                               <p>{faq.answer}</p>
                             </div>
+                            <div className="borderbottomaccordian"></div>
                           </div>
                         ))}
                       </div>

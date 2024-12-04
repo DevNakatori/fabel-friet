@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {client} from '../../sanityClient';
 import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
+import SplitType from 'split-type';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import {Autoplay} from 'swiper/modules';
@@ -187,6 +188,112 @@ const Hetmenu = () => {
     };
   }, [hetmenu]);
 
+  useEffect(() => {
+    let typeSplitmenutitle = new SplitType('[data-menutitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsmenutitle = typeSplitmenutitle.chars;
+    gsap.from('[data-menutitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-menutitle]',
+      },
+      onUpdate: function () {
+        charsmenutitle.forEach((typeSplithetmenuititle) => {
+          typeSplithetmenuititle.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
+          typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
+          typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitmenudescription = new SplitType('[data-menudescription]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+
+    gsap.from('[data-menudescription] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-menudescription]',
+      },
+    });
+
+    let typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+    var charsmenutitleright = typeSplitmenutitleright.chars;
+    gsap.from('[data-righttextboxtitle] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 1,
+      ease: 'circ.in',
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: '[data-righttextboxtitle]',
+      },
+      onUpdate: function () {
+        charsmenutitleright.forEach((typeSplithetmenuititleright) => {
+          typeSplithetmenuititleright.style.backgroundImage =
+            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+          typeSplithetmenuititleright.style.webkitBackgroundClip = 'text';
+          typeSplithetmenuititleright.style.webkitTextFillColor = 'transparent';
+          typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
+        });
+      },
+    });
+
+    let typeSplitmenudescriptionright = new SplitType(
+      '[data-righttextboxdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-righttextboxdescription]', {
+      y: '100%',
+      opacity: 1,
+      duration: 1,
+      ease: 'power1.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-righttextboxdescription]',
+      },
+    });
+
+    let typeSplitmenudescriptionrightbottom = new SplitType(
+      '[data-righttextboxdescriptionbotom]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-righttextboxdescriptionbotom] .word', {
+      y: '100%',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power1.in',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-righttextboxdescriptionbotom]',
+      },
+    });
+  }, [hetmenu]);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
@@ -223,7 +330,7 @@ const Hetmenu = () => {
         <div className="wrappermain">
           <img
             className="media"
-             src={getImageUrl(transitionSection.image.asset._ref)}
+            src={getImageUrl(transitionSection.image.asset._ref)}
             //src={mainbannerbg}
             alt="Transition Section"
             width="100" // Adjust size as needed
@@ -247,20 +354,10 @@ const Hetmenu = () => {
       <div className="wrappertest">
         <section className="section hero"></section>
         <div className="gradient-purple" id="hetmenusection">
-          <h4
-            className="hetmenuntitle"
-            data-aos="fade-up"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-          >
+          <h4 className="hetmenuntitle" data-menutitle="">
             {contentSection.heading}
           </h4>
-          <p
-            className="hetmenuescription"
-            data-aos="fade-up"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-          >
+          <p className="hetmenuescription" data-menudescription="">
             {contentSection.description}
           </p>
 
@@ -533,18 +630,10 @@ const Hetmenu = () => {
                   data-aos-easing="ease-in-sine"
                   data-aos-duration="500"
                 >
-                  <h5
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
+                  <h5 data-righttextboxtitle="">
                     {bottomContentSection.bottomHeading}
                   </h5>
-                  <p
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
+                  <p data-righttextboxdescription>
                     {bottomContentSection.bottomDescription}
                   </p>
                 </div>
@@ -581,11 +670,7 @@ const Hetmenu = () => {
                   >
                     {bottomContentSection.bottomHeading}
                   </h3>
-                  <p
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
+                  <p data-righttextboxdescriptionbotom="">
                     {bottomContentSection.bottomContent}
                   </p>
                 </div>

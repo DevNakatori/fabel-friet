@@ -1,18 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {TextPlugin} from 'gsap/TextPlugin';
-import {ScrollSmoother} from 'gsap/ScrollSmoother';
+import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
+import SplitType from 'split-type';
 
 gsap.registerPlugin(
   TextPlugin,
@@ -23,7 +24,7 @@ gsap.registerPlugin(
 );
 
 const HomePage = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [bannerData, setBanner] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -64,7 +65,7 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           if (data && data.length > 0) {
             setTimeout(() => {
@@ -150,7 +151,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -164,7 +165,7 @@ const HomePage = () => {
 
       if (overlayMain) {
         gsap.to('.banner_overlaymain', {
-          duration: 1,
+          duration: 3,
           delay: 0,
           autoAlpha: 1,
           ease: 'expo.inOut',
@@ -174,7 +175,7 @@ const HomePage = () => {
 
       if (overlay) {
         gsap.to(overlay, {
-          duration: 2,
+          duration: 3,
           opacity: 1,
           ease: 'power2.out',
           delay: 0.2,
@@ -191,7 +192,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -202,35 +203,35 @@ const HomePage = () => {
         },
       );
 
-      gsap.fromTo(
-        elements.title,
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 1.5,
-          stagger: 0.3,
-        },
-      );
+      // gsap.fromTo(
+      //   elements.title,
+      //   {opacity: 0, y: -50},
+      //   {
+      //     opacity: 1,
+      //     y: 0,
+      //     duration: 1,
+      //     ease: 'power2.out',
+      //     delay: 1.5,
+      //     stagger: 0.3,
+      //   },
+      // );
 
-      gsap.fromTo(
-        elements.content,
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 2,
-          stagger: 0.4,
-        },
-      );
+      // gsap.fromTo(
+      //   elements.content,
+      //   {opacity: 0, y: -50},
+      //   {
+      //     opacity: 1,
+      //     y: 0,
+      //     duration: 1,
+      //     ease: 'power2.out',
+      //     delay: 2,
+      //     stagger: 0.4,
+      //   },
+      // );
 
       gsap.fromTo(
         elements.button,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -259,34 +260,34 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 5,
           ease: 'power2.out',
           delay: 4,
-          stagger: 0.7,
+          stagger: 0.1,
         },
       );
 
       gsap.fromTo(
         elements.rotateText,
-        {text: ''},
+        { text: '' },
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.05,
-          ease: 'none',
+          ease: 'power1.inOut',
           delay: 4.5,
-          stagger: 0.8,
+          stagger: 5,
         },
       );
 
-      gsap.to('body', {delay: 3.5, onComplete: removeClass});
+      gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -298,7 +299,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -310,7 +311,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -322,7 +323,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -334,7 +335,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
+        { opacity: 0, y: -30 },
         {
           opacity: 1,
           y: 0,
@@ -351,15 +352,17 @@ const HomePage = () => {
   useEffect(() => {
     if (!loading) {
       gsap.to('.loadersite', {
-        duration: 0,
+        duration: 0.5,
         opacity: 0,
+        ease: 'power2.out',
+        delay: 0.5,
         onComplete: () => {
           // document.body.classList.add('hiddenoverflow');
           gsap.to('.banner_video', {
             duration: 1,
-            delay: 0,
+            delay: 0.5,
             autoAlpha: 1,
-            ease: 'expo.inOut',
+            ease: 'power4.out',
           });
           setTimeout(() => {
             setLoading(false);
@@ -407,7 +410,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -421,7 +424,7 @@ const HomePage = () => {
 
       if (overlayMain) {
         gsap.to('.banner_overlaymain', {
-          duration: 1,
+          duration: 3,
           delay: 0,
           autoAlpha: 1,
           ease: 'expo.inOut',
@@ -431,7 +434,7 @@ const HomePage = () => {
 
       if (overlay) {
         gsap.to(overlay, {
-          duration: 2,
+          duration: 3,
           opacity: 1,
           ease: 'power2.out',
           delay: 0.2,
@@ -448,7 +451,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -461,7 +464,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.title,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -472,22 +475,101 @@ const HomePage = () => {
         },
       );
 
+      
+      var h1 = elements.title.querySelector('h1');
+      var tl = gsap.timeline(),
+        mySplitText = new SplitText(h1, { type: 'words,chars' }),
+        chars = mySplitText.chars;
+      tl.from(chars, {
+        opacity: 0,
+        y: -100,
+        ease: 'back',
+        duration: 3,
+        stagger: 0.1,
+        transformOrigin: '0% 50% -50',
+        onUpdate: function () {
+          chars.forEach((char) => {
+            char.style.backgroundImage =
+              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            char.style.webkitBackgroundClip = 'text';
+            char.style.webkitTextFillColor = 'transparent';
+            char.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
+
+      const H1text = new SplitType(h1, { types: 'lines', lineClass: 'H1mask' });
+
+      var loom = document.querySelectorAll('.H1mask');
+      loom.forEach((value, i) => {
+        var mask = document.createElement('div');
+        mask.setAttribute('id', 'maskOut');
+        value.parentNode.insertBefore(mask, value);
+        mask.appendChild(value);
+      });
       gsap.fromTo(
         elements.content,
-        {opacity: 0, y: -50},
+        { opacity: 0 },
         {
           opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 2,
-          stagger: 0.4,
+        },
+      );
+      const ptext = elements.content.querySelector('p');
+      const text = new SplitType(ptext, {
+        types: 'lines',
+        lineClass: 'lineChild',
+      });
+
+      var loom = document.querySelectorAll('.lineChild');
+      loom.forEach((value, i) => {
+        var mask = document.createElement('div');
+        mask.setAttribute('id', 'mask');
+        value.parentNode.insertBefore(mask, value);
+        mask.appendChild(value);
+      });
+
+      gsap.set('.lineChild', {
+        y: '200%',
+        opacity: 0,
+      });
+
+      let a = gsap.to('.lineChild', {
+        y: '0%',
+        duration: 4,
+        stagger: 0.1,
+        delay: 1,
+        opacity: 1,
+      });
+      let b = gsap.to('#mask', {
+        overflow: 'visible',
+        duration: 4,
+        delay: 1,
+      });
+
+      gsap.fromTo(
+        elements.content,
+        { opacity: 0 },
+        {
+          opacity: 1,
         },
       );
 
+      // gsap.fromTo(
+      //   elements.content,
+      //   {opacity: 0, y: -50},
+      //   {
+      //     opacity: 1,
+      //     y: 0,
+      //     duration: 1,
+      //     ease: 'power2.out',
+      //     delay: 2,
+      //     stagger: 0.4,
+      //   },
+      // );
+
       gsap.fromTo(
         elements.button,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -516,7 +598,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -529,7 +611,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {text: ''},
+        { text: '' },
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.05,
@@ -539,11 +621,11 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('body', {delay: 3.5, onComplete: removeClass});
+      gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -555,7 +637,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -567,10 +649,10 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
-          duration: 1,
+          duration: 3,
           ease: 'none',
           repeat: 0,
           delay: 6,
@@ -579,10 +661,10 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
-          duration: 1,
+          duration: 3,
           ease: 'none',
           repeat: 0,
           delay: 6.5,
@@ -591,7 +673,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
+        { opacity: 0, y: -30 },
         {
           opacity: 1,
           y: 0,
@@ -605,7 +687,7 @@ const HomePage = () => {
       const scrollToSection = (hash) => {
         const section = document.querySelector(hash);
         if (section) {
-          section.scrollIntoView({behavior: 'smooth'});
+          section.scrollIntoView({ behavior: 'smooth' });
         }
       };
 
@@ -699,7 +781,7 @@ const HomePage = () => {
         <div className="progress-bar-container">
           <div
             className="progress-bar"
-            style={{width: `${progressBarWidth}%`}}
+            style={{ width: `${progressBarWidth}%` }}
           ></div>
         </div>
 
