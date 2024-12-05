@@ -127,14 +127,14 @@ const Franchise = () => {
                   <div className="img-container" id="img-container">
                     <div className="image-wrapper image-wrapperfranch">
                       <div className="threeboxleftlogobar">
-                        <img src="assets/fabelfrietsticker2-wqjXuQe2.webp" alt="content images nl" width="10" height="10" />
+                        <img src="/assets/fabelfrietsticker2-wqjXuQe2.webp" alt="content images nl" width="10" height="10" />
                       </div>
                       <img src="https://cdn.sanity.io/images/6tlmpa5b/production/ae4c8e73d8782f3d8de513ab7234c93475c0f871-499x622.webp" alt="content images nl" width="10" height="10" />
                     </div>
 
                     <div className="image-wrapper image-wrapperfranch">
                       <div className="threeboxleftlogobar lastbottomimg ">
-                        <img src="assets/fabelfriet_sticker2-DcvtAZXW.webp" alt="content images nl" width="10" height="10" />
+                        <img src="/assets/fabelfriet_sticker2-DcvtAZXW.webp" alt="content images nl" width="10" height="10" />
                       </div>
                       <img src="https://cdn.sanity.io/images/6tlmpa5b/production/5f4610eea4a9f3c78ee9fce9667d6972313e60d8-504x628.webp" alt="content images nl" width="10" height="10" />
                     </div>
