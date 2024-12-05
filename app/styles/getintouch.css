@@ -99,7 +99,8 @@ a.Whatsappbtn{width: max-content;padding:0 15px;}
     height: 800px;
 } */
 .sixthsection .gradient-threebox ul{height:946px;}
-.sixthsection .gradient-purple h4{opacity:1;margin-top: 0;margin-bottom: 25px;}
+.sixthsection .gradient-purple h4{opacity:1;margin-top: 0;margin-bottom: 30px;}
+.sixthsection .gradient-purple p.onzefriendescription{margin:10px auto 75px;}
 .sixthsection .gradient-threebox ul li{height:auto;}
 .locationbox ul li p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;text-align:left;width:100%;margin:0px 0;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg{width:100%;height:100%;}
