@@ -114,10 +114,10 @@ const Onzelocaties = () => {
             { lang: language },
           );
           // console.log('Fetched onzelocatiesData Data:', data);
-          // localStorage.setItem(
-          //   `onzelocatiesData_${language}`,
-          //   JSON.stringify(data),
-          // );
+          localStorage.setItem(
+            `onzelocatiesData_${language}`,
+            JSON.stringify(data),
+          );
           setOnzelocaties(data);
         } catch (err) {
           console.error('Error fetching Onzelocaties data:', err);
