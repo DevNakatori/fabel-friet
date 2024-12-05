@@ -419,6 +419,32 @@ summary:before{width:15px;height:15px;top:0;}
 .tabs.sticky button.active a.menubuttonlink{color: #fff;}
 .tabs.sticky {position: sticky;top: 0;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
 }
-.page.menumainppage.franchise section.menulanding{height:100%;position:relative;}
-.page.menumainppage.franchise section.menulanding .landingcontainer{padding:15% 0;}
-.page.menumainppage.franchise section.menulanding{background-position:center;background-size:cover;background-repeat:no-repeat;}
+.page.menumainppage.franchise section.menulanding{position:relative;}
+.page.menumainppage.franchise section.menulanding .landingcontainer{padding:160px 0 500px;}
+.page.menumainppage.franchise section.menulanding{background-position:center;background-size:cover;background-repeat:no-repeat;flex-direction:column;}
+.page.menumainppage.franchise #section2 .wrappertest{position:relative;height:100%;z-index:9;}
+.page.menumainppage.franchise .whitebgbox{background-image:url('/app/assets/resizeimgs/webp/stone-texture.webp');background-repeat:no-repeat;background-size:cover;width:calc(100% + 0px);position:relative;z-index:99;left:-50px;border-top-left-radius:30px;border-top-right-radius:30px;-webkit-box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);padding:0 50px;}
+.page.menumainppage.franchise .img-container{height:700px;display:flex;padding-bottom:0px;justify-content:center;align-items:center;/*                        overflow: hidden;*/position:relative;}
+.page.menumainppage.franchise .image-wrapper{width:100%;max-width:450px;height:600px;object-fit:cover;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+.page.menumainppage.franchise .image-wrapper img{width:100%;height:100%;object-fit:cover;border-radius:25px;box-shadow:0px 4px 10px 2px rgba(0,0,0,0.25)}
+.page.menumainppage.franchise .image-wrapper:nth-child(2){/* position: relative; */
+z-index:1;}
+.page.menumainppage.franchise .image-wrapper:nth-child(1) .threeboxleftlogobar{position:absolute;right:-15px;top:-52px;transform:rotate(-15deg);z-index:1;width:150px;}
+.page.menumainppage.franchise .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:0;bottom:22px;top:93%;left:94%;transform:inherit;width:150px;height:auto;}
+.page.menumainppage.franchise .image-wrapper:nth-child(1) .threeboxleftlogobar img{box-shadow:none;}
+.page.menumainppage.franchise .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg img{box-shadow:none;}
+.page.menumainppage.franchise .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg img{box-shadow:none;width:150px;transform:rotate(-15deg);}
+.page.menumainppage.franchise .image-wrapper:nth-child(1) .threeboxleftlogobar img,.page.menumainppage.franchise .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg img{width:140px;box-shadow:none;height:auto;}
+.page.menumainppage.franchise .gradient-threebox{max-width:1518px;margin:0 auto;position:relative;z-index:999;top:-400px;margin-bottom:-400px;}
+.page.menumainppage.franchise{height:100%;}
+.page.menumainppage.franchise section.menulanding{height:100%;}
+.page.menumainppage.franchise .overlaybannehand-bottoms{position:relative;bottom:0;background-image:url("/app/assets/resizeimgs/webp/PotatoesDisplay_FabelFriet.webp");background-repeat:repeat;background-position:0 0;background-size:cover;width:calc(100% + 150px);height:228px;z-index:0;left:0;right:0;margin-left:-70px;}
+.backhome{display:flex;align-items:center;background-color:transparent;border:none;color:#efebe7;padding:10px 20px;border-radius:50px;cursor:pointer;font-size:16px;font-weight:600;font-family:'Work Sans';border:3px solid #f6c738;transition:all .35s;position:relative;overflow:hidden;}
+.backhome svg{margin-left:10px;width:20px;height:20px;}
+.backhome:before,.backhome:after{position:absolute;content:"";width:100%;height:100%;top:-100%;left:0;background:#f6c738;z-index:-1;transition:all .35s;}
+.backhome:before{opacity:.5;}
+.backhome:after{transition-delay:.2s;}
+.backhome:hover{color:#0D1E4D;}
+.backhome:hover:before,.backhome:hover:after{top:0;}
+.backhome svg .st0{fill:#efebe7;}
+.backhome:hover svg .st0{fill:#0D1E4D;}
