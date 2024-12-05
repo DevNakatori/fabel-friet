@@ -206,7 +206,7 @@ const Hetmenu = () => {
       onUpdate: function () {
         charsmenutitle.forEach((typeSplithetmenuititle) => {
           typeSplithetmenuititle.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
           typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
           typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
@@ -247,7 +247,7 @@ const Hetmenu = () => {
       onUpdate: function () {
         charsmenutitleright.forEach((typeSplithetmenuititleright) => {
           typeSplithetmenuititleright.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplithetmenuititleright.style.webkitBackgroundClip = 'text';
           typeSplithetmenuititleright.style.webkitTextFillColor = 'transparent';
           typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
