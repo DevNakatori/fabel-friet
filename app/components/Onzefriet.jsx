@@ -186,10 +186,10 @@ const Onzefriet = () => {
             { lang: language },
           );
           //console.log('Fetched Onzefriet Data:', data);
-          // localStorage.setItem(
-          //   `onzefrietData_${language}`,
-          //   JSON.stringify(data),
-          // );
+          localStorage.setItem(
+            `onzefrietData_${language}`,
+            JSON.stringify(data),
+          );
           setOnzefriet(data);
         } catch (err) {
           console.error('Error fetching data:', err);

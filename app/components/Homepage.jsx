@@ -80,10 +80,10 @@ const HomePage = () => {
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
 
-            // localStorage.setItem(
-            //   `homeBannerData_${language}`,
-            //   JSON.stringify(data),
-            // );
+            localStorage.setItem(
+              `homeBannerData_${language}`,
+              JSON.stringify(data),
+            );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -490,7 +490,7 @@ const HomePage = () => {
         onUpdate: function () {
           chars.forEach((char) => {
             char.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             char.style.webkitBackgroundClip = 'text';
             char.style.webkitTextFillColor = 'transparent';
             char.style.backgroundPosition = '97px -83px';

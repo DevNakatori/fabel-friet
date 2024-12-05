@@ -52,7 +52,7 @@ const Hetmenu = () => {
             `*[_type == "hetmenu" && language == $lang]`,
             { lang: language },
           );
-          // localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           setHetmenu(data);
         } catch (err) {
           console.error('Error fetching Hetmenu data:', err);

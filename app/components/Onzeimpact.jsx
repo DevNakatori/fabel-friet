@@ -179,11 +179,11 @@ const Onzeimpact = () => {
             `*[_type == "onzeimpact" && language == $lang]`,
             { lang: language },
           );
-          //console.log('Fetched fetchDataonzeimpactData Data:', data);
-          // localStorage.setItem(
-          //   `onzeimpactData_${language}`,
-          //   JSON.stringify(data),
-          // );
+          console.log('Fetched fetchDataonzeimpactData Data:', data);
+          localStorage.setItem(
+            `onzeimpactData_${language}`,
+            JSON.stringify(data),
+          );
           setonzeimpact(data);
         } catch (err) {
           console.error('Error fetching Onzeimpact data:', err);
