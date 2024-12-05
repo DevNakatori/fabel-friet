@@ -402,7 +402,7 @@ const Getintouch = () => {
         charswhatpeoplesectiongettouch.forEach(
           (typeswhatpeoplesectiontouchget) => {
             typeswhatpeoplesectiontouchget.style.backgroundImage =
-              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
             typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
               'transparent';
@@ -430,7 +430,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
           typeswhatpeoplesectiontouchgetsocial.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeswhatpeoplesectiontouchgetsocial.style.webkitBackgroundClip =
             'text';
           typeswhatpeoplesectiontouchgetsocial.style.webkitTextFillColor =
@@ -459,7 +459,7 @@ const Getintouch = () => {
         charsgettouchcontactsection.forEach(
           (typeswhatpeoplesectiontouchgetcontect) => {
             typeswhatpeoplesectiontouchgetcontect.style.backgroundImage =
-              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchgetcontect.style.webkitBackgroundClip =
               'text';
             typeswhatpeoplesectiontouchgetcontect.style.webkitTextFillColor =
@@ -489,7 +489,7 @@ const Getintouch = () => {
         charsgettouchaccordian.forEach(
           (typeswhatpeoplesectiontouchgeaccordian) => {
             typeswhatpeoplesectiontouchgeaccordian.style.backgroundImage =
-              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchgeaccordian.style.webkitBackgroundClip =
               'text';
             typeswhatpeoplesectiontouchgeaccordian.style.webkitTextFillColor =

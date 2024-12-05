@@ -214,7 +214,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
           typeSplitcharsonzeimpacttitleas.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
           typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
             'transparent';
@@ -263,7 +263,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
           typeSplitleftvideoboxsectitle.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitleftvideoboxsectitle.style.webkitBackgroundClip = 'text';
           typeSplitleftvideoboxsectitle.style.webkitTextFillColor =
             'transparent';
@@ -289,7 +289,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
           typeSplitrighttextboxtitlse.style.backgroundImage =
-            "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitrighttextboxtitlse.style.webkitBackgroundClip = 'text';
           typeSplitrighttextboxtitlse.style.webkitTextFillColor = 'transparent';
           typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
@@ -353,7 +353,7 @@ const Onzeimpact = () => {
         charsimpacttwolistlisttitle.forEach(
           (typeSplitimpacttwolistlisttitle) => {
             typeSplitimpacttwolistlisttitle.style.backgroundImage =
-              "url('/app/assets/resizeimgs/webp/plain-gold-background.webp')";
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
             typeSplitimpacttwolistlisttitle.style.webkitBackgroundClip = 'text';
             typeSplitimpacttwolistlisttitle.style.webkitTextFillColor =
               'transparent';
