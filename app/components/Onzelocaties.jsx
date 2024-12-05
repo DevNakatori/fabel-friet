@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 
 import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
 
@@ -21,7 +21,7 @@ import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzelocaties, setOnzelocaties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -111,13 +111,13 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           // console.log('Fetched onzelocatiesData Data:', data);
-          localStorage.setItem(
-            `onzelocatiesData_${language}`,
-            JSON.stringify(data),
-          );
+          // localStorage.setItem(
+          //   `onzelocatiesData_${language}`,
+          //   JSON.stringify(data),
+          // );
           setOnzelocaties(data);
         } catch (err) {
           console.error('Error fetching Onzelocaties data:', err);
@@ -164,11 +164,11 @@ const Onzelocaties = () => {
       },
     );
 
-    gsap.from('[data-locationdescription] .word', {
+    gsap.from('[data-locationdescription] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-locationdescription]',
