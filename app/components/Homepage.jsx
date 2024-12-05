@@ -80,10 +80,10 @@ const HomePage = () => {
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
 
-            localStorage.setItem(
-              `homeBannerData_${language}`,
-              JSON.stringify(data),
-            );
+            // localStorage.setItem(
+            //   `homeBannerData_${language}`,
+            //   JSON.stringify(data),
+            // );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -475,7 +475,7 @@ const HomePage = () => {
         },
       );
 
-      
+
       var h1 = elements.title.querySelector('h1');
       var tl = gsap.timeline(),
         mySplitText = new SplitText(h1, { type: 'words,chars' }),

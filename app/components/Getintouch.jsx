@@ -1,11 +1,11 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 
 import SplitText from 'gsap/SplitText';
@@ -39,7 +39,7 @@ const Getintouch = () => {
     tiktok: tiktokIcon,
   };
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -132,7 +132,7 @@ const Getintouch = () => {
 
         onzefritthreeimagecentergetintouch.fromTo(
           middleItemgetintouch,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
+          { bottom: '-55vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 1,
@@ -153,7 +153,7 @@ const Getintouch = () => {
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            {left: '-50vw', rotation: 0, opacity: 0},
+            { left: '-50vw', rotation: 0, opacity: 0 },
             {
               left: '-9vw',
               opacity: 1,
@@ -177,7 +177,7 @@ const Getintouch = () => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            {right: '-50vw', rotation: 0, opacity: 0},
+            { right: '-50vw', rotation: 0, opacity: 0 },
             {
               right: '-9vw',
               opacity: 1,
@@ -206,7 +206,7 @@ const Getintouch = () => {
 
         mobileTimelineCenter.fromTo(
           middleItemgetintouch,
-          {bottom: '-30vh', rotation: 0, opacity: 0},
+          { bottom: '-30vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 0.7,
@@ -225,7 +225,7 @@ const Getintouch = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            {left: '-30vw', rotation: 0, opacity: 0},
+            { left: '-30vw', rotation: 0, opacity: 0 },
             {
               left: '0vw',
               opacity: 1,
@@ -249,7 +249,7 @@ const Getintouch = () => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            {right: '-30vw', rotation: 0, opacity: 0},
+            { right: '-30vw', rotation: 0, opacity: 0 },
             {
               right: '0vw',
               opacity: 1,
@@ -276,7 +276,7 @@ const Getintouch = () => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -341,7 +341,7 @@ const Getintouch = () => {
 
     gsap.fromTo(
       '.borderbottomaccordians',
-      {width: 0},
+      { width: 0 },
       {
         width: '100%',
         stagger: 0.2,
@@ -369,13 +369,12 @@ const Getintouch = () => {
       },
     );
 
-    gsap.from('[data-gettouchonzefrientdescription] .word', {
+    gsap.from('[data-gettouchonzefrientdescription] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
-
       scrollTrigger: {
         trigger: '[data-gettouchonzefrientdescription]',
       },
@@ -534,7 +533,7 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -546,7 +545,7 @@ const Getintouch = () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
         console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
@@ -564,7 +563,7 @@ const Getintouch = () => {
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const {contactSection, contentSection, transitionSection} = getIntouch;
+  const { contactSection, contentSection, transitionSection } = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -956,7 +955,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{maskType: 'luminance'}}
+                              style={{ maskType: 'luminance' }}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -1062,7 +1061,7 @@ const Getintouch = () => {
                   data-aos-duration="500"
                 >
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                  0 ? (
+                    0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button

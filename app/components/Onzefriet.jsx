@@ -1,16 +1,16 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/Rectangle89.webp';
 import fries_two from '../assets/resizeimgs/webp/Rectangle88.webp';
@@ -29,7 +29,7 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -113,7 +113,7 @@ const Onzefriet = () => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '#animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -162,7 +162,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -183,13 +183,13 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           //console.log('Fetched Onzefriet Data:', data);
-          localStorage.setItem(
-            `onzefrietData_${language}`,
-            JSON.stringify(data),
-          );
+          // localStorage.setItem(
+          //   `onzefrietData_${language}`,
+          //   JSON.stringify(data),
+          // );
           setOnzefriet(data);
         } catch (err) {
           console.error('Error fetching data:', err);
@@ -302,13 +302,12 @@ const Onzefriet = () => {
       },
     );
 
-    gsap.from('[data-onzefriendescription] .word', {
+    gsap.from('[data-onzefriendescription] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
-
       scrollTrigger: {
         trigger: '[data-onzefriendescription]',
       },
@@ -319,11 +318,11 @@ const Onzefriet = () => {
       tagName: 'span',
     });
 
-    gsap.from('[data-videodescription]', {
+    gsap.from('[data-videodescription] .line', {
       y: '100%',
-      opacity: 1,
-      duration: 1,
-      ease: 'power1.inOut',
+      opacity: 0,
+      duration: 0.5,
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-videodescription]',
@@ -357,7 +356,7 @@ const Onzefriet = () => {
 
     gsap.fromTo(
       '.borderbottomaccordian',
-      {width: 0},
+      { width: 0 },
       {
         width: '100%',
         stagger: 0.2,
@@ -516,12 +515,8 @@ const Onzefriet = () => {
                     <div className="whitewithvideomainbox">
                       <div
                         className="leftvideobox"
-                        data-aos="fade-left"
-                        data-aos-anchor=".gradient-threebox"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-anchor-placement="top-center"
-                        data-aos-offset="200"
-                        data-aos-duration="500"
+                        data-aos="slide-right"
+                        data-aos-duration="1000"
                       >
                         <div className="leftlogobar">
                           <img
@@ -550,9 +545,9 @@ const Onzefriet = () => {
                       </div>
                       <div
                         className="righttextbox"
-                        data-aos="fade-down"
+                        data-aos="slide-left"
                         data-aos-easing="ease-in-sine"
-                        data-aos-duration="500"
+                        data-aos-duration="1000"
                       >
                         <h3
                           id="animated-text"
@@ -667,7 +662,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                          Math.floor(review.reviewRating) &&
+                                        Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (
@@ -699,18 +694,16 @@ const Onzefriet = () => {
                   {content.accordionSection && (
                     <div className="main-accordian">
                       <h6
-                        data-aos="fade-down"
-                        data-aos-easing="linear"
-                        data-aos-duration="1000"
+
                         data-accordionsection=""
                       >
                         {content.accordionSection.accordionHeading}
                       </h6>
                       <div
                         className="accordion-container"
-                        data-aos="fade-down"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500"
+                        data-aos="slide-up"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="2000"
                       >
                         {content.accordionSection.faq.map((faq) => (
                           <div className="accordion-item" key={faq._key}>

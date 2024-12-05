@@ -8,7 +8,53 @@ button.skipvideo.hidden {display: none;}
     font-size: calc(60/var(--vw)*var(--multiplier));
 }
 .bannerrotate_text{right:-3vw;}
+
+
+
+a.banner_bottombtn {
+    font-size: calc(18/var(--vw)*var(--multiplier));
+    width: 100%;
+    padding: 10px 35px;
+    height: auto;
+    line-height: 56px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    max-width: max-content;
 }
+
+.bannerrotate_text {
+    max-width: 420px;
+    line-height: 58px;
+    right: -10vw;
+}
+
+.scroll-down .icon-scroll {
+    bottom: 5px;
+}
+
+a.locatebutton {
+    max-width: max-content;
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.locationaddtext ul li{max-width: max-content;}
+
+.whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
+    width: max-content;
+    padding: 3px 35px;
+    height: inherit;
+    line-height: 47px;
+}
+
+a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padding: 20px;}
+
+}
+
+
+
+
 @media (min-width:1501px) and (max-width:1921px){
 .banner_title_text h1,.banner_title_text{max-width:1030px;}
 .roundtext h3{right:-7vw;}
@@ -43,6 +89,46 @@ button.skipvideo.hidden {display: none;}
     .bannerrotate_text{right:-3vw;}
     
 }
+
+@media (min-width:1200px)
+{
+    .banner_content_text p{font-size: calc(23/var(--vw)*var(--multiplier));}
+    a.banner_bottombtn {font-size: calc(18/var(--vw)*var(--multiplier));}
+    .bannerrotate_text{font-size: calc(30/var(--vw)*var(--multiplier));}
+    .banner_title_text, .banner_title_text h1 {font-size: calc(60/var(--vw)*var(--multiplier));}
+    .headernew nav ul li a,a.locatebutton{font-size: calc(20/var(--vw)*var(--multiplier));}
+    .gradient-purple h4,
+    .fourthsection .gradient-purple h4{font-size: calc(120/var(--vw)*var(--multiplier));}
+    .gradient-purple p,
+    .fourthsection .gradient-purple p,
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size: calc(23/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size: calc(23/var(--vw)*var(--multiplier));}
+    .whatpeople-section h6,.main-accordian h6{font-size: calc(50/var(--vw)*var(--multiplier));}
+    .wharpeoplebox p{font-size: calc(19/var(--vw)*var(--multiplier));}
+    .wharpeoplebox b{font-size: calc(20/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size: calc(60/var(--vw)*var(--multiplier));max-width: fit-content;}
+    .locationaddtext ul li{font-size: calc(23/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size: calc(23/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom: 15px;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size: calc(20/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {font-size: calc(30/var(--vw)*var(--multiplier));line-height: 50px;}
+    #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size: calc(28/var(--vw)*var(--multiplier));line-height: 1.2em;}
+    #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist p,
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox p{font-size: calc(23/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3{font-size: calc(50/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4{font-size: calc(50/var(--vw)*var(--multiplier));}
+    .binimageboxmain .binimageboxieft h6{font-size: calc(17/var(--vw)*var(--multiplier));}
+    .sixthsection .whitebgbox .socialtitle h3{font-size: calc(30/var(--vw)*var(--multiplier));}
+    a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padding: 10px;}
+    .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size: calc(50/var(--vw)*var(--multiplier));}
+    .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size: calc(35/var(--vw)*var(--multiplier));}
+    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size: calc(23/var(--vw)*var(--multiplier));}
+    .locationbox h6{font-size: calc(35/var(--vw)*var(--multiplier));}
+    .bottomsection .scroll-down p,.scroll-down p {font-size: 18px;}
+    
+}
+
+
 @media (min-width:1201px) and (max-width:1499px){
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-12vw;}

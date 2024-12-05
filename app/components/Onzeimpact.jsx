@@ -1,16 +1,16 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import {getImageUrl} from '../js/imagesurl';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getImageUrl } from '../js/imagesurl';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
 import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
 
@@ -21,7 +21,7 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -177,13 +177,13 @@ const Onzeimpact = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzeimpact" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           //console.log('Fetched fetchDataonzeimpactData Data:', data);
-          localStorage.setItem(
-            `onzeimpactData_${language}`,
-            JSON.stringify(data),
-          );
+          // localStorage.setItem(
+          //   `onzeimpactData_${language}`,
+          //   JSON.stringify(data),
+          // );
           setonzeimpact(data);
         } catch (err) {
           console.error('Error fetching Onzeimpact data:', err);
@@ -232,12 +232,12 @@ const Onzeimpact = () => {
       },
     );
 
-    gsap.from('[data-onzeimpactdescription] .word', {
+    gsap.from('[data-onzeimpactdescription] .line', {
       y: '100%',
-      opacity: 1,
-      duration: 0.5,
-      ease: 'power1.in',
-      stagger: 0.1,
+  opacity: 0,
+  duration: 0.5,
+  ease: 'sine.inOut',
+  stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpactdescription]',
       },
@@ -307,9 +307,9 @@ const Onzeimpact = () => {
 
     gsap.from('[data-onzeimpacttwolistlisttext] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpacttwolistlisttext]',
@@ -321,11 +321,11 @@ const Onzeimpact = () => {
       tagName: 'span',
     });
 
-    gsap.from('[data-secdescription]', {
+    gsap.from('[data-secdescription] .line', {
       y: '100%',
-      opacity: 1,
-      duration: 1,
-      ease: 'power1.inOut',
+      opacity: 0,
+      duration: 0.5,
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-secdescription]',
@@ -343,8 +343,8 @@ const Onzeimpact = () => {
     gsap.from('[data-onzeimpacttwolistlisttitle] .line', {
       y: '100%',
       opacity: 0,
-      duration: 0.1,
-      ease: 'circ.in',
+      duration: 0.5,
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpacttwolistlisttitle]',

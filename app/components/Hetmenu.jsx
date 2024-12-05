@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 
 // import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
@@ -32,7 +32,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,9 +50,9 @@ const Hetmenu = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
-          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          // localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           setHetmenu(data);
         } catch (err) {
           console.error('Error fetching Hetmenu data:', err);
@@ -219,11 +219,11 @@ const Hetmenu = () => {
       tagName: 'span',
     });
 
-    gsap.from('[data-menudescription] .word', {
+    gsap.from('[data-menudescription] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-menudescription]',
@@ -282,11 +282,11 @@ const Hetmenu = () => {
       },
     );
 
-    gsap.from('[data-righttextboxdescriptionbotom] .word', {
+    gsap.from('[data-righttextboxdescriptionbotom] .line', {
       y: '100%',
-      opacity: 1,
+      opacity: 0,
       duration: 0.5,
-      ease: 'power1.in',
+      ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-righttextboxdescriptionbotom]',
@@ -317,7 +317,7 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 10;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({top: yPosition, behavior: 'smooth'});
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
     }
   };
 
@@ -626,9 +626,7 @@ const Hetmenu = () => {
               <div className="whitewithvideomainbox">
                 <div
                   className="righttextbox"
-                  data-aos="fade-right"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-duration="500"
+
                 >
                   <h5 data-righttextboxtitle="">
                     {bottomContentSection.bottomHeading}
@@ -639,9 +637,7 @@ const Hetmenu = () => {
                 </div>
                 <div
                   className="leftvideobox"
-                  data-aos="fade-left"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-duration="500"
+
                 >
                   <img
                     src={getImageUrl(
@@ -664,9 +660,7 @@ const Hetmenu = () => {
                     />
                   </div>
                   <h3
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
+
                   >
                     {bottomContentSection.bottomHeading}
                   </h3>
