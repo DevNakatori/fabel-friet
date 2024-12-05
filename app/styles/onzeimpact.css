@@ -82,7 +82,7 @@ z-index: 1;
 .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar {
 position: absolute;
 right: -16px;
-top: -50px;
+top: -56px;
 transform: rotate(-15deg);
 z-index: 9;
 width: 160px;
@@ -97,7 +97,7 @@ top: 93%;
 left: 94%;
 transform: inherit;
 width: 150px;
-height: auto;
+height: 100px;
 }
 
 
@@ -105,7 +105,7 @@ height: auto;
 .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar img {box-shadow: none;}
 .fifthesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg img{box-shadow:none;}
 .fifthesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg img{box-shadow:none;width:150px;transform:rotate(-15deg);}
-.fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar{position:absolute;right:20px;top:-18px;transform:rotate(-15deg);z-index:1;width:150px;}
+.fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar{position:absolute;right:10px;top:-55px;transform:rotate(-15deg);z-index:1;width:150px;}
 
 .secondesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar img,
 .secondesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg img{
