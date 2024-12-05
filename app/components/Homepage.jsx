@@ -490,7 +490,7 @@ const HomePage = () => {
         onUpdate: function () {
           chars.forEach((char) => {
             char.style.backgroundImage =
-              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
             char.style.webkitBackgroundClip = 'text';
             char.style.webkitTextFillColor = 'transparent';
             char.style.backgroundPosition = '97px -83px';
