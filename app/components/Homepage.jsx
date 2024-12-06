@@ -748,7 +748,7 @@ const HomePage = () => {
     return (
       <>
       <div className="loadersite">
-         {/* <div className="logosvg">
+         <div className="logosvg">
           <img src={bannerlogo} alt="logo" />
         </div>
         <div className="loader1">
@@ -757,7 +757,7 @@ const HomePage = () => {
           <span></span>
           <span></span>
           <span></span>
-        </div>  */}
+        </div>  
       </div>
       </>
     );

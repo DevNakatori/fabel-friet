@@ -185,85 +185,6 @@ export default function Homepage() {
     // });
   }, []);
 
-
-  useEffect(() => {
-  
-    const loaderMainsite = document.querySelector(".loader-mainsite");
-    const image = document.querySelector(".loader-mainsite-image");
-
-    const loaderMainsiteTimeline = gsap.timeline({
-      defaults: {
-        ease: 'power2.inOut',
-      },
-    });
-
-    loaderMainsiteTimeline
-      .fromTo(
-        loaderMainsite,
-        {
-          opacity: 0,
-          scale: 0.8,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-        }
-      )
-      .fromTo(
-        image,
-        {
-          opacity: 0,
-          y: window.innerHeight,
-          rotation: 0,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          rotation: 0,
-          duration: 1.2,
-          ease: 'back.out(1.2)',
-        }
-      )
-      .to(image, {
-        scale: 1.1,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-      })
-      .fromTo(
-        loaderMainsite,
-        {
-          filter: 'brightness(1)',
-        },
-        {
-          filter: 'brightness(1.2)',
-          duration: 1.5,
-          repeat: -1,
-          yoyo: true,
-        },
-        '<'
-      );
-
-    const hideLoader = () => {
-      loaderMainsiteTimeline.pause();
-      gsap.to(loaderMainsite, {
-        y: -window.innerHeight,
-        duration: 1,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          loaderMainsite.style.display = 'none';
-        },
-      });
-    };
-
-    const timer = setTimeout(hideLoader, 2000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   useEffect(() => {
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
@@ -288,9 +209,6 @@ export default function Homepage() {
 
   return (
     <div className="home">
-        <div className="loader-mainsite">
-          <img src={bannerlogo} alt="logo" className="loader-mainsite-image" />
-        </div>
       {/* <div id="loadersitetrans" className="loadersitetrans">
         <div className="logosvg">
           <img src={bannerlogo} alt="logo" />
@@ -323,12 +241,12 @@ export default function Homepage() {
         {/* <Cursor/> */}
         <div id="smooth-wrapper">
           <div id="smooth-content">
-            {showHomePage && <HomePage />}
+            {showHomePage && <HomePage />} 
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}  
             {showOnzeimpact && <Onzeimpact />} 
-            {showGetintouch && <Getintouch />} 
+            {showGetintouch && <Getintouch />}
           </div>
         </div>
       </LanguageProvider>

@@ -16,14 +16,18 @@ import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
 import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
 
-import menu_one from '../assets/resizeimgs/webp/menu1.webp';
-import menu_two from '../assets/resizeimgs/webp/menu2.webp';
-import menu_three from '../assets/resizeimgs/webp/menu3.webp';
-import menu_four from '../assets/resizeimgs/webp/menu4.webp';
-import menu_five from '../assets/resizeimgs/webp/menu5.webp';
-import menu_six from '../assets/resizeimgs/webp/menu6.webp';
-import menu_seven from '../assets/resizeimgs/webp/menu7.webp';
-import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+import menu_one from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
+import menu_two from '../assets/resizeimgs/webp/menuwebp/Fries4_FabelFriet.webp';
+import menu_three from '../assets/resizeimgs/webp/menuwebp/Fries2_FabelFriet.webp';
+import menu_four from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet.webp';
+import menu_five from '../assets/resizeimgs/webp/menuwebp/Fries5_FabelFriet.webp';
+import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.webp';
+import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
+import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
+
+// import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+
+
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
@@ -157,13 +161,13 @@ const Hetmenu = () => {
     //   },
     // );
 
-    // gsap.to('.allfiressectionsmenu img', {
-    //   y: 20,
-    //   repeat: -1,
-    //   yoyo: true,
-    //   duration: 5,
-    //   ease: 'sine.inOut',
-    // });
+    gsap.to('.allfiressectionsmenu img', {
+      y: 20,
+      repeat: -1,
+      yoyo: true,
+      duration: 5,
+      ease: 'sine.inOut',
+    });
 
     gsap.from('.allfiressectionsmenu', {
       y: '-80vh',
@@ -173,15 +177,15 @@ const Hetmenu = () => {
       },
     });
 
-    gsap.to('.allfiressectionsmenu img', {
-      x: 'random(-20, 20)',
-      y: 'random(-20, 20)',
-      zIndex: 22,
-      duration: 2,
-      ease: 'none',
-      yoyo: true,
-      repeat: -1,
-    });
+    // gsap.to('.allfiressectionsmenu img', {
+    //   x: 'random(-20, 20)',
+    //   y: 'random(-20, 20)',
+    //   zIndex: 22,
+    //   duration: 2,
+    //   ease: 'none',
+    //   yoyo: true,
+    //   repeat: -1,
+    // });
 
     return () => {
       timelineshetmenu.scrollTrigger.kill();
@@ -388,15 +392,16 @@ const Hetmenu = () => {
           </p>
 
           <div className="whitebgbox">
-            {/* <div className="allfiressectionsmenu">
+            <div className="allfiressectionsmenu">
               <img src={menu_one} alt="img" width="10" height="10" />
               <img src={menu_two} alt="img" width="10" height="10" />
               <img src={menu_three} alt="img" width="10" height="10" />
               <img src={menu_four} alt="img" width="10" height="10" />
               <img src={menu_five} alt="img" width="10" height="10" />
               <img src={menu_six} alt="img" width="10" height="10" />
-              <img src={menu_seven} alt="img" width="10" height="10" />
-            </div> */}
+              <img src={menu_seven} alt="img" width="10" height="10" /> 
+              <img src={menu_eight} alt="img" width="10" height="10" />  
+            </div>
 
             <div
               className="menudynamic onlydesktop"

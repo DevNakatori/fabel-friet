@@ -60,7 +60,7 @@ const Qrmenuheader = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate(-1);  // This will take the user back to the previous page in history
+    navigate('/');  // This will take the user back to the previous page in history
   };
 
   useEffect(() => {
