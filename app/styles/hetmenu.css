@@ -31,7 +31,7 @@
 .instagramfeedimages .contaernrul .swiper .swiper-wrapper .swiper-slide:nth-child(even) .contaernrulitem{position:relative;transform:scale(0.85);transform-origin:center center;}
 
 
-.fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0px auto;padding:40px;width:calc(100% - 80px)!important;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0px auto;padding:40px;width:calc(90% - 80px)!important;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0 auto;background-image:url('/app/assets/resizeimgs/webp/bigframes.webp');background-size:100% 100%;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;background-repeat:no-repeat;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone{border:6.243px solid #FFF;padding:16px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo{border:6.243px solid #FFF;padding:40px;}
@@ -44,7 +44,7 @@
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{max-width:332px;color:#0d1e4d;text-align:left;font-family:'Permanent Marker';font-size:clamp(20px,2vw,30px);font-style:normal;font-weight:400;line-height:35px;margin:0 0 10px;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{max-width:373px;color:#0d1e4d;font-family:'Work Sans';font-size:clamp(20px,5vw,20px);font-style:normal;font-weight:400;line-height:normal;text-align:left;margin:0;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:flex;position:relative;top:-10rem;margin-bottom:10px;right:-7vw;}
-.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-16em;left:12em;margin-bottom:-15em;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-22em;left:12em;margin-bottom:-20em;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{top:0;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{max-width:100%;width:inherit;width:inherit;margin:0;}
 .instagramfeedimages .contaernrul .contaernrulitem video{width:100%;height:100%;max-height:490px;object-fit:cover;object-position:center center;}
@@ -59,7 +59,7 @@
 }
 
 
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:45px;margin-top:0px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:20px;margin-top:0px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:10px;margin-top:20px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
@@ -73,7 +73,7 @@
 .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li{width:calc(100% / 3);margin:0;height:100%;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:30px;font-style:normal;font-weight:600;line-height:normal;background:transparent;width:100%;height:100%;display:flex;align-items:center;align-content:center;justify-content:center;border:2.34px solid transparent;border-radius:40px;cursor:pointer;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button.active{background:url('/app/assets/resizeimgs/webp/plain-gold-background.webp');color:white;border:2.34px solid #fff;background-size:cover;}
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:60px!important;margin-bottom:47px!important;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:20px!important;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}

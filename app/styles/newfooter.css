@@ -3,7 +3,7 @@ footer.footer{display:none;}
 .newfooter .newcontainer{padding:0;width:100%;display:flex;justify-content:space-between;max-width:1708px;margin:0 auto;}
 .newfooter .newcontainer .footerblock h6{color:#FEDE03;font-family:'Rufina',serif;font-size:23px;font-style:normal;font-weight:700;line-height:25px;  /* 108.696% */background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 30px;}
 .newfooter .newcontainer .footerblock ul li a{color:#FFF;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:500;line-height:40px;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; overflow: hidden;-webkit-transition: 0.5s;-o-transition: 0.5s;transition: 0.5s;}
-.newfooter .newcontainer .footerblock ul li a:hover{transform: translateX(5px);}
+.newfooter .newcontainer .footerblock ul li a:hover{transform: translateX(0px);}
 .newfooter .newcontainer .footerblock ul li{color:#FFF;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:500;line-height:40px;-webkit-transition: 0.5s;-o-transition: 0.5s;transition: 0.5s;}
 .newfooter .newcontainer .footerblock:nth-child(1) .footerlistbox ul{margin-right:50px;display:flex;flex-direction:row;flex-wrap:wrap;}
 .newfooter .newcontainer .footerblock ul li a:hover{color:#f6c738;}

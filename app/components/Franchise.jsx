@@ -65,7 +65,7 @@ const Franchise = () => {
         end: 'bottom bottom',
         scrub: 2, // Increased scrub for smoother animation
         ease: 'power3.inOut', // Smoother easing
-        once: true,
+        once: false,
         markers: false,
       },
     });

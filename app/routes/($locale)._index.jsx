@@ -21,7 +21,7 @@ import '../styles/media.css';
 import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-// import Cursor from '~/components/Cursor';
+import Cursor from '~/components/Cursor';
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -90,8 +90,8 @@ export default function Homepage() {
   useEffect(() => {
     if (window.innerWidth >= 1024) {  // Check if the screen width is greater than or equal to 1024px (desktop)
       // const smoother = ScrollSmoother.create({
-      //   smooth: 0,
-      //   smoothTouch: 0.1,
+      //   smooth: 1,
+      //   smoothTouch: 0.2,
       // });
       // smoother.effects("img", { speed: "auto" });
       // smoother.effects("video", { speed: "auto" });
@@ -236,15 +236,15 @@ export default function Homepage() {
       <LanguageProvider>
         <LanguageSwitcher />
         <Newheader />
-        {/* <Cursor/> */}
+        <Cursor/>
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
-            {showHetmenu && <Hetmenu />}
-            {showOnzeimpact && <Onzeimpact />}
-            {showGetintouch && <Getintouch />}
+            {showHetmenu && <Hetmenu />}  
+            {showOnzeimpact && <Onzeimpact />} 
+            {showGetintouch && <Getintouch />} 
           </div>
         </div>
       </LanguageProvider>
