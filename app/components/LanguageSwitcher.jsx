@@ -3,9 +3,9 @@ import {useLanguage} from '~/components/LanguageContext';
 import {gsap} from 'gsap';
 
 const languages = [
-  {code: 'en', name: 'English', flag: 'flag-icon-us'},
-  {code: 'nl', name: 'Dutch', flag: 'flag-icon-nl'},
-  {code: 'de', name: 'Germany', flag: 'flag-icon-de'},
+  {code: 'en', name: 'En', flag: 'flag-icon-us'},
+  {code: 'nl', name: 'Du', flag: 'flag-icon-nl'},
+  {code: 'de', name: 'Ge', flag: 'flag-icon-de'},
 ];
 
 const LanguageSwitcher = () => {
@@ -78,15 +78,59 @@ const LanguageSwitcher = () => {
     };
   }, []);
 
+
+  useEffect(() => {
+    // Select the spans and set initial positions
+    const selectedLanguage = document.querySelector('.selected-language');
+    const spans = selectedLanguage.querySelectorAll('span');
+
+    // Ensure that the second span starts hidden to the right
+    gsap.set(spans[1], { x: '100%', opacity: 0 });
+
+    selectedLanguage.addEventListener('mouseenter', () => {
+      // Hide the first span and show the second span with a sliding effect
+      gsap.to(spans[0], {
+        x: '-100%',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      });
+      gsap.to(spans[1], {
+        x: '0%',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      });
+    });
+
+    selectedLanguage.addEventListener('mouseleave', () => {
+      // Reset positions when mouse leaves
+      gsap.to(spans[0], {
+        x: '0%',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      });
+      gsap.to(spans[1], {
+        x: '100%',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      });
+    });
+  }, []);
+
   return (
     <div className="language-switcher" ref={dropdownRef}>
       <div className="selected-language" onClick={toggleDropdown}>
-        <span
+        {/* <span
           className={`flag-icon ${
             languages.find((lang) => lang.code === language).flag
           } flag-icon-squared`}
         ></span>
-        <div className="arrow"></div>
+        <div className="arrow"></div> */}
+        <span>{languages.find((lang) => lang.code === language)?.name}</span>
+        <span>{languages.find((lang) => lang.code === language)?.name}</span>
       </div>
       <ul className={`language-list ${isOpen ? 'open' : ''}`}>
         {languages.map((lang) => (
@@ -100,7 +144,7 @@ const LanguageSwitcher = () => {
               setIsOpen(false);
             }}
           >
-            <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span>
+            {/* <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span> */}
             <span>{lang.name}</span>
           </li>
         ))}
