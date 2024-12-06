@@ -390,6 +390,7 @@ const HomePage = () => {
       console.log('The video has started playing.');
       document.body.classList.add('hiddenoverflow');
     };
+    
 
     const handleVideoEnd = () => {
       console.log('video end');
@@ -745,8 +746,9 @@ const HomePage = () => {
 
   if (loading && isFirstLoad) {
     return (
+      <>
       <div className="loadersite">
-        <div className="logosvg">
+         {/* <div className="logosvg">
           <img src={bannerlogo} alt="logo" />
         </div>
         <div className="loader1">
@@ -755,8 +757,9 @@ const HomePage = () => {
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div>  */}
       </div>
+      </>
     );
   }
 
