@@ -144,7 +144,7 @@ const Franchise = () => {
                     </div>
                   </div>
                 </div>
-                <div class="overlaybannehand-bottoms"></div>
+                <div className="overlaybannehand-bottoms"></div>
               </div>
             </div>
           </div>

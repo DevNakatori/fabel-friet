@@ -17,9 +17,9 @@ import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
 import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.webp';
-// import fries_four from '../assets/resizeimgs/webp/menuwebp/AdobeStock_616168104.webp';
-// import fries_five from '../assets/resizeimgs/webp/menuwebp/Rectangle90.webp';
-// import fries_six from '../assets/resizeimgs/webp/menuwebp/Rectangle91.webp';
+import fries_four from '../assets/resizeimgs/webp/friewebp/Fries2_FabelFriet.webp';
+import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.webp';
+import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
 // import fries_seven from '../assets/resizeimgs/webp/menuwebp/Rectangle92.webp';
 // import fries_eight from '../assets/resizeimgs/webp/menuwebp/Rectangle93.webp';
 
@@ -263,13 +263,13 @@ const Onzefriet = () => {
         strokeDashoffset: pathLength,
       });
       gsap.to(path, {
-        strokeDashoffset: 0, 
+        strokeDashoffset: 0,
         scrollTrigger: {
-          trigger: path, 
-          start: 'top 80%', 
-          end: 'bottom top', 
-          scrub: true, 
-          markers: false, 
+          trigger: path,
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+          markers: false,
         },
       });
     }
@@ -285,16 +285,16 @@ const Onzefriet = () => {
       },
     });
 
-    // gsap.to('.allfiressections img', {
-    //   x: 'random(-20, 20)',
-    //   y: 'random(-20, 20)',
-    //   stagger: 0.3,
-    //   zIndex: 22,
-    //   duration: 2,
-    //   ease: 'power3.out',
-    //   yoyo: true,
-    //   repeat: -1,
-    // });
+    gsap.to('.allfiressections img', {
+      x: 'random(-20, 20)',
+      y: 'random(-20, 20)',
+      stagger: 0.3,
+      zIndex: 22,
+      duration: 2,
+      ease: 'power3.out',
+      yoyo: true,
+      repeat: -1,
+    });
 
     let typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
@@ -529,11 +529,10 @@ const Onzefriet = () => {
               <div className="allfiressections">
                 <img src={fries_one} alt="img" width="10" height="10" />
                 <img src={fries_two} alt="img" width="10" height="10" />
-                {/*<img src={fries_three} alt="img" width="10" height="10" />
+                <img src={fries_three} alt="img" width="10" height="10" />
+                <img src={fries_four} alt="img" width="10" height="10" />
                 <img src={fries_five} alt="img" width="10" height="10" />
                 <img src={fries_six} alt="img" width="10" height="10" />
-                <img src={fries_seven} alt="img" width="10" height="10" />
-                <img src={fries_eight} alt="img" width="10" height="10" /> */}
               </div>
 
               <div className="whitebgbox">

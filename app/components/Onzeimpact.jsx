@@ -334,7 +334,6 @@ const Onzeimpact = () => {
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpacttwolistlisttext]',
-        start: 'top center',
         scrub: true
       },
     });

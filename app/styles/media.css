@@ -305,7 +305,49 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
     .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-top:50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p,.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{width:100%;font-size:12px;line-height:16px;}
-    .bottomwhatsapp a.Whatsappbtn{margin:15px 0;width:max-content;padding:10px 10px;}
+    .bottomwhatsapp a.Whatsappbtn {
+        display: flex;
+        margin: 15px 0;
+        width: 175px;
+        padding: 6px 10px;
+        height: 35px;
+        line-height: 35px;
+        align-items: center;
+        align-content: center;
+    }
+
+    .righttextbox a.Whatsappbtn.btn--snakeBorder {
+        width: 175px;
+        display: flex;
+        margin: 15px 0;
+        width: 175px;
+        padding: 6px 10px;
+        height: 35px;
+        line-height: 35px;
+        align-items: center;
+        align-content: center;
+    }
+
+    .bottomwhatsapp a.Whatsappbtn svg {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        position: relative;
+        left: -5px;
+        fill: #0D1E4D;
+        top: 0px;
+    }
+
+    .righttextbox a.Whatsappbtn.btn--snakeBorder svg{
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+        position: relative;
+        left: -5px;
+        fill: #0D1E4D;
+        top: 0px;
+    }
+
     a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:10px;}
     .headernew{position:fixed;z-index:11;}
     .language-switcher{z-index:11;}
@@ -315,6 +357,18 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .bottomsection{display: none;}
     .menu-open .headernew {z-index: 999;}
     .wrappermain img.media {-o-object-fit: cover;object-fit: cover;}
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 40px;
+        top: 93%;
+        left: 94%;
+        transform: inherit;
+        width: 50px;
+        height: 35px;
+    }
+
 }
 
 @media (max-width:767px) and (orientation:landscape)
