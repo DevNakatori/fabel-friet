@@ -178,7 +178,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .banner_content_text p{font-size: calc(20/var(--vw)*var(--multiplier));}
     a.banner_bottombtn {font-size: calc(18/var(--vw)*var(--multiplier));}
     .bannerrotate_text{font-size: calc(26/var(--vw)*var(--multiplier));}
-    .banner_title_text, .banner_title_text h1 {font-size: calc(58/var(--vw)*var(--multiplier));}
+    .banner_title_text, .banner_title_text h1 {font-size: calc(60/var(--vw)*var(--multiplier));}
     a.locatebutton{font-size: calc(20/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size: calc(16/var(--vw)*var(--multiplier));}
     .gradient-purple h4,
