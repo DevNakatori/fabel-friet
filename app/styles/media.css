@@ -76,10 +76,21 @@ button.skipvideo.hidden {display: none;}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+    .img-container,
+    .img-containerss {
+        height: 300px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+    }
     .image-wrapper,.threeboxonzeimpactlist.image-wrappers {
         max-width: min(40vw, 400px);
         height: min(60vh, 550px);
     }
+    
 }
 
 
@@ -273,6 +284,15 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .sixthsection .whitebgbox .socialtitle h3{margin:80px auto 40px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:35px;margin-bottom:30px;}
     .likeimagelist img:nth-child(1){top:15vh;}
+
+    .thirdesection .whitebgbox .whitewithvideomainbox .leftvideobox {
+        max-width: 577px;
+        width: 50%;
+    }
+
+    .arrowimagetouch,.arrowimagetouchone{display: none;}
+
+
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
@@ -300,6 +320,33 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         right: -300px;
         bottom: -78px;
     }
+
+    .language-switcher {
+        
+        top: 18px;
+        
+    }
+    .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 0;
+        top: -50px;
+        transform: rotate(-15deg);
+        z-index: 9;
+        width: 160px;
+        left: 10px;
+    }
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 0;
+        top: -55px;
+        transform: rotate(-15deg);
+        z-index: 1;
+        width: 150px;
+        left: 0;
+    }
+    .arrowimagetouch,.arrowimagetouchone{display: none;}
+
+    .thirdesection .whitebgbox .whitewithvideomainbox .leftvideobox{max-width: 100%;}
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
@@ -382,4 +429,69 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .mobilerotate{display:block;background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1E46B3 0%,#1C41A8 12.99%,#1B3E9E 23.44%,#193A95 31.71%,#18378D 38.19%,#163485 43.26%,#15317E 47.31%,#142F78 50.7%,#132C72 53.82%,#122A6C 57.05%,#112867 60.77%,#112662 65.35%,#10245D 71.19%,#0F2258 78.66%,#0E2053 88.13%,#0D1E4D 100%));width:100vw;height:100vh;position:fixed;z-index:9999;}
     .innermobile{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
     .phone,.message{display:block;}
+}
+
+
+
+@media (max-width: 767px) and (orientation: landscape) {
+    .img-container {
+        height: 85vh;
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+    .img-container {
+        height: 90vh;
+        min-height: 400px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) and (orientation: landscape) {
+    .img-container,.img-containerss {
+        height: 70vh;
+        min-height: 500px;
+    }
+    .image-wrapper, .threeboxonzeimpactlist.image-wrappers{top:100%;}
+
+    .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 0;
+        top: -50px;
+        transform: rotate(-15deg);
+        z-index: 9;
+        width: 160px;
+        left: 0;
+    }
+    .secondesection .gradient-threebox .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 22px;
+        top: 138%;
+        left: 94%;
+        transform: inherit;
+        width: 150px;
+        height: auto;
+    }
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: 0;
+        top: -55px;
+        transform: rotate(-15deg);
+        z-index: 1;
+        width: 150px;
+        left: 0;
+    }
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        bottom: 22px;
+        top: 150%;
+        left: 94%;
+        transform: inherit;
+        width: 150px;
+        height: 100px;
+    }
 }
