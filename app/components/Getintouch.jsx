@@ -275,7 +275,7 @@ const Getintouch = () => {
     const textLength = textContent.length;
     const duration = textLength * 0.05;
     gsap.fromTo(
-      '#animated-text',
+      '.sixthsection #animated-text',
       { text: '' },
       {
         text: textContent,
@@ -339,27 +339,27 @@ const Getintouch = () => {
       repeat: -1,
     });
 
-    gsap.fromTo(
-      '.borderbottomaccordians',
-      { width: 0 },
-      {
-        width: '100%',
-        stagger: 0.2,
-        duration: 2,
-        ease: 'power2.out',
-        delay: 2,
-        repeat: 0,
-        scrollTrigger: {
-          trigger: '#section6 .accordion-item',
-          start: 'top center',
-          end: 'bottom top',
-          scrub: true,
-          stagger: 0.3,
-          duration: 2,
-          once: true,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.borderbottomaccordians',
+    //   { width: 0 },
+    //   {
+    //     width: '100%',
+    //     stagger: 0.2,
+    //     duration: 2,
+    //     ease: 'power2.out',
+    //     delay: 2,
+    //     repeat: 0,
+    //     scrollTrigger: {
+    //       trigger: '#section6 .accordion-item',
+    //       start: 'top center',
+    //       end: 'bottom top',
+    //       scrub: true,
+    //       stagger: 0.3,
+    //       duration: 2,
+    //       once: true,
+    //     },
+    //   },
+    // );
 
     let typeSplitdatagettouchonzefrientdescription = new SplitType(
       '[data-gettouchonzefrientdescription]',
@@ -559,6 +559,47 @@ const Getintouch = () => {
     fetchData_Getintouch();
   }, [language]);
 
+
+  useEffect(() => {
+    const pathsstouch = document.querySelector('.line2sstouch');
+    if (pathsstouch) {
+      const pathsstouchLength = pathsstouch.getTotalLength();
+      gsap.set(pathsstouch, {
+        strokeDasharray: pathsstouchLength,
+        strokeDashoffset: pathsstouchLength,
+      });
+      gsap.to(pathsstouch, {
+        strokeDashoffset: 0,
+        scrollTrigger: {
+          trigger: pathsstouch,
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+          markers: false,
+        },
+      });
+    }
+
+    const pathsstouchs = document.querySelector('.line2sstouchs');
+    if (pathsstouchs) {
+      const pathsstouchsLength = pathsstouchs.getTotalLength();
+      gsap.set(pathsstouchs, {
+        strokeDasharray: pathsstouchsLength,
+        strokeDashoffset: pathsstouchsLength,
+      });
+      gsap.to(pathsstouchs, {
+        strokeDashoffset: 0,
+        scrollTrigger: {
+          trigger: pathsstouchs,
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+          markers: false,
+        },
+      });
+    }
+  }, [getIntouch]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
@@ -684,13 +725,29 @@ const Getintouch = () => {
             </ul>
 
             <div className="lefttiktoktext">
-              <img
+            <div className='arrowimagetouchone'>
+                <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    className="line2sstouchs"
+                    d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
+                    stroke="url(#paint0_linear_1314_561)"
+                  />
+                  <defs>
+                    <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                      <stop offset="0.000290329" stopColor="#0F274D" />
+                      <stop offset="0.504985" stopColor="#1F314D" />
+                      <stop offset="1" stopColor="#0d1e4d" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              {/* <img
                 src={arrow_blue_2}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              />
+              /> */}
               <p className="zoomanimation">
                 {contentSection.mobileImages[0].leftText}
               </p>
@@ -700,13 +757,29 @@ const Getintouch = () => {
               <p className="zoomanimation">
                 {contentSection.mobileImages[0].rightText}
               </p>
-              <img
+              {/* <img
                 src={arrow_blue_1}
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 className="swingsd"
                 alt="img"
-              />
+              /> */}
+              <div className='arrowimagetouch'>
+                <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    className="line2sstouch"
+                    d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
+                    stroke="url(#paint0_linear_1314_561)"
+                  />
+                  <defs>
+                    <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                      <stop offset="0.000290329" stopColor="#0F274D" />
+                      <stop offset="0.504985" stopColor="#1F314D" />
+                      <stop offset="1" stopColor="#0d1e4d" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
             </div>
           </div>
           <div className="whitebgbox">

@@ -132,7 +132,7 @@ const Onzeimpact = () => {
         end: 'bottom bottom',
         scrub: 2, // Increased scrub for smoother animation
         ease: 'power3.inOut', // Smoother easing
-        once: true,
+        once: false,
       },
     });
 
@@ -196,6 +196,28 @@ const Onzeimpact = () => {
     fetchDataonzeimpactData();
   }, [language]);
 
+
+  useEffect(() => {
+    const pathss = document.querySelector('.line2ss');
+    if (pathss) {
+      const pathssLength = pathss.getTotalLength();
+      gsap.set(pathss, {
+        strokeDasharray: pathssLength,
+        strokeDashoffset: pathssLength,
+      });
+      gsap.to(pathss, {
+        strokeDashoffset: 0,
+        scrollTrigger: {
+          trigger: pathss,
+          scrub: true,
+          markers: false,
+        },
+      });
+    }
+  }, [onzeimpact]);
+
+
+
   useEffect(() => {
     let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
       types: 'lines, words, chars',
@@ -234,10 +256,10 @@ const Onzeimpact = () => {
 
     gsap.from('[data-onzeimpactdescription] .line', {
       y: '100%',
-  opacity: 0,
-  duration: 0.5,
-  ease: 'sine.inOut',
-  stagger: 0.1,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'sine.inOut',
+      stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpactdescription]',
       },
@@ -306,13 +328,14 @@ const Onzeimpact = () => {
     );
 
     gsap.from('[data-onzeimpacttwolistlisttext] .line', {
-      y: '100%',
-      opacity: 0,
+      opacity: 0.3,
       duration: 0.5,
-      ease: 'sine.inOut',
+      ease: 'power1.out',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-onzeimpacttwolistlisttext]',
+        start: 'top center',
+        scrub: true
       },
     });
 
@@ -322,13 +345,14 @@ const Onzeimpact = () => {
     });
 
     gsap.from('[data-secdescription] .line', {
-      y: '100%',
-      opacity: 0,
+      opacity: 0.3,
       duration: 0.5,
-      ease: 'sine.inOut',
+      ease: 'power1.out',
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-secdescription]',
+        start: 'top center',
+        scrub: true
       },
     });
 
@@ -635,13 +659,25 @@ const Onzeimpact = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <img
+                    {/* <img
                       src={arrow_bluebottom}
                       alt="Bin Imagebox"
                       width="10"
                       height="10"
                       className="swingss"
-                    />
+                    /> */}
+                    <div className='arrowimageimpect'>
+                      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 165 135">
+                        <path className="line2ss" d="M32.6,106.7c-4.8-2.6-9.5-6.4-13.5-11.8C-19,43.3,14,.5,14,.5M64.6,94.9c8.3,11.8-13,21.9-32,11.7,7.8-11.8,25.9-20.4,32-11.7ZM164.5,107c-14.5,11.5-37.2,26.4-58,2.7-19.4-22.1-36.7,38-67.2,21.8-12.6-6.7-12.2-16.6-6.8-24.9M156.1,120.4c3.9-9.1,8.4-13.4,8.4-13.4M149.7,105.8c9.2,2.1,10,2.1,14.7,1.3" stroke="url(#paint0_linear_1314_561)" />
+                        <defs>
+                          <linearGradient id="paint0_linear_1314_561" x1="-24.6" y1="63.4" x2="127.1" y2="141.9" gradientTransform="translate(168.2 96.2) rotate(127.6)" gradientUnits="userSpaceOnUse">
+                            <stop offset="0.000290329" stopColor="#0F274D" />
+                            <stop offset="0.504985" stopColor="#1F314D" />
+                            <stop offset="1" stopColor="#0d1e4d" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div className="binimagebox">

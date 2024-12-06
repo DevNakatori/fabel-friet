@@ -29,5 +29,5 @@
 }
 @media (min-width:1024px){
     .menu-toggle,.mobile-menu{display:none;}
-    .headernew nav ul.desktop-menu{display:flex;align-items:center;list-style:none;padding:0;margin:0;gap:40px;}
+    .headernew nav ul.desktop-menu{display:flex;align-items:center;list-style:none;padding:0;margin:0;gap:20px;}
 }

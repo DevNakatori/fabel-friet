@@ -263,14 +263,15 @@ const Hetmenu = () => {
       },
     );
 
-    gsap.from('[data-righttextboxdescription]', {
-      y: '100%',
-      opacity: 1,
-      duration: 1,
-      ease: 'power1.inOut',
-      stagger: 0.1,
+    gsap.from('[data-righttextboxdescription] .line', {
+      opacity: 0.3,
+  duration: 0.5,
+  ease: 'power1.out',
+  stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-righttextboxdescription]',
+        start: 'top center',
+    scrub: true
       },
     });
 
@@ -283,16 +284,41 @@ const Hetmenu = () => {
     );
 
     gsap.from('[data-righttextboxdescriptionbotom] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
-      stagger: 0.1,
+      opacity: 0.3,
+  duration: 0.5,
+  ease: 'power1.out',
+  stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-righttextboxdescriptionbotom]',
+        start: 'top center',
+    scrub: true
       },
     });
+
   }, [hetmenu]);
+
+
+  useEffect(() => {
+    const paths = document.querySelector('.line2s');
+    if (paths) {
+      const pathsLength = paths.getTotalLength();
+      gsap.set(paths, {
+        strokeDasharray: pathsLength,
+        strokeDashoffset: pathsLength,
+      });
+      gsap.to(paths, {
+        strokeDashoffset: 0, 
+        scrollTrigger: {
+          trigger: paths, 
+          start: 'top 80%', 
+          end: 'bottom top', 
+          scrub: true, 
+          markers: false, 
+        },
+      });
+    }
+  }, [hetmenu]);
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -362,7 +388,7 @@ const Hetmenu = () => {
           </p>
 
           <div className="whitebgbox">
-            <div className="allfiressectionsmenu">
+            {/* <div className="allfiressectionsmenu">
               <img src={menu_one} alt="img" width="10" height="10" />
               <img src={menu_two} alt="img" width="10" height="10" />
               <img src={menu_three} alt="img" width="10" height="10" />
@@ -370,7 +396,7 @@ const Hetmenu = () => {
               <img src={menu_five} alt="img" width="10" height="10" />
               <img src={menu_six} alt="img" width="10" height="10" />
               <img src={menu_seven} alt="img" width="10" height="10" />
-            </div>
+            </div> */}
 
             <div
               className="menudynamic onlydesktop"
@@ -631,7 +657,7 @@ const Hetmenu = () => {
                   <h5 data-righttextboxtitle="">
                     {bottomContentSection.bottomHeading}
                   </h5>
-                  <p data-righttextboxdescription>
+                  <p data-righttextboxdescription="">
                     {bottomContentSection.bottomDescription}
                   </p>
                 </div>
@@ -652,15 +678,25 @@ const Hetmenu = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <img
-                      src={arrow_blue1}
-                      alt="Blue arrow"
-                      data-speed="auto"
-                      className="swings"
-                    />
+                    <div className='arrowimages'>
+                          <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              className="line2s"
+                              d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
+                              stroke="url(#paint0_linear_1314_561)"
+                            />
+                            <defs>
+                              <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.000290329" stopColor="#0F274D" />
+                                <stop offset="0.504985" stopColor="#1F314D" />
+                                <stop offset="1" stopColor="#0d1e4d" />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
                   </div>
                   <h3
-
+                  data-righttextboxdescriptionbotom=""
                   >
                     {bottomContentSection.bottomHeading}
                   </h3>

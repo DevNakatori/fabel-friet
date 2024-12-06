@@ -59,7 +59,7 @@ const Newfooter = () => {
   const {contact, logo, menu, socials} = footerData[0];
 
   return (
-    <section className="newfooter" data-aos="fade-down"
+    <section className="newfooter" data-aos="fade"
     data-aos-easing="ease-out-cubic"
     data-aos-duration="2000">
       <div className="newcontainer">
