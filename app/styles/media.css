@@ -219,7 +219,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size: calc(58/var(--vw)*var(--multiplier));max-width: fit-content;}
     .locationaddtext ul li{font-size: calc(20/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom: 15px;}
+    .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom: 15px;        line-height: 1.2;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size: calc(20/var(--vw)*var(--multiplier));}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {font-size: calc(28/var(--vw)*var(--multiplier));line-height: 50px;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size: calc(28/var(--vw)*var(--multiplier));line-height: 1.2em;}
@@ -318,7 +318,9 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         /* overflow: hidden; */
         position: relative;
         top: 70px;
+        margin-bottom: 70px;
     }
+    #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{margin-bottom: 30px;}
     .img-container {
         height: 495px;
         display: flex;
@@ -363,6 +365,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         width: 150px;
         left: 24px;
     }
+    .whitebgbox .whitewithvideomainbox .righttextbox p ul li span{width: 60px;}
     
 
 
@@ -475,6 +478,18 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         top: 50%;
         transform: translate(-50%, -50%);
     }
+    .img-containerss{
+        height: 495px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+        top: 70px;
+        margin-bottom: 70px;
+    }
+    #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{margin-bottom: 30px;}
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
