@@ -386,6 +386,31 @@ const Onzeimpact = () => {
         );
       },
     });
+
+    let revealcontainerimpactsimpact = document.querySelectorAll(".reveal");
+    revealcontainerimpactsimpact.forEach((containerimpact) => {
+      let imageimpact = containerimpact.querySelector(".reveal img");
+      let tlimpact = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerimpact,
+          start: "top bottom",
+          end: "bottom top",
+         // toggleActions: "restart none none reset"
+        }
+      });
+
+      tlimpact.set(containerimpact, { autoAlpha: 1 });
+      tlimpact.from(containerimpact, 1.5, {
+        xPercent: 0,
+        ease: 'Power2.out'
+      });
+      tlimpact.from(imageimpact, 1.5, {
+        xPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'Power2.out'
+      });
+    });
   }, [onzeimpact]);
 
   if (loading) return <p>Loading...</p>;
@@ -607,12 +632,8 @@ const Onzeimpact = () => {
               >
                 <div
                   className="leftvideobox"
-                  data-aos="fade-leftt"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-anchor=".gradient-threebox"
-                  data-aos-offset="300"
-                  data-aos-duration="500"
                 >
+                  <div className='reveal'>
                   <img
                     src={getImageUrl(data.bottomSection.image.asset._ref)}
                     alt="Bottom Section Image"
@@ -620,6 +641,7 @@ const Onzeimpact = () => {
                     width="10"
                     height="10"
                   />
+                  </div>
                 </div>
                 <div
                   className="righttextbox"

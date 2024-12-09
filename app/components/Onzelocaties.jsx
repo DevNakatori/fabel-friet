@@ -174,6 +174,34 @@ const Onzelocaties = () => {
         trigger: '[data-locationdescription]',
       },
     });
+
+
+
+    let revealContainers = document.querySelectorAll(".reveal");
+
+    revealContainers.forEach((container) => {
+      let image = container.querySelector(".reveal img");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top bottom",
+          end: "bottom top",
+         // toggleActions: "restart none none reset"
+        }
+      });
+
+      tl.set(container, { autoAlpha: 1 });
+      tl.from(container, 1.5, {
+        xPercent: 0,
+        ease: 'Power2.out'
+      });
+      tl.from(image, 1.5, {
+        xPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'Power2.out'
+      });
+    });
   }, [onzelocaties]);
 
   if (loading) return <p>Loading...</p>;
@@ -356,17 +384,17 @@ const Onzelocaties = () => {
                       <div className="whitewithvideomainbox">
                         <div
                           className="leftvideobox"
-                          data-aos="fade-left"
-                          data-aos-easing="ease-in-sine"
-                          data-aos-duration="500"
+
                         >
-                          <img
-                            src={getImageUrl(loc.image.asset._ref)}
-                            alt={loc.image.alt}
-                            width="10"
-                            height="10"
-                            className="whitewithvideomainboximg"
-                          />
+                          <div className='reveal'>
+                            <img
+                              src={getImageUrl(loc.image.asset._ref)}
+                              alt={loc.image.alt}
+                              width="10"
+                              height="10"
+                              className="whitewithvideomainboximg"
+                            />
+                          </div>
                         </div>
                         <div
                           className="righttextbox"
