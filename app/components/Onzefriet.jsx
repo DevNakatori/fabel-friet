@@ -427,6 +427,30 @@ const Onzefriet = () => {
         });
       },
     });
+
+
+    let revealcontaineronze = document.querySelectorAll(".revealvideo");
+    revealcontaineronze.forEach((containeonze) => {
+      let imageimpactonze = containeonze.querySelector(".revealvideo video");
+      let tlimpact = gsap.timeline({
+        scrollTrigger: {
+          trigger: containeonze,
+        }
+      });
+
+      tlimpact.set(containeonze, { visibility: "visible" });
+      tlimpact.from(containeonze, 1.5, {
+        xPercent: 0,
+        ease: 'Power2.out'
+      });
+      tlimpact.from(imageimpactonze, 1.5, {
+        xPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'Power2.out'
+      });
+    });
+
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;
@@ -541,8 +565,6 @@ const Onzefriet = () => {
                     <div className="whitewithvideomainbox">
                       <div
                         className="leftvideobox"
-                        data-aos="slide-right"
-                        data-aos-duration="1000"
                       >
                         <div className="leftlogobar">
                           <img
@@ -559,7 +581,7 @@ const Onzefriet = () => {
                           width="10"
                           height="10"
                         /> */}
-
+                        <div className='revealvideo'>
                         <video
                           id="myVideos"
                           src={content.videoSection.videoLink}
@@ -568,6 +590,7 @@ const Onzefriet = () => {
                           playsInline
                           loop
                         />
+                        </div>
                       </div>
                       <div
                         className="righttextbox"

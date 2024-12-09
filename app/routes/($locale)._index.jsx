@@ -104,8 +104,7 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
-
-    // AOS.refresh();
+// AOS.refresh();
   }, []);
 
   const [showHomePage, setShowHomePage] = useState(false);
