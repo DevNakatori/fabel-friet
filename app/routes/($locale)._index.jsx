@@ -89,12 +89,12 @@ export default function Homepage() {
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {  // Check if the screen width is greater than or equal to 1024px (desktop)
-      // const smoother = ScrollSmoother.create({
-      //   smooth: 1,
-      //   smoothTouch: 0.2,
-      // });
-      // smoother.effects("img", { speed: "auto" });
-      // smoother.effects("video", { speed: "auto" });
+      const smoother = ScrollSmoother.create({
+        smooth: 1,
+        smoothTouch: 0.2,
+      });
+      smoother.effects("img", { speed: "auto" });
+      smoother.effects("video", { speed: "auto" });
     }
 
     AOS.init({
