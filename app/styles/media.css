@@ -1,6 +1,7 @@
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-12vw;}
 button.skipvideo.hidden {display: none;}
+.rightsidebullets{display: none !important;}
 
 @media (hover: none) {
     .cursor{display: none;}
@@ -17,6 +18,17 @@ button.skipvideo.hidden {display: none;}
     top: 50%;
     transform: translate(-50%, -50%);
 } */
+
+
+@media (min-width:2500px) and (max-width:3000px){
+    .fl-tests .swiper-pagination {
+        bottom: 50px;
+    }
+    .wharpeoplebox p,.wharpeoplebox b {
+        font-size: calc(14/var(--vw)*var(--multiplier));
+    }
+    }
+
 
 @media (max-width: 767px) {
 
