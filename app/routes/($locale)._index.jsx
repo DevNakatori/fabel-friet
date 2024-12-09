@@ -237,7 +237,7 @@ export default function Homepage() {
       <LanguageProvider>
         <LanguageSwitcher />
         <Newheader />
-        {/* <Cursor/> */}
+        <Cursor/>
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
