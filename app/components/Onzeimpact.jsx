@@ -319,24 +319,29 @@ const Onzeimpact = () => {
       },
     });
 
-    let typeSplitonzeonzeimpacttwolistlisttext = new SplitType(
-      '[data-onzeimpacttwolistlisttext]',
-      {
+    document.querySelectorAll('[data-onzeimpacttwolistlisttext]').forEach((element) => {
+      new SplitType(element, {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
+      });
+    });
+
 
     gsap.from('[data-onzeimpacttwolistlisttext] .line', {
       opacity: 0.3,
       duration: 0.5,
       ease: 'power1.out',
-      stagger: 0.1,
+      stagger: 0,  
       scrollTrigger: {
-        trigger: '[data-onzeimpacttwolistlisttext]',
-        scrub: true
+        trigger: '[data-onzeimpacttwolistlisttext]', 
+        scrub: true,  
+        start: "top bottom", 
+        end: "bottom top",   
+        markers: false,  
       },
     });
+
+
 
     let typeSplitsecdescription = new SplitType('[data-secdescription]', {
       types: 'lines, words, chars',
@@ -395,7 +400,7 @@ const Onzeimpact = () => {
           trigger: containerimpact,
           start: "top bottom",
           end: "bottom top",
-         // toggleActions: "restart none none reset"
+          // toggleActions: "restart none none reset"
         }
       });
 
@@ -634,13 +639,13 @@ const Onzeimpact = () => {
                   className="leftvideobox"
                 >
                   <div className='reveal'>
-                  <img
-                    src={getImageUrl(data.bottomSection.image.asset._ref)}
-                    alt="Bottom Section Image"
-                    data-speed="auto"
-                    width="10"
-                    height="10"
-                  />
+                    <img
+                      src={getImageUrl(data.bottomSection.image.asset._ref)}
+                      alt="Bottom Section Image"
+                      data-speed="auto"
+                      width="10"
+                      height="10"
+                    />
                   </div>
                 </div>
                 <div

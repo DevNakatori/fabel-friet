@@ -186,7 +186,7 @@ const Onzelocaties = () => {
           trigger: container,
           start: "top bottom",
           end: "bottom top",
-         // toggleActions: "restart none none reset"
+          // toggleActions: "restart none none reset"
         }
       });
 
@@ -424,13 +424,11 @@ const Onzelocaties = () => {
                               </ul>
                             </div>
                           </div>
-                          <p
-                            data-aos="fade-up"
+
+                          <p data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            {loc.info}
-                          </p>
+                            data-aos-duration="2000" dangerouslySetInnerHTML={{ __html: loc.info }} />
+
                           <a
                             href="#"
                             className="routbtn"
