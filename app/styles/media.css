@@ -2,7 +2,10 @@
 .roundtext h2{left:-12vw;}
 button.skipvideo.hidden {display: none;}
 
-
+@media (hover: none) {
+    .cursor{display: none;}
+    .cursor2{display: none;}
+  }
 /* .image-wrapper,.threeboxonzeimpactlist.image-wrappers {
     width: 100%;
     max-width: clamp(300px, 30vw, 450px);
@@ -291,6 +294,64 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     }
 
     .arrowimagetouch,.arrowimagetouchone{display: none;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{width: 100%;}
+
+
+    .img-containerss{
+        height: 495px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+        top: 70px;
+    }
+    .img-container {
+        height: 495px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+        margin-bottom: 140px;
+        margin-top: 70px;
+        top: 70px;
+    }
+
+    .image-wrapper,
+    .image-wrappers {
+        width: 100%;
+        max-width: 50%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        /* overflow: hidden; */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: inherit;
+        top: -50px;
+        transform: rotate(-15deg);
+        z-index: 9;
+        width: 160px;
+        left: 24px;
+    }
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: inherit;
+        top: -55px;
+        transform: rotate(-15deg);
+        z-index: 1;
+        width: 150px;
+        left: 24px;
+    }
+    
 
 
 }
@@ -347,6 +408,61 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .arrowimagetouch,.arrowimagetouchone{display: none;}
 
     .thirdesection .whitebgbox .whitewithvideomainbox .leftvideobox{max-width: 100%;}
+
+    .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: inherit;
+        top: -50px;
+        transform: rotate(-15deg);
+        z-index: 9;
+        width: 160px;
+        left: 24px;
+    }
+    .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar {
+        position: absolute;
+        right: inherit;
+        top: -55px;
+        transform: rotate(-15deg);
+        z-index: 1;
+        width: 150px;
+        left: 24px;
+    }
+    .img-containerss{
+        height: 495px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+        top: 70px;
+    }
+    .img-container {
+        height: 495px;
+        display: flex;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        /* overflow: hidden; */
+        position: relative;
+        margin-bottom: 140px;
+        margin-top: 70px;
+        top: 70px;
+    }
+
+    .image-wrapper,
+    .image-wrappers {
+        width: 100%;
+        max-width: 50%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        /* overflow: hidden; */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
