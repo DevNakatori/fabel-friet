@@ -74,7 +74,7 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;}
 
 .whitebgbox .whitewithvideomainbox .righttextbox p ul {display: flex;flex-wrap: wrap;}
 .whitebgbox .whitewithvideomainbox .righttextbox p ul li {margin-bottom: 5px;width: 100%;}
-.whitebgbox .whitewithvideomainbox .righttextbox p ul li span {width: 100%;display: inline-flex;font-weight: 600;max-width: 30px;}
+.whitebgbox .whitewithvideomainbox .righttextbox p ul li span {width: 100%;display: inline-flex;font-weight: 600;max-width: 3vw;}
 
 @media (min-width:992px) and (max-width:1199px){
     .roundtext-onzelocation h2{position:absolute;left:-220px;top:-10px;z-index:1;margin:0;}
