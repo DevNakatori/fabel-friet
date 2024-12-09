@@ -332,14 +332,14 @@ const Onzelocaties = () => {
                                   height="10"
                                 />
                                 <h4>Opening hours</h4>
-                                <p>Mon-Sun: 11:00 - 20:00</p>
+                                <p>{loc.info}</p>
                                 <div className="locationmaoaddress">
                                   <div className="locationicon">
                                     <i className="mapicon"></i>
                                   </div>
                                   <div className="locationaddtext">
                                     <ul>
-                                      <li>Runstraat 1 | 1016 GJ Amsterdam</li>
+                                      <li>{loc.address}</li>
                                     </ul>
                                   </div>
                                 </div>
