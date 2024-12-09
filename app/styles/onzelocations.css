@@ -71,6 +71,11 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;}
 .appcontainers .onlydesktop:last-child .whitewithvideomainbox {
     border-bottom: none;
 }
+
+.whitebgbox .whitewithvideomainbox .righttextbox p ul {display: flex;flex-wrap: wrap;}
+.whitebgbox .whitewithvideomainbox .righttextbox p ul li {margin-bottom: 5px;width: 100%;}
+.whitebgbox .whitewithvideomainbox .righttextbox p ul li span {width: 100%;display: inline-flex;font-weight: 600;max-width: 30px;}
+
 @media (min-width:992px) and (max-width:1199px){
     .roundtext-onzelocation h2{position:absolute;left:-220px;top:-10px;z-index:1;margin:0;}
     .roundtext-onzelocation h3{position:absolute;right:-220px;bottom:-50px;margin:0;}
@@ -153,7 +158,7 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;}
     .thirdesection .swiper-pagination-bullet{background:#556696;opacity:1;}
     .thirdesection .slideraddress p.siwprtext{display:flex;align-items:center;align-content:center;justify-content:center;color:#EFEBE7;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:600;line-height:normal;}
     .thirdesection .slideraddress p.siwprtext i{margin-left:10px;}
+    .slideraddress .wharpeoplebox .sliderwhitebg p ul {display: flex;flex-wrap: wrap;}
+    .slideraddress .wharpeoplebox .sliderwhitebg p ul li {margin-bottom: 5px;width: 100%;}
+    .slideraddress .wharpeoplebox .sliderwhitebg p ul li span {width: 100%;display: inline-flex;font-weight: 600;max-width: 30px;}
 }
-.whitebgbox .whitewithvideomainbox .righttextbox p ul {display: flex;flex-wrap: wrap;}
-.whitebgbox .whitewithvideomainbox .righttextbox p ul li {margin-bottom: 5px;width: 100%;}
-.whitebgbox .whitewithvideomainbox .righttextbox p ul li span {width: 100%;display: inline-flex;font-weight: 600;max-width: 30px;}

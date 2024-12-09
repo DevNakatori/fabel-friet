@@ -332,7 +332,7 @@ const Onzelocaties = () => {
                                   height="10"
                                 />
                                 <h4>Opening hours</h4>
-                                <p>{loc.info}</p>
+                                <p dangerouslySetInnerHTML={{ __html: loc.info }} />
                                 <div className="locationmaoaddress">
                                   <div className="locationicon">
                                     <i className="mapicon"></i>
