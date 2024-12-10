@@ -582,14 +582,14 @@ const Onzefriet = () => {
                           height="10"
                         /> */}
                         <div className='revealvideo'>
-                        <video
-                          id="myVideos"
-                          src={content.videoSection.videoLink}
-                          autoPlay
-                          muted
-                          playsInline
-                          loop
-                        />
+                          <video
+                            id="myVideos"
+                            src={content.videoSection.videoLink}
+                            autoPlay
+                            muted
+                            playsInline
+                            loop
+                          />
                         </div>
                       </div>
                       <div
@@ -670,7 +670,7 @@ const Onzefriet = () => {
                           pagination={{
                             clickable: true,
                           }}
-                          speed={10000}
+                          speed={3000}
                           autoplay={{
                             delay: 3000,
                             disableOnInteraction: false,
@@ -678,23 +678,23 @@ const Onzefriet = () => {
                           breakpoints={{
                             640: {
                               slidesPerView: 2,
-                              spaceBetween: 20,
+                              spaceBetween: 0,
                             },
                             768: {
                               slidesPerView: 2,
-                              spaceBetween: 20,
+                              spaceBetween: 10,
                             },
                             1024: {
                               slidesPerView: 4,
-                              spaceBetween: 40,
+                              spaceBetween: 10,
                             },
                             1200: {
-                              slidesPerView: 3,
-                              spaceBetween: 20,
+                              slidesPerView: 4,
+                              spaceBetween: 10,
                             },
                             1910: {
-                              slidesPerView: 4,
-                              spaceBetween: 20,
+                              slidesPerView: 5,
+                              spaceBetween: 10,
                             },
                           }}
                           modules={[Pagination, Autoplay]}

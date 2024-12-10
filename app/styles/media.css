@@ -159,6 +159,21 @@ a.locatebutton {
 
 a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padding: 20px;}
 
+
+.fl-tests .swiper-slide .module {
+    margin: 0;
+    max-width: calc(100% - 50px);
+    width: calc(100% - 50px);
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(100% - 50px);
+    flex: 0 0 calc(100% - 50px);
+    display: flex;
+}
+.fl-tests .module .wharpeoplebox {
+    width: 100%;
+    max-width: 100%;
+}
+
 }
 
 
@@ -181,6 +196,22 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
 .de .roundtext-impact h2,.de .roundtext-impact h3{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
 .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
 .bannerrotate_text{right:-50px;}
+
+.fl-tests .swiper-slide .module {
+    margin: 0;
+    max-width: calc(100% - 50px);
+    width: calc(100% - 50px);
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(100% - 50px);
+    flex: 0 0 calc(100% - 50px);
+    display: flex;
+}
+.fl-tests .module .wharpeoplebox {
+    width: 100%;
+    max-width: 100%;
+}
+
+
 }
 @media (min-width:1201px) and (max-width:1600px){
     .roundtext-onzelocation h2,.roundtext-onzelocation h3,.roundtext-getintouch h2,.roundtext-getintouch h3,.roundtext-hetmenu h2,.roundtext-hetmenu h3,.roundtext-impact h2,.roundtext-impact h3{font-size:clamp(20px,10vw,80px)!important;}
@@ -197,6 +228,13 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .nl .roundtext-impact h3{position:absolute;right:-8vw;bottom:0;margin:0;}
     .bannerrotate_text{right:-3vw;}
     
+    .arrowimage {
+        position: absolute;
+        right: -39px;
+        top: 33px;
+        width: 60px;
+        transform: rotate(20deg);
+    }
 }
 
 @media (min-width:1200px)
@@ -243,6 +281,24 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span, .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size: calc(20/var(--vw)*var(--multiplier));}
     
+
+    #section2 .whatpeople-section .fl-tests {
+        width: 100%;
+        overflow: hidden;
+        margin: 60px 0 10px;
+        width: calc(100vw - 0px);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        
+    }
+
+    #section2 .whatpeople-section .fl-tests .swiper-slide {
+        text-align: center;
+        
+    }
 }
 
 
@@ -366,6 +422,33 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         left: 24px;
     }
     .whitebgbox .whitewithvideomainbox .righttextbox p ul li span{width: 60px;}
+
+    #section2 .whatpeople-section .fl-tests {
+        width: 100%;
+        overflow: hidden;
+        margin: 60px 0 10px;
+        width: calc(100vw - 0px);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        
+    }
+    
+    .fl-tests .swiper-slide .module {
+        margin: 0;
+        max-width: calc(100% - 50px);
+        width: calc(100% - 50px);
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(100% - 50px);
+        flex: 0 0 calc(100% - 50px);
+        display: flex;
+    }
+    .fl-tests .module .wharpeoplebox {
+        width: 100%;
+        max-width: 100%;
+    }
     
 
 
@@ -490,6 +573,21 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         margin-bottom: 70px;
     }
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{margin-bottom: 30px;}
+
+
+    .fl-tests .swiper-slide .module {
+        margin: 0;
+        max-width: calc(100% - 50px);
+        width: calc(100% - 50px);
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(100% - 50px);
+        flex: 0 0 calc(100% - 50px);
+        display: flex;
+    }
+    .fl-tests .module .wharpeoplebox {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
