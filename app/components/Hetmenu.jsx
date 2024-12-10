@@ -269,13 +269,13 @@ const Hetmenu = () => {
 
     gsap.from('[data-righttextboxdescription] .line', {
       opacity: 0.3,
-  duration: 0.5,
-  ease: 'power1.out',
-  stagger: 0.1,
+      duration: 0.5,
+      ease: 'power1.out',
+      stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-righttextboxdescription]',
         start: 'top center',
-    scrub: true
+        scrub: true
       },
     });
 
@@ -289,13 +289,13 @@ const Hetmenu = () => {
 
     gsap.from('[data-righttextboxdescriptionbotom] .line', {
       opacity: 0.3,
-  duration: 0.5,
-  ease: 'power1.out',
-  stagger: 0.1,
+      duration: 0.5,
+      ease: 'power1.out',
+      stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-righttextboxdescriptionbotom]',
         start: 'top center',
-    scrub: true
+        scrub: true
       },
     });
 
@@ -311,13 +311,13 @@ const Hetmenu = () => {
         strokeDashoffset: pathsLength,
       });
       gsap.to(paths, {
-        strokeDashoffset: 0, 
+        strokeDashoffset: 0,
         scrollTrigger: {
-          trigger: paths, 
-          start: 'top 80%', 
-          end: 'bottom top', 
-          scrub: true, 
-          markers: false, 
+          trigger: paths,
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+          markers: false,
         },
       });
     }
@@ -399,8 +399,8 @@ const Hetmenu = () => {
               <img src={menu_four} alt="img" width="10" height="10" />
               <img src={menu_five} alt="img" width="10" height="10" />
               <img src={menu_six} alt="img" width="10" height="10" />
-              <img src={menu_seven} alt="img" width="10" height="10" /> 
-              <img src={menu_eight} alt="img" width="10" height="10" />  
+              <img src={menu_seven} alt="img" width="10" height="10" />
+              <img src={menu_eight} alt="img" width="10" height="10" />
             </div>
 
             <div
@@ -684,24 +684,24 @@ const Hetmenu = () => {
                     data-aos-duration="2000"
                   >
                     <div className='arrowimages'>
-                          <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                              className="line2s"
-                              d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
-                              stroke="url(#paint0_linear_1314_561)"
-                            />
-                            <defs>
-                              <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.000290329" stopColor="#0F274D" />
-                                <stop offset="0.504985" stopColor="#1F314D" />
-                                <stop offset="1" stopColor="#0d1e4d" />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                        </div>
+                      <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          className="line2s"
+                          d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
+                          stroke="url(#paint0_linear_1314_561)"
+                        />
+                        <defs>
+                          <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                            <stop offset="0.000290329" stopColor="#0F274D" />
+                            <stop offset="0.504985" stopColor="#1F314D" />
+                            <stop offset="1" stopColor="#0d1e4d" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
                   </div>
                   <h3
-                  data-righttextboxdescriptionbotom=""
+                    data-righttextboxdescriptionbotom=""
                   >
                     {bottomContentSection.bottomHeading}
                   </h3>

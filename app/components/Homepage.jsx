@@ -264,10 +264,10 @@ const HomePage = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 5,
+          duration: 1,
           ease: 'power2.out',
-          delay: 4,
-          stagger: 0.1,
+          delay: 1,
+          stagger: 2,
         },
       );
 
@@ -276,10 +276,10 @@ const HomePage = () => {
         { text: '' },
         {
           text: bannerData[0].bannerText,
-          duration: bannerData[0].bannerText.length * 0.05,
-          ease: 'power1.inOut',
-          delay: 4.5,
-          stagger: 5,
+          duration: bannerData[0].bannerText.length * 0.50,
+          ease: 'power2.out',
+          delay: 1,
+          stagger: 2.5,
         },
       );
 
@@ -390,7 +390,7 @@ const HomePage = () => {
       console.log('The video has started playing.');
       document.body.classList.add('hiddenoverflow');
     };
-    
+
 
     const handleVideoEnd = () => {
       console.log('video end');
@@ -605,8 +605,8 @@ const HomePage = () => {
           y: 0,
           duration: 1,
           ease: 'power2.out',
-          delay: 4,
-          stagger: 0.7,
+          delay: 1,
+          stagger: 2,
         },
       );
 
@@ -615,10 +615,10 @@ const HomePage = () => {
         { text: '' },
         {
           text: bannerData[0].bannerText,
-          duration: bannerData[0].bannerText.length * 0.05,
-          ease: 'none',
-          delay: 4.5,
-          stagger: 0.8,
+          duration: bannerData[0].bannerText.length * 0.50,
+          ease: 'power2.out',
+          delay: 1,
+          stagger: 2.5,
         },
       );
 
@@ -747,18 +747,18 @@ const HomePage = () => {
   if (loading && isFirstLoad) {
     return (
       <>
-      <div className="loadersite">
-         <div className="logosvg">
-          <img src={bannerlogo} alt="logo" />
+        <div className="loadersite">
+          <div className="logosvg">
+            <img src={bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-        <div className="loader1">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>  
-      </div>
       </>
     );
   }
