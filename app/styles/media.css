@@ -477,7 +477,7 @@ a.Whatsappbtn {font-size: -moz-calc(23/var(--vw)*var(--multiplier));font-size: c
     .image-wrapper,
     .image-wrappers {
         width: 100%;
-        max-width: 50%;
+        max-width: 400px;
         height: 100%;
         -o-object-fit: cover;
            object-fit: cover;
