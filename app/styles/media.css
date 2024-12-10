@@ -6,6 +6,30 @@ button.skipvideo.hidden {display: none;}
 @media (hover: none) {
     .cursor{display: none;}
     .cursor2{display: none;}
+    .accordion-content p {
+        width: -moz-calc(100% - 0em);
+        width: calc(100% - 0em);
+        max-width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .accordion-item button.accordion-header:hover{width: -moz-calc(100% - 0em);
+        width: calc(100% - 0em);}
+
+
+        .accordion-item button.accordion-header:hover {
+            -webkit-transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            -moz-transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        }
+
+        .accordion-item button.accordion-header:hover span.icon {
+            right: 0;
+        }
+
+        
+
+        
   }
 /* .image-wrapper,.threeboxonzeimpactlist.image-wrappers {
     width: 100%;
@@ -860,6 +884,47 @@ a.Whatsappbtn {font-size: -moz-calc(23/var(--vw)*var(--multiplier));font-size: c
         height: 35px;
     }
 
+    .secondesection .wrappertest .gradient-purple .accordion-content p,
+    .sixthsection .wrappertest .gradient-purple .accordion-content p{
+        width: -moz-calc(100% - 0em);
+        width: calc(100% - 0em);
+        max-width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .accordion-item button.accordion-header:hover{width: -moz-calc(100% - 0em);
+        width: calc(100% - 0em);}
+
+        .accordion-item button.accordion-header:hover {
+            -webkit-transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            -moz-transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            transform: translate3d(0em, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        }  
+        
+        .accordion-item button.accordion-header:hover span.icon {
+            right: 0;
+        }
+
+        .sixthsection .main-accordian {
+            margin-top: 30px;
+        }
+
+        #section6 .accordion-item button.accordion-header:hover {
+            width: -moz-calc(90% - 0em);
+            width: calc(90% - 0em);
+        }
+        #section6 .accordion-header.active .icon {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+            right: -37px!important;
+        }
+
+        #section6 .accordion-item button.accordion-header:hover span.icon {
+            right: -45px;
+        }
 }
 
 /*@media (max-width:767px) and (orientation:landscape)
