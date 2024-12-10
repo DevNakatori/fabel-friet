@@ -25,6 +25,7 @@ button.skipvideo.hidden {display: none;}
         bottom: 50px;
     }
     .wharpeoplebox p,.wharpeoplebox b {
+        font-size: -moz-calc(14/var(--vw)*var(--multiplier));
         font-size: calc(14/var(--vw)*var(--multiplier));
     }
     }
@@ -44,10 +45,22 @@ button.skipvideo.hidden {display: none;}
     .img-container,
     .img-containerss {
         height: 300px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
     }
@@ -66,7 +79,11 @@ button.skipvideo.hidden {display: none;}
         bottom: 22px;
         top: 93%;
         left: 94%;
-        transform: inherit;
+        -webkit-transform: inherit;
+            -ms-transform: inherit;
+                -moz-transform: inherit;
+                  -o-transform: inherit;
+             transform: inherit;
         width: 50px;
         height: auto;
     }
@@ -77,7 +94,11 @@ button.skipvideo.hidden {display: none;}
         position: absolute;
         right: inherit;
         top: -15px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 9;
         width: 50px;
     }
@@ -114,6 +135,7 @@ button.skipvideo.hidden {display: none;}
 {
 .banner_title_text,.banner_title_text h1{max-width: 1030px;}
 .banner_title_text, .banner_title_text h1 {
+    font-size: -moz-calc(60/var(--vw)*var(--multiplier));
     font-size: calc(60/var(--vw)*var(--multiplier));
 }
 .bannerrotate_text{right:-3vw;}
@@ -121,14 +143,27 @@ button.skipvideo.hidden {display: none;}
 
 
 a.banner_bottombtn {
+    font-size: -moz-calc(18/var(--vw)*var(--multiplier));
     font-size: calc(18/var(--vw)*var(--multiplier));
     width: 100%;
     padding: 10px 35px;
     height: auto;
     line-height: 56px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-box;
     display: flex;
-    align-items: center;
-    align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        -webkit-align-content: center;
+            align-content: center;
+    max-width: -webkit-max-content;
+    max-width: -moz-max-content;
     max-width: max-content;
 }
 
@@ -143,30 +178,42 @@ a.banner_bottombtn {
 }
 
 a.locatebutton {
+    max-width: -webkit-max-content;
+    max-width: -moz-max-content;
     max-width: max-content;
     width: 100%;
     padding: 15px 30px;
 }
 
-.locationaddtext ul li{max-width: max-content;}
+.locationaddtext ul li{max-width: -webkit-max-content;max-width: -moz-max-content;max-width: max-content;}
 
 .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     padding: 3px 35px;
     height: inherit;
     line-height: 47px;
 }
 
-a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padding: 20px;}
+a.Whatsappbtn {font-size: -moz-calc(23/var(--vw)*var(--multiplier));font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padding: 20px;}
 
 
 .fl-tests .swiper-slide .module {
     margin: 0;
+    max-width: -moz-calc(100% - 50px);
     max-width: calc(100% - 50px);
+    width: -moz-calc(100% - 50px);
     width: calc(100% - 50px);
     -webkit-box-flex: 0;
     -ms-flex: 0 0 calc(100% - 50px);
-    flex: 0 0 calc(100% - 50px);
+    -webkit-flex: 0 0 calc(100% - 50px);
+       -moz-box-flex: 0;
+            flex: 0 0 calc(100% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-box;
     display: flex;
 }
 .fl-tests .module .wharpeoplebox {
@@ -193,17 +240,25 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
 .de .roundtext-impact h2{left:-8vw;}
 .de .roundtext-getintouch h3{right:-27vw;}
 .de .roundtext-getintouch h2{left:-22vw}
-.de .roundtext-impact h2,.de .roundtext-impact h3{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
-.roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+.de .roundtext-impact h2,.de .roundtext-impact h3{font-size:-moz-calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
+.roundtext h2,.roundtext h3{font-size:-moz-calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
 .bannerrotate_text{right:-50px;}
 
 .fl-tests .swiper-slide .module {
     margin: 0;
+    max-width: -moz-calc(100% - 50px);
     max-width: calc(100% - 50px);
+    width: -moz-calc(100% - 50px);
     width: calc(100% - 50px);
     -webkit-box-flex: 0;
     -ms-flex: 0 0 calc(100% - 50px);
-    flex: 0 0 calc(100% - 50px);
+    -webkit-flex: 0 0 calc(100% - 50px);
+       -moz-box-flex: 0;
+            flex: 0 0 calc(100% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-box;
     display: flex;
 }
 .fl-tests .module .wharpeoplebox {
@@ -233,59 +288,64 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         right: -39px;
         top: 33px;
         width: 60px;
-        transform: rotate(20deg);
+        -webkit-transform: rotate(20deg);
+            -ms-transform: rotate(20deg);
+                -moz-transform: rotate(20deg);
+                  -o-transform: rotate(20deg);
+             transform: rotate(20deg);
     }
 }
 
 @media (min-width:1200px)
 {
-    .banner_content_text p{font-size: calc(20/var(--vw)*var(--multiplier));}
-    a.banner_bottombtn {font-size: calc(18/var(--vw)*var(--multiplier));}
-    .bannerrotate_text{font-size: calc(26/var(--vw)*var(--multiplier));}
-    .banner_title_text, .banner_title_text h1 {font-size: calc(60/var(--vw)*var(--multiplier));}
-    a.locatebutton{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .headernew nav ul li a{font-size: calc(16/var(--vw)*var(--multiplier));}
+    .banner_content_text p{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    a.banner_bottombtn {font-size: -moz-calc(18/var(--vw)*var(--multiplier));font-size: calc(18/var(--vw)*var(--multiplier));}
+    .bannerrotate_text{font-size: -moz-calc(26/var(--vw)*var(--multiplier));font-size: calc(26/var(--vw)*var(--multiplier));}
+    .banner_title_text, .banner_title_text h1 {font-size: -moz-calc(60/var(--vw)*var(--multiplier));font-size: calc(60/var(--vw)*var(--multiplier));}
+    a.locatebutton{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .headernew nav ul li a{font-size: -moz-calc(16/var(--vw)*var(--multiplier));font-size: calc(16/var(--vw)*var(--multiplier));}
     .gradient-purple h4,
-    .fourthsection .gradient-purple h4{font-size: calc(110/var(--vw)*var(--multiplier));}
+    .fourthsection .gradient-purple h4{font-size: -moz-calc(110/var(--vw)*var(--multiplier));font-size: calc(110/var(--vw)*var(--multiplier));}
     .gradient-purple p,
     .fourthsection .gradient-purple p,
-    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .whatpeople-section h6,.main-accordian h6{font-size: calc(45/var(--vw)*var(--multiplier));}
-    .wharpeoplebox p{font-size: calc(19/var(--vw)*var(--multiplier));}
-    .wharpeoplebox b{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size: calc(58/var(--vw)*var(--multiplier));max-width: fit-content;}
-    .locationaddtext ul li{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size: calc(20/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .whatpeople-section h6,.main-accordian h6{font-size: -moz-calc(45/var(--vw)*var(--multiplier));font-size: calc(45/var(--vw)*var(--multiplier));}
+    .wharpeoplebox p{font-size: -moz-calc(19/var(--vw)*var(--multiplier));font-size: calc(19/var(--vw)*var(--multiplier));}
+    .wharpeoplebox b{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size: -moz-calc(58/var(--vw)*var(--multiplier));font-size: calc(58/var(--vw)*var(--multiplier));max-width: -webkit-fit-content;max-width: -moz-fit-content;max-width: fit-content;}
+    .locationaddtext ul li{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom: 15px;        line-height: 1.2;}
-    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {font-size: calc(28/var(--vw)*var(--multiplier));line-height: 50px;}
-    #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size: calc(28/var(--vw)*var(--multiplier));line-height: 1.2em;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3 {font-size: -moz-calc(28/var(--vw)*var(--multiplier));font-size: calc(28/var(--vw)*var(--multiplier));line-height: 50px;}
+    #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size: -moz-calc(28/var(--vw)*var(--multiplier));font-size: calc(28/var(--vw)*var(--multiplier));line-height: 1.2em;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist p,
-    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox p{font-size: calc(20/var(--vw)*var(--multiplier));}
-    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3{font-size: calc(45/var(--vw)*var(--multiplier));}
-    #section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4{font-size: calc(45/var(--vw)*var(--multiplier));}
-    .binimageboxmain .binimageboxieft h6{font-size: calc(17/var(--vw)*var(--multiplier));}
-    .sixthsection .whitebgbox .socialtitle h3{font-size: calc(28/var(--vw)*var(--multiplier));}
-    a.Whatsappbtn {font-size: calc(20/var(--vw)*var(--multiplier));height: auto;padding: 10px;}
-    .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size: calc(45/var(--vw)*var(--multiplier));}
-    .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size: calc(35/var(--vw)*var(--multiplier));}
-    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size: calc(20/var(--vw)*var(--multiplier));}
-    .locationbox h6{font-size: calc(35/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox p{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3{font-size: -moz-calc(45/var(--vw)*var(--multiplier));font-size: calc(45/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4{font-size: -moz-calc(45/var(--vw)*var(--multiplier));font-size: calc(45/var(--vw)*var(--multiplier));}
+    .binimageboxmain .binimageboxieft h6{font-size: -moz-calc(17/var(--vw)*var(--multiplier));font-size: calc(17/var(--vw)*var(--multiplier));}
+    .sixthsection .whitebgbox .socialtitle h3{font-size: -moz-calc(28/var(--vw)*var(--multiplier));font-size: calc(28/var(--vw)*var(--multiplier));}
+    a.Whatsappbtn {font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));height: auto;padding: 10px;}
+    .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size: -moz-calc(45/var(--vw)*var(--multiplier));font-size: calc(45/var(--vw)*var(--multiplier));}
+    .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size: -moz-calc(35/var(--vw)*var(--multiplier));font-size: calc(35/var(--vw)*var(--multiplier));}
+    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
+    .locationbox h6{font-size: -moz-calc(35/var(--vw)*var(--multiplier));font-size: calc(35/var(--vw)*var(--multiplier));}
     .bottomsection .scroll-down p,.scroll-down p {font-size: 18px;}
     .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2, .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2, .fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2,
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size: calc(30/var(--vw)*var(--multiplier)) !important;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size: -moz-calc(30/var(--vw)*var(--multiplier)) !important;font-size: calc(30/var(--vw)*var(--multiplier)) !important;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span, .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size: calc(20/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span, .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size: -moz-calc(20/var(--vw)*var(--multiplier));font-size: calc(20/var(--vw)*var(--multiplier));}
     
 
     #section2 .whatpeople-section .fl-tests {
         width: 100%;
         overflow: hidden;
         margin: 60px 0 10px;
+        width: -moz-calc(100vw - 0px);
         width: calc(100vw - 0px);
         position: relative;
         left: 50%;
@@ -308,14 +368,14 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .nl .roundtext h2{left:-12vw;}
     .de .roundtext h3{right:-20vw;}
     .de .roundtext h2{left:-15vw;}
-    .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+    .roundtext h2,.roundtext h3{font-size:-moz-calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
     .de .roundtext-hetmenu h3{right:-27vw;line-height:120%;}
     .de .roundtext-hetmenu h2{left:-1vw;}
     .de .roundtext-impact h3{right:-25vw;line-height:120%;}
     .de .roundtext-impact h2{left:-8vw;}
     .de .roundtext-getintouch h3{right:-27vw;}
     .de .roundtext-getintouch h2{left:-22vw}
-    .banner_title_text h1,.gradient-purple h4,.fourthsection .gradient-purple h4{font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
+    .banner_title_text h1,.gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 80) * ((100vw - 300px) / (1600 - 300)));}
     .bannerrotate_text{right:4vw;}
     .en .bannerrotate_text{right:0vw;}
     #section5 .whitewithvideomainboxs{padding: 170px 0 210px;}
@@ -327,7 +387,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .nl .roundtext h2{left:-12vw;}
     .de .roundtext h3{right:-20vw;}
     .de .roundtext h2{left:-15vw;}
-    .roundtext h2,.roundtext h3{font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
+    .roundtext h2,.roundtext h3{font-size:-moz-calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
     .bannerrotate_text{right:9vw;}
     .en .bannerrotate_text{right:4vw;}
     #section5 .whitewithvideomainboxs{padding: 170px 0 210px;}
@@ -344,14 +404,14 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .fourthsection .whitewithvideomainbox{padding-bottom:0;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{margin-bottom:-13rem;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:0;left:12em;margin-bottom:0;}
-    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:25px;top:5px;transform:rotate(-10deg);z-index:1;width:100px;}
+    .fifthesection .gradient-threebox ul li:nth-child(1) .threeboxleftlogobar{position:absolute;right:25px;top:5px;-webkit-transform:rotate(-10deg);-ms-transform:rotate(-10deg);-moz-transform:rotate(-10deg);-o-transform:rotate(-10deg);transform:rotate(-10deg);z-index:1;width:100px;}
     .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{width:100px;position:absolute;z-index:2;bottom:0;right:0;}
     .nl .roundtext-getintouch h3{font-size:clamp(20px,10vw,80px);}
     .nl .roundtext-getintouch h2{font-size:clamp(20px,10vw,80px);}
-    .likeimagelist img:nth-child(2){display:block;position:relative;top:-19vh;transform:translate3d(10px,10px,10px);left:0vw;}
-    .likeimagelist img:nth-child(3){display:block;position:relative;top:-17vh;transform:translate3d(10px,10px,10px);left:-9vw;}
-    .righttiktoktext{position:absolute;right:-6vw;width:100%;max-width:332px;bottom:-73px;display:flex;flex-direction:column;justify-content:center;}
-    .lefttiktoktext{position:absolute;left:-6vw;width:100%;max-width:332px;bottom:-73px;display:flex;flex-direction:column;justify-content:center;}
+    .likeimagelist img:nth-child(2){display:block;position:relative;top:-19vh;-webkit-transform:translate3d(10px,10px,10px);-moz-transform:translate3d(10px,10px,10px);transform:translate3d(10px,10px,10px);left:0vw;}
+    .likeimagelist img:nth-child(3){display:block;position:relative;top:-17vh;-webkit-transform:translate3d(10px,10px,10px);-moz-transform:translate3d(10px,10px,10px);transform:translate3d(10px,10px,10px);left:-9vw;}
+    .righttiktoktext{position:absolute;right:-6vw;width:100%;max-width:332px;bottom:-73px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;}
+    .lefttiktoktext{position:absolute;left:-6vw;width:100%;max-width:332px;bottom:-73px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;}
     .sixthsection .whitebgbox .socialtitle h3{margin:80px auto 40px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:35px;margin-bottom:30px;}
     .likeimagelist img:nth-child(1){top:15vh;}
@@ -367,10 +427,22 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
 
     .img-containerss{
         height: 495px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
         top: 70px;
@@ -379,10 +451,22 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{margin-bottom: 30px;}
     .img-container {
         height: 495px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
         margin-bottom: 140px;
@@ -395,19 +479,29 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         width: 100%;
         max-width: 50%;
         height: 100%;
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         /* overflow: hidden; */
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                  -o-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
     }
     .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar {
         position: absolute;
         right: inherit;
         top: -50px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 9;
         width: 160px;
         left: 24px;
@@ -416,7 +510,11 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         position: absolute;
         right: inherit;
         top: -55px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 1;
         width: 150px;
         left: 24px;
@@ -427,6 +525,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         width: 100%;
         overflow: hidden;
         margin: 60px 0 10px;
+        width: -moz-calc(100vw - 0px);
         width: calc(100vw - 0px);
         position: relative;
         left: 50%;
@@ -438,11 +537,19 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     
     .fl-tests .swiper-slide .module {
         margin: 0;
+        max-width: -moz-calc(100% - 50px);
         max-width: calc(100% - 50px);
+        width: -moz-calc(100% - 50px);
         width: calc(100% - 50px);
         -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(100% - 50px);
-        flex: 0 0 calc(100% - 50px);
+        -webkit-flex: 0 0 calc(100% - 50px);
+           -moz-box-flex: 0;
+                flex: 0 0 calc(100% - 50px);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
     }
     .fl-tests .module .wharpeoplebox {
@@ -458,15 +565,15 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     .fourthsection .whitewithvideomainbox{margin:0;}
     .likeimagelist{display:none;}
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg,
-    .fifthesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;transform:inherit;width:90px;}
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;transform:rotate(-8deg);width:90px;}
-    .gradient-threebox ul{display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden;height:530px;}
-    .gradient-threebox ul li{width:355px;height:432px;position:absolute;display:flex;justify-content:center;align-items:center;}
+    .fifthesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;-webkit-transform:inherit;-ms-transform:inherit;-moz-transform:inherit;-o-transform:inherit;transform:inherit;width:90px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:20px;left:19px;z-index:9;-webkit-transform:rotate(-8deg);-ms-transform:rotate(-8deg);-moz-transform:rotate(-8deg);-o-transform:rotate(-8deg);transform:rotate(-8deg);width:90px;}
+    .gradient-threebox ul{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-webkit-perspective:1000px;-moz-perspective:1000px;perspective:1000px;overflow:hidden;height:530px;}
+    .gradient-threebox ul li{width:355px;height:432px;position:absolute;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;}
     .fourthsection .gradient-threebox-menu ul li .bordrframe img{width:100%;padding:0;}
-    #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:100%;-ms-flex-negative:0;flex-shrink:0;width:100%;position:relative;}
+    #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:100%;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;width:100%;position:relative;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox{max-width:100%;margin-right:0;padding-left:0;width:inherit;}
-    .righttiktoktext{position:absolute;right:-55px;width:100%;max-width:332px;bottom:-73px;display:flex;flex-direction:column;justify-content:center;}
-    .lefttiktoktext{position:absolute;left:-55px;width:100%;max-width:332px;bottom:-72px;display:flex;flex-direction:column;justify-content:center;}
+    .righttiktoktext{position:absolute;right:-55px;width:100%;max-width:332px;bottom:-73px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;}
+    .lefttiktoktext{position:absolute;left:-55px;width:100%;max-width:332px;bottom:-72px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;}
     .righttiktoktext img{display:none;}
     .lefttiktoktext img{display:none;}
     .banner_title_text h1 {font-size: clamp(20px,8vw,110px);}
@@ -489,7 +596,11 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         position: absolute;
         right: 0;
         top: -50px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 9;
         width: 160px;
         left: 10px;
@@ -498,7 +609,11 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         position: absolute;
         right: 0;
         top: -55px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 1;
         width: 150px;
         left: 0;
@@ -511,7 +626,11 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         position: absolute;
         right: inherit;
         top: -50px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 9;
         width: 160px;
         left: 24px;
@@ -520,27 +639,55 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         position: absolute;
         right: inherit;
         top: -55px;
-        transform: rotate(-15deg);
+        -webkit-transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+                -moz-transform: rotate(-15deg);
+                  -o-transform: rotate(-15deg);
+             transform: rotate(-15deg);
         z-index: 1;
         width: 150px;
         left: 24px;
     }
     .img-containerss{
         height: 495px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
         top: 70px;
     }
     .img-container {
         height: 495px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
         margin-bottom: 140px;
@@ -553,20 +700,38 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         width: 100%;
         max-width: 50%;
         height: 100%;
-        object-fit: cover;
-        object-position: center;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: center;
+           object-position: center;
         /* overflow: hidden; */
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                  -o-transform: translate(-50%, -50%);
+             transform: translate(-50%, -50%);
     }
     .img-containerss{
         height: 495px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         padding-bottom: 0px;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                   -moz-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
         /* overflow: hidden; */
         position: relative;
         top: 70px;
@@ -577,11 +742,19 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
 
     .fl-tests .swiper-slide .module {
         margin: 0;
+        max-width: -moz-calc(100% - 50px);
         max-width: calc(100% - 50px);
+        width: -moz-calc(100% - 50px);
         width: calc(100% - 50px);
         -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(100% - 50px);
-        flex: 0 0 calc(100% - 50px);
+        -webkit-flex: 0 0 calc(100% - 50px);
+           -moz-box-flex: 0;
+                flex: 0 0 calc(100% - 50px);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
     }
     .fl-tests .module .wharpeoplebox {
@@ -590,30 +763,50 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
     }
 }
 @media (max-width:767px){
-    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;transform:rotate(-8deg);width:60px;}
+    .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;-webkit-transform:rotate(-8deg);-ms-transform:rotate(-8deg);-moz-transform:rotate(-8deg);-o-transform:rotate(-8deg);transform:rotate(-8deg);width:60px;}
     .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-top:50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p,.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{width:100%;font-size:12px;line-height:16px;}
     .bottomwhatsapp a.Whatsappbtn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         margin: 15px 0;
         width: 175px;
         padding: 6px 10px;
         height: 35px;
         line-height: 35px;
-        align-items: center;
-        align-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
+        -ms-flex-line-pack: center;
+            -webkit-align-content: center;
+                align-content: center;
     }
 
     .righttextbox a.Whatsappbtn.btn--snakeBorder {
         width: 175px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: -moz-box;
         display: flex;
         margin: 15px 0;
         width: 175px;
         padding: 6px 10px;
         height: 35px;
         line-height: 35px;
-        align-items: center;
-        align-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                -webkit-align-items: center;
+                   -moz-box-align: center;
+                align-items: center;
+        -ms-flex-line-pack: center;
+            -webkit-align-content: center;
+                align-content: center;
     }
 
     .bottomwhatsapp a.Whatsappbtn svg {
@@ -636,7 +829,7 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         top: 0px;
     }
 
-    a.Whatsappbtn{width:max-content;height:20px;flex-shrink:0;font-size:12px;line-height:12px;padding:10px;}
+    a.Whatsappbtn{width:-webkit-max-content;width:-moz-max-content;width:max-content;height:20px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;font-size:12px;line-height:12px;padding:10px;}
     .headernew{position:fixed;z-index:11;}
     .language-switcher{z-index:11;}
     .roundtext h3{right:-140px;}
@@ -652,7 +845,11 @@ a.Whatsappbtn {font-size: calc(23/var(--vw)*var(--multiplier));height: auto;padd
         bottom: 40px;
         top: 93%;
         left: 94%;
-        transform: inherit;
+        -webkit-transform: inherit;
+            -ms-transform: inherit;
+                -moz-transform: inherit;
+                  -o-transform: inherit;
+             transform: inherit;
         width: 50px;
         height: 35px;
     }
