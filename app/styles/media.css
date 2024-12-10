@@ -133,6 +133,9 @@ button.skipvideo.hidden {display: none;}
 
 @media (min-width:1921px) and (max-width:4000px)
 {
+
+    .image-wrapper,.image-wrappers{width:100%;max-width:450px;height:600px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+    
 .banner_title_text,.banner_title_text h1{max-width: 1030px;}
 .banner_title_text, .banner_title_text h1 {
     font-size: -moz-calc(60/var(--vw)*var(--multiplier));
@@ -227,6 +230,9 @@ a.Whatsappbtn {font-size: -moz-calc(23/var(--vw)*var(--multiplier));font-size: c
 
 
 @media (min-width:1501px) and (max-width:1921px){
+
+    .image-wrapper,.image-wrappers{width:100%;max-width:450px;height:600px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+
 .banner_title_text h1,.banner_title_text{max-width:1030px;}
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-7vw;}
