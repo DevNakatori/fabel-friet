@@ -276,7 +276,7 @@ const HomePage = () => {
         { text: '' },
         {
           text: bannerData[0].bannerText,
-          duration: bannerData[0].bannerText.length * 0.50,
+          duration: bannerData[0].bannerText.length * 0.35,
           ease: 'power2.out',
           delay: 1,
           stagger: 2.5,
@@ -615,7 +615,7 @@ const HomePage = () => {
         { text: '' },
         {
           text: bannerData[0].bannerText,
-          duration: bannerData[0].bannerText.length * 0.50,
+          duration: bannerData[0].bannerText.length * 0.35,
           ease: 'power2.out',
           delay: 1,
           stagger: 2.5,
