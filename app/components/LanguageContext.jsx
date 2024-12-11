@@ -59,7 +59,7 @@ export const LanguageProvider = ({children}) => {
           }
         } catch (error) {
           console.error('Error fetching location:', error);
-          //switchLanguage('nl');
+          switchLanguage('nl');
         }
       }
     };
