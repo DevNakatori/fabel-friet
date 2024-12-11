@@ -669,20 +669,6 @@ const Hetmenu = () => {
             </div>
 
             <div className="appcontainers">
-              <div className="instagramfeedimagesimain">
-                <div className="instagramfeedimages">
-                  <div
-                    className="contaernrul"
-                    data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-offset="500"
-                    data-aos-duration="500"
-                  >
-                    {/* <InstagramFeed accessToken="IGQWRQQjBjX3EyUGgzb2dsU2Q3YTM1VDVaRnN4M0RlQmVBOTVMTDNOWGtnTzRQNy1LX1NWOWN0YlB5YTF1ZAV9uS3NIOGh4NkhoTVlMeGlpaklfOXhxdHNtV0F0T3ZAGRHVNWE13VjkwVUxqOVRSZAlYyb1g2Y051ZAHMZD" /> */}
-                  </div>
-                </div>
-              </div>
-
               {/* Tab Section */}
               {/* <div
                 className="tabs onlymobile"

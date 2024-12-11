@@ -242,21 +242,21 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('.overlaybannehand-left', {
-        duration: 1,
-        left: '0px',
-        ease: 'power1.inOut',
-        delay: 3,
-        stagger: 0.6,
-      });
+      // gsap.to('.overlaybannehand-left', {
+      //   duration: 1,
+      //   left: '0px',
+      //   ease: 'power1.inOut',
+      //   delay: 3,
+      //   stagger: 0.6,
+      // });
 
-      gsap.to('.overlaybannehand-right', {
-        duration: 1,
-        right: '0px',
-        ease: 'power1.inOut',
-        delay: 3,
-        stagger: 0.6,
-      });
+      // gsap.to('.overlaybannehand-right', {
+      //   duration: 1,
+      //   right: '0px',
+      //   ease: 'power1.inOut',
+      //   delay: 3,
+      //   stagger: 0.6,
+      // });
 
       gsap.fromTo(
         elements.rotateText,
@@ -581,21 +581,21 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('.overlaybannehand-left', {
-        duration: 1,
-        left: '0px',
-        ease: 'power1.inOut',
-        delay: 3,
-        stagger: 0.6,
-      });
+      // gsap.to('.overlaybannehand-left', {
+      //   duration: 1,
+      //   left: '0px',
+      //   ease: 'power1.inOut',
+      //   delay: 3,
+      //   stagger: 0.6,
+      // });
 
-      gsap.to('.overlaybannehand-right', {
-        duration: 1,
-        right: '0px',
-        ease: 'power1.inOut',
-        delay: 3,
-        stagger: 0.6,
-      });
+      // gsap.to('.overlaybannehand-right', {
+      //   duration: 1,
+      //   right: '0px',
+      //   ease: 'power1.inOut',
+      //   delay: 3,
+      //   stagger: 0.6,
+      // });
 
       gsap.fromTo(
         elements.rotateText,
@@ -867,8 +867,8 @@ const HomePage = () => {
           </div>
         </div>
         <div className="overlaybannehand">
-          <div className="overlaybannehand-left swingshand"></div>
-          <div className="overlaybannehand-right swingshand"></div>
+          {/* <div className="overlaybannehand-left swingshand"></div>
+          <div className="overlaybannehand-right swingshand"></div> */}
           <div className="overlaybannehand-bottom"></div>
         </div>
       </div>

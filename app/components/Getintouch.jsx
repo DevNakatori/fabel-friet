@@ -291,27 +291,27 @@ const Getintouch = () => {
       },
     );
 
-    // gsap.fromTo(
-    //   '.likeimagelist img',
-    //   {y: -50, opacity: 0},
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.2,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     force3D: true,
-    //     yoyo: true,
-    //     scrollTrigger: {
-    //       trigger: '#section6 .wrappertest',
-    //       start: 'top top',
-    //       end: 'top top',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
-    //     },
-    //   },
-    // );
+    gsap.fromTo(
+      '.likeimagelist img',
+      {y: -50, opacity: 0},
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'bounce.out',
+        force3D: true,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section6 .wrappertest',
+          start: 'top top',
+          end: 'top top',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
 
     // gsap.to('.likeimagelist img', {
     //   y: 20,
@@ -321,13 +321,13 @@ const Getintouch = () => {
     //   ease: 'sine.inOut',
     // });
 
-    gsap.from('.likeimagelist', {
-      y: '-80vh',
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: '#section6 .gradient-purple',
-      },
-    });
+    // gsap.from('.likeimagelist', {
+    //   y: '-80vh',
+    //   delay: 0.5,
+    //   scrollTrigger: {
+    //     trigger: '#section6 .gradient-purple',
+    //   },
+    // });
 
     gsap.to('.likeimagelist img', {
       x: 'random(-20, 20)',
@@ -644,10 +644,10 @@ const Getintouch = () => {
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
           <div className="likeimagelist">
-            <img src={liek_1} alt="img" />
-            <img src={liek_2} alt="img" />
-            <img src={liek_3} alt="img" />
-            <img src={liek_4} alt="img" />
+          <img src={liek_2} alt="img" />
+          <img src={liek_1} alt="img" />
+          <img src={liek_3} alt="img" />
+          <img src={liek_4} alt="img" />
           </div>
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">

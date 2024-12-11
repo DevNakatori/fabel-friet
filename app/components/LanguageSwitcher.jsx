@@ -3,9 +3,9 @@ import {useLanguage} from '~/components/LanguageContext';
 import {gsap} from 'gsap';
 
 const languages = [
-  {code: 'en', name: 'En', flag: 'flag-icon-us'},
-  {code: 'nl', name: 'Du', flag: 'flag-icon-nl'},
-  {code: 'de', name: 'Ge', flag: 'flag-icon-de'},
+  {code: 'en', name: 'English / United States', flag: 'flag-icon-us'},
+  {code: 'nl', name: 'Nederlands / Nederland', flag: 'flag-icon-nl'},
+  {code: 'de', name: 'Deutsch / Deutschland', flag: 'flag-icon-de'},
 ];
 
 const LanguageSwitcher = () => {
@@ -130,6 +130,11 @@ const LanguageSwitcher = () => {
         ></span>
         <div className="arrow"></div> */}
         {/* <div className="arrow"></div> */}
+        <i
+          className={`flag-icon ${
+            languages.find((lang) => lang.code === language).flag
+          } flag-icon-squared`}
+        ></i>
         <span>{languages.find((lang) => lang.code === language)?.name}</span>
         <span>{languages.find((lang) => lang.code === language)?.name}</span>
       </div>

@@ -341,7 +341,7 @@ const Onzelocaties = () => {
                                   </div>
                                   <div className="locationaddtext">
                                     <ul>
-                                      <li>{loc.address}</li>
+                                      <li dangerouslySetInnerHTML={{ __html: loc.address }} />
                                     </ul>
                                   </div>
                                 </div>
@@ -422,7 +422,7 @@ const Onzelocaties = () => {
                             </div>
                             <div className="locationaddtext">
                               <ul>
-                                <li>{loc.address}</li>
+                                <li dangerouslySetInnerHTML={{ __html: loc.address }} />
                               </ul>
                             </div>
                           </div>

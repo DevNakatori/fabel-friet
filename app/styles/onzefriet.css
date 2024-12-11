@@ -12,10 +12,38 @@
 .arrowimageimpect{position:relative;width:120px;-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);height:200px;}
 .arrowimageimpect svg{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;}
 .arrowimageimpect svg path{stroke-dasharray:1000;stroke-dashoffset:1000;-webkit-transition:stroke-dashoffset 2s ease;-o-transition:stroke-dashoffset 2s ease;-moz-transition:stroke-dashoffset 2s ease;transition:stroke-dashoffset 2s ease;}
-.arrowimagetouch{position:relative;width:120px;-webkit-transform:rotate(80deg);-ms-transform:rotate(80deg);-moz-transform:rotate(80deg);-o-transform:rotate(80deg);transform:rotate(80deg);height:200px;right:-60px;}
+/* .arrowimagetouch{position:relative;width:120px;-webkit-transform:rotate(80deg);-ms-transform:rotate(80deg);-moz-transform:rotate(80deg);-o-transform:rotate(80deg);transform:rotate(80deg);height:200px;right:-60px;} */
 .arrowimagetouch svg{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;}
 .arrowimagetouch svg path{stroke-dasharray:1000;stroke-dashoffset:1000;-webkit-transition:stroke-dashoffset 2s ease;-o-transition:stroke-dashoffset 2s ease;-moz-transition:stroke-dashoffset 2s ease;transition:stroke-dashoffset 2s ease;}
-.arrowimagetouchone{position:relative;width:120px;-webkit-transform:rotate(218deg);-ms-transform:rotate(218deg);-moz-transform:rotate(218deg);-o-transform:rotate(218deg);transform:rotate(218deg);height:200px;right:-110px;}
+/* .arrowimagetouchone{position:relative;width:120px;-webkit-transform:rotate(218deg);-ms-transform:rotate(218deg);-moz-transform:rotate(218deg);-o-transform:rotate(218deg);transform:rotate(218deg);height:200px;right:-110px;} */
+
+
+.arrowimagetouch {
+    position: relative;
+    width: 80px;
+    -webkit-transform: rotate(80deg);
+    -ms-transform: rotate(80deg);
+    -moz-transform: rotate(80deg);
+    -o-transform: rotate(80deg);
+    transform: rotate(80deg);
+    height: 200px;
+    right: -100px;
+}
+
+
+.arrowimagetouchone {
+    position: relative;
+    width: 85px;
+    -webkit-transform: rotate(218deg);
+    -ms-transform: rotate(218deg);
+    -moz-transform: rotate(218deg);
+    -o-transform: rotate(218deg);
+    transform: rotate(218deg);
+    height: 200px;
+    right: -110px;
+}
+
+
 .arrowimagetouchone svg{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;}
 .arrowimagetouchone svg path{stroke-dasharray:1000;stroke-dashoffset:1000;-webkit-transition:stroke-dashoffset 2s ease;-o-transition:stroke-dashoffset 2s ease;-moz-transition:stroke-dashoffset 2s ease;transition:stroke-dashoffset 2s ease;}
 .img-container{height:700px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;padding-bottom:0px;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;/*                        overflow: hidden;*/position:relative;}
