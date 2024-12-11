@@ -476,8 +476,8 @@ const Onzefriet = () => {
     );
 
     gsap.to('.allfiressections img', {
-      x: 'random(-10, 10)',
-      y: 'random(-10, 10)',
+      x: 'random(-5, 5)',
+      y: 'random(-5, 5)',
       stagger: 0.3,
       zIndex: 22,
       duration: 2,
