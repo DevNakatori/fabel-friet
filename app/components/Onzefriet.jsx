@@ -12,8 +12,6 @@ import '../styles/onzefriet.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
-
-
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
 import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.webp';
@@ -22,8 +20,6 @@ import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.web
 import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
 // import fries_seven from '../assets/resizeimgs/webp/menuwebp/Rectangle92.webp';
 // import fries_eight from '../assets/resizeimgs/webp/menuwebp/Rectangle93.webp';
-
-
 import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -218,19 +214,26 @@ const Onzefriet = () => {
         trigger: '.img-container',
         start: 'top center',
         end: 'bottom bottom',
-        scrub: 2, // Increased scrub for smoother animation
-        ease: 'power3.inOut', // Smoother easing
+        scrub: 2, 
+        ease: 'power3.inOut', 
         once: false,
       },
     });
 
-    // On scroll, spread images horizontally with rotation
+   
     timeline
       .to('.image-wrapper:first-child', {
         left: '20%',
-        rotation: -5, // Tilt first image
+        rotation: -5, 
         duration: 2,
         ease: 'power3.out',
+        scrollEnd: () => {
+          gsap.to('.image-wrapper .threeboxleftlogobar', {
+            opacity: 1,
+            duration: 3,
+            ease: 'power3.out',
+          });
+        },
       })
       .to(
         '.image-wrapper:nth-child(2)',
@@ -238,6 +241,13 @@ const Onzefriet = () => {
           left: '50%',
           duration: 2,
           ease: 'power3.out',
+          scrollEnd: () => {
+            gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+              opacity: 1,
+              duration: 3,
+              ease: 'power3.out',
+            });
+          },
         },
         '<',
       )
@@ -245,12 +255,34 @@ const Onzefriet = () => {
         '.image-wrapper:last-child',
         {
           left: '80%',
-          rotation: 5, // Tilt last image
+          rotation: 5, 
           duration: 2,
           ease: 'power3.out',
         },
         '<',
       );
+
+    
+    gsap.fromTo(
+      '.image-wrapper .threeboxleftlogobar',
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 3,
+        scrollTrigger: {
+          trigger: '.img-container',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1,
+          repeat: -1, 
+          yoyo: true, 
+          ease: 'power3.inOut',
+        },
+      }
+    );
+
   }, [onzefriet]);
 
 
@@ -277,13 +309,13 @@ const Onzefriet = () => {
 
 
   useEffect(() => {
-    gsap.from('.allfiressections', {
-      y: '-100vh',
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: '.secondesection .gradient-purple',
-      },
-    });
+    // gsap.from('.allfiressections', {
+    //   y: '-100vh',
+    //   delay: 0.5,
+    //   scrollTrigger: {
+    //     trigger: '.secondesection .gradient-purple',
+    //   },
+    // });
 
     // gsap.to('.allfiressections img', {
     //   x: 'random(-20, 20)',
@@ -455,7 +487,7 @@ const Onzefriet = () => {
 
     gsap.fromTo(
       '.allfiressections img',
-      {y: -50, opacity: 0},
+      { y: -50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -472,20 +504,33 @@ const Onzefriet = () => {
           once: true,
           markers: false,
         },
-      },
+        onComplete: () => {
+          gsap.to('.allfiressections img', {
+            x: 'random(-10, 10)', // random X position change
+            y: 'random(-10, 10)', // random Y position change
+            stagger: 0.3,
+            zIndex: 22,
+            duration: 2,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+          });
+        }
+      }
     );
+    
 
-    gsap.to('.allfiressections img', {
-      x: 'random(-5, 5)',
-      y: 'random(-5, 5)',
-      stagger: 0.3,
-      zIndex: 22,
-      duration: 2,
-      ease: 'sine.inOut',
-      yoyo: true,
-      repeat: -1,
+    // gsap.to('.allfiressections img', {
+    //   x: 'random(-5, 5)',
+    //   y: 'random(-5, 5)',
+    //   stagger: 0.3,
+    //   zIndex: 22,
+    //   duration: 2,
+    //   ease: 'sine.inOut',
+    //   yoyo: true,
+    //   repeat: -1,
 
-    });
+    // });
 
   }, [onzefriet]);
 

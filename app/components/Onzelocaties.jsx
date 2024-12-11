@@ -113,12 +113,14 @@ const Onzelocaties = () => {
             `*[_type == "onzelocaties" && language == $lang]`,
             { lang: language },
           );
-          // console.log('Fetched onzelocatiesData Data:', data);
+          console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
             `onzelocatiesData_${language}`,
             JSON.stringify(data),
           );
+
           setOnzelocaties(data);
+          //console.log('Fetched onzelocatiesData Data:', data);
         } catch (err) {
           console.error('Error fetching Onzelocaties data:', err);
           setError('Failed to load data');
@@ -344,7 +346,7 @@ const Onzelocaties = () => {
                                   </div>
                                 </div>
 
-                                <a href="#" className="routbtn">
+                                <a href={loc.btn_link} className="routbtn">
                                   {loc.btn_label}
                                 </a>
                               </div>
@@ -430,7 +432,7 @@ const Onzelocaties = () => {
                             data-aos-duration="2000" dangerouslySetInnerHTML={{ __html: loc.info }} />
 
                           <a
-                            href="#"
+                            href={loc.btn_link} target='_blank'
                             className="routbtn"
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"

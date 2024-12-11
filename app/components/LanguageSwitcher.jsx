@@ -129,6 +129,7 @@ const LanguageSwitcher = () => {
           } flag-icon-squared`}
         ></span>
         <div className="arrow"></div> */}
+        {/* <div className="arrow"></div> */}
         <span>{languages.find((lang) => lang.code === language)?.name}</span>
         <span>{languages.find((lang) => lang.code === language)?.name}</span>
       </div>
@@ -144,7 +145,7 @@ const LanguageSwitcher = () => {
               setIsOpen(false);
             }}
           >
-            {/* <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span> */}
+            <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span>
             <span>{lang.name}</span>
           </li>
         ))}
