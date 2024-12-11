@@ -46,7 +46,7 @@ button.skipvideo.hidden {display: none;}
 
 @media (min-width:2500px) and (max-width:3000px){
     .fl-tests .swiper-pagination {
-        bottom: 50px;
+        bottom: 0px;
     }
     .wharpeoplebox p,.wharpeoplebox b {
         font-size: -moz-calc(14/var(--vw)*var(--multiplier));
