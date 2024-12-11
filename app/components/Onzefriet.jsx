@@ -285,16 +285,16 @@ const Onzefriet = () => {
       },
     });
 
-    gsap.to('.allfiressections img', {
-      x: 'random(-20, 20)',
-      y: 'random(-20, 20)',
-      stagger: 0.3,
-      zIndex: 22,
-      duration: 2,
-      ease: 'power3.out',
-      yoyo: true,
-      repeat: -1,
-    });
+    // gsap.to('.allfiressections img', {
+    //   x: 'random(-20, 20)',
+    //   y: 'random(-20, 20)',
+    //   stagger: 0.3,
+    //   zIndex: 22,
+    //   duration: 2,
+    //   ease: 'power3.out',
+    //   yoyo: true,
+    //   repeat: -1,
+    // });
 
     let typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
@@ -449,6 +449,42 @@ const Onzefriet = () => {
         delay: -1.5,
         ease: 'Power2.out'
       });
+    });
+
+
+
+    gsap.fromTo(
+      '.allfiressections img',
+      {y: -50, opacity: 0},
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'bounce.out',
+        force3D: true,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section2 .wrappertest',
+          start: 'top top-500',
+          end: 'top top-200',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
+
+    gsap.to('.allfiressections img', {
+      x: 'random(-10, 10)',
+      y: 'random(-10, 10)',
+      stagger: 0.3,
+      zIndex: 22,
+      duration: 2,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1,
+
     });
 
   }, [onzefriet]);
