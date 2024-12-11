@@ -161,7 +161,7 @@ const Hetmenu = () => {
     //   },
     // );
 
-    gsap.to('.allfiressectionsmenu img', {
+    /*gsap.to('.allfiressectionsmenu img', {
       y: 20,
       repeat: -1,
       yoyo: true,
@@ -175,7 +175,64 @@ const Hetmenu = () => {
       scrollTrigger: {
         trigger: '#section4 .gradient-purple',
       },
-    });
+    });*/
+
+
+    // gsap.from('.allfiressectionsmenu', {
+    //   y: '-100vh',
+    //   delay: 0.5,
+    //   scrollTrigger: {
+    //     trigger: '#section4 .gradient-purple',
+    //   },
+    // });
+
+    // gsap.to('.allfiressectionsmenu img', {
+    //   x: 'random(-5, 5)',
+    //   y: 'random(-5, 5)',
+    //   stagger: 0.3,
+    //   zIndex: 22,
+    //   duration: 2,
+    //   ease: 'sine.inOut',
+    //   yoyo: true,
+    //   repeat: -1,
+
+    // });
+
+
+
+    gsap.fromTo(
+      '.allfiressectionsmenu img',
+      { y: -50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'bounce.out',
+        force3D: true,
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section4 .wrappertest',
+          start: 'top top-500',
+          end: 'top top-200',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+        onComplete: () => {
+          gsap.to('.allfiressectionsmenu img', {
+            x: 'random(-10, 10)', // random X position change
+            y: 'random(-10, 10)', // random Y position change
+            stagger: 0.3,
+            zIndex: 22,
+            duration: 2,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+          });
+        }
+      }
+    );
 
     // gsap.to('.allfiressectionsmenu img', {
     //   x: 'random(-20, 20)',

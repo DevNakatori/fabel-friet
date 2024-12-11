@@ -31,17 +31,6 @@ button.skipvideo.hidden {display: none;}
 
         
   }
-/* .image-wrapper,.threeboxonzeimpactlist.image-wrappers {
-    width: 100%;
-    max-width: clamp(300px, 30vw, 450px);
-    height: clamp(400px, 60vh, 600px);
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-} */
 
 
 @media (min-width:2500px) and (max-width:3000px){
@@ -86,6 +75,12 @@ button.skipvideo.hidden {display: none;}
     }
 
     .bottomsection .scroll-down p{max-width: 100% !important;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size: -moz-calc(14 / var(--vw)* var(--multiplier)) !important;
+        font-size: calc(14 / var(--vw)* var(--multiplier)) !important;}
+    body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,
+    body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2{font-size: -moz-calc(22 / var(--vw)* var(--multiplier)) !important;
+        font-size: calc(22 / var(--vw)* var(--multiplier)) !important;}
 
     }
 

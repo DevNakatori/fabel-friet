@@ -130,19 +130,26 @@ const Onzeimpact = () => {
         trigger: '.img-containerss',
         start: 'top center',
         end: 'bottom bottom',
-        scrub: 2, // Increased scrub for smoother animation
-        ease: 'power3.inOut', // Smoother easing
+        scrub: 2,
+        ease: 'power3.inOut', 
         once: false,
       },
     });
 
-    // On scroll, spread images horizontally with rotation
+   
     timeline
       .to('.image-wrappers:first-child', {
         left: '20%',
-        rotation: -5, // Tilt first image
+        rotation: -5, 
         duration: 2,
         ease: 'power3.out',
+        scrollEnd: () => {
+          gsap.to('.image-wrappers .threeboxleftlogobar', {
+            opacity: 1,
+            duration: 3,
+            ease: 'power3.out',
+          });
+        },
       })
       .to(
         '.image-wrappers:nth-child(2)',
@@ -150,6 +157,13 @@ const Onzeimpact = () => {
           left: '50%',
           duration: 2,
           ease: 'power3.out',
+          scrollEnd: () => {
+            gsap.to('.image-wrappers .threeboxleftlogobar.lastbottomimg ', {
+              opacity: 1,
+              duration: 3,
+              ease: 'power3.out',
+            });
+          },
         },
         '<',
       )
@@ -157,11 +171,31 @@ const Onzeimpact = () => {
         '.image-wrappers:last-child',
         {
           left: '80%',
-          rotation: 5, // Tilt last image
+          rotation: 5, 
           duration: 2,
           ease: 'power3.out',
         },
         '<',
+      );
+
+      gsap.fromTo(
+        '.image-wrappers .threeboxleftlogobar',
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 3,
+          scrollTrigger: {
+            trigger: '.img-containerss',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1,
+            repeat: -1, 
+            yoyo: true, 
+            ease: 'power3.inOut',
+          },
+        }
       );
   }, [onzeimpact]);
 
