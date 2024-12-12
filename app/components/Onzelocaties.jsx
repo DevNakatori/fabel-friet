@@ -142,7 +142,7 @@ const Onzelocaties = () => {
       onUpdate: function () {
         charslocationtitle.forEach((typeSplitlocationtitle) => {
           typeSplitlocationtitle.style.backgroundImage =
-            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitlocationtitle.style.webkitBackgroundClip = 'text';
           typeSplitlocationtitle.style.webkitTextFillColor = 'transparent';
           typeSplitlocationtitle.style.backgroundPosition = '97px -83px';

@@ -332,7 +332,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charsOnzefrienttitle.forEach((typeSplit) => {
           typeSplit.style.backgroundImage =
-            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplit.style.webkitBackgroundClip = 'text';
           typeSplit.style.webkitTextFillColor = 'transparent';
           typeSplit.style.backgroundPosition = '97px -83px';
@@ -393,7 +393,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
           typeswhatpeoplesection.style.backgroundImage =
-            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typeswhatpeoplesection.style.webkitBackgroundClip = 'text';
           typeswhatpeoplesection.style.webkitTextFillColor = 'transparent';
           typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
@@ -439,7 +439,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charsaccordionSection.forEach((typesaccordionSection) => {
           typesaccordionSection.style.backgroundImage =
-            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/assets/plain-gold-background-C9ahylQT.webp')";
           typesaccordionSection.style.webkitBackgroundClip = 'text';
           typesaccordionSection.style.webkitTextFillColor = 'transparent';
           typesaccordionSection.style.backgroundPosition = '97px -83px';
