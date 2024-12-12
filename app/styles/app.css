@@ -79,6 +79,13 @@ button.reset:hover:not(:has(> *)){text-decoration:underline;cursor:pointer;}
 * components/Cart
 * --------------------------------------------------
 */
+
+.coolBeans{overflow:hidden;position:relative;text-decoration:none;transition:0.2s transform ease-in-out;will-change:transform;z-index:0;}
+.coolBeans::after{background-color:#f6c738;border-radius:3rem;content:'';display:block;height:100%;width:100%;position:absolute;left:0;top:0;transform:translate(-100%,0) rotate(10deg);transform-origin:top left;transition:0.2s transform ease-out;will-change:transform;z-index:-1;}
+.coolBeans:hover::after{transform:translate(0,0);}
+.coolBeans:hover{border:3px solid transparent;color:#0d1e4d;transform:scale(1.05);will-change:transform;}
+.socialiconlist ul li:after{display:none;}
+.whitebgbox .whitewithvideomainbox .righttextbox .routbtn.coolBeans:hover{border:3px solid transparent!important;}
 .cart-main{height:100%;max-height:calc(100vh - var(--cart-aside-summary-height));overflow-y:auto;width:auto;}
 .cart-main.with-discount{max-height:calc(100vh - var(--cart-aside-summary-height-with-discount));}
 .cart-line{display:flex;padding:0.75rem 0;}

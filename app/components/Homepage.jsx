@@ -777,7 +777,7 @@ const HomePage = () => {
             //   {bannerData[0].bannerButton.buttonText}
             // </a>
             <a
-              className="banner_bottombtn btn-1 hover-filled-slide-down"
+              className="banner_bottombtn coolBeans"
               href={bannerData[0].bannerButton.buttonLink || '#'}
             >
               <span dangerouslySetInnerHTML={{ __html: bannerData[0].bannerButton.buttonText }} />

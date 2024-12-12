@@ -285,7 +285,7 @@ const Onzelocaties = () => {
 
               <a
                 href="#"
-                className="locatebutton onlydesktop btn-1 hover-filled-slide-down"
+                className="locatebutton onlydesktop coolBeans"
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
@@ -377,7 +377,7 @@ const Onzelocaties = () => {
                                   </div>
                                 </div>
 
-                                <a href={loc.btn_link} className="routbtn">
+                                <a href={loc.btn_link} className="routbtn coolBeans">
                                   {loc.btn_label}
                                 </a>
                               </div>
@@ -469,7 +469,7 @@ const Onzelocaties = () => {
                           <a
                             href={loc.btn_link}
                             target="_blank"
-                            className="routbtn"
+                            className="routbtn coolBeans"
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
