@@ -53,10 +53,7 @@ const Getintouch = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        smoothTouch: 0.1, // reduce smoothness for touch device
-        // onEnter: () => document.body.classList.remove('scrolled'),
-        // onLeave: () => document.body.classList.add('scrolled'),
-        // onEnterBack: () => document.body.classList.remove('scrolled'),
+        smoothTouch: 0.1,
       },
     });
     timelinegetintouch.to(
@@ -66,7 +63,6 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-        //zIndex: 5,
       },
       0,
     );
@@ -99,7 +95,6 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    // const list = document.querySelectorAll('.gradient-threeboxgetintouch');
     const listgetintouch = document.querySelectorAll(
       '.gradient-threeboxgetintouch',
     );
@@ -117,9 +112,9 @@ const Getintouch = () => {
       let animateMobileTimeline;
       let animateDesktopTimeline;
 
-      // GSAP animation for desktop
+
       const animateDesktopgetintouch = () => {
-        // Kill existing animations
+
         if (animateMobileTimeline) animateMobileTimeline.scrollTrigger.kill();
 
         const onzefritthreeimagecentergetintouch = gsap.timeline({
@@ -145,8 +140,7 @@ const Getintouch = () => {
             trigger: '.sixthsection  .gradient-purple',
             start: 'top top',
             end: 'bottom top',
-            // onEnter: () => document.body.classList.add('scrolled'),
-            // onEnterBack: () => document.body.classList.add('scrolled'),
+
           },
         });
 
@@ -191,9 +185,9 @@ const Getintouch = () => {
           });
       };
 
-      // GSAP animation for mobile
+
       const animateMobilegetintouch = () => {
-        // Kill existing animations
+
         if (animateDesktopTimeline) animateDesktopTimeline.scrollTrigger.kill();
 
         const mobileTimelineCenter = gsap.timeline({
@@ -263,7 +257,7 @@ const Getintouch = () => {
           });
       };
 
-      // Execute appropriate animation based on the device
+
       if (mobileMediaQuerygetintouch.matches) {
         animateMobilegetintouch();
       } else {
@@ -293,7 +287,7 @@ const Getintouch = () => {
 
     gsap.fromTo(
       '.likeimagelist img',
-      {y: -50, opacity: 0},
+      { y: -50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -313,21 +307,6 @@ const Getintouch = () => {
       },
     );
 
-    // gsap.to('.likeimagelist img', {
-    //   y: 20,
-    //   repeat: -1,
-    //   yoyo: true,
-    //   duration: 2,
-    //   ease: 'sine.inOut',
-    // });
-
-    // gsap.from('.likeimagelist', {
-    //   y: '-80vh',
-    //   delay: 0.5,
-    //   scrollTrigger: {
-    //     trigger: '#section6 .gradient-purple',
-    //   },
-    // });
 
     gsap.to('.likeimagelist img', {
       x: 'random(-20, 20)',
@@ -339,27 +318,6 @@ const Getintouch = () => {
       repeat: -1,
     });
 
-    // gsap.fromTo(
-    //   '.borderbottomaccordians',
-    //   { width: 0 },
-    //   {
-    //     width: '100%',
-    //     stagger: 0.2,
-    //     duration: 2,
-    //     ease: 'power2.out',
-    //     delay: 2,
-    //     repeat: 0,
-    //     scrollTrigger: {
-    //       trigger: '#section6 .accordion-item',
-    //       start: 'top center',
-    //       end: 'bottom top',
-    //       scrub: true,
-    //       stagger: 0.3,
-    //       duration: 2,
-    //       once: true,
-    //     },
-    //   },
-    // );
 
     let typeSplitdatagettouchonzefrientdescription = new SplitType(
       '[data-gettouchonzefrientdescription]',
@@ -401,7 +359,7 @@ const Getintouch = () => {
         charswhatpeoplesectiongettouch.forEach(
           (typeswhatpeoplesectiontouchget) => {
             typeswhatpeoplesectiontouchget.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
             typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
               'transparent';
@@ -429,7 +387,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
           typeswhatpeoplesectiontouchgetsocial.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeswhatpeoplesectiontouchgetsocial.style.webkitBackgroundClip =
             'text';
           typeswhatpeoplesectiontouchgetsocial.style.webkitTextFillColor =
@@ -458,7 +416,7 @@ const Getintouch = () => {
         charsgettouchcontactsection.forEach(
           (typeswhatpeoplesectiontouchgetcontect) => {
             typeswhatpeoplesectiontouchgetcontect.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchgetcontect.style.webkitBackgroundClip =
               'text';
             typeswhatpeoplesectiontouchgetcontect.style.webkitTextFillColor =
@@ -488,7 +446,7 @@ const Getintouch = () => {
         charsgettouchaccordian.forEach(
           (typeswhatpeoplesectiontouchgeaccordian) => {
             typeswhatpeoplesectiontouchgeaccordian.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             typeswhatpeoplesectiontouchgeaccordian.style.webkitBackgroundClip =
               'text';
             typeswhatpeoplesectiontouchgeaccordian.style.webkitTextFillColor =
@@ -499,7 +457,7 @@ const Getintouch = () => {
         );
       },
     });
-    /* other text and section animation end */
+
   }, [getIntouch]);
 
   /* accordian start */
@@ -630,12 +588,24 @@ const Getintouch = () => {
         </div>
         <div className="roundimages">
           <div className="roundtext-getintouch">
-            <h2>{transitionSection.topTitle}</h2>
-            <h3>{transitionSection.bottomTitle}</h3>
+            <h2 dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }} />
+            <h3 dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }} />
           </div>
           <div className="roundimage-getintouch"></div>
-          <div className="scroll-down">
+          {/* <div className="scroll-down">
             <div className="icon-scroll"></div>
+            <p>Scroll down</p>
+          </div> */}
+          <div className="scroll-down">
+            <div className="c-scroll-icon">
+              <div className="c-scroll-icon-line-mask"><div className="c-scroll-icon-line"></div></div>
+              <div className="c-scroll-icon-triangle">
+                <div className="c-scroll-icon-triangle-mask first"><div className="c-scroll-icon-triangle-line first"></div></div>
+                <div className="c-scroll-icon-triangle-mask right"><div className="c-scroll-icon-triangle-line right"></div></div>
+                <div className="c-scroll-icon-triangle-mask left"><div className="c-scroll-icon-triangle-line left"></div></div>
+                <div className="c-scroll-icon-triangle-mask last"><div className="c-scroll-icon-triangle-line last"></div></div>
+              </div>
+            </div>
             <p>Scroll down</p>
           </div>
         </div>
@@ -644,10 +614,10 @@ const Getintouch = () => {
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
           <div className="likeimagelist">
-          <img src={liek_2} alt="img" />
-          <img src={liek_1} alt="img" />
-          <img src={liek_3} alt="img" />
-          <img src={liek_4} alt="img" />
+            <img src={liek_2} alt="img" />
+            <img src={liek_1} alt="img" />
+            <img src={liek_3} alt="img" />
+            <img src={liek_4} alt="img" />
           </div>
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
@@ -655,10 +625,9 @@ const Getintouch = () => {
           </h4>
           <p
             className="onzefriendescription"
-            data-gettouchonzefrientdescription=""
-          >
-            {contentSection.description}
-          </p>
+            data-gettouchonzefrientdescription="" dangerouslySetInnerHTML={{ __html: contentSection.description }}
+          />
+
           <div className="gradient-threebox gradient-threeboxgetintouch">
             <ul
               data-aos="fade-up"
@@ -725,7 +694,7 @@ const Getintouch = () => {
             </ul>
 
             <div className="lefttiktoktext">
-            <div className='arrowimagetouchone'>
+              <div className='arrowimagetouchone'>
                 <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     className="line2sstouchs"
@@ -748,15 +717,13 @@ const Getintouch = () => {
                 className="swingsd"
                 alt="img"
               /> */}
-              <p className="zoomanimation">
-                {contentSection.mobileImages[0].leftText}
-              </p>
+              <p className="zoomanimation" dangerouslySetInnerHTML={{ __html: contentSection.mobileImages[0].leftText }} />
+
             </div>
 
             <div className="righttiktoktext">
-              <p className="zoomanimation">
-                {contentSection.mobileImages[0].rightText}
-              </p>
+              <p className="zoomanimation" dangerouslySetInnerHTML={{ __html: contentSection.mobileImages[0].rightText }} />
+
               {/* <img
                 src={arrow_blue_1}
                 data-aos="fade-up"

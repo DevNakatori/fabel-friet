@@ -3,9 +3,9 @@ import {useLanguage} from '~/components/LanguageContext';
 import {gsap} from 'gsap';
 
 const languages = [
-  {code: 'en', name: 'English / United States', flag: 'flag-icon-us'},
-  {code: 'nl', name: 'Nederlands / Nederland', flag: 'flag-icon-nl'},
-  {code: 'de', name: 'Deutsch / Deutschland', flag: 'flag-icon-de'},
+  {code: 'en', name: 'English', flag: 'flag-icon-us'},
+  {code: 'nl', name: 'Nederlands', flag: 'flag-icon-nl'},
+  {code: 'de', name: 'Deutsch', flag: 'flag-icon-de'},
 ];
 
 const LanguageSwitcher = () => {
