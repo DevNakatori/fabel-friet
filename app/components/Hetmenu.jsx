@@ -27,7 +27,6 @@ import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.web
 
 // import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 
-
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
@@ -40,7 +39,6 @@ const Hetmenu = () => {
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // const [activeTab, setActiveTab] = useState(0);
 
   // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
@@ -82,10 +80,7 @@ const Hetmenu = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        smoothTouch: 0.1, // reduce smoothness for touch device
-        // onEnter: () => document.body.classList.remove('scrolled'),
-        // onLeave: () => document.body.classList.add('scrolled'),
-        // onEnterBack: () => document.body.classList.remove('scrolled'),
+        smoothTouch: 0.1,
       },
     });
 
@@ -96,7 +91,6 @@ const Hetmenu = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-        //zIndex: 5,
       },
     );
 
@@ -132,73 +126,10 @@ const Hetmenu = () => {
           trigger: '#section4 .wrappertest',
           start: 'top top-500',
           end: 'top top-200',
-          // onEnter: () => document.body.classList.add('scrolled'),
-          // onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
       0,
     );
-
-    // gsap.fromTo(
-    //   '#section4 .gradient-threebox-menu',
-    //   {
-    //     opacity: 0,
-    //     y: 50,
-    //     scale: 1,
-    //   },
-    //   {
-    //     opacity: 1,
-    //     y: 0,
-    //     scale: 1,
-    //     duration: 1,
-    //     ease: 'power2.out',
-    //     delay: 2,
-    //     stagger: 0.2,
-    //     scrollTrigger: {
-    //       trigger: '#section4 .gradient-purple',
-    //       markers: false,
-    //     },
-    //   },
-    // );
-
-    /*gsap.to('.allfiressectionsmenu img', {
-      y: 20,
-      repeat: -1,
-      yoyo: true,
-      duration: 5,
-      ease: 'sine.inOut',
-    });
-
-    gsap.from('.allfiressectionsmenu', {
-      y: '-80vh',
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: '#section4 .gradient-purple',
-      },
-    });*/
-
-
-    // gsap.from('.allfiressectionsmenu', {
-    //   y: '-100vh',
-    //   delay: 0.5,
-    //   scrollTrigger: {
-    //     trigger: '#section4 .gradient-purple',
-    //   },
-    // });
-
-    // gsap.to('.allfiressectionsmenu img', {
-    //   x: 'random(-5, 5)',
-    //   y: 'random(-5, 5)',
-    //   stagger: 0.3,
-    //   zIndex: 22,
-    //   duration: 2,
-    //   ease: 'sine.inOut',
-    //   yoyo: true,
-    //   repeat: -1,
-
-    // });
-
-
 
     gsap.fromTo(
       '.allfiressectionsmenu img',
@@ -221,8 +152,8 @@ const Hetmenu = () => {
         },
         onComplete: () => {
           gsap.to('.allfiressectionsmenu img', {
-            x: 'random(-10, 10)', // random X position change
-            y: 'random(-10, 10)', // random Y position change
+            x: 'random(-10, 10)',
+            y: 'random(-10, 10)',
             stagger: 0.3,
             zIndex: 22,
             duration: 2,
@@ -230,19 +161,9 @@ const Hetmenu = () => {
             yoyo: true,
             repeat: -1,
           });
-        }
-      }
+        },
+      },
     );
-
-    // gsap.to('.allfiressectionsmenu img', {
-    //   x: 'random(-20, 20)',
-    //   y: 'random(-20, 20)',
-    //   zIndex: 22,
-    //   duration: 2,
-    //   ease: 'none',
-    //   yoyo: true,
-    //   repeat: -1,
-    // });
 
     return () => {
       timelineshetmenu.scrollTrigger.kill();
@@ -267,7 +188,7 @@ const Hetmenu = () => {
       onUpdate: function () {
         charsmenutitle.forEach((typeSplithetmenuititle) => {
           typeSplithetmenuititle.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
           typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
           typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
@@ -308,7 +229,7 @@ const Hetmenu = () => {
       onUpdate: function () {
         charsmenutitleright.forEach((typeSplithetmenuititleright) => {
           typeSplithetmenuititleright.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplithetmenuititleright.style.webkitBackgroundClip = 'text';
           typeSplithetmenuititleright.style.webkitTextFillColor = 'transparent';
           typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
@@ -332,7 +253,7 @@ const Hetmenu = () => {
       scrollTrigger: {
         trigger: '[data-righttextboxdescription]',
         start: 'top center',
-        scrub: true
+        scrub: true,
       },
     });
 
@@ -352,12 +273,10 @@ const Hetmenu = () => {
       scrollTrigger: {
         trigger: '[data-righttextboxdescriptionbotom]',
         start: 'top center',
-        scrub: true
+        scrub: true,
       },
     });
-
   }, [hetmenu]);
-
 
   useEffect(() => {
     const paths = document.querySelector('.line2s');
@@ -379,7 +298,6 @@ const Hetmenu = () => {
       });
     }
   }, [hetmenu]);
-
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -418,21 +336,42 @@ const Hetmenu = () => {
           <img
             className="media"
             src={getImageUrl(transitionSection.image.asset._ref)}
-            //src={mainbannerbg}
             alt="Transition Section"
-            width="100" // Adjust size as needed
+            width="100"
             height="100"
           />
         </div>
 
         <div className="roundimages">
           <div className="roundtext-hetmenu">
-            <h2>{transitionSection.topTitle}</h2>
-            <h3>{transitionSection.bottomTitle}</h3>
+            <h2 dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }} />
+            <h3 dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }} />
           </div>
           <div className="roundimage-hetmenu"></div>
-          <div className="scroll-down">
+          {/* <div className="scroll-down">
             <div className="icon-scroll"></div>
+            <p>Scroll down</p>
+          </div> */}
+          <div className="scroll-down">
+            <div className="c-scroll-icon">
+              <div className="c-scroll-icon-line-mask">
+                <div className="c-scroll-icon-line"></div>
+              </div>
+              <div className="c-scroll-icon-triangle">
+                <div className="c-scroll-icon-triangle-mask first">
+                  <div className="c-scroll-icon-triangle-line first"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask right">
+                  <div className="c-scroll-icon-triangle-line right"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask left">
+                  <div className="c-scroll-icon-triangle-line left"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask last">
+                  <div className="c-scroll-icon-triangle-line last"></div>
+                </div>
+              </div>
+            </div>
             <p>Scroll down</p>
           </div>
         </div>
@@ -441,13 +380,8 @@ const Hetmenu = () => {
       <div className="wrappertest">
         <section className="section hero"></section>
         <div className="gradient-purple" id="hetmenusection">
-          <h4 className="hetmenuntitle" data-menutitle="">
-            {contentSection.heading}
-          </h4>
-          <p className="hetmenuescription" data-menudescription="">
-            {contentSection.description}
-          </p>
-
+          <h4 className="hetmenuntitle" data-menutitle="" dangerouslySetInnerHTML={{ __html: contentSection.heading }} />
+          <p className="hetmenuescription" data-menudescription="" dangerouslySetInnerHTML={{ __html: contentSection.description }} />
           <div className="whitebgbox">
             <div className="allfiressectionsmenu">
               <img src={menu_one} alt="img" width="10" height="10" />
@@ -698,21 +632,11 @@ const Hetmenu = () => {
 
               {/* Bottom Section */}
               <div className="whitewithvideomainbox">
-                <div
-                  className="righttextbox"
-
-                >
-                  <h5 data-righttextboxtitle="">
-                    {bottomContentSection.bottomHeading}
-                  </h5>
-                  <p data-righttextboxdescription="">
-                    {bottomContentSection.bottomDescription}
-                  </p>
+                <div className="righttextbox">
+                  <h5 data-righttextboxtitle="" dangerouslySetInnerHTML={{ __html: bottomContentSection.bottomHeading }} />
+                  <p data-righttextboxdescription="" dangerouslySetInnerHTML={{ __html: bottomContentSection.bottomDescription }} />
                 </div>
-                <div
-                  className="leftvideobox"
-
-                >
+                <div className="leftvideobox">
                   <img
                     src={getImageUrl(
                       bottomContentSection.bottomImage.asset._ref,
@@ -720,21 +644,34 @@ const Hetmenu = () => {
                     alt="Bottom section image"
                     data-speed="auto"
                   />
-                  <div
+                  {/* <div
                     className="bluearrowbottom"
                     data-aos="fade-up"
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    <div className='arrowimages'>
-                      <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div className="arrowimages">
+                      <svg
+                        width="100"
+                        height="188"
+                        viewBox="0 0 100 188"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           className="line2s"
                           d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
                           stroke="url(#paint0_linear_1314_561)"
                         />
                         <defs>
-                          <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                          <linearGradient
+                            id="paint0_linear_1314_561"
+                            x1="2.33984"
+                            y1="186.748"
+                            x2="154.434"
+                            y2="107.999"
+                            gradientUnits="userSpaceOnUse"
+                          >
                             <stop offset="0.000290329" stopColor="#0F274D" />
                             <stop offset="0.504985" stopColor="#1F314D" />
                             <stop offset="1" stopColor="#0d1e4d" />
@@ -743,22 +680,42 @@ const Hetmenu = () => {
                       </svg>
                     </div>
                   </div>
-                  <h3
-                    data-righttextboxdescriptionbotom=""
-                  >
+                  <h3 data-righttextboxdescriptionbotom="">
                     {bottomContentSection.bottomHeading}
                   </h3>
                   <p data-righttextboxdescriptionbotom="">
                     {bottomContentSection.bottomContent}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
             <div className="hetmenufixed">
               <div className="overlaybannehand-bottoms"></div>
               <div className="bottomsection">
-                <div className="scroll-down">
+                {/* <div className="scroll-down">
                   <div className="icon-scroll"></div>
+                  <p>Scroll down</p>
+                </div> */}
+                <div className="scroll-down">
+                  <div className="c-scroll-icon">
+                    <div className="c-scroll-icon-line-mask">
+                      <div className="c-scroll-icon-line"></div>
+                    </div>
+                    <div className="c-scroll-icon-triangle">
+                      <div className="c-scroll-icon-triangle-mask first">
+                        <div className="c-scroll-icon-triangle-line first"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask right">
+                        <div className="c-scroll-icon-triangle-line right"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask left">
+                        <div className="c-scroll-icon-triangle-line left"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask last">
+                        <div className="c-scroll-icon-triangle-line last"></div>
+                      </div>
+                    </div>
+                  </div>
                   <p>Scroll down</p>
                 </div>
               </div>

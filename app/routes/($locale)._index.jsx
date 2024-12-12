@@ -104,7 +104,7 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
-// AOS.refresh();
+    // AOS.refresh();
   }, []);
 
   const [showHomePage, setShowHomePage] = useState(false);
@@ -170,7 +170,7 @@ export default function Homepage() {
       app();
     }, 0);
 
-    
+
 
     //Clean up GSAP instances on component unmount
     return () => {
@@ -237,14 +237,14 @@ export default function Homepage() {
       <LanguageProvider>
         <LanguageSwitcher />
         <Newheader />
-        <Cursor/>
+        <Cursor />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-             {showHomePage && <HomePage />} 
+            {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
-            {showOnzelocaties && <Onzelocaties />} 
-            {showHetmenu && <Hetmenu />}  
-            {showOnzeimpact && <Onzeimpact />} 
+            {showOnzelocaties && <Onzelocaties />}
+            {showHetmenu && <Hetmenu />}
+            {showOnzeimpact && <Onzeimpact />}
             {showGetintouch && <Getintouch />} 
           </div>
         </div>

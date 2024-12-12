@@ -29,23 +29,17 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-
   const [progressBarWidth, setProgressBarWidth] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
-
   const [loadings, setLoadings] = useState(true);
-
   const [currentLanguage, setCurrentLanguage] = useState(language);
-
   const skipbuttons = document.getElementById('skipvideobtn');
-
   useEffect(() => {
     document.body.classList.add(currentLanguage);
     return () => {
       document.body.classList.remove(currentLanguage);
     };
   }, [currentLanguage]);
-
   useEffect(() => {
     setCurrentLanguage(language);
   }, [language]);
@@ -203,32 +197,6 @@ const HomePage = () => {
         },
       );
 
-      // gsap.fromTo(
-      //   elements.title,
-      //   {opacity: 0, y: -50},
-      //   {
-      //     opacity: 1,
-      //     y: 0,
-      //     duration: 1,
-      //     ease: 'power2.out',
-      //     delay: 1.5,
-      //     stagger: 0.3,
-      //   },
-      // );
-
-      // gsap.fromTo(
-      //   elements.content,
-      //   {opacity: 0, y: -50},
-      //   {
-      //     opacity: 1,
-      //     y: 0,
-      //     duration: 1,
-      //     ease: 'power2.out',
-      //     delay: 2,
-      //     stagger: 0.4,
-      //   },
-      // );
-
       gsap.fromTo(
         elements.button,
         { opacity: 0, y: -50 },
@@ -241,22 +209,6 @@ const HomePage = () => {
           stagger: 0.5,
         },
       );
-
-      // gsap.to('.overlaybannehand-left', {
-      //   duration: 1,
-      //   left: '0px',
-      //   ease: 'power1.inOut',
-      //   delay: 3,
-      //   stagger: 0.6,
-      // });
-
-      // gsap.to('.overlaybannehand-right', {
-      //   duration: 1,
-      //   right: '0px',
-      //   ease: 'power1.inOut',
-      //   delay: 3,
-      //   stagger: 0.6,
-      // });
 
       gsap.fromTo(
         elements.rotateText,
@@ -391,7 +343,6 @@ const HomePage = () => {
       document.body.classList.add('hiddenoverflow');
     };
 
-
     const handleVideoEnd = () => {
       console.log('video end');
       video.classList.add('hidden');
@@ -476,7 +427,6 @@ const HomePage = () => {
         },
       );
 
-
       var h1 = elements.title.querySelector('h1');
       var tl = gsap.timeline(),
         mySplitText = new SplitText(h1, { type: 'words,chars' }),
@@ -491,7 +441,7 @@ const HomePage = () => {
         onUpdate: function () {
           chars.forEach((char) => {
             char.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             char.style.webkitBackgroundClip = 'text';
             char.style.webkitTextFillColor = 'transparent';
             char.style.backgroundPosition = '97px -83px';
@@ -555,19 +505,6 @@ const HomePage = () => {
         },
       );
 
-      // gsap.fromTo(
-      //   elements.content,
-      //   {opacity: 0, y: -50},
-      //   {
-      //     opacity: 1,
-      //     y: 0,
-      //     duration: 1,
-      //     ease: 'power2.out',
-      //     delay: 2,
-      //     stagger: 0.4,
-      //   },
-      // );
-
       gsap.fromTo(
         elements.button,
         { opacity: 0, y: -50 },
@@ -580,22 +517,6 @@ const HomePage = () => {
           stagger: 0.5,
         },
       );
-
-      // gsap.to('.overlaybannehand-left', {
-      //   duration: 1,
-      //   left: '0px',
-      //   ease: 'power1.inOut',
-      //   delay: 3,
-      //   stagger: 0.6,
-      // });
-
-      // gsap.to('.overlaybannehand-right', {
-      //   duration: 1,
-      //   right: '0px',
-      //   ease: 'power1.inOut',
-      //   delay: 3,
-      //   stagger: 0.6,
-      // });
 
       gsap.fromTo(
         elements.rotateText,
@@ -843,10 +764,10 @@ const HomePage = () => {
             />
           </div>
           <div className="banner_title_text">
-            <h1>{bannerData[0].title}</h1>
+            <h1 dangerouslySetInnerHTML={{ __html: bannerData[0].title }} />
           </div>
           <div className="banner_content_text">
-            <p id="text">{bannerData[0].bannerContent}</p>
+            <p id="text" dangerouslySetInnerHTML={{ __html: bannerData[0].bannerContent }} />
           </div>
           {bannerData[0].bannerButton && (
             // <a
@@ -859,11 +780,11 @@ const HomePage = () => {
               className="banner_bottombtn btn-1 hover-filled-slide-down"
               href={bannerData[0].bannerButton.buttonLink || '#'}
             >
-              <span>{bannerData[0].bannerButton.buttonText}</span>
+              <span dangerouslySetInnerHTML={{ __html: bannerData[0].bannerButton.buttonText }} />
             </a>
           )}
           <div className="bannerrotate_text">
-            <p>{bannerData[0].bannerText}</p>
+            <p dangerouslySetInnerHTML={{ __html: bannerData[0].bannerText }} />
           </div>
         </div>
         <div className="overlaybannehand">

@@ -35,10 +35,7 @@ const Onzeimpact = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        smoothTouch: 0.1, // reduce smoothness for touch device
-        // onEnter: () => document.body.classList.remove('scrolled'),
-        // onLeave: () => document.body.classList.add('scrolled'),
-        // onEnterBack: () => document.body.classList.remove('scrolled'),
+        smoothTouch: 0.1,
       },
     });
     timelineimpact.to(
@@ -48,7 +45,6 @@ const Onzeimpact = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-        //zIndex: 5,
       },
       0,
     );
@@ -85,11 +81,9 @@ const Onzeimpact = () => {
           trigger: '#section5 .wrappertest',
           start: 'top top-100',
           end: 'top top-300',
-          // onEnter: () => document.body.classList.add('scrolled'),
-          // onEnterBack: () => document.body.classList.add('scrolled'),
         },
       },
-      0, // Start this animation at the same time as the previous one
+      0,
     );
 
     gsap.fromTo(
@@ -131,16 +125,15 @@ const Onzeimpact = () => {
         start: 'top center',
         end: 'bottom bottom',
         scrub: 2,
-        ease: 'power3.inOut', 
+        ease: 'power3.inOut',
         once: false,
       },
     });
 
-   
     timeline
       .to('.image-wrappers:first-child', {
         left: '20%',
-        rotation: -5, 
+        rotation: -5,
         duration: 2,
         ease: 'power3.out',
         scrollEnd: () => {
@@ -171,38 +164,38 @@ const Onzeimpact = () => {
         '.image-wrappers:last-child',
         {
           left: '80%',
-          rotation: 5, 
+          rotation: 5,
           duration: 2,
           ease: 'power3.out',
         },
         '<',
       );
 
-      gsap.fromTo(
-        '.image-wrappers .threeboxleftlogobar',
-        {
-          opacity: 0,
+    gsap.fromTo(
+      '.image-wrappers .threeboxleftlogobar',
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 3,
+        scrollTrigger: {
+          trigger: '.img-containerss',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power3.inOut',
         },
-        {
-          opacity: 1,
-          duration: 3,
-          scrollTrigger: {
-            trigger: '.img-containerss',
-            start: 'top center',
-            end: 'bottom center',
-            scrub: 1,
-            repeat: -1, 
-            yoyo: true, 
-            ease: 'power3.inOut',
-          },
-        }
-      );
+      },
+    );
   }, [onzeimpact]);
 
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-      //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
+
       if (cachedData) {
         setonzeimpact(JSON.parse(cachedData));
         setLoading(false);
@@ -230,7 +223,6 @@ const Onzeimpact = () => {
     fetchDataonzeimpactData();
   }, [language]);
 
-
   useEffect(() => {
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
@@ -250,8 +242,6 @@ const Onzeimpact = () => {
     }
   }, [onzeimpact]);
 
-
-
   useEffect(() => {
     let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
       types: 'lines, words, chars',
@@ -270,7 +260,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
           typeSplitcharsonzeimpacttitleas.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
           typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
             'transparent';
@@ -319,7 +309,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
           typeSplitleftvideoboxsectitle.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitleftvideoboxsectitle.style.webkitBackgroundClip = 'text';
           typeSplitleftvideoboxsectitle.style.webkitTextFillColor =
             'transparent';
@@ -345,7 +335,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
           typeSplitrighttextboxtitlse.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplitrighttextboxtitlse.style.webkitBackgroundClip = 'text';
           typeSplitrighttextboxtitlse.style.webkitTextFillColor = 'transparent';
           typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
@@ -353,13 +343,14 @@ const Onzeimpact = () => {
       },
     });
 
-    document.querySelectorAll('[data-onzeimpacttwolistlisttext]').forEach((element) => {
-      new SplitType(element, {
-        types: 'lines, words, chars',
-        tagName: 'span',
+    document
+      .querySelectorAll('[data-onzeimpacttwolistlisttext]')
+      .forEach((element) => {
+        new SplitType(element, {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        });
       });
-    });
-
 
     gsap.from('[data-onzeimpacttwolistlisttext] .line', {
       opacity: 0.3,
@@ -369,13 +360,11 @@ const Onzeimpact = () => {
       scrollTrigger: {
         trigger: '[data-onzeimpacttwolistlisttext]',
         scrub: true,
-        start: "top bottom",
-        end: "bottom top",
+        start: 'top bottom',
+        end: 'bottom top',
         markers: false,
       },
     });
-
-
 
     let typeSplitsecdescription = new SplitType('[data-secdescription]', {
       types: 'lines, words, chars',
@@ -389,7 +378,7 @@ const Onzeimpact = () => {
       stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-secdescription]',
-        scrub: true
+        scrub: true,
       },
     });
 
@@ -414,7 +403,7 @@ const Onzeimpact = () => {
         charsimpacttwolistlisttitle.forEach(
           (typeSplitimpacttwolistlisttitle) => {
             typeSplitimpacttwolistlisttitle.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
             typeSplitimpacttwolistlisttitle.style.webkitBackgroundClip = 'text';
             typeSplitimpacttwolistlisttitle.style.webkitTextFillColor =
               'transparent';
@@ -425,28 +414,27 @@ const Onzeimpact = () => {
       },
     });
 
-    let revealcontainerimpactsimpact = document.querySelectorAll(".reveal");
+    let revealcontainerimpactsimpact = document.querySelectorAll('.reveal');
     revealcontainerimpactsimpact.forEach((containerimpact) => {
-      let imageimpact = containerimpact.querySelector(".reveal img");
+      let imageimpact = containerimpact.querySelector('.reveal img');
       let tlimpact = gsap.timeline({
         scrollTrigger: {
           trigger: containerimpact,
-          start: "top bottom",
-          end: "bottom top",
-          // toggleActions: "restart none none reset"
-        }
+          start: 'top bottom',
+          end: 'bottom top',
+        },
       });
 
       tlimpact.set(containerimpact, { autoAlpha: 1 });
       tlimpact.from(containerimpact, 1.5, {
         xPercent: 0,
-        ease: 'Power2.out'
+        ease: 'Power2.out',
       });
       tlimpact.from(imageimpact, 1.5, {
         xPercent: -100,
         scale: 1.3,
         delay: -1.5,
-        ease: 'Power2.out'
+        ease: 'Power2.out',
       });
     });
   }, [onzeimpact]);
@@ -481,12 +469,42 @@ const Onzeimpact = () => {
 
         <div className="roundimages">
           <div className="roundtext-impact">
-            <h2>{data.transitionSection.topTitle}</h2>
-            <h3>{data.transitionSection.bottomTitle}</h3>
+            <h2
+              dangerouslySetInnerHTML={{
+                __html: data.transitionSection.topTitle,
+              }}
+            />
+            <h3
+              dangerouslySetInnerHTML={{
+                __html: data.transitionSection.bottomTitle,
+              }}
+            />
           </div>
           <div className="roundimage-impact"></div>
-          <div className="scroll-down">
+          {/* <div className="scroll-down">
             <div className="icon-scroll"></div>
+            <p>Scroll down</p>
+          </div> */}
+          <div className="scroll-down">
+            <div className="c-scroll-icon">
+              <div className="c-scroll-icon-line-mask">
+                <div className="c-scroll-icon-line"></div>
+              </div>
+              <div className="c-scroll-icon-triangle">
+                <div className="c-scroll-icon-triangle-mask first">
+                  <div className="c-scroll-icon-triangle-line first"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask right">
+                  <div className="c-scroll-icon-triangle-line right"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask left">
+                  <div className="c-scroll-icon-triangle-line left"></div>
+                </div>
+                <div className="c-scroll-icon-triangle-mask last">
+                  <div className="c-scroll-icon-triangle-line last"></div>
+                </div>
+              </div>
+            </div>
             <p>Scroll down</p>
           </div>
         </div>
@@ -497,9 +515,12 @@ const Onzeimpact = () => {
           <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
             {data.contentSection.heading}
           </h4>
-          <p className="onzeimpactdescription" data-onzeimpactdescription="">
-            {data.contentSection.description}
-          </p>
+          <p
+            className="onzeimpactdescription"
+            data-onzeimpactdescription=""
+            dangerouslySetInnerHTML={{ __html: data.contentSection.description }}
+          />
+
           <div className="gradient-threebox gradient-threeboxonzeimpact">
             <div className="img-containerss">
               {data.imageSection.image.map((img, index) => (
@@ -581,12 +602,17 @@ const Onzeimpact = () => {
                           data-aos-duration="2000"
                         >
                           <div className="onzeimpacttwolistlist">
-                            <h5 data-onzeimpacttwolistlisttitle="">
-                              {card.cardTitle}
-                            </h5>
-                            <p data-onzeimpacttwolistlisttext="">
-                              {card.cardDescription}
-                            </p>
+                            <h5
+                              data-onzeimpacttwolistlisttitle=""
+                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
+                            />
+
+                            <p
+                              data-onzeimpacttwolistlisttext=""
+                              dangerouslySetInnerHTML={{
+                                __html: card.cardDescription,
+                              }}
+                            />
                           </div>
                         </li>
                       ))}
@@ -640,16 +666,19 @@ const Onzeimpact = () => {
                                   data-aos="fade-up"
                                   data-aos-easing="ease-out-cubic"
                                   data-aos-duration="2000"
-                                >
-                                  {card.cardTitle}
-                                </h5>
+                                  dangerouslySetInnerHTML={{
+                                    __html: card.cardTitle,
+                                  }}
+                                />
+
                                 <p
                                   data-aos="fade-up"
                                   data-aos-easing="ease-out-cubic"
                                   data-aos-duration="2000"
-                                >
-                                  {card.cardDescription}
-                                </p>
+                                  dangerouslySetInnerHTML={{
+                                    __html: card.cardDescription,
+                                  }}
+                                />
                               </div>
                             </li>
                           </SwiperSlide>
@@ -668,10 +697,8 @@ const Onzeimpact = () => {
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
               >
-                <div
-                  className="leftvideobox"
-                >
-                  <div className='reveal'>
+                <div className="leftvideobox">
+                  <div className="reveal">
                     <img
                       src={getImageUrl(data.bottomSection.image.asset._ref)}
                       alt="Bottom Section Image"
@@ -689,12 +716,19 @@ const Onzeimpact = () => {
                   data-aos-offset="500"
                   data-aos-duration="500"
                 >
-                  <h3 data-righttextboxtitle="">
-                    {data.bottomSection.secTitle}
-                  </h3>
-                  <p data-secdescription="">
-                    {data.bottomSection.secDescription}
-                  </p>
+                  <h3
+                    data-righttextboxtitle=""
+                    dangerouslySetInnerHTML={{
+                      __html: data.bottomSection.secTitle,
+                    }}
+                  />
+
+                  <p
+                    data-secdescription=""
+                    dangerouslySetInnerHTML={{
+                      __html: data.bottomSection.secDescription,
+                    }}
+                  />
                 </div>
               </div>
 
@@ -725,11 +759,28 @@ const Onzeimpact = () => {
                       height="10"
                       className="swingss"
                     /> */}
-                    <div className='arrowimageimpect'>
-                      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 165 135">
-                        <path className="line2ss" d="M32.6,106.7c-4.8-2.6-9.5-6.4-13.5-11.8C-19,43.3,14,.5,14,.5M64.6,94.9c8.3,11.8-13,21.9-32,11.7,7.8-11.8,25.9-20.4,32-11.7ZM164.5,107c-14.5,11.5-37.2,26.4-58,2.7-19.4-22.1-36.7,38-67.2,21.8-12.6-6.7-12.2-16.6-6.8-24.9M156.1,120.4c3.9-9.1,8.4-13.4,8.4-13.4M149.7,105.8c9.2,2.1,10,2.1,14.7,1.3" stroke="url(#paint0_linear_1314_561)" />
+                    <div className="arrowimageimpect">
+                      <svg
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 165 135"
+                      >
+                        <path
+                          className="line2ss"
+                          d="M32.6,106.7c-4.8-2.6-9.5-6.4-13.5-11.8C-19,43.3,14,.5,14,.5M64.6,94.9c8.3,11.8-13,21.9-32,11.7,7.8-11.8,25.9-20.4,32-11.7ZM164.5,107c-14.5,11.5-37.2,26.4-58,2.7-19.4-22.1-36.7,38-67.2,21.8-12.6-6.7-12.2-16.6-6.8-24.9M156.1,120.4c3.9-9.1,8.4-13.4,8.4-13.4M149.7,105.8c9.2,2.1,10,2.1,14.7,1.3"
+                          stroke="url(#paint0_linear_1314_561)"
+                        />
                         <defs>
-                          <linearGradient id="paint0_linear_1314_561" x1="-24.6" y1="63.4" x2="127.1" y2="141.9" gradientTransform="translate(168.2 96.2) rotate(127.6)" gradientUnits="userSpaceOnUse">
+                          <linearGradient
+                            id="paint0_linear_1314_561"
+                            x1="-24.6"
+                            y1="63.4"
+                            x2="127.1"
+                            y2="141.9"
+                            gradientTransform="translate(168.2 96.2) rotate(127.6)"
+                            gradientUnits="userSpaceOnUse"
+                          >
                             <stop offset="0.000290329" stopColor="#0F274D" />
                             <stop offset="0.504985" stopColor="#1F314D" />
                             <stop offset="1" stopColor="#0d1e4d" />
@@ -755,8 +806,30 @@ const Onzeimpact = () => {
             </div>
             <div className="overlaybannehand-bottoms"></div>
             <div className="bottomsection">
-              <div className="scroll-down">
+              {/* <div className="scroll-down">
                 <div className="icon-scroll"></div>
+                <p>Scroll down</p>
+              </div> */}
+              <div className="scroll-down">
+                <div className="c-scroll-icon">
+                  <div className="c-scroll-icon-line-mask">
+                    <div className="c-scroll-icon-line"></div>
+                  </div>
+                  <div className="c-scroll-icon-triangle">
+                    <div className="c-scroll-icon-triangle-mask first">
+                      <div className="c-scroll-icon-triangle-line first"></div>
+                    </div>
+                    <div className="c-scroll-icon-triangle-mask right">
+                      <div className="c-scroll-icon-triangle-line right"></div>
+                    </div>
+                    <div className="c-scroll-icon-triangle-mask left">
+                      <div className="c-scroll-icon-triangle-line left"></div>
+                    </div>
+                    <div className="c-scroll-icon-triangle-mask last">
+                      <div className="c-scroll-icon-triangle-line last"></div>
+                    </div>
+                  </div>
+                </div>
                 <p>Scroll down</p>
               </div>
             </div>

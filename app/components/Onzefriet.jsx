@@ -1,16 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
@@ -18,8 +18,6 @@ import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.we
 import fries_four from '../assets/resizeimgs/webp/friewebp/Fries2_FabelFriet.webp';
 import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.webp';
 import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
-// import fries_seven from '../assets/resizeimgs/webp/menuwebp/Rectangle92.webp';
-// import fries_eight from '../assets/resizeimgs/webp/menuwebp/Rectangle93.webp';
 import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -29,7 +27,7 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,10 +42,7 @@ const Onzefriet = () => {
         pin: true,
         scrub: 0.5,
         markers: false,
-        smoothTouch: 0.1, // reduce smoothness for touch device
-        // onEnter: () => document.body.classList.remove('scrolled'),
-        // onLeave: () => document.body.classList.add('scrolled'),
-        // onEnterBack: () => document.body.classList.remove('scrolled'),
+        smoothTouch: 0.1,
       },
     });
 
@@ -78,7 +73,7 @@ const Onzefriet = () => {
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       },
-      '<', // Position the animation at the same time as the previous one
+      '<',
     );
 
     timelinesonzefriet.to(
@@ -91,12 +86,9 @@ const Onzefriet = () => {
           trigger: '#section2 .wrappertest',
           start: 'top top-100',
           end: 'top top-300',
-          // onEnter: () => document.body.classList.add('scrolled'),
-          // onEnterBack: () => document.body.classList.add('scrolled'),
-          //onLeave: () => document.body.classList.remove('scrolled'),
         },
       },
-      0, // Start this animation at the same time as the previous one
+      0,
     );
     return () => {
       timelinesonzefriet.scrollTrigger.kill();
@@ -162,7 +154,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -183,7 +175,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -214,17 +206,16 @@ const Onzefriet = () => {
         trigger: '.img-container',
         start: 'top center',
         end: 'bottom bottom',
-        scrub: 2, 
-        ease: 'power3.inOut', 
+        scrub: 2,
+        ease: 'power3.inOut',
         once: false,
       },
     });
 
-   
     timeline
       .to('.image-wrapper:first-child', {
         left: '20%',
-        rotation: -5, 
+        rotation: -5,
         duration: 2,
         ease: 'power3.out',
         scrollEnd: () => {
@@ -255,14 +246,13 @@ const Onzefriet = () => {
         '.image-wrapper:last-child',
         {
           left: '80%',
-          rotation: 5, 
+          rotation: 5,
           duration: 2,
           ease: 'power3.out',
         },
         '<',
       );
 
-    
     gsap.fromTo(
       '.image-wrapper .threeboxleftlogobar',
       {
@@ -276,15 +266,13 @@ const Onzefriet = () => {
           start: 'top center',
           end: 'bottom center',
           scrub: 1,
-          repeat: -1, 
-          yoyo: true, 
+          repeat: -1,
+          yoyo: true,
           ease: 'power3.inOut',
         },
-      }
+      },
     );
-
   }, [onzefriet]);
-
 
   useEffect(() => {
     const path = document.querySelector('.line2');
@@ -306,7 +294,6 @@ const Onzefriet = () => {
       });
     }
   }, [onzefriet]);
-
 
   useEffect(() => {
     // gsap.from('.allfiressections', {
@@ -345,7 +332,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charsOnzefrienttitle.forEach((typeSplit) => {
           typeSplit.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeSplit.style.webkitBackgroundClip = 'text';
           typeSplit.style.webkitTextFillColor = 'transparent';
           typeSplit.style.backgroundPosition = '97px -83px';
@@ -385,7 +372,7 @@ const Onzefriet = () => {
       scrollTrigger: {
         trigger: '[data-videodescription]',
         start: 'top center',
-        scrub: true
+        scrub: true,
       },
     });
 
@@ -406,7 +393,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
           typeswhatpeoplesection.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typeswhatpeoplesection.style.webkitBackgroundClip = 'text';
           typeswhatpeoplesection.style.webkitTextFillColor = 'transparent';
           typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
@@ -452,7 +439,7 @@ const Onzefriet = () => {
       onUpdate: function () {
         charsaccordionSection.forEach((typesaccordionSection) => {
           typesaccordionSection.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            "url('/app/assets/plain-gold-background-C9ahylQT.webp')";
           typesaccordionSection.style.webkitBackgroundClip = 'text';
           typesaccordionSection.style.webkitTextFillColor = 'transparent';
           typesaccordionSection.style.backgroundPosition = '97px -83px';
@@ -460,34 +447,31 @@ const Onzefriet = () => {
       },
     });
 
-
-    let revealcontaineronze = document.querySelectorAll(".revealvideo");
+    let revealcontaineronze = document.querySelectorAll('.revealvideo');
     revealcontaineronze.forEach((containeonze) => {
-      let imageimpactonze = containeonze.querySelector(".revealvideo video");
+      let imageimpactonze = containeonze.querySelector('.revealvideo video');
       let tlimpact = gsap.timeline({
         scrollTrigger: {
           trigger: containeonze,
-        }
+        },
       });
 
-      tlimpact.set(containeonze, { visibility: "visible" });
+      tlimpact.set(containeonze, {visibility: 'visible'});
       tlimpact.from(containeonze, 1.5, {
         xPercent: 0,
-        ease: 'Power2.out'
+        ease: 'Power2.out',
       });
       tlimpact.from(imageimpactonze, 1.5, {
         xPercent: -100,
         scale: 1.3,
         delay: -1.5,
-        ease: 'Power2.out'
+        ease: 'Power2.out',
       });
     });
 
-
-
     gsap.fromTo(
       '.allfiressections img',
-      { y: -50, opacity: 0 },
+      {y: -50, opacity: 0},
       {
         y: 0,
         opacity: 1,
@@ -515,10 +499,9 @@ const Onzefriet = () => {
             yoyo: true,
             repeat: -1,
           });
-        }
-      }
+        },
+      },
     );
-    
 
     // gsap.to('.allfiressections img', {
     //   x: 'random(-5, 5)',
@@ -531,7 +514,6 @@ const Onzefriet = () => {
     //   repeat: -1,
 
     // });
-
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;
@@ -563,15 +545,46 @@ const Onzefriet = () => {
               <div className="roundtext">
                 {content.transitionSection && (
                   <>
-                    <h2>{content.transitionSection.topTitle}</h2>
-                    <h3>{content.transitionSection.bottomTitle}</h3>
+                    <h2
+                      dangerouslySetInnerHTML={{
+                        __html: content.transitionSection.topTitle,
+                      }}
+                    />
+                    <h3
+                      dangerouslySetInnerHTML={{
+                        __html: content.transitionSection.bottomTitle,
+                      }}
+                    />
                   </>
                 )}
               </div>
               <div className="roundimage"></div>
               <div className="scroll-down">
-                <div className="icon-scroll"></div>
-                <p>Scroll down</p>
+                {/* <div className="icon-scroll"></div>
+                <p>Scroll down</p> */}
+
+                <div className="scroll-down">
+                  <div className="c-scroll-icon">
+                    <div className="c-scroll-icon-line-mask">
+                      <div className="c-scroll-icon-line"></div>
+                    </div>
+                    <div className="c-scroll-icon-triangle">
+                      <div className="c-scroll-icon-triangle-mask first">
+                        <div className="c-scroll-icon-triangle-line first"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask right">
+                        <div className="c-scroll-icon-triangle-line right"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask left">
+                        <div className="c-scroll-icon-triangle-line left"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle-mask last">
+                        <div className="c-scroll-icon-triangle-line last"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>Scroll down</p>
+                </div>
               </div>
             </div>
           </div>
@@ -582,16 +595,21 @@ const Onzefriet = () => {
               {content.contentSection && (
                 <>
                   <div className="line">
-                    <h4 className="onzefrienttitle" data-onzefrienttitle="">
-                      {content.contentSection.heading}
-                    </h4>
+                    <h4
+                      className="onzefrienttitle"
+                      data-onzefrienttitle=""
+                      dangerouslySetInnerHTML={{
+                        __html: content.contentSection.heading,
+                      }}
+                    />
                   </div>
                   <p
                     className="onzefriendescription"
                     data-onzefriendescription=""
-                  >
-                    {content.contentSection.description}
-                  </p>
+                    dangerouslySetInnerHTML={{
+                      __html: content.contentSection.description,
+                    }}
+                  />
                 </>
               )}
               <div className="gradient-threebox gradient-threeboxonzefritimgli">
@@ -644,9 +662,7 @@ const Onzefriet = () => {
                 <div className="appcontainers">
                   {content.videoSection && (
                     <div className="whitewithvideomainbox">
-                      <div
-                        className="leftvideobox"
-                      >
+                      <div className="leftvideobox">
                         <div className="leftlogobar">
                           <img
                             src={fabelfrie_tsticker2}
@@ -662,7 +678,7 @@ const Onzefriet = () => {
                           width="10"
                           height="10"
                         /> */}
-                        <div className='revealvideo'>
+                        <div className="revealvideo">
                           <video
                             id="myVideos"
                             src={content.videoSection.videoLink}
@@ -673,19 +689,17 @@ const Onzefriet = () => {
                           />
                         </div>
                       </div>
-                      <div
-                        className="righttextbox"
-
-                      >
+                      <div className="righttextbox">
                         <h3
                           id="animated-text"
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
                           data-aos-duration="500"
                           data-videodescription=""
-                        >
-                          {content.videoSection.videoHandwritingText}
-                        </h3>
+                          dangerouslySetInnerHTML={{
+                            __html: content.videoSection.videoHandwritingText,
+                          }}
+                        />
                         {/* <img
                           className="arrowimage swing"
                           src={arrow_blue}
@@ -695,16 +709,32 @@ const Onzefriet = () => {
                           height="10"
                         /> */}
 
-                        <div className='arrowimage'>
-                          <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <div className="arrowimage">
+                          <svg
+                            width="100"
+                            height="188"
+                            viewBox="0 0 100 188"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path
                               className="line2"
                               d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
                               stroke="url(#paint0_linear_1314_561)"
                             />
                             <defs>
-                              <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
-                                <stop offset="0.000290329" stopColor="#0F274D" />
+                              <linearGradient
+                                id="paint0_linear_1314_561"
+                                x1="2.33984"
+                                y1="186.748"
+                                x2="154.434"
+                                y2="107.999"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop
+                                  offset="0.000290329"
+                                  stopColor="#0F274D"
+                                />
                                 <stop offset="0.504985" stopColor="#1F314D" />
                                 <stop offset="1" stopColor="#0d1e4d" />
                               </linearGradient>
@@ -716,13 +746,18 @@ const Onzefriet = () => {
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
                           data-aos-duration="500"
-                        >
-                          {content.videoSection.videoHeading}
-                        </h5>
+                          dangerouslySetInnerHTML={{
+                            __html: content.videoSection.videoHeading,
+                          }}
+                        />
+
                         <p
                           className="onzeptag"
                           data-videodescription=""
-                          dangerouslySetInnerHTML={{ __html: content.videoSection.videoDescription }} />
+                          dangerouslySetInnerHTML={{
+                            __html: content.videoSection.videoDescription,
+                          }}
+                        />
                       </div>
                     </div>
                   )}
@@ -734,9 +769,11 @@ const Onzefriet = () => {
                         data-aos-easing="linear"
                         data-aos-duration="500"
                         data-whatpeoplesection=""
-                      >
-                        {content.reviewSection.reviewHeading}
-                      </h6>
+                        dangerouslySetInnerHTML={{
+                          __html: content.reviewSection.reviewHeading,
+                        }}
+                      />
+
                       <div
                         className="fl-tests"
                         data-aos="fade"
@@ -806,7 +843,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                        Math.floor(review.reviewRating) &&
+                                          Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (
@@ -837,10 +874,7 @@ const Onzefriet = () => {
 
                   {content.accordionSection && (
                     <div className="main-accordian">
-                      <h6
-
-                        data-accordionsection=""
-                      >
+                      <h6 data-accordionsection="">
                         {content.accordionSection.accordionHeading}
                       </h6>
                       <div
@@ -870,8 +904,30 @@ const Onzefriet = () => {
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
                 <div className="bottomsection">
-                  <div className="scroll-down">
+                  {/* <div className="scroll-down">
                     <div className="icon-scroll"></div>
+                    <p>Scroll down</p>
+                  </div> */}
+                  <div className="scroll-down">
+                    <div className="c-scroll-icon">
+                      <div className="c-scroll-icon-line-mask">
+                        <div className="c-scroll-icon-line"></div>
+                      </div>
+                      <div className="c-scroll-icon-triangle">
+                        <div className="c-scroll-icon-triangle-mask first">
+                          <div className="c-scroll-icon-triangle-line first"></div>
+                        </div>
+                        <div className="c-scroll-icon-triangle-mask right">
+                          <div className="c-scroll-icon-triangle-line right"></div>
+                        </div>
+                        <div className="c-scroll-icon-triangle-mask left">
+                          <div className="c-scroll-icon-triangle-line left"></div>
+                        </div>
+                        <div className="c-scroll-icon-triangle-mask last">
+                          <div className="c-scroll-icon-triangle-line last"></div>
+                        </div>
+                      </div>
+                    </div>
                     <p>Scroll down</p>
                   </div>
                 </div>
