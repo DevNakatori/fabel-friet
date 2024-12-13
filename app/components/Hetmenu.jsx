@@ -348,11 +348,11 @@ const Hetmenu = () => {
             <h3 dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }} />
           </div>
           <div className="roundimage-hetmenu"></div>
-          {/* <div className="scroll-down">
+          <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
-          </div> */}
-          <div className="scroll-down">
+          </div> 
+          {/* <div className="scroll-down">
             <div className="c-scroll-icon">
               <div className="c-scroll-icon-line-mask">
                 <div className="c-scroll-icon-line"></div>
@@ -371,9 +371,9 @@ const Hetmenu = () => {
                   <div className="c-scroll-icon-triangle-line last"></div>
                 </div>
               </div>
-            </div>
+            </div> 
             <p>Scroll down</p>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -692,11 +692,11 @@ const Hetmenu = () => {
             <div className="hetmenufixed">
               <div className="overlaybannehand-bottoms"></div>
               <div className="bottomsection">
-                {/* <div className="scroll-down">
+                <div className="scroll-down">
                   <div className="icon-scroll"></div>
                   <p>Scroll down</p>
-                </div> */}
-                <div className="scroll-down">
+                </div> 
+                {/* <div className="scroll-down">
                   <div className="c-scroll-icon">
                     <div className="c-scroll-icon-line-mask">
                       <div className="c-scroll-icon-line"></div>
@@ -717,7 +717,7 @@ const Hetmenu = () => {
                     </div>
                   </div>
                   <p>Scroll down</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
