@@ -80,12 +80,18 @@ button.reset:hover:not(:has(> *)){text-decoration:underline;cursor:pointer;}
 * --------------------------------------------------
 */
 
-.coolBeans{overflow:hidden;position:relative;text-decoration:none;transition:0.2s transform ease-in-out;will-change:transform;z-index:0;}
+/* .coolBeans{overflow:hidden;position:relative;text-decoration:none;transition:0.2s transform ease-in-out;will-change:transform;z-index:0;}
 .coolBeans::after{background-color:#f6c738;border-radius:3rem;content:'';display:block;height:100%;width:100%;position:absolute;left:0;top:0;transform:translate(-100%,0) rotate(10deg);transform-origin:top left;transition:0.2s transform ease-out;will-change:transform;z-index:-1;}
 .coolBeans:hover::after{transform:translate(0,0);}
-.coolBeans:hover{border:3px solid transparent;color:#0d1e4d;transform:scale(1.05);will-change:transform;}
+.coolBeans:hover{border:3px solid transparent;color:#0d1e4d;transform:scale(1.05);will-change:transform;} */
+.coolBeans{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:rgb(255,255,255);-webkit-text-decoration:none solid rgb(255,255,255);text-decoration:none solid rgb(255,255,255);-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgb(0,76,69);border-radius:9999px;gap:16px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;font-size:16px;font-weight:500;line-height:24px;overflow:hidden;padding:12px 24px;position:relative;-webkit-transition-duration:0.2s;-moz-transition-duration:0.2s;-o-transition-duration:0.2s;transition-duration:0.2s;-webkit-transition-timing-function:cubic-bezier(0.4,0,0.2,1);-moz-transition-timing-function:cubic-bezier(0.4,0,0.2,1);-o-transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-timing-function:cubic-bezier(0.4,0,0.2,1);width:171px;visibility:visible;font-family:greycliff-cf,sans-serif;}
+.coolBeans span{-webkit-transition-duration:.2s;-moz-transition-duration:.2s;-o-transition-duration:.2s;transition-duration:.2s;z-index:10;}
+.coolBeans:before{--tw-translate-x:-25%;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=!string!viewBox=!string!%3E%3Cpath fill=!string!d=!string!/%3E%3C/svg%3E");background-position:50%;background-repeat:no-repeat;-o-background-size:cover;background-size:cover;border-radius:9999px;bottom:-10rem;content:'http://www.w3.org/2000/svg';height:250%;left:0;pointer-events:none;position:absolute;-webkit-transform:matrix(1,0,0,1,-116.992,0);-moz-transform:matrix(1,0,0,1,-116.992,0);-ms-transform:matrix(1,0,0,1,-116.992,0);-o-transform:matrix(1,0,0,1,-116.992,0);transform:matrix(1,0,0,1,-116.992,0);-webkit-transition-duration:.7s;-moz-transition-duration:.7s;-o-transition-duration:.7s;transition-duration:.7s;width:250%;}
+.coolBeans:hover{border-width:3px;}
+.coolBeans:hover:before{border-radius:0;bottom:0;}
+.coolBeans:hover span{color:#0d1e4d;position:relative;}
 .socialiconlist ul li:after{display:none;}
-.whitebgbox .whitewithvideomainbox .righttextbox .routbtn.coolBeans:hover{border:3px solid transparent!important;}
+/* .whitebgbox .whitewithvideomainbox .righttextbox .routbtn.coolBeans:hover{border:3px solid transparent!important;} */
 .cart-main{height:100%;max-height:calc(100vh - var(--cart-aside-summary-height));overflow-y:auto;width:auto;}
 .cart-main.with-discount{max-height:calc(100vh - var(--cart-aside-summary-height-with-discount));}
 .cart-line{display:flex;padding:0.75rem 0;}

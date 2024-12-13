@@ -96,7 +96,7 @@ const Contactform = () => {
           )}
         </div>
 
-        <button className="coolBeans" type="submit">Send</button>
+        <button className="coolBeans" type="submit"><span>Send</span></button>
       </form>
     </div>
   );

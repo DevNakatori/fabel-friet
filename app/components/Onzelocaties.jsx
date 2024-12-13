@@ -378,7 +378,7 @@ const Onzelocaties = () => {
                                 </div>
 
                                 <a href={loc.btn_link} className="routbtn coolBeans">
-                                  {loc.btn_label}
+                                  <span>{loc.btn_label}</span>
                                 </a>
                               </div>
                             </div>
@@ -474,7 +474,7 @@ const Onzelocaties = () => {
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >
-                            {loc.btn_label}
+                            <span>{loc.btn_label}</span>
                           </a>
                         </div>
                       </div>
