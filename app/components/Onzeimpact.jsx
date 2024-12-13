@@ -481,11 +481,11 @@ const Onzeimpact = () => {
             />
           </div>
           <div className="roundimage-impact"></div>
-          {/* <div className="scroll-down">
+          <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
-          </div> */}
-          <div className="scroll-down">
+          </div>
+          {/* <div className="scroll-down">
             <div className="c-scroll-icon">
               <div className="c-scroll-icon-line-mask">
                 <div className="c-scroll-icon-line"></div>
@@ -506,7 +506,7 @@ const Onzeimpact = () => {
               </div>
             </div>
             <p>Scroll down</p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="wrappertest">
@@ -806,11 +806,11 @@ const Onzeimpact = () => {
             </div>
             <div className="overlaybannehand-bottoms"></div>
             <div className="bottomsection">
-              {/* <div className="scroll-down">
+              <div className="scroll-down">
                 <div className="icon-scroll"></div>
                 <p>Scroll down</p>
-              </div> */}
-              <div className="scroll-down">
+              </div> 
+              {/* <div className="scroll-down">
                 <div className="c-scroll-icon">
                   <div className="c-scroll-icon-line-mask">
                     <div className="c-scroll-icon-line"></div>
@@ -831,7 +831,7 @@ const Onzeimpact = () => {
                   </div>
                 </div>
                 <p>Scroll down</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

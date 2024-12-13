@@ -560,10 +560,14 @@ const Onzefriet = () => {
               </div>
               <div className="roundimage"></div>
               <div className="scroll-down">
+              <div className="scroll-down">
+            <div className="icon-scroll"></div>
+            <p>Scroll down</p>
+          </div>
                 {/* <div className="icon-scroll"></div>
                 <p>Scroll down</p> */}
 
-                <div className="scroll-down">
+                {/* <div className="scroll-down">
                   <div className="c-scroll-icon">
                     <div className="c-scroll-icon-line-mask">
                       <div className="c-scroll-icon-line"></div>
@@ -584,7 +588,7 @@ const Onzefriet = () => {
                     </div>
                   </div>
                   <p>Scroll down</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -904,11 +908,11 @@ const Onzefriet = () => {
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
                 <div className="bottomsection">
-                  {/* <div className="scroll-down">
+                  <div className="scroll-down">
                     <div className="icon-scroll"></div>
                     <p>Scroll down</p>
-                  </div> */}
-                  <div className="scroll-down">
+                  </div> 
+                  {/* <div className="scroll-down">
                     <div className="c-scroll-icon">
                       <div className="c-scroll-icon-line-mask">
                         <div className="c-scroll-icon-line"></div>
@@ -929,7 +933,7 @@ const Onzefriet = () => {
                       </div>
                     </div>
                     <p>Scroll down</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
