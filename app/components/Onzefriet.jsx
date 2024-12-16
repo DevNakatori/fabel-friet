@@ -475,7 +475,7 @@ const Onzefriet = () => {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.5,
         duration: 1,
         ease: 'bounce.out',
         force3D: true,
@@ -494,8 +494,8 @@ const Onzefriet = () => {
             y: 'random(-10, 10)', // random Y position change
             stagger: 0.3,
             zIndex: 22,
-            duration: 2,
-            ease: 'sine.inOut',
+            duration: 1,
+            ease: 'none',
             yoyo: true,
             repeat: -1,
           });

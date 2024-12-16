@@ -137,7 +137,7 @@ const Hetmenu = () => {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.5,
         duration: 1,
         ease: 'bounce.out',
         force3D: true,
@@ -156,8 +156,8 @@ const Hetmenu = () => {
             y: 'random(-10, 10)',
             stagger: 0.3,
             zIndex: 22,
-            duration: 2,
-            ease: 'sine.inOut',
+            duration: 1,
+            ease: 'none',
             yoyo: true,
             repeat: -1,
           });
