@@ -30,6 +30,7 @@ const HomePage = () => {
   const [error, setError] = useState(null);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [progressBarWidth, setProgressBarWidth] = useState(0);
+  const [progressPercentage, setProgressPercentage] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [loadings, setLoadings] = useState(true);
   const [currentLanguage, setCurrentLanguage] = useState(language);
@@ -99,11 +100,15 @@ const HomePage = () => {
   const handleTimeUpdate = (e) => {
     const video = e.target;
     const percentage = (video.currentTime / video.duration) * 100;
+
+    setProgressPercentage(percentage);
     setProgressBarWidth(percentage);
-    if (percentage >= 50 && !hasScrolled) {
+
+    setProgressBarWidth(percentage);
+    if (percentage >= 0 && !hasScrolled) {
       setHasScrolled(true);
       gsap.to('.scrollmeater', {
-        duration: 1,
+        duration: 0.2,
         y: '-225px',
         ease: 'bounce.out',
       });
@@ -702,6 +707,20 @@ const HomePage = () => {
           />
         )}
 
+        {/* <video
+          id="myVideo"
+          autoPlay
+          muted
+          playsInline
+          onTimeUpdate={handleTimeUpdate}
+        >
+          <source
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video> */}
+
         <div className="progress-bar-container">
           <div
             className="progress-bar"
@@ -711,10 +730,7 @@ const HomePage = () => {
 
         <div className="scrollmeater">
           <div className="maskimg">
-            <img
-              src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
-              alt={bannerData[0].bannerLogo.alt}
-            />
+            <span>{Math.floor(progressPercentage)}%</span>
           </div>
         </div>
 
@@ -767,7 +783,10 @@ const HomePage = () => {
             <h1 dangerouslySetInnerHTML={{ __html: bannerData[0].title }} />
           </div>
           <div className="banner_content_text">
-            <p id="text" dangerouslySetInnerHTML={{ __html: bannerData[0].bannerContent }} />
+            <p
+              id="text"
+              dangerouslySetInnerHTML={{ __html: bannerData[0].bannerContent }}
+            />
           </div>
           {bannerData[0].bannerButton && (
             // <a
@@ -780,7 +799,11 @@ const HomePage = () => {
               className="banner_bottombtn coolBeans"
               href={bannerData[0].bannerButton.buttonLink || '#'}
             >
-              <span dangerouslySetInnerHTML={{ __html: bannerData[0].bannerButton.buttonText }} />
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: bannerData[0].bannerButton.buttonText,
+                }}
+              />
             </a>
           )}
           <div className="bannerrotate_text">
