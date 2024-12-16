@@ -235,7 +235,7 @@ a.Whatsappbtn{width: -webkit-max-content;width: -moz-max-content;width: max-cont
 } */
 .socialiconlist ul li.Whatsapp{-webkit-box-ordinal-group:0;-ms-flex-order:-1;-webkit-order:-1;-moz-box-ordinal-group:0;order:-1;}
 .socialiconlist ul li a:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);-moz-transform:scale(1.1);-o-transform:scale(1.1);transform:scale(1.1);-webkit-box-shadow:0 0 15px #0D1E4D;box-shadow:0 0 15px #0D1E4D;}
-.whatsappbuttonarrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;width:100%;margin:0 auto;max-width:400px;}
+.whatsappbuttonarrow{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;width:100%;margin:0 auto;/*max-width:400px;*/}
 .whatsappbuttonarrow img{position:absolute;right:-56px;top:30px;}
 .de .whatsappbuttonarrow img{position:absolute;right:-65px;top:30px;}
 .footerlogo.onlydesktop{position:relative;}
