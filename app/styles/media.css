@@ -301,4 +301,19 @@ button.skipvideo.hidden{display:none;}
     #section6 .accordion-item button.accordion-header:hover span.icon{right:-45px;}
     .sixthsection .gradient-purple h4{margin-top:30px;}
     .sixthsection .appcontainers{padding-bottom:0px;padding:0px 0 0;}
+
+    .bottomsection .scroll-down p, .scroll-down p {
+        padding-top: 0px;
+        width: 85px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(90deg, #1d2951 0%, #dbe7fc 74%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-position: 0;
+        color: rgba(0,0,0,.1);
+        -webkit-text-fill-color: transparent;
+        animation: shine-4d6fed64 5s linear infinite;
+        animation-fill-mode: forwards;
+    }
 }
