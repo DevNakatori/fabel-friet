@@ -291,7 +291,7 @@ const Getintouch = () => {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.5,
         duration: 1,
         ease: 'bounce.out',
         force3D: true,
@@ -309,10 +309,10 @@ const Getintouch = () => {
 
 
     gsap.to('.likeimagelist img', {
-      x: 'random(-20, 20)',
-      y: 'random(-20, 20)',
+      x: 'random(-10, 10)',
+      y: 'random(-10, 10)',
       zIndex: 22,
-      duration: 2,
+      duration: 1,
       ease: 'none',
       yoyo: true,
       repeat: -1,
