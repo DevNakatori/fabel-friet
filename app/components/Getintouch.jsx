@@ -107,13 +107,15 @@ const Getintouch = () => {
             x: 0,
             y: 0,
             opacity: 1,
+            scale: 1,  
           },
           {
             x: 500,
             y: -10 * index,
             opacity: 0,
+            scale: 3,
             delay: index * 0.5,
-            duration: 5,
+            duration: 3,
             ease: "power1",
             onComplete: () => {
               //setFlyingSvgs((prevSvgs) => prevSvgs.filter(svg => svg.key !== flySVG.key));
@@ -674,17 +676,19 @@ const Getintouch = () => {
 
   useEffect(() => {
     gsap.set(".ball", { xPercent: -50, yPercent: -50 });
-    let targets = gsap.utils.toArray(".ball");
-    window.addEventListener("mousemove", (e) => {
-      gsap.to(targets, {
-        duration: 0.5,
-        x: e.clientX,
-        y: e.clientY,
-        ease: "power1.out",
-        overwrite: "auto",
-        stagger: 0.02
-      });
-    });
+
+let targets = gsap.utils.toArray(".ball");
+
+window.addEventListener("mousemove", (e) => {
+  gsap.to(targets, {
+    duration: 0.5,  // Duration of animation
+    x: e.clientX,   // Set x position of all balls to the mouse X position
+    y: e.clientY,   // Set y position of all balls to the mouse Y position
+    ease: "elastic.out(1, 0.75)",  // Use elastic easing for a bouncy effect
+    overwrite: "auto",  // Prevent conflicts with other animations
+    stagger: 0.09      // Slight stagger for delay between the balls
+  });
+});
   }, [getIntouch]);
 
   if (loading) return <p>Loading...</p>;
