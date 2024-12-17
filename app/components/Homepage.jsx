@@ -731,7 +731,6 @@ const HomePage = () => {
         <div className='scrollmeatermain'>
           <div className='innrebar' style={{
             overflow: 'hidden',
-            background: `url('/app/assets/resizeimgs/webp/plain-gold-background.webp') no-repeat center center`,
             backgroundSize: 'cover',
             backgroundClip: 'content-box',
             maskImage: `conic-gradient(#ECC44B ${progressBarWidth / 2 * 3.6}deg, transparent 0)`
