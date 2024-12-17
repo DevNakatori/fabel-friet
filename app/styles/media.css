@@ -25,7 +25,7 @@ button.skipvideo.hidden{display:none;}
     .lefttiktoktext{left:-50px;bottom:-140px;}
     .bottomsection .scroll-down p{max-width:100%!important;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size:-moz-calc(12 / var(--vw)* var(--multiplier))!important;font-size:calc(12 / var(--vw)* var(--multiplier))!important;}
-    body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2{font-size:-moz-calc(22 / var(--vw)* var(--multiplier))!important;font-size:calc(22 / var(--vw)* var(--multiplier))!important;}
+    body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20 / var(--vw)* var(--multiplier))!important;font-size:calc(20 / var(--vw)* var(--multiplier))!important;}
 }
 
 @media (max-width:767px){
@@ -104,21 +104,21 @@ button.skipvideo.hidden{display:none;}
 
 @media (min-width:1200px)
 {
-    .banner_content_text p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
-    a.banner_bottombtn{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
-    .bannerrotate_text{font-size:-moz-calc(24/var(--vw)*var(--multiplier));font-size:calc(24/var(--vw)*var(--multiplier));}
+    .banner_content_text p{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
+    a.banner_bottombtn{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));}
+    .bannerrotate_text{font-size:-moz-calc(22/var(--vw)*var(--multiplier));font-size:calc(22/var(--vw)*var(--multiplier));}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
-    a.locatebutton{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    a.locatebutton{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
-    .gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(108/var(--vw)*var(--multiplier));font-size:calc(108/var(--vw)*var(--multiplier));}
+    .gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
     .gradient-purple p,.fourthsection .gradient-purple p,.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whatpeople-section h6,.main-accordian h6{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
-    .wharpeoplebox p{font-size:-moz-calc(19/var(--vw)*var(--multiplier));font-size:calc(19/var(--vw)*var(--multiplier));}
-    .wharpeoplebox b{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    .wharpeoplebox p{font-size:-moz-calc(17/var(--vw)*var(--multiplier));font-size:calc(17/var(--vw)*var(--multiplier));}
+    .wharpeoplebox b{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox h5{font-size:-moz-calc(58/var(--vw)*var(--multiplier));font-size:calc(58/var(--vw)*var(--multiplier));max-width:-webkit-fit-content;max-width:-moz-fit-content;max-width:fit-content;}
     .locationaddtext ul li{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
-    .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom:15px;line-height:1.2;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));line-height:50px;}
@@ -131,15 +131,17 @@ button.skipvideo.hidden{display:none;}
     a.Whatsappbtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));height:auto;padding:10px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
     .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
-    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .locationbox h6{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
     .bottomsection .scroll-down p,.scroll-down p{font-size:18px;}
-    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
+    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
+    .fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20/var(--vw)*var(--multiplier))!important;font-size:calc(20/var(--vw)*var(--multiplier))!important;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     #section2 .whatpeople-section .fl-tests{width:100%;overflow:hidden;margin:60px 0 10px;width:-moz-calc(100vw - 0px);width:calc(100vw - 0px);position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
+
 }
 
 @media (min-width:1201px) and (max-width:1499px)
@@ -309,13 +311,22 @@ button.skipvideo.hidden{display:none;}
         width: 85px;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        background: -moz-linear-gradient(left, #1d2951 0%, #dbe7fc 74%);
+        background: -o-linear-gradient(left, #1d2951 0%, #dbe7fc 74%);
+        background: -webkit-gradient(linear, left top, right top, from(#1d2951), color-stop(74%, #dbe7fc));
         background: linear-gradient(90deg, #1d2951 0%, #dbe7fc 74%);
         background-clip: text;
         -webkit-background-clip: text;
         background-position: 0;
         color: rgba(0,0,0,.1);
         -webkit-text-fill-color: transparent;
-        animation: shine-4d6fed64 5s linear infinite;
-        animation-fill-mode: forwards;
+        -webkit-animation: shine-4d6fed64 5s linear infinite;
+           -moz-animation: shine-4d6fed64 5s linear infinite;
+             -o-animation: shine-4d6fed64 5s linear infinite;
+                animation: shine-4d6fed64 5s linear infinite;
+        -webkit-animation-fill-mode: forwards;
+           -moz-animation-fill-mode: forwards;
+             -o-animation-fill-mode: forwards;
+                animation-fill-mode: forwards;
     }
 }

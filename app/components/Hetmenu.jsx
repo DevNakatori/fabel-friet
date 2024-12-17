@@ -152,8 +152,9 @@ const Hetmenu = () => {
         },
         onComplete: () => {
           gsap.to('.allfiressectionsmenu img', {
-            x: 'random(-10, 10)',
-            y: 'random(-10, 10)',
+            // x: 'random(-10, 10)',
+            // y: 'random(-10, 10)',
+            scale: 1.1, // zoom in
             stagger: 0.3,
             zIndex: 22,
             duration: 1,
