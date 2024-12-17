@@ -107,9 +107,9 @@ const HomePage = () => {
     setProgressBarWidth(percentage);
     if (percentage >= 0 && !hasScrolled) {
       setHasScrolled(true);
-      gsap.to('.scrollmeater', {
+      gsap.to('.scrollmeatermain', {
         duration: 0.2,
-        y: '-225px',
+        y: '-110px',
         ease: 'bounce.out',
       });
     }
@@ -126,7 +126,7 @@ const HomePage = () => {
       videos.classList.add('hidden');
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
-      document.querySelector('.scrollmeater').classList.add('hidden');
+      document.querySelector('.scrollmeatermain').classList.add('hidden');
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -354,7 +354,7 @@ const HomePage = () => {
       const skipbuttons = document.getElementById('skipvideobtn');
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
-      document.querySelector('.scrollmeater').classList.add('hidden');
+      document.querySelector('.scrollmeatermain').classList.add('hidden');
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
@@ -728,9 +728,18 @@ const HomePage = () => {
           ></div>
         </div>
 
-        <div className="scrollmeater">
-          <div className="maskimg">
-            <span>{Math.floor(progressPercentage)}%</span>
+        <div className='scrollmeatermain'>
+          <div className='innrebar' style={{
+            overflow: 'hidden',
+            background: `url('/app/assets/resizeimgs/webp/plain-gold-background.webp') no-repeat center center`,
+            backgroundSize: 'cover',
+            backgroundClip: 'content-box',
+            maskImage: `conic-gradient(#ECC44B ${progressBarWidth / 2 * 3.6}deg, transparent 0)`
+          }} ></div>
+          <div className="scrollmeater">
+            <div className="maskimg">
+              <span>{Math.floor(progressPercentage)}%</span>
+            </div>
           </div>
         </div>
 
