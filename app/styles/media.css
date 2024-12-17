@@ -57,6 +57,8 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .appcontainers {padding-bottom: 0px;padding: 200px 0;}
     .sixthsection  .overlaybannehand-bottoms, .sixthsection .overlaybannehand-bottomsmenu {bottom: 107px;background-position: center bottom;}
 
+    .sixthsection  .overlaybannehand-bottoms{bottom: 82px;background-position: center bottom;}
+
 }
 
 @media (min-width:1501px) and (max-width:1921px)
