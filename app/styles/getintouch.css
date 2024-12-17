@@ -83,7 +83,13 @@ li.Insta:after,li.Tiktok:after,li.Facebook:after,li.Linkedin:after,li.Whatsapp:a
 .btn--snakeBorder::before{content:"";position:absolute;top:2px;left:2px;bottom:2px;}
 .btn--snakeBorder span{position:absolute;}
 .btn--snakeBorder span:nth-child(1){top:0;left:0;width:100%;height:2px;background:-moz-linear-gradient(left,#0c002b,#0D1E4D);background:-o-linear-gradient(left,#0c002b,#0D1E4D);background:-webkit-gradient(linear,left top, right top,from(#0c002b),to(#0D1E4D));background:linear-gradient(to right,#0c002b,#0D1E4D);-webkit-animation:borderAnimation1 2s linear infinite;-moz-animation:borderAnimation1 2s linear infinite;-o-animation:borderAnimation1 2s linear infinite;animation:borderAnimation1 2s linear infinite;}
-.locatebutton.coolBeans.whatsapp-btn{color:#0D1E4D;position:relative;z-index:2;}
+.locatebutton.coolBeans.whatsapp-btn {
+  color: #0D1E4D;
+  position: relative;
+  z-index: 2;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .locatebutton.coolBeans.whatsapp-btn span svg{width:30px;height:30px;position:relative;top:7px;margin-right:10px;}
 a.locatebutton.coolBeans.whatsapp-btn.secondwhatsapp{margin:30px 0;}
 @-webkit-keyframes borderAnimation1{
