@@ -489,19 +489,20 @@ const Onzefriet = () => {
           markers: false,
         },
         onComplete: () => {
+          // Adding zoom-in and zoom-out animation to images
           gsap.to('.allfiressections img', {
-            x: 'random(-10, 10)', // random X position change
-            y: 'random(-10, 10)', // random Y position change
+            scale: 1.1, // zoom in
             stagger: 0.3,
             zIndex: 22,
             duration: 1,
             ease: 'none',
-            yoyo: true,
-            repeat: -1,
+            yoyo: true, // reverse animation (zoom out)
+            repeat: -1, // infinite repetition
           });
         },
       },
     );
+    
 
     // gsap.to('.allfiressections img', {
     //   x: 'random(-5, 5)',
