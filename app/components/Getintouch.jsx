@@ -907,19 +907,18 @@ const Getintouch = () => {
                         target="_blank"
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
-                        className="Whatsappbtn btn--snakeBorder whatsapp-btn"
+                        className="locatebutton coolBeans whatsapp-btn"
                         onMouseEnter={handleEnter}
                         onMouseLeave={handleLeave}
                         onTouchStart={handleEnter}  // Touchstart for mobile
                         onTouchEnd={handleLeave}    // Touchend for mobile
                         onClick={handleClick}
                       >
+                        {/* <span></span>
                         <span></span>
                         <span></span>
-                        <span></span>
-                        <span></span>
-
-                        <svg
+                        <span></span> */}
+                        <span><svg
                           height="800px"
                           width="800px"
                           version="1.1"
@@ -954,9 +953,7 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg>
-
-                        {contactSection.contactDetails.whatsAppLabel}
+                        </svg>{contactSection.contactDetails.whatsAppLabel}</span>
                       </a>
                       {flyingSvgs.map((flySVG) => (
                           <div className="whatsppp" key={flySVG.key} id={flySVG.key}>
@@ -1017,13 +1014,14 @@ const Getintouch = () => {
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="Whatsappbtn btn--snakeBorder"
+                        className="locatebutton coolBeans whatsapp-btn secondwhatsapp" 
                       >
+                        {/* <span></span>
                         <span></span>
                         <span></span>
-                        <span></span>
-                        <span></span>
-                        <svg
+                        <span></span> */}
+                        
+                        <span> <svg
                           height="800px"
                           width="800px"
                           version="1.1"
@@ -1058,8 +1056,7 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg>
-                        {contactSection.contactDetails.whatsAppLabel}
+                        </svg> {contactSection.contactDetails.whatsAppLabel}</span>
                       </a>
                     </div>
                   )}
