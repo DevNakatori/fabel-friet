@@ -334,8 +334,8 @@ button.skipvideo.hidden{display:none;}
     #section2 .whatpeople-section .fl-tests{width:100%;overflow:hidden;margin:60px 0 10px;width:-moz-calc(100vw - 0px);width:calc(100vw - 0px);position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;}
     .fl-tests .swiper-slide .module{margin:0;max-width:-moz-calc(100% - 50px);max-width:calc(100% - 50px);width:-moz-calc(100% - 50px);width:calc(100% - 50px);-webkit-box-flex:0;-ms-flex:0 0 calc(100% - 50px);-webkit-flex:0 0 calc(100% - 50px);-moz-box-flex:0;flex:0 0 calc(100% - 50px);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;}
     .fl-tests .module .wharpeoplebox{width:100%;max-width:100%;}
-    .scroll-down{position:absolute;bottom:-5px;height:47px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:150px;}
-    .bottomsection .scroll-down {top: 85%;}
+    .scroll-down{position:absolute;bottom:0px;height:100px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:150px;}
+    .bottomsection .scroll-down {top: 50%;}
     .sixthsection .main-accordian {border-top: solid 2px #0D1E4D;padding-top: 30px;margin-top: 20px;}
     .arrowimage {width:38px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:20.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:20px;margin-top:0px;}
@@ -348,6 +348,8 @@ button.skipvideo.hidden{display:none;}
     .likeimagelist img:nth-child(2){left:-121px;}
     .likeimagelist img:nth-child(3){right:-100px;}
     .likeimagelist img:nth-child(4){right:-115px;}
+
+    .bottomsection .scroll-down p, .scroll-down p{width:100%;}
 
 }
 
@@ -385,9 +387,11 @@ button.skipvideo.hidden{display:none;}
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{margin-bottom:30px;}
     .fl-tests .swiper-slide .module{margin:0;max-width:-moz-calc(100% - 50px);max-width:calc(100% - 50px);width:-moz-calc(100% - 50px);width:calc(100% - 50px);-webkit-box-flex:0;-ms-flex:0 0 calc(100% - 50px);-webkit-flex:0 0 calc(100% - 50px);-moz-box-flex:0;flex:0 0 calc(100% - 50px);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;}
     .fl-tests .module .wharpeoplebox{width:100%;max-width:100%;}
-    .scroll-down{position:absolute;bottom:-5px;height:47px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:150px;}
+    .scroll-down{position:absolute;bottom:0px;height:90px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:170px;}
     .bottomsection .scroll-down {top: 85%;}
     .sixthsection .main-accordian {border-top: solid 2px #0D1E4D;padding-top: 30px;margin-top: 20px;}
+
+    .bottomsection .scroll-down p, .scroll-down p{width:100%;}
 }
 
 @media (max-width:767px)
@@ -442,5 +446,13 @@ button.skipvideo.hidden{display:none;}
            -moz-animation-fill-mode: forwards;
              -o-animation-fill-mode: forwards;
                 animation-fill-mode: forwards;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button {
+        line-height: 0px;
     }
 }
