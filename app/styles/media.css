@@ -126,6 +126,11 @@ button.skipvideo.hidden{display:none;}
 }
 
 
+@media (min-width:2550px) and (max-width:2560px){
+    .sixthsection  .overlaybannehand-bottoms{bottom:20px;background-position:center bottom;}
+}
+
+
 @media (min-width:1501px) and (max-width:1921px){
     .image-wrapper,.image-wrappers{width:100%;max-width:450px;height:600px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
     .banner_title_text h1,.banner_title_text{max-width:1030px;}
@@ -164,6 +169,7 @@ button.skipvideo.hidden{display:none;}
     .nl .roundtext-impact h3{position:absolute;right:-8vw;bottom:0;margin:0;}
     .bannerrotate_text{right:-3vw;}
     .arrowimage{position:absolute;right:-39px;top:33px;width:60px;-webkit-transform:rotate(20deg);-ms-transform:rotate(20deg);-moz-transform:rotate(20deg);-o-transform:rotate(20deg);transform:rotate(20deg);}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {right: -7vw;}
 }
 
 
