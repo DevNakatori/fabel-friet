@@ -187,8 +187,8 @@ const Qrmenu = () => {
         <div className="landingcontainer">
           <h2>{menuData.qrcustomertitle}</h2>
           <div dangerouslySetInnerHTML={{ __html: menuData.qrcustomerdescription }} />
-          <button ref={buttonRef} className="okunderstood">
-            {menuData.qrcustomerTitle}
+          <button ref={buttonRef} className="okunderstood coolBeans">
+            <span>{menuData.qrcustomerTitle}</span>
           </button>
         </div>
       </section>

@@ -170,7 +170,7 @@ const Qrmenuheader = () => {
         </button> */}
 
 
-        <button className="backhome" onClick={handleBackClick}>
+        <button className="backhome coolBeans" onClick={handleBackClick}>
           <span>Go Back</span>
           <svg
             id="Layer_1"
