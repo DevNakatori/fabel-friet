@@ -2,6 +2,7 @@
 .roundtext h2{left:-12vw;}
 button.skipvideo.hidden{display:none;}
 .rightsidebullets{display:none!important;}
+
 @media (hover:none){
     .cursor{display:none;}
     .cursor2{display:none;}
@@ -10,6 +11,7 @@ button.skipvideo.hidden{display:none;}
     .accordion-item button.accordion-header:hover{-webkit-transform:translate3d(0em,0px,0px) scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);-moz-transform:translate3d(0em,0px,0px) scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);transform:translate3d(0em,0px,0px) scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg,0deg);}
     .accordion-item button.accordion-header:hover span.icon{right:0;}
 }
+
 @media screen and (min-width:2560px){
     .fl-tests .swiper-pagination{bottom:0px;}
     .wharpeoplebox p,.wharpeoplebox b{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));}
@@ -70,6 +72,7 @@ button.skipvideo.hidden{display:none;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
 }
+
 @media (min-width:2500px) and (max-width:3000px){
     .fl-tests .swiper-pagination{bottom:0px;}
     .wharpeoplebox p,.wharpeoplebox b{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));}
@@ -85,6 +88,7 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size:-moz-calc(12 / var(--vw)* var(--multiplier))!important;font-size:calc(12 / var(--vw)* var(--multiplier))!important;}
     body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20 / var(--vw)* var(--multiplier))!important;font-size:calc(20 / var(--vw)* var(--multiplier))!important;}
 }
+
 @media (max-width:767px){
     #section2 .wrappertest,#section3 .wrappertest,#section5 .wrappertest,#section6 .wrappertest,#section4 .wrappertest{z-index:99;}
     .cursor,.cursor2,.arrowimage{display:none;}
@@ -95,15 +99,21 @@ button.skipvideo.hidden{display:none;}
     .secondesection .gradient-threebox .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg,.fifthesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:0;bottom:22px;top:93%;left:94%;-webkit-transform:inherit;-ms-transform:inherit;-moz-transform:inherit;-o-transform:inherit;transform:inherit;width:50px;height:auto;}
     .secondesection .gradient-threebox .image-wrapper:nth-child(1) .threeboxleftlogobar,.fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar{position:absolute;right:inherit;top:-15px;-webkit-transform:rotate(-15deg);-ms-transform:rotate(-15deg);-moz-transform:rotate(-15deg);-o-transform:rotate(-15deg);transform:rotate(-15deg);z-index:9;width:50px;}
 }
+
+
 @media (min-width:1921px) and (max-width:4000px){
     .image-wrapper,.image-wrappers{width:100%;max-width:450px;height:600px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
-    .banner_title_text,.banner_title_text h1{max-width:1030px;}
+    .banner_title_text,.banner_title_text h1{max-width:80%;}
+    .secondesection .wrappertest .gradient-purple p,.thirdesection p.locationescription,.fourthsection .gradient-purple p,.fifthesection p.onzeimpactdescription,.sixthsection .gradient-purple p.onzefriendescription{max-width:70%;}
+    .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h3{max-width:40%;}
+    .locatebutton.coolBeans.whatsapp-btn{color:#0D1E4D;position:relative;z-index:2;padding-left:25px;padding-right:25px;padding-top:10px;padding-bottom:10px;}
+    .banner_content_text{max-width:100%;}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
     .bannerrotate_text{right:-3vw;}
-    a.banner_bottombtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));width:100%;padding:10px 35px;height:auto;line-height:56px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;}
-    .bannerrotate_text{max-width:460px;line-height:58px;right:-10vw;}
+    a.banner_bottombtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));width:100%;padding:0px 25px;height:auto;line-height:56px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;}
+    .bannerrotate_text{max-width:20%;line-height:58px;right:-10vw;}
     .scroll-down .icon-scroll{bottom:5px;}
-    a.locatebutton{max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;width:100%;padding:15px 30px;}
+    a.locatebutton{max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;width:100%;padding:10px 25px;}
     .locationaddtext ul li{max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;}
     .whitebgbox .whitewithvideomainbox .righttextbox .routbtn{width:-webkit-max-content;width:-moz-max-content;width:max-content;padding:3px 35px;height:inherit;line-height:47px;}
     a.Whatsappbtn{font-size:-moz-calc(23/var(--vw)*var(--multiplier));font-size:calc(23/var(--vw)*var(--multiplier));height:auto;padding:20px;}
@@ -112,7 +122,10 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .appcontainers{padding-bottom:0px;padding:200px 0;}
     .sixthsection  .overlaybannehand-bottoms,.sixthsection .overlaybannehand-bottomsmenu{bottom:107px;background-position:center bottom;}
     .sixthsection  .overlaybannehand-bottoms{bottom:31px;background-position:center bottom;}
+    .banner_overlay{max-width:70%;}
 }
+
+
 @media (min-width:1501px) and (max-width:1921px){
     .image-wrapper,.image-wrappers{width:100%;max-width:450px;height:600px;-o-object-fit:cover;object-fit:cover;-o-object-position:center;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
     .banner_title_text h1,.banner_title_text{max-width:1030px;}
@@ -134,6 +147,8 @@ button.skipvideo.hidden{display:none;}
     .fl-tests .swiper-slide .module{margin:0;max-width:-moz-calc(100% - 50px);max-width:calc(100% - 50px);width:-moz-calc(100% - 50px);width:calc(100% - 50px);-webkit-box-flex:0;-ms-flex:0 0 calc(100% - 50px);-webkit-flex:0 0 calc(100% - 50px);-moz-box-flex:0;flex:0 0 calc(100% - 50px);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;}
     .fl-tests .module .wharpeoplebox{width:100%;max-width:100%;}
 }
+
+
 @media (min-width:1201px) and (max-width:1600px){
     .roundtext-onzelocation h2,.roundtext-onzelocation h3,.roundtext-getintouch h2,.roundtext-getintouch h3,.roundtext-hetmenu h2,.roundtext-hetmenu h3,.roundtext-impact h2,.roundtext-impact h3{font-size:clamp(20px,10vw,80px)!important;}
     .en .roundtext-onzelocation h2{left:-12%!important;}
@@ -150,6 +165,8 @@ button.skipvideo.hidden{display:none;}
     .bannerrotate_text{right:-3vw;}
     .arrowimage{position:absolute;right:-39px;top:33px;width:60px;-webkit-transform:rotate(20deg);-ms-transform:rotate(20deg);-moz-transform:rotate(20deg);-o-transform:rotate(20deg);transform:rotate(20deg);}
 }
+
+
 @media (min-width:1200px){
     .banner_content_text p{font-size:-moz-calc(20/var(--vw)*var(--multiplier));font-size:calc(20/var(--vw)*var(--multiplier));}
     a.banner_bottombtn{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));}
@@ -189,6 +206,8 @@ button.skipvideo.hidden{display:none;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
 }
+
+
 @media (min-width:1201px) and (max-width:1499px){
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-12vw;}
@@ -207,6 +226,8 @@ button.skipvideo.hidden{display:none;}
     .en .bannerrotate_text{right:0vw;}
     #section5 .whitewithvideomainboxs{padding:170px 0 210px;}
 }
+
+
 @media screen and (min-width:3840px){
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(50/var(--vw)*var(--multiplier));font-size:calc(50/var(--vw)*var(--multiplier));}
     .bannerrotate_text{max-width:600px;line-height:1;}
@@ -230,10 +251,14 @@ button.skipvideo.hidden{display:none;}
     .locatebutton.coolBeans.whatsapp-btn span svg{width:50px;height:50px;position:relative;top:7px;margin-right:10px;}
     .righttiktoktext p.zoomanimation{line-height:1;}
 }
+
+
 @media (min-width:1282px) and (max-width:1367px){
     .bannerrotate_text{right:10vw;}
     .en .bannerrotate_text{right:4vw;}
 }
+
+
 @media (min-width:1201px) and (max-width:1281px){
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-12vw;}
@@ -245,6 +270,7 @@ button.skipvideo.hidden{display:none;}
     .en .bannerrotate_text{right:4vw;}
     #section5 .whitewithvideomainboxs{padding:170px 0 210px;}
 }
+
 @media (min-width:992px) and (max-width:1199px){
     .headernew{padding:0rem 25px;}
     .headernew nav ul li a{font-size:clamp(16px,5vw,16px);}
@@ -299,6 +325,7 @@ button.skipvideo.hidden{display:none;}
     .likeimagelist img:nth-child(4){right:-115px;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
 }
+
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
     .fourthsection .whitewithvideomainbox{margin:0;}
@@ -337,6 +364,7 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .main-accordian{border-top:solid 2px #0D1E4D;padding-top:30px;margin-top:20px;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
 }
+
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;-webkit-transform:rotate(-8deg);-ms-transform:rotate(-8deg);-moz-transform:rotate(-8deg);-o-transform:rotate(-8deg);transform:rotate(-8deg);width:60px;}
     .secondesection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-top:50px;}
