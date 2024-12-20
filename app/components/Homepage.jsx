@@ -733,7 +733,7 @@ const HomePage = () => {
             overflow: 'hidden',
             backgroundSize: 'cover',
             backgroundClip: 'content-box',
-            maskImage: `conic-gradient(#ECC44B ${progressBarWidth / 2 * 3.6}deg, transparent 0)`
+            maskImage: `conic-gradient(#fff ${progressBarWidth / 2 * 3.6}deg, transparent 0)`
           }} ></div>
           <div className="scrollmeater">
             <div className="maskimg">
