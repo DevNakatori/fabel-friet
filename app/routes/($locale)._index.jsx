@@ -244,7 +244,7 @@ export default function Homepage() {
             {showOnzefriet && <Onzefriet />} 
             {showOnzelocaties && <Onzelocaties />} 
             {showHetmenu && <Hetmenu />} 
-            {showOnzeimpact && <Onzeimpact />} 
+            {showOnzeimpact && <Onzeimpact />}
             {showGetintouch && <Getintouch />} 
           </div>
         </div>
