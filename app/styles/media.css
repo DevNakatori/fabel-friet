@@ -538,6 +538,7 @@ button.skipvideo.hidden{display:none;}
     .bottomsection .scroll-down{top:85%;}
     .sixthsection .main-accordian{border-top:solid 2px #0D1E4D;padding-top:30px;margin-top:20px;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
+    .canvasfries{display: none;}
 
 }
 
@@ -572,4 +573,5 @@ button.skipvideo.hidden{display:none;}
     .bottomsection .scroll-down p,.scroll-down p{padding-top:0px;width:85px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:-moz-linear-gradient(left,#1d2951 0%,#dbe7fc 74%);background:-o-linear-gradient(left,#1d2951 0%,#dbe7fc 74%);background:-webkit-gradient(linear,left top, right top,from(#1d2951),color-stop(74%, #dbe7fc));background:linear-gradient(90deg,#1d2951 0%,#dbe7fc 74%);background-clip:text;-webkit-background-clip:text;background-position:0;color:rgba(0,0,0,.1);-webkit-text-fill-color:transparent;-webkit-animation:shine-4d6fed64 5s linear infinite;-moz-animation:shine-4d6fed64 5s linear infinite;-o-animation:shine-4d6fed64 5s linear infinite;animation:shine-4d6fed64 5s linear infinite;-webkit-animation-fill-mode:forwards;-moz-animation-fill-mode:forwards;-o-animation-fill-mode:forwards;animation-fill-mode:forwards;}
     .scroll-down{display:none;}
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{line-height:0px;}
+    .canvasfries{display: none;}
 }

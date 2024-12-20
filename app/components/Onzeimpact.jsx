@@ -308,11 +308,7 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-          typeSplitleftvideoboxsectitle.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplitleftvideoboxsectitle.style.webkitBackgroundClip = 'text';
-          typeSplitleftvideoboxsectitle.style.webkitTextFillColor =
-            'transparent';
+         
           typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
         });
       },
@@ -334,10 +330,7 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
-          typeSplitrighttextboxtitlse.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplitrighttextboxtitlse.style.webkitBackgroundClip = 'text';
-          typeSplitrighttextboxtitlse.style.webkitTextFillColor = 'transparent';
+          
           typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
         });
       },
@@ -402,11 +395,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsimpacttwolistlisttitle.forEach(
           (typeSplitimpacttwolistlisttitle) => {
-            typeSplitimpacttwolistlisttitle.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeSplitimpacttwolistlisttitle.style.webkitBackgroundClip = 'text';
-            typeSplitimpacttwolistlisttitle.style.webkitTextFillColor =
-              'transparent';
+           
             typeSplitimpacttwolistlisttitle.style.backgroundPosition =
               '97px -83px';
           },
