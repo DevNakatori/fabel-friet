@@ -90,7 +90,7 @@ li.Insta:after,li.Tiktok:after,li.Facebook:after,li.Linkedin:after,li.Whatsapp:a
   padding-left: 15px;
   padding-right: 15px;
 }
-.locatebutton.coolBeans.whatsapp-btn span svg{width:30px;height:30px;position:relative;top:7px;margin-right:10px;}
+/*.locatebutton.coolBeans.whatsapp-btn span svg{width:30px;height:30px;position:relative;top:7px;margin-right:10px;}*/
 a.locatebutton.coolBeans.whatsapp-btn.secondwhatsapp{margin:30px 0;}
 @-webkit-keyframes borderAnimation1{
   0%{-webkit-transform:translateX(-100%);transform:translateX(-100%);}
