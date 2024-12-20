@@ -627,7 +627,7 @@ z-index:1;}
 }
 .whatappmain{position:relative;max-width:1000px;margin:0 auto;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;}
 a.Whatsappbtn{background:#fff;z-index:1;}
-.whatsppp{position:absolute;top:25%;left:80%;-webkit-transform:translateX(-50%,-50%);-moz-transform:translateX(-50%,-50%);-ms-transform:translateX(-50%,-50%);-o-transform:translateX(-50%,-50%);transform:translateX(-50%,-50%)}
+.whatsppp{position:absolute;top:15%;left:80%;-webkit-transform:translateX(-50%,-50%);-moz-transform:translateX(-50%,-50%);-ms-transform:translateX(-50%,-50%);-o-transform:translateX(-50%,-50%);transform:translateX(-50%,-50%)}
 .whatsppp svg{width:30px;height:30px;}
 .scroll-down{position:absolute;bottom:-5px;height:90px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:160px;background:rgba(0,0,0,0);padding:10px 0 0;border-radius:8px;}
 .flair{width:100px;height:100px;position:fixed;top:0;left:0;pointer-events:none;}

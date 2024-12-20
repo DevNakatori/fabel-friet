@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
@@ -229,10 +229,7 @@ const Hetmenu = () => {
       },
       onUpdate: function () {
         charsmenutitleright.forEach((typeSplithetmenuititleright) => {
-          typeSplithetmenuititleright.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplithetmenuititleright.style.webkitBackgroundClip = 'text';
-          typeSplithetmenuititleright.style.webkitTextFillColor = 'transparent';
+          
           typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
         });
       },
@@ -298,6 +295,102 @@ const Hetmenu = () => {
         },
       });
     }
+  }, [hetmenu]);
+
+
+
+  const rainContainerRef = useRef(null);
+const canvasRef = useRef(null);
+const fries = useRef([]);
+const fryImages = useRef([]);
+const numberOfFries = 300;
+
+// Define your image sources here
+const fryImageSources = [menu_one, menu_two, menu_three, menu_four, menu_five, menu_six, menu_seven, menu_eight];
+
+useEffect(() => {
+  if (!rainContainerRef.current || !canvasRef.current) return;
+
+  // Load fry images
+  fryImages.current = fryImageSources.map((src) => {
+    const img = new Image();
+    img.src = src;
+    return img;
+  });
+
+  // Resize canvas to fit the container
+  const resizeCanvas = () => {
+    const canvas = canvasRef.current;
+    const rainContainer = rainContainerRef.current;
+    if (!canvas || !rainContainer) return; // Ensure refs are valid
+    canvas.width = rainContainer.offsetWidth;
+    canvas.height = rainContainer.offsetHeight;
+  };
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Create fries objects
+  const createFries = () => {
+    fries.current = [];
+    const canvas = canvasRef.current;
+    if (!canvas) return; // Ensure canvas is valid
+    for (let i = 0; i < numberOfFries; i++) {
+      fries.current.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        speed: Math.random() * 1 + 0.9, // Slower speed: 0.5 to 1.5 pixels per frame
+        sway: Math.random() * 50 - 25,
+        image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
+      });
+    }
+  };
+
+  // Render fries
+  const renderFries = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!ctx || !canvas) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    fries.current.forEach((fry) => {
+      fry.y += fry.speed;
+      fry.x += fry.sway * 0.01; // Slight sway effect
+      if (fry.y > canvas.height) {
+        fry.y = -50; // Reset to the top
+        fry.x = Math.random() * canvas.width; // Random horizontal position
+        fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
+      }
+      ctx.drawImage(fry.image, fry.x, fry.y, 100, 150); // Adjust fry size here
+    });
+
+    requestAnimationFrame(renderFries);
+  };
+
+  // Trigger rain effect on scroll
+  ScrollTrigger.create({
+    trigger: rainContainerRef.current,
+    start: "top center",
+    onEnter: () => {
+      createFries();
+      renderFries();
+    },
+    onLeaveBack: () => {
+      fries.current = []; // Stop rendering when leaving the section
+      const ctx = canvasRef.current.getContext("2d");
+      if (ctx) {
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      }
+    },
+  });
+
+  return () => {
+    window.removeEventListener("resize", resizeCanvas);
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  };
+
+
   }, [hetmenu]);
 
   if (loading) return <div>Loading...</div>;
@@ -378,13 +471,22 @@ const Hetmenu = () => {
         </div>
       </div>
 
-      <div className="wrappertest">
+      <div className="wrappertest" ref={rainContainerRef}>
+        
         <section className="section hero"></section>
         <div className="gradient-purple" id="hetmenusection">
           <h4 className="hetmenuntitle" data-menutitle="" dangerouslySetInnerHTML={{ __html: contentSection.heading }} />
           <p className="hetmenuescription" data-menudescription="" dangerouslySetInnerHTML={{ __html: contentSection.description }} />
+         <canvas className='canvasfries'
+                ref={canvasRef}
+                style={{ position: 'absolute', top: 0, left: 0 }}
+              />
           <div className="whitebgbox">
-            <div className="allfiressectionsmenu">
+            <canvas className='canvasfries'
+                ref={canvasRef}
+                style={{ position: 'absolute', top: 0, left: 0 }}
+              />
+            {/* <div className="allfiressectionsmenu">
               <img src={menu_one} alt="img" width="10" height="10" />
               <img src={menu_two} alt="img" width="10" height="10" />
               <img src={menu_three} alt="img" width="10" height="10" />
@@ -393,8 +495,7 @@ const Hetmenu = () => {
               <img src={menu_six} alt="img" width="10" height="10" />
               <img src={menu_seven} alt="img" width="10" height="10" />
               <img src={menu_eight} alt="img" width="10" height="10" />
-            </div>
-
+            </div> */}
             <div
               className="menudynamic onlydesktop"
               data-aos="fade-up"

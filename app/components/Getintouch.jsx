@@ -488,12 +488,6 @@ const Getintouch = () => {
       },
       onUpdate: function () {
         charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
-          typeswhatpeoplesectiontouchgetsocial.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeswhatpeoplesectiontouchgetsocial.style.webkitBackgroundClip =
-            'text';
-          typeswhatpeoplesectiontouchgetsocial.style.webkitTextFillColor =
-            'transparent';
           typeswhatpeoplesectiontouchgetsocial.style.backgroundPosition =
             '97px -83px';
         });
@@ -517,12 +511,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchcontactsection.forEach(
           (typeswhatpeoplesectiontouchgetcontect) => {
-            typeswhatpeoplesectiontouchgetcontect.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeswhatpeoplesectiontouchgetcontect.style.webkitBackgroundClip =
-              'text';
-            typeswhatpeoplesectiontouchgetcontect.style.webkitTextFillColor =
-              'transparent';
+            
             typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
               '97px -83px';
           },
@@ -547,12 +536,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchaccordian.forEach(
           (typeswhatpeoplesectiontouchgeaccordian) => {
-            typeswhatpeoplesectiontouchgeaccordian.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeswhatpeoplesectiontouchgeaccordian.style.webkitBackgroundClip =
-              'text';
-            typeswhatpeoplesectiontouchgeaccordian.style.webkitTextFillColor =
-              'transparent';
+            
             typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
               '97px -83px';
           },
@@ -947,7 +931,7 @@ window.addEventListener("mousemove", (e) => {
                         rel="noopener noreferrer"
                         className="locatebutton coolBeans whatsapp-btn"
                         onMouseEnter={handleEnter}
-                        onMouseLeave={handleLeave}
+                       // onMouseLeave={handleLeave}
                         onTouchStart={handleEnter}  // Touchstart for mobile
                         onTouchEnd={handleLeave}    // Touchend for mobile
                         onClick={handleClick}
