@@ -424,7 +424,7 @@ useEffect(() => {
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
         <div className="bannersectinlogo">
-          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" />
+          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="4500"/>
         </div>
         <div className="wrappermain">
           <img

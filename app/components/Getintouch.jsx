@@ -107,7 +107,7 @@ const Getintouch = () => {
             x: 0,
             y: 0,
             opacity: 1,
-            scale: 1,  
+            scale: 1,
           },
           {
             x: 500,
@@ -118,21 +118,13 @@ const Getintouch = () => {
             duration: 3,
             ease: "power1",
             onComplete: () => {
-              //setFlyingSvgs((prevSvgs) => prevSvgs.filter(svg => svg.key !== flySVG.key));
-              // createFlyingSvgs();
             },
-
-            //   x: (Math.random() * 500), 
-            // y: (Math.random() * 50), 
-            // opacity: 0,
-            // delay: index * 0.1, 
-            // duration: 5,
-            // ease: "power2.out",
           }
         );
       });
     }
   }, [flyingSvgs]);
+
   const iconMap = {
     facebook: facebookIcon,
     insta: instagramIcon,
@@ -511,7 +503,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchcontactsection.forEach(
           (typeswhatpeoplesectiontouchgetcontect) => {
-            
+
             typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
               '97px -83px';
           },
@@ -536,7 +528,7 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchaccordian.forEach(
           (typeswhatpeoplesectiontouchgeaccordian) => {
-            
+
             typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
               '97px -83px';
           },
@@ -643,37 +635,113 @@ const Getintouch = () => {
       });
     }
 
-
-
-    //     gsap.set(".flair", {xPercent: -50, yPercent: -50});
-
-    // let xTo = gsap.quickTo(".flair", "x", {duration: 0.6, ease: "power3"}),
-    //     yTo = gsap.quickTo(".flair", "y", {duration: 0.6, ease: "power3"});
-
-    // window.addEventListener("mousemove", e => {
-    //   xTo(e.clientX);
-    //   yTo(e.clientY);
-    // });
-
   }, [getIntouch]);
 
 
   useEffect(() => {
-    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
+    gsap.set(".likeimagelists .ball", { xPercent: -50, yPercent: -50 });
 
-let targets = gsap.utils.toArray(".ball");
+    let targets = gsap.utils.toArray(".likeimagelists .ball");
 
-window.addEventListener("mousemove", (e) => {
-  gsap.to(targets, {
-    duration: 0.5,  // Duration of animation
-    x: e.clientX,   // Set x position of all balls to the mouse X position
-    y: e.clientY,   // Set y position of all balls to the mouse Y position
-    ease: "elastic.out(1, 0.75)",  // Use elastic easing for a bouncy effect
-    overwrite: "auto",  // Prevent conflicts with other animations
-    stagger: 0.09      // Slight stagger for delay between the balls
-  });
-});
+    window.addEventListener("mousemove", (e) => {
+      gsap.to(targets, {
+        duration: 0.5, 
+        x: e.clientX,   
+        y: e.clientY,   
+        ease: "elastic.out(1, 0.75)",  
+        overwrite: "auto",  
+        stagger: 0.09    
+      });
+    });
   }, [getIntouch]);
+
+
+  const rainContainerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 50;
+  const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
+  useEffect(() => {
+    if (!rainContainerRef.current || !canvasRef.current) return;
+    fryImages.current = fryImageSources.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+    const resizeCanvas = () => {
+      const canvas = canvasRef.current;
+      const rainContainer = rainContainerRef.current;
+      if (!canvas || !rainContainer) return; 
+      canvas.width = rainContainer.offsetWidth;
+      canvas.height = rainContainer.offsetHeight;
+    };
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    const createFries = () => {
+      fries.current = [];
+      const canvas = canvasRef.current;
+      if (!canvas) return; 
+      for (let i = 0; i < numberOfFries; i++) {
+        fries.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          speed: Math.random() * 1 + 0.9, 
+          sway: Math.random() * 50 - 25,
+          image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)],
+        });
+      }
+    };
+    const renderFries = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx || !canvas) return;
+    
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      fries.current.forEach((fry) => {
+        fry.y += fry.speed; // Vertical movement (falling downwards)
+    
+        // Horizontal movement (from left to right)
+        fry.x += 1;  // This makes the fries move horizontally from left to right
+    
+        // If a fry goes off the right side, reset it to the left side
+        if (fry.x > canvas.width) {
+          fry.x = -100;  // Reset the fry to start from the far left
+          fry.y = Math.random() * -canvas.height;  // Randomize the vertical position for the reset
+          fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)];
+        }
+    
+        // Draw the fry
+        ctx.drawImage(fry.image, fry.x, fry.y, 300, 300); // Draw with width and height (100x150)
+      });
+    
+      requestAnimationFrame(renderFries); // Continue rendering at 60fps
+    };
+  
+    ScrollTrigger.create({
+      trigger: rainContainerRef.current,
+      start: "top center",
+      onEnter: () => {
+        createFries();
+        renderFries();
+      },
+      onLeaveBack: () => {
+        fries.current = []; 
+        const ctx = canvasRef.current.getContext("2d");
+        if (ctx) {
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        }
+      },
+    });
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [getIntouch]);
+
+
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -689,6 +757,9 @@ window.addEventListener("mousemove", (e) => {
             <img
               src={getImageUrl(getIntouch.logoImage.asset._ref)}
               alt="Logo"
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="4500"
             />
           )}
         </div>
@@ -727,7 +798,7 @@ window.addEventListener("mousemove", (e) => {
           </div> */}
         </div>
       </div>
-      <div className="wrappertest">
+      <div className="wrappertest" ref={rainContainerRef}>
         <div className="flair flair--3"><div className="likeimagelists">
           <img src={liek_2} alt="img" className='ball' />
           <img src={liek_1} alt="img" className='ball' />
@@ -736,12 +807,19 @@ window.addEventListener("mousemove", (e) => {
         </div></div>
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
-          <div className="likeimagelist">
+
+          <canvas className='canvasfries'
+            ref={canvasRef}
+            style={{ position: 'absolute', top: -100, left: 0 }}
+          />
+
+
+          {/* <div className="likeimagelist">
             <img src={liek_2} alt="img" />
             <img src={liek_1} alt="img" />
             <img src={liek_3} alt="img" />
             <img src={liek_4} alt="img" />
-          </div>
+          </div> */}
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
             {contentSection.heading}
@@ -931,7 +1009,7 @@ window.addEventListener("mousemove", (e) => {
                         rel="noopener noreferrer"
                         className="locatebutton coolBeans whatsapp-btn"
                         onMouseEnter={handleEnter}
-                       // onMouseLeave={handleLeave}
+                        // onMouseLeave={handleLeave}
                         onTouchStart={handleEnter}  // Touchstart for mobile
                         onTouchEnd={handleLeave}    // Touchend for mobile
                         onClick={handleClick}
