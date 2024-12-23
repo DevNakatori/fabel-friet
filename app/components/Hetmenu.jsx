@@ -339,7 +339,7 @@ useEffect(() => {
       fries.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 0.9, // Slower speed: 0.5 to 1.5 pixels per frame
+        speed: Math.random() * 1 + 1.5, // Slower speed: 0.5 to 1.5 pixels per frame
         sway: Math.random() * 50 - 25,
         image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
       });
@@ -793,34 +793,7 @@ useEffect(() => {
             </div>
             <div className="hetmenufixed">
               <div className="overlaybannehand-bottoms"></div>
-              <div className="bottomsection">
-                <div className="scroll-down">
-                  <div className="icon-scroll"></div>
-                  <p>Scroll down</p>
-                </div> 
-                {/* <div className="scroll-down">
-                  <div className="c-scroll-icon">
-                    <div className="c-scroll-icon-line-mask">
-                      <div className="c-scroll-icon-line"></div>
-                    </div>
-                    <div className="c-scroll-icon-triangle">
-                      <div className="c-scroll-icon-triangle-mask first">
-                        <div className="c-scroll-icon-triangle-line first"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask right">
-                        <div className="c-scroll-icon-triangle-line right"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask left">
-                        <div className="c-scroll-icon-triangle-line left"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask last">
-                        <div className="c-scroll-icon-triangle-line last"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <p>Scroll down</p>
-                </div> */}
-              </div>
+              
             </div>
           </div>
         </div>

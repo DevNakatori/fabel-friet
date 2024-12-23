@@ -690,7 +690,7 @@ const Getintouch = () => {
         fries.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.9, 
+          speed: Math.random() * 1 + 1.5, 
           sway: Math.random() * 50 - 25,
           image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)],
         });
