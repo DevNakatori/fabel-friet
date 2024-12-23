@@ -13,7 +13,8 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
 import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
-
+import etuh from '../assets/resizeimgs/webp/etuh.png';
+import etuij from '../assets/resizeimgs/webp/etuij.png';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -25,6 +26,53 @@ const Onzeimpact = () => {
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+
+  const [showGarbage, setShowGarbage] = useState(false); 
+  const binLidRef = useRef(null); 
+  const garbageRef = useRef(null); 
+  const binContainerRef = useRef(null); // Ref for the bin container element
+
+
+  useEffect(() => {
+    
+    const createAndAnimatePotato = (index) => {
+      if (!binContainerRef.current) return;
+
+      const potatoContainer = document.createElement('div');
+      potatoContainer.classList.add('potato-container');
+      const potatoImages = [etuh, etuij];
+      const randomImage = potatoImages[Math.floor(Math.random() * potatoImages.length)];
+      const potatoImg = document.createElement('img');
+      potatoImg.src = randomImage;
+      potatoImg.style.width = '60px';
+      potatoImg.style.height = '60px';
+      potatoContainer.appendChild(potatoImg);
+      binContainerRef.current.appendChild(potatoContainer);
+      setShowGarbage(true);
+      gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
+      gsap.to(garbageRef.current, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.inOut' });
+      gsap.to(potatoContainer, {
+        y: 500,        
+        opacity: 0,    
+        duration: 1.5, 
+        delay: index * 0.1, 
+        ease: 'power1.inOut', 
+        onComplete: () => {
+          potatoContainer.remove(); 
+        },
+      });
+      setTimeout(() => {
+        gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
+      }, 200); 
+    };
+    let index = 0;
+    const interval = setInterval(() => {
+      createAndAnimatePotato(index);
+      index += 1; 
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const timelineimpact = gsap.timeline({
@@ -779,7 +827,7 @@ const Onzeimpact = () => {
                     </div>
                   </div>
                 </div>
-                <div className="binimagebox">
+                {/* <div className="binimagebox">
                   <img
                     src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
                     alt="Bin Imagebox"
@@ -790,7 +838,18 @@ const Onzeimpact = () => {
                     width="10"
                     height="10"
                   />
-                </div>
+                </div> */}
+
+<div className="bin-container" ref={binContainerRef}>
+      <div id="recycle-bin">
+        <div className="bin-lid" ref={binLidRef}></div>
+        <div
+          id="garbage"
+          ref={garbageRef}
+          style={{ opacity: 0, position: 'relative', transform: 'translateY(30px)' }}
+        ></div>
+      </div>
+    </div>
               </div>
             </div>
             <div className="overlaybannehand-bottoms"></div>
