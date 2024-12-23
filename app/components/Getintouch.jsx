@@ -32,6 +32,9 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
 
+
+  
+
   const [flyingSvgs, setFlyingSvgs] = useState([]);
   const createFlyingSvgs = () => {
     const newFlyingSvgs = [];
@@ -656,6 +659,7 @@ const Getintouch = () => {
   }, [getIntouch]);
 
 
+
   const rainContainerRef = useRef(null);
   const canvasRef = useRef(null);
   const fries = useRef([]);
@@ -740,7 +744,6 @@ const Getintouch = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [getIntouch]);
-
 
 
   if (loading) return <p>Loading...</p>;
