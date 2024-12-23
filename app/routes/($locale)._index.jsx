@@ -241,10 +241,10 @@ export default function Homepage() {
         <div id="smooth-wrapper">
           <div id="smooth-content">
             {showHomePage && <HomePage />}
-            {showOnzefriet && <Onzefriet />} 
+            {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />} 
             {showHetmenu && <Hetmenu />} 
-            {showOnzeimpact && <Onzeimpact />}
+            {showOnzeimpact && <Onzeimpact />} 
             {showGetintouch && <Getintouch />} 
           </div>
         </div>
