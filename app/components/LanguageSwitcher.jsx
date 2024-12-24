@@ -121,7 +121,7 @@ const LanguageSwitcher = () => {
   }, []);
 
   return (
-    <div className="language-switcher" ref={dropdownRef}>
+    <div className="language-switcher main-menu is-at-top" ref={dropdownRef}>
       <div className="selected-language" onClick={toggleDropdown}>
         {/* <span
           className={`flag-icon ${
