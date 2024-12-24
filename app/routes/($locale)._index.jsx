@@ -243,9 +243,9 @@ export default function Homepage() {
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />} 
-            {showHetmenu && <Hetmenu />} 
+            {showHetmenu && <Hetmenu />}
             {showOnzeimpact && <Onzeimpact />} 
-            {showGetintouch && <Getintouch />} 
+            {showGetintouch && <Getintouch />}
           </div>
         </div>
       </LanguageProvider>

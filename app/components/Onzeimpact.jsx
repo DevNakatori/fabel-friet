@@ -19,6 +19,10 @@ import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.web
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
+
+import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
+import topdustin from '../assets/resizeimgs/webp/Top.webp';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
@@ -28,14 +32,14 @@ const Onzeimpact = () => {
   const [error, setError] = useState(null);
 
 
-  const [showGarbage, setShowGarbage] = useState(false); 
-  const binLidRef = useRef(null); 
-  const garbageRef = useRef(null); 
+  const [showGarbage, setShowGarbage] = useState(false);
+  const binLidRef = useRef(null);
+  const garbageRef = useRef(null);
   const binContainerRef = useRef(null); // Ref for the bin container element
 
 
   useEffect(() => {
-    
+
     const createAndAnimatePotato = (index) => {
       if (!binContainerRef.current) return;
 
@@ -53,23 +57,23 @@ const Onzeimpact = () => {
       gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
       gsap.to(garbageRef.current, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.inOut' });
       gsap.to(potatoContainer, {
-        y: 500,        
-        opacity: 0,    
-        duration: 1.5, 
-        delay: index * 0.1, 
-        ease: 'power1.inOut', 
+        y: 500,
+        opacity: 0,
+        duration: 1.5,
+        delay: index * 0.1,
+        ease: 'power1.inOut',
         onComplete: () => {
-          potatoContainer.remove(); 
+          potatoContainer.remove();
         },
       });
       setTimeout(() => {
         gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
-      }, 200); 
+      }, 200);
     };
     let index = 0;
     const interval = setInterval(() => {
       createAndAnimatePotato(index);
-      index += 1; 
+      index += 1;
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -356,7 +360,7 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-         
+
           typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
         });
       },
@@ -378,7 +382,7 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
-          
+
           typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
         });
       },
@@ -443,7 +447,7 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsimpacttwolistlisttitle.forEach(
           (typeSplitimpacttwolistlisttitle) => {
-           
+
             typeSplitimpacttwolistlisttitle.style.backgroundPosition =
               '97px -83px';
           },
@@ -830,8 +834,8 @@ const Onzeimpact = () => {
                     </div>
                   </div>
                 </div>
-                {/* <div className="binimagebox">
-                  <img
+                <div className="binimagebox">
+                  {/* <img
                     src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
                     alt="Bin Imagebox"
                     data-speed="auto"
@@ -840,10 +844,33 @@ const Onzeimpact = () => {
                     data-aos-duration="2000"
                     width="10"
                     height="10"
+                  /> */}
+                  <img
+                    src={bottomdustbin}
+                    alt="Bin Imagebox"
+                    width="10"
+                    height="10"
                   />
-                </div> */}
+                  <img
+                    src={topdustin}
+                    alt="Bin Imagebox"
+                    width="10"
+                    className='topdustbinimage'
+                    height="10"
+                  />
+                  {/* <img
+                    src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
+                    alt="Bin Imagebox"
+                    data-speed="auto"
+                    data-aos="fade-up"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                    width="10"
+                    height="10"
+                  /> */}
+                </div>
 
-<div className="bin-container" ref={binContainerRef}>
+                {/* <div className="bin-container" ref={binContainerRef}>
       <div id="recycle-bin">
         <div className="bin-lid" ref={binLidRef}></div>
         <div
@@ -852,11 +879,11 @@ const Onzeimpact = () => {
           style={{ opacity: 0, position: 'relative', transform: 'translateY(30px)' }}
         ></div>
       </div>
-    </div>
+    </div> */}
               </div>
             </div>
             <div className="overlaybannehand-bottoms"></div>
-           
+
           </div>
         </div>
       </div>
