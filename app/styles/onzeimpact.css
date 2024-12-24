@@ -44,7 +44,7 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
 .qrcodeimagebox{position:absolute;left:0px;top:25%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);}
 .qrcodeimagebox img{width:100%;height:auto;}
 .binimagebox{position:relative;right:0px;bottom:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;width:250px;}
-.binimageboxmain{max-width:650px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:absolute;right:0;bottom:150px;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
+.binimageboxmain{max-width:650px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:absolute;right:-10px;bottom:0px;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
 .binimageboxmain .binimageboxieft{width:275px;margin-top:-45px;}
 .binimageboxmain .binimageboxieft .binarrowimg{width:96px;left:60%;position:relative;margin-top:0px;}
 .binimageboxmain .binimageboxieft h6{color:#0D1E4D;text-align:left;font-family:'Permanent Marker',cursive;font-size:30px;font-style:normal;font-weight:400;line-height:35px;margin:0;width:73%;position:relative;left:38%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -64,6 +64,23 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
 .fifthesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar{position:absolute;right:10px;top:-55px;-webkit-transform:rotate(-15deg);-ms-transform:rotate(-15deg);-moz-transform:rotate(-15deg);-o-transform:rotate(-15deg);transform:rotate(-15deg);z-index:1;width:150px;}
 .secondesection .gradient-threebox .image-wrappers:nth-child(1) .threeboxleftlogobar img,.secondesection .gradient-threebox .image-wrappers:nth-child(2) .threeboxleftlogobar.lastbottomimg img{width:140px;-webkit-box-shadow:none;box-shadow:none;height:auto;}
 div#onzeimpactnonzefriet h4.onzeimpacttitle{opacity:1;margin-top:0;margin-bottom:30px;}
+.binimagebox img.topdustbinimage{position:absolute;top:-45px;-webkit-transform:rotate(-11deg);-moz-transform:rotate(-11deg);-ms-transform:rotate(-11deg);-o-transform:rotate(-11deg);transform:rotate(-11deg);right:5px;-webkit-animation:rotateAndMove 2s infinite alternate ease-in-out;-moz-animation:rotateAndMove 2s infinite alternate ease-in-out;-o-animation:rotateAndMove 2s infinite alternate ease-in-out;animation:rotateAndMove 2s infinite alternate ease-in-out;-webkit-transition:top 1s ease-in-out,-webkit-transform 1s ease-in-out;transition:top 1s ease-in-out,-webkit-transform 1s ease-in-out;-o-transition:top 1s ease-in-out,-o-transform 1s ease-in-out;-moz-transition:transform 1s ease-in-out,top 1s ease-in-out,-moz-transform 1s ease-in-out;transition:transform 1s ease-in-out,top 1s ease-in-out;transition:transform 1s ease-in-out,top 1s ease-in-out,-webkit-transform 1s ease-in-out,-moz-transform 1s ease-in-out,-o-transform 1s ease-in-out;}
+@-webkit-keyframes rotateAndMove{
+    0%{-webkit-transform:rotate(-11deg);transform:rotate(-11deg);top:-45px;}
+    100%{-webkit-transform:rotate(11deg);transform:rotate(11deg);top:-74px;}
+}
+@-moz-keyframes rotateAndMove{
+    0%{-moz-transform:rotate(-11deg);transform:rotate(-11deg);top:-45px;}
+    100%{-moz-transform:rotate(11deg);transform:rotate(11deg);top:-74px;}
+}
+@-o-keyframes rotateAndMove{
+    0%{-o-transform:rotate(-11deg);transform:rotate(-11deg);top:-45px;}
+    100%{-o-transform:rotate(11deg);transform:rotate(11deg);top:-74px;}
+}
+@keyframes rotateAndMove{
+    0%{-webkit-transform:rotate(-11deg);-moz-transform:rotate(-11deg);-o-transform:rotate(-11deg);transform:rotate(-11deg);top:-45px;}
+    100%{-webkit-transform:rotate(11deg);-moz-transform:rotate(11deg);-o-transform:rotate(11deg);transform:rotate(11deg);top:-74px;}
+}
 @media (min-width:1201px) and (max-width:1281px){
     #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:590px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;width:375px;position:relative;}
 }
