@@ -71,7 +71,7 @@ const Newheader = () => {
         if (direction == -1) {
           gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
         } else if (direction == 1) {
-          gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 0, y: -40, ease: 'sine' });
+          gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
         }
       }
     });

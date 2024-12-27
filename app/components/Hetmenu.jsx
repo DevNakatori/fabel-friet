@@ -35,6 +35,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
+
   const { language } = useLanguage();
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -303,7 +304,7 @@ const Hetmenu = () => {
 const canvasRef = useRef(null);
 const fries = useRef([]);
 const fryImages = useRef([]);
-const numberOfFries = 300;
+const numberOfFries = 100;
 
 // Define your image sources here
 const fryImageSources = [menu_one, menu_two, menu_three, menu_four, menu_five, menu_six, menu_seven, menu_eight];
@@ -339,7 +340,7 @@ useEffect(() => {
       fries.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 1.5, // Slower speed: 0.5 to 1.5 pixels per frame
+        speed: Math.random() * 1 + 1, // Slower speed: 0.5 to 1.5 pixels per frame
         sway: Math.random() * 50 - 25,
         image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
       });
@@ -362,7 +363,7 @@ useEffect(() => {
         fry.x = Math.random() * canvas.width; // Random horizontal position
         fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
       }
-      ctx.drawImage(fry.image, fry.x, fry.y, 100, 150); // Adjust fry size here
+      ctx.drawImage(fry.image, fry.x, fry.y, 250, 350); // Adjust fry size here
     });
 
     requestAnimationFrame(renderFries);
@@ -393,6 +394,26 @@ useEffect(() => {
 
   }, [hetmenu]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['friet-section', 'snacks-section', 'drinks-section'];
+      let currentSection = 'friet-section';  
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section && window.scrollY >= section.offsetTop - 10 && window.scrollY < section.offsetTop + section.offsetHeight) {
+          currentSection = sectionId;
+        }
+      });
+      setActiveSection(currentSection);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hetmenu]);
+
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
@@ -404,6 +425,8 @@ useEffect(() => {
     transitionSection,
     logoImage,
   } = hetmenu[0];
+  
+  
 
   const handleScrollToSection = (sectionId) => {
     if (activeSection === sectionId) {
