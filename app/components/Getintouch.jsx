@@ -549,7 +549,7 @@ const Getintouch = () => {
       if (accordion !== content) {
         gsap.to(accordion, {
           height: 0,
-          duration: 0,
+          duration: 0.5,
           onComplete: () => (accordion.style.display = 'none'),
         });
         accordion.classList.remove('show');

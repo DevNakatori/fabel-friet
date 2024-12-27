@@ -191,7 +191,7 @@ a.Whatsappbtn{width:299px;height:60px;-ms-flex-negative:0;-webkit-flex-shrink:0;
 .locationbox p i.location{width:49px;height:49px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;margin-right:16px;}
 .locationbox ul li{margin-bottom:28px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
-.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;margin:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;margin-right:25px;position:relative;}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;margin:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;margin-right:25px;position:relative;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:after{content:"|";position:absolute;right:-10px;width:1px;height:123px;top:-11px;line-height:50px;font-size:37px;font-weight:300;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li:last-child:after{display:none;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele{display:inline-block;width:33px;height:33px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;margin:0 10px 0 0;}
@@ -207,7 +207,7 @@ a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;borde
 .sixthsection .gradient-purple h4{opacity:1;margin-top: 0;margin-bottom: 30px;}
 .sixthsection .gradient-purple p.onzefriendescription{margin:10px auto 75px;}
 .sixthsection .gradient-threebox ul li{height:auto;}
-.locationbox ul li p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;text-align:left;width:100%;margin:0px 0;}
+.locationbox ul li p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;text-align:left;width:100%;margin:0px 0;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg{width:100%;height:100%;}
 .sixthsection .gradient-threebox ul li iframe{width:80%;height:90%;display:block;border:none;top:-6px;position:relative;border-radius:18px;overflow:hidden;}
 .sixthsection .gradient-threebox ul{height:590px;}
@@ -251,7 +251,7 @@ a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;borde
 .de .whatsappbuttonarrow img{position:absolute;right:-65px;top:30px;}
 .footerlogo.onlydesktop{position:relative;}
 .footerlogo.onlydesktop img{position:absolute;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);}
-.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;margin-left:5px;}
+.sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;margin-left:5px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a:hover{color:#f6c738;}
 .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:50px;margin-bottom:30px;}
 .en .sixthsection .roundtext-getintouch h3 {max-width: 400px;}

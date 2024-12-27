@@ -131,7 +131,7 @@ const Onzefriet = () => {
       if (accordion !== content) {
         gsap.to(accordion, {
           height: 0,
-          duration: 0,
+          duration: 0.5,
           onComplete: () => (accordion.style.display = 'none'),
         });
         accordion.classList.remove('show');
@@ -512,7 +512,7 @@ const Onzefriet = () => {
 const canvasRef = useRef(null);
 const fries = useRef([]);
 const fryImages = useRef([]);
-const numberOfFries = 300;
+const numberOfFries = 100;
 
 // Define your image sources here
 const fryImageSources = [fries_one, fries_two, fries_three, fries_four,fries_five,fries_six];
@@ -548,7 +548,7 @@ useEffect(() => {
       fries.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 1.5, // Slower speed: 0.5 to 1.5 pixels per frame
+        speed: Math.random() * 1 + 1, // Slower speed: 0.5 to 1.5 pixels per frame
         sway: Math.random() * 50 - 25,
         image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
       });
@@ -571,7 +571,7 @@ useEffect(() => {
         fry.x = Math.random() * canvas.width; // Random horizontal position
         fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
       }
-      ctx.drawImage(fry.image, fry.x, fry.y, 100, 150); // Adjust fry size here
+      ctx.drawImage(fry.image, fry.x, fry.y, 250, 350); // Adjust fry size here
     });
 
     requestAnimationFrame(renderFries);
