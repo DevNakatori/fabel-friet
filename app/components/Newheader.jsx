@@ -6,6 +6,7 @@ import { useLanguage } from '~/components/LanguageContext';
 import '../styles/newheadermenu.css';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
+
 const Newheader = () => {
   const { language } = useLanguage();
   const [headerData, setHeaderData] = useState(null);
@@ -270,6 +271,9 @@ const Newheader = () => {
           ))}
         </ul> */}
         <ul className="desktop-menu">
+            <div className="bannersectinlogo">
+                <img src={bannerlogo} />
+            </div>
           {headerData &&
             headerData[0] &&
             headerData[0].header &&
