@@ -746,11 +746,27 @@ const Getintouch = () => {
   }, [getIntouch]);
 
 
+
+  useEffect(() => {
+      const animateButton = (e) => {
+        e.preventDefault();
+        const button = e.target;
+        button.classList.remove('animate');
+        button.classList.add('animate');
+        setTimeout(() => button.classList.remove('animate'), 400);
+      };
+      const bubblyButtons = document.getElementsByClassName('bubbly-button');
+      for (let i = 0; i < bubblyButtons.length; i++) {
+        bubblyButtons[i].addEventListener('click', animateButton);
+      }
+    }, [getIntouch]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
   const { contactSection, contentSection, transitionSection } = getIntouch;
+  
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -1004,13 +1020,13 @@ const Getintouch = () => {
                   data-aos-duration="2000"
                 >
                   {contactSection.contactDetails.whatsAppLabel && (
-                    <div key="whatsapp" className='whatappmain'>
+                    <div key="whatsapp" className='whatappmain animate'>
                       <a
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
-                        className="locatebutton coolBeans whatsapp-btn"
+                        className="locatebutton bubbly-button whatsapp-btn"
                         onMouseEnter={handleEnter}
                         // onMouseLeave={handleLeave}
                         onTouchStart={handleEnter}  // Touchstart for mobile
@@ -1021,7 +1037,7 @@ const Getintouch = () => {
                         <span></span>
                         <span></span>
                         <span></span> */}
-                        <span><svg
+                        <svg
                           height="800px"
                           width="800px"
                           version="1.1"
@@ -1056,7 +1072,7 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg>{contactSection.contactDetails.whatsAppLabel}</span>
+                        </svg>{contactSection.contactDetails.whatsAppLabel}
                       </a>
                       {flyingSvgs.map((flySVG) => (
                         <div className="whatsppp" key={flySVG.key} id={flySVG.key}>
@@ -1117,14 +1133,14 @@ const Getintouch = () => {
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="locatebutton coolBeans whatsapp-btn secondwhatsapp"
+                        className="locatebutton bubbly-button whatsapp-btn secondwhatsapp"
                       >
                         {/* <span></span>
                         <span></span>
                         <span></span>
                         <span></span> */}
 
-                        <span> <svg
+                        <svg
                           height="800px"
                           width="800px"
                           version="1.1"
@@ -1159,7 +1175,7 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg> {contactSection.contactDetails.whatsAppLabel}</span>
+                        </svg> {contactSection.contactDetails.whatsAppLabel}
                       </a>
                     </div>
                   )}

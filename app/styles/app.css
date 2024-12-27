@@ -690,15 +690,49 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before{content
 
 
 
+a.bubbly-button.banner_bottombtn {
+  overflow: inherit;
+}
 
+a.locatebutton.onlydesktop.bubbly-button{
+  overflow: inherit;
+}
+
+a.locatebutton {
+  z-index: 9;
+  overflow: inherit !important;
+}
+
+a.locatebutton.bubbly-button.whatsapp-btn {
+  display: flex;
+  margin-left: 0;
+}
+
+.locatebutton.whatsapp-btn svg {
+  width: 23px;
+  height: 23px;
+  position: relative;
+  top: 0;
+  margin-right: 10px;
+  fill: #0d1e4d;
+}
+
+body .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
+  overflow: inherit !important;
+  margin: 0;
+  border: none !important;
+}
+
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{overflow: inherit !important;
+  margin: 0;}
 
 .bubbly-button {
   display: block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: rgb(236, 196, 75);
-  color: #0d1e4d;
+  background-color: rgb(236, 196, 75) !important;
+  color: #0d1e4d !important;
   border-radius: 15px;
   border: none;
   cursor: pointer;
@@ -707,7 +741,8 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before{content
   box-shadow: 0 2px 25px rgba(236, 196, 75, 0.5);
   margin: 0 auto;
   width: max-content;
-  padding:12px 24px;
+  padding:10px 15px !important;
+  line-height: 1!important;
 }
 .bubbly-button:focus {
   outline: 0;
@@ -738,8 +773,8 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before{content
   background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
 }
 .bubbly-button:active {
-  transform: scale(0.9);
-  background-color: #ECC44B;
+  transform: scale(0.9) !important;
+  background-color: #ECC44B !important;
   box-shadow: 0 2px 25px rgba(236, 196, 75, 0.5);
 }
 .bubbly-button.animate:before {

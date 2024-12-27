@@ -668,6 +668,20 @@ const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [bannerData]);
+
+  useEffect(() => {
+  const animateButton = (e) => {
+    e.preventDefault();
+    const button = e.target;
+    button.classList.remove('animate');
+    button.classList.add('animate');
+    setTimeout(() => button.classList.remove('animate'), 400);
+  };
+  const bubblyButtons = document.getElementsByClassName('bubbly-button');
+  for (let i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton);
+  }
+}, [bannerData]);
   /* forcefully scroll top */
 
   if (loading && isFirstLoad) {
@@ -804,15 +818,12 @@ const HomePage = () => {
             //   {bannerData[0].bannerButton.buttonText}
             // </a>
             <a
-              className="banner_bottombtn coolBeans"
-              href={bannerData[0].bannerButton.buttonLink || '#'}
-            >
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: bannerData[0].bannerButton.buttonText,
-                }}
-              />
-            </a>
+  className="bubbly-button banner_bottombtn"
+  href={bannerData[0].bannerButton.buttonLink || '#'}
+  dangerouslySetInnerHTML={{
+    __html: bannerData[0].bannerButton.buttonText,
+  }}
+></a>
           )}
           <div className="bannerrotate_text">
             <p dangerouslySetInnerHTML={{ __html: bannerData[0].bannerText }} />

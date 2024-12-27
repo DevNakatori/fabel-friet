@@ -195,6 +195,21 @@ const Onzelocaties = () => {
     });
   }, [onzelocaties]);
 
+
+  useEffect(() => {
+    const animateButton = (e) => {
+      e.preventDefault();
+      const button = e.target;
+      button.classList.remove('animate');
+      button.classList.add('animate');
+      setTimeout(() => button.classList.remove('animate'), 400);
+    };
+    const bubblyButtons = document.getElementsByClassName('bubbly-button');
+    for (let i = 0; i < bubblyButtons.length; i++) {
+      bubblyButtons[i].addEventListener('click', animateButton);
+    }
+  }, [onzelocaties]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
@@ -286,16 +301,19 @@ const Onzelocaties = () => {
                 }}
               />
 
-              <a
-                href="#"
-                className="locatebutton onlydesktop coolBeans"
-                data-aos="fade-up"
+                <div data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
-                data-aos-delay="1000"
+                data-aos-delay="1000">
+
+              <a
+                href=""
+                className="locatebutton onlydesktop bubbly-button"
+                
               >
-                <span>{locationData.contentSection.btn_label}</span>
+                {locationData.contentSection.btn_label}
               </a>
+              </div>
 
               {/* mobile location slider */}
               <div className="whitebgbox ">
@@ -380,7 +398,7 @@ const Onzelocaties = () => {
                                   </div>
                                 </div>
 
-                                <a href={loc.btn_link} className="routbtn coolBeans">
+                                <a href={loc.btn_link} className="routbtn bubbly-button">
                                   <span>{loc.btn_label}</span>
                                 </a>
                               </div>
@@ -472,12 +490,12 @@ const Onzelocaties = () => {
                           <a
                             href={loc.btn_link}
                             target="_blank"
-                            className="routbtn coolBeans"
+                            className="routbtn bubbly-button"
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
                           >
-                            <span>{loc.btn_label}</span>
+                            {loc.btn_label}
                           </a>
                         </div>
                       </div>
