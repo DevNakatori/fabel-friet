@@ -32,6 +32,20 @@ const Contactform = () => {
     },
   });
 
+
+  const animateButton = (e) => {
+    e.preventDefault();
+    const button = e.target;
+    button.classList.remove('animate');
+    button.classList.add('animate');
+    setTimeout(() => button.classList.remove('animate'), 400);
+  };
+  const bubblyButtons = document.getElementsByClassName('bubbly-button');
+  for (let i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton);
+  }
+
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -96,7 +110,7 @@ const Contactform = () => {
           )}
         </div>
 
-        <button className="coolBeans" type="submit"><span>Send</span></button>
+        <button className="bubbly-button" type="submit">Send</button>
       </form>
     </div>
   );

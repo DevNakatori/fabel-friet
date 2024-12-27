@@ -120,7 +120,7 @@ button.skipvideo.hidden{display:none;}
     .banner_content_text{max-width:100%;}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
     .bannerrotate_text{right:-3vw;}
-    a.banner_bottombtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));width:100%;padding:0px 25px;height:auto;line-height:56px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;}
+    a.banner_bottombtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));width:100%;padding:5px 10px;height:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;}
     .bannerrotate_text{max-width:20%;line-height:58px;right:-10vw;}
     .scroll-down .icon-scroll{bottom:5px;}
     a.locatebutton{max-width:-webkit-max-content;max-width:-moz-max-content;max-width:max-content;width:100%;padding:10px 25px;}
@@ -574,4 +574,14 @@ button.skipvideo.hidden{display:none;}
     .scroll-down{display:none;}
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{line-height:0px;}
     .canvasfries{display: none;}
+    .slideraddress .wharpeoplebox .sliderwhitebg .routbtn{overflow: inherit;}
+    a.locatebutton.bubbly-button.whatsapp-btn {
+        display: flex;
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button {
+        line-height: 1;
+        height: auto;
+    }
 }
