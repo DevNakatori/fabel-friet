@@ -304,7 +304,7 @@ const Hetmenu = () => {
 const canvasRef = useRef(null);
 const fries = useRef([]);
 const fryImages = useRef([]);
-const numberOfFries = 100;
+const numberOfFries = 80;
 
 // Define your image sources here
 const fryImageSources = [menu_one, menu_two, menu_three, menu_four, menu_five, menu_six, menu_seven, menu_eight];
@@ -363,7 +363,7 @@ useEffect(() => {
         fry.x = Math.random() * canvas.width; // Random horizontal position
         fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
       }
-      ctx.drawImage(fry.image, fry.x, fry.y, 250, 350); // Adjust fry size here
+      ctx.drawImage(fry.image, fry.x, fry.y, 200, 250); // Adjust fry size here
     });
 
     requestAnimationFrame(renderFries);
@@ -447,7 +447,7 @@ useEffect(() => {
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
         <div className="bannersectinlogo">
-          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="4500"/>
+          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" data-aos="fade" data-aos-easing="linear" data-aos-duration="4500"/>
         </div>
         <div className="wrappermain">
           <img

@@ -224,7 +224,7 @@ const Onzelocaties = () => {
                 alt="Logo"
                 width="10"
                 height="10"
-                data-aos="fade-down"
+                data-aos="fade"
                 data-aos-easing="linear"
                 data-aos-duration="4500"
               />

@@ -512,7 +512,7 @@ const Onzefriet = () => {
 const canvasRef = useRef(null);
 const fries = useRef([]);
 const fryImages = useRef([]);
-const numberOfFries = 100;
+const numberOfFries = 80;
 
 // Define your image sources here
 const fryImageSources = [fries_one, fries_two, fries_three, fries_four,fries_five,fries_six];
@@ -571,7 +571,7 @@ useEffect(() => {
         fry.x = Math.random() * canvas.width; // Random horizontal position
         fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
       }
-      ctx.drawImage(fry.image, fry.x, fry.y, 250, 350); // Adjust fry size here
+      ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); // Adjust fry size here
     });
 
     requestAnimationFrame(renderFries);
@@ -626,7 +626,7 @@ useEffect(() => {
                   alt="Logo"
                   width="10"
                   height="10"
-                  data-aos="fade-down"
+                  data-aos="fade"
                   data-aos-easing="linear"
                   data-aos-duration="4500"
                 />
