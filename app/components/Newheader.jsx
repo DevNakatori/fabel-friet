@@ -271,9 +271,9 @@ const Newheader = () => {
           ))}
         </ul> */}
         <ul className="desktop-menu">
-            <div className="bannersectinlogo">
+            <li className="bannersectinlogo">
                 <img src={bannerlogo} />
-            </div>
+            </li>
           {headerData &&
             headerData[0] &&
             headerData[0].header &&

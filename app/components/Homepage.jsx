@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import '../styles/homebanner.css';
@@ -35,6 +35,9 @@ const HomePage = () => {
   const [loadings, setLoadings] = useState(true);
   const [currentLanguage, setCurrentLanguage] = useState(language);
   const skipbuttons = document.getElementById('skipvideobtn');
+  const extraProgressBarRef = useRef(null);
+
+
   useEffect(() => {
     document.body.classList.add(currentLanguage);
     return () => {
@@ -100,19 +103,20 @@ const HomePage = () => {
   const handleTimeUpdate = (e) => {
     const video = e.target;
     const percentage = (video.currentTime / video.duration) * 100;
-
     setProgressPercentage(percentage);
     setProgressBarWidth(percentage);
-
-    setProgressBarWidth(percentage);
-    if (percentage >= 0 && !hasScrolled) {
+    if (percentage >= 5 && !hasScrolled) {
       setHasScrolled(true);
-      gsap.to('.scrollmeatermain', {
-        duration: 0.2,
-        y: '-110px',
-        ease: 'bounce.out',
-      });
+      // gsap.to('.percentagebar', {
+      //   duration: 0.2,
+      //   y: '-110px',
+      //   ease: 'bounce.out',
+      // });
     }
+    const pathLength = extraProgressBarRef.current.getTotalLength();
+    const dashOffset = pathLength - (percentage / 100) * pathLength;
+    extraProgressBarRef.current.style.strokeDasharray = pathLength;
+    extraProgressBarRef.current.style.strokeDashoffset = dashOffset;
   };
 
   const handleSkipVideo = () => {
@@ -126,7 +130,7 @@ const HomePage = () => {
       videos.classList.add('hidden');
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
-      document.querySelector('.scrollmeatermain').classList.add('hidden');
+      document.querySelector('.percentagebar').classList.add('hidden');
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -354,7 +358,7 @@ const HomePage = () => {
       const skipbuttons = document.getElementById('skipvideobtn');
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
-      document.querySelector('.scrollmeatermain').classList.add('hidden');
+      document.querySelector('.percentagebar').classList.add('hidden');
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
@@ -670,18 +674,18 @@ const HomePage = () => {
   }, [bannerData]);
 
   useEffect(() => {
-  const animateButton = (e) => {
-    e.preventDefault();
-    const button = e.target;
-    button.classList.remove('animate');
-    button.classList.add('animate');
-    setTimeout(() => button.classList.remove('animate'), 400);
-  };
-  const bubblyButtons = document.getElementsByClassName('bubbly-button');
-  for (let i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton);
-  }
-}, [bannerData]);
+    const animateButton = (e) => {
+      e.preventDefault();
+      const button = e.target;
+      button.classList.remove('animate');
+      button.classList.add('animate');
+      setTimeout(() => button.classList.remove('animate'), 400);
+    };
+    const bubblyButtons = document.getElementsByClassName('bubbly-button');
+    for (let i = 0; i < bubblyButtons.length; i++) {
+      bubblyButtons[i].addEventListener('click', animateButton);
+    }
+  }, [bannerData]);
   /* forcefully scroll top */
 
   if (loading && isFirstLoad) {
@@ -736,13 +740,100 @@ const HomePage = () => {
         </video> */}
 
         <div className="progress-bar-container">
-          <div
+          <svg
+            version="1.0"
+            id="ePavjzr307g1"
+            shapeRendering="geometricPrecision"
+            textRendering="geometricPrecision"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 1927 104"
+            style={{ enableBackground: 'new 0 0 1927 104' }}
+            xmlSpace="preserve"
+          >
+            <style type="text/css">
+              {`
+            .st000{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#fff;stroke-width:5;stroke-miterlimit:0;}
+            .st111{fill-rule:evenodd;clip-rule:evenodd;fill:#fff;}
+            .st222{fill-rule:evenodd;clip-rule:evenodd;fill:#0D1E4D;}
+          `}
+            </style>
+            <path
+              ref={extraProgressBarRef}
+              className="st000"
+              d="M0,103h861.6C861.6,46.7,907.2,1,963.5,1s101.9,45.6,101.9,101.9H1927"
+            />
+            <path className="st111" d="M870.5,104c0-51.4,41.6-93,93-93s93,41.6,93,93" />
+            <path className="st222" d="M972.3,21.9l-0.3,2.3l2.4,0.3l-0.2,1.6l-2.4-0.3l-0.4,3.6c0,0.4,0,0.6,0.2,0.8c0.2,0.2,0.4,0.3,0.7,0.3
+	c0.3,0,0.5,0,0.7,0c0.2-0.1,0.4-0.1,0.6-0.3l0.2,1.4c-0.3,0.2-0.6,0.3-1,0.3c-0.4,0.1-0.8,0.1-1.2,0c-0.5-0.1-1-0.2-1.3-0.4
+	c-0.4-0.2-0.6-0.5-0.8-0.8c-0.2-0.4-0.2-0.8-0.2-1.4l0.5-3.9l-1.4-0.2l0.2-1.6l1.4,0.2l0.2-1.8L972.3,21.9z M957,31.5
+	c0.7,0.2,1.4,0.3,2.1,0.3c0.7,0,1.3-0.2,1.8-0.4c0.5-0.3,0.9-0.6,1.1-1c0.2-0.4,0.4-0.8,0.3-1.3c0-0.5-0.2-0.9-0.6-1.3
+	c-0.3-0.4-0.9-0.6-1.7-0.7l-1.6-0.2c-0.4-0.1-0.6-0.1-0.8-0.3c-0.1-0.1-0.2-0.3-0.2-0.4s0-0.3,0.1-0.4c0.1-0.1,0.2-0.2,0.4-0.3
+	c0.2-0.1,0.4-0.1,0.7-0.1c0.4,0,0.8,0.1,1.1,0.2c0.4,0.2,0.7,0.4,0.9,0.8l1.2-1.3c-0.4-0.5-0.8-0.8-1.4-1c-0.6-0.2-1.2-0.3-2-0.3
+	c-0.7,0-1.4,0.2-1.9,0.4c-0.5,0.3-0.9,0.6-1.1,0.9c-0.2,0.4-0.3,0.8-0.3,1.2c0,0.6,0.2,1.1,0.6,1.4c0.4,0.3,1,0.6,1.9,0.7l1.4,0.2
+	c0.3,0.1,0.6,0.1,0.7,0.3c0.1,0.1,0.2,0.2,0.2,0.4c0,0.3-0.1,0.5-0.3,0.6c-0.2,0.1-0.5,0.2-0.9,0.2c-0.6,0-1.1-0.1-1.5-0.3
+	c-0.4-0.2-0.8-0.5-1-0.9l-1.1,1.3C955.9,30.9,956.4,31.2,957,31.5z M940.2,34.6c-0.8,0.2-1.5,0.3-2.2,0.2c-0.7-0.1-1.2-0.4-1.7-0.9
+	c-0.5-0.5-0.9-1.1-1.1-1.9c-0.3-0.8-0.3-1.5-0.2-2.2c0.1-0.7,0.4-1.2,0.9-1.7c0.5-0.5,1.1-0.8,1.8-1.1c0.7-0.2,1.4-0.3,2-0.2
+	c0.6,0.1,1.1,0.4,1.6,0.8c0.4,0.4,0.8,1,1,1.6c0.1,0.2,0.1,0.4,0.2,0.6c0,0.2,0.1,0.3,0.1,0.5l-5.2,1.7c0.1,0.2,0.3,0.5,0.4,0.6
+	c0.3,0.3,0.6,0.5,0.9,0.5c0.3,0.1,0.7,0,1.1-0.1c0.4-0.1,0.7-0.3,1-0.6c0.2-0.3,0.3-0.5,0.4-0.9l1.8,0.1c0,0.4-0.2,0.8-0.4,1.2
+	c-0.2,0.4-0.5,0.7-0.9,1C941.1,34.2,940.7,34.4,940.2,34.6z M936.9,30.1c0,0.2,0,0.4,0,0.6l3.3-1.1c-0.2-0.4-0.4-0.7-0.7-0.9
+	c-0.4-0.2-0.8-0.3-1.3-0.1c-0.4,0.1-0.7,0.3-0.9,0.6C937,29.3,936.9,29.7,936.9,30.1z M928.2,39.3c0.7,0,1.4-0.2,2.1-0.5
+	c0.7-0.3,1.2-0.7,1.6-1.1c0.4-0.4,0.6-0.9,0.7-1.3c0.1-0.5,0-0.9-0.2-1.4c-0.2-0.5-0.5-0.8-1-1c-0.4-0.2-1.1-0.2-1.8,0l-1.6,0.4
+	c-0.4,0.1-0.7,0.1-0.8,0.1c-0.2-0.1-0.3-0.2-0.4-0.3c-0.1-0.1-0.1-0.3,0-0.4c0-0.1,0.1-0.3,0.3-0.4c0.2-0.1,0.4-0.3,0.6-0.4
+	c0.4-0.2,0.7-0.2,1.2-0.2c0.4,0,0.8,0.1,1.1,0.4l0.6-1.6c-0.5-0.3-1-0.4-1.7-0.4c-0.6,0-1.3,0.2-2,0.5c-0.7,0.3-1.2,0.7-1.6,1.1
+	c-0.4,0.4-0.6,0.8-0.7,1.3c-0.1,0.4,0,0.8,0.2,1.2c0.2,0.5,0.6,0.9,1.1,1.1c0.5,0.2,1.2,0.2,2.1,0l1.3-0.3c0.3-0.1,0.6-0.1,0.7,0
+	c0.1,0.1,0.3,0.2,0.3,0.3c0.1,0.2,0.1,0.5-0.1,0.7c-0.2,0.2-0.4,0.4-0.8,0.6c-0.5,0.2-1,0.3-1.5,0.3c-0.5,0-0.9-0.2-1.3-0.4
+	l-0.6,1.6C926.9,39.2,927.5,39.3,928.2,39.3z M918.3,40.2c-0.2-0.4-0.5-0.6-0.9-0.7c-0.3-0.1-0.7,0-1,0.2c-0.3,0.2-0.5,0.5-0.7,0.8
+	c-0.1,0.3-0.1,0.7,0,1.2l-1.8,0.5c-0.2-0.7-0.2-1.3,0.1-2c0.3-0.7,0.8-1.3,1.7-1.8c0.6-0.4,1.1-0.6,1.7-0.7c0.5-0.1,1-0.1,1.5,0.1
+	c0.5,0.2,0.9,0.6,1.2,1.1l1.7,2.6c0.2,0.3,0.5,0.4,0.8,0.2c0.1-0.1,0.3-0.2,0.4-0.3l0.6,1.2c-0.2,0.3-0.4,0.5-0.7,0.7
+	c-0.3,0.2-0.6,0.3-0.9,0.4c-0.3,0.1-0.6,0-0.9-0.1c-0.1-0.1-0.2-0.1-0.3-0.2c0,0.1,0,0.2,0,0.3c-0.1,0.4-0.3,0.7-0.5,1.1
+	c-0.2,0.3-0.5,0.6-0.9,0.8c-0.4,0.3-0.9,0.5-1.3,0.5c-0.4,0.1-0.8,0-1.1-0.1c-0.3-0.1-0.6-0.4-0.9-0.8c-0.3-0.5-0.4-1-0.3-1.5
+	c0.1-0.5,0.4-1,0.9-1.5l1.9-1.9L918.3,40.2z M918,42.7l1.2-1.2l0.3,0.4c0.2,0.2,0.2,0.5,0.3,0.7c0,0.2,0,0.4-0.1,0.6
+	c-0.1,0.2-0.2,0.4-0.3,0.5c-0.1,0.2-0.3,0.3-0.5,0.4c-0.2,0.1-0.5,0.2-0.7,0.2c-0.2,0-0.4-0.1-0.5-0.3c-0.1-0.2-0.2-0.4-0.1-0.6
+	C917.6,43.1,917.8,42.9,918,42.7z M910.3,53.4c0.7-0.2,1.3-0.5,1.9-1.1c0.4-0.3,0.7-0.7,0.9-1.1c0.2-0.4,0.4-0.9,0.4-1.3
+	c0.1-0.4,0-0.9-0.1-1.3l-1.7,0.6c0.1,0.3,0.1,0.7,0,1c-0.1,0.3-0.3,0.6-0.6,0.9c-0.3,0.3-0.6,0.4-1,0.5c-0.3,0.1-0.7,0-1-0.1
+	c-0.2-0.1-0.4-0.2-0.6-0.4l4-3.6c-0.1-0.1-0.2-0.3-0.3-0.4c-0.1-0.1-0.2-0.3-0.4-0.4c-0.5-0.5-1-0.9-1.5-1.1
+	c-0.6-0.2-1.2-0.2-1.8-0.1c-0.6,0.1-1.2,0.5-1.8,1c-0.6,0.5-1,1.1-1.2,1.7c-0.2,0.6-0.3,1.3-0.1,1.9c0.2,0.7,0.5,1.3,1.1,1.9
+	c0.6,0.6,1.2,1,1.8,1.3C909,53.5,909.7,53.5,910.3,53.4z M907.6,50l2.6-2.3c-0.3-0.3-0.7-0.5-1.1-0.5c-0.4-0.1-0.9,0.1-1.3,0.4
+	c-0.3,0.3-0.5,0.6-0.6,0.9c-0.1,0.3-0.1,0.7,0.1,1C907.4,49.7,907.5,49.9,907.6,50z M896.2,53.1l6.7,5.5c0.3,0.2,0.5,0.3,0.7,0.3
+	c0.2,0,0.4-0.1,0.6-0.3c0.1-0.1,0.2-0.3,0.2-0.4c0-0.1,0.1-0.2,0.2-0.4l0.9,1c0,0.2-0.1,0.4-0.2,0.7c-0.1,0.2-0.3,0.5-0.4,0.7
+	c-0.5,0.6-1,0.9-1.5,0.9c-0.5,0-1.1-0.2-1.7-0.7l-6.9-5.7L896.2,53.1z M890.7,64.5c0.4-0.7,0.8-1.2,1.3-1.5c0.5-0.4,1-0.5,1.6-0.6
+	c0.6,0,1.2,0.1,1.7,0.5c0.6,0.3,1,0.8,1.3,1.3c0.3,0.5,0.4,1,0.4,1.7c0,0.6-0.3,1.2-0.6,1.9l-1,1.9l3.1,1.8l-1,1.8l-8.8-5
+	L890.7,64.5z M894.7,67.2c0.3-0.6,0.4-1,0.3-1.4c-0.1-0.4-0.4-0.7-0.8-1c-0.5-0.3-0.9-0.3-1.3-0.2c-0.4,0.1-0.7,0.5-1,1l-0.9,1.6
+	l2.8,1.6L894.7,67.2z M986.8,29.1c0.2,0.3,0.2,0.7,0.1,1.1l-0.1,0.3l-2.7-0.3c-0.7-0.1-1.3,0-1.7,0.3c-0.5,0.2-0.8,0.6-0.9,1.2
+	c-0.1,0.4-0.1,0.8,0,1.2c0.1,0.4,0.3,0.7,0.6,0.9c0.3,0.3,0.7,0.5,1.2,0.6c0.4,0.1,0.8,0.2,1.2,0.1c0.4,0,0.8-0.1,1.1-0.3
+	c0.1-0.1,0.2-0.1,0.3-0.2c0,0.1,0,0.3,0.1,0.4c0.1,0.3,0.2,0.5,0.5,0.7c0.2,0.2,0.5,0.4,0.9,0.5c0.4,0.1,0.7,0.1,1,0.1l0.5-1.2
+	c-0.2,0-0.3,0-0.5-0.1c-0.4-0.1-0.5-0.3-0.4-0.7l0.9-3c0.2-0.6,0.2-1.2,0-1.6c-0.1-0.5-0.4-0.9-0.8-1.2c-0.4-0.4-0.9-0.6-1.6-0.8
+	c-0.9-0.3-1.8-0.3-2.5-0.1c-0.7,0.2-1.2,0.6-1.6,1.2l1.6,1c0.3-0.4,0.5-0.6,0.9-0.7c0.3-0.1,0.7-0.1,1,0
+	C986.3,28.5,986.6,28.8,986.8,29.1z M986.4,31.7l-1.6-0.2c-0.4,0-0.6,0-0.8,0c-0.2,0.1-0.3,0.2-0.4,0.5c-0.1,0.2,0,0.5,0.1,0.6
+	c0.1,0.2,0.3,0.3,0.6,0.4c0.2,0.1,0.4,0.1,0.6,0.1c0.2,0,0.4,0,0.6-0.1c0.2-0.1,0.4-0.2,0.5-0.3c0.1-0.2,0.3-0.4,0.3-0.6L986.4,31.7
+	z M993.5,37.9l3.3-6.9l1.7,0.8l-0.5,1.3c0.2-0.2,0.4-0.3,0.6-0.4c0.4-0.2,0.8-0.3,1.2-0.2c0.4,0,0.8,0.1,1.3,0.3
+	c0.5,0.2,0.9,0.5,1.1,0.9c0.3,0.4,0.4,0.8,0.5,1.3c0,0.5-0.1,1-0.3,1.6l-2.2,4.5l-1.9-0.9l1.9-4c0.3-0.6,0.4-1.1,0.2-1.4
+	c-0.1-0.3-0.4-0.6-0.7-0.8c-0.3-0.1-0.5-0.2-0.9-0.2c-0.3,0-0.6,0.1-0.9,0.3c-0.3,0.2-0.5,0.5-0.8,1l-1.8,3.7L993.5,37.9z
+	 M1005.7,44.3c0.2,0.5,0.6,1,1.2,1.3c0.4,0.3,0.8,0.4,1.2,0.5c0.4,0,0.8,0,1.3-0.2c0.2-0.1,0.3-0.2,0.5-0.3l-0.7,1.3l1.6,1l6-9.3
+	l-1.8-1.1l-2.5,3.9c0.1-0.4,0-0.7-0.1-1.1c-0.2-0.6-0.5-1-1.1-1.4c-0.5-0.3-1.1-0.5-1.7-0.5c-0.6,0-1.2,0.1-1.7,0.5
+	c-0.6,0.3-1.1,0.9-1.5,1.6c-0.4,0.7-0.7,1.4-0.8,2C1005.4,43.2,1005.5,43.8,1005.7,44.3z M1009.2,44.9c-0.3,0-0.6-0.1-0.9-0.3
+	c-0.5-0.3-0.7-0.7-0.8-1.2c0-0.5,0.1-1.1,0.6-1.8c0.4-0.7,0.9-1.1,1.4-1.2c0.5-0.2,1-0.1,1.5,0.2c0.3,0.2,0.5,0.4,0.6,0.7
+	c0.1,0.3,0.1,0.6,0.1,1c-0.1,0.4-0.2,0.7-0.5,1.2c-0.3,0.4-0.6,0.8-0.9,1C1009.9,44.8,1009.5,44.9,1009.2,44.9z M1024.6,60.8
+	c-0.3-0.3-0.5-0.7-0.7-1.1c-0.1-0.4-0.1-0.8,0-1.3c0.1-0.2,0.1-0.5,0.2-0.7l-1.2,1l-1.3-1.4l8-7.6l1.4,1.5l-3.4,3.2
+	c0.4-0.1,0.8-0.1,1.2-0.1c0.6,0.1,1.1,0.4,1.6,0.9c0.4,0.4,0.7,0.9,0.8,1.5c0.1,0.6,0,1.2-0.2,1.8c-0.2,0.6-0.7,1.2-1.3,1.8
+	c-0.6,0.6-1.2,1-1.8,1.1c-0.6,0.2-1.2,0.2-1.8,0.1C1025.5,61.5,1025,61.2,1024.6,60.8z M1025.3,59.2c0.4,0.4,0.8,0.6,1.3,0.6
+	c0.5,0,1.1-0.3,1.6-0.9c0.6-0.5,0.9-1.1,1-1.6c0.1-0.5-0.1-1-0.5-1.4c-0.3-0.3-0.5-0.4-0.9-0.5c-0.3-0.1-0.7,0-1,0.1
+	c-0.4,0.1-0.7,0.4-1.1,0.7c-0.4,0.3-0.6,0.7-0.8,1c-0.1,0.4-0.2,0.7-0.2,1C1024.9,58.6,1025.1,58.9,1025.3,59.2z M1029.9,71.9
+	l8.5-1.9l-1.2-1.8l-4.5,1.3l-1.6,0.5l1.1-1.2l3-3.7l-1.3-2l-3.6,5.1l-1.2,1.8l-0.7,0.1c-0.4,0.1-0.7,0.1-0.9,0
+	c-0.2-0.1-0.4-0.3-0.6-0.5c-0.2-0.2-0.3-0.5-0.3-0.7c-0.1-0.2-0.1-0.4-0.1-0.7l-1.5,0.5c0,0.3,0.1,0.6,0.2,0.9
+	c0.1,0.3,0.3,0.7,0.5,1c0.3,0.5,0.6,0.8,1,1c0.4,0.2,0.8,0.4,1.3,0.4C1028.6,72.2,1029.2,72.1,1029.9,71.9z"/>
+          </svg>
+          <span className='percentagebar'>{Math.floor(progressPercentage)}%</span>
+          {/* <div
             className="progress-bar"
             style={{ width: `${progressBarWidth}%` }}
-          ></div>
+          ></div> */}
         </div>
 
-        <div className='scrollmeatermain'>
+        {/* <div className='scrollmeatermain'>
           <div className='innrebar' style={{
             overflow: 'hidden',
             backgroundSize: 'cover',
@@ -754,7 +845,7 @@ const HomePage = () => {
               <span>{Math.floor(progressPercentage)}%</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <button
           id="skipvideobtn"
@@ -818,12 +909,12 @@ const HomePage = () => {
             //   {bannerData[0].bannerButton.buttonText}
             // </a>
             <a
-  className="bubbly-button banner_bottombtn"
-  href={bannerData[0].bannerButton.buttonLink || '#'}
-  dangerouslySetInnerHTML={{
-    __html: bannerData[0].bannerButton.buttonText,
-  }}
-></a>
+              className="bubbly-button banner_bottombtn"
+              href={bannerData[0].bannerButton.buttonLink || '#'}
+              dangerouslySetInnerHTML={{
+                __html: bannerData[0].bannerButton.buttonText,
+              }}
+            ></a>
           )}
           <div className="bannerrotate_text">
             <p dangerouslySetInnerHTML={{ __html: bannerData[0].bannerText }} />

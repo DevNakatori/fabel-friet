@@ -315,6 +315,7 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small
     {
         font-size: -moz-calc(16 / var(--vw)* var(--multiplier) - 25%);
+        font-size: -moz-calc(16 / var(--vw)* var(--multiplier)- 25%);
         font-size: calc(16 / var(--vw)* var(--multiplier)- 25%);
     }
 
@@ -331,6 +332,8 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span, 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%);
+        font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
+        font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
         font-size: calc(16/var(--vw)*var(--multiplier) - 25%) ;
     }
 
@@ -352,6 +355,7 @@ button.skipvideo.hidden{display:none;}
 
     #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3 {
         font-size: -moz-calc(0/var(--vw)*var(--multiplier) - 25%);
+        font-size: -moz-calc(40/var(--vw)*var(--multiplier) - 25%);
         font-size: calc(40/var(--vw)*var(--multiplier) - 25%);
     }
 
@@ -575,13 +579,6 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{line-height:0px;}
     .canvasfries{display: none;}
     .slideraddress .wharpeoplebox .sliderwhitebg .routbtn{overflow: inherit;}
-    a.locatebutton.bubbly-button.whatsapp-btn {
-        display: flex;
-        margin-left: 0;
-        margin-top: 30px;
-    }
-    .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button {
-        line-height: 1;
-        height: auto;
-    }
+a.locatebutton.bubbly-button.whatsapp-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;margin-left:0;margin-top:30px;}
+.sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{line-height:1;height:auto;}
 }
