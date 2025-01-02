@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import { client } from '../../sanityClient';
@@ -33,100 +33,15 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Getintouch = () => {
 
 
-  
-
-  const [flyingSvgs, setFlyingSvgs] = useState([]);
-  const createFlyingSvgs = () => {
-    const newFlyingSvgs = [];
-    for (let i = 0; i < 10; i++) {
-      const flySVG = (
-        <svg
-          key={i}
-          className="fly-svg"
-          height="800px"
-          width="800px"
-          version="1.1"
-          id={`fly-svg-${i}`}
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 308 308"
-          xmlSpace="preserve"
-        >
-          <g id="XMLID_468_">
-            <path
-              id="XMLID_469_"
-              d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
-              c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
-              c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
-              c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
-              c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
-              c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
-              c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
-              c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
-              c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
-              C233.168,179.508,230.845,178.393,227.904,176.981z"
-            />
-            <path
-              id="XMLID_470_"
-              d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
-              c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
-              c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
-              M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
-              l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
-              c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
-              C276.546,215.678,222.799,268.994,156.734,268.994z"
-            />
-          </g>
-        </svg>
-      );
-
-      newFlyingSvgs.push(flySVG);
-    }
-
-    setFlyingSvgs(newFlyingSvgs);
-  };
-
-  const handleEnter = () => {
-    createFlyingSvgs();
-  };
-
-  const handleLeave = () => {
-    setFlyingSvgs([]);
-  };
-
-  const handleClick = () => {
-    createFlyingSvgs();
-  };
+  const numSVGs = 20; // Number of SVGs to display
+  const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
-    if (flyingSvgs.length > 0) {
-      flyingSvgs.forEach((flySVG, index) => {
-        const element = document.getElementById(flySVG.key);
-
-
-        gsap.fromTo(
-          element,
-          {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            scale: 1,
-          },
-          {
-            x: 500,
-            y: -10 * index,
-            opacity: 0,
-            scale: 3,
-            delay: index * 0.5,
-            duration: 3,
-            ease: "power1",
-            onComplete: () => {
-            },
-          }
-        );
-      });
-    }
-  }, [flyingSvgs]);
+    const interval = setInterval(() => {
+      setSvgKey(prev => prev + 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   const iconMap = {
     facebook: facebookIcon,
@@ -648,12 +563,12 @@ const Getintouch = () => {
 
     window.addEventListener("mousemove", (e) => {
       gsap.to(targets, {
-        duration: 0.5, 
-        x: e.clientX,   
-        y: e.clientY,   
-        ease: "elastic.out(1, 0.75)",  
-        overwrite: "auto",  
-        stagger: 0.09    
+        duration: 0.5,
+        x: e.clientX,
+        y: e.clientY,
+        ease: "elastic.out(1, 0.75)",
+        overwrite: "auto",
+        stagger: 0.09
       });
     });
   }, [getIntouch]);
@@ -676,7 +591,7 @@ const Getintouch = () => {
     const resizeCanvas = () => {
       const canvas = canvasRef.current;
       const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return; 
+      if (!canvas || !rainContainer) return;
       canvas.width = rainContainer.offsetWidth;
       canvas.height = rainContainer.offsetHeight;
     };
@@ -685,12 +600,12 @@ const Getintouch = () => {
     const createFries = () => {
       fries.current = [];
       const canvas = canvasRef.current;
-      if (!canvas) return; 
+      if (!canvas) return;
       for (let i = 0; i < numberOfFries; i++) {
         fries.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 1.5, 
+          speed: Math.random() * 1 + 1.5,
           sway: Math.random() * 50 - 25,
           image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)],
         });
@@ -700,29 +615,29 @@ const Getintouch = () => {
       const canvas = canvasRef.current;
       const ctx = canvas?.getContext("2d");
       if (!ctx || !canvas) return;
-    
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
       fries.current.forEach((fry) => {
         fry.y += fry.speed; // Vertical movement (falling downwards)
-    
+
         // Horizontal movement (from left to right)
         fry.x += 1;  // This makes the fries move horizontally from left to right
-    
+
         // If a fry goes off the right side, reset it to the left side
         if (fry.x > canvas.width) {
           fry.x = -100;  // Reset the fry to start from the far left
           fry.y = Math.random() * -canvas.height;  // Randomize the vertical position for the reset
           fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)];
         }
-    
+
         // Draw the fry
         ctx.drawImage(fry.image, fry.x, fry.y, 300, 300); // Draw with width and height (100x150)
       });
-    
+
       requestAnimationFrame(renderFries); // Continue rendering at 60fps
     };
-  
+
     ScrollTrigger.create({
       trigger: rainContainerRef.current,
       start: "top center",
@@ -731,7 +646,7 @@ const Getintouch = () => {
         renderFries();
       },
       onLeaveBack: () => {
-        fries.current = []; 
+        fries.current = [];
         const ctx = canvasRef.current.getContext("2d");
         if (ctx) {
           ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
@@ -748,25 +663,25 @@ const Getintouch = () => {
 
 
   useEffect(() => {
-      const animateButton = (e) => {
-        e.preventDefault();
-        const button = e.target;
-        button.classList.remove('animate');
-        button.classList.add('animate');
-        setTimeout(() => button.classList.remove('animate'), 400);
-      };
-      const bubblyButtons = document.getElementsByClassName('bubbly-button');
-      for (let i = 0; i < bubblyButtons.length; i++) {
-        bubblyButtons[i].addEventListener('click', animateButton);
-      }
-    }, [getIntouch]);
+    const animateButton = (e) => {
+      e.preventDefault();
+      const button = e.target;
+      button.classList.remove('animate');
+      button.classList.add('animate');
+      setTimeout(() => button.classList.remove('animate'), 400);
+    };
+    const bubblyButtons = document.getElementsByClassName('bubbly-button');
+    for (let i = 0; i < bubblyButtons.length; i++) {
+      bubblyButtons[i].addEventListener('click', animateButton);
+    }
+  }, [getIntouch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
   const { contactSection, contentSection, transitionSection } = getIntouch;
-  
+
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -1027,11 +942,7 @@ const Getintouch = () => {
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
                         className="locatebutton bubbly-button whatsapp-btn"
-                        onMouseEnter={handleEnter}
-                        // onMouseLeave={handleLeave}
-                        onTouchStart={handleEnter}  // Touchstart for mobile
-                        onTouchEnd={handleLeave}    // Touchend for mobile
-                        onClick={handleClick}
+
                       >
                         {/* <span></span>
                         <span></span>
@@ -1074,11 +985,39 @@ const Getintouch = () => {
                           </g>
                         </svg>{contactSection.contactDetails.whatsAppLabel}
                       </a>
-                      {flyingSvgs.map((flySVG) => (
-                        <div className="whatsppp" key={flySVG.key} id={flySVG.key}>
-                          {flySVG}
-                        </div>
-                      ))}
+                      <div className="canvas whatsappcanvas">
+                        {Array.from({ length: numSVGs }).map((_, i) => (
+                          <div
+                            key={i + svgKey}
+                            className="fly-svg-wrapper"
+                            style={{
+                              animation: `moveAndFade 10s linear infinite`,
+                              animationDelay: `${i * 0.5}s`, // Delay to stagger the animations
+                            }}
+                          >
+                            <svg
+                              className="fly-svg"
+                              height="100px"
+                              width="100px"
+                              version="1.1"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlnsXlink="http://www.w3.org/1999/xlink"
+                              viewBox="0 0 308 308"
+                            >
+                              <g id="XMLID_468_">
+                                <path
+                                  id="XMLID_469_"
+                                  d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156 c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687 c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887 c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153 c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348 c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802 c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922 c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0 c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458 C233.168,179.508,230.845,178.393,227.904,176.981z"
+                                />
+                                <path
+                                  id="XMLID_470_"
+                                  d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716 c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396 c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188 l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677 c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867 C276.546,215.678,222.799,268.994,156.734,268.994z"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
