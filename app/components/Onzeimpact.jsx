@@ -90,16 +90,19 @@ const Onzeimpact = () => {
         smoothTouch: 0.1,
       },
     });
-    timelineimpact.to(
-      '#section5 .roundimage-impact, #section5 .roundtext-impact',
-      {
+
+    timelineimpact.to('#section5 .roundimage-impact, #section5 .roundtext-impact',{
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      },
-      0,
-    );
+      })
+      .to("#section5 .bannersectinlogo", { 
+        duration: 0.5, 
+        width: "0px", 
+        ease: "power2.out"
+      }, 0);
+      
 
     timelineimpact.to('.fifthesection .wrappertest', {
       scrollTrigger: {

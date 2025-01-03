@@ -85,15 +85,17 @@ const Hetmenu = () => {
       },
     });
 
-    timelineshetmenu.to(
-      '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
-      {
+    timelineshetmenu.to('#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',{
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      },
-    );
+      })
+      .to("#section4 .bannersectinlogo", { 
+        duration: 0.5, 
+        width: "0px", 
+        ease: "power2.out"
+      }, 0); 
 
     timelineshetmenu.to('.fourthsection .wrappertest', {
       scrollTrigger: {

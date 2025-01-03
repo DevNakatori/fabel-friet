@@ -37,6 +37,6 @@
   .headernew.main-menu.is-sticky{height:80px;position:fixed;}
   .headernew.main-menu.is-at-top{height:80px;background:rgba(13,30,77,0.4);position:fixed;top:0px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);width:100%;}
   .headernew.main-menu.is-at-top ul li{visibility:visible;}
-  .headernew nav ul.desktop-menu .bannersectinlogo{position:relative;left:0;-webkit-transform:translateX(-0%);-moz-transform:translateX(-0%);-ms-transform:translateX(-0%);-o-transform:translateX(-0%);transform:translateX(-0%);top:0px;width:80px;height:auto;}
+  .headernew nav ul.desktop-menu .bannersectinlogo{position:relative;left:0;-webkit-transform:translateX(-0%);-moz-transform:translateX(-0%);-ms-transform:translateX(-0%);-o-transform:translateX(-0%);transform:translateX(-0%);top:0px;width:0px;height:auto;}
   .headernew nav ul.desktop-menu .bannersectinlogo img{width:auto;height:auto;}
 }
