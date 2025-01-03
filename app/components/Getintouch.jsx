@@ -945,7 +945,7 @@ const Getintouch = () => {
                         target="_blank"
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
-                        className="locatebutton bubbly-button whatsapp-btn"
+                        className="locatebutton bubbly-button whatsapp-btn swipe-effect"
 
                       >
                         {/* <span></span>
@@ -1076,7 +1076,7 @@ const Getintouch = () => {
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="locatebutton bubbly-button whatsapp-btn secondwhatsapp"
+                        className="locatebutton bubbly-button whatsapp-btn secondwhatsapp swipe-effect"
                       >
                         {/* <span></span>
                         <span></span>

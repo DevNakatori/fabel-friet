@@ -313,7 +313,7 @@ const Onzelocaties = () => {
 
               <a
                 href=""
-                className="locatebutton onlydesktop bubbly-button"
+                className="locatebutton onlydesktop bubbly-button swipe-effect"
                 
               >
                 {locationData.contentSection.btn_label}
@@ -403,7 +403,7 @@ const Onzelocaties = () => {
                                   </div>
                                 </div>
 
-                                <a href={loc.btn_link} className="routbtn bubbly-button">
+                                <a href={loc.btn_link} className="routbtn bubbly-button swipe-effect">
                                   <span>{loc.btn_label}</span>
                                 </a>
                               </div>
@@ -495,7 +495,7 @@ const Onzelocaties = () => {
                           <a
                             href={loc.btn_link}
                             target="_blank"
-                            className="routbtn bubbly-button"
+                            className="routbtn bubbly-button swipe-effect"
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"

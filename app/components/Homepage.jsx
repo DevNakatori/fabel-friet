@@ -909,7 +909,7 @@ const HomePage = () => {
             //   {bannerData[0].bannerButton.buttonText}
             // </a>
             <a
-              className="bubbly-button banner_bottombtn"
+              className="bubbly-button banner_bottombtn swipe-effect"
               href={bannerData[0].bannerButton.buttonLink || '#'}
               dangerouslySetInnerHTML={{
                 __html: bannerData[0].bannerButton.buttonText,
