@@ -38,16 +38,21 @@ const Onzelocaties = () => {
         smoothTouch: 0.1,
       },
     });
-    timelines.to(
-      '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
-      {
+
+  
+    timelines
+    .to('#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',{
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      },
-      0,
-    );
+      })
+      .to("#section3 .bannersectinlogo", { 
+        duration: 0.5, 
+        width: "0px", 
+        ease: "power2.out"
+      }, 0); 
+    
 
     timelines.to('.thirdesection .wrappertest', {
       scrollTrigger: {

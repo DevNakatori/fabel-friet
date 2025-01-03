@@ -46,13 +46,25 @@ const Onzefriet = () => {
       },
     });
 
-    timelinesonzefriet.to('#section2 .roundimage, #section2 .roundtext', {
+  
+    timelinesonzefriet
+    .to('#section2 .roundimage, #section2 .roundtext', {
       scale: 2.5,
       z: 350,
       transformOrigin: 'center center',
       ease: 'power1.inOut',
-      //zIndex: 5,
-    });
+    })
+    .to("#section2 .bannersectinlogo", { 
+      duration: 0.5, 
+      width: "0px", 
+      ease: "power2.out"
+    }, 0) 
+    .to(".headernew nav ul.desktop-menu .bannersectinlogo", { 
+      duration: 1, 
+      width: "80px", 
+      ease: "power1.inOut"
+    }, 0); 
+   
 
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {

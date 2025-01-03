@@ -75,9 +75,13 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      },
-      0,
-    );
+      })
+      .to("#section6 .bannersectinlogo", { 
+        duration: 0.5, 
+        width: "0px", 
+        ease: "power2.out"
+      }, 0); 
+
 
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
