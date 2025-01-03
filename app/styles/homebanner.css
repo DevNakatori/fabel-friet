@@ -139,7 +139,8 @@ a.banner_bottombtn:hover:before,a.banner_bottombtn:hover:after{top:0;} */
   .appcontainers{max-width:1200px;margin:0 auto;}
   .bannerlogo{margin:30px auto 30px;}
   .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li,
-  .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{font-size:18px!important;}
+  .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a,
+  .locationbox ul li p{font-size:18px!important;}
   .overlaybannehand-left{width:50%;height:85%;-webkit-transform:scale(0.5);-ms-transform:scale(0.5);-moz-transform:scale(0.5);-o-transform:scale(0.5);transform:scale(0.5);-webkit-transform-origin:left bottom;-ms-transform-origin:left bottom;-moz-transform-origin:left bottom;-o-transform-origin:left bottom;transform-origin:left bottom;}
   .overlaybannehand-right{width:50%;height:85%;-webkit-transform:scale(0.5);-ms-transform:scale(0.5);-moz-transform:scale(0.5);-o-transform:scale(0.5);transform:scale(0.5);-webkit-transform-origin:bottom right;-ms-transform-origin:bottom right;-moz-transform-origin:bottom right;-o-transform-origin:bottom right;transform-origin:bottom right;}
   .newfooter .newcontainer{width:95%!important;}
