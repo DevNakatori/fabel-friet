@@ -436,7 +436,7 @@ useEffect(() => {
     }
     const section = document.getElementById(sectionId);
     if (section) {
-      const yOffset = window.innerWidth <= 768 ? 20 : 10;
+      const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
       window.scrollTo({ top: yPosition, behavior: 'smooth' });
