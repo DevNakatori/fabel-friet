@@ -90,11 +90,6 @@ const Hetmenu = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      })
-      .to("#section4 .bannersectinlogo", { 
-        duration: 0.5, 
-        width: "0px", 
-        ease: "power2.out"
       }, 0); 
 
     timelineshetmenu.to('.fourthsection .wrappertest', {
@@ -342,7 +337,7 @@ useEffect(() => {
       fries.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 1, // Slower speed: 0.5 to 1.5 pixels per frame
+        speed: Math.random() * 1 + 0.2, // Slower speed: 0.5 to 1.5 pixels per frame
         sway: Math.random() * 50 - 25,
         image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
       });
@@ -448,9 +443,9 @@ useEffect(() => {
   return (
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
-        <div className="bannersectinlogo">
+        {/* <div className="bannersectinlogo">
           <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" data-aos="fade" data-aos-easing="linear" data-aos-duration="4500"/>
-        </div>
+        </div> */}
         <div className="wrappermain">
           <img
             className="media"

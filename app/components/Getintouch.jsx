@@ -75,11 +75,6 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      })
-      .to("#section6 .bannersectinlogo", { 
-        duration: 0.5, 
-        width: "0px", 
-        ease: "power2.out"
       }, 0); 
 
 
@@ -690,7 +685,7 @@ const Getintouch = () => {
   return (
     <section className="panel sixthsection" id="section6">
       <div className="wrapper-getintouch">
-        <div className="bannersectinlogo">
+        {/* <div className="bannersectinlogo">
           {getIntouch.logoImage && (
             <img
               src={getImageUrl(getIntouch.logoImage.asset._ref)}
@@ -700,7 +695,7 @@ const Getintouch = () => {
               data-aos-duration="4500"
             />
           )}
-        </div>
+        </div> */}
         <div className="wrappermain">
           {getIntouch.transitionSection && (
             <img

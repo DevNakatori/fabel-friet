@@ -46,11 +46,6 @@ const Onzelocaties = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      })
-      .to("#section3 .bannersectinlogo", { 
-        duration: 0.5, 
-        width: "0px", 
-        ease: "power2.out"
       }, 0); 
     
 
@@ -223,7 +218,7 @@ const Onzelocaties = () => {
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
           <div className="wrapper-onzelocation">
-            <div className="bannersectinlogo">
+            {/* <div className="bannersectinlogo">
               <img
                 src={getImageUrl(locationData.logoImage.asset._ref)}
                 alt="Logo"
@@ -233,7 +228,7 @@ const Onzelocaties = () => {
                 data-aos-easing="linear"
                 data-aos-duration="4500"
               />
-            </div>
+            </div> */}
             <div className="wrappermain">
               <img
                 className="media"

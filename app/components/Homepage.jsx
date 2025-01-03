@@ -685,6 +685,33 @@ const HomePage = () => {
     for (let i = 0; i < bubblyButtons.length; i++) {
       bubblyButtons[i].addEventListener('click', animateButton);
     }
+
+    gsap.to("#section1 .bannerlogo", { 
+      duration: 0.5, 
+      width: "0px", 
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#section1", 
+        scrub: true,
+        once: false,               
+      }
+    });
+    
+    
+    gsap.to(".headernew nav ul.desktop-menu .bannersectinlogo", { 
+      duration: 0.2, 
+      width: "80px", 
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#smooth-content",  
+        scrub: true,
+        start: '0.5% 0.5%',
+        end: '3% 3%',
+        once: false,          
+      },
+    });
+
+    
   }, [bannerData]);
   /* forcefully scroll top */
 

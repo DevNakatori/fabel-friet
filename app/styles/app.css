@@ -260,7 +260,7 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 .price{float:right;color:#333;font-weight:bold;font-family:Rufina,serif;}
 ul ul{margin-top:10px;margin-left:20px;}
 summary {padding: 0;display: block;padding-left: 25px;position: relative;cursor: pointer;user-select: none;}
-summary:before{content:'';background-image:url(/app/assets/resizeimgs/webp/qr_info.webp);background-repeat:no-repeat no-repeat;background-position:center center;background-size:cover;width:20px;height:20px;flex-shrink:0;display:inline-block;margin:0;position:absolute;top:0px;left:-8px;transform:rotate(0);transition:.25s transform ease;}
+summary:before{content:'';background-image:url(/app/assets/resizeimgs/webp/qr_info.webp);background-repeat:no-repeat no-repeat;background-position:center center;background-size:cover;width:20px;height:20px;flex-shrink:0;display:inline-block;margin:0;position:absolute;top:-1px;left:-8px;transform:rotate(0);transition:.25s transform ease;}
 details summary::-webkit-details-marker {display:none;}
 .mainmenututles summary:before{display:none;}
 .mainmenututles summary{padding-left: 0;}
@@ -891,23 +891,23 @@ body .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
 
 
 
-.swipe-effect {
+/* .swipe-effect {
   transition-property: color, background;
     transition-duration: 0.25s;
     transition-timing-function: ease;
-}
+} */
 
-.swipe-effect:hover {
+/* .swipe-effect:hover {
   color:#fff !important;
   background-color: #0d1e4d !important; 
   border-color: #0d1e4d !important; 
-}
+} */
 
-.swipe-effect:hover svg {
+/* .swipe-effect:hover svg {
   width: 23px;
   height: 23px;
   position: relative;
   top: 0;
   margin-right: 10px;
   fill: #fff;
-}
+} */
