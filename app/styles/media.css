@@ -221,6 +221,9 @@ button.skipvideo.hidden{display:none;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
+
+    .newfooter .newcontainer .footerblock ul li a,
+    .newfooter .newcontainer .footerblock ul li{font-size:-moz-calc(12/var(--vw)*var(--multiplier));font-size:calc(12/var(--vw)*var(--multiplier));}
 }
 
 
@@ -378,8 +381,8 @@ button.skipvideo.hidden{display:none;}
 
     .newfooter .newcontainer .footerblock ul li a
     {
-        font-size: -moz-calc(18/var(--vw)*var(--multiplier) - 25%);
-        font-size: calc(18/var(--vw)*var(--multiplier) - 25%);
+        font-size: -moz-calc(12/var(--vw)*var(--multiplier) - 25%);
+        font-size: calc(12/var(--vw)*var(--multiplier) - 25%);
     }
 
     .sixthsection  .overlaybannehand-bottoms {
