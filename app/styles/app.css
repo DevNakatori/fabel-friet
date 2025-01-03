@@ -891,3 +891,23 @@ body .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
 
 
 
+.swipe-effect {
+  transition-property: color, background;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.swipe-effect:hover {
+  color:#fff !important;
+  background-color: #0d1e4d !important; 
+  border-color: #0d1e4d !important; 
+}
+
+.swipe-effect:hover svg {
+  width: 23px;
+  height: 23px;
+  position: relative;
+  top: 0;
+  margin-right: 10px;
+  fill: #fff;
+}

@@ -110,7 +110,7 @@ const Contactform = () => {
           )}
         </div>
 
-        <button className="bubbly-button" type="submit">Send</button>
+        <button className="bubbly-button swipe-effect" type="submit">Send</button>
       </form>
     </div>
   );
