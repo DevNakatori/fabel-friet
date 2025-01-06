@@ -687,7 +687,7 @@ const HomePage = () => {
     }
 
     gsap.to("#section1 .bannerlogo", { 
-      duration: 0.5, 
+      duration: 0.8, 
       width: "0px", 
       ease: "power1.inOut",
       scrollTrigger: {
