@@ -550,7 +550,7 @@ useEffect(() => {
       fries.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 0.2, // Slower speed: 0.5 to 1.5 pixels per frame
+        speed: Math.random() * 1 + 0.5, // Slower speed: 0.5 to 1.5 pixels per frame
         sway: Math.random() * 50 - 25,
         image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
       });
