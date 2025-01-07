@@ -765,7 +765,7 @@ const HomePage = () => {
   return (
     <section className="bannersection" id="section1">
       <div className="banner_video">
-        {/* {bannerData[0].bannerVideo && (
+        {bannerData[0].bannerVideo && (
           <video
             id="myVideo"
             src={bannerData[0].bannerVideo}
@@ -774,9 +774,9 @@ const HomePage = () => {
             playsInline
             onTimeUpdate={handleTimeUpdate}
           />
-        )} */}
+        )}
 
-        <video
+        {/* <video
           id="myVideo"
           autoPlay
           muted
@@ -788,7 +788,7 @@ const HomePage = () => {
             type="video/mp4"
           />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
 
         <div className="progress-bar-container">
           <svg
