@@ -153,6 +153,23 @@
 @media (min-width:992px) and (max-width:1199px)
 {
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-5em;left:12em;margin-bottom:-15em;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+        background-image: none;
+        content: '\002B';
+        font-size: 25px;
+        line-height: 17px;
+        position: absolute;
+        top: 48%;
+        transform: translateY(-50%);
+        left: 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (min-width:768px) and (max-width:991px)
@@ -184,6 +201,43 @@
     .allfiressectionsmenu{display: none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size: 14.533px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop {margin-bottom: -550px !important;}
+
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+        background-image: none;
+        content: '\002B';
+        font-size: 20px;
+        line-height: 10px;
+        position: absolute;
+        top: 47%;
+        transform: translateY(-50%);
+        left: 0;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+    }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
+        background-image: none;
+        content: '\2212';
+        line-height: 27px;
+        font-size: 25px;
+        line-height: 17px;
+        position: absolute;
+        top: 55%;
+        transform: translateY(-50%);
+        left: -3px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        font-size: 20px;
+    }
 }
 
 @media (max-width:767px)
@@ -261,4 +315,41 @@
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color: #FFF;font-size: 6.679px;font-style: normal;font-weight: 400;line-height: 8.766px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small {display: inline-block;width: auto;color: #FFF;font-family:'Optima';font-size: 3.757px;font-style: normal;font-weight: 400;line-height: 8.766px;}    
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+        background-image: none;
+        content: '\002B';
+        font-size: 11px;
+        line-height: 10px;
+        position: absolute;
+        top: 47%;
+        transform: translateY(-50%);
+        left: -2px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 10px;
+        height: 10px;
+    }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
+        background-image: none;
+        content: '\2212';
+        line-height: 27px;
+        font-size: 25px;
+        line-height: 17px;
+        position: absolute;
+        top: 53%;
+        transform: translateY(-50%);
+        left: -3px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 10px;
+        height: 10px;
+        font-size: 11px;
+    }
+
 }
