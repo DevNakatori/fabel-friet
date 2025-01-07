@@ -271,9 +271,6 @@ const Newheader = () => {
           ))}
         </ul> */}
         <ul className="desktop-menu">
-            <li className="bannersectinlogo">
-                <img src={bannerlogo} />
-            </li>
           {headerData &&
             headerData[0] &&
             headerData[0].header &&
@@ -291,6 +288,9 @@ const Newheader = () => {
           ) : (
             <li>No menu items available</li> // Fallback message in case menu data is not available
           )}
+          <li className="bannersectinlogo">
+                <img src={bannerlogo} />
+          </li>
         </ul>
       </nav>
     </div>

@@ -75,7 +75,7 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      }, 0); 
+      }, 0);
 
 
     timelinegetintouch.to('.sixthsection .wrappertest', {
@@ -1137,7 +1137,7 @@ const Getintouch = () => {
                           />
                         </svg>
                       </i>
-                      Telephone |{' '}
+                      Telephone {' '}
                       <a
                         href={`tel:${contactSection.contactDetails?.telephone}`}
                       >
@@ -1183,7 +1183,7 @@ const Getintouch = () => {
                           </defs>
                         </svg>
                       </i>
-                      Email |{' '}
+                      Email {' '}
                       <a
                         href={`mailto:${contactSection.contactDetails?.email}`}
                       >

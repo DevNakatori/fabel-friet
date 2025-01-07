@@ -135,8 +135,8 @@ const LanguageSwitcher = () => {
             languages.find((lang) => lang.code === language).flag
           } flag-icon-squared`}
         ></i>
-        <span>{languages.find((lang) => lang.code === language)?.name}</span>
-        <span>{languages.find((lang) => lang.code === language)?.name}</span>
+        <span>{languages.find((lang) => lang.code === language)?.code}</span>
+        <span>{languages.find((lang) => lang.code === language)?.code}</span>
       </div>
       <ul className={`language-list ${isOpen ? 'open' : ''}`}>
         {languages.map((lang) => (

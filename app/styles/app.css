@@ -189,7 +189,7 @@ a:hover{text-decoration:none;}
 html{scrollbar-width:none;}
 html{scroll-behavior:smooth;}
 body{padding:0;position:relative;  /*background: var(--radical-background, radial-gradient(50% 50% at 50% 50%, #1E46B3 0%, #1C41A8 12.99%, #1B3E9E 23.44%, #193A95 31.71%, #18378D 38.19%, #163485 43.26%, #15317E 47.31%, #142F78 50.7%, #132C72 53.82%, #122A6C 57.05%, #112867 60.77%, #112662 65.35%, #10245D 71.19%, #0F2258 78.66%, #0E2053 88.13%, #0D1E4D 100%));*/width:100%;}
-section{padding:0;overflow:inherit;}
+section{padding:0;overflow:hidden;}
 .hiddenoverflow{overflow:hidden;touch-action: none;-ms-touch-action: none;}
 .hiddenoverflow .rightsidebullets{z-index:inherit;}
 .rightsidebullets{position:fixed;right:25px;top:50%;transform:translateX(-50%);z-index:9;}
@@ -243,7 +243,7 @@ i.nl{width:20px;height:20px;display:inline-block;}
 .language-list{position:fixed;top:42px;right:0;width:130px;background:rgba(13, 30, 77,0.5);box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);transition:right 0.3s ease;z-index:1;display:flex;flex-direction:column;border-radius:0px 0px 0px 0px;padding:5px 0;backdrop-filter:blur(8px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .language-item:last-child{border-bottom:none;}
 .language-item{display:flex;align-items:center;padding:5px;cursor:pointer;margin:0 5px;border-bottom:solid 1px #0d1e4d;height:25px;}
-.language-list li.language-item span{color:#ECC44B;text-align:center;font-family:"Work Sans";cursor:pointer;font-weight:400;font-size:clamp(12px,2vw,14px);text-transform:uppercase;margin:0;width:100%;}
+.language-list li.language-item span{color:#fff;text-align:center;font-family:"Work Sans";cursor:pointer;font-weight:400;font-size:clamp(12px,2vw,14px);text-transform:uppercase;margin:0;width:100%;}
 li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 .language-list li.language-item,.language-list li.language-item span{-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;}
 .language-list li.language-item:hover span{transform:translateX(0px);}
@@ -891,23 +891,27 @@ body .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
 
 
 
-/* .swipe-effect {
+.swipe-effect {
   transition-property: color, background;
     transition-duration: 0.25s;
     transition-timing-function: ease;
-} */
+} 
 
-/* .swipe-effect:hover {
+ .swipe-effect:hover {
   color:#fff !important;
   background-color: #0d1e4d !important; 
   border-color: #0d1e4d !important; 
-} */
+} 
 
-/* .swipe-effect:hover svg {
+.swipe-effect:hover {
+  box-shadow: none;
+}
+
+.swipe-effect:hover svg {
   width: 23px;
   height: 23px;
   position: relative;
   top: 0;
   margin-right: 10px;
   fill: #fff;
-} */
+}

@@ -221,9 +221,20 @@ button.skipvideo.hidden{display:none;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
-
     .newfooter .newcontainer .footerblock ul li a,
     .newfooter .newcontainer .footerblock ul li{font-size:-moz-calc(12/var(--vw)*var(--multiplier));font-size:calc(12/var(--vw)*var(--multiplier));}
+
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p.summerytext {
+        font-size: calc(18/var(--vw)*var(--multiplier));
+    }
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p {
+        font-size: calc(14/var(--vw)*var(--multiplier));
+    }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 49%;}
+    .newfooter .newcontainer .footerblock ul li a svg {width: 28px;height: 28px;display: block;}
+
 }
 
 
@@ -328,12 +339,16 @@ button.skipvideo.hidden{display:none;}
         font-size: calc(22 / var(--vw)* var(--multiplier) - 25%) !important;
     }
 
+    
+
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p, 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small, 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p, 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span, 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span, 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p.summerytext,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details p.summerytext {
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%);
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
@@ -379,15 +394,29 @@ button.skipvideo.hidden{display:none;}
         font-size: calc(31/var(--vw)*var(--multiplier) - 25%);
     }
 
-    .newfooter .newcontainer .footerblock ul li a
+    .newfooter .newcontainer .footerblock ul li a,
+    .newfooter .newcontainer .footerblock ul li
     {
         font-size: -moz-calc(12/var(--vw)*var(--multiplier) - 25%);
         font-size: calc(12/var(--vw)*var(--multiplier) - 25%);
     }
 
+    
+
     .sixthsection  .overlaybannehand-bottoms {
         bottom: 0px;
     }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p {
+        font-size: calc(14 / var(--vw)*var(--multiplier) - 25%);
+    }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary {
+        font-size: -moz-calc(9 / var(--vw)* var(--multiplier)) !important;
+        font-size: calc(9 / var(--vw)* var(--multiplier)) !important;
+    }
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 50%;}
+    .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
 }
 
 

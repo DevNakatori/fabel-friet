@@ -46,15 +46,15 @@ const Onzefriet = () => {
       },
     });
 
-  
+
     timelinesonzefriet
-    .to('#section2 .roundimage, #section2 .roundtext', {
-      scale: 2.5,
-      z: 350,
-      transformOrigin: 'center center',
-      ease: 'power1.inOut',
-    }, 0); 
-   
+      .to('#section2 .roundimage, #section2 .roundtext', {
+        scale: 2.5,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      }, 0);
+
 
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {
@@ -99,31 +99,6 @@ const Onzefriet = () => {
   }, [onzefriet]);
 
   /* round curcule animation start */
-
-  /* other text and section animation start */
-  // useEffect(() => {
-  //   const textContent = 'lekkerste friet van Amsterdam!';
-  //   const textLength = textContent.length;
-  //   const duration = textLength * 0.05;
-  //   gsap.fromTo(
-  //     '#animated-text',
-  //     { text: '' },
-  //     {
-  //       text: textContent,
-  //       duration: duration,
-  //       ease: 'none',
-  //       delay: 2,
-  //       scrollTrigger: {
-  //         trigger: '.whitewithvideomainbox',
-  //         start: 'top 75%',
-  //         end: 'top 25%',
-  //         toggleActions: 'play none none none',
-  //       },
-  //     },
-  //   );
-
-  //   /* other text and section animation end */
-  // }, [onzefriet]);
 
   /* accordian start */
   const toggleAccordion = (e) => {
@@ -298,25 +273,7 @@ const Onzefriet = () => {
   }, [onzefriet]);
 
   useEffect(() => {
-    // gsap.from('.allfiressections', {
-    //   y: '-100vh',
-    //   delay: 0.5,
-    //   scrollTrigger: {
-    //     trigger: '.secondesection .gradient-purple',
-    //   },
-    // });
-
-    // gsap.to('.allfiressections img', {
-    //   x: 'random(-20, 20)',
-    //   y: 'random(-20, 20)',
-    //   stagger: 0.3,
-    //   zIndex: 22,
-    //   duration: 2,
-    //   ease: 'power3.out',
-    //   yoyo: true,
-    //   repeat: -1,
-    // });
-
+  
     let typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -394,32 +351,12 @@ const Onzefriet = () => {
       },
       onUpdate: function () {
         charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
-            typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
+          typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
         });
       },
     });
 
-    // gsap.fromTo(
-    //   '.borderbottomaccordian',
-    //   { width: 0 },
-    //   {
-    //     width: '100%',
-    //     stagger: 0.2,
-    //     duration: 2,
-    //     ease: 'power2.out',
-    //     delay: 2,
-    //     repeat: 0,
-    //     scrollTrigger: {
-    //       trigger: '.accordion-item',
-    //       start: 'top center',
-    //       end: 'bottom top',
-    //       scrub: true,
-    //       stagger: 0.3,
-    //       duration: 2,
-    //       once: true,
-    //     },
-    //   },
-    // );
+  
     let typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -483,123 +420,112 @@ const Onzefriet = () => {
           markers: false,
         },
         onComplete: () => {
-          // Adding zoom-in and zoom-out animation to images
+         
           gsap.to('.allfiressections img', {
-            scale: 1.1, // zoom in
+            scale: 1.1,
             stagger: 0.3,
             zIndex: 22,
             duration: 1,
             ease: 'none',
-            yoyo: true, // reverse animation (zoom out)
-            repeat: -1, // infinite repetition
+            yoyo: true, 
+            repeat: -1, 
           });
         },
       },
     );
 
-    // gsap.to('.allfiressections img', {
-    //   x: 'random(-5, 5)',
-    //   y: 'random(-5, 5)',
-    //   stagger: 0.3,
-    //   zIndex: 22,
-    //   duration: 2,
-    //   ease: 'sine.inOut',
-    //   yoyo: true,
-    //   repeat: -1,
-
-    // });
   }, [onzefriet]);
 
   const rainContainerRef = useRef(null);
-const canvasRef = useRef(null);
-const fries = useRef([]);
-const fryImages = useRef([]);
-const numberOfFries = 80;
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 80;
 
-// Define your image sources here
-const fryImageSources = [fries_one, fries_two, fries_three, fries_four,fries_five,fries_six];
+  // Define your image sources here
+  const fryImageSources = [fries_one, fries_two, fries_three, fries_four, fries_five, fries_six];
 
-useEffect(() => {
-  if (!rainContainerRef.current || !canvasRef.current) return;
+  useEffect(() => {
+    if (!rainContainerRef.current || !canvasRef.current) return;
 
-  // Load fry images
-  fryImages.current = fryImageSources.map((src) => {
-    const img = new Image();
-    img.src = src;
-    return img;
-  });
-
-  // Resize canvas to fit the container
-  const resizeCanvas = () => {
-    const canvas = canvasRef.current;
-    const rainContainer = rainContainerRef.current;
-    if (!canvas || !rainContainer) return; // Ensure refs are valid
-    canvas.width = rainContainer.offsetWidth;
-    canvas.height = rainContainer.offsetHeight;
-  };
-
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
-  // Create fries objects
-  const createFries = () => {
-    fries.current = [];
-    const canvas = canvasRef.current;
-    if (!canvas) return; // Ensure canvas is valid
-    for (let i = 0; i < numberOfFries; i++) {
-      fries.current.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * -canvas.height,
-        speed: Math.random() * 1 + 0.5, // Slower speed: 0.5 to 1.5 pixels per frame
-        sway: Math.random() * 50 - 25,
-        image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
-      });
-    }
-  };
-
-  // Render fries
-  const renderFries = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!ctx || !canvas) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    fries.current.forEach((fry) => {
-      fry.y += fry.speed;
-      fry.x += fry.sway * 0.01; // Slight sway effect
-      if (fry.y > canvas.height) {
-        fry.y = -50; // Reset to the top
-        fry.x = Math.random() * canvas.width; // Random horizontal position
-        fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
-      }
-      ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); // Adjust fry size here
+    // Load fry images
+    fryImages.current = fryImageSources.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
     });
 
-    requestAnimationFrame(renderFries);
-  };
+    // Resize canvas to fit the container
+    const resizeCanvas = () => {
+      const canvas = canvasRef.current;
+      const rainContainer = rainContainerRef.current;
+      if (!canvas || !rainContainer) return; // Ensure refs are valid
+      canvas.width = rainContainer.offsetWidth;
+      canvas.height = rainContainer.offsetHeight;
+    };
 
-  // Trigger rain effect on scroll
-  ScrollTrigger.create({
-    trigger: rainContainerRef.current,
-    start: "top center",
-    onEnter: () => {
-      createFries();
-      renderFries();
-    },
-    onLeaveBack: () => {
-      fries.current = []; // Stop rendering when leaving the section
-      const ctx = canvasRef.current.getContext("2d");
-      if (ctx) {
-        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    // Create fries objects
+    const createFries = () => {
+      fries.current = [];
+      const canvas = canvasRef.current;
+      if (!canvas) return; // Ensure canvas is valid
+      for (let i = 0; i < numberOfFries; i++) {
+        fries.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          speed: Math.random() * 1 + 0.5, // Slower speed: 0.5 to 1.5 pixels per frame
+          sway: Math.random() * 50 - 25,
+          image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
+        });
       }
-    },
-  });
+    };
 
-  return () => {
-    window.removeEventListener("resize", resizeCanvas);
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  };
+    // Render fries
+    const renderFries = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext("2d");
+      if (!ctx || !canvas) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      fries.current.forEach((fry) => {
+        fry.y += fry.speed;
+        fry.x += fry.sway * 0.01; // Slight sway effect
+        if (fry.y > canvas.height) {
+          fry.y = -50; // Reset to the top
+          fry.x = Math.random() * canvas.width; // Random horizontal position
+          fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
+        }
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); // Adjust fry size here
+      });
+
+      requestAnimationFrame(renderFries);
+    };
+
+    // Trigger rain effect on scroll
+    ScrollTrigger.create({
+      trigger: rainContainerRef.current,
+      start: "top center",
+      onEnter: () => {
+        createFries();
+        renderFries();
+      },
+      onLeaveBack: () => {
+        fries.current = []; // Stop rendering when leaving the section
+        const ctx = canvasRef.current.getContext("2d");
+        if (ctx) {
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        }
+      },
+    });
+
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
 
 
   }, [onzefriet]);
@@ -1003,7 +929,7 @@ useEffect(() => {
                   )}
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
-                
+
               </div>
             </div>
           </div>
