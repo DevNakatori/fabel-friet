@@ -242,10 +242,10 @@ export default function Homepage() {
           <div id="smooth-content">
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
-            {showOnzelocaties && <Onzelocaties />} 
+            {showOnzelocaties && <Onzelocaties />}  
             {showHetmenu && <Hetmenu />}
-            {showOnzeimpact && <Onzeimpact />} 
-            {showGetintouch && <Getintouch />}
+            {showOnzeimpact && <Onzeimpact />}  
+            {showGetintouch && <Getintouch />}  
           </div>
         </div>
       </LanguageProvider>

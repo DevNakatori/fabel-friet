@@ -8,12 +8,14 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
 import { getImageUrl } from '../js/imagesurl';
 import SplitType from 'split-type';
+
+import mp3song from '../assets/SoundsofAmsterdamCity.mp3';
 
 gsap.registerPlugin(
   TextPlugin,
@@ -36,7 +38,8 @@ const HomePage = () => {
   const [currentLanguage, setCurrentLanguage] = useState(language);
   const skipbuttons = document.getElementById('skipvideobtn');
   const extraProgressBarRef = useRef(null);
-
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     document.body.classList.add(currentLanguage);
@@ -131,6 +134,9 @@ const HomePage = () => {
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
       document.querySelector('.percentagebar').classList.add('hidden');
+      document.querySelector('.audioplayer').classList.add('hidden');
+      audioRef.current.pause();
+
 
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
@@ -359,6 +365,9 @@ const HomePage = () => {
       skipbuttons.classList.add('hidden');
       document.querySelector('.progress-bar-container').classList.add('hidden');
       document.querySelector('.percentagebar').classList.add('hidden');
+      document.querySelector('.audioplayer').classList.add('hidden');
+      audioRef.current.pause();
+
 
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
@@ -686,34 +695,49 @@ const HomePage = () => {
       bubblyButtons[i].addEventListener('click', animateButton);
     }
 
-    gsap.to("#section1 .bannerlogo", { 
-      duration: 0.8, 
-      width: "0px", 
+    gsap.to("#section1 .bannerlogo", {
+      duration: 1,
+      width: "0px",
       ease: "power1.inOut",
       scrollTrigger: {
-        trigger: "#section1", 
+        trigger: "#section1",
         scrub: true,
-        once: false,               
+        once: false,
       }
     });
-    
-    
-    gsap.to(".headernew nav ul.desktop-menu .bannersectinlogo", { 
-      duration: 0.2, 
-      width: "80px", 
+
+
+    gsap.to(".headernew nav ul.desktop-menu .bannersectinlogo", {
+      duration: 1,
+      width: "80px",
+      x: "20%",
+      y: "20%",
       ease: "power1.inOut",
       scrollTrigger: {
-        trigger: "#smooth-content",  
+        trigger: "#smooth-content",
         scrub: true,
         start: '0.5% 0.5%',
         end: '3% 3%',
-        once: false,          
+        once: false,
       },
     });
 
-    
+
   }, [bannerData]);
   /* forcefully scroll top */
+
+
+  const togglePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+
+
 
   if (loading && isFirstLoad) {
     return (
@@ -741,7 +765,7 @@ const HomePage = () => {
   return (
     <section className="bannersection" id="section1">
       <div className="banner_video">
-        {bannerData[0].bannerVideo && (
+        {/* {bannerData[0].bannerVideo && (
           <video
             id="myVideo"
             src={bannerData[0].bannerVideo}
@@ -750,9 +774,9 @@ const HomePage = () => {
             playsInline
             onTimeUpdate={handleTimeUpdate}
           />
-        )}
+        )} */}
 
-        {/* <video
+        <video
           id="myVideo"
           autoPlay
           muted
@@ -764,7 +788,7 @@ const HomePage = () => {
             type="video/mp4"
           />
           Your browser does not support the video tag.
-        </video> */}
+        </video>
 
         <div className="progress-bar-container">
           <svg
@@ -910,10 +934,35 @@ const HomePage = () => {
           </i>
           Skip Video
         </button>
+
+        <div className='audioplayer'>
+          <audio ref={audioRef} src={mp3song} autoPlay />
+          <button className="audioplaypause" onClick={togglePlayPause}>
+            {isPlaying ? (
+              <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5V19M16 5V19" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ) : (
+              <svg fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve">
+                <g id="Play">
+                  <path d="M46.0136986,31.1054993L25.1973,20.6973c-0.3096008-0.1532993-0.6777992-0.1387005-0.9727001,0.0438995
+		C23.9297009,20.9237995,23.75,21.2451,23.75,21.5918007v20.8163986c0,0.3467026,0.1797009,0.6679993,0.4745998,0.8506012
+		C24.3848,43.3583984,24.5674,43.4081993,24.75,43.4081993c0.1532993,0,0.3057003-0.035099,0.4473-0.1054001l20.8163986-10.4081993
+		c0.3388023-0.1699982,0.5527-0.5157013,0.5527-0.8945999C46.5663986,31.6210995,46.3525009,31.2754002,46.0136986,31.1054993z
+		 M25.75,40.7901001v-17.580101L43.330101,32L25.75,40.7901001z"/>
+                  <path d="M32,0C14.3268995,0,0,14.3268995,0,32s14.3268995,32,32,32s32-14.3269005,32-32S49.6730995,0,32,0z M32,62
+		C15.4579,62,2,48.542099,2,32C2,15.4580002,15.4579,2,32,2c16.5419998,0,30,13.4580002,30,30C62,48.542099,48.5419998,62,32,62z"/>
+                </g>
+              </svg>
+            )}
+          </button>
+        </div>
+
       </div>
       <div className="banner_overlaymain">
         <div className="banner_overlay">
-          <div className="bannerlogo">
+        <div className="bannerlogo">
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
