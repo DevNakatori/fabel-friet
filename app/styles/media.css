@@ -536,6 +536,10 @@ button.skipvideo.hidden{display:none;}
     .likeimagelist img:nth-child(3){right:-100px;}
     .likeimagelist img:nth-child(4){right:-115px;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
+
+    .headernew nav ul.desktop-menu .bannersectinlogo {
+        left: 80%;
+    }
 }
 
 @media (min-width:768px) and (max-width:991px){
