@@ -540,6 +540,10 @@ button.skipvideo.hidden{display:none;}
     .headernew nav ul.desktop-menu .bannersectinlogo {
         left: 80%;
     }
+
+    .headernew.main-menu.is-at-top {
+        width: calc(100% - 50px);
+    }
 }
 
 @media (min-width:768px) and (max-width:991px){
