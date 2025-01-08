@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import Newfootermenu from '~/components/Newfootermenu';
 import Qrmenuheader from '~/components/Qrmenuheader';
 import Franchise from '~/components/Franchise';
+import '../styles/media.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */

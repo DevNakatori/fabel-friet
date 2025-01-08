@@ -193,7 +193,7 @@ canvas.canvasfries {
     height: calc(100% - 100px);
     width: calc(100% + 100px);
 }
-
+.accordion-item button.accordion-header .faqqestion{width: 95%;}
 @media (min-width:1200px) and (max-width:1399px){
     .banner_title_text h1{font-size:clamp(20px,10vw,80px);}
     .banner_content_text p{font-size:clamp(20px,10vw,20px);}

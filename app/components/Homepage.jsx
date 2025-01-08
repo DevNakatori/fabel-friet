@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState, useRef} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { TextPlugin } from 'gsap/TextPlugin';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import {TextPlugin} from 'gsap/TextPlugin';
+import {ScrollSmoother} from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 // import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 import SplitType from 'split-type';
 
 import mp3song from '../assets/SoundsofAmsterdamCity.mp3';
@@ -26,7 +26,7 @@ gsap.registerPlugin(
 );
 
 const HomePage = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [bannerData, setBanner] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -66,7 +66,7 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           if (data && data.length > 0) {
             setTimeout(() => {
@@ -137,7 +137,6 @@ const HomePage = () => {
       document.querySelector('.audioplayer').classList.add('hidden');
       audioRef.current.pause();
 
-
       const video = document.getElementById('myVideo');
       const overlayMain = document.querySelector('.banner_overlaymain');
       const overlay = document.querySelector('.banner_overlay');
@@ -160,7 +159,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -201,7 +200,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -214,7 +213,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.button,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -227,7 +226,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -240,7 +239,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        { text: '' },
+        {text: ''},
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.35,
@@ -250,11 +249,11 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('body', { delay: 3.5, onComplete: removeClass });
+      gsap.to('body', {delay: 3.5, onComplete: removeClass});
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        { y: '-100%' },
+        {y: '-100%'},
         {
           duration: 0.5,
           y: '0%',
@@ -266,7 +265,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        { y: '-100%' },
+        {y: '-100%'},
         {
           duration: 0.5,
           y: '0%',
@@ -278,7 +277,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        { drawSVG: '0 0' },
+        {drawSVG: '0 0'},
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -290,7 +289,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        { drawSVG: '0 0' },
+        {drawSVG: '0 0'},
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -302,7 +301,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        { opacity: 0, y: -30 },
+        {opacity: 0, y: -30},
         {
           opacity: 1,
           y: 0,
@@ -368,7 +367,6 @@ const HomePage = () => {
       document.querySelector('.audioplayer').classList.add('hidden');
       audioRef.current.pause();
 
-
       const languageSwitchers =
         document.getElementsByClassName('language-switcher');
       if (languageSwitchers.length > 0) {
@@ -380,7 +378,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -421,7 +419,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -434,7 +432,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.title,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -447,7 +445,7 @@ const HomePage = () => {
 
       var h1 = elements.title.querySelector('h1');
       var tl = gsap.timeline(),
-        mySplitText = new SplitText(h1, { type: 'words,chars' }),
+        mySplitText = new SplitText(h1, {type: 'words,chars'}),
         chars = mySplitText.chars;
       tl.from(chars, {
         opacity: 0,
@@ -467,7 +465,7 @@ const HomePage = () => {
         },
       });
 
-      const H1text = new SplitType(h1, { types: 'lines', lineClass: 'H1mask' });
+      const H1text = new SplitType(h1, {types: 'lines', lineClass: 'H1mask'});
 
       var loom = document.querySelectorAll('.H1mask');
       loom.forEach((value, i) => {
@@ -478,7 +476,7 @@ const HomePage = () => {
       });
       gsap.fromTo(
         elements.content,
-        { opacity: 0 },
+        {opacity: 0},
         {
           opacity: 1,
         },
@@ -517,7 +515,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.content,
-        { opacity: 0 },
+        {opacity: 0},
         {
           opacity: 1,
         },
@@ -525,7 +523,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.button,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -538,7 +536,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        { opacity: 0, y: -50 },
+        {opacity: 0, y: -50},
         {
           opacity: 1,
           y: 0,
@@ -551,7 +549,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        { text: '' },
+        {text: ''},
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.35,
@@ -561,11 +559,11 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('body', { delay: 3.5, onComplete: removeClass });
+      gsap.to('body', {delay: 3.5, onComplete: removeClass});
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        { y: '-100%' },
+        {y: '-100%'},
         {
           duration: 0.5,
           y: '0%',
@@ -577,7 +575,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        { y: '-100%' },
+        {y: '-100%'},
         {
           duration: 0.5,
           y: '0%',
@@ -589,7 +587,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        { drawSVG: '0 0' },
+        {drawSVG: '0 0'},
         {
           drawSVG: '100% -175%',
           duration: 3,
@@ -601,7 +599,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        { drawSVG: '0 0' },
+        {drawSVG: '0 0'},
         {
           drawSVG: '100% -175%',
           duration: 3,
@@ -613,7 +611,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        { opacity: 0, y: -30 },
+        {opacity: 0, y: -30},
         {
           opacity: 1,
           y: 0,
@@ -627,7 +625,7 @@ const HomePage = () => {
       const scrollToSection = (hash) => {
         const section = document.querySelector(hash);
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
+          section.scrollIntoView({behavior: 'smooth'});
         }
       };
 
@@ -695,37 +693,33 @@ const HomePage = () => {
       bubblyButtons[i].addEventListener('click', animateButton);
     }
 
-    gsap.to("#section1 .bannerlogo", {
+    gsap.to('#section1 .bannerlogo', {
       duration: 1,
-      width: "0px",
-      ease: "power1.inOut",
+      width: '0px',
+      ease: 'power1.inOut',
       scrollTrigger: {
-        trigger: "#section1",
+        trigger: '#section1',
         scrub: true,
         once: false,
-      }
+      },
     });
 
-
-    gsap.to(".headernew nav ul.desktop-menu .bannersectinlogo", {
+    gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
       duration: 1,
-      width: "80px",
-      x: "20%",
-      y: "20%",
-      ease: "power1.inOut",
+      width: '80px',
+      x: '20%',
+      y: '20%',
+      ease: 'power1.inOut',
       scrollTrigger: {
-        trigger: "#smooth-content",
+        trigger: '#smooth-content',
         scrub: true,
         start: '0.5% 0.5%',
         end: '3% 3%',
         once: false,
       },
     });
-
-
   }, [bannerData]);
   /* forcefully scroll top */
-
 
   const togglePlayPause = () => {
     if (isPlaying) {
@@ -735,9 +729,6 @@ const HomePage = () => {
     }
     setIsPlaying(!isPlaying);
   };
-
-
-
 
   if (loading && isFirstLoad) {
     return (
@@ -801,7 +792,7 @@ const HomePage = () => {
             x="0px"
             y="0px"
             viewBox="0 0 1927 104"
-            style={{ enableBackground: 'new 0 0 1927 104' }}
+            style={{enableBackground: 'new 0 0 1927 104'}}
             xmlSpace="preserve"
           >
             <style type="text/css">
@@ -816,8 +807,13 @@ const HomePage = () => {
               className="st000"
               d="M0,103h861.6C861.6,46.7,907.2,1,963.5,1s101.9,45.6,101.9,101.9H1927"
             />
-            <path className="st111" d="M870.5,104c0-51.4,41.6-93,93-93s93,41.6,93,93" />
-            <path className="st222" d="M972.3,21.9l-0.3,2.3l2.4,0.3l-0.2,1.6l-2.4-0.3l-0.4,3.6c0,0.4,0,0.6,0.2,0.8c0.2,0.2,0.4,0.3,0.7,0.3
+            <path
+              className="st111"
+              d="M870.5,104c0-51.4,41.6-93,93-93s93,41.6,93,93"
+            />
+            <path
+              className="st222"
+              d="M972.3,21.9l-0.3,2.3l2.4,0.3l-0.2,1.6l-2.4-0.3l-0.4,3.6c0,0.4,0,0.6,0.2,0.8c0.2,0.2,0.4,0.3,0.7,0.3
 	c0.3,0,0.5,0,0.7,0c0.2-0.1,0.4-0.1,0.6-0.3l0.2,1.4c-0.3,0.2-0.6,0.3-1,0.3c-0.4,0.1-0.8,0.1-1.2,0c-0.5-0.1-1-0.2-1.3-0.4
 	c-0.4-0.2-0.6-0.5-0.8-0.8c-0.2-0.4-0.2-0.8-0.2-1.4l0.5-3.9l-1.4-0.2l0.2-1.6l1.4,0.2l0.2-1.8L972.3,21.9z M957,31.5
 	c0.7,0.2,1.4,0.3,2.1,0.3c0.7,0,1.3-0.2,1.8-0.4c0.5-0.3,0.9-0.6,1.1-1c0.2-0.4,0.4-0.8,0.3-1.3c0-0.5-0.2-0.9-0.6-1.3
@@ -875,9 +871,12 @@ const HomePage = () => {
 	c-0.4,0.1-0.7,0.4-1.1,0.7c-0.4,0.3-0.6,0.7-0.8,1c-0.1,0.4-0.2,0.7-0.2,1C1024.9,58.6,1025.1,58.9,1025.3,59.2z M1029.9,71.9
 	l8.5-1.9l-1.2-1.8l-4.5,1.3l-1.6,0.5l1.1-1.2l3-3.7l-1.3-2l-3.6,5.1l-1.2,1.8l-0.7,0.1c-0.4,0.1-0.7,0.1-0.9,0
 	c-0.2-0.1-0.4-0.3-0.6-0.5c-0.2-0.2-0.3-0.5-0.3-0.7c-0.1-0.2-0.1-0.4-0.1-0.7l-1.5,0.5c0,0.3,0.1,0.6,0.2,0.9
-	c0.1,0.3,0.3,0.7,0.5,1c0.3,0.5,0.6,0.8,1,1c0.4,0.2,0.8,0.4,1.3,0.4C1028.6,72.2,1029.2,72.1,1029.9,71.9z"/>
+	c0.1,0.3,0.3,0.7,0.5,1c0.3,0.5,0.6,0.8,1,1c0.4,0.2,0.8,0.4,1.3,0.4C1028.6,72.2,1029.2,72.1,1029.9,71.9z"
+            />
           </svg>
-          <span className='percentagebar'>{Math.floor(progressPercentage)}%</span>
+          <span className="percentagebar">
+            {Math.floor(progressPercentage)}%
+          </span>
           {/* <div
             className="progress-bar"
             style={{ width: `${progressBarWidth}%` }}
@@ -935,46 +934,71 @@ const HomePage = () => {
           Skip Video
         </button>
 
-        <div className='audioplayer'>
-          <audio ref={audioRef} src={mp3song} autoPlay />
+        <div className="audioplayer">
+          <audio ref={audioRef} src={mp3song} />
           <button className="audioplaypause" onClick={togglePlayPause}>
             {isPlaying ? (
-              <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 5V19M16 5V19" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 5V19M16 5V19"
+                  stroke="#000000"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             ) : (
-              <svg fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve">
+              <svg
+                fill="#000000"
+                height="800px"
+                width="800px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 64 64"
+                enableBackground="new 0 0 64 64"
+                xmlSpace="preserve"
+              >
                 <g id="Play">
-                  <path d="M46.0136986,31.1054993L25.1973,20.6973c-0.3096008-0.1532993-0.6777992-0.1387005-0.9727001,0.0438995
+                  <path
+                    d="M46.0136986,31.1054993L25.1973,20.6973c-0.3096008-0.1532993-0.6777992-0.1387005-0.9727001,0.0438995
 		C23.9297009,20.9237995,23.75,21.2451,23.75,21.5918007v20.8163986c0,0.3467026,0.1797009,0.6679993,0.4745998,0.8506012
 		C24.3848,43.3583984,24.5674,43.4081993,24.75,43.4081993c0.1532993,0,0.3057003-0.035099,0.4473-0.1054001l20.8163986-10.4081993
 		c0.3388023-0.1699982,0.5527-0.5157013,0.5527-0.8945999C46.5663986,31.6210995,46.3525009,31.2754002,46.0136986,31.1054993z
-		 M25.75,40.7901001v-17.580101L43.330101,32L25.75,40.7901001z"/>
-                  <path d="M32,0C14.3268995,0,0,14.3268995,0,32s14.3268995,32,32,32s32-14.3269005,32-32S49.6730995,0,32,0z M32,62
-		C15.4579,62,2,48.542099,2,32C2,15.4580002,15.4579,2,32,2c16.5419998,0,30,13.4580002,30,30C62,48.542099,48.5419998,62,32,62z"/>
+		 M25.75,40.7901001v-17.580101L43.330101,32L25.75,40.7901001z"
+                  />
+                  <path
+                    d="M32,0C14.3268995,0,0,14.3268995,0,32s14.3268995,32,32,32s32-14.3269005,32-32S49.6730995,0,32,0z M32,62
+		C15.4579,62,2,48.542099,2,32C2,15.4580002,15.4579,2,32,2c16.5419998,0,30,13.4580002,30,30C62,48.542099,48.5419998,62,32,62z"
+                  />
                 </g>
               </svg>
             )}
           </button>
         </div>
-
       </div>
       <div className="banner_overlaymain">
         <div className="banner_overlay">
-        <div className="bannerlogo">
+          <div className="bannerlogo">
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
             />
           </div>
           <div className="banner_title_text">
-            <h1 dangerouslySetInnerHTML={{ __html: bannerData[0].title }} />
+            <h1 dangerouslySetInnerHTML={{__html: bannerData[0].title}} />
           </div>
           <div className="banner_content_text">
             <p
               id="text"
-              dangerouslySetInnerHTML={{ __html: bannerData[0].bannerContent }}
+              dangerouslySetInnerHTML={{__html: bannerData[0].bannerContent}}
             />
           </div>
           {bannerData[0].bannerButton && (
@@ -993,7 +1017,7 @@ const HomePage = () => {
             ></a>
           )}
           <div className="bannerrotate_text">
-            <p dangerouslySetInnerHTML={{ __html: bannerData[0].bannerText }} />
+            <p dangerouslySetInnerHTML={{__html: bannerData[0].bannerText}} />
           </div>
         </div>
         <div className="overlaybannehand">

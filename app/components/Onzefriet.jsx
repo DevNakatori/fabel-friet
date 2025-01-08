@@ -915,7 +915,7 @@ const Onzefriet = () => {
                               className="accordion-header"
                               onClick={toggleAccordion}
                             >
-                              {faq.question}
+                              <div className="faqqestion">{faq.question}</div>
                               <span className="icon"></span>
                             </button>
                             <div className="accordion-content">
