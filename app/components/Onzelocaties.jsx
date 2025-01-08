@@ -294,7 +294,7 @@ const Onzelocaties = () => {
               />
               <p
                 className="locationescription onlydesktop"
-                data-aos="fade-down"
+                data-aos="fade-up"
                 dangerouslySetInnerHTML={{
                   __html: locationData.contentSection.description,
                 }}

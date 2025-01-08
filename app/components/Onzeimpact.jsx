@@ -564,7 +564,7 @@ const Onzeimpact = () => {
           </h4>
           <p
             className="onzeimpactdescription"
-            data-aos="fade-down"
+            data-aos="fade-up"
             dangerouslySetInnerHTML={{__html: data.contentSection.description}}
           />
 

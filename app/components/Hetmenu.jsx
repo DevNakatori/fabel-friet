@@ -503,7 +503,7 @@ const Hetmenu = () => {
           />
           <p
             className="hetmenuescription"
-            data-aos="fade-down"
+            data-aos="fade-up"
             dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
           <canvas
