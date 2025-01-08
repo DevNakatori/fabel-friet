@@ -162,26 +162,26 @@ const Onzelocaties = () => {
       },
     });
 
-    const typeSplitlocationdescription = new SplitType(
-      '[data-locationdescription]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
+    // const typeSplitlocationdescription = new SplitType(
+    //   '[data-locationdescription]',
+    //   {
+    //     types: 'lines, words, chars',
+    //     tagName: 'span',
+    //   },
+    // );
 
-    gsap.from('[data-locationdescription] .word', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-locationdescription]',
-        start: 'top center',
-        once: true
-      },
-    });
+    // gsap.from('[data-locationdescription] .word', {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.45,
+    //   ease: 'none.inOut',
+    //   stagger: 0.1,
+    //   scrollTrigger: {
+    //     trigger: '[data-locationdescription]',
+    //     start: 'top center',
+    //     once: true
+    //   },
+    // });
 
     let revealContainers = document.querySelectorAll('.reveal');
 
@@ -294,7 +294,7 @@ const Onzelocaties = () => {
               />
               <p
                 className="locationescription onlydesktop"
-                data-locationdescription=""
+                data-aos="fade-down"
                 dangerouslySetInnerHTML={{
                   __html: locationData.contentSection.description,
                 }}

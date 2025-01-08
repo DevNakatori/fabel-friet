@@ -392,26 +392,26 @@ const Onzefriet = () => {
       },
     });
 
-    const typeSplitonzefriendescription = new SplitType(
-      '[data-onzefriendescription]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
+    // const typeSplitonzefriendescription = new SplitType(
+    //   '[data-onzefriendescription]',
+    //   {
+    //     types: 'lines, words, chars',
+    //     tagName: 'span',
+    //   },
+    // );
 
-    gsap.from('[data-onzefriendescription] .word', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-onzefriendescription]',
-        start: 'top center',
-        once: true
-      },
-    });
+    // gsap.from('[data-onzefriendescription]', {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.45,
+    //   ease: 'none.inOut',
+    //   stagger: 0.1,
+    //   scrollTrigger: {
+    //     trigger: '[data-onzefriendescription]',
+    //     start: 'top center',
+    //     once: true
+    //   },
+    // });
 
     const typeSplitvideoDescription = new SplitType('[data-videodescription]', {
       types: 'lines, words, chars',
@@ -625,7 +625,7 @@ const Onzefriet = () => {
                   </div>
                   <p
                     className="onzefriendescription"
-                    data-onzefriendescription=""
+                    data-aos="fade-down"
                     dangerouslySetInnerHTML={{
                       __html: content.contentSection.description,
                     }}

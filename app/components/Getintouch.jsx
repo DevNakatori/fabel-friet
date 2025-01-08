@@ -349,26 +349,26 @@ const Getintouch = () => {
       },
     });
 
-    const typeSplitdatagettouchonzefrientdescription = new SplitType(
-      '[data-gettouchonzefrientdescription]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
+    // const typeSplitdatagettouchonzefrientdescription = new SplitType(
+    //   '[data-gettouchonzefrientdescription]',
+    //   {
+    //     types: 'lines, words, chars',
+    //     tagName: 'span',
+    //   },
+    // );
 
-    gsap.from('[data-gettouchonzefrientdescription] .word', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-gettouchonzefrientdescription]',
-        start: 'top center',
-        once: true
-      },
-    });
+    // gsap.from('[data-gettouchonzefrientdescription] .word', {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.45,
+    //   ease: 'none.inOut',
+    //   stagger: 0.1,
+    //   scrollTrigger: {
+    //     trigger: '[data-gettouchonzefrientdescription]',
+    //     start: 'top center',
+    //     once: true
+    //   },
+    // });
 
     const typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
       types: 'lines, words, chars',
@@ -745,7 +745,7 @@ const Getintouch = () => {
           </h4>
           <p
             className="onzefriendescription"
-            data-gettouchonzefrientdescription=""
+            data-aos="fade-down"
             dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
 
