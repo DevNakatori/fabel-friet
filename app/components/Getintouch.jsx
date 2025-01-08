@@ -305,10 +305,10 @@ const Getintouch = () => {
         stagger: 0.5,
         duration: 1,
         ease: 'bounce.out',
-        force3D: true,
+        force3D: false,
         yoyo: true,
         scrollTrigger: {
-          trigger: '#section6 .wrappertest',
+          trigger: '#section6 .wrappertests',
           start: 'top top',
           end: 'top top',
           pin: true,
@@ -732,12 +732,16 @@ const Getintouch = () => {
         </div>
       </div>
       <div className="wrappertest" ref={rainContainerRef}>
-        <div className="flair flair--3"><div className="likeimagelists">
+        <div className='wrappertests'>
+        <div className="flair flair--3">
+          <div className="likeimagelists">
           <img src={liek_2} alt="img" className='ball' />
           <img src={liek_1} alt="img" className='ball' />
           <img src={liek_3} alt="img" className='ball' />
           <img src={liek_4} alt="img" className='ball' />
-        </div></div>
+        </div>
+        </div>
+        </div>
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
 
@@ -1273,7 +1277,7 @@ const Getintouch = () => {
                           className="accordion-header"
                           onClick={toggleAccordion}
                         >
-                          {faq.question}
+                          <div className="faqqestion">{faq.question}</div>
                           <span className="icon"></span>
                         </button>
                         <div className="accordion-content">
