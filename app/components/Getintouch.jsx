@@ -745,7 +745,7 @@ const Getintouch = () => {
           </h4>
           <p
             className="onzefriendescription"
-            data-aos="fade-down"
+            data-aos="fade-up"
             dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
 

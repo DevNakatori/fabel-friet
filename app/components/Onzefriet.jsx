@@ -625,7 +625,7 @@ const Onzefriet = () => {
                   </div>
                   <p
                     className="onzefriendescription"
-                    data-aos="fade-down"
+                    data-aos="fade-up"
                     dangerouslySetInnerHTML={{
                       __html: content.contentSection.description,
                     }}
