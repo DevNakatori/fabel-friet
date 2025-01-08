@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
-
-import { getImageUrl } from '../js/imagesurl';
-
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
-
 import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
 import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzelocaties, setOnzelocaties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,15 +36,16 @@ const Onzelocaties = () => {
       },
     });
 
-  
-    timelines
-    .to('#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',{
+    timelines.to(
+      '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
+      {
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      }, 0); 
-    
+      },
+      0,
+    );
 
     timelines.to('.thirdesection .wrappertest', {
       scrollTrigger: {
@@ -103,7 +101,7 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
@@ -123,6 +121,20 @@ const Onzelocaties = () => {
     };
     fetchDataOnzelocaties();
   }, [language]);
+
+  useEffect(() => {
+    const animateButton = (e) => {
+      e.preventDefault();
+      const button = e.target;
+      button.classList.remove('animate');
+      button.classList.add('animate');
+      setTimeout(() => button.classList.remove('animate'), 400);
+    };
+    const bubblyButtons = document.getElementsByClassName('bubbly-button');
+    for (let i = 0; i < bubblyButtons.length; i++) {
+      bubblyButtons[i].addEventListener('click', animateButton);
+    }
+  }, [onzelocaties]);
 
   useEffect(() => {
     let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
@@ -150,7 +162,7 @@ const Onzelocaties = () => {
       },
     });
 
-    let typeSplitlocationdescription = new SplitType(
+    const typeSplitlocationdescription = new SplitType(
       '[data-locationdescription]',
       {
         types: 'lines, words, chars',
@@ -162,10 +174,11 @@ const Onzelocaties = () => {
       y: '100%',
       opacity: 0,
       duration: 0.5,
-      ease: 'sine.inOut',
       stagger: 0.1,
+      ease: 'sine.inOut',
       scrollTrigger: {
-        trigger: '[data-locationdescription]',
+        trigger: '#locationtiononzefriet',
+        start: 'top center',
       },
     });
 
@@ -181,7 +194,7 @@ const Onzelocaties = () => {
         },
       });
 
-      tl.set(container, { autoAlpha: 1 });
+      tl.set(container, {autoAlpha: 1});
       tl.from(container, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -193,21 +206,6 @@ const Onzelocaties = () => {
         ease: 'Power2.out',
       });
     });
-  }, [onzelocaties]);
-
-
-  useEffect(() => {
-    const animateButton = (e) => {
-      e.preventDefault();
-      const button = e.target;
-      button.classList.remove('animate');
-      button.classList.add('animate');
-      setTimeout(() => button.classList.remove('animate'), 400);
-    };
-    const bubblyButtons = document.getElementsByClassName('bubbly-button');
-    for (let i = 0; i < bubblyButtons.length; i++) {
-      bubblyButtons[i].addEventListener('click', animateButton);
-    }
   }, [onzelocaties]);
 
   if (loading) return <p>Loading...</p>;
@@ -258,7 +256,7 @@ const Onzelocaties = () => {
               <div className="scroll-down">
                 <div className="icon-scroll"></div>
                 <p>Scroll down</p>
-              </div> 
+              </div>
               {/* <div className="scroll-down">
                 <div className="c-scroll-icon">
                   <div className="c-scroll-icon-line-mask">
@@ -301,18 +299,18 @@ const Onzelocaties = () => {
                 }}
               />
 
-                <div data-aos="fade-up"
+              <div
+                data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
-                data-aos-delay="1000">
-
-              <a
-                href=""
-                className="locatebutton onlydesktop bubbly-button swipe-effect"
-                
+                data-aos-delay="1000"
               >
-                {locationData.contentSection.btn_label}
-              </a>
+                <a
+                  href=""
+                  className="locatebutton onlydesktop bubbly-button swipe-effect"
+                >
+                  {locationData.contentSection.btn_label}
+                </a>
               </div>
 
               {/* mobile location slider */}
@@ -381,7 +379,7 @@ const Onzelocaties = () => {
                                 />
                                 <h4>Opening hours</h4>
                                 <p
-                                  dangerouslySetInnerHTML={{ __html: loc.info }}
+                                  dangerouslySetInnerHTML={{__html: loc.info}}
                                 />
                                 <div className="locationmaoaddress">
                                   <div className="locationicon">
@@ -398,7 +396,10 @@ const Onzelocaties = () => {
                                   </div>
                                 </div>
 
-                                <a href={loc.btn_link} className="routbtn bubbly-button swipe-effect">
+                                <a
+                                  href={loc.btn_link}
+                                  className="routbtn bubbly-button swipe-effect"
+                                >
                                   <span>{loc.btn_label}</span>
                                 </a>
                               </div>
@@ -484,7 +485,7 @@ const Onzelocaties = () => {
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
-                            dangerouslySetInnerHTML={{ __html: loc.info }}
+                            dangerouslySetInnerHTML={{__html: loc.info}}
                           />
 
                           <a
@@ -503,7 +504,6 @@ const Onzelocaties = () => {
                   ))}
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
-                
               </div>
             </div>
           </div>

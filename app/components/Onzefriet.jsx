@@ -1,16 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
@@ -21,13 +21,12 @@ import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp
 import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
-
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -46,15 +45,16 @@ const Onzefriet = () => {
       },
     });
 
-
-    timelinesonzefriet
-      .to('#section2 .roundimage, #section2 .roundtext', {
+    timelinesonzefriet.to(
+      '#section2 .roundimage, #section2 .roundtext',
+      {
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      }, 0);
-
+      },
+      0,
+    );
 
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {
@@ -131,7 +131,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -152,7 +152,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -272,8 +272,100 @@ const Onzefriet = () => {
     }
   }, [onzefriet]);
 
+  const rainContainerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 80;
+  const fryImageSources = [
+    fries_one,
+    fries_two,
+    fries_three,
+    fries_four,
+    fries_five,
+    fries_six,
+  ];
+
   useEffect(() => {
-  
+    if (!rainContainerRef.current || !canvasRef.current) return;
+    fryImages.current = fryImageSources.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+    const resizeCanvas = () => {
+      const canvas = canvasRef.current;
+      const rainContainer = rainContainerRef.current;
+      if (!canvas || !rainContainer) return; 
+      canvas.width = rainContainer.offsetWidth;
+      canvas.height = rainContainer.offsetHeight;
+    };
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    const createFries = () => {
+      fries.current = [];
+      const canvas = canvasRef.current;
+      if (!canvas) return; 
+      for (let i = 0; i < numberOfFries; i++) {
+        fries.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+          sway: Math.random() * 50 - 25,
+          image:
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ], // Random image
+        });
+      }
+    };
+    const renderFries = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext('2d');
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fries.current.forEach((fry) => {
+        fry.y += fry.speed;
+        fry.x += fry.sway * 0.01; 
+        if (fry.y > canvas.height) {
+          fry.y = -50; 
+          fry.x = Math.random() * canvas.width; 
+          fry.image =
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ]; 
+        }
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); 
+      });
+      requestAnimationFrame(renderFries);
+    };
+    ScrollTrigger.create({
+      trigger: rainContainerRef.current,
+      start: 'top center',
+      onEnter: () => {
+        createFries();
+        renderFries();
+      },
+      onLeaveBack: () => {
+        fries.current = []; 
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          ctx.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height,
+          );
+        }
+      },
+    });
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [onzefriet]);
+
+  useEffect(() => {
     let typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -299,7 +391,7 @@ const Onzefriet = () => {
       },
     });
 
-    let typeSplitonzefriendescription = new SplitType(
+    const typeSplitonzefriendescription = new SplitType(
       '[data-onzefriendescription]',
       {
         types: 'lines, words, chars',
@@ -314,7 +406,8 @@ const Onzefriet = () => {
       ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '[data-onzefriendescription]',
+        trigger: '#onzefriendescriptiononzefriet',
+        start: 'top center',
       },
     });
 
@@ -356,7 +449,6 @@ const Onzefriet = () => {
       },
     });
 
-  
     let typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -387,7 +479,7 @@ const Onzefriet = () => {
         },
       });
 
-      tlimpact.set(containeonze, { visibility: 'visible' });
+      tlimpact.set(containeonze, {visibility: 'visible'});
       tlimpact.from(containeonze, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -400,134 +492,39 @@ const Onzefriet = () => {
       });
     });
 
-    gsap.fromTo(
-      '.allfiressections img',
-      { y: -50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.5,
-        duration: 1,
-        ease: 'bounce.out',
-        force3D: true,
-        yoyo: true,
-        scrollTrigger: {
-          trigger: '#section2 .wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
-          pin: true,
-          once: true,
-          markers: false,
-        },
-        onComplete: () => {
-         
-          gsap.to('.allfiressections img', {
-            scale: 1.1,
-            stagger: 0.3,
-            zIndex: 22,
-            duration: 1,
-            ease: 'none',
-            yoyo: true, 
-            repeat: -1, 
-          });
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.allfiressections img',
+    //   { y: -50, opacity: 0 },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.5,
+    //     duration: 1,
+    //     ease: 'bounce.out',
+    //     force3D: true,
+    //     yoyo: true,
+    //     scrollTrigger: {
+    //       trigger: '#section2 .wrappertest',
+    //       start: 'top top-500',
+    //       end: 'top top-200',
+    //       pin: true,
+    //       once: true,
+    //       markers: false,
+    //     },
+    //     onComplete: () => {
 
-  }, [onzefriet]);
-
-  const rainContainerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const fries = useRef([]);
-  const fryImages = useRef([]);
-  const numberOfFries = 80;
-
-  // Define your image sources here
-  const fryImageSources = [fries_one, fries_two, fries_three, fries_four, fries_five, fries_six];
-
-  useEffect(() => {
-    if (!rainContainerRef.current || !canvasRef.current) return;
-
-    // Load fry images
-    fryImages.current = fryImageSources.map((src) => {
-      const img = new Image();
-      img.src = src;
-      return img;
-    });
-
-    // Resize canvas to fit the container
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return; // Ensure refs are valid
-      canvas.width = rainContainer.offsetWidth;
-      canvas.height = rainContainer.offsetHeight;
-    };
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    // Create fries objects
-    const createFries = () => {
-      fries.current = [];
-      const canvas = canvasRef.current;
-      if (!canvas) return; // Ensure canvas is valid
-      for (let i = 0; i < numberOfFries; i++) {
-        fries.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.5, // Slower speed: 0.5 to 1.5 pixels per frame
-          sway: Math.random() * 50 - 25,
-          image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)], // Random image
-        });
-      }
-    };
-
-    // Render fries
-    const renderFries = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      if (!ctx || !canvas) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      fries.current.forEach((fry) => {
-        fry.y += fry.speed;
-        fry.x += fry.sway * 0.01; // Slight sway effect
-        if (fry.y > canvas.height) {
-          fry.y = -50; // Reset to the top
-          fry.x = Math.random() * canvas.width; // Random horizontal position
-          fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)]; // Change image on reset
-        }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); // Adjust fry size here
-      });
-
-      requestAnimationFrame(renderFries);
-    };
-
-    // Trigger rain effect on scroll
-    ScrollTrigger.create({
-      trigger: rainContainerRef.current,
-      start: "top center",
-      onEnter: () => {
-        createFries();
-        renderFries();
-      },
-      onLeaveBack: () => {
-        fries.current = []; // Stop rendering when leaving the section
-        const ctx = canvasRef.current.getContext("2d");
-        if (ctx) {
-          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-        }
-      },
-    });
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-
-
+    //       gsap.to('.allfiressections img', {
+    //         scale: 1.1,
+    //         stagger: 0.3,
+    //         zIndex: 22,
+    //         duration: 1,
+    //         ease: 'none',
+    //         yoyo: true,
+    //         repeat: -1,
+    //       });
+    //     },
+    //   },
+    // );
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;
@@ -670,9 +667,10 @@ const Onzefriet = () => {
                 </div>
               </div>
 
-              <canvas className='canvasfries'
+              <canvas
+                className="canvasfries"
                 ref={canvasRef}
-                style={{ position: 'absolute', top: -100, left: -50 }}
+                style={{position: 'absolute', top: -100, left: -50}}
               />
 
               {/* <div className="allfiressections">
@@ -869,7 +867,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                        Math.floor(review.reviewRating) &&
+                                          Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (
@@ -929,7 +927,6 @@ const Onzefriet = () => {
                   )}
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
-
               </div>
             </div>
           </div>

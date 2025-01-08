@@ -1,16 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import { getImageUrl } from '../js/imagesurl';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {getImageUrl} from '../js/imagesurl';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
+import {Pagination, Autoplay} from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
 import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
 import etuh from '../assets/resizeimgs/webp/etuh.png';
@@ -18,35 +18,30 @@ import etuij from '../assets/resizeimgs/webp/etuij.png';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
-
-
 import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
 import topdustin from '../assets/resizeimgs/webp/Top.webp';
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   const [showGarbage, setShowGarbage] = useState(false);
   const binLidRef = useRef(null);
   const garbageRef = useRef(null);
-  const binContainerRef = useRef(null); // Ref for the bin container element
-
+  const binContainerRef = useRef(null); 
 
   useEffect(() => {
-
     const createAndAnimatePotato = (index) => {
       if (!binContainerRef.current) return;
 
       const potatoContainer = document.createElement('div');
       potatoContainer.classList.add('potato-container');
       const potatoImages = [etuh, etuij];
-      const randomImage = potatoImages[Math.floor(Math.random() * potatoImages.length)];
+      const randomImage =
+        potatoImages[Math.floor(Math.random() * potatoImages.length)];
       const potatoImg = document.createElement('img');
       potatoImg.src = randomImage;
       potatoImg.style.width = '60px';
@@ -54,8 +49,13 @@ const Onzeimpact = () => {
       potatoContainer.appendChild(potatoImg);
       binContainerRef.current.appendChild(potatoContainer);
       setShowGarbage(true);
-      gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
-      gsap.to(garbageRef.current, { opacity: 1, y: 0, duration: 0.5, ease: 'power1.inOut' });
+      gsap.to(binLidRef.current, {y: -30, duration: 0.3, ease: 'power1.inOut'});
+      gsap.to(garbageRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power1.inOut',
+      });
       gsap.to(potatoContainer, {
         y: 500,
         opacity: 0,
@@ -67,7 +67,7 @@ const Onzeimpact = () => {
         },
       });
       setTimeout(() => {
-        gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
+        gsap.to(binLidRef.current, {y: 0, duration: 0.5, ease: 'power1.inOut'});
       }, 200);
     };
     let index = 0;
@@ -91,13 +91,16 @@ const Onzeimpact = () => {
       },
     });
 
-    timelineimpact.to('#section5 .roundimage-impact, #section5 .roundtext-impact',{
+    timelineimpact.to(
+      '#section5 .roundimage-impact, #section5 .roundtext-impact',
+      {
         scale: 2.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      }, 0);
-      
+      },
+      0,
+    );
 
     timelineimpact.to('.fifthesection .wrappertest', {
       scrollTrigger: {
@@ -254,7 +257,7 @@ const Onzeimpact = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzeimpact" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           console.log('Fetched fetchDataonzeimpactData Data:', data);
           localStorage.setItem(
@@ -320,7 +323,7 @@ const Onzeimpact = () => {
       },
     });
 
-    let typeSplitonzeimpactdescription = new SplitType(
+    const typeSplitonzeimpactdescription = new SplitType(
       '[data-onzeimpactdescription]',
       {
         types: 'lines, words, chars',
@@ -335,11 +338,12 @@ const Onzeimpact = () => {
       ease: 'sine.inOut',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '[data-onzeimpactdescription]',
+        trigger: '#onzeimpactnonzefriet',
+        start: 'top center',
       },
     });
 
-    let typeSplitleftvideoboxsectitle = new SplitType(
+    const typeSplitleftvideoboxsectitle = new SplitType(
       '[data-leftvideoboxsectitle]',
       {
         types: 'lines, words, chars',
@@ -358,16 +362,18 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-
           typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
         });
       },
     });
 
-    let typeSplitrighttextboxtitle = new SplitType('[data-righttextboxtitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
+    const typeSplitrighttextboxtitle = new SplitType(
+      '[data-righttextboxtitle]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
     var charsrighttextboxtitle = typeSplitrighttextboxtitle.chars;
     gsap.from('[data-righttextboxtitle] .line', {
       y: '100%',
@@ -380,7 +386,6 @@ const Onzeimpact = () => {
       },
       onUpdate: function () {
         charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
-
           typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
         });
       },
@@ -409,7 +414,7 @@ const Onzeimpact = () => {
       },
     });
 
-    let typeSplitsecdescription = new SplitType('[data-secdescription]', {
+    const typeSplitsecdescription = new SplitType('[data-secdescription]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -425,7 +430,7 @@ const Onzeimpact = () => {
       },
     });
 
-    let onzeimpacttwolistlisttitle = new SplitType(
+    const onzeimpacttwolistlisttitle = new SplitType(
       '[data-onzeimpacttwolistlisttitle]',
       {
         types: 'lines, words, chars',
@@ -445,7 +450,6 @@ const Onzeimpact = () => {
       onUpdate: function () {
         charsimpacttwolistlisttitle.forEach(
           (typeSplitimpacttwolistlisttitle) => {
-
             typeSplitimpacttwolistlisttitle.style.backgroundPosition =
               '97px -83px';
           },
@@ -464,7 +468,7 @@ const Onzeimpact = () => {
         },
       });
 
-      tlimpact.set(containerimpact, { autoAlpha: 1 });
+      tlimpact.set(containerimpact, {autoAlpha: 1});
       tlimpact.from(containerimpact, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -560,7 +564,7 @@ const Onzeimpact = () => {
           <p
             className="onzeimpactdescription"
             data-onzeimpactdescription=""
-            dangerouslySetInnerHTML={{ __html: data.contentSection.description }}
+            dangerouslySetInnerHTML={{__html: data.contentSection.description}}
           />
 
           <div className="gradient-threebox gradient-threeboxonzeimpact">
@@ -646,7 +650,7 @@ const Onzeimpact = () => {
                           <div className="onzeimpacttwolistlist">
                             <h5
                               data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
+                              dangerouslySetInnerHTML={{__html: card.cardTitle}}
                             />
 
                             <p
@@ -853,7 +857,7 @@ const Onzeimpact = () => {
                     src={topdustin}
                     alt="Bin Imagebox"
                     width="10"
-                    className='topdustbinimage'
+                    className="topdustbinimage"
                     height="10"
                   />
                   {/* <img
@@ -881,7 +885,6 @@ const Onzeimpact = () => {
               </div>
             </div>
             <div className="overlaybannehand-bottoms"></div>
-
           </div>
         </div>
       </div>
