@@ -915,3 +915,31 @@ body .whitebgbox .whitewithvideomainbox .righttextbox .routbtn {
   margin-right: 10px;
   fill: #fff;
 }
+
+
+button.backhome.bubbly-button.swipe-effect {
+  display: flex;
+  width: 140px;
+  height: 40px;
+}
+
+button.backhome.bubbly-button.swipe-effect svg .st0 {
+  fill: #0d1e4d;
+  z-index: 1;
+}
+
+button.backhome.bubbly-button.swipe-effect:hover {
+  color: #0d1e4d !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+  width: 140px;
+  height: 40px;
+}
+
+button.backhome.bubbly-button.swipe-effect:hover svg {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  margin-right: 0;
+}

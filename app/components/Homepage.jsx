@@ -1,18 +1,18 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState, useRef } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import '../styles/homebanner.css';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {TextPlugin} from 'gsap/TextPlugin';
-import {ScrollSmoother} from 'gsap/ScrollSmoother';
+import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
 // import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import SplitType from 'split-type';
 
 import mp3song from '../assets/SoundsofAmsterdamCity.mp3';
@@ -26,7 +26,7 @@ gsap.registerPlugin(
 );
 
 const HomePage = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [bannerData, setBanner] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -66,7 +66,7 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           if (data && data.length > 0) {
             setTimeout(() => {
@@ -159,7 +159,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -200,7 +200,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -213,7 +213,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.button,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -226,7 +226,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -239,7 +239,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {text: ''},
+        { text: '' },
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.35,
@@ -249,11 +249,11 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('body', {delay: 3.5, onComplete: removeClass});
+      gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -265,7 +265,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -277,7 +277,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -289,7 +289,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 1,
@@ -301,7 +301,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
+        { opacity: 0, y: -30 },
         {
           opacity: 1,
           y: 0,
@@ -378,7 +378,7 @@ const HomePage = () => {
       }
       gsap.fromTo(
         '.headernew .desktop-menu li',
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -419,7 +419,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.logo,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -432,7 +432,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.title,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -445,7 +445,7 @@ const HomePage = () => {
 
       var h1 = elements.title.querySelector('h1');
       var tl = gsap.timeline(),
-        mySplitText = new SplitText(h1, {type: 'words,chars'}),
+        mySplitText = new SplitText(h1, { type: 'words,chars' }),
         chars = mySplitText.chars;
       tl.from(chars, {
         opacity: 0,
@@ -465,7 +465,7 @@ const HomePage = () => {
         },
       });
 
-      const H1text = new SplitType(h1, {types: 'lines', lineClass: 'H1mask'});
+      const H1text = new SplitType(h1, { types: 'lines', lineClass: 'H1mask' });
 
       var loom = document.querySelectorAll('.H1mask');
       loom.forEach((value, i) => {
@@ -476,7 +476,7 @@ const HomePage = () => {
       });
       gsap.fromTo(
         elements.content,
-        {opacity: 0},
+        { opacity: 0 },
         {
           opacity: 1,
         },
@@ -515,7 +515,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.content,
-        {opacity: 0},
+        { opacity: 0 },
         {
           opacity: 1,
         },
@@ -523,7 +523,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.button,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -536,7 +536,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {opacity: 0, y: -50},
+        { opacity: 0, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -549,7 +549,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         elements.rotateText,
-        {text: ''},
+        { text: '' },
         {
           text: bannerData[0].bannerText,
           duration: bannerData[0].bannerText.length * 0.35,
@@ -559,11 +559,11 @@ const HomePage = () => {
         },
       );
 
-      gsap.to('body', {delay: 3.5, onComplete: removeClass});
+      gsap.to('body', { delay: 3.5, onComplete: removeClass });
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_one',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -575,7 +575,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.banner_content_text p span.bold img.imgerasr_two',
-        {y: '-100%'},
+        { y: '-100%' },
         {
           duration: 0.5,
           y: '0%',
@@ -587,7 +587,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 3,
@@ -599,7 +599,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '#target_one',
-        {drawSVG: '0 0'},
+        { drawSVG: '0 0' },
         {
           drawSVG: '100% -175%',
           duration: 3,
@@ -611,7 +611,7 @@ const HomePage = () => {
 
       gsap.fromTo(
         '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
+        { opacity: 0, y: -30 },
         {
           opacity: 1,
           y: 0,
@@ -625,7 +625,7 @@ const HomePage = () => {
       const scrollToSection = (hash) => {
         const section = document.querySelector(hash);
         if (section) {
-          section.scrollIntoView({behavior: 'smooth'});
+          section.scrollIntoView({ behavior: 'smooth' });
         }
       };
 
@@ -792,7 +792,7 @@ const HomePage = () => {
             x="0px"
             y="0px"
             viewBox="0 0 1927 104"
-            style={{enableBackground: 'new 0 0 1927 104'}}
+            style={{ enableBackground: 'new 0 0 1927 104' }}
             xmlSpace="preserve"
           >
             <style type="text/css">
@@ -938,46 +938,26 @@ const HomePage = () => {
           <audio ref={audioRef} src={mp3song} />
           <button className="audioplaypause" onClick={togglePlayPause}>
             {isPlaying ? (
-              <svg
-                width="800px"
-                height="800px"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 5V19M16 5V19"
-                  stroke="#000000"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+
+                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                  <g id="icon" fill="#fff" transform="translate(42.666667, 85.333333)">
+                    <path d="M361.299413,341.610667 L328.014293,314.98176 C402.206933,233.906133 402.206933,109.96608 328.013013,28.8906667 L361.298133,2.26304 C447.910187,98.97536 447.908907,244.898347 361.299413,341.610667 Z M276.912853,69.77216 L243.588693,96.4309333 C283.38432,138.998613 283.38304,204.87488 243.589973,247.44256 L276.914133,274.101333 C329.118507,215.880107 329.118507,127.992107 276.912853,69.77216 Z M191.749973,1.42108547e-14 L80.8957867,87.2292267 L7.10542736e-15,87.2292267 L7.10542736e-15,257.895893 L81.0208,257.895893 L191.749973,343.35424 L191.749973,1.42108547e-14 L191.749973,1.42108547e-14 Z" id="Shape">
+
+                    </path>
+                  </g>
+                </g>
               </svg>
             ) : (
-              <svg
-                fill="#000000"
-                height="800px"
-                width="800px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 64 64"
-                enableBackground="new 0 0 64 64"
-                xmlSpace="preserve"
-              >
-                <g id="Play">
-                  <path
-                    d="M46.0136986,31.1054993L25.1973,20.6973c-0.3096008-0.1532993-0.6777992-0.1387005-0.9727001,0.0438995
-		C23.9297009,20.9237995,23.75,21.2451,23.75,21.5918007v20.8163986c0,0.3467026,0.1797009,0.6679993,0.4745998,0.8506012
-		C24.3848,43.3583984,24.5674,43.4081993,24.75,43.4081993c0.1532993,0,0.3057003-0.035099,0.4473-0.1054001l20.8163986-10.4081993
-		c0.3388023-0.1699982,0.5527-0.5157013,0.5527-0.8945999C46.5663986,31.6210995,46.3525009,31.2754002,46.0136986,31.1054993z
-		 M25.75,40.7901001v-17.580101L43.330101,32L25.75,40.7901001z"
-                  />
-                  <path
-                    d="M32,0C14.3268995,0,0,14.3268995,0,32s14.3268995,32,32,32s32-14.3269005,32-32S49.6730995,0,32,0z M32,62
-		C15.4579,62,2,48.542099,2,32C2,15.4580002,15.4579,2,32,2c16.5419998,0,30,13.4580002,30,30C62,48.542099,48.5419998,62,32,62z"
-                  />
+
+
+              <svg width="800px" height="800px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                  <g id="icon" fill="#fff" transform="translate(42.666667, 59.581722)">
+                    <path d="M47.0849493,-1.42108547e-14 L298.668,251.583611 L304.101001,257.015597 L304.101,257.016 L353.573532,306.488791 C353.573732,306.488458 353.573933,306.488124 353.574133,306.48779 L384.435257,337.348961 L384.434,337.349 L409.751616,362.666662 L379.581717,392.836561 L191.749,205.003 L191.749973,369.105851 L81.0208,283.647505 L7.10542736e-15,283.647505 L7.10542736e-15,112.980838 L80.8957867,112.980838 L91.433,104.688 L16.9150553,30.169894 L47.0849493,-1.42108547e-14 Z M361.298133,28.0146513 C429.037729,103.653701 443.797162,209.394226 405.578884,298.151284 L372.628394,265.201173 C396.498256,194.197542 381.626623,113.228555 328.013013,54.642278 L361.298133,28.0146513 Z M276.912853,95.5237713 C305.539387,127.448193 318.4688,168.293162 315.701304,208.275874 L266.464558,159.040303 C261.641821,146.125608 254.316511,133.919279 244.488548,123.156461 L243.588693,122.182545 L276.912853,95.5237713 Z M191.749973,25.7516113 L191.749,84.3256113 L158.969,51.5456113 L191.749973,25.7516113 Z" id="Combined-Shape">
+
+                    </path>
+                  </g>
                 </g>
               </svg>
             )}
@@ -993,12 +973,12 @@ const HomePage = () => {
             />
           </div>
           <div className="banner_title_text">
-            <h1 dangerouslySetInnerHTML={{__html: bannerData[0].title}} />
+            <h1 dangerouslySetInnerHTML={{ __html: bannerData[0].title }} />
           </div>
           <div className="banner_content_text">
             <p
               id="text"
-              dangerouslySetInnerHTML={{__html: bannerData[0].bannerContent}}
+              dangerouslySetInnerHTML={{ __html: bannerData[0].bannerContent }}
             />
           </div>
           {bannerData[0].bannerButton && (
@@ -1017,7 +997,7 @@ const HomePage = () => {
             ></a>
           )}
           <div className="bannerrotate_text">
-            <p dangerouslySetInnerHTML={{__html: bannerData[0].bannerText}} />
+            <p dangerouslySetInnerHTML={{ __html: bannerData[0].bannerText }} />
           </div>
         </div>
         <div className="overlaybannehand">

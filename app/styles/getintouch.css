@@ -188,7 +188,7 @@ a.Whatsappbtn:hover svg{fill:#0D1E4D;}
 a.Whatsappbtn{width:299px;height:60px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;overflow:hidden;color:#0D1E4D;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:"Work Sans";font-size:clamp(18px,1vw,23px);font-style:normal;font-weight:600;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;border:solid 1px #fff;border-radius:3px;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;margin:30px 0;position:relative;}
 .locationbox h6{overflow:hidden;color:#0D1E4D;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:35px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;-webkit-transition:0.5s;-o-transition:0.5s;-moz-transition:0.5s;transition:0.5s;margin:0 0 30px;}
 .locationbox p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;max-width:500px;margin:0;text-align:left;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;width:100%;}
-.locationbox p i.location{width:49px;height:49px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;margin-right:16px;}
+.locationbox p i.location{width:49px;height:49px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;margin-right:16px;margin-left:-8px;}
 .locationbox ul li{margin-bottom:28px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;margin:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;margin-right:25px;position:relative;}
@@ -326,6 +326,7 @@ a.locatebutton.bubbly-button.whatsapp-btn.secondwhatsapp {
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:20px;font-style:normal;font-weight:700;line-height:normal;margin:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;margin-right:25px;position:relative;}
     .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li a{font-size:20px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:35px;margin-bottom:30px;}
+    .locationbox p i.location{margin-left:0px;}  
 }
 @media (max-width:767px)
 {
@@ -402,7 +403,7 @@ a.locatebutton.bubbly-button.whatsapp-btn.secondwhatsapp {
     .socialiconlist ul li a:hover.Facebook:after,
     .socialiconlist ul li a:hover.Linkedin:after{        width: 15px;
       height: 15px;}
-
+    .locationbox p i.location{margin-left:0px;}  
       
 }
 

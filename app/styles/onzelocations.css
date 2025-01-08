@@ -65,6 +65,9 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;} */
 .whitebgbox .whitewithvideomainbox .righttextbox p ul {display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: -moz-box;display: flex;-ms-flex-wrap: wrap;-webkit-flex-wrap: wrap;flex-wrap: wrap;}
 .whitebgbox .whitewithvideomainbox .righttextbox p ul li {margin-bottom: 5px;width: 100%;}
 .whitebgbox .whitewithvideomainbox .righttextbox p ul li span {width: 100%;display: -webkit-inline-box;display: -ms-inline-flexbox;display: -webkit-inline-flex;display: -moz-inline-box;display: inline-flex;font-weight: 600;max-width: 3vw;}
+
+.locationmaoaddress .locationicon {margin-left: -8px;}
+
 @media (min-width:992px) and (max-width:1199px){
     .roundtext-onzelocation h2{position:absolute;left:-220px;top:-10px;z-index:1;margin:0;}
     .roundtext-onzelocation h3{position:absolute;right:-220px;bottom:-50px;margin:0;}
@@ -73,6 +76,7 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;} */
     .roundtext-onzelocation h2{position:absolute;left:-220px;top:-10px;z-index:1;margin:0;}
     .roundtext-onzelocation h3{position:absolute;right:-220px;bottom:-50px;margin:0;}
     #section3 .whitebgbox .whitewithvideomainbox .righttextbox {max-width: 100%;width: 100%;padding-left: 0;position: relative;}
+    .locationmaoaddress .locationicon {margin-left: 0px;}
 }
 @media (max-width:767px){
     .onlymobile{display:block!important;}
@@ -140,4 +144,5 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;} */
     .slideraddress .wharpeoplebox .sliderwhitebg p ul {display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: -moz-box;display: flex;-ms-flex-wrap: wrap;-webkit-flex-wrap: wrap;flex-wrap: wrap;}
     .slideraddress .wharpeoplebox .sliderwhitebg p ul li {margin-bottom: 5px;width: 100%;}
     .slideraddress .wharpeoplebox .sliderwhitebg p ul li span {width: 100%;display: -webkit-inline-box;display: -ms-inline-flexbox;display: -webkit-inline-flex;display: -moz-inline-box;display: inline-flex;font-weight: 600;max-width: 30px;}
+    .locationmaoaddress .locationicon {margin-left: 0px;}
 }
