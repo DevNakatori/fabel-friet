@@ -417,6 +417,12 @@ button.skipvideo.hidden{display:none;}
     }
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 50%;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
+
+    .sixthsection .whitebgbox .socialtitle h3{max-width: 900px;}
+    .sixthsection .whitebgbox .socialtitle h3 {
+        font-size: -moz-calc(20/var(--vw)*var(--multiplier));
+        font-size: calc(20/var(--vw)*var(--multiplier));
+    }
 }
 
 
@@ -584,6 +590,17 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .main-accordian{border-top:solid 2px #0D1E4D;padding-top:30px;margin-top:20px;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
     .canvasfries{display: none;}
+
+    .binimageboxmain .binimageboxieft h6 {
+        left: 20%;
+    }
+    .arrowimageimpect {
+        position: relative;
+        width: 100px;
+        transform: rotate(-30deg);
+        height: 177px;
+        bottom: 40px;
+    }
 
 }
 

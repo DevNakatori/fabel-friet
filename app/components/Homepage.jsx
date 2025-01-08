@@ -641,7 +641,7 @@ const HomePage = () => {
       video.autoplay = true;
       video.addEventListener('play', handlePlay);
       video.addEventListener('ended', handleVideoEnd);
-      //document.body.classList.add('hiddenoverflow');
+      document.body.classList.add('hiddenoverflow');
     }
 
     return () => {

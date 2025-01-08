@@ -1,16 +1,14 @@
-import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
-
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
-
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import mainbannerbg from '../assets/resizeimgs/webp/d4f1c7ef00981f46b3a68aed3d06dc01-min.webp';
 import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
@@ -19,10 +17,8 @@ import instagramIcon from '../assets/resizeimgs/webp/insta.webp';
 import linkedinIcon from '../assets/resizeimgs/webp/in.webp';
 import twitterIcon from '../assets/resizeimgs/webp/twitter.webp';
 import tiktokIcon from '../assets/resizeimgs/webp/tiktok.webp';
-
 import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
 import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
-
 import liek_1 from '../assets/resizeimgs/webp/like11.webp';
 import liek_2 from '../assets/resizeimgs/webp/like33.webp';
 import liek_3 from '../assets/resizeimgs/webp/like44.webp';
@@ -31,14 +27,12 @@ import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
-
-
   const numSVGs = 20; // Number of SVGs to display
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSvgKey(prev => prev + 1);
+      setSvgKey((prev) => prev + 1);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
@@ -51,7 +45,7 @@ const Getintouch = () => {
     tiktok: tiktokIcon,
   };
 
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -75,8 +69,9 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
-      }, 0);
-
+      },
+      0,
+    );
 
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
@@ -123,9 +118,7 @@ const Getintouch = () => {
       let animateMobileTimeline;
       let animateDesktopTimeline;
 
-
       const animateDesktopgetintouch = () => {
-
         if (animateMobileTimeline) animateMobileTimeline.scrollTrigger.kill();
 
         const onzefritthreeimagecentergetintouch = gsap.timeline({
@@ -138,7 +131,7 @@ const Getintouch = () => {
 
         onzefritthreeimagecentergetintouch.fromTo(
           middleItemgetintouch,
-          { bottom: '-55vh', rotation: 0, opacity: 0 },
+          {bottom: '-55vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
             duration: 1,
@@ -151,14 +144,13 @@ const Getintouch = () => {
             trigger: '.sixthsection  .gradient-purple',
             start: 'top top',
             end: 'bottom top',
-
           },
         });
 
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            { left: '-50vw', rotation: 0, opacity: 0 },
+            {left: '-50vw', rotation: 0, opacity: 0},
             {
               left: '-9vw',
               opacity: 1,
@@ -182,7 +174,7 @@ const Getintouch = () => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            { right: '-50vw', rotation: 0, opacity: 0 },
+            {right: '-50vw', rotation: 0, opacity: 0},
             {
               right: '-9vw',
               opacity: 1,
@@ -196,9 +188,7 @@ const Getintouch = () => {
           });
       };
 
-
       const animateMobilegetintouch = () => {
-
         if (animateDesktopTimeline) animateDesktopTimeline.scrollTrigger.kill();
 
         const mobileTimelineCenter = gsap.timeline({
@@ -211,7 +201,7 @@ const Getintouch = () => {
 
         mobileTimelineCenter.fromTo(
           middleItemgetintouch,
-          { bottom: '-30vh', rotation: 0, opacity: 0 },
+          {bottom: '-30vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
             duration: 0.7,
@@ -230,7 +220,7 @@ const Getintouch = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            { left: '-30vw', rotation: 0, opacity: 0 },
+            {left: '-30vw', rotation: 0, opacity: 0},
             {
               left: '0vw',
               opacity: 1,
@@ -254,7 +244,7 @@ const Getintouch = () => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            { right: '-30vw', rotation: 0, opacity: 0 },
+            {right: '-30vw', rotation: 0, opacity: 0},
             {
               right: '0vw',
               opacity: 1,
@@ -268,7 +258,6 @@ const Getintouch = () => {
           });
       };
 
-
       if (mobileMediaQuerygetintouch.matches) {
         animateMobilegetintouch();
       } else {
@@ -281,7 +270,7 @@ const Getintouch = () => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '.sixthsection #animated-text',
-      { text: '' },
+      {text: ''},
       {
         text: textContent,
         duration: duration,
@@ -298,7 +287,7 @@ const Getintouch = () => {
 
     gsap.fromTo(
       '.likeimagelist img',
-      { y: -50, opacity: 0 },
+      {y: -50, opacity: 0},
       {
         y: 0,
         opacity: 1,
@@ -318,7 +307,6 @@ const Getintouch = () => {
       },
     );
 
-
     gsap.to('.likeimagelist img', {
       x: 'random(-10, 10)',
       y: 'random(-10, 10)',
@@ -329,27 +317,7 @@ const Getintouch = () => {
       repeat: -1,
     });
 
-
-    let typeSplitdatagettouchonzefrientdescription = new SplitType(
-      '[data-gettouchonzefrientdescription]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
-
-    gsap.from('[data-gettouchonzefrientdescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-gettouchonzefrientdescription]',
-      },
-    });
-
-    let typeSplitgettouchonzefrienttitle = new SplitType(
+    const typeSplitgettouchonzefrienttitle = new SplitType(
       '[data-gettouchonzefrienttitle]',
       {
         types: 'lines, words, chars',
@@ -381,7 +349,27 @@ const Getintouch = () => {
       },
     });
 
-    let typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
+    const typeSplitdatagettouchonzefrientdescription = new SplitType(
+      '[data-gettouchonzefrientdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-gettouchonzefrientdescription] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.5,
+      ease: 'sine.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '#onzefriendescriptiononzefriet',
+        start: 'top center',
+      },
+    });
+
+    const typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -403,7 +391,7 @@ const Getintouch = () => {
       },
     });
 
-    let typeSplitcontactsection = new SplitType('[data-contactsection]', {
+    const typeSplitcontactsection = new SplitType('[data-contactsection]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -420,7 +408,6 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchcontactsection.forEach(
           (typeswhatpeoplesectiontouchgetcontect) => {
-
             typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
               '97px -83px';
           },
@@ -428,7 +415,7 @@ const Getintouch = () => {
       },
     });
 
-    let typeSplitaccordiantitle = new SplitType('[data-accordiantitle]', {
+    const typeSplitaccordiantitle = new SplitType('[data-accordiantitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -445,14 +432,12 @@ const Getintouch = () => {
       onUpdate: function () {
         charsgettouchaccordian.forEach(
           (typeswhatpeoplesectiontouchgeaccordian) => {
-
             typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
               '97px -83px';
           },
         );
       },
     });
-
   }, [getIntouch]);
 
   /* accordian start */
@@ -486,7 +471,7 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -498,7 +483,7 @@ const Getintouch = () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
-          { lang: language },
+          {lang: language},
         );
         console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
@@ -511,7 +496,6 @@ const Getintouch = () => {
     };
     fetchData_Getintouch();
   }, [language]);
-
 
   useEffect(() => {
     const pathsstouch = document.querySelector('.line2sstouch');
@@ -551,28 +535,24 @@ const Getintouch = () => {
         },
       });
     }
-
   }, [getIntouch]);
 
-
   useEffect(() => {
-    gsap.set(".likeimagelists .ball", { xPercent: -50, yPercent: -50 });
+    gsap.set('.likeimagelists .ball', {xPercent: -50, yPercent: -50});
 
-    let targets = gsap.utils.toArray(".likeimagelists .ball");
+    let targets = gsap.utils.toArray('.likeimagelists .ball');
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener('mousemove', (e) => {
       gsap.to(targets, {
         duration: 0.5,
         x: e.clientX,
         y: e.clientY,
-        ease: "elastic.out(1, 0.75)",
-        overwrite: "auto",
-        stagger: 0.09
+        ease: 'elastic.out(1, 0.75)',
+        overwrite: 'auto',
+        stagger: 0.09,
       });
     });
   }, [getIntouch]);
-
-
 
   const rainContainerRef = useRef(null);
   const canvasRef = useRef(null);
@@ -594,7 +574,7 @@ const Getintouch = () => {
       canvas.width = rainContainer.offsetWidth;
       canvas.height = rainContainer.offsetHeight;
     };
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
     const createFries = () => {
       fries.current = [];
@@ -606,60 +586,59 @@ const Getintouch = () => {
           y: Math.random() * -canvas.height,
           speed: Math.random() * 1 + 1.5,
           sway: Math.random() * 50 - 25,
-          image: fryImages.current[Math.floor(Math.random() * fryImages.current.length)],
+          image:
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ],
         });
       }
     };
     const renderFries = () => {
       const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
+      const ctx = canvas?.getContext('2d');
       if (!ctx || !canvas) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       fries.current.forEach((fry) => {
-        fry.y += fry.speed; // Vertical movement (falling downwards)
-
-        // Horizontal movement (from left to right)
-        fry.x += 1;  // This makes the fries move horizontally from left to right
-
-        // If a fry goes off the right side, reset it to the left side
+        fry.y += fry.speed;
+        fry.x += 1; 
         if (fry.x > canvas.width) {
-          fry.x = -100;  // Reset the fry to start from the far left
-          fry.y = Math.random() * -canvas.height;  // Randomize the vertical position for the reset
-          fry.image = fryImages.current[Math.floor(Math.random() * fryImages.current.length)];
+          fry.x = -100; 
+          fry.y = Math.random() * -canvas.height;
+          fry.image =
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ];
         }
-
-        // Draw the fry
-        ctx.drawImage(fry.image, fry.x, fry.y, 300, 300); // Draw with width and height (100x150)
+        ctx.drawImage(fry.image, fry.x, fry.y, 300, 300); 
       });
-
-      requestAnimationFrame(renderFries); // Continue rendering at 60fps
+      requestAnimationFrame(renderFries);
     };
-
     ScrollTrigger.create({
       trigger: rainContainerRef.current,
-      start: "top center",
+      start: 'top center',
       onEnter: () => {
         createFries();
         renderFries();
       },
       onLeaveBack: () => {
         fries.current = [];
-        const ctx = canvasRef.current.getContext("2d");
+        const ctx = canvasRef.current.getContext('2d');
         if (ctx) {
-          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+          ctx.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height,
+          );
         }
       },
     });
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [getIntouch]);
-
-
 
   useEffect(() => {
     const animateButton = (e) => {
@@ -679,8 +658,7 @@ const Getintouch = () => {
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const { contactSection, contentSection, transitionSection } = getIntouch;
-
+  const {contactSection, contentSection, transitionSection} = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -709,8 +687,12 @@ const Getintouch = () => {
         </div>
         <div className="roundimages">
           <div className="roundtext-getintouch">
-            <h2 dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }} />
-            <h3 dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }} />
+            <h2
+              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
+            />
+            <h3
+              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
+            />
           </div>
           <div className="roundimage-getintouch"></div>
           <div className="scroll-down">
@@ -732,24 +714,23 @@ const Getintouch = () => {
         </div>
       </div>
       <div className="wrappertest" ref={rainContainerRef}>
-        <div className='wrappertests'>
-        <div className="flair flair--3">
-          <div className="likeimagelists">
-          <img src={liek_2} alt="img" className='ball' />
-          <img src={liek_1} alt="img" className='ball' />
-          <img src={liek_3} alt="img" className='ball' />
-          <img src={liek_4} alt="img" className='ball' />
-        </div>
-        </div>
+        <div className="wrappertests">
+          <div className="flair flair--3">
+            <div className="likeimagelists">
+              <img src={liek_2} alt="img" className="ball" />
+              <img src={liek_1} alt="img" className="ball" />
+              <img src={liek_3} alt="img" className="ball" />
+              <img src={liek_4} alt="img" className="ball" />
+            </div>
+          </div>
         </div>
         <section className="section hero"></section>
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
-
-          <canvas className='canvasfries'
+          <canvas
+            className="canvasfries"
             ref={canvasRef}
-            style={{ position: 'absolute', top: -100, left: 0 }}
+            style={{position: 'absolute', top: -100, left: 0}}
           />
-
 
           {/* <div className="likeimagelist">
             <img src={liek_2} alt="img" />
@@ -763,7 +744,8 @@ const Getintouch = () => {
           </h4>
           <p
             className="onzefriendescription"
-            data-gettouchonzefrientdescription="" dangerouslySetInnerHTML={{ __html: contentSection.description }}
+            data-gettouchonzefrientdescription=""
+            dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
 
           <div className="gradient-threebox gradient-threeboxgetintouch">
@@ -832,15 +814,28 @@ const Getintouch = () => {
             </ul>
 
             <div className="lefttiktoktext">
-              <div className='arrowimagetouchone'>
-                <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="arrowimagetouchone">
+                <svg
+                  width="100"
+                  height="188"
+                  viewBox="0 0 100 188"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     className="line2sstouchs"
                     d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
                     stroke="url(#paint0_linear_1314_561)"
                   />
                   <defs>
-                    <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                    <linearGradient
+                      id="paint0_linear_1314_561"
+                      x1="2.33984"
+                      y1="186.748"
+                      x2="154.434"
+                      y2="107.999"
+                      gradientUnits="userSpaceOnUse"
+                    >
                       <stop offset="0.000290329" stopColor="#0F274D" />
                       <stop offset="0.504985" stopColor="#1F314D" />
                       <stop offset="1" stopColor="#0d1e4d" />
@@ -855,12 +850,21 @@ const Getintouch = () => {
                 className="swingsd"
                 alt="img"
               /> */}
-              <p className="zoomanimation" dangerouslySetInnerHTML={{ __html: contentSection.mobileImages[0].leftText }} />
-
+              <p
+                className="zoomanimation"
+                dangerouslySetInnerHTML={{
+                  __html: contentSection.mobileImages[0].leftText,
+                }}
+              />
             </div>
 
             <div className="righttiktoktext">
-              <p className="zoomanimation" dangerouslySetInnerHTML={{ __html: contentSection.mobileImages[0].rightText }} />
+              <p
+                className="zoomanimation"
+                dangerouslySetInnerHTML={{
+                  __html: contentSection.mobileImages[0].rightText,
+                }}
+              />
 
               {/* <img
                 src={arrow_blue_1}
@@ -869,15 +873,28 @@ const Getintouch = () => {
                 className="swingsd"
                 alt="img"
               /> */}
-              <div className='arrowimagetouch'>
-                <svg width="100" height="188" viewBox="0 0 100 188" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="arrowimagetouch">
+                <svg
+                  width="100"
+                  height="188"
+                  viewBox="0 0 100 188"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     className="line2sstouch"
                     d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
                     stroke="url(#paint0_linear_1314_561)"
                   />
                   <defs>
-                    <linearGradient id="paint0_linear_1314_561" x1="2.33984" y1="186.748" x2="154.434" y2="107.999" gradientUnits="userSpaceOnUse">
+                    <linearGradient
+                      id="paint0_linear_1314_561"
+                      x1="2.33984"
+                      y1="186.748"
+                      x2="154.434"
+                      y2="107.999"
+                      gradientUnits="userSpaceOnUse"
+                    >
                       <stop offset="0.000290329" stopColor="#0F274D" />
                       <stop offset="0.504985" stopColor="#1F314D" />
                       <stop offset="1" stopColor="#0d1e4d" />
@@ -938,14 +955,13 @@ const Getintouch = () => {
                   data-aos-duration="2000"
                 >
                   {contactSection.contactDetails.whatsAppLabel && (
-                    <div key="whatsapp" className='whatappmain animate'>
+                    <div key="whatsapp" className="whatappmain animate">
                       <a
                         href={contactSection.contactDetails.whatsAppLabel}
                         target="_blank"
                         aria-label="whatsapp"
                         rel="noopener noreferrer"
                         className="locatebutton bubbly-button whatsapp-btn swipe-effect"
-
                       >
                         {/* <span></span>
                         <span></span>
@@ -986,16 +1002,17 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg>{contactSection.contactDetails.whatsAppLabel}
+                        </svg>
+                        {contactSection.contactDetails.whatsAppLabel}
                       </a>
                       <div className="canvas whatsappcanvas">
-                        {Array.from({ length: numSVGs }).map((_, i) => (
+                        {Array.from({length: numSVGs}).map((_, i) => (
                           <div
                             key={i + svgKey}
                             className="fly-svg-wrapper"
                             style={{
                               animation: `moveAndFade 10s linear infinite`,
-                              animationDelay: `${i * 0.5}s`, // Delay to stagger the animations
+                              animationDelay: `${i * 0.5}s`,
                             }}
                           >
                             <svg
@@ -1081,7 +1098,6 @@ const Getintouch = () => {
                         <span></span>
                         <span></span>
                         <span></span> */}
-
                         <svg
                           height="800px"
                           width="800px"
@@ -1117,7 +1133,8 @@ const Getintouch = () => {
                               C276.546,215.678,222.799,268.994,156.734,268.994z"
                             ></path>
                           </g>
-                        </svg> {contactSection.contactDetails.whatsAppLabel}
+                        </svg>{' '}
+                        {contactSection.contactDetails.whatsAppLabel}
                       </a>
                     </div>
                   )}
@@ -1141,7 +1158,7 @@ const Getintouch = () => {
                           />
                         </svg>
                       </i>
-                      Telephone {' '}
+                      Telephone{' '}
                       <a
                         href={`tel:${contactSection.contactDetails?.telephone}`}
                       >
@@ -1164,7 +1181,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{ maskType: 'luminance' }}
+                              style={{maskType: 'luminance'}}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -1187,7 +1204,7 @@ const Getintouch = () => {
                           </defs>
                         </svg>
                       </i>
-                      Email {' '}
+                      Email{' '}
                       <a
                         href={`mailto:${contactSection.contactDetails?.email}`}
                       >
@@ -1270,7 +1287,7 @@ const Getintouch = () => {
                   data-aos-duration="500"
                 >
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                    0 ? (
+                  0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button

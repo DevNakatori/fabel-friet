@@ -201,7 +201,7 @@ a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;borde
 .bottomwhatsapp{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;margin:30px auto 0;}
 .sixthsection .roundtext-getintouch h2,.sixthsection .roundtext-getintouch h3{line-height:120%;}
 .sixthsection .gradient-purple .whitebgbox h4{overflow:hidden;color:#0D1E4D;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:80px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-align:left;max-width:1708px;max-width:1708px;margin:40px auto 0;border-top:solid 2px #0D1E4D;padding-top:40px;opacity:1;background:none;
-  -webkit-background-clip: #0D1E4D;}
+  -webkit-background-clip: #0D1E4D;-webkit-text-fill-color:#0D1E4D;}
 .Whatsappbtn{width: -webkit-max-content;width: -moz-max-content;width: max-content;padding:0 15px;}
 .sixthsection .gradient-threebox ul{height:946px;}
 .sixthsection .gradient-purple h4{opacity:1;margin-top: 0;margin-bottom: 30px;}
