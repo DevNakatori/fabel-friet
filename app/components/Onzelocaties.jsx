@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
 import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
 import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
@@ -18,7 +18,7 @@ import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzelocaties, setOnzelocaties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,40 +84,32 @@ const Onzelocaties = () => {
     );
 
     return () => {
-      timelines.scrollTrigger.kill();
+      //timelines.scrollTrigger.kill();
     };
   }, [onzelocaties]);
+
 
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
       const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
       //console.log('onzelocatiesData Cached Data:', cachedData);
 
-      if (cachedData) {
-        setOnzelocaties(JSON.parse(cachedData));
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzelocaties" && language == $lang]`,
+          { lang: language },
+        );
+       // console.log('Fetched onzelocatiesData Data:', data);
+        setOnzelocaties(data);
+        //console.log('Fetched onzelocatiesData Data:', data);
+      } catch (err) {
+        console.error('Error fetching Onzelocaties data:', err);
+        setError('Failed to load data');
+      } finally {
         setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzelocaties" && language == $lang]`,
-            {lang: language},
-          );
-          console.log('Fetched onzelocatiesData Data:', data);
-          localStorage.setItem(
-            `onzelocatiesData_${language}`,
-            JSON.stringify(data),
-          );
-
-          setOnzelocaties(data);
-          //console.log('Fetched onzelocatiesData Data:', data);
-        } catch (err) {
-          console.error('Error fetching Onzelocaties data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
       }
+
     };
     fetchDataOnzelocaties();
   }, [language]);
@@ -136,7 +128,10 @@ const Onzelocaties = () => {
     }
   }, [onzelocaties]);
 
+
+
   useEffect(() => {
+
     let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -162,29 +157,32 @@ const Onzelocaties = () => {
       },
     });
 
-    // const typeSplitlocationdescription = new SplitType(
-    //   '[data-locationdescription]',
-    //   {
-    //     types: 'lines, words, chars',
-    //     tagName: 'span',
-    //   },
-    // );
 
-    // gsap.from('[data-locationdescription] .word', {
-    //   y: '100%',
-    //   opacity: 0,
-    //   duration: 0.45,
-    //   ease: 'none.inOut',
-    //   stagger: 0.1,
-    //   scrollTrigger: {
-    //     trigger: '[data-locationdescription]',
-    //     start: 'top center',
-    //     once: true
-    //   },
-    // });
+
+    const typeSplitlocationdescription = new SplitType(
+      '[data-locationdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
+
+    gsap.from('[data-locationdescription] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.45,
+      ease: 'none.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-locationdescription]',
+        start: 'top center',
+        once: true
+      },
+    });
+
+
 
     let revealContainers = document.querySelectorAll('.reveal');
-
     revealContainers.forEach((container) => {
       let image = container.querySelector('.reveal img');
       let tl = gsap.timeline({
@@ -195,7 +193,7 @@ const Onzelocaties = () => {
         },
       });
 
-      tl.set(container, {autoAlpha: 1});
+      tl.set(container, { autoAlpha: 1 });
       tl.from(container, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -207,7 +205,20 @@ const Onzelocaties = () => {
         ease: 'Power2.out',
       });
     });
+
+
+  //   return () => {
+  //     // Clean up GSAP animations or any side effects on component unmount
+  //     gsap.killTweensOf('[data-locationtitle] .line');
+  //     gsap.killTweensOf('[data-locationdescription] .line');
+  // };
+
+
   }, [onzelocaties]);
+
+
+
+
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -294,7 +305,7 @@ const Onzelocaties = () => {
               />
               <p
                 className="locationescription onlydesktop"
-                data-aos="fade-up"
+                data-locationdescription=""
                 dangerouslySetInnerHTML={{
                   __html: locationData.contentSection.description,
                 }}
@@ -380,7 +391,7 @@ const Onzelocaties = () => {
                                 />
                                 <h4>Opening hours</h4>
                                 <p
-                                  dangerouslySetInnerHTML={{__html: loc.info}}
+                                  dangerouslySetInnerHTML={{ __html: loc.info }}
                                 />
                                 <div className="locationmaoaddress">
                                   <div className="locationicon">
@@ -486,7 +497,7 @@ const Onzelocaties = () => {
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
-                            dangerouslySetInnerHTML={{__html: loc.info}}
+                            dangerouslySetInnerHTML={{ __html: loc.info }}
                           />
 
                           <a
