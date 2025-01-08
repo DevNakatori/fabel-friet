@@ -1,16 +1,16 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
@@ -26,7 +26,7 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [onzefriet, setOnzefriet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -93,7 +93,7 @@ const Onzefriet = () => {
       0,
     );
     return () => {
-      timelinesonzefriet.scrollTrigger.kill();
+     // timelinesonzefriet.scrollTrigger.kill();
       // document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
@@ -131,7 +131,7 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -143,30 +143,21 @@ const Onzefriet = () => {
     const fetchDataonzefriet = async () => {
       const cachedData = localStorage.getItem(`onzefrietData_${language}`);
       //console.log('onzefrietData Cached Data:', cachedData);
-
-      if (cachedData) {
-        setOnzefriet(JSON.parse(cachedData));
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzefriet" && language == $lang]`,
+          { lang: language },
+        );
+        //console.log('Fetched Onzefriet Data:', data);
+        setOnzefriet(data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError('Failed to load data');
+      } finally {
         setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzefriet" && language == $lang]`,
-            {lang: language},
-          );
-          //console.log('Fetched Onzefriet Data:', data);
-          localStorage.setItem(
-            `onzefrietData_${language}`,
-            JSON.stringify(data),
-          );
-          setOnzefriet(data);
-        } catch (err) {
-          console.error('Error fetching data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
       }
+
     };
     fetchDataonzefriet();
   }, [language]);
@@ -296,7 +287,7 @@ const Onzefriet = () => {
     const resizeCanvas = () => {
       const canvas = canvasRef.current;
       const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return; 
+      if (!canvas || !rainContainer) return;
       canvas.width = rainContainer.offsetWidth;
       canvas.height = rainContainer.offsetHeight;
     };
@@ -305,7 +296,7 @@ const Onzefriet = () => {
     const createFries = () => {
       fries.current = [];
       const canvas = canvasRef.current;
-      if (!canvas) return; 
+      if (!canvas) return;
       for (let i = 0; i < numberOfFries; i++) {
         fries.current.push({
           x: Math.random() * canvas.width,
@@ -314,7 +305,7 @@ const Onzefriet = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ], // Random image
         });
       }
@@ -326,16 +317,16 @@ const Onzefriet = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       fries.current.forEach((fry) => {
         fry.y += fry.speed;
-        fry.x += fry.sway * 0.01; 
+        fry.x += fry.sway * 0.01;
         if (fry.y > canvas.height) {
-          fry.y = -50; 
-          fry.x = Math.random() * canvas.width; 
+          fry.y = -50;
+          fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
-            ]; 
+            Math.floor(Math.random() * fryImages.current.length)
+            ];
         }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300); 
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
       });
       requestAnimationFrame(renderFries);
     };
@@ -347,7 +338,7 @@ const Onzefriet = () => {
         renderFries();
       },
       onLeaveBack: () => {
-        fries.current = []; 
+        fries.current = [];
         const ctx = canvasRef.current.getContext('2d');
         if (ctx) {
           ctx.clearRect(
@@ -365,7 +356,7 @@ const Onzefriet = () => {
     };
   }, [onzefriet]);
 
-  
+
   useEffect(() => {
     const typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
@@ -392,41 +383,41 @@ const Onzefriet = () => {
       },
     });
 
-    // const typeSplitonzefriendescription = new SplitType(
-    //   '[data-onzefriendescription]',
-    //   {
-    //     types: 'lines, words, chars',
-    //     tagName: 'span',
-    //   },
-    // );
+    const typeSplitonzefriendescription = new SplitType(
+      '[data-onzefriendescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
 
-    // gsap.from('[data-onzefriendescription]', {
-    //   y: '100%',
-    //   opacity: 0,
-    //   duration: 0.45,
-    //   ease: 'none.inOut',
-    //   stagger: 0.1,
-    //   scrollTrigger: {
-    //     trigger: '[data-onzefriendescription]',
-    //     start: 'top center',
-    //     once: true
-    //   },
-    // });
+    gsap.from('[data-onzefriendescription] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.45,
+      ease: 'none.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-onzefriendescription]',
+        start: 'top center',
+        once: true
+      },
+    });
 
-    const typeSplitvideoDescription = new SplitType('[data-videodescription]', {
+    const typeSplitvideoDescription = new SplitType('.onzeptag', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
 
-    gsap.from('[data-videodescription] .line', {
+    gsap.from('.onzeptag .line', {
       opacity: 0.3,
       duration: 0.5,
       ease: 'power1.out',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '[data-videodescription]',
+        trigger: '.onzeptag',
         start: 'top center',
-        scrub: true,
+        scrub: false,
       },
     });
 
@@ -481,7 +472,7 @@ const Onzefriet = () => {
         },
       });
 
-      tlimpact.set(containeonze, {visibility: 'visible'});
+      tlimpact.set(containeonze, { visibility: 'visible' });
       tlimpact.from(containeonze, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -527,6 +518,17 @@ const Onzefriet = () => {
     //     },
     //   },
     // );
+
+
+    // return () => {
+    //   gsap.killTweensOf('[data-onzefrienttitle] .line');
+    //   gsap.killTweensOf('[data-onzefriendescription] .line');
+    //   gsap.killTweensOf('.onzeptag .line');
+    //   gsap.killTweensOf('[data-whatpeoplesection] .line');
+    //   gsap.killTweensOf('[data-accordionsection] .line');
+    //   gsap.killTweensOf('[data-onzefriendescription]');
+    // };
+
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;
@@ -625,7 +627,7 @@ const Onzefriet = () => {
                   </div>
                   <p
                     className="onzefriendescription"
-                    data-aos="fade-up"
+                    data-onzefriendescription=""
                     dangerouslySetInnerHTML={{
                       __html: content.contentSection.description,
                     }}
@@ -672,7 +674,7 @@ const Onzefriet = () => {
               <canvas
                 className="canvasfries"
                 ref={canvasRef}
-                style={{position: 'absolute', top: -100, left: -50}}
+                style={{ position: 'absolute', top: -100, left: -50 }}
               />
 
               {/* <div className="allfiressections">
@@ -721,7 +723,6 @@ const Onzefriet = () => {
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
                           data-aos-duration="500"
-                          data-videodescription=""
                           dangerouslySetInnerHTML={{
                             __html: content.videoSection.videoHandwritingText,
                           }}
@@ -869,7 +870,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                          Math.floor(review.reviewRating) &&
+                                        Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (

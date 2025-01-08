@@ -40,17 +40,13 @@ const Hetmenu = () => {
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-      if (cachedData) {
-        setHetmenu(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
         try {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
             {lang: language},
           );
-          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          
           setHetmenu(data);
         } catch (err) {
           console.error('Error fetching Hetmenu data:', err);
@@ -58,7 +54,7 @@ const Hetmenu = () => {
         } finally {
           setLoading(false);
         }
-      }
+      
     };
 
     fetchDataHetmenuData();
@@ -164,7 +160,7 @@ const Hetmenu = () => {
     // );
 
     return () => {
-      timelineshetmenu.scrollTrigger.kill();
+    //  timelineshetmenu.scrollTrigger.kill();
     };
   }, [hetmenu]);
 
@@ -332,23 +328,23 @@ const Hetmenu = () => {
       },
     });
 
-    // const typeSplitmenudescription = new SplitType('[data-menudescription]', {
-    //   types: 'lines, words, chars',
-    //   tagName: 'span',
-    // });
+    const typeSplitmenudescription = new SplitType('[data-menudescription]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
 
-    // gsap.from('[data-menudescription] .word', {
-    //   y: '100%',
-    //   opacity: 0,
-    //   duration: 0.45,
-    //   ease: 'none.inOut',
-    //   stagger: 0.1,
-    //   scrollTrigger: {
-    //     trigger: '[data-menudescription]',
-    //     start: 'top center',
-    //     once: true
-    //   },
-    // });
+    gsap.from('[data-menudescription] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.45,
+      ease: 'none.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-menudescription]',
+        start: 'top center',
+        once: true
+      },
+    });
 
     const typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
       types: 'lines, words, chars',
@@ -503,7 +499,7 @@ const Hetmenu = () => {
           />
           <p
             className="hetmenuescription"
-            data-aos="fade-up"
+            data-menudescription=""
             dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
           <canvas

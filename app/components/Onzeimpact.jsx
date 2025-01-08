@@ -162,7 +162,7 @@ const Onzeimpact = () => {
     );
 
     return () => {
-      timelineimpact.scrollTrigger.kill();
+     // timelineimpact.scrollTrigger.kill();
     };
   }, [onzeimpact]);
 
@@ -249,10 +249,7 @@ const Onzeimpact = () => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
 
-      if (cachedData) {
-        setonzeimpact(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
+      
         try {
           setLoading(true);
           const data = await client.fetch(
@@ -260,10 +257,6 @@ const Onzeimpact = () => {
             {lang: language},
           );
           console.log('Fetched fetchDataonzeimpactData Data:', data);
-          localStorage.setItem(
-            `onzeimpactData_${language}`,
-            JSON.stringify(data),
-          );
           setonzeimpact(data);
         } catch (err) {
           console.error('Error fetching Onzeimpact data:', err);
@@ -271,7 +264,7 @@ const Onzeimpact = () => {
         } finally {
           setLoading(false);
         }
-      }
+      
     };
     fetchDataonzeimpactData();
   }, [language]);
@@ -323,26 +316,26 @@ const Onzeimpact = () => {
       },
     });
 
-    // const typeSplitonzeimpactdescription = new SplitType(
-    //   '[data-onzeimpactdescription]',
-    //   {
-    //     types: 'lines, words, chars',
-    //     tagName: 'span',
-    //   },
-    // );
+    const typeSplitonzeimpactdescription = new SplitType(
+      '[data-onzeimpactdescription]',
+      {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      },
+    );
 
-    // gsap.from('[data-onzeimpactdescription] .word', {
-    //   y: '100%',
-    //   opacity: 0,
-    //   duration: 0.45,
-    //   ease: 'none.inOut',
-    //   stagger: 0.1,
-    //   scrollTrigger: {
-    //     trigger: '[data-onzeimpactdescription]',
-    //     start: 'top center',
-    //     once: true
-    //   },
-    // });
+    gsap.from('[data-onzeimpactdescription] .line', {
+      y: '100%',
+      opacity: 0,
+      duration: 0.45,
+      ease: 'none.inOut',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-onzeimpactdescription]',
+        start: 'top center',
+        once: true
+      },
+    });
 
     const typeSplitleftvideoboxsectitle = new SplitType(
       '[data-leftvideoboxsectitle]',
@@ -564,7 +557,7 @@ const Onzeimpact = () => {
           </h4>
           <p
             className="onzeimpactdescription"
-            data-aos="fade-up"
+            data-onzeimpactdescription=""
             dangerouslySetInnerHTML={{__html: data.contentSection.description}}
           />
 
