@@ -323,26 +323,26 @@ const Onzeimpact = () => {
       },
     });
 
-    const typeSplitonzeimpactdescription = new SplitType(
-      '[data-onzeimpactdescription]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
+    // const typeSplitonzeimpactdescription = new SplitType(
+    //   '[data-onzeimpactdescription]',
+    //   {
+    //     types: 'lines, words, chars',
+    //     tagName: 'span',
+    //   },
+    // );
 
-    gsap.from('[data-onzeimpactdescription] .word', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-onzeimpactdescription]',
-        start: 'top center',
-        once: true
-      },
-    });
+    // gsap.from('[data-onzeimpactdescription] .word', {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.45,
+    //   ease: 'none.inOut',
+    //   stagger: 0.1,
+    //   scrollTrigger: {
+    //     trigger: '[data-onzeimpactdescription]',
+    //     start: 'top center',
+    //     once: true
+    //   },
+    // });
 
     const typeSplitleftvideoboxsectitle = new SplitType(
       '[data-leftvideoboxsectitle]',
@@ -564,7 +564,7 @@ const Onzeimpact = () => {
           </h4>
           <p
             className="onzeimpactdescription"
-            data-onzeimpactdescription=""
+            data-aos="fade-down"
             dangerouslySetInnerHTML={{__html: data.contentSection.description}}
           />
 

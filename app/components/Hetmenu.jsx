@@ -332,23 +332,23 @@ const Hetmenu = () => {
       },
     });
 
-    const typeSplitmenudescription = new SplitType('[data-menudescription]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
+    // const typeSplitmenudescription = new SplitType('[data-menudescription]', {
+    //   types: 'lines, words, chars',
+    //   tagName: 'span',
+    // });
 
-    gsap.from('[data-menudescription] .word', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-menudescription]',
-        start: 'top center',
-        once: true
-      },
-    });
+    // gsap.from('[data-menudescription] .word', {
+    //   y: '100%',
+    //   opacity: 0,
+    //   duration: 0.45,
+    //   ease: 'none.inOut',
+    //   stagger: 0.1,
+    //   scrollTrigger: {
+    //     trigger: '[data-menudescription]',
+    //     start: 'top center',
+    //     once: true
+    //   },
+    // });
 
     const typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
       types: 'lines, words, chars',
@@ -503,7 +503,7 @@ const Hetmenu = () => {
           />
           <p
             className="hetmenuescription"
-            data-menudescription=""
+            data-aos="fade-down"
             dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
           <canvas
