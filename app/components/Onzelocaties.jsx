@@ -170,15 +170,16 @@ const Onzelocaties = () => {
       },
     );
 
-    gsap.from('[data-locationdescription] .line', {
+    gsap.from('[data-locationdescription] .word', {
       y: '100%',
       opacity: 0,
-      duration: 0.5,
+      duration: 0.45,
+      ease: 'none.inOut',
       stagger: 0.1,
-      ease: 'sine.inOut',
       scrollTrigger: {
-        trigger: '#locationtiononzefriet',
+        trigger: '[data-locationdescription]',
         start: 'top center',
+        once: true
       },
     });
 

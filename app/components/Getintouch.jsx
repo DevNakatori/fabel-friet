@@ -357,15 +357,16 @@ const Getintouch = () => {
       },
     );
 
-    gsap.from('[data-gettouchonzefrientdescription] .line', {
+    gsap.from('[data-gettouchonzefrientdescription] .word', {
       y: '100%',
       opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
+      duration: 0.45,
+      ease: 'none.inOut',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '#onzefriendescriptiononzefriet',
+        trigger: '[data-gettouchonzefrientdescription]',
         start: 'top center',
+        once: true
       },
     });
 

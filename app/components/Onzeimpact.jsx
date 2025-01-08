@@ -331,15 +331,16 @@ const Onzeimpact = () => {
       },
     );
 
-    gsap.from('[data-onzeimpactdescription] .line', {
+    gsap.from('[data-onzeimpactdescription] .word', {
       y: '100%',
       opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
+      duration: 0.45,
+      ease: 'none.inOut',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '#onzeimpactnonzefriet',
+        trigger: '[data-onzeimpactdescription]',
         start: 'top center',
+        once: true
       },
     });
 

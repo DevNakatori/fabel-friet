@@ -365,8 +365,9 @@ const Onzefriet = () => {
     };
   }, [onzefriet]);
 
+  
   useEffect(() => {
-    let typeSplit = new SplitType('[data-onzefrienttitle]', {
+    const typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -399,19 +400,20 @@ const Onzefriet = () => {
       },
     );
 
-    gsap.from('[data-onzefriendescription] .line', {
+    gsap.from('[data-onzefriendescription] .word', {
       y: '100%',
       opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
+      duration: 0.45,
+      ease: 'none.inOut',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '#onzefriendescriptiononzefriet',
+        trigger: '[data-onzefriendescription]',
         start: 'top center',
+        once: true
       },
     });
 
-    let typeSplitvideoDescription = new SplitType('[data-videodescription]', {
+    const typeSplitvideoDescription = new SplitType('[data-videodescription]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -428,7 +430,7 @@ const Onzefriet = () => {
       },
     });
 
-    let typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
+    const typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -436,9 +438,9 @@ const Onzefriet = () => {
     gsap.from('[data-whatpeoplesection] .line', {
       y: '100%',
       opacity: 0,
-      duration: 1,
+      duration: 0.1,
       ease: 'circ.in',
-      stagger: 0.3,
+      stagger: 0.1,
       scrollTrigger: {
         trigger: '[data-whatpeoplesection]',
       },
@@ -449,7 +451,7 @@ const Onzefriet = () => {
       },
     });
 
-    let typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
+    const typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
@@ -470,7 +472,7 @@ const Onzefriet = () => {
       },
     });
 
-    let revealcontaineronze = document.querySelectorAll('.revealvideo');
+    const revealcontaineronze = document.querySelectorAll('.revealvideo');
     revealcontaineronze.forEach((containeonze) => {
       let imageimpactonze = containeonze.querySelector('.revealvideo video');
       let tlimpact = gsap.timeline({

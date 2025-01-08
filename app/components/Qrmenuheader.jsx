@@ -170,7 +170,7 @@ const Qrmenuheader = () => {
         </button> */}
 
 
-        <button className="backhome coolBeans" onClick={handleBackClick}>
+        <button className="backhome bubbly-button swipe-effect" onClick={handleBackClick}>
           <span>Go Back</span>
           <svg
             id="Layer_1"

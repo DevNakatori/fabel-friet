@@ -40,7 +40,9 @@ button.skipvideo.hidden{display:none;}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
     a.locatebutton{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
-    .gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
+    .gradient-purple h4,.fourthsection .gradient-purple h4,
+    .menulanding .landingcontainer h2,
+    .mainmenusection .topmenublock h1{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
     .gradient-purple p,.fourthsection .gradient-purple p,.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whatpeople-section h6,.main-accordian h6{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
@@ -184,13 +186,16 @@ button.skipvideo.hidden{display:none;}
 
 
 @media (min-width:1200px){
-    .banner_content_text p{font-size:-moz-calc(20/var(--vw)*var(--multiplier));font-size:calc(20/var(--vw)*var(--multiplier));}
+    .banner_content_text p,.menulanding .landingcontainer p,.mainmenusection .topmenublock p,
+    .menu-section ul li{font-size:-moz-calc(20/var(--vw)*var(--multiplier));font-size:calc(20/var(--vw)*var(--multiplier));}
     a.banner_bottombtn{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));}
     .bannerrotate_text{font-size:-moz-calc(22/var(--vw)*var(--multiplier));font-size:calc(22/var(--vw)*var(--multiplier));}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
     a.locatebutton{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
-    .gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
+    .gradient-purple h4,.fourthsection .gradient-purple h4,
+    .menulanding .landingcontainer h2,
+    .mainmenusection .topmenublock h1{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
     .gradient-purple p,.fourthsection .gradient-purple p,.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whatpeople-section h6,.main-accordian h6{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
@@ -204,10 +209,12 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));line-height:50px;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist h5{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));line-height:1.2em;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist p,#section5 .whitebgbox .whitewithvideomainboxs .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
-    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3,
+    .menu-section h2{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
     #section5 .whitebgbox .whitewithvideomainbox .leftvideobox h4{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
     .binimageboxmain .binimageboxieft h6{font-size:-moz-calc(17/var(--vw)*var(--multiplier));font-size:calc(17/var(--vw)*var(--multiplier));}
-    .sixthsection .whitebgbox .socialtitle h3{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));}
+    .sixthsection .whitebgbox .socialtitle h3,
+    .tabs button{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));}
     a.Whatsappbtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));height:auto;padding:10px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
     .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
@@ -243,7 +250,20 @@ button.skipvideo.hidden{display:none;}
 @media (min-width:2100px) and (max-width:5000px){
     
 
-    .banner_content_text p {
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        top: 6px;
+        
+    }
+
+    .menulanding .landingcontainer h2,
+    .menulanding .landingcontainer p {
+        max-width: 1500px;
+        
+    }
+
+    .banner_content_text p,
+    .menulanding .landingcontainer p,
+    .menu-section ul li {
         font-size: -moz-calc(18 / var(--vw)* var(--multiplier) - 25%);
         font-size: calc(18 / var(--vw)* var(--multiplier) - 25%);
     }
@@ -372,8 +392,8 @@ button.skipvideo.hidden{display:none;}
         line-height: 1.2em;
     }
 
-    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3 {
-        font-size: -moz-calc(0/var(--vw)*var(--multiplier) - 25%);
+    #section5 .whitebgbox .whitewithvideomainboxs .righttextbox h3,
+    .menu-section h2 {
         font-size: -moz-calc(40/var(--vw)*var(--multiplier) - 25%);
         font-size: calc(40/var(--vw)*var(--multiplier) - 25%);
     }
@@ -419,7 +439,8 @@ button.skipvideo.hidden{display:none;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
 
     .sixthsection .whitebgbox .socialtitle h3{max-width: 900px;}
-    .sixthsection .whitebgbox .socialtitle h3 {
+    .sixthsection .whitebgbox .socialtitle h3,
+    .tabs button {
         font-size: -moz-calc(20/var(--vw)*var(--multiplier));
         font-size: calc(20/var(--vw)*var(--multiplier));
     }
