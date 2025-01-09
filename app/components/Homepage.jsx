@@ -8,7 +8,7 @@ import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
@@ -54,7 +54,7 @@ const HomePage = () => {
   useEffect(() => {
     /* data fatched */
     const fetchData_HomePage = async () => {
-      const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+      //const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
         try {
           setLoading(true);
@@ -672,6 +672,31 @@ const HomePage = () => {
   /* forcefully scroll top */
   useEffect(() => {
     window.scrollTo(0, 0);
+    gsap.to('#section1 .bannerlogo', {
+      duration: 0.1,
+      width: '0px',
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '#section1',
+        scrub: true,
+        once: false,
+      },
+    });
+  
+    gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
+      duration: 0.1,
+      width: '80px',
+      x: '20%',
+      y: '20%',
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        trigger: '#smooth-content',
+        scrub: true,
+        start: '0.5% 0.5%',
+        end: '3% 3%',
+        once: false,
+      },
+    });
   }, [bannerData]);
 
   useEffect(() => {
@@ -688,37 +713,6 @@ const HomePage = () => {
     }
   }, [bannerData]);
   /* forcefully scroll top */
-
-useEffect(() => {
-    if (!bannerData) return;
-  gsap.to('#section1 .bannerlogo', {
-    duration: 1,
-    width: '0px',
-    ease: 'power1.inOut',
-    scrollTrigger: {
-      trigger: '#section1',
-      scrub: true,
-      once: false,
-    },
-  });
-
-  gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
-    duration: 1,
-    width: '80px',
-    x: '20%',
-    y: '20%',
-    ease: 'power1.inOut',
-    scrollTrigger: {
-      trigger: '#smooth-content',
-      scrub: true,
-      start: '0.5% 0.5%',
-      end: '3% 3%',
-      once: false,
-    },
-  });
-}, [bannerData]);
-
-
   const togglePlayPause = () => {
     if (isPlaying) {
       audioRef.current.pause();

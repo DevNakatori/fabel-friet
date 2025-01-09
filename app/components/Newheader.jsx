@@ -276,7 +276,7 @@ const Newheader = () => {
             headerData[0].header &&
             headerData[0].header.menu ? (
             headerData[0].header.menu.map((item) => (
-              <li key={item._key}>
+              <li key={item._key} className='menulist'>
                 <a
                   href={item.link}
                   onClick={(event) => handleMenuItemClick(event, item.link)} // Call handleMenuItemClick here

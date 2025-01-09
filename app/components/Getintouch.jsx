@@ -46,14 +46,12 @@ const Getintouch = () => {
   };
 
   const { language } = useLanguage();
+  const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-
-    if (!getIntouch) return;
-
 
     const timelinegetintouch = gsap.timeline({
       scrollTrigger: {
@@ -107,7 +105,7 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch) return;
+    if (!dataLoadedgetintouch) return;
 
 
     const listgetintouch = document.querySelectorAll(
@@ -448,6 +446,18 @@ const Getintouch = () => {
         );
       },
     });
+
+
+    return () => {
+      // Clean up GSAP animations or any side effects on component unmount
+      gsap.killTweensOf('[data-gettouchonzefrienttitle] .line');
+      gsap.killTweensOf('[data-gettouchonzefrientdescription] .line');
+      gsap.killTweensOf('[data-socialtitle] .line');
+      gsap.killTweensOf('[data-contactsection] .line');
+      gsap.killTweensOf('[data-accordiantitle] .line');
+  };
+
+
   }, [getIntouch]);
 
   /* accordian start */
@@ -497,6 +507,7 @@ const Getintouch = () => {
         );
         console.log('Fetched ongetintouch Data:', data);
         setGetIntouch(data[0]);
+        setDataLoadedgetintouch(true);
       } catch (err) {
         console.error('Error fetching ongetintouch data:', err);
         setError('Failed to load data');
@@ -508,7 +519,7 @@ const Getintouch = () => {
   }, [language]);
 
   useEffect(() => {
-    if (!getIntouch) return;
+    
     const pathsstouch = document.querySelector('.line2sstouch');
     if (pathsstouch) {
       const pathsstouchLength = pathsstouch.getTotalLength();
@@ -549,7 +560,7 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    if (!getIntouch) return;
+    
     gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
 
     let targets = gsap.utils.toArray('.likeimagelists .ball');
@@ -573,7 +584,7 @@ const Getintouch = () => {
   const numberOfFries = 50;
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   useEffect(() => {
-    if (!getIntouch) return;
+    
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -654,7 +665,7 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    if (!getIntouch) return;
+    
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;

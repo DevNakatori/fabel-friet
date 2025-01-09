@@ -36,7 +36,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!onzeimpact) return;
+    
 
 
     const createAndAnimatePotato = (index) => {
@@ -84,7 +84,7 @@ const Onzeimpact = () => {
   }, []);
 
   useEffect(() => {
-    if (!onzeimpact) return;
+    
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
         trigger: '#section5 .wrapper-impact',
@@ -174,7 +174,7 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    if (!onzeimpact) return;
+    
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
       yPercent: -50,
@@ -255,9 +255,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
-      const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-
-
+      //const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
       try {
         setLoading(true);
         const data = await client.fetch(
@@ -279,7 +277,7 @@ const Onzeimpact = () => {
   }, [language]);
 
   useEffect(() => {
-    if (!onzeimpact) return;
+    
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
       const pathssLength = pathss.getTotalLength();

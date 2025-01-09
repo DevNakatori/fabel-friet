@@ -40,7 +40,7 @@ const Hetmenu = () => {
   // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
-      const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+      //const cachedData = localStorage.getItem(`hetmenuData_${language}`);
       try {
         setLoading(true);
         const data = await client.fetch(
@@ -64,7 +64,7 @@ const Hetmenu = () => {
 
   // GSAP Animations for Hetmenu
   useEffect(() => {
-    if (!hetmenu) return;
+    
 
     const timelineshetmenu = gsap.timeline({
       scrollTrigger: {
@@ -168,7 +168,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    if (!hetmenu) return;
+    
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -206,7 +206,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
-    if (!hetmenu) return;
+    
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
