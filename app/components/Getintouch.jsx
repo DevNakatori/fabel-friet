@@ -324,129 +324,147 @@ const Getintouch = () => {
       repeat: -1,
     });
 
-    const typeSplitgettouchonzefrienttitle = new SplitType(
-      '[data-gettouchonzefrienttitle]',
-      {
+
+  }, [getIntouch]);
+
+
+
+
+
+  useEffect(() => {
+
+    const isHardRefreshintouch = window.performance.navigation.type === 1;
+    const animationDelayintouch = isHardRefreshintouch ? 300 : 0;
+    const initiateAnimationsonzintouch = () => {
+
+      if (!dataLoadedgetintouch) return;
+      const typeSplitgettouchonzefrienttitle = new SplitType(
+        '[data-gettouchonzefrienttitle]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+      var charswhatpeoplesectiongettouch = typeSplitgettouchonzefrienttitle.chars;
+      gsap.from('[data-gettouchonzefrienttitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-gettouchonzefrienttitle]',
+        },
+        onUpdate: function () {
+          charswhatpeoplesectiongettouch.forEach(
+            (typeswhatpeoplesectiontouchget) => {
+              typeswhatpeoplesectiontouchget.style.backgroundImage =
+                "url('/assets/plain-gold-background-C9ahylQT.webp')";
+              typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
+              typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
+                'transparent';
+              typeswhatpeoplesectiontouchget.style.backgroundPosition =
+                '97px -83px';
+            },
+          );
+        },
+      });
+
+      const typeSplitdatagettouchonzefrientdescription = new SplitType(
+        '[data-gettouchonzefrientdescription]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+
+      gsap.from('[data-gettouchonzefrientdescription] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.45,
+        ease: 'none.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-gettouchonzefrientdescription]',
+          start: 'top center',
+          once: false
+        },
+      });
+
+      const typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
-    var charswhatpeoplesectiongettouch = typeSplitgettouchonzefrienttitle.chars;
-    gsap.from('[data-gettouchonzefrienttitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-gettouchonzefrienttitle]',
-      },
-      onUpdate: function () {
-        charswhatpeoplesectiongettouch.forEach(
-          (typeswhatpeoplesectiontouchget) => {
-            typeswhatpeoplesectiontouchget.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
-            typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
-              'transparent';
-            typeswhatpeoplesectiontouchget.style.backgroundPosition =
+      });
+      var charsgettouchsocil = typeSplitsocialtitle.chars;
+      gsap.from('[data-socialtitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-socialtitle]',
+        },
+        onUpdate: function () {
+          charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
+            typeswhatpeoplesectiontouchgetsocial.style.backgroundPosition =
               '97px -83px';
-          },
-        );
-      },
-    });
+          });
+        },
+      });
 
-    const typeSplitdatagettouchonzefrientdescription = new SplitType(
-      '[data-gettouchonzefrientdescription]',
-      {
+      const typeSplitcontactsection = new SplitType('[data-contactsection]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
+      });
+      var charsgettouchcontactsection = typeSplitcontactsection.chars;
+      gsap.from('[data-contactsection] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-contactsection]',
+        },
+        onUpdate: function () {
+          charsgettouchcontactsection.forEach(
+            (typeswhatpeoplesectiontouchgetcontect) => {
+              typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
+                '97px -83px';
+            },
+          );
+        },
+      });
 
-    gsap.from('[data-gettouchonzefrientdescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-gettouchonzefrientdescription]',
-        start: 'top center',
-        once: false
-      },
-    });
+      const typeSplitaccordiantitle = new SplitType('[data-accordiantitle]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+      var charsgettouchaccordian = typeSplitaccordiantitle.chars;
+      gsap.from('[data-accordiantitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-accordiantitle]',
+        },
+        onUpdate: function () {
+          charsgettouchaccordian.forEach(
+            (typeswhatpeoplesectiontouchgeaccordian) => {
+              typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
+                '97px -83px';
+            },
+          );
+        },
+      });
+    }
 
-    const typeSplitsocialtitle = new SplitType('[data-socialtitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsgettouchsocil = typeSplitsocialtitle.chars;
-    gsap.from('[data-socialtitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-socialtitle]',
-      },
-      onUpdate: function () {
-        charsgettouchsocil.forEach((typeswhatpeoplesectiontouchgetsocial) => {
-          typeswhatpeoplesectiontouchgetsocial.style.backgroundPosition =
-            '97px -83px';
-        });
-      },
-    });
-
-    const typeSplitcontactsection = new SplitType('[data-contactsection]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsgettouchcontactsection = typeSplitcontactsection.chars;
-    gsap.from('[data-contactsection] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-contactsection]',
-      },
-      onUpdate: function () {
-        charsgettouchcontactsection.forEach(
-          (typeswhatpeoplesectiontouchgetcontect) => {
-            typeswhatpeoplesectiontouchgetcontect.style.backgroundPosition =
-              '97px -83px';
-          },
-        );
-      },
-    });
-
-    const typeSplitaccordiantitle = new SplitType('[data-accordiantitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsgettouchaccordian = typeSplitaccordiantitle.chars;
-    gsap.from('[data-accordiantitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-accordiantitle]',
-      },
-      onUpdate: function () {
-        charsgettouchaccordian.forEach(
-          (typeswhatpeoplesectiontouchgeaccordian) => {
-            typeswhatpeoplesectiontouchgeaccordian.style.backgroundPosition =
-              '97px -83px';
-          },
-        );
-      },
-    });
-
+    setTimeout(() => {
+      initiateAnimationsonzintouch();
+    }, animationDelayintouch);
 
     return () => {
       // Clean up GSAP animations or any side effects on component unmount
@@ -455,10 +473,12 @@ const Getintouch = () => {
       gsap.killTweensOf('[data-socialtitle] .line');
       gsap.killTweensOf('[data-contactsection] .line');
       gsap.killTweensOf('[data-accordiantitle] .line');
-  };
-
-
+    };
   }, [getIntouch]);
+
+
+
+
 
   /* accordian start */
   const toggleAccordion = (e) => {
@@ -519,7 +539,7 @@ const Getintouch = () => {
   }, [language]);
 
   useEffect(() => {
-    
+
     const pathsstouch = document.querySelector('.line2sstouch');
     if (pathsstouch) {
       const pathsstouchLength = pathsstouch.getTotalLength();
@@ -560,7 +580,7 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    
+
     gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
 
     let targets = gsap.utils.toArray('.likeimagelists .ball');
@@ -584,7 +604,7 @@ const Getintouch = () => {
   const numberOfFries = 50;
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   useEffect(() => {
-    
+
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -665,7 +685,7 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-    
+
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;

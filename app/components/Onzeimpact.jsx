@@ -36,7 +36,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    
+
 
 
     const createAndAnimatePotato = (index) => {
@@ -84,7 +84,7 @@ const Onzeimpact = () => {
   }, []);
 
   useEffect(() => {
-    
+
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
         trigger: '#section5 .wrapper-impact',
@@ -174,7 +174,7 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    
+
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
       yPercent: -50,
@@ -277,7 +277,7 @@ const Onzeimpact = () => {
   }, [language]);
 
   useEffect(() => {
-    
+
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
       const pathssLength = pathss.getTotalLength();
@@ -298,194 +298,206 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedimpact) return;
+    const isHardRefreshimpact = window.performance.navigation.type === 1;
+    const animationDelayimpact = isHardRefreshimpact ? 300 : 0;
 
 
-    let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsonzeimpacttitle = typeSplitonzeimpacttitle.chars;
-    gsap.from('[data-onzeimpacttitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-onzeimpacttitle]',
-      },
-      onUpdate: function () {
-        charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
-          typeSplitcharsonzeimpacttitleas.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
-          typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
-            'transparent';
-          typeSplitcharsonzeimpacttitleas.style.backgroundPosition =
-            '97px -83px';
-        });
-      },
-    });
+    const initiateAnimationsonzimpact = () => {
+      if (!dataLoadedimpact) return;
 
-    const typeSplitonzeimpactdescription = new SplitType(
-      '[data-onzeimpactdescription]',
-      {
+
+      let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
-
-    gsap.from('[data-onzeimpactdescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-onzeimpactdescription]',
-        start: 'top center',
-        once: false
-      },
-    });
-
-    const typeSplitleftvideoboxsectitle = new SplitType(
-      '[data-leftvideoboxsectitle]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
-    var charsleftvideoboxsectitle = typeSplitleftvideoboxsectitle.chars;
-    gsap.from('[data-leftvideoboxsectitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-leftvideoboxsectitle]',
-      },
-      onUpdate: function () {
-        charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-          typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    const typeSplitrighttextboxtitle = new SplitType(
-      '[data-righttextboxtitle]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
-    var charsrighttextboxtitle = typeSplitrighttextboxtitle.chars;
-    gsap.from('[data-righttextboxtitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-righttextboxtitle]',
-      },
-      onUpdate: function () {
-        charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
-          typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    document
-      .querySelectorAll('[data-onzeimpacttwolistlisttext]')
-      .forEach((element) => {
-        new SplitType(element, {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        });
       });
-
-    gsap.from('[data-onzeimpacttwolistlisttext] .line', {
-      opacity: 0.3,
-      duration: 0.5,
-      ease: 'power1.out',
-      stagger: 0,
-      scrollTrigger: {
-        trigger: '[data-onzeimpacttwolistlisttext]',
-        scrub: true,
-        start: 'top bottom',
-        end: 'bottom top',
-        markers: false,
-      },
-    });
-
-    const typeSplitsecdescription = new SplitType('[data-secdescription]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-
-    gsap.from('[data-secdescription] .line', {
-      opacity: 0.3,
-      duration: 0.5,
-      ease: 'power1.out',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-secdescription]',
-        scrub: true,
-      },
-    });
-
-    const onzeimpacttwolistlisttitle = new SplitType(
-      '[data-onzeimpacttwolistlisttitle]',
-      {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      },
-    );
-    var charsimpacttwolistlisttitle = onzeimpacttwolistlisttitle.chars;
-    gsap.from('[data-onzeimpacttwolistlisttitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.5,
-      ease: 'sine.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-onzeimpacttwolistlisttitle]',
-      },
-      onUpdate: function () {
-        charsimpacttwolistlisttitle.forEach(
-          (typeSplitimpacttwolistlisttitle) => {
-            typeSplitimpacttwolistlisttitle.style.backgroundPosition =
-              '97px -83px';
-          },
-        );
-      },
-    });
-
-    let revealcontainerimpactsimpact = document.querySelectorAll('.reveal');
-    revealcontainerimpactsimpact.forEach((containerimpact) => {
-      let imageimpact = containerimpact.querySelector('.reveal img');
-      let tlimpact = gsap.timeline({
+      var charsonzeimpacttitle = typeSplitonzeimpacttitle.chars;
+      gsap.from('[data-onzeimpacttitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
         scrollTrigger: {
-          trigger: containerimpact,
-          start: 'top bottom',
-          end: 'bottom top',
+          trigger: '[data-onzeimpacttitle]',
+        },
+        onUpdate: function () {
+          charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
+            typeSplitcharsonzeimpacttitleas.style.backgroundImage =
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
+            typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
+              'transparent';
+            typeSplitcharsonzeimpacttitleas.style.backgroundPosition =
+              '97px -83px';
+          });
         },
       });
 
-      tlimpact.set(containerimpact, { autoAlpha: 1 });
-      tlimpact.from(containerimpact, 1.5, {
-        xPercent: 0,
-        ease: 'Power2.out',
+      const typeSplitonzeimpactdescription = new SplitType(
+        '[data-onzeimpactdescription]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+
+      gsap.from('[data-onzeimpactdescription] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.45,
+        ease: 'none.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-onzeimpactdescription]',
+          start: 'top center',
+          once: false
+        },
       });
-      tlimpact.from(imageimpact, 1.5, {
-        xPercent: -100,
-        scale: 1.3,
-        delay: -1.5,
-        ease: 'Power2.out',
+
+      const typeSplitleftvideoboxsectitle = new SplitType(
+        '[data-leftvideoboxsectitle]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+      var charsleftvideoboxsectitle = typeSplitleftvideoboxsectitle.chars;
+      gsap.from('[data-leftvideoboxsectitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-leftvideoboxsectitle]',
+        },
+        onUpdate: function () {
+          charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
+            typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
+          });
+        },
       });
-    });
+
+      const typeSplitrighttextboxtitle = new SplitType(
+        '[data-righttextboxtitle]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+      var charsrighttextboxtitle = typeSplitrighttextboxtitle.chars;
+      gsap.from('[data-righttextboxtitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-righttextboxtitle]',
+        },
+        onUpdate: function () {
+          charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
+            typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
+
+      document
+        .querySelectorAll('[data-onzeimpacttwolistlisttext]')
+        .forEach((element) => {
+          new SplitType(element, {
+            types: 'lines, words, chars',
+            tagName: 'span',
+          });
+        });
+
+      gsap.from('[data-onzeimpacttwolistlisttext] .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0,
+        scrollTrigger: {
+          trigger: '[data-onzeimpacttwolistlisttext]',
+          scrub: true,
+          start: 'top bottom',
+          end: 'bottom top',
+          markers: false,
+        },
+      });
+
+      const typeSplitsecdescription = new SplitType('[data-secdescription]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+
+      gsap.from('[data-secdescription] .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-secdescription]',
+          scrub: true,
+        },
+      });
+
+      const onzeimpacttwolistlisttitle = new SplitType(
+        '[data-onzeimpacttwolistlisttitle]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+      var charsimpacttwolistlisttitle = onzeimpacttwolistlisttitle.chars;
+      gsap.from('[data-onzeimpacttwolistlisttitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'sine.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-onzeimpacttwolistlisttitle]',
+        },
+        onUpdate: function () {
+          charsimpacttwolistlisttitle.forEach(
+            (typeSplitimpacttwolistlisttitle) => {
+              typeSplitimpacttwolistlisttitle.style.backgroundPosition =
+                '97px -83px';
+            },
+          );
+        },
+      });
+
+      let revealcontainerimpactsimpact = document.querySelectorAll('.reveal');
+      revealcontainerimpactsimpact.forEach((containerimpact) => {
+        let imageimpact = containerimpact.querySelector('.reveal img');
+        let tlimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerimpact,
+            start: 'top bottom',
+            end: 'bottom top',
+          },
+        });
+
+        tlimpact.set(containerimpact, { autoAlpha: 1 });
+        tlimpact.from(containerimpact, 1.5, {
+          xPercent: 0,
+          ease: 'Power2.out',
+        });
+        tlimpact.from(imageimpact, 1.5, {
+          xPercent: -100,
+          scale: 1.3,
+          delay: -1.5,
+          ease: 'Power2.out',
+        });
+      });
+
+    }
+
+
+    setTimeout(() => {
+      initiateAnimationsonzimpact();
+    }, animationDelayimpact); // Delay execution based on hard refresh
 
 
     return () => {

@@ -64,7 +64,7 @@ const Hetmenu = () => {
 
   // GSAP Animations for Hetmenu
   useEffect(() => {
-    
+
 
     const timelineshetmenu = gsap.timeline({
       scrollTrigger: {
@@ -168,7 +168,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    
+
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -206,7 +206,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
-    
+
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -286,7 +286,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    if (!hetmenu) return;
+
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
       let currentSection = 'friet-section';
@@ -308,114 +308,124 @@ const Hetmenu = () => {
     };
   }, [hetmenu]);
 
+
+
   useEffect(() => {
 
-    if (!dataLoadedhetmenu) return;
+    const isHardRefreshhetmenu = window.performance.navigation.type === 1;
+    const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 0;
+
+    const initiateAnimationsonzhetmenu = () => {
+      if (!dataLoadedhetmenu) return;
 
 
-    let typeSplitmenutitle = new SplitType('[data-menutitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsmenutitle = typeSplitmenutitle.chars;
-    gsap.from('[data-menutitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-menutitle]',
-      },
-      onUpdate: function () {
-        charsmenutitle.forEach((typeSplithetmenuititle) => {
-          typeSplithetmenuititle.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
-          typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
-          typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    const typeSplitmenudescription = new SplitType('[data-menudescription]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-
-    gsap.from('[data-menudescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-menudescription]',
-        start: 'top center',
-        once: false
-      },
-    });
-
-    const typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsmenutitleright = typeSplitmenutitleright.chars;
-    gsap.from('[data-righttextboxtitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-righttextboxtitle]',
-      },
-      onUpdate: function () {
-        charsmenutitleright.forEach((typeSplithetmenuititleright) => {
-          typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    const typeSplitmenudescriptionright = new SplitType(
-      '[data-righttextboxdescription]',
-      {
+      let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
+      });
+      var charsmenutitle = typeSplitmenutitle.chars;
+      gsap.from('[data-menutitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-menutitle]',
+        },
+        onUpdate: function () {
+          charsmenutitle.forEach((typeSplithetmenuititle) => {
+            typeSplithetmenuititle.style.backgroundImage =
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
+            typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
+            typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
 
-    gsap.from('[data-righttextboxdescription] .line', {
-      opacity: 0.3,
-      duration: 0.5,
-      ease: 'power1.out',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-righttextboxdescription]',
-        scrub: true,
-      },
-    });
+      const typeSplitmenudescription = new SplitType('[data-menudescription]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
 
-    // let typeSplitmenudescriptionrightbottom = new SplitType(
-    //   '[data-righttextboxdescriptionbotom]',
-    //   {
-    //     types: 'lines, words, chars',
-    //     tagName: 'span',
-    //   },
-    // );
+      gsap.from('[data-menudescription] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.45,
+        ease: 'none.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-menudescription]',
+          start: 'top center',
+          once: false
+        },
+      });
 
-    // gsap.from('[data-righttextboxdescriptionbotom] .line', {
-    //   opacity: 0.3,
-    //   duration: 0.5,
-    //   ease: 'power1.out',
-    //   stagger: 0.1,
-    //   scrollTrigger: {
-    //     trigger: '[data-righttextboxdescriptionbotom]',
-    //     start: 'top center',
-    //     scrub: true,
-    //   },
-    // });
+      const typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+      var charsmenutitleright = typeSplitmenutitleright.chars;
+      gsap.from('[data-righttextboxtitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-righttextboxtitle]',
+        },
+        onUpdate: function () {
+          charsmenutitleright.forEach((typeSplithetmenuititleright) => {
+            typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
 
+      const typeSplitmenudescriptionright = new SplitType(
+        '[data-righttextboxdescription]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+
+      gsap.from('[data-righttextboxdescription] .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-righttextboxdescription]',
+          scrub: true,
+        },
+      });
+
+      // let typeSplitmenudescriptionrightbottom = new SplitType(
+      //   '[data-righttextboxdescriptionbotom]',
+      //   {
+      //     types: 'lines, words, chars',
+      //     tagName: 'span',
+      //   },
+      // );
+
+      // gsap.from('[data-righttextboxdescriptionbotom] .line', {
+      //   opacity: 0.3,
+      //   duration: 0.5,
+      //   ease: 'power1.out',
+      //   stagger: 0.1,
+      //   scrollTrigger: {
+      //     trigger: '[data-righttextboxdescriptionbotom]',
+      //     start: 'top center',
+      //     scrub: true,
+      //   },
+      // });
+    }
+
+    setTimeout(() => {
+      initiateAnimationsonzhetmenu();
+    }, animationDelayhetmenu);
 
     return () => {
       gsap.killTweensOf('[data-menutitle] .line');
@@ -426,6 +436,9 @@ const Hetmenu = () => {
 
 
   }, [hetmenu]);
+
+
+
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
