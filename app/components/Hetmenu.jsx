@@ -37,30 +37,6 @@ const Hetmenu = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch Data from Sanity for Hetmenu
-  useEffect(() => {
-    const fetchDataHetmenuData = async () => {
-      //const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "hetmenu" && language == $lang]`,
-          { lang: language },
-        );
-
-        setHetmenu(data);
-        setDataLoadedhetmenu(true);
-      } catch (err) {
-        console.error('Error fetching Hetmenu data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-
-    };
-
-    fetchDataHetmenuData();
-  }, [language]);
 
   // GSAP Animations for Hetmenu
   useEffect(() => {
@@ -166,6 +142,32 @@ const Hetmenu = () => {
       timelineshetmenu.scrollTrigger?.kill();
     };
   }, [hetmenu]);
+  
+
+  // Fetch Data from Sanity for Hetmenu
+  useEffect(() => {
+    const fetchDataHetmenuData = async () => {
+      //const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "hetmenu" && language == $lang]`,
+          { lang: language },
+        );
+
+        setHetmenu(data);
+        setDataLoadedhetmenu(true);
+      } catch (err) {
+        console.error('Error fetching Hetmenu data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+
+    };
+
+    fetchDataHetmenuData();
+  }, [language]);
 
   useEffect(() => {
 
@@ -535,11 +537,11 @@ const Hetmenu = () => {
             data-menudescription=""
             dangerouslySetInnerHTML={{ __html: contentSection.description }}
           />
-          <canvas
+          {/* <canvas
             className="canvasfries"
             ref={canvasRef}
             style={{ position: 'absolute', top: 0, left: 0 }}
-          />
+          /> */}
           <div className="whitebgbox">
             <canvas
               className="canvasfries"
