@@ -136,81 +136,92 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedlocaties) return;
+    const isHardRefreshlocaties = window.performance.navigation.type === 1;
+    const animationDelaylocaties = isHardRefreshlocaties ? 300 : 0;
 
-    let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charslocationtitle = typeSplitlocationtitle.chars;
-    gsap.from('[data-locationtitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-locationtitle]',
-      },
-      onUpdate: function () {
-        charslocationtitle.forEach((typeSplitlocationtitle) => {
-          typeSplitlocationtitle.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplitlocationtitle.style.webkitBackgroundClip = 'text';
-          typeSplitlocationtitle.style.webkitTextFillColor = 'transparent';
-          typeSplitlocationtitle.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
+    const initiateAnimationsonzlocaties = () => {
 
+      if (!dataLoadedlocaties) return;
 
-
-    const typeSplitlocationdescription = new SplitType(
-      '[data-locationdescription]',
-      {
+      let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
-
-    gsap.from('[data-locationdescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-locationdescription]',
-        start: 'top center',
-        once: false
-      },
-    });
-
-
-
-    let revealContainers = document.querySelectorAll('.reveal');
-    revealContainers.forEach((container) => {
-      let image = container.querySelector('.reveal img');
-      let tl = gsap.timeline({
+      });
+      var charslocationtitle = typeSplitlocationtitle.chars;
+      gsap.from('[data-locationtitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
         scrollTrigger: {
-          trigger: container,
-          start: 'top bottom',
-          end: 'bottom top',
+          trigger: '[data-locationtitle]',
+        },
+        onUpdate: function () {
+          charslocationtitle.forEach((typeSplitlocationtitle) => {
+            typeSplitlocationtitle.style.backgroundImage =
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            typeSplitlocationtitle.style.webkitBackgroundClip = 'text';
+            typeSplitlocationtitle.style.webkitTextFillColor = 'transparent';
+            typeSplitlocationtitle.style.backgroundPosition = '97px -83px';
+          });
         },
       });
 
-      tl.set(container, { autoAlpha: 1 });
-      tl.from(container, 1.5, {
-        xPercent: 0,
-        ease: 'Power2.out',
+
+
+      const typeSplitlocationdescription = new SplitType(
+        '[data-locationdescription]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
+
+      gsap.from('[data-locationdescription] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.45,
+        ease: 'none.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-locationdescription]',
+          start: 'top center',
+          once: false
+        },
       });
-      tl.from(image, 1.5, {
-        xPercent: -100,
-        scale: 1.3,
-        delay: -1.5,
-        ease: 'Power2.out',
+
+
+
+      let revealContainers = document.querySelectorAll('.reveal');
+      revealContainers.forEach((container) => {
+        let image = container.querySelector('.reveal img');
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            start: 'top bottom',
+            end: 'bottom top',
+          },
+        });
+
+        tl.set(container, { autoAlpha: 1 });
+        tl.from(container, 1.5, {
+          xPercent: 0,
+          ease: 'Power2.out',
+        });
+        tl.from(image, 1.5, {
+          xPercent: -100,
+          scale: 1.3,
+          delay: -1.5,
+          ease: 'Power2.out',
+        });
       });
-    });
+
+    }
+
+    setTimeout(() => {
+      initiateAnimationsonzlocaties();
+    }, animationDelaylocaties);
 
 
     return () => {

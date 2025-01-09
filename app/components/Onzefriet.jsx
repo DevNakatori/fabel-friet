@@ -35,7 +35,7 @@ const Onzefriet = () => {
 
   /* round curcule animation start */
   useEffect(() => {
-    
+
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
         trigger: '#section2 .wrapper',
@@ -145,7 +145,7 @@ const Onzefriet = () => {
   /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
-     // const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+      // const cachedData = localStorage.getItem(`onzefrietData_${language}`);
       //console.log('onzefrietData Cached Data:', cachedData);
       try {
         setLoading(true);
@@ -169,7 +169,7 @@ const Onzefriet = () => {
   /* fatch data end */
 
   useEffect(() => {
-    
+
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
       yPercent: -50,
@@ -249,7 +249,7 @@ const Onzefriet = () => {
   }, [onzefriet]);
 
   useEffect(() => {
-    
+
     const path = document.querySelector('.line2');
     if (path) {
       const pathLength = path.getTotalLength();
@@ -285,7 +285,7 @@ const Onzefriet = () => {
   ];
 
   useEffect(() => {
-    
+
 
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
@@ -367,167 +367,179 @@ const Onzefriet = () => {
 
 
   useEffect(() => {
-    if (!dataLoaded) return;
-    const typeSplit = new SplitType('[data-onzefrienttitle]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsOnzefrienttitle = typeSplit.chars;
-    gsap.from('[data-onzefrienttitle] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-onzefrienttitle]',
-      },
-      onUpdate: function () {
-        charsOnzefrienttitle.forEach((typeSplit) => {
-          typeSplit.style.backgroundImage =
-            "url('/assets/plain-gold-background-C9ahylQT.webp')";
-          typeSplit.style.webkitBackgroundClip = 'text';
-          typeSplit.style.webkitTextFillColor = 'transparent';
-          typeSplit.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
 
-    const typeSplitonzefriendescription = new SplitType(
-      '[data-onzefriendescription]',
-      {
+    const isHardRefresh = window.performance.navigation.type === 1;
+    const animationDelay = isHardRefresh ? 300 : 0;
+
+    const initiateAnimations = () => {
+      if (!dataLoaded) return;
+
+      const typeSplit = new SplitType('[data-onzefrienttitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
-      },
-    );
-
-    gsap.from('[data-onzefriendescription] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.45,
-      ease: 'none.inOut',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-onzefriendescription]',
-        start: 'top center',
-        once: false
-      },
-    });
-
-    const typeSplitvideoDescription = new SplitType('.onzeptag', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-
-    gsap.from('.onzeptag .line', {
-      opacity: 0.3,
-      duration: 0.5,
-      ease: 'power1.out',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '.onzeptag',
-        start: 'top center',
-        scrub: true,
-      },
-    });
-
-    const typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charswhatpeoplesection = typeSplitwhatpeoplesection.chars;
-    gsap.from('[data-whatpeoplesection] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 0.1,
-      ease: 'circ.in',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: '[data-whatpeoplesection]',
-      },
-      onUpdate: function () {
-        charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
-          typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    const typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-    var charsaccordionSection = typeSplitaccordionSection.chars;
-    gsap.from('[data-accordionsection] .line', {
-      y: '100%',
-      opacity: 0,
-      duration: 1,
-      ease: 'circ.in',
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: '[data-accordionsection]',
-      },
-      onUpdate: function () {
-        charsaccordionSection.forEach((typesaccordionSection) => {
-          typesaccordionSection.style.backgroundPosition = '97px -83px';
-        });
-      },
-    });
-
-    const revealcontaineronze = document.querySelectorAll('.revealvideo');
-    revealcontaineronze.forEach((containeonze) => {
-      let imageimpactonze = containeonze.querySelector('.revealvideo video');
-      let tlimpact = gsap.timeline({
+      });
+      var charsOnzefrienttitle = typeSplit.chars;
+      gsap.from('[data-onzefrienttitle] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
         scrollTrigger: {
-          trigger: containeonze,
+          trigger: '[data-onzefrienttitle]',
+        },
+        onUpdate: function () {
+          charsOnzefrienttitle.forEach((typeSplit) => {
+            typeSplit.style.backgroundImage =
+              "url('/assets/plain-gold-background-C9ahylQT.webp')";
+            typeSplit.style.webkitBackgroundClip = 'text';
+            typeSplit.style.webkitTextFillColor = 'transparent';
+            typeSplit.style.backgroundPosition = '97px -83px';
+          });
         },
       });
 
-      tlimpact.set(containeonze, { visibility: 'visible' });
-      tlimpact.from(containeonze, 1.5, {
-        xPercent: 0,
-        ease: 'Power2.out',
-      });
-      tlimpact.from(imageimpactonze, 1.5, {
-        xPercent: -100,
-        scale: 1.3,
-        delay: -1.5,
-        ease: 'Power2.out',
-      });
-    });
+      const typeSplitonzefriendescription = new SplitType(
+        '[data-onzefriendescription]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
 
-    // gsap.fromTo(
-    //   '.allfiressections img',
-    //   { y: -50, opacity: 0 },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.5,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     force3D: true,
-    //     yoyo: true,
-    //     scrollTrigger: {
-    //       trigger: '#section2 .wrappertest',
-    //       start: 'top top-500',
-    //       end: 'top top-200',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
-    //     },
-    //     onComplete: () => {
+      gsap.from('[data-onzefriendescription] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.45,
+        ease: 'none.inOut',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-onzefriendescription]',
+          start: 'top center',
+          once: false
+        },
+      });
 
-    //       gsap.to('.allfiressections img', {
-    //         scale: 1.1,
-    //         stagger: 0.3,
-    //         zIndex: 22,
-    //         duration: 1,
-    //         ease: 'none',
-    //         yoyo: true,
-    //         repeat: -1,
-    //       });
-    //     },
-    //   },
-    // );
+      const typeSplitvideoDescription = new SplitType('.onzeptag', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+
+      gsap.from('.onzeptag .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.onzeptag',
+          start: 'top center',
+          scrub: true,
+        },
+      });
+
+      const typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+      var charswhatpeoplesection = typeSplitwhatpeoplesection.chars;
+      gsap.from('[data-whatpeoplesection] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 0.1,
+        ease: 'circ.in',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '[data-whatpeoplesection]',
+        },
+        onUpdate: function () {
+          charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
+            typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
+
+      const typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+      var charsaccordionSection = typeSplitaccordionSection.chars;
+      gsap.from('[data-accordionsection] .line', {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'circ.in',
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: '[data-accordionsection]',
+        },
+        onUpdate: function () {
+          charsaccordionSection.forEach((typesaccordionSection) => {
+            typesaccordionSection.style.backgroundPosition = '97px -83px';
+          });
+        },
+      });
+
+      const revealcontaineronze = document.querySelectorAll('.revealvideo');
+      revealcontaineronze.forEach((containeonze) => {
+        let imageimpactonze = containeonze.querySelector('.revealvideo video');
+        let tlimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: containeonze,
+          },
+        });
+
+        tlimpact.set(containeonze, { visibility: 'visible' });
+        tlimpact.from(containeonze, 1.5, {
+          xPercent: 0,
+          ease: 'Power2.out',
+        });
+        tlimpact.from(imageimpactonze, 1.5, {
+          xPercent: -100,
+          scale: 1.3,
+          delay: -1.5,
+          ease: 'Power2.out',
+        });
+      });
+
+      // gsap.fromTo(
+      //   '.allfiressections img',
+      //   { y: -50, opacity: 0 },
+      //   {
+      //     y: 0,
+      //     opacity: 1,
+      //     stagger: 0.5,
+      //     duration: 1,
+      //     ease: 'bounce.out',
+      //     force3D: true,
+      //     yoyo: true,
+      //     scrollTrigger: {
+      //       trigger: '#section2 .wrappertest',
+      //       start: 'top top-500',
+      //       end: 'top top-200',
+      //       pin: true,
+      //       once: true,
+      //       markers: false,
+      //     },
+      //     onComplete: () => {
+
+      //       gsap.to('.allfiressections img', {
+      //         scale: 1.1,
+      //         stagger: 0.3,
+      //         zIndex: 22,
+      //         duration: 1,
+      //         ease: 'none',
+      //         yoyo: true,
+      //         repeat: -1,
+      //       });
+      //     },
+      //   },
+      // );
+
+    };
+
+    setTimeout(() => {
+      initiateAnimations();
+    }, animationDelay); // Delay execution based on hard refresh
 
 
     return () => {
