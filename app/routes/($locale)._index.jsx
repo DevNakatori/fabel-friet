@@ -116,12 +116,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 1.5); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 2.5); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 3.5); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 4.5); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 5.5); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 6.5); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 1); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 1); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 1); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 1); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 1); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 1); // show after 6 seconds
   }, []);
 
   useEffect(() => {
