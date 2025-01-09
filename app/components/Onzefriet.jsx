@@ -35,7 +35,7 @@ const Onzefriet = () => {
 
   /* round curcule animation start */
   useEffect(() => {
-    if (!onzefriet) return;
+    
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
         trigger: '#section2 .wrapper',
@@ -145,7 +145,7 @@ const Onzefriet = () => {
   /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
-      const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+     // const cachedData = localStorage.getItem(`onzefrietData_${language}`);
       //console.log('onzefrietData Cached Data:', cachedData);
       try {
         setLoading(true);
@@ -169,7 +169,7 @@ const Onzefriet = () => {
   /* fatch data end */
 
   useEffect(() => {
-    if (!onzefriet) return;
+    
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
       yPercent: -50,
@@ -249,7 +249,7 @@ const Onzefriet = () => {
   }, [onzefriet]);
 
   useEffect(() => {
-    if (!onzefriet) return;
+    
     const path = document.querySelector('.line2');
     if (path) {
       const pathLength = path.getTotalLength();
@@ -285,7 +285,7 @@ const Onzefriet = () => {
   ];
 
   useEffect(() => {
-    if (!onzefriet) return;
+    
 
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {

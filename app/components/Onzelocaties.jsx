@@ -26,8 +26,6 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
-    if (!onzelocaties) return;
-
     const timelines = gsap.timeline({
       scrollTrigger: {
         trigger: '#section3 .wrapper-onzelocation',
@@ -96,7 +94,7 @@ const Onzelocaties = () => {
 
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
-      const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
+      //const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
       //console.log('onzelocatiesData Cached Data:', cachedData);
 
       try {
@@ -121,10 +119,6 @@ const Onzelocaties = () => {
   }, [language]);
 
   useEffect(() => {
-
-    if (!onzelocaties) return;
-
-
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;
