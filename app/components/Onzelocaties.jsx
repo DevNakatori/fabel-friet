@@ -19,11 +19,15 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
   const { language } = useLanguage();
-  const [onzelocaties, setOnzelocaties] = useState([]);
+  const [dataLoadedlocaties, setDataLoadedlocaties] = useState(false);
+  const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+
+    if (!onzelocaties) return;
+
     const timelines = gsap.timeline({
       scrollTrigger: {
         trigger: '#section3 .wrapper-onzelocation',
@@ -84,7 +88,8 @@ const Onzelocaties = () => {
     );
 
     return () => {
-      //timelines.scrollTrigger.kill();
+      // timelines.scrollTrigger.kill();
+      timelines.scrollTrigger?.kill();
     };
   }, [onzelocaties]);
 
@@ -100,8 +105,9 @@ const Onzelocaties = () => {
           `*[_type == "onzelocaties" && language == $lang]`,
           { lang: language },
         );
-       // console.log('Fetched onzelocatiesData Data:', data);
+        // console.log('Fetched onzelocatiesData Data:', data);
         setOnzelocaties(data);
+        setDataLoadedlocaties(true);
         //console.log('Fetched onzelocatiesData Data:', data);
       } catch (err) {
         console.error('Error fetching Onzelocaties data:', err);
@@ -115,6 +121,10 @@ const Onzelocaties = () => {
   }, [language]);
 
   useEffect(() => {
+
+    if (!onzelocaties) return;
+
+
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;
@@ -131,6 +141,8 @@ const Onzelocaties = () => {
 
 
   useEffect(() => {
+
+    if (!dataLoadedlocaties) return;
 
     let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
       types: 'lines, words, chars',
@@ -176,7 +188,7 @@ const Onzelocaties = () => {
       scrollTrigger: {
         trigger: '[data-locationdescription]',
         start: 'top center',
-        once: true
+        once: false
       },
     });
 
@@ -207,11 +219,11 @@ const Onzelocaties = () => {
     });
 
 
-  //   return () => {
-  //     // Clean up GSAP animations or any side effects on component unmount
-  //     gsap.killTweensOf('[data-locationtitle] .line');
-  //     gsap.killTweensOf('[data-locationdescription] .line');
-  // };
+    return () => {
+      // Clean up GSAP animations or any side effects on component unmount
+      gsap.killTweensOf('[data-locationtitle] .line');
+      gsap.killTweensOf('[data-locationdescription] .line');
+    };
 
 
   }, [onzelocaties]);

@@ -26,13 +26,16 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
+
   const { language } = useLanguage();
-  const [onzefriet, setOnzefriet] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [onzefriet, setOnzefriet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   /* round curcule animation start */
   useEffect(() => {
+    if (!onzefriet) return;
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
         trigger: '#section2 .wrapper',
@@ -93,7 +96,8 @@ const Onzefriet = () => {
       0,
     );
     return () => {
-     // timelinesonzefriet.scrollTrigger.kill();
+      // timelinesonzefriet.scrollTrigger.kill();
+      timelinesonzefriet.scrollTrigger?.kill();
       // document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
@@ -151,6 +155,7 @@ const Onzefriet = () => {
         );
         //console.log('Fetched Onzefriet Data:', data);
         setOnzefriet(data);
+        setDataLoaded(true);
       } catch (err) {
         console.error('Error fetching data:', err);
         setError('Failed to load data');
@@ -164,6 +169,7 @@ const Onzefriet = () => {
   /* fatch data end */
 
   useEffect(() => {
+    if (!onzefriet) return;
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
       yPercent: -50,
@@ -243,6 +249,7 @@ const Onzefriet = () => {
   }, [onzefriet]);
 
   useEffect(() => {
+    if (!onzefriet) return;
     const path = document.querySelector('.line2');
     if (path) {
       const pathLength = path.getTotalLength();
@@ -278,6 +285,8 @@ const Onzefriet = () => {
   ];
 
   useEffect(() => {
+    if (!onzefriet) return;
+
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -358,6 +367,7 @@ const Onzefriet = () => {
 
 
   useEffect(() => {
+    if (!dataLoaded) return;
     const typeSplit = new SplitType('[data-onzefrienttitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -400,7 +410,7 @@ const Onzefriet = () => {
       scrollTrigger: {
         trigger: '[data-onzefriendescription]',
         start: 'top center',
-        once: true
+        once: false
       },
     });
 
@@ -417,7 +427,7 @@ const Onzefriet = () => {
       scrollTrigger: {
         trigger: '.onzeptag',
         start: 'top center',
-        scrub: false,
+        scrub: true,
       },
     });
 
@@ -520,14 +530,14 @@ const Onzefriet = () => {
     // );
 
 
-    // return () => {
-    //   gsap.killTweensOf('[data-onzefrienttitle] .line');
-    //   gsap.killTweensOf('[data-onzefriendescription] .line');
-    //   gsap.killTweensOf('.onzeptag .line');
-    //   gsap.killTweensOf('[data-whatpeoplesection] .line');
-    //   gsap.killTweensOf('[data-accordionsection] .line');
-    //   gsap.killTweensOf('[data-onzefriendescription]');
-    // };
+    return () => {
+      gsap.killTweensOf('[data-onzefrienttitle] .line');
+      gsap.killTweensOf('[data-onzefriendescription] .line');
+      gsap.killTweensOf('.onzeptag .line');
+      gsap.killTweensOf('[data-whatpeoplesection] .line');
+      gsap.killTweensOf('[data-accordionsection] .line');
+      gsap.killTweensOf('[data-onzefriendescription]');
+    };
 
   }, [onzefriet]);
 

@@ -1,16 +1,16 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import {getImageUrl} from '../js/imagesurl';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getImageUrl } from '../js/imagesurl';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
 import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
 import etuh from '../assets/resizeimgs/webp/etuh.png';
@@ -23,7 +23,8 @@ import topdustin from '../assets/resizeimgs/webp/Top.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
+  const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,9 +32,13 @@ const Onzeimpact = () => {
   const [showGarbage, setShowGarbage] = useState(false);
   const binLidRef = useRef(null);
   const garbageRef = useRef(null);
-  const binContainerRef = useRef(null); 
+  const binContainerRef = useRef(null);
 
   useEffect(() => {
+
+    if (!onzeimpact) return;
+
+
     const createAndAnimatePotato = (index) => {
       if (!binContainerRef.current) return;
 
@@ -49,7 +54,7 @@ const Onzeimpact = () => {
       potatoContainer.appendChild(potatoImg);
       binContainerRef.current.appendChild(potatoContainer);
       setShowGarbage(true);
-      gsap.to(binLidRef.current, {y: -30, duration: 0.3, ease: 'power1.inOut'});
+      gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
       gsap.to(garbageRef.current, {
         opacity: 1,
         y: 0,
@@ -67,7 +72,7 @@ const Onzeimpact = () => {
         },
       });
       setTimeout(() => {
-        gsap.to(binLidRef.current, {y: 0, duration: 0.5, ease: 'power1.inOut'});
+        gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
       }, 200);
     };
     let index = 0;
@@ -79,6 +84,7 @@ const Onzeimpact = () => {
   }, []);
 
   useEffect(() => {
+    if (!onzeimpact) return;
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
         trigger: '#section5 .wrapper-impact',
@@ -162,11 +168,13 @@ const Onzeimpact = () => {
     );
 
     return () => {
-     // timelineimpact.scrollTrigger.kill();
+      // timelineimpact.scrollTrigger.kill();
+      timelineimpact.scrollTrigger?.kill();
     };
   }, [onzeimpact]);
 
   useEffect(() => {
+    if (!onzeimpact) return;
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
       yPercent: -50,
@@ -249,27 +257,29 @@ const Onzeimpact = () => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
 
-      
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzeimpact" && language == $lang]`,
-            {lang: language},
-          );
-          console.log('Fetched fetchDataonzeimpactData Data:', data);
-          setonzeimpact(data);
-        } catch (err) {
-          console.error('Error fetching Onzeimpact data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
-      
+
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzeimpact" && language == $lang]`,
+          { lang: language },
+        );
+        console.log('Fetched fetchDataonzeimpactData Data:', data);
+        setonzeimpact(data);
+        setDataLoadedimpact(true);
+      } catch (err) {
+        console.error('Error fetching Onzeimpact data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+
     };
     fetchDataonzeimpactData();
   }, [language]);
 
   useEffect(() => {
+    if (!onzeimpact) return;
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
       const pathssLength = pathss.getTotalLength();
@@ -289,6 +299,10 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
+
+    if (!dataLoadedimpact) return;
+
+
     let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -333,7 +347,7 @@ const Onzeimpact = () => {
       scrollTrigger: {
         trigger: '[data-onzeimpactdescription]',
         start: 'top center',
-        once: true
+        once: false
       },
     });
 
@@ -462,7 +476,7 @@ const Onzeimpact = () => {
         },
       });
 
-      tlimpact.set(containerimpact, {autoAlpha: 1});
+      tlimpact.set(containerimpact, { autoAlpha: 1 });
       tlimpact.from(containerimpact, 1.5, {
         xPercent: 0,
         ease: 'Power2.out',
@@ -474,6 +488,20 @@ const Onzeimpact = () => {
         ease: 'Power2.out',
       });
     });
+
+
+    return () => {
+      // Clean up GSAP animations or any side effects on component unmount
+      gsap.killTweensOf('[data-onzeimpacttitle] .line');
+      gsap.killTweensOf('[data-onzeimpactdescription] .line');
+      gsap.killTweensOf('[data-leftvideoboxsectitle] .line');
+      gsap.killTweensOf('[data-righttextboxtitle] .line');
+      gsap.killTweensOf('[data-onzeimpacttwolistlisttext] .line');
+      gsap.killTweensOf('[data-secdescription] .line');
+      gsap.killTweensOf('[data-onzeimpacttwolistlisttitle] .line');
+    };
+
+
   }, [onzeimpact]);
 
   if (loading) return <p>Loading...</p>;
@@ -558,7 +586,7 @@ const Onzeimpact = () => {
           <p
             className="onzeimpactdescription"
             data-onzeimpactdescription=""
-            dangerouslySetInnerHTML={{__html: data.contentSection.description}}
+            dangerouslySetInnerHTML={{ __html: data.contentSection.description }}
           />
 
           <div className="gradient-threebox gradient-threeboxonzeimpact">
@@ -644,7 +672,7 @@ const Onzeimpact = () => {
                           <div className="onzeimpacttwolistlist">
                             <h5
                               data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{__html: card.cardTitle}}
+                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
                             />
 
                             <p
