@@ -27,23 +27,6 @@ import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
-  const numSVGs = 20; // Number of SVGs to display
-  const [svgKey, setSvgKey] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSvgKey((prev) => prev + 1);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const iconMap = {
-    facebook: facebookIcon,
-    insta: instagramIcon,
-    linkedin: linkedinIcon,
-    twitter: twitterIcon,
-    tiktok: tiktokIcon,
-  };
 
   const { language } = useLanguage();
   const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
@@ -102,6 +85,25 @@ const Getintouch = () => {
       timelinegetintouch.scrollTrigger?.kill();
     };
   }, [getIntouch]);
+
+  
+  const numSVGs = 20; // Number of SVGs to display
+  const [svgKey, setSvgKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSvgKey((prev) => prev + 1);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const iconMap = {
+    facebook: facebookIcon,
+    insta: instagramIcon,
+    linkedin: linkedinIcon,
+    twitter: twitterIcon,
+    tiktok: tiktokIcon,
+  };
 
   useEffect(() => {
 
