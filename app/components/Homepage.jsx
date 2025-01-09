@@ -54,8 +54,14 @@ const HomePage = () => {
   useEffect(() => {
     /* data fatched */
     const fetchData_HomePage = async () => {
-      //const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+      const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
+
+      if (cachedData) {
+        setBanner(JSON.parse(cachedData));
+        setLoading(false);
+        setIsFirstLoad(false);
+      } else {
         try {
           setLoading(true);
           const data = await client.fetch(
@@ -63,22 +69,22 @@ const HomePage = () => {
             { lang: language },
           );
           if (data && data.length > 0) {
-            // setTimeout(() => {
-            //   //scrollToSection(window.location.hash);
-            //   window.location.reload();
-            // }, 1000);
+            setTimeout(() => {
+              //scrollToSection(window.location.hash);
+              window.location.reload();
+            }, 1000);
             setTimeout(() => {
               //scrollToSection(window.location.hash);
               document
                 .querySelector('.language-switcher')
-                //.classList.add('nomorelanguage');
+                .classList.add('nomorelanguage');
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
 
-            // localStorage.setItem(
-            //   `homeBannerData_${language}`,
-            //   JSON.stringify(data),
-            // );
+            localStorage.setItem(
+              `homeBannerData_${language}`,
+              JSON.stringify(data),
+            );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -88,9 +94,9 @@ const HomePage = () => {
           setError('Failed to load data');
         } finally {
           setLoading(false);
-          //setIsFirstLoad(false);
+          setIsFirstLoad(false);
         }
-      
+      }
     };
 
     fetchData_HomePage();

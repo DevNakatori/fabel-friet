@@ -117,11 +117,11 @@ export default function Homepage() {
 
   useEffect(() => {
     setTimeout(() => setShowHomePage(true), 1); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 1); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 1); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 1); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 1); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 1); // show after 6 seconds
+    setTimeout(() => setShowOnzefriet(true), 2); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 3); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 4); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 5); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 6); // show after 6 seconds
   }, []);
 
   useEffect(() => {
