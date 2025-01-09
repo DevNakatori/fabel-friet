@@ -71,7 +71,7 @@ const HomePage = () => {
               //scrollToSection(window.location.hash);
               document
                 .querySelector('.language-switcher')
-                .classList.add('nomorelanguage');
+                //.classList.add('nomorelanguage');
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
 
