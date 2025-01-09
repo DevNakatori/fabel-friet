@@ -34,54 +34,6 @@ const Onzeimpact = () => {
   const garbageRef = useRef(null);
   const binContainerRef = useRef(null);
 
-  useEffect(() => {
-
-
-
-
-    const createAndAnimatePotato = (index) => {
-      if (!binContainerRef.current) return;
-
-      const potatoContainer = document.createElement('div');
-      potatoContainer.classList.add('potato-container');
-      const potatoImages = [etuh, etuij];
-      const randomImage =
-        potatoImages[Math.floor(Math.random() * potatoImages.length)];
-      const potatoImg = document.createElement('img');
-      potatoImg.src = randomImage;
-      potatoImg.style.width = '60px';
-      potatoImg.style.height = '60px';
-      potatoContainer.appendChild(potatoImg);
-      binContainerRef.current.appendChild(potatoContainer);
-      setShowGarbage(true);
-      gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
-      gsap.to(garbageRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power1.inOut',
-      });
-      gsap.to(potatoContainer, {
-        y: 500,
-        opacity: 0,
-        duration: 1.5,
-        delay: index * 0.1,
-        ease: 'power1.inOut',
-        onComplete: () => {
-          potatoContainer.remove();
-        },
-      });
-      setTimeout(() => {
-        gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
-      }, 200);
-    };
-    let index = 0;
-    const interval = setInterval(() => {
-      createAndAnimatePotato(index);
-      index += 1;
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
 
@@ -172,6 +124,53 @@ const Onzeimpact = () => {
       timelineimpact.scrollTrigger?.kill();
     };
   }, [onzeimpact]);
+
+  // useEffect(() => {
+  //   const createAndAnimatePotato = (index) => {
+  //     if (!binContainerRef.current) return;
+
+  //     const potatoContainer = document.createElement('div');
+  //     potatoContainer.classList.add('potato-container');
+  //     const potatoImages = [etuh, etuij];
+  //     const randomImage =
+  //       potatoImages[Math.floor(Math.random() * potatoImages.length)];
+  //     const potatoImg = document.createElement('img');
+  //     potatoImg.src = randomImage;
+  //     potatoImg.style.width = '60px';
+  //     potatoImg.style.height = '60px';
+  //     potatoContainer.appendChild(potatoImg);
+  //     binContainerRef.current.appendChild(potatoContainer);
+  //     setShowGarbage(true);
+  //     gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
+  //     gsap.to(garbageRef.current, {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: 'power1.inOut',
+  //     });
+  //     gsap.to(potatoContainer, {
+  //       y: 500,
+  //       opacity: 0,
+  //       duration: 1.5,
+  //       delay: index * 0.1,
+  //       ease: 'power1.inOut',
+  //       onComplete: () => {
+  //         potatoContainer.remove();
+  //       },
+  //     });
+  //     setTimeout(() => {
+  //       gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
+  //     }, 200);
+  //   };
+  //   let index = 0;
+  //   const interval = setInterval(() => {
+  //     createAndAnimatePotato(index);
+  //     index += 1;
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
+
+  
 
   useEffect(() => {
 
