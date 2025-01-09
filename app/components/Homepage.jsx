@@ -56,12 +56,6 @@ const HomePage = () => {
     const fetchData_HomePage = async () => {
       const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
-
-      if (cachedData) {
-        setBanner(JSON.parse(cachedData));
-        setLoading(false);
-        setIsFirstLoad(false);
-      } else {
         try {
           setLoading(true);
           const data = await client.fetch(
@@ -69,10 +63,10 @@ const HomePage = () => {
             { lang: language },
           );
           if (data && data.length > 0) {
-            setTimeout(() => {
-              //scrollToSection(window.location.hash);
-              window.location.reload();
-            }, 1000);
+            // setTimeout(() => {
+            //   //scrollToSection(window.location.hash);
+            //   window.location.reload();
+            // }, 1000);
             setTimeout(() => {
               //scrollToSection(window.location.hash);
               document
@@ -81,10 +75,10 @@ const HomePage = () => {
             }, 200);
             console.log(`Fetched Data for language ${language}:`, data);
 
-            localStorage.setItem(
-              `homeBannerData_${language}`,
-              JSON.stringify(data),
-            );
+            // localStorage.setItem(
+            //   `homeBannerData_${language}`,
+            //   JSON.stringify(data),
+            // );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -94,9 +88,9 @@ const HomePage = () => {
           setError('Failed to load data');
         } finally {
           setLoading(false);
-          setIsFirstLoad(false);
+          //setIsFirstLoad(false);
         }
-      }
+      
     };
 
     fetchData_HomePage();
@@ -692,34 +686,38 @@ const HomePage = () => {
     for (let i = 0; i < bubblyButtons.length; i++) {
       bubblyButtons[i].addEventListener('click', animateButton);
     }
-
-    gsap.to('#section1 .bannerlogo', {
-      duration: 1,
-      width: '0px',
-      ease: 'power1.inOut',
-      scrollTrigger: {
-        trigger: '#section1',
-        scrub: true,
-        once: false,
-      },
-    });
-
-    gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
-      duration: 1,
-      width: '80px',
-      x: '20%',
-      y: '20%',
-      ease: 'power1.inOut',
-      scrollTrigger: {
-        trigger: '#smooth-content',
-        scrub: true,
-        start: '0.5% 0.5%',
-        end: '3% 3%',
-        once: false,
-      },
-    });
   }, [bannerData]);
   /* forcefully scroll top */
+
+useEffect(() => {
+    if (!bannerData) return;
+  gsap.to('#section1 .bannerlogo', {
+    duration: 1,
+    width: '0px',
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: '#section1',
+      scrub: true,
+      once: false,
+    },
+  });
+
+  gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
+    duration: 1,
+    width: '80px',
+    x: '20%',
+    y: '20%',
+    ease: 'power1.inOut',
+    scrollTrigger: {
+      trigger: '#smooth-content',
+      scrub: true,
+      start: '0.5% 0.5%',
+      end: '3% 3%',
+      once: false,
+    },
+  });
+}, [bannerData]);
+
 
   const togglePlayPause = () => {
     if (isPlaying) {

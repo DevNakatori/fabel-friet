@@ -1,15 +1,15 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 // import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
@@ -31,7 +31,8 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
+  const [dataLoadedhetmenu, setDataLoadedhetmenu] = useState(false);
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -40,21 +41,22 @@ const Hetmenu = () => {
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "hetmenu" && language == $lang]`,
-            {lang: language},
-          );
-          
-          setHetmenu(data);
-        } catch (err) {
-          console.error('Error fetching Hetmenu data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
-      
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "hetmenu" && language == $lang]`,
+          { lang: language },
+        );
+
+        setHetmenu(data);
+        setDataLoadedhetmenu(true);
+      } catch (err) {
+        console.error('Error fetching Hetmenu data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+
     };
 
     fetchDataHetmenuData();
@@ -160,11 +162,13 @@ const Hetmenu = () => {
     // );
 
     return () => {
-    //  timelineshetmenu.scrollTrigger.kill();
+      //  timelineshetmenu.scrollTrigger.kill();
+      timelineshetmenu.scrollTrigger?.kill();
     };
   }, [hetmenu]);
 
   useEffect(() => {
+    if (!hetmenu) return;
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -202,6 +206,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
+    if (!hetmenu) return;
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -211,7 +216,7 @@ const Hetmenu = () => {
     const resizeCanvas = () => {
       const canvas = canvasRef.current;
       const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return; 
+      if (!canvas || !rainContainer) return;
       canvas.width = rainContainer.offsetWidth;
       canvas.height = rainContainer.offsetHeight;
     };
@@ -229,8 +234,8 @@ const Hetmenu = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
-            ], 
+            Math.floor(Math.random() * fryImages.current.length)
+            ],
         });
       }
     };
@@ -241,16 +246,16 @@ const Hetmenu = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       fries.current.forEach((fry) => {
         fry.y += fry.speed;
-        fry.x += fry.sway * 0.01; 
+        fry.x += fry.sway * 0.01;
         if (fry.y > canvas.height) {
           fry.y = -50;
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 250); 
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
       });
       requestAnimationFrame(renderFries);
     };
@@ -262,7 +267,7 @@ const Hetmenu = () => {
         renderFries();
       },
       onLeaveBack: () => {
-        fries.current = []; 
+        fries.current = [];
         const ctx = canvasRef.current.getContext('2d');
         if (ctx) {
           ctx.clearRect(
@@ -281,6 +286,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
+    if (!hetmenu) return;
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
       let currentSection = 'friet-section';
@@ -303,6 +309,10 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
+
+    if (!dataLoadedhetmenu) return;
+
+
     let typeSplitmenutitle = new SplitType('[data-menutitle]', {
       types: 'lines, words, chars',
       tagName: 'span',
@@ -342,7 +352,7 @@ const Hetmenu = () => {
       scrollTrigger: {
         trigger: '[data-menudescription]',
         start: 'top center',
-        once: true
+        once: false
       },
     });
 
@@ -405,6 +415,16 @@ const Hetmenu = () => {
     //     scrub: true,
     //   },
     // });
+
+
+    return () => {
+      gsap.killTweensOf('[data-menutitle] .line');
+      gsap.killTweensOf('[data-menudescription] .line');
+      gsap.killTweensOf('[data-righttextboxtitle] .line');
+      gsap.killTweensOf('[data-righttextboxdescription] .line');
+    };
+
+
   }, [hetmenu]);
 
   if (loading) return <div>Loading...</div>;
@@ -430,7 +450,7 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({top: yPosition, behavior: 'smooth'});
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
     }
   };
 
@@ -453,10 +473,10 @@ const Hetmenu = () => {
         <div className="roundimages">
           <div className="roundtext-hetmenu">
             <h2
-              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
             />
             <h3
-              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
             />
           </div>
           <div className="roundimage-hetmenu"></div>
@@ -495,23 +515,23 @@ const Hetmenu = () => {
           <h4
             className="hetmenuntitle"
             data-menutitle=""
-            dangerouslySetInnerHTML={{__html: contentSection.heading}}
+            dangerouslySetInnerHTML={{ __html: contentSection.heading }}
           />
           <p
             className="hetmenuescription"
             data-menudescription=""
-            dangerouslySetInnerHTML={{__html: contentSection.description}}
+            dangerouslySetInnerHTML={{ __html: contentSection.description }}
           />
           <canvas
             className="canvasfries"
             ref={canvasRef}
-            style={{position: 'absolute', top: 0, left: 0}}
+            style={{ position: 'absolute', top: 0, left: 0 }}
           />
           <div className="whitebgbox">
             <canvas
               className="canvasfries"
               ref={canvasRef}
-              style={{position: 'absolute', top: 0, left: 0}}
+              style={{ position: 'absolute', top: 0, left: 0 }}
             />
             {/* <div className="allfiressectionsmenu">
               <img src={menu_one} alt="img" width="10" height="10" />
