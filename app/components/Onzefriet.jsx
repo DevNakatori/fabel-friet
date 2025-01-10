@@ -1,16 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
 import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
 import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
@@ -26,15 +26,39 @@ import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoaded, setDataLoaded] = useState(false);
   const [onzefriet, setOnzefriet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  /* fatch data start */
+  useEffect(() => {
+    const fetchDataonzefriet = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzefriet" && language == $lang]`,
+          {lang: language},
+        );
+        setOnzefriet(data);
+        setDataLoaded(true);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataonzefriet();
+  }, [language]);
+  /* fatch data end */
+
+
   /* round curcule animation start */
   useEffect(() => {
+
+    if (!onzefriet) return;
 
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
@@ -96,9 +120,7 @@ const Onzefriet = () => {
       0,
     );
     return () => {
-      // timelinesonzefriet.scrollTrigger.kill();
       timelinesonzefriet.scrollTrigger?.kill();
-      // document.body.classList.remove('scrolled');
     };
   }, [onzefriet]);
 
@@ -135,40 +157,16 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
   };
   /* accordian end */
 
-  /* fatch data start */
   useEffect(() => {
-    const fetchDataonzefriet = async () => {
-      // const cachedData = localStorage.getItem(`onzefrietData_${language}`);
-      //console.log('onzefrietData Cached Data:', cachedData);
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzefriet" && language == $lang]`,
-          { lang: language },
-        );
-        //console.log('Fetched Onzefriet Data:', data);
-        setOnzefriet(data);
-        setDataLoaded(true);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
 
-    };
-    fetchDataonzefriet();
-  }, [language]);
-  /* fatch data end */
-
-  useEffect(() => {
+    if (!dataLoaded) return;
 
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
@@ -250,6 +248,8 @@ const Onzefriet = () => {
 
   useEffect(() => {
 
+    if (!dataLoaded) return;
+
     const path = document.querySelector('.line2');
     if (path) {
       const pathLength = path.getTotalLength();
@@ -286,6 +286,8 @@ const Onzefriet = () => {
 
   useEffect(() => {
 
+    if (!dataLoaded) return;
+
 
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
@@ -314,7 +316,7 @@ const Onzefriet = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ], // Random image
         });
       }
@@ -332,7 +334,7 @@ const Onzefriet = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
@@ -360,16 +362,14 @@ const Onzefriet = () => {
       },
     });
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [onzefriet]);
 
-
   useEffect(() => {
-
     const isHardRefresh = window.performance.navigation.type === 1;
-    const animationDelay = isHardRefresh ? 300 : 0;
+    const animationDelay = isHardRefresh ? 300 : 300;
 
     const initiateAnimations = () => {
       if (!dataLoaded) return;
@@ -416,7 +416,7 @@ const Onzefriet = () => {
         scrollTrigger: {
           trigger: '[data-onzefriendescription]',
           start: 'top center',
-          once: false
+          once: false,
         },
       });
 
@@ -437,10 +437,13 @@ const Onzefriet = () => {
         },
       });
 
-      const typeSplitwhatpeoplesection = new SplitType('[data-whatpeoplesection]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
+      const typeSplitwhatpeoplesection = new SplitType(
+        '[data-whatpeoplesection]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
       var charswhatpeoplesection = typeSplitwhatpeoplesection.chars;
       gsap.from('[data-whatpeoplesection] .line', {
         y: '100%',
@@ -458,10 +461,13 @@ const Onzefriet = () => {
         },
       });
 
-      const typeSplitaccordionSection = new SplitType('[data-accordionsection]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
+      const typeSplitaccordionSection = new SplitType(
+        '[data-accordionsection]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
       var charsaccordionSection = typeSplitaccordionSection.chars;
       gsap.from('[data-accordionsection] .line', {
         y: '100%',
@@ -488,7 +494,7 @@ const Onzefriet = () => {
           },
         });
 
-        tlimpact.set(containeonze, { visibility: 'visible' });
+        tlimpact.set(containeonze, {visibility: 'visible'});
         tlimpact.from(containeonze, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -500,47 +506,11 @@ const Onzefriet = () => {
           ease: 'Power2.out',
         });
       });
-
-      // gsap.fromTo(
-      //   '.allfiressections img',
-      //   { y: -50, opacity: 0 },
-      //   {
-      //     y: 0,
-      //     opacity: 1,
-      //     stagger: 0.5,
-      //     duration: 1,
-      //     ease: 'bounce.out',
-      //     force3D: true,
-      //     yoyo: true,
-      //     scrollTrigger: {
-      //       trigger: '#section2 .wrappertest',
-      //       start: 'top top-500',
-      //       end: 'top top-200',
-      //       pin: true,
-      //       once: true,
-      //       markers: false,
-      //     },
-      //     onComplete: () => {
-
-      //       gsap.to('.allfiressections img', {
-      //         scale: 1.1,
-      //         stagger: 0.3,
-      //         zIndex: 22,
-      //         duration: 1,
-      //         ease: 'none',
-      //         yoyo: true,
-      //         repeat: -1,
-      //       });
-      //     },
-      //   },
-      // );
-
     };
 
     setTimeout(() => {
       initiateAnimations();
-    }, animationDelay); // Delay execution based on hard refresh
-
+    }, animationDelay); 
 
     return () => {
       gsap.killTweensOf('[data-onzefrienttitle] .line');
@@ -550,7 +520,6 @@ const Onzefriet = () => {
       gsap.killTweensOf('[data-accordionsection] .line');
       gsap.killTweensOf('[data-onzefriendescription]');
     };
-
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;
@@ -571,17 +540,6 @@ const Onzefriet = () => {
               />
             </div>
             <div className="roundimages">
-              {/* <div className="bannersectinlogo">
-                <img
-                  src={getImageUrl(content.logoImage.asset._ref)}
-                  alt="Logo"
-                  width="10"
-                  height="10"
-                  data-aos="fade"
-                  data-aos-easing="linear"
-                  data-aos-duration="4500"
-                />
-              </div> */}
               <div className="roundtext">
                 {content.transitionSection && (
                   <>
@@ -604,31 +562,6 @@ const Onzefriet = () => {
                   <div className="icon-scroll"></div>
                   <p>Scroll down</p>
                 </div>
-                {/* <div className="icon-scroll"></div>
-                <p>Scroll down</p> */}
-
-                {/* <div className="scroll-down">
-                  <div className="c-scroll-icon">
-                    <div className="c-scroll-icon-line-mask">
-                      <div className="c-scroll-icon-line"></div>
-                    </div>
-                    <div className="c-scroll-icon-triangle">
-                      <div className="c-scroll-icon-triangle-mask first">
-                        <div className="c-scroll-icon-triangle-line first"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask right">
-                        <div className="c-scroll-icon-triangle-line right"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask left">
-                        <div className="c-scroll-icon-triangle-line left"></div>
-                      </div>
-                      <div className="c-scroll-icon-triangle-mask last">
-                        <div className="c-scroll-icon-triangle-line last"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <p>Scroll down</p>
-                </div> */}
               </div>
             </div>
           </div>
@@ -696,17 +629,8 @@ const Onzefriet = () => {
               <canvas
                 className="canvasfries"
                 ref={canvasRef}
-                style={{ position: 'absolute', top: -100, left: -50 }}
+                style={{position: 'absolute', top: -100, left: -50}}
               />
-
-              {/* <div className="allfiressections">
-                <img src={fries_one} alt="img" width="10" height="10" />
-                <img src={fries_two} alt="img" width="10" height="10" />
-                <img src={fries_three} alt="img" width="10" height="10" />
-                <img src={fries_four} alt="img" width="10" height="10" />
-                <img src={fries_five} alt="img" width="10" height="10" />
-                <img src={fries_six} alt="img" width="10" height="10" />
-              </div> */}
 
               <div className="whitebgbox">
                 <div className="appcontainers">
@@ -721,13 +645,6 @@ const Onzefriet = () => {
                             height="10"
                           />
                         </div>
-                        {/* <img
-                          src={onzie_leftvidep}
-                          alt="img"
-                          data-speed="auto"
-                          width="10"
-                          height="10"
-                        /> */}
                         <div className="revealvideo">
                           <video
                             id="myVideos"
@@ -749,14 +666,6 @@ const Onzefriet = () => {
                             __html: content.videoSection.videoHandwritingText,
                           }}
                         />
-                        {/* <img
-                          className="arrowimage swing"
-                          src={arrow_blue}
-                          alt="img"
-                          data-speed="auto"
-                          width="10"
-                          height="10"
-                        /> */}
 
                         <div className="arrowimage">
                           <svg
@@ -892,7 +801,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                        Math.floor(review.reviewRating) &&
+                                          Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (
@@ -915,7 +824,6 @@ const Onzefriet = () => {
                           ))}
 
                           <div className="swiper-pagination"></div>
-                          {/* <div className="swiper-scrollbar"></div> */}
                         </Swiper>
                       </div>
                     </div>

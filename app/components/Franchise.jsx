@@ -18,7 +18,7 @@ const Franchise = () => {
       const cachedFranchiseData = localStorage.getItem(`franchise_${language}`);
 
       if (cachedFranchiseData) {
-        console.log('Using cached franchise data');
+      
         setFranchiseData(JSON.parse(cachedFranchiseData));
         setLoading(false);
       } else {
@@ -27,7 +27,7 @@ const Franchise = () => {
             `*[_type == "franchise" && language == $lang]`,
             { lang: language }
           );
-          console.log('Fetched franchise data:', data);
+         
 
           if (data && data.length > 0) {
             const franchise = data[0];

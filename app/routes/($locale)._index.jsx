@@ -23,8 +23,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Cursor from '~/components/Cursor';
 
-gsap.registerPlugin(ScrollSmoother);
-
 gsap.registerPlugin(ScrollTrigger);
 /**
  * @type {MetaFunction}
@@ -87,6 +85,11 @@ export default function Homepage() {
   const data = useLoaderData();
   const [loading, setLoading] = useState(true);
 
+  gsap.config({
+    force3D: true, // Forces 3D transformations for better performance
+    nullTargetWarn: false, // Disable warnings for null target
+  });
+
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       // Check if the screen width is greater than or equal to 1024px (desktop)
@@ -106,6 +109,18 @@ export default function Homepage() {
       throttleDelay: 99,
     });
     // AOS.refresh();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        window.location.reload();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const [showHomePage, setShowHomePage] = useState(false);
@@ -197,10 +212,10 @@ export default function Homepage() {
     let portrait = window.matchMedia('(orientation: portrait)');
     portrait.addEventListener('change', function (e) {
       if (e.matches) {
-        console.log('Portrait mode');
+        
         window.location.reload();
       } else {
-        console.log('Landscape');
+        
       }
     });
   }, []);

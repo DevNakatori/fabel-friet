@@ -1,15 +1,15 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import {Autoplay} from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 // import InstagramFeed from './InstagramFeed';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
@@ -22,7 +22,7 @@ import menu_five from '../assets/resizeimgs/webp/menuwebp/Fries5_FabelFriet.webp
 import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.webp';
 import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
 import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
-// import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
@@ -31,15 +31,39 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoadedhetmenu, setDataLoadedhetmenu] = useState(false);
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch Data from Sanity for Hetmenu
+  useEffect(() => {
+    const fetchDataHetmenuData = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "hetmenu" && language == $lang]`,
+          {lang: language},
+        );
+
+        setHetmenu(data);
+        setDataLoadedhetmenu(true);
+      } catch (err) {
+        console.error('Error fetching Hetmenu data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDataHetmenuData();
+  }, [language]);
 
   // GSAP Animations for Hetmenu
   useEffect(() => {
+
+    if (!hetmenu) return;
 
 
     const timelineshetmenu = gsap.timeline({
@@ -102,75 +126,15 @@ const Hetmenu = () => {
       0,
     );
 
-    // gsap.fromTo(
-    //   '.allfiressectionsmenu img',
-    //   {y: -50, opacity: 0},
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.5,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     force3D: true,
-    //     yoyo: true,
-    //     scrollTrigger: {
-    //       trigger: '#section4 .wrappertest',
-    //       start: 'top top-500',
-    //       end: 'top top-200',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
-    //     },
-    //     onComplete: () => {
-    //       gsap.to('.allfiressectionsmenu img', {
-    //         // x: 'random(-10, 10)',
-    //         // y: 'random(-10, 10)',
-    //         scale: 1.1, // zoom in
-    //         stagger: 0.3,
-    //         zIndex: 22,
-    //         duration: 1,
-    //         ease: 'none',
-    //         yoyo: true,
-    //         repeat: -1,
-    //       });
-    //     },
-    //   },
-    // );
-
     return () => {
-      //  timelineshetmenu.scrollTrigger.kill();
       timelineshetmenu.scrollTrigger?.kill();
     };
   }, [hetmenu]);
+
   
 
-  // Fetch Data from Sanity for Hetmenu
   useEffect(() => {
-    const fetchDataHetmenuData = async () => {
-      //const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "hetmenu" && language == $lang]`,
-          { lang: language },
-        );
-
-        setHetmenu(data);
-        setDataLoadedhetmenu(true);
-      } catch (err) {
-        console.error('Error fetching Hetmenu data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-
-    };
-
-    fetchDataHetmenuData();
-  }, [language]);
-
-  useEffect(() => {
-
+    if (!dataLoadedhetmenu) return;
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -208,7 +172,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
-
+    if (!dataLoadedhetmenu) return;
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -236,7 +200,7 @@ const Hetmenu = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -254,7 +218,7 @@ const Hetmenu = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
@@ -288,7 +252,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-
+    if (!dataLoadedhetmenu) return;
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
       let currentSection = 'friet-section';
@@ -310,16 +274,12 @@ const Hetmenu = () => {
     };
   }, [hetmenu]);
 
-
-
   useEffect(() => {
-
     const isHardRefreshhetmenu = window.performance.navigation.type === 1;
-    const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 0;
+    const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
 
     const initiateAnimationsonzhetmenu = () => {
       if (!dataLoadedhetmenu) return;
-
 
       let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
@@ -360,14 +320,17 @@ const Hetmenu = () => {
         scrollTrigger: {
           trigger: '[data-menudescription]',
           start: 'top center',
-          once: false
+          once: false,
         },
       });
 
-      const typeSplitmenutitleright = new SplitType('[data-righttextboxtitle]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
+      const typeSplitmenutitleright = new SplitType(
+        '[data-righttextboxtitle]',
+        {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        },
+      );
       var charsmenutitleright = typeSplitmenutitleright.chars;
       gsap.from('[data-righttextboxtitle] .line', {
         y: '100%',
@@ -403,27 +366,7 @@ const Hetmenu = () => {
           scrub: true,
         },
       });
-
-      // let typeSplitmenudescriptionrightbottom = new SplitType(
-      //   '[data-righttextboxdescriptionbotom]',
-      //   {
-      //     types: 'lines, words, chars',
-      //     tagName: 'span',
-      //   },
-      // );
-
-      // gsap.from('[data-righttextboxdescriptionbotom] .line', {
-      //   opacity: 0.3,
-      //   duration: 0.5,
-      //   ease: 'power1.out',
-      //   stagger: 0.1,
-      //   scrollTrigger: {
-      //     trigger: '[data-righttextboxdescriptionbotom]',
-      //     start: 'top center',
-      //     scrub: true,
-      //   },
-      // });
-    }
+    };
 
     setTimeout(() => {
       initiateAnimationsonzhetmenu();
@@ -435,12 +378,7 @@ const Hetmenu = () => {
       gsap.killTweensOf('[data-righttextboxtitle] .line');
       gsap.killTweensOf('[data-righttextboxdescription] .line');
     };
-
-
   }, [hetmenu]);
-
-
-
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -465,16 +403,13 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({ top: yPosition, behavior: 'smooth' });
+      window.scrollTo({top: yPosition, behavior: 'smooth'});
     }
   };
 
   return (
     <section className="panel fourthsection" id="section4">
       <div className="wrapper-hetmenu">
-        {/* <div className="bannersectinlogo">
-          <img src={getImageUrl(logoImage.asset._ref)} alt="Banner logo" data-aos="fade" data-aos-easing="linear" data-aos-duration="4500"/>
-        </div> */}
         <div className="wrappermain">
           <img
             className="media"
@@ -488,10 +423,10 @@ const Hetmenu = () => {
         <div className="roundimages">
           <div className="roundtext-hetmenu">
             <h2
-              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
+              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
             />
             <h3
-              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
+              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
             />
           </div>
           <div className="roundimage-hetmenu"></div>
@@ -499,28 +434,6 @@ const Hetmenu = () => {
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
           </div>
-          {/* <div className="scroll-down">
-            <div className="c-scroll-icon">
-              <div className="c-scroll-icon-line-mask">
-                <div className="c-scroll-icon-line"></div>
-              </div>
-              <div className="c-scroll-icon-triangle">
-                <div className="c-scroll-icon-triangle-mask first">
-                  <div className="c-scroll-icon-triangle-line first"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask right">
-                  <div className="c-scroll-icon-triangle-line right"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask left">
-                  <div className="c-scroll-icon-triangle-line left"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask last">
-                  <div className="c-scroll-icon-triangle-line last"></div>
-                </div>
-              </div>
-            </div> 
-            <p>Scroll down</p>
-          </div> */}
         </div>
       </div>
 
@@ -530,34 +443,21 @@ const Hetmenu = () => {
           <h4
             className="hetmenuntitle"
             data-menutitle=""
-            dangerouslySetInnerHTML={{ __html: contentSection.heading }}
+            dangerouslySetInnerHTML={{__html: contentSection.heading}}
           />
           <p
             className="hetmenuescription"
             data-menudescription=""
-            dangerouslySetInnerHTML={{ __html: contentSection.description }}
+            dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
-          {/* <canvas
-            className="canvasfries"
-            ref={canvasRef}
-            style={{ position: 'absolute', top: 0, left: 0 }}
-          /> */}
+
           <div className="whitebgbox">
             <canvas
               className="canvasfries"
               ref={canvasRef}
-              style={{ position: 'absolute', top: 0, left: 0 }}
+              style={{position: 'absolute', top: 0, left: 0}}
             />
-            {/* <div className="allfiressectionsmenu">
-              <img src={menu_one} alt="img" width="10" height="10" />
-              <img src={menu_two} alt="img" width="10" height="10" />
-              <img src={menu_three} alt="img" width="10" height="10" />
-              <img src={menu_four} alt="img" width="10" height="10" />
-              <img src={menu_five} alt="img" width="10" height="10" />
-              <img src={menu_six} alt="img" width="10" height="10" />
-              <img src={menu_seven} alt="img" width="10" height="10" />
-              <img src={menu_eight} alt="img" width="10" height="10" />
-            </div> */}
+
             <div
               className="menudynamic onlydesktop"
               data-aos="fade-up"
@@ -767,33 +667,6 @@ const Hetmenu = () => {
             </div>
 
             <div className="appcontainers">
-              {/* Tab Section */}
-              {/* <div
-                className="tabs onlymobile"
-                data-aos="fade-down"
-                data-aos-easing="linear"
-                data-aos-offset="500"
-                data-aos-duration="500"
-              >
-                {tabs.map((tab, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTab(index)}
-                    className={activeTab === index ? 'active' : ''}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div> */}
-              {/* <div
-                className="content onlymobile"
-                data-aos="fade-down"
-                data-aos-easing="linear"
-                data-aos-duration="500"
-              >
-                {tabs[activeTab].content}
-              </div> */}
-
               {/* Bottom Section */}
               <div className="whitewithvideomainbox">
                 <div className="righttextbox">
@@ -818,48 +691,6 @@ const Hetmenu = () => {
                     alt="Bottom section image"
                     data-speed="auto"
                   />
-                  {/* <div
-                    className="bluearrowbottom"
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                  >
-                    <div className="arrowimages">
-                      <svg
-                        width="100"
-                        height="188"
-                        viewBox="0 0 100 188"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          className="line2s"
-                          d="M9.76839 0.498047C9.76839 0.498047 63.995 0.49778 81.5852 62.2999C83.4375 68.8079 83.6375 74.8642 82.7316 80.2451M82.7316 80.2451C79.143 101.56 58.2007 112.276 53.8611 98.4787C50.6678 88.3259 68.5835 79.1629 82.7316 80.2451ZM82.7316 80.2451C92.6632 81.0048 100.738 86.8132 98.351 100.872C92.5631 134.958 34.2172 111.966 39.9247 140.854C46.0523 171.867 20.3398 180.748 2.33984 185.248M2.33984 185.248C2.33984 185.248 8.44503 184.312 18.0898 186.748M2.33984 185.248C5.83985 181.998 6.39307 181.294 10.3398 172.748"
-                          stroke="url(#paint0_linear_1314_561)"
-                        />
-                        <defs>
-                          <linearGradient
-                            id="paint0_linear_1314_561"
-                            x1="2.33984"
-                            y1="186.748"
-                            x2="154.434"
-                            y2="107.999"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop offset="0.000290329" stopColor="#0F274D" />
-                            <stop offset="0.504985" stopColor="#1F314D" />
-                            <stop offset="1" stopColor="#0d1e4d" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                  </div>
-                  <h3 data-righttextboxdescriptionbotom="">
-                    {bottomContentSection.bottomHeading}
-                  </h3>
-                  <p data-righttextboxdescriptionbotom="">
-                    {bottomContentSection.bottomContent}
-                  </p> */}
                 </div>
               </div>
             </div>
