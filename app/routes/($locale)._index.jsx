@@ -91,6 +91,18 @@ export default function Homepage() {
   });
 
   useEffect(() => {
+    const disableKeyboardEvents = (event) => {
+      event.preventDefault(); 
+    };
+    document.addEventListener('keydown', disableKeyboardEvents);
+    document.addEventListener('keyup', disableKeyboardEvents);
+    return () => {
+      document.removeEventListener('keydown', disableKeyboardEvents);
+      document.removeEventListener('keyup', disableKeyboardEvents);
+    };
+  }, []);
+
+  useEffect(() => {
     if (window.innerWidth >= 1024) {
       // Check if the screen width is greater than or equal to 1024px (desktop)
       // const smoother = ScrollSmoother.create({
