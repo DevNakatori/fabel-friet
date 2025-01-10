@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
 
   // Log available languages when the component mounts
   useEffect(() => {
-    console.log('Available Languages:', languages);
+  
   }, []);
   
 

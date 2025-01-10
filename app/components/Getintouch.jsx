@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
@@ -27,14 +27,35 @@ import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
-
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
+    const fetchData_Getintouch = async () => {
+      try {
+        const data = await client.fetch(
+          `*[_type == "getintouch" && language == $lang]`,
+          {lang: language},
+        );
+        setGetIntouch(data[0]);
+        setDataLoadedgetintouch(true);
+      } catch (err) {
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData_Getintouch();
+  }, [language]);
+
+  useEffect(() => {
+
+    if (!getIntouch) return;
+
 
     const timelinegetintouch = gsap.timeline({
       scrollTrigger: {
@@ -81,16 +102,15 @@ const Getintouch = () => {
     );
 
     return () => {
-      //timelinegetintouch.scrollTrigger.kill();
       timelinegetintouch.scrollTrigger?.kill();
     };
   }, [getIntouch]);
 
-  
   const numSVGs = 20; // Number of SVGs to display
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
+    if (!dataLoadedgetintouch) return;
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
     }, 4000);
@@ -106,9 +126,7 @@ const Getintouch = () => {
   };
 
   useEffect(() => {
-
     if (!dataLoadedgetintouch) return;
-
 
     const listgetintouch = document.querySelectorAll(
       '.gradient-threeboxgetintouch',
@@ -140,7 +158,7 @@ const Getintouch = () => {
 
         onzefritthreeimagecentergetintouch.fromTo(
           middleItemgetintouch,
-          { bottom: '-55vh', rotation: 0, opacity: 0 },
+          {bottom: '-55vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
             duration: 1,
@@ -159,7 +177,7 @@ const Getintouch = () => {
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            { left: '-50vw', rotation: 0, opacity: 0 },
+            {left: '-50vw', rotation: 0, opacity: 0},
             {
               left: '-9vw',
               opacity: 1,
@@ -183,7 +201,7 @@ const Getintouch = () => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            { right: '-50vw', rotation: 0, opacity: 0 },
+            {right: '-50vw', rotation: 0, opacity: 0},
             {
               right: '-9vw',
               opacity: 1,
@@ -210,7 +228,7 @@ const Getintouch = () => {
 
         mobileTimelineCenter.fromTo(
           middleItemgetintouch,
-          { bottom: '-30vh', rotation: 0, opacity: 0 },
+          {bottom: '-30vh', rotation: 0, opacity: 0},
           {
             bottom: '0vh',
             duration: 0.7,
@@ -229,7 +247,7 @@ const Getintouch = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            { left: '-30vw', rotation: 0, opacity: 0 },
+            {left: '-30vw', rotation: 0, opacity: 0},
             {
               left: '0vw',
               opacity: 1,
@@ -253,7 +271,7 @@ const Getintouch = () => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            { right: '-30vw', rotation: 0, opacity: 0 },
+            {right: '-30vw', rotation: 0, opacity: 0},
             {
               right: '0vw',
               opacity: 1,
@@ -279,7 +297,7 @@ const Getintouch = () => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '.sixthsection #animated-text',
-      { text: '' },
+      {text: ''},
       {
         text: textContent,
         duration: duration,
@@ -296,7 +314,7 @@ const Getintouch = () => {
 
     gsap.fromTo(
       '.likeimagelist img',
-      { y: -50, opacity: 0 },
+      {y: -50, opacity: 0},
       {
         y: 0,
         opacity: 1,
@@ -325,20 +343,12 @@ const Getintouch = () => {
       yoyo: true,
       repeat: -1,
     });
-
-
   }, [getIntouch]);
 
-
-
-
-
   useEffect(() => {
-
     const isHardRefreshintouch = window.performance.navigation.type === 1;
-    const animationDelayintouch = isHardRefreshintouch ? 300 : 0;
+    const animationDelayintouch = isHardRefreshintouch ? 300 : 300;
     const initiateAnimationsonzintouch = () => {
-
       if (!dataLoadedgetintouch) return;
       const typeSplitgettouchonzefrienttitle = new SplitType(
         '[data-gettouchonzefrienttitle]',
@@ -347,7 +357,8 @@ const Getintouch = () => {
           tagName: 'span',
         },
       );
-      var charswhatpeoplesectiongettouch = typeSplitgettouchonzefrienttitle.chars;
+      var charswhatpeoplesectiongettouch =
+        typeSplitgettouchonzefrienttitle.chars;
       gsap.from('[data-gettouchonzefrienttitle] .line', {
         y: '100%',
         opacity: 0,
@@ -362,7 +373,8 @@ const Getintouch = () => {
             (typeswhatpeoplesectiontouchget) => {
               typeswhatpeoplesectiontouchget.style.backgroundImage =
                 "url('/assets/plain-gold-background-C9ahylQT.webp')";
-              typeswhatpeoplesectiontouchget.style.webkitBackgroundClip = 'text';
+              typeswhatpeoplesectiontouchget.style.webkitBackgroundClip =
+                'text';
               typeswhatpeoplesectiontouchget.style.webkitTextFillColor =
                 'transparent';
               typeswhatpeoplesectiontouchget.style.backgroundPosition =
@@ -389,7 +401,7 @@ const Getintouch = () => {
         scrollTrigger: {
           trigger: '[data-gettouchonzefrientdescription]',
           start: 'top center',
-          once: false
+          once: false,
         },
       });
 
@@ -462,14 +474,13 @@ const Getintouch = () => {
           );
         },
       });
-    }
+    };
 
     setTimeout(() => {
       initiateAnimationsonzintouch();
     }, animationDelayintouch);
 
     return () => {
-      // Clean up GSAP animations or any side effects on component unmount
       gsap.killTweensOf('[data-gettouchonzefrienttitle] .line');
       gsap.killTweensOf('[data-gettouchonzefrientdescription] .line');
       gsap.killTweensOf('[data-socialtitle] .line');
@@ -477,10 +488,6 @@ const Getintouch = () => {
       gsap.killTweensOf('[data-accordiantitle] .line');
     };
   }, [getIntouch]);
-
-
-
-
 
   /* accordian start */
   const toggleAccordion = (e) => {
@@ -513,34 +520,19 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
   };
   /* accordian end */
 
-  useEffect(() => {
-    const fetchData_Getintouch = async () => {
-      try {
-        const data = await client.fetch(
-          `*[_type == "getintouch" && language == $lang]`,
-          { lang: language },
-        );
-        console.log('Fetched ongetintouch Data:', data);
-        setGetIntouch(data[0]);
-        setDataLoadedgetintouch(true);
-      } catch (err) {
-        console.error('Error fetching ongetintouch data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData_Getintouch();
-  }, [language]);
+  
 
   useEffect(() => {
+
+    if (!dataLoadedgetintouch) return;
+
 
     const pathsstouch = document.querySelector('.line2sstouch');
     if (pathsstouch) {
@@ -583,7 +575,10 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
+    if (!dataLoadedgetintouch) return;
+
+    
+    gsap.set('.likeimagelists .ball', {xPercent: -50, yPercent: -50});
 
     let targets = gsap.utils.toArray('.likeimagelists .ball');
 
@@ -606,7 +601,6 @@ const Getintouch = () => {
   const numberOfFries = 50;
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   useEffect(() => {
-
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -634,7 +628,7 @@ const Getintouch = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -652,7 +646,7 @@ const Getintouch = () => {
           fry.y = Math.random() * -canvas.height;
           fry.image =
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 300, 300);
@@ -687,7 +681,6 @@ const Getintouch = () => {
   }, [getIntouch]);
 
   useEffect(() => {
-
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;
@@ -705,22 +698,11 @@ const Getintouch = () => {
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const { contactSection, contentSection, transitionSection } = getIntouch;
+  const {contactSection, contentSection, transitionSection} = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
       <div className="wrapper-getintouch">
-        {/* <div className="bannersectinlogo">
-          {getIntouch.logoImage && (
-            <img
-              src={getImageUrl(getIntouch.logoImage.asset._ref)}
-              alt="Logo"
-              data-aos="fade"
-              data-aos-easing="linear"
-              data-aos-duration="4500"
-            />
-          )}
-        </div> */}
         <div className="wrappermain">
           {getIntouch.transitionSection && (
             <img
@@ -735,10 +717,10 @@ const Getintouch = () => {
         <div className="roundimages">
           <div className="roundtext-getintouch">
             <h2
-              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
+              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
             />
             <h3
-              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
+              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
             />
           </div>
           <div className="roundimage-getintouch"></div>
@@ -746,18 +728,6 @@ const Getintouch = () => {
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
           </div>
-          {/* <div className="scroll-down">
-           <div className="c-scroll-icon">
-              <div className="c-scroll-icon-line-mask"><div className="c-scroll-icon-line"></div></div>
-              <div className="c-scroll-icon-triangle">
-                <div className="c-scroll-icon-triangle-mask first"><div className="c-scroll-icon-triangle-line first"></div></div>
-                <div className="c-scroll-icon-triangle-mask right"><div className="c-scroll-icon-triangle-line right"></div></div>
-                <div className="c-scroll-icon-triangle-mask left"><div className="c-scroll-icon-triangle-line left"></div></div>
-                <div className="c-scroll-icon-triangle-mask last"><div className="c-scroll-icon-triangle-line last"></div></div>
-              </div>
-            </div> 
-            <p>Scroll down</p>
-          </div> */}
         </div>
       </div>
       <div className="wrappertest" ref={rainContainerRef}>
@@ -776,15 +746,8 @@ const Getintouch = () => {
           <canvas
             className="canvasfries"
             ref={canvasRef}
-            style={{ position: 'absolute', top: -100, left: 0 }}
+            style={{position: 'absolute', top: -100, left: 0}}
           />
-
-          {/* <div className="likeimagelist">
-            <img src={liek_2} alt="img" />
-            <img src={liek_1} alt="img" />
-            <img src={liek_3} alt="img" />
-            <img src={liek_4} alt="img" />
-          </div> */}
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
             {contentSection.heading}
@@ -792,7 +755,7 @@ const Getintouch = () => {
           <p
             className="onzefriendescription"
             data-gettouchonzefrientdescription=""
-            dangerouslySetInnerHTML={{ __html: contentSection.description }}
+            dangerouslySetInnerHTML={{__html: contentSection.description}}
           />
 
           <div className="gradient-threebox gradient-threeboxgetintouch">
@@ -802,12 +765,6 @@ const Getintouch = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {/* {contentSection.mobileImages.map((img) => (
-                <li key={img._key} className='gradientgetintouchlist'>
-                  <img src={getImageUrl(img.image.asset._ref)} alt="" />
-                </li>
-              ))} */}
-
               <li
                 style={{
                   backgroundImage: `url(${backgroundImageUrl})`,
@@ -890,13 +847,7 @@ const Getintouch = () => {
                   </defs>
                 </svg>
               </div>
-              {/* <img
-                src={arrow_blue_2}
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                className="swingsd"
-                alt="img"
-              /> */}
+
               <p
                 className="zoomanimation"
                 dangerouslySetInnerHTML={{
@@ -913,13 +864,6 @@ const Getintouch = () => {
                 }}
               />
 
-              {/* <img
-                src={arrow_blue_1}
-                data-aos="fade-up"
-                data-aos-easing="ease-out-cubic"
-                className="swingsd"
-                alt="img"
-              /> */}
               <div className="arrowimagetouch">
                 <svg
                   width="100"
@@ -988,13 +932,6 @@ const Getintouch = () => {
               </div>
 
               <div className="whatsappbuttonarrow">
-                {/* <img
-                  src={arrow_blue_1}
-                  data-aos="fade-up"
-                  data-aos-easing="ease-out-cubic"
-                  className="swingsd"
-                  alt="img"
-                /> */}
                 <div
                   className="bottomwhatsapp"
                   data-aos="fade-up"
@@ -1010,10 +947,6 @@ const Getintouch = () => {
                         rel="noopener noreferrer"
                         className="locatebutton bubbly-button whatsapp-btn swipe-effect"
                       >
-                        {/* <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span> */}
                         <svg
                           height="800px"
                           width="800px"
@@ -1053,13 +986,13 @@ const Getintouch = () => {
                         {contactSection.contactDetails.whatsAppLabel}
                       </a>
                       <div className="canvas whatsappcanvas">
-                        {Array.from({ length: numSVGs }).map((_, i) => (
+                        {Array.from({length: numSVGs}).map((_, i) => (
                           <div
                             key={i + svgKey}
                             className="fly-svg-wrapper"
                             style={{
-                              animation: `moveAndFade 10s linear infinite`,
-                              animationDelay: `${i * 0.5}s`,
+                              animation: `moveAndFade 50s linear infinite`,
+                              animationDelay: `${i * 3}s`,
                             }}
                           >
                             <svg
@@ -1141,10 +1074,6 @@ const Getintouch = () => {
                         rel="noopener noreferrer"
                         className="locatebutton bubbly-button whatsapp-btn secondwhatsapp swipe-effect"
                       >
-                        {/* <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span> */}
                         <svg
                           height="800px"
                           width="800px"
@@ -1228,7 +1157,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{ maskType: 'luminance' }}
+                              style={{maskType: 'luminance'}}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -1334,7 +1263,7 @@ const Getintouch = () => {
                   data-aos-duration="500"
                 >
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                    0 ? (
+                  0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button

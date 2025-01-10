@@ -61,7 +61,7 @@ const Qrmenu = () => {
       const cachedMenuData = localStorage.getItem(`qrmenu_${language}`);
 
       if (cachedMenuData) {
-        console.log('Using cached menu data');
+       
         setMenuData(JSON.parse(cachedMenuData));
       } else {
         try {
@@ -69,7 +69,7 @@ const Qrmenu = () => {
             `*[_type == "qrmenu" && language == $lang]`,
             {lang: language},
           );
-          console.log('Fetched menu data:', data);
+         
           const menu = data[0] || {
             tabContant: {friet: [], snacks: [], drinks: []},
             tabs: []
@@ -77,7 +77,7 @@ const Qrmenu = () => {
           localStorage.setItem(`qrmenu_${language}`, JSON.stringify(menu));
           setMenuData(menu);
         } catch (err) {
-          console.error('Error fetching menu data:', err);
+         
           setError('Failed to load data');
         }
       }

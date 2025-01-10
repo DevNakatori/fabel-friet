@@ -1,16 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import { getImageUrl } from '../js/imagesurl';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {getImageUrl} from '../js/imagesurl';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
+import {Pagination, Autoplay} from 'swiper/modules';
 import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
 import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
 import etuh from '../assets/resizeimgs/webp/etuh.png';
@@ -23,7 +23,7 @@ import topdustin from '../assets/resizeimgs/webp/Top.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,8 +34,29 @@ const Onzeimpact = () => {
   const garbageRef = useRef(null);
   const binContainerRef = useRef(null);
 
+  useEffect(() => {
+    const fetchDataonzeimpactData = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzeimpact" && language == $lang]`,
+          {lang: language},
+        );
+
+        setonzeimpact(data);
+        setDataLoadedimpact(true);
+      } catch (err) {
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataonzeimpactData();
+  }, [language]);
 
   useEffect(() => {
+
+    if (!onzeimpact) return;
 
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
@@ -120,59 +141,13 @@ const Onzeimpact = () => {
     );
 
     return () => {
-      // timelineimpact.scrollTrigger.kill();
       timelineimpact.scrollTrigger?.kill();
     };
   }, [onzeimpact]);
 
-  // useEffect(() => {
-  //   const createAndAnimatePotato = (index) => {
-  //     if (!binContainerRef.current) return;
-
-  //     const potatoContainer = document.createElement('div');
-  //     potatoContainer.classList.add('potato-container');
-  //     const potatoImages = [etuh, etuij];
-  //     const randomImage =
-  //       potatoImages[Math.floor(Math.random() * potatoImages.length)];
-  //     const potatoImg = document.createElement('img');
-  //     potatoImg.src = randomImage;
-  //     potatoImg.style.width = '60px';
-  //     potatoImg.style.height = '60px';
-  //     potatoContainer.appendChild(potatoImg);
-  //     binContainerRef.current.appendChild(potatoContainer);
-  //     setShowGarbage(true);
-  //     gsap.to(binLidRef.current, { y: -30, duration: 0.3, ease: 'power1.inOut' });
-  //     gsap.to(garbageRef.current, {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 0.5,
-  //       ease: 'power1.inOut',
-  //     });
-  //     gsap.to(potatoContainer, {
-  //       y: 500,
-  //       opacity: 0,
-  //       duration: 1.5,
-  //       delay: index * 0.1,
-  //       ease: 'power1.inOut',
-  //       onComplete: () => {
-  //         potatoContainer.remove();
-  //       },
-  //     });
-  //     setTimeout(() => {
-  //       gsap.to(binLidRef.current, { y: 0, duration: 0.5, ease: 'power1.inOut' });
-  //     }, 200);
-  //   };
-  //   let index = 0;
-  //   const interval = setInterval(() => {
-  //     createAndAnimatePotato(index);
-  //     index += 1;
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  
-
   useEffect(() => {
+
+    if (!dataLoadedimpact) return;
 
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
@@ -253,29 +228,8 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-    const fetchDataonzeimpactData = async () => {
-      //const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzeimpact" && language == $lang]`,
-          { lang: language },
-        );
-        console.log('Fetched fetchDataonzeimpactData Data:', data);
-        setonzeimpact(data);
-        setDataLoadedimpact(true);
-      } catch (err) {
-        console.error('Error fetching Onzeimpact data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
 
-    };
-    fetchDataonzeimpactData();
-  }, [language]);
-
-  useEffect(() => {
+    if (!dataLoadedimpact) return;
 
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
@@ -296,14 +250,11 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   useEffect(() => {
-
     const isHardRefreshimpact = window.performance.navigation.type === 1;
-    const animationDelayimpact = isHardRefreshimpact ? 300 : 0;
-
+    const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
 
     const initiateAnimationsonzimpact = () => {
       if (!dataLoadedimpact) return;
-
 
       let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
         types: 'lines, words, chars',
@@ -349,7 +300,7 @@ const Onzeimpact = () => {
         scrollTrigger: {
           trigger: '[data-onzeimpactdescription]',
           start: 'top center',
-          once: false
+          once: false,
         },
       });
 
@@ -372,7 +323,8 @@ const Onzeimpact = () => {
         },
         onUpdate: function () {
           charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-            typeSplitleftvideoboxsectitle.style.backgroundPosition = '97px -83px';
+            typeSplitleftvideoboxsectitle.style.backgroundPosition =
+              '97px -83px';
           });
         },
       });
@@ -478,7 +430,7 @@ const Onzeimpact = () => {
           },
         });
 
-        tlimpact.set(containerimpact, { autoAlpha: 1 });
+        tlimpact.set(containerimpact, {autoAlpha: 1});
         tlimpact.from(containerimpact, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -490,17 +442,13 @@ const Onzeimpact = () => {
           ease: 'Power2.out',
         });
       });
-
-    }
-
+    };
 
     setTimeout(() => {
       initiateAnimationsonzimpact();
-    }, animationDelayimpact); // Delay execution based on hard refresh
-
+    }, animationDelayimpact); 
 
     return () => {
-      // Clean up GSAP animations or any side effects on component unmount
       gsap.killTweensOf('[data-onzeimpacttitle] .line');
       gsap.killTweensOf('[data-onzeimpactdescription] .line');
       gsap.killTweensOf('[data-leftvideoboxsectitle] .line');
@@ -509,8 +457,6 @@ const Onzeimpact = () => {
       gsap.killTweensOf('[data-secdescription] .line');
       gsap.killTweensOf('[data-onzeimpacttwolistlisttitle] .line');
     };
-
-
   }, [onzeimpact]);
 
   if (loading) return <p>Loading...</p>;
@@ -523,17 +469,6 @@ const Onzeimpact = () => {
   return (
     <section className="panel fifthesection" id="section5">
       <div className="wrapper-impact">
-        {/* <div className="bannersectinlogo">
-          <img
-            src={getImageUrl(data.logoImage.asset._ref)}
-            alt="Logo"
-            width="10"
-            height="10"
-            data-aos="fade"
-            data-aos-easing="linear"
-            data-aos-duration="4500"
-          />
-        </div> */}
         <div className="wrappermain">
           <img
             className="media"
@@ -562,28 +497,6 @@ const Onzeimpact = () => {
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
           </div>
-          {/* <div className="scroll-down">
-            <div className="c-scroll-icon">
-              <div className="c-scroll-icon-line-mask">
-                <div className="c-scroll-icon-line"></div>
-              </div>
-              <div className="c-scroll-icon-triangle">
-                <div className="c-scroll-icon-triangle-mask first">
-                  <div className="c-scroll-icon-triangle-line first"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask right">
-                  <div className="c-scroll-icon-triangle-line right"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask left">
-                  <div className="c-scroll-icon-triangle-line left"></div>
-                </div>
-                <div className="c-scroll-icon-triangle-mask last">
-                  <div className="c-scroll-icon-triangle-line last"></div>
-                </div>
-              </div>
-            </div>
-            <p>Scroll down</p>
-          </div> */}
         </div>
       </div>
       <div className="wrappertest">
@@ -595,7 +508,7 @@ const Onzeimpact = () => {
           <p
             className="onzeimpactdescription"
             data-onzeimpactdescription=""
-            dangerouslySetInnerHTML={{ __html: data.contentSection.description }}
+            dangerouslySetInnerHTML={{__html: data.contentSection.description}}
           />
 
           <div className="gradient-threebox gradient-threeboxonzeimpact">
@@ -681,7 +594,7 @@ const Onzeimpact = () => {
                           <div className="onzeimpacttwolistlist">
                             <h5
                               data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
+                              dangerouslySetInnerHTML={{__html: card.cardTitle}}
                             />
 
                             <p
@@ -761,7 +674,6 @@ const Onzeimpact = () => {
                           </SwiperSlide>
                         ))}
                         <div className="swiper-pagination"></div>
-                        {/* <div className="swiper-scrollbar"></div> */}
                       </Swiper>
                     </ul>
                   </div>
@@ -829,13 +741,6 @@ const Onzeimpact = () => {
                     data-aos-easing="ease-out-cubic"
                     data-aos-duration="2000"
                   >
-                    {/* <img
-                      src={arrow_bluebottom}
-                      alt="Bin Imagebox"
-                      width="10"
-                      height="10"
-                      className="swingss"
-                    /> */}
                     <div className="arrowimageimpect">
                       <svg
                         id="Layer_1"
@@ -868,16 +773,6 @@ const Onzeimpact = () => {
                   </div>
                 </div>
                 <div className="binimagebox">
-                  {/* <img
-                    src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
-                    alt="Bin Imagebox"
-                    data-speed="auto"
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                    width="10"
-                    height="10"
-                  /> */}
                   <img
                     src={bottomdustbin}
                     alt="Bin Imagebox"
@@ -891,28 +786,7 @@ const Onzeimpact = () => {
                     className="topdustbinimage"
                     height="10"
                   />
-                  {/* <img
-                    src={getImageUrl(data.bottomSection.sideImage.asset._ref)}
-                    alt="Bin Imagebox"
-                    data-speed="auto"
-                    data-aos="fade-up"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                    width="10"
-                    height="10"
-                  /> */}
                 </div>
-
-                {/* <div className="bin-container" ref={binContainerRef}>
-      <div id="recycle-bin">
-        <div className="bin-lid" ref={binLidRef}></div>
-        <div
-          id="garbage"
-          ref={garbageRef}
-          style={{ opacity: 0, position: 'relative', transform: 'translateY(30px)' }}
-        ></div>
-      </div>
-    </div> */}
               </div>
             </div>
             <div className="overlaybannehand-bottoms"></div>
