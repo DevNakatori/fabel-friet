@@ -69,7 +69,7 @@ const HomePage = () => {
           if (data && data.length > 0) {
             setTimeout(() => {
               window.location.reload();
-            }, 1000);
+            }, 1200);
             setTimeout(() => {
               document
                 .querySelector('.language-switcher')

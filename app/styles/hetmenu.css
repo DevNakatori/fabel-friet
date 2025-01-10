@@ -76,7 +76,7 @@
 .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button.active{color:#0d1e4d;border:2.34px solid #fff;-o-background-size:cover;background-size:cover;background: #fff;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:20px!important;}
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';} */
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {background-image: none;content: '\002B';font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {background-image: none;content: '\002B';font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;font-family: 'Work Sans';}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'\2212';line-height:27px;font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;}
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:-2px;} */
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
@@ -169,6 +169,7 @@
         justify-content: center;
         width: 20px;
         height: 20px;
+        font-family: 'Work Sans';
     }
 }
 
