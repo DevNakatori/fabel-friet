@@ -163,6 +163,10 @@ button.skipvideo.hidden{display:none;}
     .bannerrotate_text{right:-50px;}
     .fl-tests .swiper-slide .module{margin:0;max-width:-moz-calc(100% - 50px);max-width:calc(100% - 50px);width:-moz-calc(100% - 50px);width:calc(100% - 50px);-webkit-box-flex:0;-ms-flex:0 0 calc(100% - 50px);-webkit-flex:0 0 calc(100% - 50px);-moz-box-flex:0;flex:0 0 calc(100% - 50px);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;}
     .fl-tests .module .wharpeoplebox{width:100%;max-width:100%;}
+
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        top: 5px;   
+    }
 }
 
 
@@ -182,6 +186,10 @@ button.skipvideo.hidden{display:none;}
     .bannerrotate_text{right:-3vw;}
     .arrowimage{position:absolute;right:-39px;top:33px;width:60px;-webkit-transform:rotate(20deg);-ms-transform:rotate(20deg);-moz-transform:rotate(20deg);-o-transform:rotate(20deg);transform:rotate(20deg);}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {right: -7vw;}
+
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        top: 2px;
+    }
 }
 
 
@@ -242,6 +250,8 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 49%;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 28px;height: 28px;display: block;}
 
+    
+
 }
 
 
@@ -251,7 +261,7 @@ button.skipvideo.hidden{display:none;}
     
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 6px;
+        top: 5px;
         
     }
 
@@ -267,6 +277,18 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(18 / var(--vw)* var(--multiplier) - 25%);
         font-size: calc(18 / var(--vw)* var(--multiplier) - 25%);
     }
+
+
+    .page.menumainppage .menu-section ul li {
+        font-size: -moz-calc(16 / var(--vw)* var(--multiplier) - 25%);
+        font-size: calc(16 / var(--vw)* var(--multiplier) - 25%);
+    }
+
+    .page.menumainppage .menu-section p {
+        font-size: -moz-calc(14 / var(--vw)* var(--multiplier) - 25%);
+        font-size: calc(14 / var(--vw)* var(--multiplier) - 25%);
+    }
+
 
     a.banner_bottombtn {
         font-size: -moz-calc(12 / var(--vw)* var(--multiplier) - 25%);
@@ -464,6 +486,10 @@ button.skipvideo.hidden{display:none;}
     .bannerrotate_text{right:4vw;}
     .en .bannerrotate_text{right:0vw;}
     #section5 .whitewithvideomainboxs{padding:170px 0 210px;}
+
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        top: 2px;
+    }
 }
 
 
