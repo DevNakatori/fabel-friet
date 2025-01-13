@@ -32,6 +32,7 @@ const Getintouch = () => {
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [mutedIframe, setMutedIframe] = useState(null);
 
 
   useEffect(() => {
@@ -102,7 +103,7 @@ const Getintouch = () => {
     );
 
     return () => {
-      timelinegetintouch.scrollTrigger?.kill();
+      timelinegetintouch.scrollTrigger.kill();
     };
   }, [getIntouch]);
 
@@ -480,13 +481,13 @@ const Getintouch = () => {
       initiateAnimationsonzintouch();
     }, animationDelayintouch);
 
-    return () => {
-      gsap.killTweensOf('[data-gettouchonzefrienttitle] .line');
-      gsap.killTweensOf('[data-gettouchonzefrientdescription] .line');
-      gsap.killTweensOf('[data-socialtitle] .line');
-      gsap.killTweensOf('[data-contactsection] .line');
-      gsap.killTweensOf('[data-accordiantitle] .line');
-    };
+    // return () => {
+    //   gsap.killTweensOf('[data-gettouchonzefrienttitle] .line');
+    //   gsap.killTweensOf('[data-gettouchonzefrientdescription] .line');
+    //   gsap.killTweensOf('[data-socialtitle] .line');
+    //   gsap.killTweensOf('[data-contactsection] .line');
+    //   gsap.killTweensOf('[data-accordiantitle] .line');
+    // };
   }, [getIntouch]);
 
   /* accordian start */
@@ -694,6 +695,29 @@ const Getintouch = () => {
     }
   }, [getIntouch]);
 
+
+  const handleMuteClick = (iframeNumber) => {
+    if (mutedIframe === iframeNumber) {
+      setMutedIframe(null); 
+    } else {
+      setMutedIframe(iframeNumber); 
+    }
+  };
+
+
+  const getIframeSrc = (iframeNumber) => {
+    const tiktokVideoUrl = {
+      1: "https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1",
+      2: "https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1",
+      3: "https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1",
+    };
+    let url = tiktokVideoUrl[iframeNumber];
+    if (mutedIframe === iframeNumber) {
+      url += "&mute=1";
+    }
+    return url;
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
@@ -775,10 +799,11 @@ const Getintouch = () => {
               >
                 <iframe
                   title="tiktok"
-                  src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
-                  muted
+                  src={getIframeSrc(1)}
                   allow="autoplay"
                   loop
+                  muted
+                  onClick={() => handleMuteClick(1)}
                 ></iframe>
               </li>
 
@@ -792,10 +817,11 @@ const Getintouch = () => {
               >
                 <iframe
                   title="tiktok"
-                  src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
-                  muted
+                  src={getIframeSrc(2)}
                   allow="autoplay"
                   loop
+                  muted
+                  onClick={() => handleMuteClick(2)}
                 ></iframe>
               </li>
 
@@ -809,10 +835,11 @@ const Getintouch = () => {
               >
                 <iframe
                   title="tiktok"
-                  src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
-                  muted
+                  src={getIframeSrc(3)}
                   allow="autoplay"
                   loop
+                  muted
+                  onClick={() => handleMuteClick(3)}
                 ></iframe>
               </li>
             </ul>
@@ -1238,7 +1265,7 @@ const Getintouch = () => {
                                     </defs>
                                   </svg>
                                 </i>
-                                {location.address}
+                                <p dangerouslySetInnerHTML={{__html: location.address}} />
                               </p>
                             </li>
                           ),

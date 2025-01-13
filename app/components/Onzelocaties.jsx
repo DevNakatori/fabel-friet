@@ -109,7 +109,7 @@ const Onzelocaties = () => {
     );
 
     return () => {
-      timelines.scrollTrigger?.kill();
+      timelines.scrollTrigger.kill();
     };
   }, [onzelocaties]);
 
@@ -215,10 +215,10 @@ const Onzelocaties = () => {
       initiateAnimationsonzlocaties();
     }, animationDelaylocaties);
 
-    return () => {
-      gsap.killTweensOf('[data-locationtitle] .line');
-      gsap.killTweensOf('[data-locationdescription] .line');
-    };
+    // return () => {
+    //   gsap.killTweensOf('[data-locationtitle] .line');
+    //   gsap.killTweensOf('[data-locationdescription] .line');
+    // };
   }, [onzelocaties]);
 
   if (loading) return <p>Loading...</p>;
