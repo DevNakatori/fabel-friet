@@ -127,7 +127,7 @@ const Hetmenu = () => {
     );
 
     return () => {
-      timelineshetmenu.scrollTrigger?.kill();
+      timelineshetmenu.scrollTrigger.kill();
     };
   }, [hetmenu]);
 
@@ -247,7 +247,7 @@ const Hetmenu = () => {
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+     // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [hetmenu]);
 
@@ -372,12 +372,12 @@ const Hetmenu = () => {
       initiateAnimationsonzhetmenu();
     }, animationDelayhetmenu);
 
-    return () => {
-      gsap.killTweensOf('[data-menutitle] .line');
-      gsap.killTweensOf('[data-menudescription] .line');
-      gsap.killTweensOf('[data-righttextboxtitle] .line');
-      gsap.killTweensOf('[data-righttextboxdescription] .line');
-    };
+    // return () => {
+    //   gsap.killTweensOf('[data-menutitle] .line');
+    //   gsap.killTweensOf('[data-menudescription] .line');
+    //   gsap.killTweensOf('[data-righttextboxtitle] .line');
+    //   gsap.killTweensOf('[data-righttextboxdescription] .line');
+    // };
   }, [hetmenu]);
 
   if (loading) return <div>Loading...</div>;

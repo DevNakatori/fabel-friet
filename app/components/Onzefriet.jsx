@@ -120,7 +120,7 @@ const Onzefriet = () => {
       0,
     );
     return () => {
-      timelinesonzefriet.scrollTrigger?.kill();
+      timelinesonzefriet.scrollTrigger.kill();
     };
   }, [onzefriet]);
 
@@ -363,7 +363,7 @@ const Onzefriet = () => {
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [onzefriet]);
 
@@ -512,14 +512,14 @@ const Onzefriet = () => {
       initiateAnimations();
     }, animationDelay); 
 
-    return () => {
-      gsap.killTweensOf('[data-onzefrienttitle] .line');
-      gsap.killTweensOf('[data-onzefriendescription] .line');
-      gsap.killTweensOf('.onzeptag .line');
-      gsap.killTweensOf('[data-whatpeoplesection] .line');
-      gsap.killTweensOf('[data-accordionsection] .line');
-      gsap.killTweensOf('[data-onzefriendescription]');
-    };
+    // return () => {
+    //   gsap.killTweensOf('[data-onzefrienttitle] .line');
+    //   gsap.killTweensOf('[data-onzefriendescription] .line');
+    //   gsap.killTweensOf('.onzeptag .line');
+    //   gsap.killTweensOf('[data-whatpeoplesection] .line');
+    //   gsap.killTweensOf('[data-accordionsection] .line');
+    //   gsap.killTweensOf('[data-onzefriendescription]');
+    // };
   }, [onzefriet]);
 
   if (loading) return <div>Loading...</div>;

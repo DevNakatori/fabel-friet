@@ -141,7 +141,7 @@ const Onzeimpact = () => {
     );
 
     return () => {
-      timelineimpact.scrollTrigger?.kill();
+      timelineimpact.scrollTrigger.kill();
     };
   }, [onzeimpact]);
 
@@ -448,15 +448,15 @@ const Onzeimpact = () => {
       initiateAnimationsonzimpact();
     }, animationDelayimpact); 
 
-    return () => {
-      gsap.killTweensOf('[data-onzeimpacttitle] .line');
-      gsap.killTweensOf('[data-onzeimpactdescription] .line');
-      gsap.killTweensOf('[data-leftvideoboxsectitle] .line');
-      gsap.killTweensOf('[data-righttextboxtitle] .line');
-      gsap.killTweensOf('[data-onzeimpacttwolistlisttext] .line');
-      gsap.killTweensOf('[data-secdescription] .line');
-      gsap.killTweensOf('[data-onzeimpacttwolistlisttitle] .line');
-    };
+    // return () => {
+    //   gsap.killTweensOf('[data-onzeimpacttitle] .line');
+    //   gsap.killTweensOf('[data-onzeimpactdescription] .line');
+    //   gsap.killTweensOf('[data-leftvideoboxsectitle] .line');
+    //   gsap.killTweensOf('[data-righttextboxtitle] .line');
+    //   gsap.killTweensOf('[data-onzeimpacttwolistlisttext] .line');
+    //   gsap.killTweensOf('[data-secdescription] .line');
+    //   gsap.killTweensOf('[data-onzeimpacttwolistlisttitle] .line');
+    // };
   }, [onzeimpact]);
 
   if (loading) return <p>Loading...</p>;
