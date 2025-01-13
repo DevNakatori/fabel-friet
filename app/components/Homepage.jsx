@@ -54,12 +54,8 @@ const HomePage = () => {
   useEffect(() => {
     /* data fatched */
     const fetchData_HomePage = async () => {
-      const cachedData = localStorage.getItem(`homeBannerData_${language}`);
-      if (cachedData) {
-        setBanner(JSON.parse(cachedData));
-        setLoading(false);
-        setIsFirstLoad(false);
-      } else {
+      //const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+      
         try {
           setLoading(true);
           const data = await client.fetch(
@@ -67,19 +63,18 @@ const HomePage = () => {
             {lang: language},
           );
           if (data && data.length > 0) {
-            setTimeout(() => {
-              window.location.reload();
-            }, 1200);
+            // setTimeout(() => {
+            //   window.location.reload();
+            // }, 1200);
             setTimeout(() => {
               document
                 .querySelector('.language-switcher')
-                .classList.add('nomorelanguage');
+                //.classList.add('nomorelanguage');
             }, 200);
-
-            localStorage.setItem(
-              `homeBannerData_${language}`,
-              JSON.stringify(data),
-            );
+            // localStorage.setItem(
+            //   `homeBannerData_${language}`,
+            //   JSON.stringify(data),
+            // );
             setBanner(data);
           } else {
           }
@@ -90,7 +85,7 @@ const HomePage = () => {
           setLoading(false);
           setIsFirstLoad(false);
         }
-      }
+      
     };
 
     fetchData_HomePage();

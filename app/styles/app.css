@@ -252,11 +252,11 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 /* mouse scroll */
 /* qr menu */
 .info-icon{font-size:14px;color:#333;margin-left:8px;font-weight:bold;}
-.menu-section p{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:600;line-height:normal;}
+.menu-section p{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:400;line-height:normal;}
 .menu-section p.firsttext{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:400;line-height:normal;margin-bottom:45px;}
 .menu-section h2{font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,6vw,50px);font-style:normal;font-weight:700;line-height:125%;text-transform:capitalize;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 20px;display:flex;align-items:center;}
 .menu-section ul{list-style:none;margin-bottom:0px;}
-.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 600;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;}
+.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 400;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;}
 .price{float:right;color:#333;font-weight:bold;font-family:Rufina,serif;}
 ul ul{margin-top:10px;margin-left:20px;}
 summary {padding: 0;display: block;padding-left: 25px;position: relative;cursor: pointer;user-select: none;}
@@ -633,7 +633,7 @@ a.Whatsappbtn{background:#fff;z-index:1;}
 .scroll-down{position:absolute;bottom:-5px;height:90px;z-index:1;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;cursor:auto;width:160px;background:rgba(0,0,0,0);padding:10px 0 0;border-radius:8px;}
 /*.flair{width:100px;height:100px;position:fixed;top:0;left:0;pointer-events:none;}*/
 .flair .ball{position:fixed;}
-body.seconsection .page.menumainppage .menu-section ul li summary:before{content:'';background-image:url(/app/assets/resizeimgs/webp/qr_info.webp);background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:20px;height:20px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;display:inline-block;margin:0;position:absolute;top:2px;left:0px;-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0);-webkit-transition:.25s transform ease;-o-transition:.25s transform ease;-moz-transition:.25s transform ease;transition:.25s transform ease;}
+body.seconsection .page.menumainppage .menu-section ul li summary:before{content:'';background-image:url(/app/assets/resizeimgs/webp/qr_info.webp);background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:20px;height:20px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;display:inline-block;margin:0;position:absolute;top:5px;left:0px;-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0);-webkit-transition:.25s transform ease;-o-transition:.25s transform ease;-moz-transition:.25s transform ease;transition:.25s transform ease;}
 .menulanding .landingcontainer button span{font-weight:600;}
 .page.menumainppage .coolBeans span{z-index:0}
 
