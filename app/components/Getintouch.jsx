@@ -1238,7 +1238,7 @@ const Getintouch = () => {
                               data-aos-duration="2000"
                               key={location._key}
                             >
-                              <p>
+                              <div className='locationtext'>
                                 <i className="location">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -1266,7 +1266,7 @@ const Getintouch = () => {
                                   </svg>
                                 </i>
                                 <p dangerouslySetInnerHTML={{__html: location.address}} />
-                              </p>
+                              </div>
                             </li>
                           ),
                         )

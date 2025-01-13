@@ -189,6 +189,11 @@ a.Whatsappbtn{width:299px;height:60px;-ms-flex-negative:0;-webkit-flex-shrink:0;
 .locationbox h6{overflow:hidden;color:#0D1E4D;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:35px;font-style:normal;font-weight:700;line-height:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;-webkit-transition:0.5s;-o-transition:0.5s;-moz-transition:0.5s;transition:0.5s;margin:0 0 30px;}
 .locationbox p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:700;line-height:normal;max-width:500px;margin:0;text-align:left;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;width:100%;}
 .locationbox p i.location{width:49px;height:49px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;margin-right:16px;margin-left:-8px;}
+
+.locationbox .locationtext{max-width:500px;margin:0;text-align:left;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;width:100%;}
+.locationbox .locationtext i.location{width:49px;height:49px;display:-webkit-inline-box;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;margin-right:16px;margin-left:-8px;}
+
+
 .locationbox ul li{margin-bottom:28px;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;margin:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;margin-right:25px;position:relative;}
@@ -207,7 +212,7 @@ a.Whatsappbtn:before{width:100%;height:100%;position:absolute;top:0;left:0;borde
 .sixthsection .gradient-purple h4{opacity:1;margin-top: 0;margin-bottom: 30px;}
 .sixthsection .gradient-purple p.onzefriendescription{margin:10px auto 75px;}
 .sixthsection .gradient-threebox ul li{height:auto;}
-.locationbox ul li p{color:#0D1E4D;font-family:"Work Sans";font-size:23px;font-style:normal;font-weight:500;line-height:normal;text-align:left;width:100%;margin:0px 0;max-width:100%;}
+.locationbox ul li p{color:#0D1E4D;font-family:"Work Sans";font-style:normal;font-weight:500;line-height:normal;text-align:left;width:100%;margin:0px 0;max-width:100%;}
 .sixthsection .whitewithvideomainboxss .righttextbox ul.emailtelbox li i.tele svg{width:100%;height:100%;}
 .sixthsection .gradient-threebox ul li iframe{width:80%;height:90%;display:block;border:none;top:-6px;position:relative;border-radius:18px;overflow:hidden;}
 .sixthsection .gradient-threebox ul{height:590px;}
