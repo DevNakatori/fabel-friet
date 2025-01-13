@@ -1,3 +1,9 @@
+@font-face{font-family:'Optima';font-style:normal;font-weight:normal;src:local('Optima'),url('../fonts/OPTIMA.woff') format('woff');}
+@font-face{font-family:'Optima Italic';font-style:normal;font-weight:normal;src:local('Optima Italic'),url('../fonts/Optima_Italic.woff') format('woff');}
+@font-face{font-family:'Optima Medium';font-style:normal;font-weight:normal;src:local('Optima Medium'),url('../fonts/Optima Medium.woff') format('woff');}
+@font-face{font-family:'Optima Bold';font-style:normal;font-weight:normal;src:local('Optima Bold'),url('../fonts/OPTIMA_B.woff') format('woff');}
+
+
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-12vw;}
 button.skipvideo.hidden{display:none;}
@@ -165,7 +171,7 @@ button.skipvideo.hidden{display:none;}
     .fl-tests .module .wharpeoplebox{width:100%;max-width:100%;}
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 5px;   
+        top: 9px;   
     }
 }
 
@@ -188,7 +194,7 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img {right: -7vw;}
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 2px;
+        top: 5px;
     }
 }
 
@@ -250,7 +256,21 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 49%;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 28px;height: 28px;display: block;}
 
-    
+
+    .page.menumainppage .menu-section ul li,
+    .page.menumainppage .menu-section ul li span
+    {
+        
+        font-size: calc(18 / var(--vw)* var(--multiplier));
+        font-family: 'Optima';
+    }
+
+    .page.menumainppage .menu-section ul li p {
+        font-size: calc(14 / var(--vw)* var(--multiplier));
+        font-family: 'Optima';
+        margin: 5px 0;
+    }
+
 
 }
 
@@ -261,7 +281,7 @@ button.skipvideo.hidden{display:none;}
     
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 5px;
+        top: 14px;
         
     }
 
@@ -278,6 +298,13 @@ button.skipvideo.hidden{display:none;}
         font-size: calc(18 / var(--vw)* var(--multiplier) - 25%);
     }
 
+
+    .page.menumainppage .menu-section ul li
+    {
+        font-size: -moz-calc(18 / var(--vw)* var(--multiplier));
+        font-size: calc(18 / var(--vw)* var(--multiplier));
+        font-family: 'Optima';
+    }
 
     .page.menumainppage .menu-section ul li {
         font-size: -moz-calc(16 / var(--vw)* var(--multiplier) - 25%);
@@ -466,6 +493,22 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(20/var(--vw)*var(--multiplier));
         font-size: calc(20/var(--vw)*var(--multiplier));
     }
+
+
+
+    .page.menumainppage .menu-section ul li,
+    .page.menumainppage .menu-section ul li span
+    {
+        
+        font-size: calc(16 / var(--vw)* var(--multiplier));
+        font-family: 'Optima';
+    }
+
+    .page.menumainppage .menu-section ul li p {
+        font-size: calc(14 / var(--vw)* var(--multiplier));
+        font-family: 'Optima';
+        margin: 5px 0;
+    }
 }
 
 
@@ -488,7 +531,7 @@ button.skipvideo.hidden{display:none;}
     #section5 .whitewithvideomainboxs{padding:170px 0 210px;}
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 2px;
+        top: 5px;
     }
 }
 
@@ -597,6 +640,7 @@ button.skipvideo.hidden{display:none;}
     .headernew.main-menu.is-at-top {
         width: calc(100% - 50px);
     }
+    body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 8px;}
 }
 
 @media (min-width:768px) and (max-width:991px){
@@ -648,6 +692,7 @@ button.skipvideo.hidden{display:none;}
         height: 177px;
         bottom: 40px;
     }
+    body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 8px;}
 
 }
 
@@ -687,5 +732,7 @@ button.skipvideo.hidden{display:none;}
 a.locatebutton.bubbly-button.whatsapp-btn{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;margin-left:0;margin-top:30px;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{line-height:1;height:auto;}
 .canvas.whatsappcanvas {top: 47px;}
+
+body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 3px;}
 
 }

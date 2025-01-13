@@ -32,7 +32,7 @@ const Getintouch = () => {
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mutedIframes, setMutedIframes] = useState([true, true, true]);
+
 
   useEffect(() => {
     const fetchData_Getintouch = async () => {
@@ -695,30 +695,6 @@ const Getintouch = () => {
   }, [getIntouch]);
 
 
-  const handleMuteClick = (iframeNumber) => {
-    const updatedMutedIframes = [...mutedIframes];
-    updatedMutedIframes[iframeNumber - 1] = !updatedMutedIframes[iframeNumber - 1];
-    setMutedIframes(updatedMutedIframes);
-  };
-
-
-
-  const getIframeSrc = (iframeNumber) => {
-    const tiktokVideoUrl = {
-      1: "https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1",
-      2: "https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1",
-      3: "https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1",
-    };
-
-    let url = tiktokVideoUrl[iframeNumber];
-    if (mutedIframes[iframeNumber - 1]) {
-      url += "&mute=1";
-    }
-
-    return url;
-  };
-
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
@@ -784,36 +760,62 @@ const Getintouch = () => {
           />
 
           <div className="gradient-threebox gradient-threeboxgetintouch">
-            <ul
+          <ul
               data-aos="fade-up"
               data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              {Array.from({ length: 3 }).map((_, index) => {
-                const iframeNumber = index + 1; // 1, 2, 3
-                return (
-                  <li
-                    key={iframeNumber}
-                    style={{
-                      backgroundImage: `url(${backgroundImageUrl})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                    className="gradientgetintouchlist"
-                  >
-                    <iframe
-                      title={`tiktok-${iframeNumber}`}
-                      src={getIframeSrc(iframeNumber)}
-                      allow="autoplay"
-                      loop
-                      muted={mutedIframes[iframeNumber - 1]}
-                      onClick={() => handleMuteClick(iframeNumber)}
-                      style={{ pointerEvents: "none" }}
-                    ></iframe>
-                  </li>
-                );
-              })}
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                className="gradientgetintouchlist"
+              >
+                <iframe
+                  title="tiktok"
+                  src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
+
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                className="gradientgetintouchlist"
+              >
+                <iframe
+                  title="tiktok"
+                  src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
+
+              <li
+                style={{
+                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                className="gradientgetintouchlist"
+              >
+                <iframe
+                  title="tiktok"
+                  src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
+                  muted
+                  allow="autoplay"
+                  loop
+                ></iframe>
+              </li>
             </ul>
 
             <div className="lefttiktoktext">

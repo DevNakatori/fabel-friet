@@ -256,7 +256,7 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 .menu-section p.firsttext{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:400;line-height:normal;margin-bottom:45px;}
 .menu-section h2{font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,6vw,50px);font-style:normal;font-weight:700;line-height:125%;text-transform:capitalize;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 20px;display:flex;align-items:center;}
 .menu-section ul{list-style:none;margin-bottom:0px;}
-.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 400;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;}
+.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 400;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;margin-bottom: 5px;margin-top:5px;line-height:1.8;}
 .price{float:right;color:#333;font-weight:bold;font-family:Rufina,serif;}
 ul ul{margin-top:10px;margin-left:20px;}
 summary {padding: 0;display: block;padding-left: 25px;position: relative;cursor: pointer;user-select: none;}
