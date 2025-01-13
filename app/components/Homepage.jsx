@@ -110,6 +110,7 @@ const HomePage = () => {
     const skipbuttons = document.getElementById('skipvideobtn');
     skipbuttons.classList.add('hidden');
     if (videos) {
+
       videos.pause();
       videos.currentTime = videos.duration;
       document.body.classList.remove('hiddenoverflow');
@@ -335,6 +336,12 @@ const HomePage = () => {
     };
 
     const handlePlay = () => {
+      setTimeout(() => {
+        if (!sessionStorage.getItem('pageRefreshed')) {
+          sessionStorage.setItem('pageRefreshed', 'true');
+          location.reload(); 
+      }
+      }, 200);
       document.body.classList.add('hiddenoverflow');
     };
 
