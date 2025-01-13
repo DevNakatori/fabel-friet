@@ -1,11 +1,11 @@
-import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
@@ -27,20 +27,19 @@ import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mutedIframe, setMutedIframe] = useState(null);
-
+  const [mutedIframes, setMutedIframes] = useState([true, true, true]);
 
   useEffect(() => {
     const fetchData_Getintouch = async () => {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
         setGetIntouch(data[0]);
         setDataLoadedgetintouch(true);
@@ -159,7 +158,7 @@ const Getintouch = () => {
 
         onzefritthreeimagecentergetintouch.fromTo(
           middleItemgetintouch,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
+          { bottom: '-55vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 1,
@@ -178,7 +177,7 @@ const Getintouch = () => {
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            {left: '-50vw', rotation: 0, opacity: 0},
+            { left: '-50vw', rotation: 0, opacity: 0 },
             {
               left: '-9vw',
               opacity: 1,
@@ -202,7 +201,7 @@ const Getintouch = () => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            {right: '-50vw', rotation: 0, opacity: 0},
+            { right: '-50vw', rotation: 0, opacity: 0 },
             {
               right: '-9vw',
               opacity: 1,
@@ -229,7 +228,7 @@ const Getintouch = () => {
 
         mobileTimelineCenter.fromTo(
           middleItemgetintouch,
-          {bottom: '-30vh', rotation: 0, opacity: 0},
+          { bottom: '-30vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 0.7,
@@ -248,7 +247,7 @@ const Getintouch = () => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            {left: '-30vw', rotation: 0, opacity: 0},
+            { left: '-30vw', rotation: 0, opacity: 0 },
             {
               left: '0vw',
               opacity: 1,
@@ -272,7 +271,7 @@ const Getintouch = () => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            {right: '-30vw', rotation: 0, opacity: 0},
+            { right: '-30vw', rotation: 0, opacity: 0 },
             {
               right: '0vw',
               opacity: 1,
@@ -298,7 +297,7 @@ const Getintouch = () => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '.sixthsection #animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -315,7 +314,7 @@ const Getintouch = () => {
 
     gsap.fromTo(
       '.likeimagelist img',
-      {y: -50, opacity: 0},
+      { y: -50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -521,14 +520,14 @@ const Getintouch = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
   };
   /* accordian end */
 
-  
+
 
   useEffect(() => {
 
@@ -578,8 +577,8 @@ const Getintouch = () => {
 
     if (!dataLoadedgetintouch) return;
 
-    
-    gsap.set('.likeimagelists .ball', {xPercent: -50, yPercent: -50});
+
+    gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
 
     let targets = gsap.utils.toArray('.likeimagelists .ball');
 
@@ -629,7 +628,7 @@ const Getintouch = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -647,7 +646,7 @@ const Getintouch = () => {
           fry.y = Math.random() * -canvas.height;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 300, 300);
@@ -697,12 +696,11 @@ const Getintouch = () => {
 
 
   const handleMuteClick = (iframeNumber) => {
-    if (mutedIframe === iframeNumber) {
-      setMutedIframe(null); 
-    } else {
-      setMutedIframe(iframeNumber); 
-    }
+    const updatedMutedIframes = [...mutedIframes];
+    updatedMutedIframes[iframeNumber - 1] = !updatedMutedIframes[iframeNumber - 1];
+    setMutedIframes(updatedMutedIframes);
   };
+
 
 
   const getIframeSrc = (iframeNumber) => {
@@ -711,18 +709,21 @@ const Getintouch = () => {
       2: "https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1",
       3: "https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1",
     };
+
     let url = tiktokVideoUrl[iframeNumber];
-    if (mutedIframe === iframeNumber) {
+    if (mutedIframes[iframeNumber - 1]) {
       url += "&mute=1";
     }
+
     return url;
   };
+
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
-  const {contactSection, contentSection, transitionSection} = getIntouch;
+  const { contactSection, contentSection, transitionSection } = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -741,10 +742,10 @@ const Getintouch = () => {
         <div className="roundimages">
           <div className="roundtext-getintouch">
             <h2
-              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
             />
             <h3
-              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
             />
           </div>
           <div className="roundimage-getintouch"></div>
@@ -770,7 +771,7 @@ const Getintouch = () => {
           <canvas
             className="canvasfries"
             ref={canvasRef}
-            style={{position: 'absolute', top: -100, left: 0}}
+            style={{ position: 'absolute', top: -100, left: 0 }}
           />
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
@@ -779,7 +780,7 @@ const Getintouch = () => {
           <p
             className="onzefriendescription"
             data-gettouchonzefrientdescription=""
-            dangerouslySetInnerHTML={{__html: contentSection.description}}
+            dangerouslySetInnerHTML={{ __html: contentSection.description }}
           />
 
           <div className="gradient-threebox gradient-threeboxgetintouch">
@@ -789,59 +790,30 @@ const Getintouch = () => {
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
-              <li
-                style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-                className="gradientgetintouchlist"
-              >
-                <iframe
-                  title="tiktok"
-                  src={getIframeSrc(1)}
-                  allow="autoplay"
-                  loop
-                  muted
-                  onClick={() => handleMuteClick(1)}
-                ></iframe>
-              </li>
-
-              <li
-                style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-                className="gradientgetintouchlist"
-              >
-                <iframe
-                  title="tiktok"
-                  src={getIframeSrc(2)}
-                  allow="autoplay"
-                  loop
-                  muted
-                  onClick={() => handleMuteClick(2)}
-                ></iframe>
-              </li>
-
-              <li
-                style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-                className="gradientgetintouchlist"
-              >
-                <iframe
-                  title="tiktok"
-                  src={getIframeSrc(3)}
-                  allow="autoplay"
-                  loop
-                  muted
-                  onClick={() => handleMuteClick(3)}
-                ></iframe>
-              </li>
+              {Array.from({ length: 3 }).map((_, index) => {
+                const iframeNumber = index + 1; // 1, 2, 3
+                return (
+                  <li
+                    key={iframeNumber}
+                    style={{
+                      backgroundImage: `url(${backgroundImageUrl})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                    className="gradientgetintouchlist"
+                  >
+                    <iframe
+                      title={`tiktok-${iframeNumber}`}
+                      src={getIframeSrc(iframeNumber)}
+                      allow="autoplay"
+                      loop
+                      muted={mutedIframes[iframeNumber - 1]}
+                      onClick={() => handleMuteClick(iframeNumber)}
+                      style={{ pointerEvents: "none" }}
+                    ></iframe>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="lefttiktoktext">
@@ -1013,7 +985,7 @@ const Getintouch = () => {
                         {contactSection.contactDetails.whatsAppLabel}
                       </a>
                       <div className="canvas whatsappcanvas">
-                        {Array.from({length: numSVGs}).map((_, i) => (
+                        {Array.from({ length: numSVGs }).map((_, i) => (
                           <div
                             key={i + svgKey}
                             className="fly-svg-wrapper"
@@ -1184,7 +1156,7 @@ const Getintouch = () => {
                           <g clipPath="url(#clip0_887_340)">
                             <mask
                               id="mask0_887_340"
-                              style={{maskType: 'luminance'}}
+                              style={{ maskType: 'luminance' }}
                               maskUnits="userSpaceOnUse"
                               x="0"
                               y="0"
@@ -1265,7 +1237,7 @@ const Getintouch = () => {
                                     </defs>
                                   </svg>
                                 </i>
-                                <p dangerouslySetInnerHTML={{__html: location.address}} />
+                                <p dangerouslySetInnerHTML={{ __html: location.address }} />
                               </div>
                             </li>
                           ),
@@ -1290,7 +1262,7 @@ const Getintouch = () => {
                   data-aos-duration="500"
                 >
                   {contactSection.contactDetails?.faqSection?.faq?.length >
-                  0 ? (
+                    0 ? (
                     contactSection.contactDetails.faqSection.faq.map((faq) => (
                       <div className="accordion-item" key={faq._key}>
                         <button
