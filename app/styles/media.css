@@ -756,4 +756,10 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
     top: 1px;
   }
 
+  .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary:after{width: 10px;height: 10px;}
+  .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {
+    padding-right: 15px;
+}
+
+
 }
