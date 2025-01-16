@@ -65,7 +65,7 @@
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;-webkit-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;justify-content:space-between;position: relative;}
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:auto;margin:5px 0;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{color:#FFF;font-family:'Optima';font-size:32.776px;font-style:normal;font-weight:400;line-height:normal;text-align:left;width:85%;margin:5px 0;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{color:#FFF;font-family:'Optima';font-size:24.972px;font-style:normal;font-weight:400;line-height:normal;}
 .fourthsection section.menu-section:last-child{margin-bottom:0}
@@ -149,6 +149,40 @@
 .allfiressectionsmenu img:nth-child(7){position:absolute;display:block;width:auto;height:auto;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;top:550px;right:-134px;}
 .allfiressectionsmenu img:nth-child(8){position:absolute;display:block;width:auto;height:auto;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;top:900px;right:0;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{margin-right:5px;margin-left:0;margin-top:-5px;}
+
+
+
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary:after {
+    content: '';
+    background-image: url(/app/assets/resizeimgs/webp/qr_info.webp);
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: .25s transform ease;
+    -o-transition: .25s transform ease;
+    -moz-transition: .25s transform ease;
+    transition: .25s transform ease;
+}
+
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {
+    padding-right: 30px;
+}
 
 @media (min-width:992px) and (max-width:1199px)
 {
