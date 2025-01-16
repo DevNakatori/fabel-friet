@@ -656,6 +656,10 @@ button.skipvideo.hidden{display:none;}
         width: calc(100% - 50px);
     }
     body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 8px;}
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        left: inherit;
+        right: 0;
+      }
 }
 
 @media (min-width:768px) and (max-width:991px){
@@ -708,6 +712,10 @@ button.skipvideo.hidden{display:none;}
         bottom: 40px;
     }
     body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 8px;}
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        left: inherit;
+        right: 0;
+      }
 
 }
 
@@ -761,5 +769,15 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
     padding-right: 15px;
 }
 
+
+body.seconsection .page.menumainppage .menu-section ul li summary:after {
+    font-size: 16px;
+    width: 10px;
+    height: 10px;
+   
+}
+.page.menumainppage .menu-section ul li details summary {
+    padding-left: 15px;
+}
 
 }
