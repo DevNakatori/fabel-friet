@@ -784,7 +784,7 @@ const HomePage = () => {
             <style type="text/css">
               {`
             .st000{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#fff;stroke-width:5;stroke-miterlimit:0;}
-            .st111{fill-rule:evenodd;clip-rule:evenodd;fill:#1e46b3;}
+            .st111{fill-rule:evenodd;clip-rule:evenodd;fill:#050c66;}
             .st222{fill-rule:evenodd;clip-rule:evenodd;fill:#fff;}
           `}
             </style>

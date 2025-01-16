@@ -39,10 +39,10 @@ button.audioplaypause {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #1e46b3;
-  border: solid 1px #1e46b3;
+  background: #050c66;
+  border: solid 1px #050c66;
   animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  box-shadow: 0 0 0 0 rgba(25, 58, 149, 0.8);
+  box-shadow: 0 0 0 0 rgba(5, 12, 102, 0.8);
   display: flex;
   align-items: center;
   align-content: center;
@@ -73,8 +73,8 @@ button.audioplaypause svg {
 }
 
 button.audioplaypause:hover {
-  box-shadow: 0 0 10px 0 #1e46b3 inset, 0 0 20px 2px #1e46b3;
-  border: 3px solid #1e46b3;
+  box-shadow: 0 0 10px 0 #050c66 inset, 0 0 20px 2px #050c66;
+  border: 3px solid #050c66;
 }
 
 button.audioplaypause svg path {
