@@ -77,7 +77,7 @@
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:20px!important;}
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';} */
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {background-image: none;content: '\002B';font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;font-family: 'Work Sans';}
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'\2212';line-height:27px;font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;}
+/* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'\2212';line-height:27px;font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;} */
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:-2px;} */
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-family:'Optima';font-size:26.533px;font-style:italic;font-weight:400;line-height:32.776px;margin-left: 5px;}
@@ -121,7 +121,7 @@
 .fourthsection .menudynamic.onlydesktop ul.categotyfilter li button.active{background:url('/app/assets/resizeimgs/webp/plain-gold-background.webp');color:white;border:2.34px solid #fff;-o-background-size:cover;background-size:cover;}
 .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:60px!important;margin-bottom:47px!important;}
 .fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';}
-.fourthsection .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;}
+/* .fourthsection .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;} */
 .fourthsection .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
 .fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-family:'Optima';font-size:26.533px;font-style:italic;font-weight:400;line-height:32.776px;margin-left: 5px;}
 .fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails{display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;-webkit-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;justify-content:space-between;}
@@ -221,7 +221,7 @@
         height: 16px;
     }
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
         background-image: none;
         content: '\2212';
         line-height: 27px;
@@ -238,7 +238,7 @@
         width: 16px;
         height: 16px;
         font-size: 20px;
-    }
+    } */
 }
 
 @media (max-width:767px)
@@ -314,7 +314,7 @@
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span small,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span small,
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small{color: #FFF;font-size: 6.679px;font-style: normal;font-weight: 400;line-height: 8.766px;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;}
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;} */
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small {display: inline-block;width: auto;color: #FFF;font-family:'Optima';font-size: 3.757px;font-style: normal;font-weight: 400;line-height: 8.766px;}    
 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
@@ -334,7 +334,7 @@
         height: 10px;
     }
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
         background-image: none;
         content: '\2212';
         line-height: 27px;
@@ -351,6 +351,6 @@
         width: 10px;
         height: 10px;
         font-size: 11px;
-    }
+    } */
 
 }

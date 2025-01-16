@@ -746,6 +746,7 @@ const Onzefriet = () => {
                           pagination={{
                             clickable: true,
                           }}
+                          grabCursor= {true}
                           speed={3000}
                           autoplay={{
                             delay: 3000,

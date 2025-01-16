@@ -15,13 +15,13 @@ import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
 import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
 import menu_one from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
-import menu_two from '../assets/resizeimgs/webp/menuwebp/Fries4_FabelFriet.webp';
+import menu_two from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
 import menu_three from '../assets/resizeimgs/webp/menuwebp/Fries2_FabelFriet.webp';
 import menu_four from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet.webp';
 import menu_five from '../assets/resizeimgs/webp/menuwebp/Fries5_FabelFriet.webp';
 import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.webp';
 import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
-import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
+//import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
 
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -168,7 +168,6 @@ const Hetmenu = () => {
     menu_five,
     menu_six,
     menu_seven,
-    menu_eight,
   ];
 
   useEffect(() => {

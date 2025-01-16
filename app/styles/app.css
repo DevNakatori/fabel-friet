@@ -256,7 +256,7 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 .menu-section p.firsttext{color:#0d1e4d;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,6vw,20px);font-style:normal;font-weight:400;line-height:normal;margin-bottom:45px;}
 .menu-section h2{font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,6vw,50px);font-style:normal;font-weight:700;line-height:125%;text-transform:capitalize;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-transition:0.5s;-o-transition:0.5s;transition:0.5s;margin:0 0 20px;display:flex;align-items:center;}
 .menu-section ul{list-style:none;margin-bottom:0px;}
-.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 400;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;margin-bottom: 5px;margin-top:5px;line-height:1.8;}
+.menu-section ul li {color: #0d1e4d;font-family: 'Work Sans';font-optical-sizing: auto;font-size: clamp(20px,6vw,20px);font-style: normal;font-weight: 400;line-height: normal;margin-bottom: 6px;display: flex;justify-content: space-between;margin-bottom: 5px;margin-top:5px;line-height:1.8;position: relative;}
 .price{float:right;color:#333;font-weight:bold;font-family:Rufina,serif;}
 ul ul{margin-top:10px;margin-left:20px;}
 summary {padding: 0;display: block;padding-left: 25px;position: relative;cursor: pointer;user-select: none;}
@@ -329,6 +329,27 @@ section.mainmenusection{position:relative;}
 .tabs button{padding:0px 0px;cursor:pointer;background-color:transparent;border:solid 2px #f6c738;border-radius:30px;transition:background-color 0.3s ease;width:calc((100% / 3) - 40px);height:62px;flex-shrink:0;overflow:hidden;color:#efebe7;text-overflow:ellipsis;font-family:'Work Sans';font-size:30px;font-style:normal;font-weight:600;line-height:normal;}
 .mainmenusection .topmenublock p{align-items:center;}
 .tabs button a.menubuttonlink{display:flex;height:100%;width:100%;align-items:center;align-content:center;justify-content:center;}
+
+
+
+.page.menumainppage .menu-section ul li details {
+  width: 100%;
+}
+.page.menumainppage .menu-section ul li details summary {
+  padding-left: 0;
+}
+.page.menumainppage .menu-section ul li span.price {
+  position: absolute;
+  left: inherit;
+  right: 25px;
+  top:0;
+}
+body.seconsection .page.menumainppage .menu-section ul li summary:before {
+  left: inherit;
+  right: 0;
+  top: 3px;
+}
+
 @media (min-width:1201px) and (max-width:1499px){
   .mainmenusection .topmenublock p{align-items:center;}
   .newfooter .newcontainer{width:95%!important;}
