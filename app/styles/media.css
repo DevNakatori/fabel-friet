@@ -47,8 +47,8 @@ button.skipvideo.hidden{display:none;}
     a.locatebutton{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .gradient-purple h4,.fourthsection .gradient-purple h4,
-    .menulanding .landingcontainer h2,
-    .mainmenusection .topmenublock h1{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
+    .mainmenusection .topmenublock h1{font-size:-moz-calc(90/var(--vw)*var(--multiplier));font-size:calc(90/var(--vw)*var(--multiplier));}
+    .menulanding .landingcontainer h2{font-size:-moz-calc(90/var(--vw)*var(--multiplier));font-size:calc(90/var(--vw)*var(--multiplier));}
     .gradient-purple p,.fourthsection .gradient-purple p,.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whatpeople-section h6,.main-accordian h6{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
@@ -173,6 +173,10 @@ button.skipvideo.hidden{display:none;}
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
         top: 9px;   
     }
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        left: inherit;
+        right: 0;
+      }
 }
 
 
@@ -207,9 +211,9 @@ button.skipvideo.hidden{display:none;}
     .banner_title_text,.banner_title_text h1{font-size:-moz-calc(60/var(--vw)*var(--multiplier));font-size:calc(60/var(--vw)*var(--multiplier));}
     a.locatebutton{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .headernew nav ul li a{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
-    .gradient-purple h4,.fourthsection .gradient-purple h4,
-    .menulanding .landingcontainer h2,
-    .mainmenusection .topmenublock h1{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
+    .gradient-purple h4,.fourthsection .gradient-purple h4{font-size:-moz-calc(106/var(--vw)*var(--multiplier));font-size:calc(106/var(--vw)*var(--multiplier));}
+    .mainmenusection .topmenublock h1{font-size:-moz-calc(90/var(--vw)*var(--multiplier));font-size:calc(90/var(--vw)*var(--multiplier));}
+    .menulanding .landingcontainer h2{font-size:-moz-calc(90/var(--vw)*var(--multiplier));font-size:calc(90/var(--vw)*var(--multiplier));}
     .gradient-purple p,.fourthsection .gradient-purple p,.fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whitebgbox .whitewithvideomainbox .righttextbox p,.accordion-item button.accordion-header,.gradient-purple .accordion-content p{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     .whatpeople-section h6,.main-accordian h6{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
@@ -253,7 +257,7 @@ button.skipvideo.hidden{display:none;}
         font-size: calc(14/var(--vw)*var(--multiplier));
     }
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 49%;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 28px;height: 28px;display: block;}
 
 
@@ -281,9 +285,14 @@ button.skipvideo.hidden{display:none;}
     
 
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
-        top: 14px;
+        top: 11px;
         
     }
+
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        left: inherit;
+        right: 0;
+      }
 
     .menulanding .landingcontainer h2,
     .menulanding .landingcontainer p {
@@ -484,7 +493,7 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(9 / var(--vw)* var(--multiplier)) !important;
         font-size: calc(9 / var(--vw)* var(--multiplier)) !important;
     }
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 50%;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;}
     .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
 
     .sixthsection .whitebgbox .socialtitle h3{max-width: 900px;}
@@ -533,6 +542,12 @@ button.skipvideo.hidden{display:none;}
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
         top: 5px;
     }
+
+    body.seconsection .page.menumainppage .menu-section ul li summary:before {
+        left: inherit;
+        right: 0;
+        top: 3px;
+      }
 }
 
 
@@ -734,5 +749,11 @@ a.locatebutton.bubbly-button.whatsapp-btn{display:-webkit-box;display:-webkit-fl
 .canvas.whatsappcanvas {top: 47px;}
 
 body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 3px;}
+
+body.seconsection .page.menumainppage .menu-section ul li summary:before {
+    left: inherit;
+    right: 0;
+    top: 1px;
+  }
 
 }
