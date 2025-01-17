@@ -1,103 +1,127 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useLanguage} from '~/components/LanguageContext';
-import {client} from '../../sanityClient';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '~/components/LanguageContext';
+import { client } from '../../sanityClient';
 import gsap from 'gsap';
 import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 
-const MenuSection = ({id, title, subTitle, menuData}) => {
-  return (
-    <div id={id}>
-      {menuData.length > 0 ? (
-        menuData.map((section) => (
-          <section className="menu-section" key={section._key || section.id}>
-            <details className="mainmenututles">
-              <summary>
-                <h2>
-                  {section.title} <span className="info-icon"></span>
-                </h2>
-              </summary>
-              <p className="firsttext">{section.subTitle}</p>
-            </details>
-            <ul>
-              {section.menu.map((menuItem) => (
-                <li key={menuItem._key || menuItem.id}>
-                  {menuItem.recipedetails ? (
-                    <details>
-                      <summary>
-                        <span>{menuItem.recipe}</span>
-                      </summary>
-                      <p>{menuItem.recipedetails}</p>
-                    </details>
-                  ) : (
-                    <span>{menuItem.recipe}</span>
-                  )}
-                  {menuItem.price && (
-                    <span className="price">{menuItem.price}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
-      ) : (
-        <div></div>
-      )}
-    </div>
-  );
-};
+
 
 const Qrmenu = () => {
-  const {language} = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const [menuData, setMenuData] = useState({
-    tabContant: {friet: [], snacks: [], drinks: []},
+    tabContant: { friet: [], snacks: [], drinks: [] },
   });
   const [error, setError] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(language);
+  const [showLanguagePopup, setShowLanguagePopup] = useState(true);
   const buttonRef = useRef(null);
   const tabsRef = useRef(null);
 
-  // Fetch menu data
+
+  const languages = [
+    {code: 'en', name: 'English', flag: 'flag-icon-us'},
+    {code: 'nl', name: 'Nederlands', flag: 'flag-icon-nl'},
+    {code: 'de', name: 'Deutsch', flag: 'flag-icon-de'},
+    // Add more languages as needed
+  ];
+
+
+
+  const MenuSection = ({ id, title, subTitle, menuData }) => {
+    return (
+      <div id={id}>
+        {menuData.length > 0 ? (
+          menuData.map((section) => (
+            <section className="menu-section" key={section._key || section.id}>
+              <details className="mainmenututles">
+                <summary>
+                  <h2>
+                    {section.title} <span className="info-icon"></span>
+                  </h2>
+                </summary>
+                <p className="firsttext">{section.subTitle}</p>
+              </details>
+              <ul>
+                {section.menu.map((menuItem) => (
+                  <li key={menuItem._key || menuItem.id}>
+                    {menuItem.recipedetails ? (
+                      <details>
+                        <summary>
+                          {/* <span>{menuItem.recipe}</span> */}
+                          <span>
+                            {selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.english_recipe} / ${menuItem.recipe}`}
+                          </span>
+                        </summary>
+                        {/* <p>{menuItem.recipedetails}</p> */}
+                        <p>
+                          {selectedLanguage === 'en' ? menuItem.english_recipedetails : `${menuItem.english_recipedetails} / ${menuItem.recipedetails}`}
+                        </p>
+                      </details>
+                    ) : (
+                      // <span>{menuItem.recipe}</span>
+                      <span>{selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.english_recipe} / ${menuItem.recipe}`}</span>
+                    )}
+                    {menuItem.price && (
+                      <span className="price" dangerouslySetInnerHTML={{ __html: menuItem.price }} />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
+    );
+  };
+
+
+  // Fetch menu data based on the language
   useEffect(() => {
     const qrmenu = async () => {
-      const cachedMenuData = localStorage.getItem(`qrmenu_${language}`);
-
-      if (cachedMenuData) {
-       
-        setMenuData(JSON.parse(cachedMenuData));
-      } else {
-        try {
-          const data = await client.fetch(
-            `*[_type == "qrmenu" && language == $lang]`,
-            {lang: language},
-          );
-         
-          const menu = data[0] || {
-            tabContant: {friet: [], snacks: [], drinks: []},
-            tabs: []
-          };
-          localStorage.setItem(`qrmenu_${language}`, JSON.stringify(menu));
-          setMenuData(menu);
-        } catch (err) {
-         
-          setError('Failed to load data');
-        }
+      try {
+        const data = await client.fetch(
+          `*[_type == "qrmenu" && language == $lang]`,
+          { lang: selectedLanguage },
+        );
+        const menu = data[0] || {
+          tabContant: { friet: [], snacks: [], drinks: [] },
+          tabs: []
+        };
+        setMenuData(menu);
+        console.log('all data', menu);
+      } catch (err) {
+        setError('Failed to load data');
       }
     };
 
     qrmenu();
-  }, [language]);
+  }, [selectedLanguage]);
+
+
+  const handleLanguageChange = (newLanguage) => {
+    setSelectedLanguage(newLanguage);
+    toggleLanguagePopup();
+  };
+
+  const toggleLanguagePopup = () => {
+    setShowLanguagePopup(!showLanguagePopup);
+  };
+
 
   // GSAP animation for menu section
   useEffect(() => {
     const divs = document.querySelectorAll('.mainmenusection');
     const body = document.querySelector('body');
 
-    gsap.set(divs, {bottom: '-100vh'});
-    gsap.set(divs, {display: 'block'});
-    gsap.set(body, {overflow: 'hidden'});
+    gsap.set(divs, { bottom: '-100vh' });
+    gsap.set(divs, { display: 'block' });
+    gsap.set(body, { overflow: 'hidden' });
 
     const handleClick = () => {
-      gsap.to(divs, {bottom: 0, duration: 1});
-      gsap.set(body, {overflow: 'visible'});
+      gsap.to(divs, { bottom: 0, duration: 1 });
+      gsap.set(body, { overflow: 'visible' });
       document.body.classList.add('seconsection');
     };
 
@@ -162,8 +186,6 @@ const Qrmenu = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -178,11 +200,16 @@ const Qrmenu = () => {
   const tabs = menuData.tabs || [];
 
 
+
+
+
+
+
   return (
     <div className="page menumainppage">
       <section
         className="menulanding"
-        style={{backgroundImage: `url(${Fabel3DPreview})`}}
+        style={{ backgroundImage: `url(${Fabel3DPreview})` }}
       >
         <div className="landingcontainer">
           <h2>{menuData.qrcustomertitle}</h2>
@@ -190,6 +217,27 @@ const Qrmenu = () => {
           <button ref={buttonRef} className="okunderstood bubbly-button swipe-effect">
             <span>{menuData.qrcustomerTitle}</span>
           </button>
+
+          {/* Language popup */}
+          {showLanguagePopup && (
+            <div className="language-popup">
+              <h2>select your preferred language</h2>
+              <ul className="languagee-list">
+                {languages.map((lang) => (
+                  <li
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    className="language-item"
+                    style={{
+                      fontWeight: selectedLanguage === lang.code ? 'bold' : 'normal',
+                    }}
+                  >
+                      <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span> {lang.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 
@@ -204,9 +252,9 @@ const Qrmenu = () => {
             {tabs.length > 0 ? (
               tabs.map((tab, index) => {
                 const sectionId =
-                  tab.lable.toLowerCase() === 'alle'
-                    ? 'fries-section'
-                    : `${tab.lable.toLowerCase()}-section`;
+                  tab.english_lable.toLowerCase() === 'All'
+                    ? 'frenchfries-section'
+                    : `${tab.english_lable.toLowerCase()}-section`;
                 return (
                   <button key={tab._key} className={index === 0 ? 'active' : ''}>
                     <a
@@ -216,7 +264,13 @@ const Qrmenu = () => {
                         handleMenuItemClick(e, e.target.getAttribute('href'))
                       }
                     >
-                      {tab.lable}
+                      {selectedLanguage === 'en' ? (
+                        tab.english_lable
+                      ) : (
+                        <>
+                          {tab.english_lable} / {tab.lable}
+                        </>
+                      )}
                     </a>
                   </button>
                 );
@@ -230,30 +284,24 @@ const Qrmenu = () => {
         <div className="whightimagebf">
           <div className="content">
             {/* Dynamic Content Sections */}
+            <div id="all-section"></div>
+
             <MenuSection
-              id="fries-section"
+              id="frenchfries-section"
               title="Fries"
               subTitle="Our delicious fries!"
               menuData={menuData.tabContant.friet}
             />
-{tabs.map((tab, index) => (
-    <MenuSection
-      key={tab._key}
-      id={`${tab.lable.toLowerCase()}-section`} // Dynamically set the id
-      title={tab.lable} // Use the tab label dynamically
-      subTitle="Description of the section"
-      menuData={menuData.tabContant[tab.lable.toLowerCase()] || []} // Dynamically access the correct menu data
-    />
-  ))}
-{tabs.map((tab, index) => (
-    <MenuSection
-      key={tab._key}
-      id={`${tab.lable.toLowerCase()}-section`} // Dynamically set the id
-      title={tab.lable} // Use the tab label dynamically
-      subTitle="Description of the section"
-      menuData={menuData.tabContant[tab.lable.toLowerCase()] || []} // Dynamically access the correct menu data
-    />
-  ))}
+
+            {tabs.map((tab, index) => (
+              <MenuSection
+                key={tab._key}
+                id={`${tab.english_lable.toLowerCase()}-section`} // Dynamically set the id
+                title={tab.english_lable} // Use the tab label dynamically
+                subTitle="Description of the section"
+                menuData={menuData.tabContant[tab.english_lable.toLowerCase()] || []} // Dynamically access the correct menu data
+              />
+            ))}
           </div>
           <div className="overlaybannehand-bottomsmenu"></div>
         </div>

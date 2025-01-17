@@ -49,7 +49,7 @@ export default function Page() {
   const {page} = useLoaderData();
   return (
         <LanguageProvider>
-          <LanguageSwitcher />
+         
           <Qrmenuheader />
           <Qrmenu />
           <section className="footer">

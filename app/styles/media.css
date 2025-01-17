@@ -177,6 +177,8 @@ button.skipvideo.hidden{display:none;}
         left: inherit;
         right: 0;
       }
+
+      .page.menumainppage .tabs button{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:calc(15/var(--vw)*var(--multiplier));}
 }
 
 
@@ -200,6 +202,8 @@ button.skipvideo.hidden{display:none;}
     body.seconsection .page.menumainppage .menu-section ul li summary:before {
         top: 5px;
     }
+
+    .page.menumainppage .tabs button{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
 }
 
 
@@ -233,6 +237,9 @@ button.skipvideo.hidden{display:none;}
     .binimageboxmain .binimageboxieft h6{font-size:-moz-calc(17/var(--vw)*var(--multiplier));font-size:calc(17/var(--vw)*var(--multiplier));}
     .sixthsection .whitebgbox .socialtitle h3,
     .tabs button{font-size:-moz-calc(26/var(--vw)*var(--multiplier));font-size:calc(26/var(--vw)*var(--multiplier));}
+
+    /* .page.menumainppage .tabs button{font-size:-moz-calc(14/var(--vw)*var(--multiplier));font-size:calc(14/var(--vw)*var(--multiplier));} */
+
     a.Whatsappbtn{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));height:auto;padding:10px;}
     .sixthsection .gradient-purple .whitebgbox .appcontainers h4{font-size:-moz-calc(41/var(--vw)*var(--multiplier));font-size:calc(41/var(--vw)*var(--multiplier));}
     .sixthsection .whitewithvideomainboxss .righttextbox h3#animated-text{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
@@ -548,6 +555,8 @@ button.skipvideo.hidden{display:none;}
         right: 0;
         top: 3px;
       }
+
+    .page.menumainppage .tabs button{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
 }
 
 
