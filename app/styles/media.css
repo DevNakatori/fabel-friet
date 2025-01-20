@@ -669,6 +669,26 @@ button.skipvideo.hidden{display:none;}
         left: inherit;
         right: 0;
       }
+
+      .page.menumainppage .menu-section ul li,
+      .page.menumainppage .menu-section ul li span
+      {
+          
+          font-size: calc(44 / var(--vw)* var(--multiplier));
+          font-family: 'Optima';
+      }
+  
+      .page.menumainppage .menu-section ul li p {
+          font-size: calc(36 / var(--vw)* var(--multiplier));
+          font-family: 'Optima';
+          margin: 5px 0;
+      }
+
+      .page.menumainppage .tabs button {
+        font-size: -moz-calc(30/var(--vw)*var(--multiplier));
+        font-size: calc(30/var(--vw)*var(--multiplier));
+    }
+
 }
 
 @media (min-width:768px) and (max-width:991px){
@@ -726,6 +746,24 @@ button.skipvideo.hidden{display:none;}
         right: 0;
       }
 
+      .page.menumainppage .menu-section ul li,
+      .page.menumainppage .menu-section ul li span
+      {
+          
+          font-size: calc(44 / var(--vw)* var(--multiplier));
+          font-family: 'Optima';
+      }
+  
+      .page.menumainppage .menu-section ul li p {
+          font-size: calc(36 / var(--vw)* var(--multiplier));
+          font-family: 'Optima';
+          margin: 5px 0;
+      }
+
+      .page.menumainppage .tabs button {
+        font-size: -moz-calc(33/var(--vw)*var(--multiplier));
+        font-size: calc(33/var(--vw)*var(--multiplier));
+    }
 }
 
 @media (max-width:767px){
