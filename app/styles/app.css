@@ -1007,6 +1007,7 @@ button.backhome.bubbly-button.swipe-effect:hover svg {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-height: 500px;
   overflow: auto;
+  overflow-y: hidden;
 }
 
 .language-item {
@@ -1095,4 +1096,30 @@ button.backhome.bubbly-button.swipe-effect:hover svg {
     .qrinfo, .info-icon {width: 15px;height: 15px;margin: 0 6px;}
     .language-popup {width: calc(100% - 40px);}
     .menulanding .landingcontainer .language-popup h2 {font-size: calc(80 / var(--vw)* var(--multiplier));}
+}
+
+
+
+.languagee-list {
+  overflow-x: hidden;
+  list-style: none;
+  & li {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+.listlanguage {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  transition: 0.5s;
+}
+
+.u-positionRelative {
+position: relative;
+}
+
+.language-item:hover .listlanguage {
+  transform: translateX(5px);
 }

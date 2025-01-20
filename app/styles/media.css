@@ -79,6 +79,16 @@ button.skipvideo.hidden{display:none;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
+
+
+
+    .menulanding .landingcontainer .language-popup h2 {
+        font-size: calc(21 / var(--vw)* var(--multiplier)) !important;
+        line-height: 2.2;
+    }
+    .language-item{font-size: calc(8 / var(--vw)* var(--multiplier)) !important;}
+
+
 }
 
 @media (min-width:2500px) and (max-width:3000px){
@@ -179,6 +189,12 @@ button.skipvideo.hidden{display:none;}
       }
 
       .page.menumainppage .tabs button{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:calc(15/var(--vw)*var(--multiplier));}
+
+      .menulanding .landingcontainer .language-popup h2 {
+        font-size: calc(55 / var(--vw)* var(--multiplier));
+        line-height: 2.2;
+    }
+    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -204,6 +220,12 @@ button.skipvideo.hidden{display:none;}
     }
 
     .page.menumainppage .tabs button{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+
+    .menulanding .landingcontainer .language-popup h2 {
+        font-size: calc(55 / var(--vw)* var(--multiplier));
+        line-height: 2.2;
+    }
+    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -282,6 +304,12 @@ button.skipvideo.hidden{display:none;}
         margin: 5px 0;
     }
 
+
+    .menulanding .landingcontainer .language-popup h2 {
+        font-size: calc(55 / var(--vw)* var(--multiplier));
+        line-height: 2.2;
+    }
+    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
 
 }
 
@@ -506,8 +534,8 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .whitebgbox .socialtitle h3{max-width: 900px;}
     .sixthsection .whitebgbox .socialtitle h3,
     .tabs button {
-        font-size: -moz-calc(20/var(--vw)*var(--multiplier));
-        font-size: calc(20/var(--vw)*var(--multiplier));
+        font-size: -moz-calc(15/var(--vw)*var(--multiplier));
+        font-size: calc(15/var(--vw)*var(--multiplier));
     }
 
 
@@ -525,6 +553,13 @@ button.skipvideo.hidden{display:none;}
         font-family: 'Optima';
         margin: 5px 0;
     }
+
+
+    .menulanding .landingcontainer .language-popup h2 {
+        font-size: calc(60 / var(--vw)* var(--multiplier));
+        line-height: 2.2;
+    }
+    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -826,5 +861,9 @@ body.seconsection .page.menumainppage .menu-section ul li summary:after {
 .page.menumainppage .menu-section ul li details summary {
     padding-left: 15px;
 }
+
+
+
+.language-item{font-size: calc(65 / var(--vw)* var(--multiplier));}
 
 }

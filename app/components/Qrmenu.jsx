@@ -201,7 +201,28 @@ const Qrmenu = () => {
 
 
 
+  useEffect(() => {
+    const contentTl = gsap.timeline({
+      defaults: { ease: "power4.inOut", duration: 1 },
+    });
 
+    contentTl
+      .to(".languagee-list li", {
+        stagger: 0.5,
+        x: 0,
+        opacity: 1,
+        duration: 1.5,
+      })
+      .to(
+        ".languagee-list li",
+        {
+          stagger: 0.5,
+          "--bullet-y": 0,
+          "--bullet-opacity": 1,
+        },
+        "<0.5"
+      );
+  }, []);
 
 
 
@@ -227,12 +248,12 @@ const Qrmenu = () => {
                   <li
                     key={lang.code}
                     onClick={() => handleLanguageChange(lang.code)}
-                    className="language-item"
+                    className="language-item u-positionRelative service-styles--bullet"
                     style={{
                       fontWeight: selectedLanguage === lang.code ? 'bold' : 'normal',
                     }}
                   >
-                      <span className={`flag-icon ${lang.flag} flag-icon-squared`}></span> {lang.name}
+                      <div className='listlanguage'><span className={`flag-icon ${lang.flag} flag-icon-squared`}></span> {lang.name}</div>
                   </li>
                 ))}
               </ul>
