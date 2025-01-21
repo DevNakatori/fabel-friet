@@ -205,13 +205,19 @@ const Qrmenu = () => {
     const contentTl = gsap.timeline({
       defaults: { ease: "power4.inOut", duration: 1 },
     });
-
+  
     contentTl
+      .to(".languagee-list", {
+        background: "white", 
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        stagger: 0.5,
+        duration: 0.5,
+      })
       .to(".languagee-list li", {
         stagger: 0.5,
         x: 0,
         opacity: 1,
-        duration: 1.5,
+        duration: 0.9,
       })
       .to(
         ".languagee-list li",
@@ -220,9 +226,10 @@ const Qrmenu = () => {
           "--bullet-y": 0,
           "--bullet-opacity": 1,
         },
-        "<0.5"
+        "<0.5" 
       );
   }, []);
+  
 
 
 
