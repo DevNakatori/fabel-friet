@@ -35,7 +35,7 @@
   .headernew.main-menu.is-hidden{height:0;position:fixed;}
   .headernew.main-menu.is-hidden ul li{-webkit-transition:ease 0.15s;-o-transition:ease 0.15s;-moz-transition:ease 0.15s;transition:ease 0.15s;visibility:hidden;}
   .headernew.main-menu.is-sticky{height:65px;position:fixed;}
-  .headernew.main-menu.is-at-top{height:65px;background:rgba(13,30,77,0.4);position:fixed;top:0px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);width:calc(100% - 120px);}
+  .headernew.main-menu.is-at-top{height:65px;background:rgba(13,30,77,0.4);position:fixed;top:0px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);width:-moz-calc(100% - 120px);width:calc(100% - 120px);}
   .headernew.main-menu.is-at-top ul li{visibility:visible;}
   /* .headernew nav ul.desktop-menu .bannersectinlogo{position:relative;left:0;-webkit-transform:translateX(-0%);-moz-transform:translateX(-0%);-ms-transform:translateX(-0%);-o-transform:translateX(-0%);transform:translateX(-0%);top:0px;width:0;height:auto;} */
   .headernew nav ul.desktop-menu .bannersectinlogo img{width:auto;height:auto;}

@@ -23,6 +23,11 @@ import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.web
 import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
 //import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
 
+import new_fries_one from '../assets/new_fries/new_1.png';
+import new_fries_two from '../assets/new_fries/new_2.png';
+import new_fries_three from '../assets/new_fries/new_3.png';
+import new_fries_four from '../assets/new_fries/new_4.png';
+
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
@@ -161,13 +166,10 @@ const Hetmenu = () => {
   const fryImages = useRef([]);
   const numberOfFries = 80;
   const fryImageSources = [
-    menu_one,
-    menu_two,
-    menu_three,
-    menu_four,
-    menu_five,
-    menu_six,
-    menu_seven,
+    new_fries_one,
+    new_fries_two,
+    new_fries_three,
+    new_fries_four,
   ];
 
   useEffect(() => {
@@ -220,7 +222,7 @@ const Hetmenu = () => {
               Math.floor(Math.random() * fryImages.current.length)
             ];
         }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
       });
       requestAnimationFrame(renderFries);
     };

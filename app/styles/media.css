@@ -83,10 +83,11 @@ button.skipvideo.hidden{display:none;}
 
 
     .menulanding .landingcontainer .language-popup h2 {
+        font-size: -moz-calc(21 / var(--vw)* var(--multiplier)) !important;
         font-size: calc(21 / var(--vw)* var(--multiplier)) !important;
         line-height: 2.2;
     }
-    .language-item{font-size: calc(8 / var(--vw)* var(--multiplier)) !important;}
+    .language-item{font-size: -moz-calc(8 / var(--vw)* var(--multiplier)) !important;font-size: calc(8 / var(--vw)* var(--multiplier)) !important;}
 
 
 }
@@ -191,10 +192,11 @@ button.skipvideo.hidden{display:none;}
       .page.menumainppage .tabs button{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:calc(15/var(--vw)*var(--multiplier));}
 
       .menulanding .landingcontainer .language-popup h2 {
+        font-size: -moz-calc(55 / var(--vw)* var(--multiplier));
         font-size: calc(55 / var(--vw)* var(--multiplier));
         line-height: 2.2;
     }
-    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
+    .language-item{font-size: -moz-calc(15 / var(--vw)* var(--multiplier));font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -222,10 +224,11 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .tabs button{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
 
     .menulanding .landingcontainer .language-popup h2 {
+        font-size: -moz-calc(55 / var(--vw)* var(--multiplier));
         font-size: calc(55 / var(--vw)* var(--multiplier));
         line-height: 2.2;
     }
-    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
+    .language-item{font-size: -moz-calc(15 / var(--vw)* var(--multiplier));font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -280,13 +283,15 @@ button.skipvideo.hidden{display:none;}
 
 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p.summerytext {
+        font-size: -moz-calc(18/var(--vw)*var(--multiplier));
         font-size: calc(18/var(--vw)*var(--multiplier));
     }
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p {
+        font-size: -moz-calc(14/var(--vw)*var(--multiplier));
         font-size: calc(14/var(--vw)*var(--multiplier));
     }
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;}
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;} */
     .newfooter .newcontainer .footerblock ul li a svg {width: 28px;height: 28px;display: block;}
 
 
@@ -294,11 +299,14 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .menu-section ul li span
     {
         
+        font-size: -moz-calc(18 / var(--vw)* var(--multiplier));
+        
         font-size: calc(18 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
     }
 
     .page.menumainppage .menu-section ul li p {
+        font-size: -moz-calc(14 / var(--vw)* var(--multiplier));
         font-size: calc(14 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
         margin: 5px 0;
@@ -306,10 +314,11 @@ button.skipvideo.hidden{display:none;}
 
 
     .menulanding .landingcontainer .language-popup h2 {
+        font-size: -moz-calc(55 / var(--vw)* var(--multiplier));
         font-size: calc(55 / var(--vw)* var(--multiplier));
         line-height: 2.2;
     }
-    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
+    .language-item{font-size: -moz-calc(15 / var(--vw)* var(--multiplier));font-size: calc(15 / var(--vw)* var(--multiplier));}
 
 }
 
@@ -466,6 +475,7 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
         font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
+        font-size: -moz-calc(16/var(--vw)*var(--multiplier) - 25%) ;
         font-size: calc(16/var(--vw)*var(--multiplier) - 25%) ;
     }
 
@@ -521,6 +531,7 @@ button.skipvideo.hidden{display:none;}
     }
 
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] p {
+        font-size: -moz-calc(14 / var(--vw)*var(--multiplier) - 25%);
         font-size: calc(14 / var(--vw)*var(--multiplier) - 25%);
     }
 
@@ -528,7 +539,7 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(9 / var(--vw)* var(--multiplier)) !important;
         font-size: calc(9 / var(--vw)* var(--multiplier)) !important;
     }
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;}
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;} */
     .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
 
     .sixthsection .whitebgbox .socialtitle h3{max-width: 900px;}
@@ -544,11 +555,14 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .menu-section ul li span
     {
         
+        font-size: -moz-calc(16 / var(--vw)* var(--multiplier));
+        
         font-size: calc(16 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
     }
 
     .page.menumainppage .menu-section ul li p {
+        font-size: -moz-calc(14 / var(--vw)* var(--multiplier));
         font-size: calc(14 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
         margin: 5px 0;
@@ -556,10 +570,11 @@ button.skipvideo.hidden{display:none;}
 
 
     .menulanding .landingcontainer .language-popup h2 {
+        font-size: -moz-calc(60 / var(--vw)* var(--multiplier));
         font-size: calc(60 / var(--vw)* var(--multiplier));
         line-height: 2.2;
     }
-    .language-item{font-size: calc(15 / var(--vw)* var(--multiplier));}
+    .language-item{font-size: -moz-calc(15 / var(--vw)* var(--multiplier));font-size: calc(15 / var(--vw)* var(--multiplier));}
 }
 
 
@@ -697,6 +712,7 @@ button.skipvideo.hidden{display:none;}
     }
 
     .headernew.main-menu.is-at-top {
+        width: -moz-calc(100% - 50px);
         width: calc(100% - 50px);
     }
     body.seconsection .page.menumainppage .menu-section ul li summary:before{top: 8px;}
@@ -709,11 +725,14 @@ button.skipvideo.hidden{display:none;}
       .page.menumainppage .menu-section ul li span
       {
           
+          font-size: -moz-calc(44 / var(--vw)* var(--multiplier));
+          
           font-size: calc(44 / var(--vw)* var(--multiplier));
           font-family: 'Optima';
       }
   
       .page.menumainppage .menu-section ul li p {
+          font-size: -moz-calc(36 / var(--vw)* var(--multiplier));
           font-size: calc(36 / var(--vw)* var(--multiplier));
           font-family: 'Optima';
           margin: 5px 0;
@@ -771,7 +790,11 @@ button.skipvideo.hidden{display:none;}
     .arrowimageimpect {
         position: relative;
         width: 100px;
-        transform: rotate(-30deg);
+        -webkit-transform: rotate(-30deg);
+           -moz-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+             -o-transform: rotate(-30deg);
+                transform: rotate(-30deg);
         height: 177px;
         bottom: 40px;
     }
@@ -785,11 +808,14 @@ button.skipvideo.hidden{display:none;}
       .page.menumainppage .menu-section ul li span
       {
           
+          font-size: -moz-calc(44 / var(--vw)* var(--multiplier));
+          
           font-size: calc(44 / var(--vw)* var(--multiplier));
           font-family: 'Optima';
       }
   
       .page.menumainppage .menu-section ul li p {
+          font-size: -moz-calc(36 / var(--vw)* var(--multiplier));
           font-size: calc(36 / var(--vw)* var(--multiplier));
           font-family: 'Optima';
           margin: 5px 0;
@@ -852,18 +878,18 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
 }
 
 
-body.seconsection .page.menumainppage .menu-section ul li summary:after {
+/* body.seconsection .page.menumainppage .menu-section ul li summary:after {
     font-size: 16px;
     width: 10px;
     height: 10px;
    
-}
+} */
 .page.menumainppage .menu-section ul li details summary {
     padding-left: 15px;
 }
 
 
 
-.language-item{font-size: calc(65 / var(--vw)* var(--multiplier));}
+.language-item{font-size: -moz-calc(65 / var(--vw)* var(--multiplier));font-size: calc(65 / var(--vw)* var(--multiplier));}
 
 }

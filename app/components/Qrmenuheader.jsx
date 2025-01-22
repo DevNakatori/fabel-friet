@@ -170,7 +170,7 @@ const Qrmenuheader = () => {
         </button> */}
 
 
-        <button className="backhome bubbly-button swipe-effect" onClick={handleBackClick}>
+        {/* <button className="backhome bubbly-button swipe-effect" onClick={handleBackClick}>
           <span>Go Back</span>
           <svg
             id="Layer_1"
@@ -186,7 +186,7 @@ const Qrmenuheader = () => {
               d="M267.9,66.3H83.1l18.7-27.9c7.6-11.2,4.7-26.4-6.5-34C91.2,1.6,86.4.2,81.5.2h0c-8.1,0-15.8,3.7-20.8,10L3,82.3c-3.7,4.7-3.7,11.3,0,16l57.7,72.1c5.1,6.3,12.7,10,20.8,10h0c13.5,0,24.5-11,24.5-24.5,0-4.9-1.5-9.7-4.2-13.7l-18.7-27.9h184.8c59.4,0,107.6,48.1,107.6,107.5,0,59.4-48.1,107.6-107.5,107.6h-52.3c-13.2,0-24,10.7-24,24s10.7,24,24,24h52.3c85.9,0,155.5-69.6,155.5-155.5,0-85.9-69.6-155.5-155.5-155.5h0Z"
             />
           </svg>
-        </button>
+        </button> */}
 
         <div className="logoonlymobilefirstsection">
           <img src={bannerlogo} />

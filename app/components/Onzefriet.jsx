@@ -23,6 +23,11 @@ import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.web
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
+import new_fries_one from '../assets/new_fries/new_1.png';
+import new_fries_two from '../assets/new_fries/new_2.png';
+import new_fries_three from '../assets/new_fries/new_3.png';
+import new_fries_four from '../assets/new_fries/new_4.png';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
@@ -276,12 +281,10 @@ const Onzefriet = () => {
   const fryImages = useRef([]);
   const numberOfFries = 80;
   const fryImageSources = [
-    fries_one,
-    fries_two,
-    fries_three,
-    fries_four,
-    fries_five,
-    fries_six,
+    new_fries_one,
+    new_fries_two,
+    new_fries_three,
+    new_fries_four,
   ];
 
   useEffect(() => {
