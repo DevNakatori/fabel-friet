@@ -36,7 +36,8 @@ const Qrmenu = () => {
               <details className="mainmenututles">
                 <summary>
                   <h2>
-                    {section.title} <span className="info-icon"></span>
+                    {section.title} 
+                    {/* <span className="info-icon"></span> */}
                   </h2>
                 </summary>
                 <p className="firsttext">{section.subTitle}</p>
@@ -49,17 +50,17 @@ const Qrmenu = () => {
                         <summary>
                           {/* <span>{menuItem.recipe}</span> */}
                           <span>
-                            {selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.english_recipe} / ${menuItem.recipe}`}
+                            {selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}
                           </span>
                         </summary>
                         {/* <p>{menuItem.recipedetails}</p> */}
                         <p>
-                          {selectedLanguage === 'en' ? menuItem.english_recipedetails : `${menuItem.english_recipedetails} / ${menuItem.recipedetails}`}
+                          {selectedLanguage === 'en' ? menuItem.english_recipedetails : `${menuItem.recipedetails} / ${menuItem.english_recipedetails}`}
                         </p>
                       </details>
                     ) : (
                       // <span>{menuItem.recipe}</span>
-                      <span>{selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.english_recipe} / ${menuItem.recipe}`}</span>
+                      <span>{selectedLanguage === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}</span>
                     )}
                     {menuItem.price && (
                       <span className="price" dangerouslySetInnerHTML={{ __html: menuItem.price }} />
@@ -296,7 +297,7 @@ const Qrmenu = () => {
                         tab.english_lable
                       ) : (
                         <>
-                          {tab.english_lable} / {tab.lable}
+                          {tab.lable} / {tab.english_lable}
                         </>
                       )}
                     </a>

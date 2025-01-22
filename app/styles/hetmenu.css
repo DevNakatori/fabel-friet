@@ -76,7 +76,7 @@
 .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter li button.active{color:#0d1e4d;border:2.34px solid #fff;-o-background-size:cover;background-size:cover;background: #fff;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:20px!important;}
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';} */
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {background-image: none;content: '\002B';font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;font-family: 'Work Sans';}
+/* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {background-image: none;content: '\002B';font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;font-family: 'Work Sans';} */
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'\2212';line-height:27px;font-size: 25px;line-height: 17px;position: absolute;top: 50%;transform: translateY(-50%);left: 0;display: flex;align-items: center;align-content: center;justify-content: center;width: 20px;height: 20px;} */
 /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:-2px;} */
 .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
@@ -120,7 +120,8 @@
 .fourthsection .menudynamic.onlydesktop ul.categotyfilter li button{overflow:hidden;color:#EFEBE7;text-align:center;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap;font-family:"Work Sans";font-size:30px;font-style:normal;font-weight:600;line-height:normal;background:transparent;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;border:2.34px solid transparent;border-radius:40px;cursor:pointer;}
 .fourthsection .menudynamic.onlydesktop ul.categotyfilter li button.active{background:url('/app/assets/resizeimgs/webp/plain-gold-background.webp');color:white;border:2.34px solid #fff;-o-background-size:cover;background-size:cover;}
 .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:60px!important;margin-bottom:47px!important;}
-.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';}
+/* .fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';} */
+.fourthsection .menudynamic.onlydesktop .menu-section .menu-item summary::before{display: none !important;}
 /* .fourthsection .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before{background-image:none;content:'-';line-height:27px;height:auto;left:5px;} */
 .fourthsection .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p{color:#FFF;font-family:'Optima';font-size:23.411px;font-style:normal;font-weight:400;line-height:normal;margin-top:60px;}
 .fourthsection .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{color:#FFF;font-family:'Optima';font-size:26.533px;font-style:italic;font-weight:400;line-height:32.776px;margin-left: 5px;}
@@ -188,7 +189,7 @@
 {
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:-5em;left:12em;margin-bottom:-15em;}
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
         background-image: none;
         content: '\002B';
         font-size: 25px;
@@ -204,7 +205,7 @@
         width: 20px;
         height: 20px;
         font-family: 'Work Sans';
-    }
+    } */
 }
 
 @media (min-width:768px) and (max-width:991px)
@@ -229,7 +230,7 @@
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{font-size:20.313px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{margin-top:30px!important;margin-bottom:30px!important;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:22.822px;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';top:-4px;}
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{background-image:none;content:'+';top:-4px;} */
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:20.972px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0px auto 0;}
     .fourthsection .whitebgbox{margin-bottom:450px;}
@@ -238,7 +239,7 @@
     .fourthsection .whitebgbox .menudynamic.onlydesktop {margin-bottom: -550px !important;}
 
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
         background-image: none;
         content: '\002B';
         font-size: 20px;
@@ -253,7 +254,7 @@
         justify-content: center;
         width: 16px;
         height: 16px;
-    }
+    } */
 
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
         background-image: none;
@@ -351,7 +352,7 @@
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;} */
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small {display: inline-block;width: auto;color: #FFF;font-family:'Optima';font-size: 3.757px;font-style: normal;font-weight: 400;line-height: 8.766px;}    
 
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
+    /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
         background-image: none;
         content: '\002B';
         font-size: 11px;
@@ -366,7 +367,7 @@
         justify-content: center;
         width: 10px;
         height: 10px;
-    }
+    } */
 
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {
         background-image: none;
