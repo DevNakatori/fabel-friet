@@ -15,19 +15,14 @@ const Qrmenuheader = () => {
 
   useEffect(() => {
     const fetchData_newheader = async () => {
-      const cachedData = localStorage.getItem(`header_${language}`);
-
-      if (cachedData) {
-        setHeaderData(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
+      
         try {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "header" && language == $lang]`,
             { lang: language },
           );
-          localStorage.setItem(`header_${language}`, JSON.stringify(data));
+         // localStorage.setItem(`header_${language}`, JSON.stringify(data));
           setHeaderData(data);
         } catch (err) {
           console.error('Error fetching data:', err);
@@ -35,7 +30,7 @@ const Qrmenuheader = () => {
         } finally {
           setLoading(false);
         }
-      }
+      
     };
 
     fetchData_newheader();

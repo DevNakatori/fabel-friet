@@ -1,7 +1,7 @@
-import {json} from '@shopify/remix-oxygen';
-import React, {useState, useEffect, useRef} from 'react';
-import {client} from '../../sanityClient';
-import {useLoaderData} from '@remix-run/react';
+import { json } from '@shopify/remix-oxygen';
+import React, { useState, useEffect, useRef } from 'react';
+import { client } from '../../sanityClient';
+import { useLoaderData } from '@remix-run/react';
 import { LanguageProvider } from '~/components/LanguageContext';
 import LanguageSwitcher from '~/components/LanguageSwitcher';
 
@@ -17,10 +17,10 @@ import '../styles/media.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
-export const meta = ({data}) => {
+export const meta = ({ data }) => {
   return [
-    {title: `Fabel Friet | ${data?.page.title ?? ''}`},
-    {name: 'description', content: data.page.seo.description},
+    { title: `Fabel Friet | ${data?.page.title ?? ''}` },
+    { name: 'description', content: data.page.seo.description },
     {
       tagName: 'link',
       rel: 'canonical',
@@ -32,30 +32,30 @@ export const meta = ({data}) => {
 /**
  * @param {LoaderFunctionArgs}
  */
-export async function loader({params, request, context}) {
+export async function loader({ params, request, context }) {
   const canonicalUrl = request.url;
   const handle = params.handle || 'menu';
-  const {page} = await context.storefront.query(PAGE_QUERY, {
+  const { page } = await context.storefront.query(PAGE_QUERY, {
     variables: {
       handle: handle,
     },
   });
   if (!page) {
-    throw new Response('Not Found', {status: 404});
+    throw new Response('Not Found', { status: 404 });
   }
-  return json({page, canonicalUrl});
+  return json({ page, canonicalUrl });
 }
 export default function Page() {
-  const {page} = useLoaderData();
+  const { page } = useLoaderData();
   return (
-        <LanguageProvider>
-         
-          <Qrmenuheader />
-          <Qrmenu />
-          <section className="footer">
-            <Newfootermenu />
-          </section>
-        </LanguageProvider>
+    <LanguageProvider>
+      <LanguageSwitcher />
+      <Qrmenuheader />
+      <Qrmenu />
+      <section className="footer">
+        <Newfootermenu />
+      </section>
+    </LanguageProvider>
   );
 }
 
