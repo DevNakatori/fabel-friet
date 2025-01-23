@@ -72,9 +72,12 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .locationbox h6{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
     .bottomsection .scroll-down p,.scroll-down p{font-size:18px;}
-    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
+    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
     .fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20/var(--vw)*var(--multiplier))!important;font-size:calc(20/var(--vw)*var(--multiplier))!important;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     #section2 .whatpeople-section .fl-tests{width:100%;overflow:hidden;margin:60px 0 10px;width:-moz-calc(100vw - 0px);width:calc(100vw - 0px);position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
@@ -271,9 +274,12 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner form button{font-size:-moz-calc(16/var(--vw)*var(--multiplier));font-size:calc(16/var(--vw)*var(--multiplier));}
     .locationbox h6{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
     .bottomsection .scroll-down p,.scroll-down p{font-size:18px;}
-    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
+    .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3{font-size:-moz-calc(24/var(--vw)*var(--multiplier))!important;font-size:calc(24/var(--vw)*var(--multiplier))!important;}
     .fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20/var(--vw)*var(--multiplier))!important;font-size:calc(20/var(--vw)*var(--multiplier))!important;}
-    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small,.fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails span,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p span,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span{font-size:-moz-calc(18/var(--vw)*var(--multiplier));font-size:calc(18/var(--vw)*var(--multiplier));}
     #section2 .whatpeople-section .fl-tests{width:100%;overflow:hidden;margin:60px 0 10px;width:-moz-calc(100vw - 0px);width:calc(100vw - 0px);position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;}
     #section2 .whatpeople-section .fl-tests .swiper-slide{text-align:center;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox .onzeimpacttwolist li .onzeimpacttwolistlist{height:-moz-calc(100% - 80px);height:calc(100% - 80px);}
@@ -296,7 +302,8 @@ button.skipvideo.hidden{display:none;}
 
 
     .page.menumainppage .menu-section ul li,
-    .page.menumainppage .menu-section ul li span
+    .page.menumainppage .menu-section ul li span,
+    section.menu-section p.firsttext
     {
         
         font-size: -moz-calc(18 / var(--vw)* var(--multiplier));
@@ -539,6 +546,13 @@ button.skipvideo.hidden{display:none;}
         font-size: -moz-calc(9 / var(--vw)* var(--multiplier)) !important;
         font-size: calc(9 / var(--vw)* var(--multiplier)) !important;
     }
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3 {
+        font-size: -moz-calc(16 / var(--vw)* var(--multiplier)) !important;
+        font-size: calc(16 / var(--vw)* var(--multiplier)) !important;
+    }
+
+
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before{top: 45%;} */
     .newfooter .newcontainer .footerblock ul li a svg {width: 22px;height: 22px;display: block;}
 
@@ -552,7 +566,8 @@ button.skipvideo.hidden{display:none;}
 
 
     .page.menumainppage .menu-section ul li,
-    .page.menumainppage .menu-section ul li span
+    .page.menumainppage .menu-section ul li span,
+    section.menu-section p.firsttext
     {
         
         font-size: -moz-calc(16 / var(--vw)* var(--multiplier));
@@ -722,7 +737,8 @@ button.skipvideo.hidden{display:none;}
       }
 
       .page.menumainppage .menu-section ul li,
-      .page.menumainppage .menu-section ul li span
+      .page.menumainppage .menu-section ul li span,
+      section.menu-section p.firsttext
       {
           
           font-size: -moz-calc(44 / var(--vw)* var(--multiplier));
@@ -739,8 +755,8 @@ button.skipvideo.hidden{display:none;}
       }
 
       .page.menumainppage .tabs button {
-        font-size: -moz-calc(30/var(--vw)*var(--multiplier));
-        font-size: calc(30/var(--vw)*var(--multiplier));
+        font-size: -moz-calc(24/var(--vw)*var(--multiplier));
+        font-size: calc(24/var(--vw)*var(--multiplier));
     }
 
 }
@@ -805,7 +821,8 @@ button.skipvideo.hidden{display:none;}
       }
 
       .page.menumainppage .menu-section ul li,
-      .page.menumainppage .menu-section ul li span
+      .page.menumainppage .menu-section ul li span,
+      section.menu-section p.firsttext
       {
           
           font-size: -moz-calc(44 / var(--vw)* var(--multiplier));
@@ -885,11 +902,17 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
    
 } */
 .page.menumainppage .menu-section ul li details summary {
-    padding-left: 15px;
+    padding-left: 0px;
 }
 
 
 
 .language-item{font-size: -moz-calc(65 / var(--vw)* var(--multiplier));font-size: calc(65 / var(--vw)* var(--multiplier));}
+
+
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3 {
+    font-size: -moz-calc(24 / var(--vw)* var(--multiplier)) !important;
+    font-size: calc(24 / var(--vw)* var(--multiplier)) !important;
+}
 
 }

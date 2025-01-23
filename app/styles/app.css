@@ -369,7 +369,8 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
 }
 @media (min-width:768px) and (max-width:991px){
   .menu-section p,.menu-section ul li{display:flex;}
-  .menu-section p span,.menu-section ul li span{width:80%;}
+  .menu-section p span,.menu-section ul li span,
+  .page.menumainppage .menu-section ul li p{width:80%;}
   .menu-section p span.price,.menu-section ul li span.price{width:30%;text-align:right;}
   .menu-section p.firsttext{display:block;}
   .newfooter .newcontainer .allmenulist{width:calc(100% - 50px);display:flex;justify-content:space-between;padding:0 25px;flex-wrap:wrap;}
@@ -384,7 +385,8 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
 @media (max-width:767px)
 {
   .menu-section p,.menu-section ul li{display:flex;}
-  .menu-section p span,.menu-section ul li span{width:80%;display: flex;flex: 0 0 80%;}
+  .menu-section p span,.menu-section ul li span,
+  .page.menumainppage .menu-section ul li p{width:80%;display: flex;flex: 0 0 80%;}
   .menu-section p span.price,.menu-section ul li span.price{width:30%;text-align:right;}
   .menu-section p.firsttext{display:block;}
   .newfooter .newcontainer .allmenulist{width:100%;display:flex;justify-content:space-between;flex-wrap:wrap;}
@@ -431,7 +433,7 @@ progress{position:fixed;bottom:48px;left:0;-webkit-appearance:none;appearance:no
 .bannersectinlogo img{width:75px!important;height:auto!important;}
 summary {padding: 0;display: block;padding-left: 18px;position: relative;cursor: pointer;user-select: none;}
 summary:before{width:15px;height:15px;top:0;}
-.mainmenusection .menu-section ul li details p {margin-top: 8px;}
+.mainmenusection .menu-section ul li details p {margin-top: 8px;width: 80%;}
 .mainmenusection .topmenublock p{max-width: 260px;width: 100%;}
 .page.menumainppage .menu-section ul li span.price{width: auto;}
 }
@@ -452,8 +454,17 @@ summary:before{width:15px;height:15px;top:0;}
 @media screen and (max-width: 768px) 
 {
 .tabs.sticky {padding: 10px;position: fixed !important;top: 0;left: 0;width: calc(100% - 20px) !important;background-color: #fff;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);z-index: 999;}
-.tabs.sticky button,
+
 .tabs.sticky button a.menubuttonlink{color: #f6c738;}
+
+.tabs.sticky button{color: #fff;}
+
+.tabs.sticky button:hover a.menubuttonlink {
+  color: #fff;
+}
+
+
+
 .tabs.sticky button.active,
 .tabs.sticky button.active a.menubuttonlink{color: #fff;}
 .tabs.sticky {position: sticky;top: 0;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);}
