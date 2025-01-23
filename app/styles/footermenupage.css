@@ -78,7 +78,8 @@ footer.footer{display:none}
 .newfooter .newcontainer .footerblock ul li a svg{width:32px;height:32px;display:block;}
 @media (min-width:992px) and (max-width:1199px){
     .newfooter .newcontainer{padding:0 15px;width:-moz-calc(100% - 30px);width:calc(100% - 30px);display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;justify-content:space-between;max-width:1708px;margin:0 auto}
-    .menu-section p span,.menu-section ul li span{width:80%;flex: 0 0 80%;display:flex;}
+    .menu-section p span,.menu-section ul li span,
+    .page.menumainppage .menu-section ul li p{width:80%;flex: 0 0 80%;display:flex;}
     .page.menumainppage .menu-section ul li span.price{width: auto;}
     /* body.seconsection .page.menumainppage .menu-section ul li summary:after {top: 25px;} */
 }

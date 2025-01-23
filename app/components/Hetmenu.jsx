@@ -510,6 +510,7 @@ const Hetmenu = () => {
                             className="friet-category"
                           >
                             <h2>{frietCategory.title}</h2>
+                            <h3>{frietCategory.subTitle}</h3>
                             <div className="menu-item">
                               {frietCategory.menu.map((frietItem) => (
                                 <div key={frietItem._key}>
