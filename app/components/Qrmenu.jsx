@@ -17,7 +17,8 @@ const Qrmenu = () => {
   const [showLanguagePopup, setShowLanguagePopup] = useState(true);
   const buttonRef = useRef(null);
   const tabsRef = useRef(null);
-  
+  const [activeTab, setActiveTab] = useState(0);
+
 
   // Fetch menu data
   useEffect(() => {
@@ -61,38 +62,38 @@ const Qrmenu = () => {
               <details className="mainmenututles">
                 <summary>
                   <h2>
-                    {section.title} 
+                    {section.title}
                     {/* <span className="info-icon"></span> */}
                   </h2>
                 </summary>
               </details>
               <p className="firsttext">{section.subTitle}</p>
               <ul>
-                  {section.menu.map((menuItem) => (
-                    <li key={menuItem._key || menuItem.id}>
-                      {menuItem.recipedetails ? (
-                        <details>
-                          <summary>
-                            {/* <span>{menuItem.recipe}</span> */}
-                            <span>
-                              {language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}
-                            </span>
-                          </summary>
-                          {/* <p>{menuItem.recipedetails}</p> */}
-                          <p>
-                            {language === 'en' ? menuItem.english_recipedetails : `${menuItem.recipedetails} / ${menuItem.english_recipedetails}`}
-                          </p>
-                        </details>
-                      ) : (
-                        // <span>{menuItem.recipe}</span>
-                        <span>{language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}</span>
-                      )}
-                      {menuItem.price && (
-                        <span className="price" dangerouslySetInnerHTML={{ __html: menuItem.price }} />
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                {section.menu.map((menuItem) => (
+                  <li key={menuItem._key || menuItem.id}>
+                    {menuItem.recipedetails ? (
+                      <details>
+                        <summary>
+                          {/* <span>{menuItem.recipe}</span> */}
+                          <span>
+                            {language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}
+                          </span>
+                        </summary>
+                        {/* <p>{menuItem.recipedetails}</p> */}
+                        <p>
+                          {language === 'en' ? menuItem.english_recipedetails : `${menuItem.recipedetails} / ${menuItem.english_recipedetails}`}
+                        </p>
+                      </details>
+                    ) : (
+                      // <span>{menuItem.recipe}</span>
+                      <span>{language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}</span>
+                    )}
+                    {menuItem.price && (
+                      <span className="price" dangerouslySetInnerHTML={{ __html: menuItem.price }} />
+                    )}
+                  </li>
+                ))}
+              </ul>
             </section>
           ))
         ) : (
@@ -132,8 +133,15 @@ const Qrmenu = () => {
   }, []);
 
   // Handle smooth scroll
-  const handleMenuItemClick = (event, link) => {
+
+
+
+  
+
+  const handleMenuItemClick = (event, link, index) => {
     event.preventDefault();
+    setActiveTab(index);  // Update the active tab based on the index
+
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
@@ -150,22 +158,59 @@ const Qrmenu = () => {
     }
   };
 
-  // Handle active button class change
-  const handleTabClick = (event) => {
-    const menuLis = document.querySelectorAll('.tabs button');
-    menuLis.forEach((btn) => btn.classList.remove('active'));
-    event.target.closest('button').classList.add('active');
-  };
 
-  useEffect(() => {
-    const menuLis = document.querySelectorAll('.tabs button');
-    menuLis.forEach((btn) => btn.addEventListener('click', handleTabClick));
-    return () => {
-      menuLis.forEach((btn) =>
-        btn.removeEventListener('click', handleTabClick),
-      );
-    };
-  }, []);
+  // const handleMenuItemClick = (event, link) => {
+  //   event.preventDefault();
+  //   const menuItems = document.querySelectorAll('.menu-item'); 
+  //   menuItems.forEach(item => item.classList.remove('active'));
+  //   event.currentTarget.classList.add('active');
+  
+  //   if (link.startsWith('#')) {
+  //     const targetElement = document.querySelector(link);
+  //     if (targetElement) {
+  //       const targetPosition =
+  //         targetElement.getBoundingClientRect().top + window.pageYOffset;
+  //       const offset = window.innerWidth <= 768 ? 100 : 10;
+  //       window.scrollTo({
+  //         top: targetPosition - offset,
+  //         behavior: 'smooth',
+  //       });
+  //     }
+  //   } else {
+  //     window.location.href = link;
+  //   }
+  // };
+  
+
+  // const handleTabClick = (event) => {
+  //   event.preventDefault();
+  //   const menuLis = document.querySelectorAll('.tabs button a.menubuttonlink');
+  //   menuLis.forEach((btn) => btn.classList.remove('active'));
+  //   const clickedButton = event.target.closest('button');
+  //   if (clickedButton) {
+  //     clickedButton.classList.add('active');
+  //   }
+  // };
+
+
+  // useEffect(() => {
+  //   const menuLis = document.querySelectorAll('.tabs button a.menubuttonlink');
+  //   menuLis.forEach((btn) => btn.addEventListener('click', handleTabClick));
+  //   if (menuLis.length > 0) {
+  //     menuLis[0].classList.add('active');
+  //   }
+  //   return () => {
+  //     menuLis.forEach((btn) =>
+  //       btn.removeEventListener('click', handleTabClick),
+  //     );
+  //   };
+  // }, []);
+
+
+  // useEffect(() => {
+  //   const menuLis = document.querySelectorAll('.tabs button a.menubuttonlink');
+  //   console.log(menuLis); // Check the selected buttons
+  // }, []);
 
   // Add scroll event listener to toggle sticky class
   useEffect(() => {
@@ -209,7 +254,7 @@ const Qrmenu = () => {
             <span>{menuData.qrcustomerTitle}</span>
           </button>
 
-          <LanguageSwitchermenu/>
+          <LanguageSwitchermenu />
         </div>
       </section>
 
@@ -222,39 +267,37 @@ const Qrmenu = () => {
           <div className="tabs" ref={tabsRef}>
             {/* Render the tabs only if there are tabs available */}
             {tabs.length > 0 ? (
-              tabs.map((tab, index) => {
-                const sectionId =
-                  tab.english_lable.toLowerCase() === 'All'
-                    ? 'frenchfries-section'
-                    : `${tab.english_lable.toLowerCase()}-section`;
-                return (
-                  <button key={tab._key} className={index === 0 ? 'active' : ''}>
-                    <a
-                      href={`#${sectionId}`}
-                      className="menubuttonlink"
-                      onClick={(e) =>
-                        handleMenuItemClick(e, e.target.getAttribute('href'))
-                      }
-                    >
-                      {language === 'en' ? (
-                        tab.english_lable
-                      ) : (
-                        <>
-                          {tab.lable} / {tab.english_lable}
-                        </>
-                      )}
-                    </a>
-                  </button>
-                );
-              })
-            ) : (
-              <p>No tabs available</p>
-            )}
+        tabs.map((tab, index) => {
+          const sectionId =
+            tab.english_lable.toLowerCase() === 'All'
+              ? 'frenchfries-section'
+              : `${tab.english_lable.toLowerCase()}-section`;
+
+          return (
+            <button
+              key={tab._key}
+              className={index === activeTab ? 'active' : ''} // Apply active class conditionally
+            >
+              <a
+                href={`#${sectionId}`}
+                className="menubuttonlink"
+                onClick={(e) => handleMenuItemClick(e, e.target.getAttribute('href'), index)} // Pass the index to track active tab
+              >
+                {language === 'en'
+                  ? tab.english_lable
+                  : `${tab.lable} / ${tab.english_lable}`}
+              </a>
+            </button>
+          );
+        })
+      ) : (
+        <p>No tabs available</p>
+      )}
           </div>
         </div>
 
         <div className="whightimagebf">
-        <div className="content">
+          <div className="content">
             {/* Dynamic Content Sections */}
             <div id="all-section"></div>
 
