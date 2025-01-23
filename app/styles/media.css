@@ -919,4 +919,9 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
 body.overflono{touch-action: none;
     -ms-touch-action: none;}
 
+    .mainmenusection .menu-section ul li details p {
+        margin-left: 5px;
+        font-weight: 600;
+    }
+
 }
