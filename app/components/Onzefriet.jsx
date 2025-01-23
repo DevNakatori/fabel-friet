@@ -331,7 +331,7 @@ const Onzefriet = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       fries.current.forEach((fry) => {
         fry.y += fry.speed;
-        fry.x += fry.sway * 0.01;
+        fry.x += fry.sway * 0.02;
         if (fry.y > canvas.height) {
           fry.y = -50;
           fry.x = Math.random() * canvas.width;

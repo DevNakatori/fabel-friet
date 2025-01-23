@@ -915,4 +915,8 @@ body.seconsection .page.menumainppage .menu-section ul li summary:before {
     font-size: calc(24 / var(--vw)* var(--multiplier)) !important;
 }
 
+
+body.overflono{touch-action: none;
+    -ms-touch-action: none;}
+
 }

@@ -48,6 +48,7 @@ export async function loader({ params, request, context }) {
 export default function Page() {
   const { page } = useLoaderData();
   return (
+    <div className='pagemenu'>
     <LanguageProvider>
       <LanguageSwitcher />
       <Qrmenuheader />
@@ -56,6 +57,7 @@ export default function Page() {
         <Newfootermenu />
       </section>
     </LanguageProvider>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '~/components/LanguageContext';
+import LanguageSwitchermenu from '~/components/LanguageSwitchermenu';
 import { client } from '../../sanityClient';
 import gsap from 'gsap';
 import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
@@ -109,11 +110,13 @@ const Qrmenu = () => {
     gsap.set(divs, { bottom: '-100vh' });
     gsap.set(divs, { display: 'block' });
     gsap.set(body, { overflow: 'hidden' });
+    document.body.classList.add('overflono');
 
     const handleClick = () => {
       gsap.to(divs, { bottom: 0, duration: 1 });
       gsap.set(body, { overflow: 'visible' });
       document.body.classList.add('seconsection');
+      document.body.classList.remove('overflono');
     };
 
     const button = buttonRef.current;
@@ -205,6 +208,8 @@ const Qrmenu = () => {
           <button ref={buttonRef} className="okunderstood bubbly-button swipe-effect">
             <span>{menuData.qrcustomerTitle}</span>
           </button>
+
+          <LanguageSwitchermenu/>
         </div>
       </section>
 
