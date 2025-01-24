@@ -164,7 +164,7 @@ const Hetmenu = () => {
   const canvasRef = useRef(null);
   const fries = useRef([]);
   const fryImages = useRef([]);
-  const numberOfFries = 80;
+  const numberOfFries = 40;
   const fryImageSources = [
     new_fries_one,
     new_fries_two,
@@ -197,7 +197,7 @@ const Hetmenu = () => {
         fries.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+          speed: Math.random() * 1 + 0.2, // Slower speed: 0.5 to 1.5 pixels per frame
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[

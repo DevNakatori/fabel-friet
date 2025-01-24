@@ -712,6 +712,9 @@ button.skipvideo.hidden{display:none;}
     .sixthsection .main-accordian{border-top:solid 2px #0D1E4D;padding-top:30px;margin-top:20px;}
     .arrowimage{width:38px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:20.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:20px;margin-top:0px;}
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{font-size:20.822px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{font-size:18.776px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:20.822px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size:12.533px;}
@@ -723,7 +726,9 @@ button.skipvideo.hidden{display:none;}
     .bottomsection .scroll-down p,.scroll-down p{width:100%;}
 
     .headernew nav ul.desktop-menu .bannersectinlogo {
-        left: 80%;
+        left: inherit;
+        margin-left: auto;
+        right: -25px;
     }
 
     .headernew.main-menu.is-at-top {
@@ -841,6 +846,14 @@ button.skipvideo.hidden{display:none;}
       .page.menumainppage .tabs button {
         font-size: -moz-calc(33/var(--vw)*var(--multiplier));
         font-size: calc(33/var(--vw)*var(--multiplier));
+    }
+
+    #section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist
+    {
+        flex-wrap: wrap;
+    }
+    #section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist li {
+        width: 100%;
     }
 }
 

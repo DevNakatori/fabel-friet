@@ -101,7 +101,7 @@
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:874px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;width:50%;position:relative;margin-top:0px;z-index:1;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{max-width:332px;color:#0d1e4d;text-align:left;font-family:'Permanent Marker';font-size:clamp(20px,2vw,30px);font-style:normal;font-weight:400;line-height:35px;margin:0 0 10px;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{max-width:373px;color:#0d1e4d;font-family:'Work Sans';font-size:clamp(20px,5vw,20px);font-style:normal;font-weight:400;line-height:normal;text-align:left;margin:0;}
-.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;top:-330px;margin-bottom:-330px;right:-4vw;}
+.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;top:-180px;margin-bottom:-330px;right:-4vw;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{top:0;}
 .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom img{max-width:100%;width:inherit;width:inherit;margin:0;}
 .instagramfeedimages .contaernrul .contaernrulitem video{width:100%;height:100%;max-height:490px;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center;}
@@ -209,6 +209,10 @@
         height: 20px;
         font-family: 'Work Sans';
     } */
+
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3 {font-size: 20.776px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{width: 80%;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {font-size: 15.972px;}
 }
 
 @media (min-width:768px) and (max-width:991px)
@@ -222,7 +226,10 @@
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox h3{margin:0 0 10px 50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{margin:0 0 0 50px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{line-height: 100%;}
-    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;top:-9rem;margin-bottom:-145px;right:-50px;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{width:100%;margin-left:auto;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:relative;top:0rem;margin-bottom:0px;right:-50px;}
+    .arrowimage {right: -25px;top: 34px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h3 {font-size: 20.776px;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item p{width: 80%;}
     #section4 .wrappertest{padding:50px 25px;margin-bottom:-400px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{width:100%;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop ul.categotyfilter{margin:30px auto;}
@@ -240,7 +247,7 @@
     .allfiressectionsmenu{display: none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size: 14.533px;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop {margin-bottom: -550px !important;}
-
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary span {font-size: 15.972px;}
 
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
         background-image: none;
