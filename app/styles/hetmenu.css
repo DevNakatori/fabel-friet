@@ -61,7 +61,11 @@
 .fourthsection .whitebgbox{top:500px;margin-bottom:500px;padding:0 50px;margin-top:0;padding-top:100px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop{max-width:1412px;margin:0px auto;position:relative;top:-550px;margin-bottom:-550px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(1) h2,
-.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:20px;margin-top:0px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category:nth-child(1) h2{text-transform: capitalize;color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:20px;margin-top:0px;}
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,
+.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{text-transform: capitalize !important;}
+
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .drinks-category h2{color:#FFF;text-align:center;font-family:'Optima';font-size:46.822px;font-style:normal;font-weight:700;line-height:normal;text-transform:uppercase;background:none;-webkit-background-clip:text;-webkit-text-fill-color:#FFF;margin-bottom:10px;margin-top:20px;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(2) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}
 .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .friet-category:nth-child(3) h2{color:#FFF;font-family:Optima;font-size:27.313px;font-style:normal;font-weight:700;line-height:normal;text-transform:none;}

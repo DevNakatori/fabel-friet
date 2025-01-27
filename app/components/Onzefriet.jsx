@@ -23,10 +23,10 @@ import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.web
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
-import new_fries_one from '../assets/new_fries/new_1.png';
-import new_fries_two from '../assets/new_fries/new_2.png';
-import new_fries_three from '../assets/new_fries/new_3.png';
-import new_fries_four from '../assets/new_fries/new_4.png';
+import new_fries_one from '../assets/new_fries/new_1.webp';
+import new_fries_two from '../assets/new_fries/new_2.webp';
+import new_fries_three from '../assets/new_fries/new_3.webp';
+import new_fries_four from '../assets/new_fries/new_4.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -333,7 +333,7 @@ const Onzefriet = () => {
         fry.y += fry.speed;
         fry.x += fry.sway * 0.02;
         if (fry.y > canvas.height) {
-          fry.y = -50;
+          fry.y = -200;
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
