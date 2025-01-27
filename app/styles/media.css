@@ -306,9 +306,9 @@ button.skipvideo.hidden{display:none;}
     section.menu-section p.firsttext
     {
         
-        font-size: -moz-calc(18 / var(--vw)* var(--multiplier));
+        font-size: -moz-calc(20 / var(--vw)* var(--multiplier));
         
-        font-size: calc(18 / var(--vw)* var(--multiplier));
+        font-size: calc(20 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
     }
 
@@ -570,9 +570,9 @@ button.skipvideo.hidden{display:none;}
     section.menu-section p.firsttext
     {
         
-        font-size: -moz-calc(16 / var(--vw)* var(--multiplier));
+        font-size: -moz-calc(20 / var(--vw)* var(--multiplier));
         
-        font-size: calc(16 / var(--vw)* var(--multiplier));
+        font-size: calc(20 / var(--vw)* var(--multiplier));
         font-family: 'Optima';
     }
 

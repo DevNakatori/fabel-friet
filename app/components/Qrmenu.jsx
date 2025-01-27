@@ -5,8 +5,6 @@ import { client } from '../../sanityClient';
 import gsap from 'gsap';
 import Fabel3DPreview from '../assets/resizeimgs/webp/Fabel-3D-Preview.webp';
 
-
-
 const Qrmenu = () => {
   const { language } = useLanguage();
   const [menuData, setMenuData] = useState({
@@ -19,14 +17,12 @@ const Qrmenu = () => {
   const tabsRef = useRef(null);
   const [activeTab, setActiveTab] = useState(0);
 
-
   // Fetch menu data
   useEffect(() => {
     const qrmenu = async () => {
       const cachedMenuData = localStorage.getItem(`qrmenu_${language}`);
 
       if (cachedMenuData) {
-
         setMenuData(JSON.parse(cachedMenuData));
       } else {
         try {
@@ -37,12 +33,11 @@ const Qrmenu = () => {
 
           const menu = data[0] || {
             tabContant: { friet: [], snacks: [], drinks: [] },
-            tabs: []
+            tabs: [],
           };
           localStorage.setItem(`qrmenu_${language}`, JSON.stringify(menu));
           setMenuData(menu);
         } catch (err) {
-
           setError('Failed to load data');
         }
       }
@@ -51,20 +46,19 @@ const Qrmenu = () => {
     qrmenu();
   }, [language]);
 
-
-
   const MenuSection = ({ id, title, subTitle, menuData }) => {
     return (
       <div id={id}>
         {menuData.length > 0 ? (
           menuData.map((section) => (
-            <section className="menu-section" key={section._key || section.id}>
+            <section
+              className={`menu-section ${section.title === 'Onze Keuze' ? 'special-class' : ''
+                }`}
+              key={section._key || section.id}
+            >
               <details className="mainmenututles">
                 <summary>
-                  <h2>
-                    {section.title}
-                    {/* <span className="info-icon"></span> */}
-                  </h2>
+                  <h2>{section.title}</h2>
                 </summary>
               </details>
               <p className="firsttext">{section.subTitle}</p>
@@ -74,22 +68,53 @@ const Qrmenu = () => {
                     {menuItem.recipedetails ? (
                       <details>
                         <summary>
-                          {/* <span>{menuItem.recipe}</span> */}
-                          <span>
-                            {language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}
+                          <span
+                            className={`summeryline ${menuItem.recipe === 'Uitjes'
+                                ? 'special-class'
+                                : ''
+                              }`}
+                          >
+                            {language === 'en' ? (
+                              menuItem.english_recipe
+                            ) : (
+                              <>
+                                <span className="sprateline">
+                                  {menuItem.recipe}
+                                </span>
+                                <span className="englishlang sprateline">
+                                  {menuItem.english_recipe}
+                                </span>
+                              </>
+                            )}
                           </span>
                         </summary>
-                        {/* <p>{menuItem.recipedetails}</p> */}
                         <p>
-                          {language === 'en' ? menuItem.english_recipedetails : `${menuItem.recipedetails} / ${menuItem.english_recipedetails}`}
+                          {language === 'en' ? (
+                            menuItem.english_recipedetails
+                          ) : (
+                            <>
+                              <span className="sprateline">
+                                {menuItem.recipedetails}
+                              </span>
+                              <span className="englishlang sprateline">
+                                {menuItem.english_recipedetails}
+                              </span>
+                            </>
+                          )}
                         </p>
                       </details>
                     ) : (
-                      // <span>{menuItem.recipe}</span>
-                      <span>{language === 'en' ? menuItem.english_recipe : `${menuItem.recipe} / ${menuItem.english_recipe}`}</span>
+                      <span>
+                        {language === 'en'
+                          ? menuItem.english_recipe
+                          : `${menuItem.recipe} / ${menuItem.english_recipe}`}
+                      </span>
                     )}
                     {menuItem.price && (
-                      <span className="price" dangerouslySetInnerHTML={{ __html: menuItem.price }} />
+                      <span
+                        className="price"
+                        dangerouslySetInnerHTML={{ __html: menuItem.price }}
+                      />
                     )}
                   </li>
                 ))}
@@ -134,13 +159,9 @@ const Qrmenu = () => {
 
   // Handle smooth scroll
 
-
-
-  
-
   const handleMenuItemClick = (event, link, index) => {
     event.preventDefault();
-    setActiveTab(index);  // Update the active tab based on the index
+    setActiveTab(index); // Update the active tab based on the index
 
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
@@ -158,13 +179,12 @@ const Qrmenu = () => {
     }
   };
 
-
   // const handleMenuItemClick = (event, link) => {
   //   event.preventDefault();
-  //   const menuItems = document.querySelectorAll('.menu-item'); 
+  //   const menuItems = document.querySelectorAll('.menu-item');
   //   menuItems.forEach(item => item.classList.remove('active'));
   //   event.currentTarget.classList.add('active');
-  
+
   //   if (link.startsWith('#')) {
   //     const targetElement = document.querySelector(link);
   //     if (targetElement) {
@@ -180,7 +200,6 @@ const Qrmenu = () => {
   //     window.location.href = link;
   //   }
   // };
-  
 
   // const handleTabClick = (event) => {
   //   event.preventDefault();
@@ -191,7 +210,6 @@ const Qrmenu = () => {
   //     clickedButton.classList.add('active');
   //   }
   // };
-
 
   // useEffect(() => {
   //   const menuLis = document.querySelectorAll('.tabs button a.menubuttonlink');
@@ -205,7 +223,6 @@ const Qrmenu = () => {
   //     );
   //   };
   // }, []);
-
 
   // useEffect(() => {
   //   const menuLis = document.querySelectorAll('.tabs button a.menubuttonlink');
@@ -240,7 +257,6 @@ const Qrmenu = () => {
   // Safely map over the tabs if they exist
   const tabs = menuData.tabs || [];
 
-
   return (
     <div className="page menumainppage">
       <section
@@ -249,8 +265,13 @@ const Qrmenu = () => {
       >
         <div className="landingcontainer">
           <h2>{menuData.qrcustomertitle}</h2>
-          <div dangerouslySetInnerHTML={{ __html: menuData.qrcustomerdescription }} />
-          <button ref={buttonRef} className="okunderstood bubbly-button swipe-effect">
+          <div
+            dangerouslySetInnerHTML={{ __html: menuData.qrcustomerdescription }}
+          />
+          <button
+            ref={buttonRef}
+            className="okunderstood bubbly-button swipe-effect"
+          >
             <span>{menuData.qrcustomerTitle}</span>
           </button>
 
@@ -262,37 +283,46 @@ const Qrmenu = () => {
         <div className="topmenublock">
           <h1>{menuData.title}</h1>
           <p>
-            <i className="qrinfo"></i>{menuData.subTitle}
+            <i className="qrinfo tooltip">
+              <span class="tooltiptext">Ⓥ for Vegan</span>
+            </i>
+            {menuData.subTitle}
           </p>
           <div className="tabs" ref={tabsRef}>
             {/* Render the tabs only if there are tabs available */}
             {tabs.length > 0 ? (
-        tabs.map((tab, index) => {
-          const sectionId =
-            tab.english_lable.toLowerCase() === 'All'
-              ? 'frenchfries-section'
-              : `${tab.english_lable.toLowerCase()}-section`;
+              tabs.map((tab, index) => {
+                const sectionId =
+                  tab.english_lable.toLowerCase() === 'All'
+                    ? 'frenchfries-section'
+                    : `${tab.english_lable.toLowerCase()}-section`;
 
-          return (
-            <button
-              key={tab._key}
-              className={index === activeTab ? 'active' : ''} // Apply active class conditionally
-            >
-              <a
-                href={`#${sectionId}`}
-                className="menubuttonlink"
-                onClick={(e) => handleMenuItemClick(e, e.target.getAttribute('href'), index)} // Pass the index to track active tab
-              >
-                {language === 'en'
-                  ? tab.english_lable
-                  : `${tab.lable} / ${tab.english_lable}`}
-              </a>
-            </button>
-          );
-        })
-      ) : (
-        <p>No tabs available</p>
-      )}
+                return (
+                  <button
+                    key={tab._key}
+                    className={index === activeTab ? 'active' : ''} // Apply active class conditionally
+                  >
+                    <a
+                      href={`#${sectionId}`}
+                      className="menubuttonlink"
+                      onClick={(e) =>
+                        handleMenuItemClick(
+                          e,
+                          e.target.getAttribute('href'),
+                          index,
+                        )
+                      } // Pass the index to track active tab
+                    >
+                      {language === 'en'
+                        ? tab.english_lable
+                        : `${tab.lable} / ${tab.english_lable}`}
+                    </a>
+                  </button>
+                );
+              })
+            ) : (
+              <p>No tabs available</p>
+            )}
           </div>
         </div>
 
@@ -314,7 +344,9 @@ const Qrmenu = () => {
                 id={`${tab.english_lable.toLowerCase()}-section`} // Dynamically set the id
                 title={tab.english_lable} // Use the tab label dynamically
                 subTitle="Description of the section"
-                menuData={menuData.tabContant[tab.english_lable.toLowerCase()] || []} // Dynamically access the correct menu data
+                menuData={
+                  menuData.tabContant[tab.english_lable.toLowerCase()] || []
+                } // Dynamically access the correct menu data
               />
             ))}
           </div>
