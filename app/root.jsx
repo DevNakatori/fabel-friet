@@ -1,5 +1,5 @@
 import {useNonce, getShopAnalytics, Analytics} from '@shopify/hydrogen';
-// import bannerlogo from '../assets/resizeimgs/webp/logobanner.png';
+import bannerlogo from '../app/assets/resizeimgs/webp/logobanner.webp';
 import {defer} from '@shopify/remix-oxygen';
 import {
   Links,
