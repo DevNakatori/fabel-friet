@@ -1,4 +1,5 @@
 import {useNonce, getShopAnalytics, Analytics} from '@shopify/hydrogen';
+// import bannerlogo from '../assets/resizeimgs/webp/logobanner.png';
 import {defer} from '@shopify/remix-oxygen';
 import {
   Links,
@@ -154,7 +155,22 @@ export function Layout({children}) {
             shop={data.shop}
             consent={data.consent}
           >
-            <PageLayout {...data}>{children}</PageLayout>
+            <PageLayout {...data}>
+              
+            {/* <div id="loadersitetrans" className="loadersitetrans">
+        <div className="logosvg">
+          <img src={bannerlogo} alt="logo" />
+        </div>
+        <div className="loader1">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div> */}
+      
+      {children}</PageLayout>
           </Analytics.Provider>
         ) : (
           children
@@ -184,13 +200,28 @@ export function ErrorBoundary() {
 
   return (
     <div className="route-error">
-      <h1>Oops</h1>
+
+<div id="loadersitetrans" className="loadersitetrans">
+        <div className="logosvg">
+          <img src={bannerlogo} alt="logo" />
+        </div>
+        <div className="loader1">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+
+      {/* <h1>Oops</h1>
       <h2>{errorStatus}</h2>
       {errorMessage && (
         <fieldset>
           <pre>{errorMessage}</pre>
         </fieldset>
-      )}
+      )} */}
     </div>
   );
 }
