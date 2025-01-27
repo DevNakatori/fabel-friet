@@ -53,9 +53,9 @@ export const LanguageProvider = ({children}) => {
           } else if (country === 'DE') {
             switchLanguage('de');
           } else if (country === 'IN') {
-            switchLanguage('nl');
+            switchLanguage('en');
           } else {
-            switchLanguage('nl');
+            switchLanguage('en');
           }
         } catch (error) {
           console.error('Error fetching location:', error);
