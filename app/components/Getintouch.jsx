@@ -774,13 +774,13 @@ const Getintouch = () => {
                 }}
                 className="gradientgetintouchlist"
               >
-                <iframe
+                {/* <iframe
                   title="tiktok"
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
                   muted
                   allow="autoplay"
                   loop
-                ></iframe>
+                ></iframe> */}
               </li>
 
               <li
@@ -791,13 +791,13 @@ const Getintouch = () => {
                 }}
                 className="gradientgetintouchlist"
               >
-                <iframe
+                {/* <iframe
                   title="tiktok"
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
                   muted
                   allow="autoplay"
                   loop
-                ></iframe>
+                ></iframe> */}
               </li>
 
               <li
@@ -808,13 +808,13 @@ const Getintouch = () => {
                 }}
                 className="gradientgetintouchlist"
               >
-                <iframe
+                {/* <iframe
                   title="tiktok"
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
                   muted
                   allow="autoplay"
                   loop
-                ></iframe>
+                ></iframe> */}
               </li>
             </ul>
 
