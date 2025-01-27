@@ -216,7 +216,7 @@ export default function Homepage() {
       setTimeout(() => {
         //scrollToSection(window.location.hash);
         window.location.reload();
-      }, 2500);
+      }, 3000);
     }
   }, []);
 
