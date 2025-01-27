@@ -779,7 +779,6 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
                   loop
                 ></iframe>
               </li>
@@ -797,7 +796,6 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
                   loop
                 ></iframe>
               </li>
@@ -815,7 +813,6 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
                   loop
                 ></iframe>
               </li>
