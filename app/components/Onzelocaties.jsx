@@ -22,22 +22,55 @@ const Onzelocaties = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // useEffect(() => {
+  //   const fetchDataOnzelocaties = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzelocaties" && language == $lang]`,
+  //         { lang: language },
+  //       );
+
+  //       setOnzelocaties(data);
+  //       setDataLoadedlocaties(true);
+  //     } catch (err) {
+  //       console.error('Error fetching Onzelocaties data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchDataOnzelocaties();
+  // }, [language]);
+
+
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzelocaties" && language == $lang]`,
-          { lang: language },
-        );
+      const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
+      //console.log('onzelocatiesData Cached Data:', cachedData);
 
-        setOnzelocaties(data);
-        setDataLoadedlocaties(true);
-      } catch (err) {
-        console.error('Error fetching Onzelocaties data:', err);
-        setError('Failed to load data');
-      } finally {
+      if (cachedData) {
+        setOnzelocaties(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzelocaties" && language == $lang]`,
+            {lang: language},
+          );
+          // console.log('Fetched onzelocatiesData Data:', data);
+          localStorage.setItem(
+            `onzelocatiesData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzelocaties(data);
+        } catch (err) {
+          console.error('Error fetching Onzelocaties data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
     fetchDataOnzelocaties();

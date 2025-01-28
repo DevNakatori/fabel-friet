@@ -30,21 +30,54 @@ const Onzeimpact = () => {
   const garbageRef = useRef(null);
   const binContainerRef = useRef(null);
 
+  // useEffect(() => {
+  //   const fetchDataonzeimpactData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzeimpact" && language == $lang]`,
+  //         { lang: language },
+  //       );
+
+  //       setonzeimpact(data);
+  //       setDataLoadedimpact(true);
+  //     } catch (err) {
+  //       setError('Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchDataonzeimpactData();
+  // }, [language]);
+
+
+
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzeimpact" && language == $lang]`,
-          { lang: language },
-        );
-
-        setonzeimpact(data);
-        setDataLoadedimpact(true);
-      } catch (err) {
-        setError('Failed to load data');
-      } finally {
+      const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
+      //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
+      if (cachedData) {
+        setonzeimpact(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzeimpact" && language == $lang]`,
+            {lang: language},
+          );
+          //console.log('Fetched fetchDataonzeimpactData Data:', data);
+          localStorage.setItem(
+            `onzeimpactData_${language}`,
+            JSON.stringify(data),
+          );
+          setonzeimpact(data);
+        } catch (err) {
+          console.error('Error fetching Onzeimpact data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
     fetchDataonzeimpactData();
