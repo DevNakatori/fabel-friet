@@ -1,24 +1,24 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
-import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
-import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
-import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
-import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.webp';
-import fries_four from '../assets/resizeimgs/webp/friewebp/Fries2_FabelFriet.webp';
-import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.webp';
-import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
-import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
+// import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
+// import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
+// import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
+// import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.webp';
+// import fries_four from '../assets/resizeimgs/webp/friewebp/Fries2_FabelFriet.webp';
+// import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.webp';
+// import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
+// import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -31,7 +31,7 @@ import new_fries_four from '../assets/new_fries/new_4.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoaded, setDataLoaded] = useState(false);
   const [onzefriet, setOnzefriet] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -44,7 +44,7 @@ const Onzefriet = () => {
         setLoading(true);
         const data = await client.fetch(
           `*[_type == "onzefriet" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
         setOnzefriet(data);
         setDataLoaded(true);
@@ -131,47 +131,11 @@ const Onzefriet = () => {
 
   /* round curcule animation start */
 
-  /* accordian start */
-  const toggleAccordion = (e) => {
-    const trigger = e.currentTarget;
-    const content = trigger.nextElementSibling;
-    document.querySelectorAll('.accordion-content').forEach((accordion) => {
-      if (accordion !== content) {
-        gsap.to(accordion, {
-          height: 0,
-          duration: 0.5,
-          onComplete: () => (accordion.style.display = 'none'),
-        });
-        accordion.classList.remove('show');
-        trigger.classList.remove('active');
-      }
-    });
-    document.querySelectorAll('.accordion-header').forEach((item) => {
-      if (item !== trigger) {
-        item.classList.remove('active');
-      }
-    });
-    if (content.classList.contains('show')) {
-      gsap.to(content, {
-        height: 0,
-        duration: 0.5,
-        onComplete: () => (content.style.display = 'none'),
-      });
-      content.classList.remove('show');
-      trigger.classList.remove('active');
-    } else {
-      content.style.display = 'block';
-      let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
-      content.classList.add('show');
-      trigger.classList.add('active');
-    }
-  };
-  /* accordian end */
+
 
   useEffect(() => {
 
-    if (!dataLoaded) return;
+    if (!onzefriet) return;
 
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
@@ -253,7 +217,7 @@ const Onzefriet = () => {
 
   useEffect(() => {
 
-    if (!dataLoaded) return;
+    if (!onzefriet) return;
 
     const path = document.querySelector('.line2');
     if (path) {
@@ -289,7 +253,7 @@ const Onzefriet = () => {
 
   useEffect(() => {
 
-    if (!dataLoaded) return;
+    if (!onzefriet) return;
 
 
     if (!rainContainerRef.current || !canvasRef.current) return;
@@ -319,7 +283,7 @@ const Onzefriet = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ], // Random image
         });
       }
@@ -337,7 +301,7 @@ const Onzefriet = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
@@ -375,7 +339,7 @@ const Onzefriet = () => {
     const animationDelay = isHardRefresh ? 300 : 300;
 
     const initiateAnimations = () => {
-      if (!dataLoaded) return;
+      if (!onzefriet) return;
 
       const typeSplit = new SplitType('[data-onzefrienttitle]', {
         types: 'lines, words, chars',
@@ -497,7 +461,7 @@ const Onzefriet = () => {
           },
         });
 
-        tlimpact.set(containeonze, {visibility: 'visible'});
+        tlimpact.set(containeonze, { visibility: 'visible' });
         tlimpact.from(containeonze, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -513,7 +477,7 @@ const Onzefriet = () => {
 
     setTimeout(() => {
       initiateAnimations();
-    }, animationDelay); 
+    }, animationDelay);
 
     // return () => {
     //   gsap.killTweensOf('[data-onzefrienttitle] .line');
@@ -524,6 +488,46 @@ const Onzefriet = () => {
     //   gsap.killTweensOf('[data-onzefriendescription]');
     // };
   }, [onzefriet]);
+
+
+
+  /* accordian start */
+  const toggleAccordion = (e) => {
+    const trigger = e.currentTarget;
+    const content = trigger.nextElementSibling;
+    document.querySelectorAll('.accordion-content').forEach((accordion) => {
+      if (accordion !== content) {
+        gsap.to(accordion, {
+          height: 0,
+          duration: 0.5,
+          onComplete: () => (accordion.style.display = 'none'),
+        });
+        accordion.classList.remove('show');
+        trigger.classList.remove('active');
+      }
+    });
+    document.querySelectorAll('.accordion-header').forEach((item) => {
+      if (item !== trigger) {
+        item.classList.remove('active');
+      }
+    });
+    if (content.classList.contains('show')) {
+      gsap.to(content, {
+        height: 0,
+        duration: 0.5,
+        onComplete: () => (content.style.display = 'none'),
+      });
+      content.classList.remove('show');
+      trigger.classList.remove('active');
+    } else {
+      content.style.display = 'block';
+      let contentHeight = content.scrollHeight;
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      content.classList.add('show');
+      trigger.classList.add('active');
+    }
+  };
+  /* accordian end */
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -632,7 +636,7 @@ const Onzefriet = () => {
               <canvas
                 className="canvasfries"
                 ref={canvasRef}
-                style={{position: 'absolute', top: -100, left: -50}}
+                style={{ position: 'absolute', top: -100, left: -50 }}
               />
 
               <div className="whitebgbox">
@@ -749,7 +753,7 @@ const Onzefriet = () => {
                           pagination={{
                             clickable: true,
                           }}
-                          grabCursor= {true}
+                          grabCursor={true}
                           speed={3000}
                           autoplay={{
                             delay: 3000,
@@ -805,7 +809,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                          Math.floor(review.reviewRating) &&
+                                        Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (

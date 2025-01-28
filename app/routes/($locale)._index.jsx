@@ -211,14 +211,33 @@ export default function Homepage() {
   }, []);
 
   useEffect(() => {
+    
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-        //scrollToSection(window.location.hash);
         window.location.reload();
-      }, 1500);
+      }, 2500);
+
+      setTimeout(() => {
+        const videoss = document.querySelector('#myVideo');
+        if (videoss) {
+          videoss.style.opacity = '1';
+        }
+
+        gsap.fromTo(
+          '#myVideo',
+          {opacity: 0},
+          {
+            opacity: 1,
+          },
+        );
+
+
+      }, 100);
     }
-  }, []);
+  }, []); 
+
+
 
   useEffect(() => {
     let portrait = window.matchMedia('(orientation: portrait)');

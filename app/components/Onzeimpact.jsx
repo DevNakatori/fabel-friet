@@ -11,12 +11,12 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import {Pagination, Autoplay} from 'swiper/modules';
-import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
-import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
-import etuh from '../assets/resizeimgs/webp/etuh.png';
-import etuij from '../assets/resizeimgs/webp/etuij.png';
+// import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
+// import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
+// import etuh from '../assets/resizeimgs/webp/etuh.png';
+// import etuij from '../assets/resizeimgs/webp/etuij.png';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
-import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
+// import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
 import topdustin from '../assets/resizeimgs/webp/Top.webp';
@@ -147,7 +147,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedimpact) return;
+    if (!onzeimpact) return;
 
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
@@ -229,7 +229,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedimpact) return;
+    if (!onzeimpact) return;
 
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
@@ -254,7 +254,7 @@ const Onzeimpact = () => {
     const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
 
     const initiateAnimationsonzimpact = () => {
-      if (!dataLoadedimpact) return;
+      if (!onzeimpact) return;
 
       let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
         types: 'lines, words, chars',

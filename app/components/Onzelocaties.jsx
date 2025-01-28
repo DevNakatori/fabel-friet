@@ -11,9 +11,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import {Pagination, Autoplay} from 'swiper/modules';
 import {getImageUrl} from '../js/imagesurl';
-import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
-import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
-import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
+// import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
+// import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
+// import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -117,7 +117,7 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedlocaties) return;
+    if (!onzelocaties) return;
 
 
     const animateButton = (e) => {
@@ -138,7 +138,7 @@ const Onzelocaties = () => {
     const animationDelaylocaties = isHardRefreshlocaties ? 300 : 300;
 
     const initiateAnimationsonzlocaties = () => {
-      if (!dataLoadedlocaties) return;
+      if (!onzelocaties) return;
 
       let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
         types: 'lines, words, chars',
