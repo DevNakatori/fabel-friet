@@ -6,6 +6,12 @@
 
 .roundtext h3{right:-7vw;}
 .roundtext h2{left:-12vw;}
+
+
+.en .roundtext h2,
+.en .roundtext-onzelocation h2{left: -16vw;}
+
+
 button.skipvideo.hidden{display:none;}
 .rightsidebullets{display:none!important;}
 
@@ -168,6 +174,11 @@ button.skipvideo.hidden{display:none;}
     .banner_title_text h1,.banner_title_text{max-width:1030px;}
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-7vw;}
+
+    .en .roundtext h2,
+    .en .roundtext-onzelocation h2{left: -16vw;}
+
+
     .en .roundtext-onzelocation h2{left:-7vw;}
     .nl .roundtext h2{left:-12vw;}
     .de .roundtext h3{right:-20vw;}
@@ -597,8 +608,12 @@ button.skipvideo.hidden{display:none;}
     .roundtext h3{right:-7vw;}
     .roundtext h2{left:-12vw;}
     .nl .roundtext h2{left:-12vw;}
+    
     .de .roundtext h3{right:-20vw;}
     .de .roundtext h2{left:-15vw;}
+    .en .roundtext h2,
+    .en .roundtext-onzelocation h2{left: -16vw;}
+
     .roundtext h2,.roundtext h3{font-size:-moz-calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));font-size:calc(40px + (130 - 60) * ((100vw - 300px) / (1600 - 300)));}
     .de .roundtext-hetmenu h3{right:-27vw;line-height:120%;}
     .de .roundtext-hetmenu h2{left:-1vw;}

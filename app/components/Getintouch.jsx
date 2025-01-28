@@ -9,16 +9,16 @@ import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-import mainbannerbg from '../assets/resizeimgs/webp/d4f1c7ef00981f46b3a68aed3d06dc01-min.webp';
+// import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+// import mainbannerbg from '../assets/resizeimgs/webp/d4f1c7ef00981f46b3a68aed3d06dc01-min.webp';
 import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
 import facebookIcon from '../assets/resizeimgs/webp/fb.webp';
 import instagramIcon from '../assets/resizeimgs/webp/insta.webp';
 import linkedinIcon from '../assets/resizeimgs/webp/in.webp';
 import twitterIcon from '../assets/resizeimgs/webp/twitter.webp';
 import tiktokIcon from '../assets/resizeimgs/webp/tiktok.webp';
-import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
-import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
+// import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
+// import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
 import liek_1 from '../assets/resizeimgs/webp/like11.webp';
 import liek_2 from '../assets/resizeimgs/webp/like33.webp';
 import liek_3 from '../assets/resizeimgs/webp/like44.webp';
@@ -110,7 +110,7 @@ const Getintouch = () => {
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
-    if (!dataLoadedgetintouch) return;
+    if (!getIntouch) return;
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
     }, 4000);
@@ -126,7 +126,7 @@ const Getintouch = () => {
   };
 
   useEffect(() => {
-    if (!dataLoadedgetintouch) return;
+    if (!getIntouch) return;
 
     const listgetintouch = document.querySelectorAll(
       '.gradient-threeboxgetintouch',
@@ -349,7 +349,7 @@ const Getintouch = () => {
     const isHardRefreshintouch = window.performance.navigation.type === 1;
     const animationDelayintouch = isHardRefreshintouch ? 300 : 300;
     const initiateAnimationsonzintouch = () => {
-      if (!dataLoadedgetintouch) return;
+      if (!getIntouch) return;
       const typeSplitgettouchonzefrienttitle = new SplitType(
         '[data-gettouchonzefrienttitle]',
         {
@@ -531,8 +531,7 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedgetintouch) return;
-
+    if (!getIntouch) return;
 
     const pathsstouch = document.querySelector('.line2sstouch');
     if (pathsstouch) {
@@ -575,7 +574,7 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!dataLoadedgetintouch) return;
+    if (!getIntouch) return;
 
 
     gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });

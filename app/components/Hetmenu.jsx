@@ -11,16 +11,16 @@ import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
 import {getImageUrl} from '../js/imagesurl';
 // import InstagramFeed from './InstagramFeed';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
-import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
-import menu_one from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
-import menu_two from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
-import menu_three from '../assets/resizeimgs/webp/menuwebp/Fries2_FabelFriet.webp';
-import menu_four from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet.webp';
-import menu_five from '../assets/resizeimgs/webp/menuwebp/Fries5_FabelFriet.webp';
-import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.webp';
-import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
+// import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+// import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
+// import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
+// import menu_one from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
+// import menu_two from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
+// import menu_three from '../assets/resizeimgs/webp/menuwebp/Fries2_FabelFriet.webp';
+// import menu_four from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet.webp';
+// import menu_five from '../assets/resizeimgs/webp/menuwebp/Fries5_FabelFriet.webp';
+// import menu_six from '../assets/resizeimgs/webp/menuwebp/Fries1_FabelFriet_1.webp';
+// import menu_seven from '../assets/resizeimgs/webp/menuwebp/Fries3_FabelFriet.webp';
 //import menu_eight from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
 
 import new_fries_one from '../assets/new_fries/new_1.webp';
@@ -28,8 +28,8 @@ import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
 
-import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
-import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
+// import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
+// import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -139,7 +139,7 @@ const Hetmenu = () => {
   
 
   useEffect(() => {
-    if (!dataLoadedhetmenu) return;
+    if (!hetmenu) return;
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -173,7 +173,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
-    if (!dataLoadedhetmenu) return;
+    if (!hetmenu) return;
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -253,7 +253,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    if (!dataLoadedhetmenu) return;
+    if (!hetmenu) return;
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
       let currentSection = 'friet-section';
@@ -280,7 +280,7 @@ const Hetmenu = () => {
     const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
 
     const initiateAnimationsonzhetmenu = () => {
-      if (!dataLoadedhetmenu) return;
+      if (!hetmenu) return;
 
       let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
