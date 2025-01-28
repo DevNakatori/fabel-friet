@@ -184,7 +184,7 @@ const Qrmenuheader = () => {
         </button> */}
 
         <div className="logoonlymobilefirstsection">
-          <img src={bannerlogo} />
+          <img loading="lazy" src={bannerlogo} />
         </div>
         <div
           className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
@@ -242,7 +242,7 @@ const Qrmenuheader = () => {
             ))}
           </ul>
           <div className="logosvg">
-            <img src={bannerlogo} alt="logo" />
+            <img loading="lazy" src={bannerlogo} alt="logo" />
           </div>
         </div>
       </nav>

@@ -1,25 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-// import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
-// import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
-// import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedlocaties, setDataLoadedlocaties] = useState(false);
   const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,7 +28,7 @@ const Onzelocaties = () => {
         setLoading(true);
         const data = await client.fetch(
           `*[_type == "onzelocaties" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
 
         setOnzelocaties(data);
@@ -114,7 +111,7 @@ const Onzelocaties = () => {
     };
   }, [onzelocaties]);
 
-  
+
 
   useEffect(() => {
 
@@ -198,7 +195,7 @@ const Onzelocaties = () => {
           },
         });
 
-        tl.set(container, {autoAlpha: 1});
+        tl.set(container, { autoAlpha: 1 });
         tl.from(container, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -222,20 +219,20 @@ const Onzelocaties = () => {
     // };
   }, [onzelocaties]);
 
-  if (loading) return<div>
-  <div className="loadersite">
-    <div className="logosvg">
-      <img src={bannerlogo} alt="logo" />
+  if (loading) return <div>
+    <div className="loadersite">
+      <div className="logosvg">
+        <img loading="lazy" src={bannerlogo} alt="logo" />
+      </div>
+      <div className="loader1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div className="loader1">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</div>;
+  </div>;
   if (error) return <p>{error}</p>;
 
   return (
@@ -252,6 +249,7 @@ const Onzelocaties = () => {
                 alt={locationData.transitionSection.image.alt}
                 width="10"
                 height="10"
+                loading="lazy"
               />
             </div>
 
@@ -370,10 +368,11 @@ const Onzelocaties = () => {
                                   alt={loc.image.alt}
                                   width="10"
                                   height="10"
+                                  loading="lazy"
                                 />
                                 <h4>Opening hours</h4>
                                 <p
-                                  dangerouslySetInnerHTML={{__html: loc.info}}
+                                  dangerouslySetInnerHTML={{ __html: loc.info }}
                                 />
                                 <div className="locationmaoaddress">
                                   <div className="locationicon">
@@ -438,6 +437,7 @@ const Onzelocaties = () => {
                               width="10"
                               height="10"
                               className="whitewithvideomainboximg"
+                              loading="lazy"
                             />
                           </div>
                         </div>
@@ -478,7 +478,7 @@ const Onzelocaties = () => {
                             data-aos="fade-up"
                             data-aos-easing="ease-out-cubic"
                             data-aos-duration="2000"
-                            dangerouslySetInnerHTML={{__html: loc.info}}
+                            dangerouslySetInnerHTML={{ __html: loc.info }}
                           />
 
                           <a

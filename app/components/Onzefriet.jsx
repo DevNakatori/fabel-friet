@@ -11,14 +11,6 @@ import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
-// import onzie_leftvidep from '../assets/resizeimgs/webp/Rectangle43.webp';
-// import fries_one from '../assets/resizeimgs/webp/friewebp/Fries5_FabelFriet.webp';
-// import fries_two from '../assets/resizeimgs/webp/friewebp/Fries6_FabelFriet.webp';
-// import fries_three from '../assets/resizeimgs/webp/friewebp/Fries3_FabelFriet.webp';
-// import fries_four from '../assets/resizeimgs/webp/friewebp/Fries2_FabelFriet.webp';
-// import fries_five from '../assets/resizeimgs/webp/friewebp/Fries1_FabelFriet.webp';
-// import fries_six from '../assets/resizeimgs/webp/friewebp/Fries4_FabelFriet.webp';
-// import arrow_blue from '../assets/resizeimgs/webp/arrow_blue.webp';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
@@ -133,90 +125,6 @@ const Onzefriet = () => {
 
   /* round curcule animation start */
 
-
-
-  useEffect(() => {
-
-    // if (!onzefriet) return;
-
-    gsap.set(['.image-wrapper'], {
-      xPercent: -50,
-      yPercent: -50,
-    });
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.img-container',
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        ease: 'power3.inOut',
-        once: false,
-      },
-    });
-
-    timeline
-      .to('.image-wrapper:first-child', {
-        left: '20%',
-        rotation: -5,
-        duration: 2,
-        ease: 'power3.out',
-        scrollEnd: () => {
-          gsap.to('.image-wrapper .threeboxleftlogobar', {
-            opacity: 1,
-            duration: 3,
-            ease: 'power3.out',
-          });
-        },
-      })
-      .to(
-        '.image-wrapper:nth-child(2)',
-        {
-          left: '50%',
-          duration: 2,
-          ease: 'power3.out',
-          scrollEnd: () => {
-            gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
-              opacity: 1,
-              duration: 3,
-              ease: 'power3.out',
-            });
-          },
-        },
-        '<',
-      )
-      .to(
-        '.image-wrapper:last-child',
-        {
-          left: '80%',
-          rotation: 5,
-          duration: 2,
-          ease: 'power3.out',
-        },
-        '<',
-      );
-
-    gsap.fromTo(
-      '.image-wrapper .threeboxleftlogobar',
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 3,
-        scrollTrigger: {
-          trigger: '.img-container',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1,
-          repeat: -1,
-          yoyo: true,
-          ease: 'power3.inOut',
-        },
-      },
-    );
-  }, [onzefriet]);
-
   useEffect(() => {
 
     if (!onzefriet) return;
@@ -241,100 +149,7 @@ const Onzefriet = () => {
     }
   }, [onzefriet]);
 
-  const rainContainerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const fries = useRef([]);
-  const fryImages = useRef([]);
-  const numberOfFries = 40;
-  const fryImageSources = [
-    new_fries_one,
-    new_fries_two,
-    new_fries_three,
-    new_fries_four,
-  ];
 
-  useEffect(() => {
-
-    if (!onzefriet) return;
-
-
-    if (!rainContainerRef.current || !canvasRef.current) return;
-    fryImages.current = fryImageSources.map((src) => {
-      const img = new Image();
-      img.src = src;
-      return img;
-    });
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return;
-      canvas.width = rainContainer.offsetWidth;
-      canvas.height = rainContainer.offsetHeight;
-    };
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    const createFries = () => {
-      fries.current = [];
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      for (let i = 0; i < numberOfFries; i++) {
-        fries.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.2, // Slower speed: 0.5 to 1.5 pixels per frame
-          sway: Math.random() * 50 - 25,
-          image:
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ], // Random image
-        });
-      }
-    };
-    const renderFries = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      fries.current.forEach((fry) => {
-        fry.y += fry.speed;
-        fry.x += fry.sway * 0.02;
-        if (fry.y > canvas.height) {
-          fry.y = -200;
-          fry.x = Math.random() * canvas.width;
-          fry.image =
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ];
-        }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
-      });
-      requestAnimationFrame(renderFries);
-    };
-    ScrollTrigger.create({
-      trigger: rainContainerRef.current,
-      start: 'top center',
-      onEnter: () => {
-        createFries();
-        renderFries();
-      },
-      onLeaveBack: () => {
-        fries.current = [];
-        const ctx = canvasRef.current.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height,
-          );
-        }
-      },
-    });
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [onzefriet]);
 
   useEffect(() => {
     const isHardRefresh = window.performance.navigation.type === 1;
@@ -493,6 +308,88 @@ const Onzefriet = () => {
 
 
 
+  useEffect(() => {
+
+    //if (!onzefriet) return;
+
+   gsap.set(['.image-wrapper'], {
+     xPercent: -50,
+     yPercent: -50,
+   });
+
+   const timeline = gsap.timeline({
+     scrollTrigger: {
+       trigger: '.img-container',
+       start: 'top center',
+       end: 'bottom bottom',
+       scrub: 2,
+       ease: 'power3.inOut',
+       once: false,
+     },
+   });
+
+   timeline
+     .to('.image-wrapper:first-child', {
+       left: '20%',
+       rotation: -5,
+       duration: 2,
+       ease: 'power3.out',
+       scrollEnd: () => {
+         gsap.to('.image-wrapper .threeboxleftlogobar', {
+           opacity: 1,
+           duration: 3,
+           ease: 'power3.out',
+         });
+       },
+     })
+     .to(
+       '.image-wrapper:nth-child(2)',
+       {
+         left: '50%',
+         duration: 2,
+         ease: 'power3.out',
+         scrollEnd: () => {
+           gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+             opacity: 1,
+             duration: 3,
+             ease: 'power3.out',
+           });
+         },
+       },
+       '<',
+     )
+     .to(
+       '.image-wrapper:last-child',
+       {
+         left: '80%',
+         rotation: 5,
+         duration: 2,
+         ease: 'power3.out',
+       },
+       '<',
+     );
+
+   gsap.fromTo(
+     '.image-wrapper .threeboxleftlogobar',
+     {
+       opacity: 0,
+     },
+     {
+       opacity: 1,
+       duration: 3,
+       scrollTrigger: {
+         trigger: '.img-container',
+         start: 'top center',
+         end: 'bottom center',
+         scrub: 1,
+         repeat: 1,
+         yoyo: true,
+         ease: 'power3.inOut',
+       },
+     },
+   );
+ }, [onzefriet]);
+
   /* accordian start */
   const toggleAccordion = (e) => {
     const trigger = e.currentTarget;
@@ -531,10 +428,104 @@ const Onzefriet = () => {
   };
   /* accordian end */
 
+
+  const rainContainerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 80;
+  const fryImageSources = [
+    new_fries_one,
+    new_fries_two,
+    new_fries_three,
+    new_fries_four,
+  ];
+
+  useEffect(() => {
+
+    if (!rainContainerRef.current || !canvasRef.current) return;
+    fryImages.current = fryImageSources.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+    const resizeCanvas = () => {
+      const canvas = canvasRef.current;
+      const rainContainer = rainContainerRef.current;
+      if (!canvas || !rainContainer) return;
+      canvas.width = rainContainer.offsetWidth;
+      canvas.height = rainContainer.offsetHeight;
+    };
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    const createFries = () => {
+      fries.current = [];
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      for (let i = 0; i < numberOfFries; i++) {
+        fries.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+          sway: Math.random() * 50 - 25,
+          image:
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ], // Random image
+        });
+      }
+    };
+    const renderFries = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext('2d');
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fries.current.forEach((fry) => {
+        fry.y += fry.speed;
+        fry.x += fry.sway * 0.01;
+        if (fry.y > canvas.height) {
+          fry.y = 0;
+          fry.x = Math.random() * canvas.width;
+          fry.image =
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ];
+        }
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
+      });
+      requestAnimationFrame(renderFries);
+    };
+    ScrollTrigger.create({
+      trigger: rainContainerRef.current,
+      start: 'top center',
+      onEnter: () => {
+        createFries();
+        renderFries();
+      },
+      onLeaveBack: () => {
+        fries.current = [];
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          ctx.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height,
+          );
+        }
+      },
+    });
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [onzefriet]);
+
+
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" />
+        <img loading="lazy" src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -559,6 +550,7 @@ const Onzefriet = () => {
                 alt={content.transitionSection.image.alt}
                 width="10"
                 height="10"
+                loading="lazy"
               />
             </div>
             <div className="roundimages">
@@ -622,6 +614,7 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
+                            loading="lazy"
                           />
                         </div>
                       )}
@@ -633,6 +626,7 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
+                            loading="lazy"
                           />
                         </div>
                       )}
@@ -642,6 +636,7 @@ const Onzefriet = () => {
                         alt={image.alt}
                         width="10"
                         height="10"
+                        loading="lazy"
                       />
                     </div>
                   ))}
@@ -665,6 +660,7 @@ const Onzefriet = () => {
                             alt="img"
                             width="10"
                             height="10"
+                            loading="lazy"
                           />
                         </div>
                         <div className="revealvideo">

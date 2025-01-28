@@ -216,7 +216,7 @@ export default function Homepage() {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
         window.location.reload();
-      }, 2500);
+      }, 1000);
 
       setTimeout(() => {
         const videoss = document.querySelector('#myVideo');
@@ -233,7 +233,7 @@ export default function Homepage() {
         );
 
 
-      }, 100);
+      }, 1000);
     }
   }, []); 
 

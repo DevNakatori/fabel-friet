@@ -1,22 +1,17 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzeimpact.css';
-import {getImageUrl} from '../js/imagesurl';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getImageUrl } from '../js/imagesurl';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
-// import onzie_leftvidep from '../assets/resizeimgs/webp/e4a873c11067a15b870b670abefd5396-min.webp';
-// import arrow_bluebottom from '../assets/resizeimgs/webp/arrow_bluebottom.webp';
-// import etuh from '../assets/resizeimgs/webp/etuh.png';
-// import etuij from '../assets/resizeimgs/webp/etuij.png';
+import { Pagination, Autoplay } from 'swiper/modules';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
-// import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
 import topdustin from '../assets/resizeimgs/webp/Top.webp';
@@ -24,7 +19,7 @@ import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -41,7 +36,7 @@ const Onzeimpact = () => {
         setLoading(true);
         const data = await client.fetch(
           `*[_type == "onzeimpact" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
 
         setonzeimpact(data);
@@ -148,7 +143,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-  
+
 
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
@@ -431,7 +426,7 @@ const Onzeimpact = () => {
           },
         });
 
-        tlimpact.set(containerimpact, {autoAlpha: 1});
+        tlimpact.set(containerimpact, { autoAlpha: 1 });
         tlimpact.from(containerimpact, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -447,7 +442,7 @@ const Onzeimpact = () => {
 
     setTimeout(() => {
       initiateAnimationsonzimpact();
-    }, animationDelayimpact); 
+    }, animationDelayimpact);
 
     // return () => {
     //   gsap.killTweensOf('[data-onzeimpacttitle] .line');
@@ -461,19 +456,19 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
   if (loading) return <div>
-  <div className="loadersite">
-    <div className="logosvg">
-      <img src={bannerlogo} alt="logo" />
+    <div className="loadersite">
+      <div className="logosvg">
+        <img src={bannerlogo} alt="logo" loading="lazy"/>
+      </div>
+      <div className="loader1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div className="loader1">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</div>;;
+  </div>;;
   if (error) return <p>{error}</p>;
 
   if (!onzeimpact || onzeimpact.length === 0) return <p>No data available</p>;
@@ -490,6 +485,8 @@ const Onzeimpact = () => {
             alt={data.transitionSection.image.alt}
             width="10"
             height="10"
+            loading="lazy"
+            loading="lazy"
           />
         </div>
 
@@ -522,7 +519,7 @@ const Onzeimpact = () => {
           <p
             className="onzeimpactdescription"
             data-onzeimpactdescription=""
-            dangerouslySetInnerHTML={{__html: data.contentSection.description}}
+            dangerouslySetInnerHTML={{ __html: data.contentSection.description }}
           />
 
           <div className="gradient-threebox gradient-threeboxonzeimpact">
@@ -539,6 +536,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
+                        loading="lazy"
                       />
                     </div>
                   )}
@@ -550,6 +548,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
+                        loading="lazy"
                       />
                     </div>
                   )}
@@ -558,6 +557,7 @@ const Onzeimpact = () => {
                     alt="Descriptive Alt Text"
                     width="10"
                     height="10"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -577,6 +577,7 @@ const Onzeimpact = () => {
                   data-speed="auto"
                   width="10"
                   height="10"
+                  loading="lazy"
                 />
               </div>
               <div className="whitewithvideomainbox">
@@ -608,7 +609,7 @@ const Onzeimpact = () => {
                           <div className="onzeimpacttwolistlist">
                             <h5
                               data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{__html: card.cardTitle}}
+                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
                             />
 
                             <p
@@ -708,6 +709,7 @@ const Onzeimpact = () => {
                       data-speed="auto"
                       width="10"
                       height="10"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -792,6 +794,7 @@ const Onzeimpact = () => {
                     alt="Bin Imagebox"
                     width="10"
                     height="10"
+                    loading="lazy"
                   />
                   <img
                     src={topdustin}
@@ -799,6 +802,7 @@ const Onzeimpact = () => {
                     width="10"
                     className="topdustbinimage"
                     height="10"
+                    loading="lazy"
                   />
                 </div>
               </div>

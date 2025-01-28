@@ -8,7 +8,7 @@ import {TextPlugin} from 'gsap/TextPlugin';
 import {ScrollSmoother} from 'gsap/ScrollSmoother';
 import SplitText from 'gsap/SplitText';
 import DrawSVGPlugin from 'gsap/DrawSVGPlugin';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
@@ -315,7 +315,7 @@ const HomePage = () => {
           });
           setTimeout(() => {
             setLoading(false);
-          }, 0);
+          }, 1500);
         },
       });
     }
@@ -339,9 +339,9 @@ const HomePage = () => {
       setTimeout(() => {
         if (!sessionStorage.getItem('pageRefreshed')) {
           sessionStorage.setItem('pageRefreshed', 'true');
-          location.reload(); 
+         // location.reload(); 
       }
-      }, 1800);
+      }, 1500);
       document.body.classList.add('hiddenoverflow');
     };
 
@@ -721,7 +721,7 @@ const HomePage = () => {
       <>
         <div className="loadersite">
           <div className="logosvg">
-            <img src={bannerlogo} alt="logo" />
+            <img loading="lazy" src={bannerlogo} alt="logo" />
           </div>
           <div className="loader1">
             <span></span>
@@ -971,6 +971,7 @@ const HomePage = () => {
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
+              loading="lazy"
             />
           </div>
           <div className="banner_title_text">
