@@ -9,16 +9,12 @@ import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
-// import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-// import mainbannerbg from '../assets/resizeimgs/webp/d4f1c7ef00981f46b3a68aed3d06dc01-min.webp';
 import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
 import facebookIcon from '../assets/resizeimgs/webp/fb.webp';
 import instagramIcon from '../assets/resizeimgs/webp/insta.webp';
 import linkedinIcon from '../assets/resizeimgs/webp/in.webp';
 import twitterIcon from '../assets/resizeimgs/webp/twitter.webp';
 import tiktokIcon from '../assets/resizeimgs/webp/tiktok.webp';
-// import arrow_blue_2 from '../assets/resizeimgs/webp/arrow_blue_2.webp';
-// import arrow_blue_1 from '../assets/resizeimgs/webp/arrow_blue_1.webp';
 import liek_1 from '../assets/resizeimgs/webp/like11.webp';
 import liek_2 from '../assets/resizeimgs/webp/like33.webp';
 import liek_3 from '../assets/resizeimgs/webp/like44.webp';
@@ -111,7 +107,7 @@ const Getintouch = () => {
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
-  
+
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
     }, 4000);
@@ -696,19 +692,19 @@ const Getintouch = () => {
 
 
   if (loading) return <div>
-  <div className="loadersite">
-    <div className="logosvg">
-      <img src={bannerlogo} alt="logo" />
+    <div className="loadersite">
+      <div className="logosvg">
+        <img loading="lazy" src={bannerlogo} alt="logo" />
+      </div>
+      <div className="loader1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <div className="loader1">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</div>;;
+  </div>;;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 
@@ -748,10 +744,10 @@ const Getintouch = () => {
         <div className="wrappertests">
           <div className="flair flair--3">
             <div className="likeimagelists">
-              <img src={liek_2} alt="img" className="ball" />
-              <img src={liek_1} alt="img" className="ball" />
-              <img src={liek_3} alt="img" className="ball" />
-              <img src={liek_4} alt="img" className="ball" />
+              <img loading="lazy" src={liek_2} alt="img" className="ball" />
+              <img loading="lazy" src={liek_1} alt="img" className="ball" />
+              <img loading="lazy" src={liek_3} alt="img" className="ball" />
+              <img loading="lazy" src={liek_4} alt="img" className="ball" />
             </div>
           </div>
         </div>
@@ -773,7 +769,7 @@ const Getintouch = () => {
           />
 
           <div className="gradient-threebox gradient-threeboxgetintouch">
-          <ul
+            <ul
               data-aos="fade-up"
               data-aos-anchor-placement="top-center"
               data-aos-easing="ease-out-cubic"

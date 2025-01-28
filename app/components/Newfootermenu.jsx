@@ -60,7 +60,7 @@ const Newfootermenu = () => {
     <section className="newfooter">
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
-          <img src={bannerlogo} alt="logo" />
+          <img loading="lazy" src={bannerlogo} alt="logo" />
         </div>
         <div className="allmenulist">
           <div className="footerblock">
@@ -273,7 +273,7 @@ const Newfootermenu = () => {
           </div>
         </div>
         <div className="footerlogo onlymobile">
-          <img src={bannerlogo} alt="logo" />
+          <img loading="lazy" src={bannerlogo} alt="logo" />
         </div>
       </div>
     </section>
