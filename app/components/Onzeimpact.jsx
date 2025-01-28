@@ -486,7 +486,6 @@ const Onzeimpact = () => {
             width="10"
             height="10"
             loading="lazy"
-            loading="lazy"
           />
         </div>
 
