@@ -57,7 +57,7 @@ const Getintouch = () => {
     const timelinegetintouch = gsap.timeline({
       scrollTrigger: {
         trigger: '#section6 .wrapper-getintouch',
-        start: 'center center',
+        start: "top top",
         end: '+=150%',
         pin: true,
         scrub: 0.5,
@@ -76,6 +76,16 @@ const Getintouch = () => {
       0,
     );
 
+    timelinegetintouch.to(
+      '#section6 .section.hero',
+      {
+        scale: 2.5,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
         trigger: '.sixthsection',
@@ -88,15 +98,7 @@ const Getintouch = () => {
       ease: 'power1.inOut',
     });
 
-    timelinegetintouch.to(
-      '#section6 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      },
-      '<',
-    );
+    
 
     return () => {
       timelinegetintouch.scrollTrigger.kill();

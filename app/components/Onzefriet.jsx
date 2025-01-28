@@ -62,7 +62,7 @@ const Onzefriet = () => {
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
         trigger: '#section2 .wrapper',
-        start: 'center center',
+        start: "top top",
         end: '+=150%',
         pin: true,
         scrub: 0.5,
@@ -82,6 +82,16 @@ const Onzefriet = () => {
       0,
     );
 
+    timelinesonzefriet.to(
+      '#section2 .section.hero',
+      {
+        scale: 2.5,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {
         trigger: '.secondesection',
@@ -93,16 +103,6 @@ const Onzefriet = () => {
       borderRadius: '0vw 0vw 0px 0px',
       ease: 'power1.inOut',
     });
-
-    timelinesonzefriet.to(
-      '#section2 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      },
-      '<',
-    );
 
     timelinesonzefriet.to(
       '#section2 .gradient-purple',
@@ -429,97 +429,97 @@ const Onzefriet = () => {
   /* accordian end */
 
 
-  // const rainContainerRef = useRef(null);
-  // const canvasRef = useRef(null);
-  // const fries = useRef([]);
-  // const fryImages = useRef([]);
-  // const numberOfFries = 80;
-  // const fryImageSources = [
-  //   new_fries_one,
-  //   new_fries_two,
-  //   new_fries_three,
-  //   new_fries_four,
-  // ];
+  const rainContainerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 80;
+  const fryImageSources = [
+    new_fries_one,
+    new_fries_two,
+    new_fries_three,
+    new_fries_four,
+  ];
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   if (!rainContainerRef.current || !canvasRef.current) return;
-  //   fryImages.current = fryImageSources.map((src) => {
-  //     const img = new Image();
-  //     img.src = src;
-  //     return img;
-  //   });
-  //   const resizeCanvas = () => {
-  //     const canvas = canvasRef.current;
-  //     const rainContainer = rainContainerRef.current;
-  //     if (!canvas || !rainContainer) return;
-  //     canvas.width = rainContainer.offsetWidth;
-  //     canvas.height = rainContainer.offsetHeight;
-  //   };
-  //   window.addEventListener('resize', resizeCanvas);
-  //   resizeCanvas();
-  //   const createFries = () => {
-  //     fries.current = [];
-  //     const canvas = canvasRef.current;
-  //     if (!canvas) return;
-  //     for (let i = 0; i < numberOfFries; i++) {
-  //       fries.current.push({
-  //         x: Math.random() * canvas.width,
-  //         y: Math.random() * -canvas.height,
-  //         speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
-  //         sway: Math.random() * 50 - 25,
-  //         image:
-  //           fryImages.current[
-  //             Math.floor(Math.random() * fryImages.current.length)
-  //           ], // Random image
-  //       });
-  //     }
-  //   };
-  //   const renderFries = () => {
-  //     const canvas = canvasRef.current;
-  //     const ctx = canvas?.getContext('2d');
-  //     if (!ctx || !canvas) return;
-  //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //     fries.current.forEach((fry) => {
-  //       fry.y += fry.speed;
-  //       fry.x += fry.sway * 0.01;
-  //       if (fry.y > canvas.height) {
-  //         fry.y = 0;
-  //         fry.x = Math.random() * canvas.width;
-  //         fry.image =
-  //           fryImages.current[
-  //             Math.floor(Math.random() * fryImages.current.length)
-  //           ];
-  //       }
-  //       ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
-  //     });
-  //     requestAnimationFrame(renderFries);
-  //   };
-  //   ScrollTrigger.create({
-  //     trigger: rainContainerRef.current,
-  //     start: 'top center',
-  //     onEnter: () => {
-  //       createFries();
-  //       renderFries();
-  //     },
-  //     onLeaveBack: () => {
-  //       fries.current = [];
-  //       const ctx = canvasRef.current.getContext('2d');
-  //       if (ctx) {
-  //         ctx.clearRect(
-  //           0,
-  //           0,
-  //           canvasRef.current.width,
-  //           canvasRef.current.height,
-  //         );
-  //       }
-  //     },
-  //   });
-  //   return () => {
-  //     window.removeEventListener('resize', resizeCanvas);
-  //     //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, [onzefriet]);
+    if (!rainContainerRef.current || !canvasRef.current) return;
+    fryImages.current = fryImageSources.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+    const resizeCanvas = () => {
+      const canvas = canvasRef.current;
+      const rainContainer = rainContainerRef.current;
+      if (!canvas || !rainContainer) return;
+      canvas.width = rainContainer.offsetWidth;
+      canvas.height = rainContainer.offsetHeight;
+    };
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    const createFries = () => {
+      fries.current = [];
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      for (let i = 0; i < numberOfFries; i++) {
+        fries.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+          sway: Math.random() * 50 - 25,
+          image:
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ], // Random image
+        });
+      }
+    };
+    const renderFries = () => {
+      const canvas = canvasRef.current;
+      const ctx = canvas?.getContext('2d');
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fries.current.forEach((fry) => {
+        fry.y += fry.speed;
+        fry.x += fry.sway * 0.01;
+        if (fry.y > canvas.height) {
+          fry.y = 0;
+          fry.x = Math.random() * canvas.width;
+          fry.image =
+            fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+            ];
+        }
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
+      });
+      requestAnimationFrame(renderFries);
+    };
+    ScrollTrigger.create({
+      trigger: rainContainerRef.current,
+      start: 'top center',
+      onEnter: () => {
+        createFries();
+        renderFries();
+      },
+      onLeaveBack: () => {
+        fries.current = [];
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          ctx.clearRect(
+            0,
+            0,
+            canvasRef.current.width,
+            canvasRef.current.height,
+          );
+        }
+      },
+    });
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [onzefriet]);
 
 
   if (loading) return <div>
@@ -580,7 +580,7 @@ const Onzefriet = () => {
             </div>
           </div>
 
-          <div className="wrappertest">
+          <div className="wrappertest" ref={rainContainerRef}>
             <section className="section hero"></section>
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
@@ -643,11 +643,11 @@ const Onzefriet = () => {
                 </div>
               </div>
 
-              {/* <canvas
+              <canvas
                 className="canvasfries"
                 ref={canvasRef}
                 style={{ position: 'absolute', top: -100, left: -50 }}
-              /> */}
+              />
 
               <div className="whitebgbox">
                 <div className="appcontainers">
