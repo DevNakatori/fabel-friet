@@ -50,7 +50,7 @@ const Onzelocaties = () => {
     const timelines = gsap.timeline({
       scrollTrigger: {
         trigger: '#section3 .wrapper-onzelocation',
-        start: 'center center',
+        start: "top top",
         end: '+=150%',
         pin: true,
         scrub: 0.5,
@@ -70,6 +70,17 @@ const Onzelocaties = () => {
       0,
     );
 
+    timelines.to(
+      '#section3 .section.hero',
+      {
+        scale: 2.5,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+
+
     timelines.to('.thirdesection .wrappertest', {
       scrollTrigger: {
         trigger: '.thirdesection',
@@ -82,15 +93,7 @@ const Onzelocaties = () => {
       ease: 'power1.inOut',
     });
 
-    timelines.to(
-      '#section3 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      },
-      '<',
-    );
+    
     timelines.to(
       '#section3 .gradient-purple',
       {

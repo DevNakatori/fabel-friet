@@ -57,8 +57,8 @@ const Onzeimpact = () => {
     const timelineimpact = gsap.timeline({
       scrollTrigger: {
         trigger: '#section5 .wrapper-impact',
-        start: 'center center',
-        end: '+=150%',
+        start: "top top",
+        // end: '+=150%',
         pin: true,
         scrub: 0.5,
         markers: false,
@@ -77,6 +77,17 @@ const Onzeimpact = () => {
       0,
     );
 
+    timelineimpact.to(
+      '#section5 .section.hero',
+      {
+        scale: 2.5,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      },
+      '<',
+    );
+
+
     timelineimpact.to('.fifthesection .wrappertest', {
       scrollTrigger: {
         trigger: '.fifthesection',
@@ -89,16 +100,7 @@ const Onzeimpact = () => {
       ease: 'power1.inOut',
     });
 
-    timelineimpact.to(
-      '#section5 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      },
-      '<',
-    );
-
+    
     timelineimpact.to(
       '#section5 .gradient-purple',
       {
