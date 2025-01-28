@@ -20,6 +20,7 @@ import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.web
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
 import topdustin from '../assets/resizeimgs/webp/Top.webp';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzeimpact = () => {
@@ -147,7 +148,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!onzeimpact) return;
+  
 
     gsap.set(['.image-wrappers'], {
       xPercent: -50,
@@ -459,7 +460,20 @@ const Onzeimpact = () => {
     // };
   }, [onzeimpact]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div>
+  <div className="loadersite">
+    <div className="logosvg">
+      <img src={bannerlogo} alt="logo" />
+    </div>
+    <div className="loader1">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>;;
   if (error) return <p>{error}</p>;
 
   if (!onzeimpact || onzeimpact.length === 0) return <p>No data available</p>;
