@@ -168,7 +168,7 @@ const Qrmenu = () => {
       if (targetElement) {
         const targetPosition =
           targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offset = window.innerWidth <= 768 ? 100 : 10;
+        const offset = window.innerWidth <= 768 ? 100 : 30;
         window.scrollTo({
           top: targetPosition - offset,
           behavior: 'smooth',

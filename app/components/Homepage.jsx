@@ -341,7 +341,7 @@ const HomePage = () => {
           sessionStorage.setItem('pageRefreshed', 'true');
           location.reload(); 
       }
-      }, 1500);
+      }, 1800);
       document.body.classList.add('hiddenoverflow');
     };
 

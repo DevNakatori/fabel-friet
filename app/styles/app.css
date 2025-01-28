@@ -269,8 +269,8 @@ details summary::-webkit-details-marker {display:none;}
 /* Tabs */
 .tabs{display:flex;justify-content:space-around;margin-bottom:20px;}
 .tabs button{padding:10px 20px;cursor:pointer;background-color:transparent;border:solid 2px #ffc621;border-radius:30px;transition:background-color 0.3s ease;width:auto;height:auto;flex-shrink:0;overflow:hidden;color:#efebe7;text-overflow:ellipsis;font-family:'Work Sans';font-optical-sizing:auto;font-size:clamp(20px,10vw,23px);font-style:normal;font-weight:600;line-height:normal;padding:10px 20px;}
-.tabs button.active{background-color:#ffc621;/*background:url('../assets/resizeimgs/webp/plain-gold-background.webp');*/color:white;border:solid 1px transparent;background-size:cover;}
-.tabs button:hover{background-color:#ffc621;/*background:url('../assets/resizeimgs/webp/plain-gold-background.webp');*/color:white;border:solid 1px transparent;background-size:cover;}
+.tabs button.active{background-color:#ffc621;/*background:url('../assets/resizeimgs/webp/plain-gold-background.webp');*/color:white;border:solid 2px transparent;background-size:cover;}
+.tabs button:hover{background-color:#ffc621;/*background:url('../assets/resizeimgs/webp/plain-gold-background.webp');*/color:white;border:solid 2px transparent;background-size:cover;}
 /* Content */
 .content{margin-top:20px;}
 .menumainppage .topmenublock{background:var(--radical-background,radial-gradient(50% 50% at 50% 50%,#1e46b3 0%,#1c41a8 12.99%,#1b3e9e 23.44%,#193a95 31.71%,#18378d 38.19%,#163485 43.26%,#15317e 47.31%,#142f78 50.7%,#132c72 53.82%,#122a6c 57.05%,#112867 60.77%,#112662 65.35%,#10245d 71.19%,#0f2258 78.66%,#0e2053 88.13%,#0d1e4d 100%));-webkit-transition:background-color 0.5s ease;-o-transition:background-color 0.5s ease;transition:background-color 0.5s ease;margin:-50px -50px 0;}
@@ -1175,6 +1175,19 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 .page.menumainppage .menu-section ul li span.summeryline.special-class {
   margin: 0px 0 20px;
 }
+
+
+
+.page.menumainppage .menu-section ul li .sprateline {
+  font-weight: 600;
+}
+.page.menumainppage .menu-section ul li .englishlang.sprateline {
+  font-weight: 400;
+  font-size: 17px;
+  margin-top: -10px;
+}
+
+
 
 
 
