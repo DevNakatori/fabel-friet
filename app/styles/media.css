@@ -952,4 +952,23 @@ body.overflono{touch-action: none;
         font-weight: 300;
     }
 
+
+    .page.menumainppage .menu-section ul li .englishlang.sprateline {
+        font-weight: 400;
+        font-size: 10px;
+        margin-top: -3px;
+    }
+    .mainmenusection .menu-section h2 {
+        font-size: 16px;
+    }
+
+    .tabs button:hover {
+        color: white;
+        border: solid 2px transparent;
+    }
+
+    .tooltip .tooltiptext {
+        padding: 5px;
+        top: 20px;
+    }
 }

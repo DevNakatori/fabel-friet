@@ -186,7 +186,7 @@ footer.footer{display:none;}
   .qrinfo,.info-icon{width:15px;height:15px;margin:0 6px;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(3):before,.newfooter .newcontainer .allmenulist .footerblock:nth-child(1):after{display:none;}
   .logoonlymobilefirstsection {width: 60px;position: absolute;top: -11px;left: 50vw;-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);-moz-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);display: block;}
-  section.mainmenusection .topmenublock{padding:135px 0px 80px;}
+  section.mainmenusection .topmenublock{padding:135px 0px 90px;}
   img{max-width:100%;}
   .language-switcher{z-index:11;}
   .mobile-menu .logosvg{margin-top:auto;width:63px;height:47px;margin-bottom:26px;margin-left:auto;margin-right:auto;}
