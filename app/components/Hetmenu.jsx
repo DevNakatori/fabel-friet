@@ -289,7 +289,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    if (!dataLoadedhetmenu) return;
+    
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
