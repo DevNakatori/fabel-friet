@@ -31,21 +31,56 @@ const Onzefriet = () => {
   const [error, setError] = useState(null);
 
   /* fatch data start */
+  // useEffect(() => {
+  //   const fetchDataonzefriet = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzefriet" && language == $lang]`,
+  //         { lang: language },
+  //       );
+  //       setOnzefriet(data);
+  //       setDataLoaded(true);
+  //     } catch (err) {
+  //       console.error('Error fetching data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchDataonzefriet();
+  // }, [language]);
+  /* fatch data end */
+
+
+  /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzefriet" && language == $lang]`,
-          { lang: language },
-        );
-        setOnzefriet(data);
-        setDataLoaded(true);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data');
-      } finally {
+      const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+      //console.log('onzefrietData Cached Data:', cachedData);
+
+      if (cachedData) {
+        setOnzefriet(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzefriet" && language == $lang]`,
+            {lang: language},
+          );
+          //console.log('Fetched Onzefriet Data:', data);
+          localStorage.setItem(
+            `onzefrietData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzefriet(data);
+        } catch (err) {
+          console.error('Error fetching data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
     fetchDataonzefriet();

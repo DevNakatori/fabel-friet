@@ -28,21 +28,49 @@ const Hetmenu = () => {
   const [error, setError] = useState(null);
 
   // Fetch Data from Sanity for Hetmenu
+  // useEffect(() => {
+  //   const fetchDataHetmenuData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "hetmenu" && language == $lang]`,
+  //         { lang: language },
+  //       );
+
+  //       setHetmenu(data);
+  //     } catch (err) {
+  //       console.error('Error fetching Hetmenu data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchDataHetmenuData();
+  // }, [language]);
+
+
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "hetmenu" && language == $lang]`,
-          { lang: language },
-        );
-
-        setHetmenu(data);
-      } catch (err) {
-        console.error('Error fetching Hetmenu data:', err);
-        setError('Failed to load data');
-      } finally {
+      const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+      if (cachedData) {
+        setHetmenu(JSON.parse(cachedData));
         setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "hetmenu" && language == $lang]`,
+            {lang: language},
+          );
+          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          setHetmenu(data);
+        } catch (err) {
+          console.error('Error fetching Hetmenu data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
     };
 

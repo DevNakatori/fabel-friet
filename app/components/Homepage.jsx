@@ -52,31 +52,50 @@ const HomePage = () => {
   }, [language]);
 
   useEffect(() => {
+    /* animation start */
+    // const smoother = ScrollSmoother.create({
+    //     smooth: 3,
+    //     normalizeScroll: false,
+    //     ignoreMobileResize: true,
+    //     effects: true,
+    //     preventDefault: false,
+    // });
+    // smoother.effects('.allfiressections img', { speed: 'auto' });
+
+    // const smoother = ScrollSmoother.create({
+    //   smooth: 1,
+    //   effects: true,
+    //   smoothTouch: 0.1,
+    //   normalizeScroll: true,
+    //   ignoreMobileResize: true,
+    // });
+
+    /* animation end */
+
     /* data fatched */
     const fetchData_HomePage = async () => {
-      //const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+      const cachedData = localStorage.getItem(`homeBannerData_${language}`);
+      //console.log('homeBannerData Cached Data:', cachedData);
       
+      if (cachedData) {
+        setBanner(JSON.parse(cachedData));
+        setLoading(false);
+        setIsFirstLoad(false);
+      } else {
         try {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            {lang: language},
+            { lang: language }
           );
           if (data && data.length > 0) {
-            // setTimeout(() => {
-            //   window.location.reload();
-            // }, 1200);
-            setTimeout(() => {
-              document
-                .querySelector('.language-switcher')
-                //.classList.add('nomorelanguage');
-            }, 200);
-            // localStorage.setItem(
-            //   `homeBannerData_${language}`,
-            //   JSON.stringify(data),
-            // );
+            document.querySelector('.language-switcher').classList.add('nomorelanguage');
+            console.log(`Fetched Data for language ${language}:`, data);
+    
+            localStorage.setItem(`homeBannerData_${language}`, JSON.stringify(data));
             setBanner(data);
           } else {
+            console.log(`No data found for language: ${language}`);
           }
         } catch (err) {
           console.error('Error fetching data:', err);
@@ -85,9 +104,9 @@ const HomePage = () => {
           setLoading(false);
           setIsFirstLoad(false);
         }
-      
+      }
     };
-
+    
     fetchData_HomePage();
   }, [language]);
   /* data fatched */
