@@ -1,17 +1,17 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 // import InstagramFeed from './InstagramFeed';
-// import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 // import mainbannerbg from '../assets/resizeimgs/webp/b31aa7dc7c0527a0ec7d013d969ab561-min.webp';
 // import arrow_blue1 from '../assets/resizeimgs/webp/arrow_blue1.webp';
 // import menu_one from '../assets/resizeimgs/webp/menuwebp/Fries6_FabelFriet.webp';
@@ -36,7 +36,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedhetmenu, setDataLoadedhetmenu] = useState(false);
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -49,7 +49,7 @@ const Hetmenu = () => {
         setLoading(true);
         const data = await client.fetch(
           `*[_type == "hetmenu" && language == $lang]`,
-          {lang: language},
+          { lang: language },
         );
 
         setHetmenu(data);
@@ -136,7 +136,7 @@ const Hetmenu = () => {
     };
   }, [hetmenu]);
 
-  
+
 
   useEffect(() => {
     if (!hetmenu) return;
@@ -173,7 +173,7 @@ const Hetmenu = () => {
   ];
 
   useEffect(() => {
-    if (!hetmenu) return;
+   
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -201,7 +201,7 @@ const Hetmenu = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -219,7 +219,7 @@ const Hetmenu = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
@@ -248,7 +248,7 @@ const Hetmenu = () => {
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-     // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [hetmenu]);
 
@@ -381,7 +381,20 @@ const Hetmenu = () => {
     // };
   }, [hetmenu]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>
+    <div className="loadersite">
+      <div className="logosvg">
+        <img src={bannerlogo} alt="logo" />
+      </div>
+      <div className="loader1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>;
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
@@ -404,7 +417,7 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({top: yPosition, behavior: 'smooth'});
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
     }
   };
 
@@ -424,10 +437,10 @@ const Hetmenu = () => {
         <div className="roundimages">
           <div className="roundtext-hetmenu">
             <h2
-              dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
             />
             <h3
-              dangerouslySetInnerHTML={{__html: transitionSection.bottomTitle}}
+              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
             />
           </div>
           <div className="roundimage-hetmenu"></div>
@@ -444,19 +457,19 @@ const Hetmenu = () => {
           <h4
             className="hetmenuntitle"
             data-menutitle=""
-            dangerouslySetInnerHTML={{__html: contentSection.heading}}
+            dangerouslySetInnerHTML={{ __html: contentSection.heading }}
           />
           <p
             className="hetmenuescription"
             data-menudescription=""
-            dangerouslySetInnerHTML={{__html: contentSection.description}}
+            dangerouslySetInnerHTML={{ __html: contentSection.description }}
           />
 
           <div className="whitebgbox">
             <canvas
               className="canvasfries"
               ref={canvasRef}
-              style={{position: 'absolute', top: 0, left: 0}}
+              style={{ position: 'absolute', top: 0, left: 0 }}
             />
 
             <div

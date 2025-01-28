@@ -22,6 +22,7 @@ import { getImageUrl } from '../js/imagesurl';
 import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
 import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
 import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
@@ -58,6 +59,7 @@ const Onzefriet = () => {
     fetchDataonzefriet();
   }, [language]);
   /* fatch data end */
+
 
 
   /* round curcule animation start */
@@ -135,7 +137,7 @@ const Onzefriet = () => {
 
   useEffect(() => {
 
-    if (!onzefriet) return;
+    // if (!onzefriet) return;
 
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
@@ -529,7 +531,20 @@ const Onzefriet = () => {
   };
   /* accordian end */
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>
+    <div className="loadersite">
+      <div className="logosvg">
+        <img src={bannerlogo} alt="logo" />
+      </div>
+      <div className="loader1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>;;
   if (error) return <div>{error}</div>;
 
   return (

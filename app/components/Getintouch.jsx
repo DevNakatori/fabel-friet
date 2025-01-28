@@ -23,6 +23,7 @@ import liek_1 from '../assets/resizeimgs/webp/like11.webp';
 import liek_2 from '../assets/resizeimgs/webp/like33.webp';
 import liek_3 from '../assets/resizeimgs/webp/like44.webp';
 import liek_4 from '../assets/resizeimgs/webp/like55.webp';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -110,7 +111,7 @@ const Getintouch = () => {
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
-    if (!getIntouch) return;
+  
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
     }, 4000);
@@ -694,7 +695,20 @@ const Getintouch = () => {
   }, [getIntouch]);
 
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div>
+  <div className="loadersite">
+    <div className="logosvg">
+      <img src={bannerlogo} alt="logo" />
+    </div>
+    <div className="loader1">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>;;
   if (error) return <p>{error}</p>;
   if (!getIntouch) return null;
 

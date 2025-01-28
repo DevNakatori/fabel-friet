@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import {Pagination, Autoplay} from 'swiper/modules';
 import {getImageUrl} from '../js/imagesurl';
+import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 // import mainbannerbg from '../assets/resizeimgs/webp/8bdb17523f8d73487022194d9774c1d3.webp';
 // import Onzelocaties_leftone from '../assets/resizeimgs/webp/Rectangle48.webp';
 // import Onzelocaties_lefttwo from '../assets/resizeimgs/webp/Rectangle62.webp';
@@ -221,7 +222,20 @@ const Onzelocaties = () => {
     // };
   }, [onzelocaties]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return<div>
+  <div className="loadersite">
+    <div className="logosvg">
+      <img src={bannerlogo} alt="logo" />
+    </div>
+    <div className="loader1">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>;
   if (error) return <p>{error}</p>;
 
   return (
