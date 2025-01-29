@@ -92,6 +92,7 @@ const Hetmenu = () => {
         scrub: 0.5,
         markers: false,
         smoothTouch: 0.1,
+        toggleActions: "reverse none none play",
       },
     });
 
@@ -102,6 +103,7 @@ const Hetmenu = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       0,
     );
@@ -112,6 +114,7 @@ const Hetmenu = () => {
         scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       '<',
     );
@@ -483,11 +486,11 @@ const Hetmenu = () => {
           />
 
           <div className="whitebgbox">
-            {/* <canvas
+            <canvas
               className="canvasfries"
               ref={canvasRef}
               style={{ position: 'absolute', top: 0, left: 0 }}
-            /> */}
+            />
 
             <div
               className="menudynamic onlydesktop"

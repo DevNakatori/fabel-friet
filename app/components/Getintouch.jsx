@@ -57,12 +57,13 @@ const Getintouch = () => {
     const timelinegetintouch = gsap.timeline({
       scrollTrigger: {
         trigger: '#section6 .wrapper-getintouch',
-        start: "top top",
-        end: '+=150%',
+        start: "center center",
+        //end: '+=150%',
         pin: true,
         scrub: 0.5,
         markers: false,
         smoothTouch: 0.1,
+        toggleActions: "reverse none none play",
       },
     });
     timelinegetintouch.to(
@@ -72,6 +73,7 @@ const Getintouch = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       0,
     );
@@ -82,6 +84,7 @@ const Getintouch = () => {
         scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       '<',
     );
