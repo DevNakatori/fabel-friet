@@ -971,4 +971,14 @@ body.overflono{touch-action: none;
         padding: 5px;
         top: 20px;
     }
+
+    .thirdesection .whitebgbox {
+        top: 0;
+        margin-bottom: 0;
+        padding: 0 50px;
+        margin-top: 0;
+        padding: 0 20px;
+        width: -moz-calc(100% + 60px);
+        width: calc(100% + 60px);
+    }
 }

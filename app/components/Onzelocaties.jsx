@@ -83,12 +83,13 @@ const Onzelocaties = () => {
     const timelines = gsap.timeline({
       scrollTrigger: {
         trigger: '#section3 .wrapper-onzelocation',
-        start: "top top",
+        start: "center center",
         end: '+=150%',
         pin: true,
         scrub: 0.5,
         markers: false,
         smoothTouch: 0.1,
+        toggleActions: "reverse none none play",
       },
     });
 
@@ -99,6 +100,7 @@ const Onzelocaties = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       0,
     );
@@ -109,6 +111,7 @@ const Onzelocaties = () => {
         scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       '<',
     );

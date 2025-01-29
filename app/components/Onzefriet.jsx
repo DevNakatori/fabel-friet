@@ -97,12 +97,13 @@ const Onzefriet = () => {
     const timelinesonzefriet = gsap.timeline({
       scrollTrigger: {
         trigger: '#section2 .wrapper',
-        start: "top top",
+        start: "center center",
         end: '+=150%',
         pin: true,
         scrub: 0.5,
         markers: false,
         smoothTouch: 0.1,
+        toggleActions: "reverse none none play",
       },
     });
 
@@ -113,6 +114,7 @@ const Onzefriet = () => {
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       0,
     );
@@ -123,6 +125,7 @@ const Onzefriet = () => {
         scale: 2.5,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
+        toggleActions: "reverse none none play",
       },
       '<',
     );
