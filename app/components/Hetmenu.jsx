@@ -87,7 +87,7 @@ const Hetmenu = () => {
       scrollTrigger: {
         trigger: '#section4 .wrapper-hetmenu',
         start: "top top",
-        // end: '+=150%',
+        //end: '+=150%',
         pin: true,
         scrub: 0.5,
         markers: false,
