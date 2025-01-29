@@ -86,7 +86,7 @@ export default function Homepage() {
   const [loading, setLoading] = useState(true);
 
   gsap.config({
-  //  force3D: true, // Forces 3D transformations for better performance
+    force3D: true, // Forces 3D transformations for better performance
     nullTargetWarn: false, // Disable warnings for null target
   });
 
@@ -120,7 +120,7 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
-    // AOS.refresh();
+     AOS.refresh();
   }, []);
 
   useEffect(() => {
