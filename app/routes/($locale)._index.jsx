@@ -86,7 +86,7 @@ export default function Homepage() {
   const [loading, setLoading] = useState(true);
 
   gsap.config({
-    force3D: true, // Forces 3D transformations for better performance
+    force3D: false, // Forces 3D transformations for better performance
     nullTargetWarn: false, // Disable warnings for null target
   });
 
