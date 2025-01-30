@@ -20,7 +20,6 @@ import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
@@ -30,64 +29,101 @@ const Onzefriet = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  /* fatch data start */
-  // useEffect(() => {
-  //   const fetchDataonzefriet = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "onzefriet" && language == $lang]`,
-  //         { lang: language },
-  //       );
-  //       setOnzefriet(data);
-  //       setDataLoaded(true);
-  //     } catch (err) {
-  //       console.error('Error fetching data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchDataonzefriet();
-  // }, [language]);
-  /* fatch data end */
 
+  const wrapperRef = useRef(null);
+  const imgRef = useRef(null);
+  const heroSectionRef = useRef(null);
+  
+useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: true,
+          markers: true
+        }
+      })
+      .to(imgRef.current, {
+        scale: 2,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut'
+      })
+      .to(
+        heroSectionRef.current,
+        {
+          scale: 1.1,
+          transformOrigin: 'center center',
+          ease: 'power1.inOut'
+        },
+        '<'
+      );
+  }, [onzefriet]);
 
+  
   /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
-      const cachedData = localStorage.getItem(`onzefrietData_${language}`);
-      //console.log('onzefrietData Cached Data:', cachedData);
-
-      if (cachedData) {
-        setOnzefriet(JSON.parse(cachedData));
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzefriet" && language == $lang]`,
+          { lang: language },
+        );
+        setOnzefriet(data);
+        setDataLoaded(true);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError('Failed to load data');
+      } finally {
         setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzefriet" && language == $lang]`,
-            {lang: language},
-          );
-          //console.log('Fetched Onzefriet Data:', data);
-          localStorage.setItem(
-            `onzefrietData_${language}`,
-            JSON.stringify(data),
-          );
-          setOnzefriet(data);
-        } catch (err) {
-          console.error('Error fetching data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
       }
     };
     fetchDataonzefriet();
   }, [language]);
+
+
   /* fatch data end */
+  
 
+  // /* fatch data start */
+  // useEffect(() => {
+  //   const fetchDataonzefriet = async () => {
+  //     const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+  //     //console.log('onzefrietData Cached Data:', cachedData);
 
+  //     if (cachedData) {
+  //       setOnzefriet(JSON.parse(cachedData));
+  //       setLoading(false);
+  //     } else {
+  //       try {
+  //         setLoading(true);
+  //         const data = await client.fetch(
+  //           `*[_type == "onzefriet" && language == $lang]`,
+  //           { lang: language },
+  //         );
+  //         //console.log('Fetched Onzefriet Data:', data);
+  //         localStorage.setItem(
+  //           `onzefrietData_${language}`,
+  //           JSON.stringify(data),
+  //         );
+  //         setOnzefriet(data);
+  //       } catch (err) {
+  //         console.error('Error fetching data:', err);
+  //         setError('Failed to load data');
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     }
+  //   };
+  //   fetchDataonzefriet();
+  // }, [language]);
+  // /* fatch data end */
+
+  
 
   /* round curcule animation start */
   useEffect(() => {
@@ -95,40 +131,37 @@ const Onzefriet = () => {
     if (!onzefriet) return;
 
     const timelinesonzefriet = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#section2 .wrapper',
-        start: "center center",
-        end: '+=150%',
-        pin: true,
-        scrub: 0.5,
-        markers: false,
-        smoothTouch: 0.1,
-        toggleActions: "reverse none none play",
-      },
+      // scrollTrigger: {
+      //   trigger: '#section2 .wrapper',
+      //   start: "top top",
+      //   end: '+=150%',
+      //   pin: true,
+      //   scrub: 0.5,
+      //   markers: false,
+      //   smoothTouch: 0.1,
+      // },
     });
 
-    timelinesonzefriet.to(
-      '#section2 .roundimage, #section2 .roundtext',
-      {
-        scale: 2.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      0,
-    );
+    // timelinesonzefriet.to(
+    //   '#section2 .roundimage, #section2 .roundtext',
+    //   {
+    //     scale: 2.5,
+    //     z: 350,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   0,
+    // );
 
-    timelinesonzefriet.to(
-      '#section2 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      '<',
-    );
+    // timelinesonzefriet.to(
+    //   '#section2 .section.hero',
+    //   {
+    //     scale: 2.5,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   '<',
+    // );
 
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {
@@ -156,9 +189,9 @@ const Onzefriet = () => {
       },
       0,
     );
-    return () => {
-      timelinesonzefriet.scrollTrigger.kill();
-    };
+    // return () => {
+    //  timelinesonzefriet.scrollTrigger.kill();
+    // };
   }, [onzefriet]);
 
   /* round curcule animation start */
@@ -350,83 +383,83 @@ const Onzefriet = () => {
 
     //if (!onzefriet) return;
 
-   gsap.set(['.image-wrapper'], {
-     xPercent: -50,
-     yPercent: -50,
-   });
+    gsap.set(['.image-wrapper'], {
+      xPercent: -50,
+      yPercent: -50,
+    });
 
-   const timeline = gsap.timeline({
-     scrollTrigger: {
-       trigger: '.img-container',
-       start: 'top center',
-       end: 'bottom bottom',
-       scrub: 2,
-       ease: 'power3.inOut',
-       once: false,
-     },
-   });
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.img-container',
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: 2,
+        ease: 'power3.inOut',
+        once: false,
+      },
+    });
 
-   timeline
-     .to('.image-wrapper:first-child', {
-       left: '20%',
-       rotation: -5,
-       duration: 2,
-       ease: 'power3.out',
-       scrollEnd: () => {
-         gsap.to('.image-wrapper .threeboxleftlogobar', {
-           opacity: 1,
-           duration: 3,
-           ease: 'power3.out',
-         });
-       },
-     })
-     .to(
-       '.image-wrapper:nth-child(2)',
-       {
-         left: '50%',
-         duration: 2,
-         ease: 'power3.out',
-         scrollEnd: () => {
-           gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
-             opacity: 1,
-             duration: 3,
-             ease: 'power3.out',
-           });
-         },
-       },
-       '<',
-     )
-     .to(
-       '.image-wrapper:last-child',
-       {
-         left: '80%',
-         rotation: 5,
-         duration: 2,
-         ease: 'power3.out',
-       },
-       '<',
-     );
+    timeline
+      .to('.image-wrapper:first-child', {
+        left: '20%',
+        rotation: -5,
+        duration: 2,
+        ease: 'power3.out',
+        scrollEnd: () => {
+          gsap.to('.image-wrapper .threeboxleftlogobar', {
+            opacity: 1,
+            duration: 3,
+            ease: 'power3.out',
+          });
+        },
+      })
+      .to(
+        '.image-wrapper:nth-child(2)',
+        {
+          left: '50%',
+          duration: 2,
+          ease: 'power3.out',
+          scrollEnd: () => {
+            gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+              opacity: 1,
+              duration: 3,
+              ease: 'power3.out',
+            });
+          },
+        },
+        '<',
+      )
+      .to(
+        '.image-wrapper:last-child',
+        {
+          left: '80%',
+          rotation: 5,
+          duration: 2,
+          ease: 'power3.out',
+        },
+        '<',
+      );
 
-   gsap.fromTo(
-     '.image-wrapper .threeboxleftlogobar',
-     {
-       opacity: 0,
-     },
-     {
-       opacity: 1,
-       duration: 3,
-       scrollTrigger: {
-         trigger: '.img-container',
-         start: 'top center',
-         end: 'bottom center',
-         scrub: 1,
-         repeat: 1,
-         yoyo: true,
-         ease: 'power3.inOut',
-       },
-     },
-   );
- }, [onzefriet]);
+    gsap.fromTo(
+      '.image-wrapper .threeboxleftlogobar',
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 3,
+        scrollTrigger: {
+          trigger: '.img-container',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: 1,
+          repeat: 1,
+          yoyo: true,
+          ease: 'power3.inOut',
+        },
+      },
+    );
+  }, [onzefriet]);
 
   /* accordian start */
   const toggleAccordion = (e) => {
@@ -508,7 +541,7 @@ const Onzefriet = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ], // Random image
         });
       }
@@ -526,7 +559,7 @@ const Onzefriet = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
@@ -563,7 +596,7 @@ const Onzefriet = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img loading="lazy" src={bannerlogo} alt="logo" />
+        <img src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -580,7 +613,7 @@ const Onzefriet = () => {
     <section className="panel secondesection" id="section2">
       {onzefriet.map((content, idx) => (
         <div key={idx}>
-          <div className="wrapper">
+          <div className="wrapper" ref={wrapperRef}>
             <div className="wrappermain">
               <img
                 className="media"
@@ -588,11 +621,10 @@ const Onzefriet = () => {
                 alt={content.transitionSection.image.alt}
                 width="10"
                 height="10"
-                loading="lazy"
               />
             </div>
-            <div className="roundimages">
-              <div className="roundtext">
+            <div className="roundimages" ref={imgRef}>
+              <div className="roundtext" ref={imgRef}>
                 {content.transitionSection && (
                   <>
                     <h2
@@ -608,7 +640,7 @@ const Onzefriet = () => {
                   </>
                 )}
               </div>
-              <div className="roundimage"></div>
+              <div className="roundimage" ref={imgRef}></div>
               <div className="scroll-down">
                 <div className="scroll-down">
                   <div className="icon-scroll"></div>
@@ -619,7 +651,7 @@ const Onzefriet = () => {
           </div>
 
           <div className="wrappertest" ref={rainContainerRef}>
-            <section className="section hero"></section>
+            <section className="section hero" ref={heroSectionRef}></section>
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
                 <>
@@ -652,7 +684,7 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
-                            loading="lazy"
+                            
                           />
                         </div>
                       )}
@@ -664,7 +696,7 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
-                            loading="lazy"
+                            
                           />
                         </div>
                       )}
@@ -674,7 +706,7 @@ const Onzefriet = () => {
                         alt={image.alt}
                         width="10"
                         height="10"
-                        loading="lazy"
+                        
                       />
                     </div>
                   ))}
@@ -698,7 +730,7 @@ const Onzefriet = () => {
                             alt="img"
                             width="10"
                             height="10"
-                            loading="lazy"
+                            
                           />
                         </div>
                         <div className="revealvideo">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
@@ -22,99 +22,137 @@ const Onzelocaties = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const wrapperRefonzelocaties = useRef(null);
+  const imgRefonzelocaties = useRef(null);
+  const heroSectiononzelocaties = useRef(null);
+
+  useEffect(() => {
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRefonzelocaties.current,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: true,
+          markers: true
+        }
+      })
+      .to(imgRefonzelocaties.current, {
+        scale: 2,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut'
+      })
+      .to(
+        heroSectiononzelocaties.current,
+        {
+          scale: 1.1,
+          transformOrigin: 'center center',
+          ease: 'power1.inOut'
+        },
+        '<'
+      );
+  }, [onzelocaties]);
+
+
+
+  useEffect(() => {
+    const fetchDataOnzelocaties = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzelocaties" && language == $lang]`,
+          { lang: language },
+        );
+
+        setOnzelocaties(data);
+        setDataLoadedlocaties(true);
+      } catch (err) {
+        console.error('Error fetching Onzelocaties data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataOnzelocaties();
+  }, [language]);
+
+
   // useEffect(() => {
   //   const fetchDataOnzelocaties = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "onzelocaties" && language == $lang]`,
-  //         { lang: language },
-  //       );
+  //     const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
+  //     //console.log('onzelocatiesData Cached Data:', cachedData);
 
-  //       setOnzelocaties(data);
-  //       setDataLoadedlocaties(true);
-  //     } catch (err) {
-  //       console.error('Error fetching Onzelocaties data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
+  //     if (cachedData) {
+  //       setOnzelocaties(JSON.parse(cachedData));
   //       setLoading(false);
+  //     } else {
+  //       try {
+  //         setLoading(true);
+  //         const data = await client.fetch(
+  //           `*[_type == "onzelocaties" && language == $lang]`,
+  //           { lang: language },
+  //         );
+  //         // console.log('Fetched onzelocatiesData Data:', data);
+  //         localStorage.setItem(
+  //           `onzelocatiesData_${language}`,
+  //           JSON.stringify(data),
+  //         );
+  //         setOnzelocaties(data);
+  //       } catch (err) {
+  //         console.error('Error fetching Onzelocaties data:', err);
+  //         setError('Failed to load data');
+  //       } finally {
+  //         setLoading(false);
+  //       }
   //     }
   //   };
   //   fetchDataOnzelocaties();
   // }, [language]);
 
 
-  useEffect(() => {
-    const fetchDataOnzelocaties = async () => {
-      const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
-      //console.log('onzelocatiesData Cached Data:', cachedData);
 
-      if (cachedData) {
-        setOnzelocaties(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzelocaties" && language == $lang]`,
-            {lang: language},
-          );
-          // console.log('Fetched onzelocatiesData Data:', data);
-          localStorage.setItem(
-            `onzelocatiesData_${language}`,
-            JSON.stringify(data),
-          );
-          setOnzelocaties(data);
-        } catch (err) {
-          console.error('Error fetching Onzelocaties data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-    fetchDataOnzelocaties();
-  }, [language]);
+
+  
 
   useEffect(() => {
 
     if (!onzelocaties) return;
 
     const timelines = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#section3 .wrapper-onzelocation',
-        start: "center center",
-        end: '+=150%',
-        pin: true,
-        scrub: 0.5,
-        markers: false,
-        smoothTouch: 0.1,
-        toggleActions: "reverse none none play",
-      },
+      // scrollTrigger: {
+      //   trigger: '#section3 .wrapper-onzelocation',
+      //   start: "top top",
+      //   end: '+=150%',
+      //   pin: true,
+      //   scrub: 0.5,
+      //   markers: false,
+      //   smoothTouch: 0.1,
+      // },
     });
 
-    timelines.to(
-      '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
-      {
-        scale: 2.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      0,
-    );
+    // timelines.to(
+    //   '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
+    //   {
+    //     scale: 2.5,
+    //     z: 350,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   0,
+    // );
 
-    timelines.to(
-      '#section3 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      '<',
-    );
+    // timelines.to(
+    //   '#section3 .section.hero',
+    //   {
+    //     scale: 2.5,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   '<',
+    // );
 
 
     timelines.to('.thirdesection .wrappertest', {
@@ -129,7 +167,7 @@ const Onzelocaties = () => {
       ease: 'power1.inOut',
     });
 
-    
+
     timelines.to(
       '#section3 .gradient-purple',
       {
@@ -146,7 +184,7 @@ const Onzelocaties = () => {
     );
 
     return () => {
-      timelines.scrollTrigger.kill();
+     // timelines.scrollTrigger.kill();
     };
   }, [onzelocaties]);
 
@@ -261,7 +299,7 @@ const Onzelocaties = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img loading="lazy" src={bannerlogo} alt="logo" />
+        <img src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -278,7 +316,7 @@ const Onzelocaties = () => {
     <section className="panel thirdesection" id="section3">
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
-          <div className="wrapper-onzelocation">
+          <div className="wrapper-onzelocation" ref={wrapperRefonzelocaties}>
             <div className="wrappermain">
               <img
                 className="media"
@@ -288,12 +326,12 @@ const Onzelocaties = () => {
                 alt={locationData.transitionSection.image.alt}
                 width="10"
                 height="10"
-                loading="lazy"
+               
               />
             </div>
 
-            <div className="roundimages">
-              <div className="roundtext-onzelocation">
+            <div className="roundimages" ref={imgRefonzelocaties}>
+              <div className="roundtext-onzelocation" ref={imgRefonzelocaties}>
                 <h2
                   dangerouslySetInnerHTML={{
                     __html: locationData.transitionSection.topTitle,
@@ -305,7 +343,7 @@ const Onzelocaties = () => {
                   }}
                 />
               </div>
-              <div className="roundimage-onzelocation"></div>
+              <div className="roundimage-onzelocation" ref={imgRefonzelocaties}></div>
               <div className="scroll-down">
                 <div className="icon-scroll"></div>
                 <p>Scroll down</p>
@@ -313,7 +351,7 @@ const Onzelocaties = () => {
             </div>
           </div>
           <div className="wrappertest">
-            <section className="section hero"></section>
+            <section className="section hero" ref={heroSectiononzelocaties}></section>
             <div className="gradient-purple" id="locationtiononzefriet">
               <h4
                 className="locationtitle"
@@ -407,7 +445,7 @@ const Onzelocaties = () => {
                                   alt={loc.image.alt}
                                   width="10"
                                   height="10"
-                                  loading="lazy"
+                                 
                                 />
                                 <h4>Opening hours</h4>
                                 <p
@@ -476,7 +514,7 @@ const Onzelocaties = () => {
                               width="10"
                               height="10"
                               className="whitewithvideomainboximg"
-                              loading="lazy"
+                             
                             />
                           </div>
                         </div>
