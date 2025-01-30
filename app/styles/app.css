@@ -1190,7 +1190,7 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 
 
 .gradient-purple {
-  border: solid 2px #fff;
+  border: solid 2px transparent;
 }
 
 
@@ -1214,3 +1214,4 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 }
 
 
+.wrappertest{overflow: hidden !important;}
