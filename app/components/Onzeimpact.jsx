@@ -584,7 +584,7 @@ const Onzeimpact = () => {
               }}
             />
           </div>
-          <div className="roundimage-impact" ref={imgRefonzeimpact}></div>
+          <div className="roundimage-impact roundimagesround" ref={imgRefonzeimpact}></div>
           <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>

@@ -347,7 +347,7 @@ const Onzelocaties = () => {
                   }}
                 />
               </div>
-              <div className="roundimage-onzelocation" ref={imgRefonzelocaties}></div>
+              <div className="roundimage-onzelocation roundimagesround" ref={imgRefonzelocaties}></div>
               <div className="scroll-down">
                 <div className="icon-scroll"></div>
                 <p>Scroll down</p>
