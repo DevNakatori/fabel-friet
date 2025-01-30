@@ -371,37 +371,37 @@ const Getintouch = () => {
       },
     );
 
-    gsap.fromTo(
-      '.likeimagelist img',
-      { y: -50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.5,
-        duration: 1,
-        ease: 'bounce.out',
-        force3D: false,
-        yoyo: true,
-        scrollTrigger: {
-          trigger: '#section6 .wrappertests',
-          start: 'top top',
-          end: 'top top',
-          pin: true,
-          once: true,
-          markers: false,
-        },
-      },
-    );
+    // gsap.fromTo(
+    //   '.likeimagelist img',
+    //   { y: -50, opacity: 0 },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.5,
+    //     duration: 1,
+    //     ease: 'bounce.out',
+    //     force3D: false,
+    //     yoyo: true,
+    //     scrollTrigger: {
+    //       trigger: '#section6 .wrappertests',
+    //       start: 'top top',
+    //       end: 'top top',
+    //       pin: true,
+    //       once: true,
+    //       markers: false,
+    //     },
+    //   },
+    // );
 
-    gsap.to('.likeimagelist img', {
-      x: 'random(-10, 10)',
-      y: 'random(-10, 10)',
-      zIndex: 22,
-      duration: 1,
-      ease: 'none',
-      yoyo: true,
-      repeat: -1,
-    });
+    // gsap.to('.likeimagelist img', {
+    //   x: 'random(-10, 10)',
+    //   y: 'random(-10, 10)',
+    //   zIndex: 22,
+    //   duration: 1,
+    //   ease: 'none',
+    //   yoyo: true,
+    //   repeat: -1,
+    // });
   }, [getIntouch]);
 
   useEffect(() => {
@@ -633,7 +633,6 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch || loading) return;
 
 
     gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
