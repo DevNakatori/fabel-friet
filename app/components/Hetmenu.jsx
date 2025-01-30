@@ -33,6 +33,7 @@ const Hetmenu = () => {
   const heroSectionRefhetmenu = useRef(null);
 
   useEffect(() => {
+    if (!hetmenu || loading) return;
     gsap
       .timeline({
         scrollTrigger: {
@@ -112,11 +113,11 @@ const Hetmenu = () => {
   //   fetchDataHetmenuData();
   // }, [language]);
 
-  
+
   // GSAP Animations for Hetmenu
   useEffect(() => {
 
-    if (!hetmenu) return;
+    if (!hetmenu || loading) return;
 
 
     const timelineshetmenu = gsap.timeline({
@@ -182,14 +183,14 @@ const Hetmenu = () => {
     );
 
     return () => {
-     // timelineshetmenu.scrollTrigger.kill();
+      // timelineshetmenu.scrollTrigger.kill();
     };
   }, [hetmenu]);
 
 
 
   useEffect(() => {
-    if (!hetmenu) return;
+    if (!hetmenu || loading) return;
     const paths = document.querySelector('.line2s');
     if (paths) {
       const pathsLength = paths.getTotalLength();
@@ -224,7 +225,7 @@ const Hetmenu = () => {
 
 
   useEffect(() => {
-    if (!hetmenu) return;
+    if (!hetmenu || loading) return;
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
       let currentSection = 'friet-section';
@@ -251,7 +252,7 @@ const Hetmenu = () => {
     const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
 
     const initiateAnimationsonzhetmenu = () => {
-      if (!hetmenu) return;
+      if (!hetmenu || loading) return;
 
       let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
@@ -477,14 +478,16 @@ const Hetmenu = () => {
       <div>
         <div className="wrapper-hetmenu" ref={wrapperRefhetmenu}>
           <div className="wrappermain">
-            <img
-              className="media"
-              src={getImageUrl(transitionSection.image.asset._ref)}
-              alt="Transition Section"
-              width="100"
-              height="100"
-              
-            />
+            <div className="wrappermain_inner">
+              <img
+                className="media"
+                src={getImageUrl(transitionSection.image.asset._ref)}
+                alt="Transition Section"
+                width="100"
+                height="100"
+
+              />
+            </div>
           </div>
 
           <div className="roundimages" ref={imgRefhetmenu}>
@@ -520,10 +523,10 @@ const Hetmenu = () => {
 
             <div className="whitebgbox">
               <canvas
-              className="canvasfries"
-              ref={canvasRef}
-              style={{ position: 'absolute', top: 0, left: 0 }}
-            />
+                className="canvasfries"
+                ref={canvasRef}
+                style={{ position: 'absolute', top: 0, left: 0 }}
+              />
 
               <div
                 className="menudynamic onlydesktop"
@@ -758,7 +761,7 @@ const Hetmenu = () => {
                       )}
                       alt="Bottom section image"
                       data-speed="auto"
-                      
+
                     />
                   </div>
                 </div>

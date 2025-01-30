@@ -37,6 +37,8 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
+    if (!onzeimpact || loading) return;
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -122,11 +124,11 @@ const Onzeimpact = () => {
 
 
 
-  
+
 
   useEffect(() => {
 
-    if (!onzeimpact) return;
+    if (!onzeimpact || loading) return;
 
     const timelineimpact = gsap.timeline({
       // scrollTrigger: {
@@ -301,7 +303,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!onzeimpact) return;
+    if (!onzeimpact || loading) return;
 
     const pathss = document.querySelector('.line2ss');
     if (pathss) {
@@ -326,7 +328,7 @@ const Onzeimpact = () => {
     const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
 
     const initiateAnimationsonzimpact = () => {
-      if (!onzeimpact) return;
+      if (!onzeimpact || loading) return;
 
       let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
         types: 'lines, words, chars',
@@ -555,14 +557,16 @@ const Onzeimpact = () => {
     <section className="panel fifthesection" id="section5">
       <div className="wrapper-impact" ref={wrapperRefonzeimpact}>
         <div className="wrappermain">
-          <img
-            className="media"
-            src={getImageUrl(data.transitionSection.image.asset._ref)}
-            alt={data.transitionSection.image.alt}
-            width="10"
-            height="10"
-            
-          />
+          <div className="wrappermain_inner">
+            <img
+              className="media"
+              src={getImageUrl(data.transitionSection.image.asset._ref)}
+              alt={data.transitionSection.image.alt}
+              width="10"
+              height="10"
+
+            />
+          </div>
         </div>
 
         <div className="roundimages" ref={imgRefonzeimpact}>
@@ -612,7 +616,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
-                        
+
                       />
                     </div>
                   )}
@@ -624,7 +628,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
-                        
+
                       />
                     </div>
                   )}
@@ -633,7 +637,7 @@ const Onzeimpact = () => {
                     alt="Descriptive Alt Text"
                     width="10"
                     height="10"
-                    
+
                   />
                 </div>
               ))}
@@ -653,7 +657,7 @@ const Onzeimpact = () => {
                   data-speed="auto"
                   width="10"
                   height="10"
-                  
+
                 />
               </div>
               <div className="whitewithvideomainbox">
@@ -785,7 +789,7 @@ const Onzeimpact = () => {
                       data-speed="auto"
                       width="10"
                       height="10"
-                      
+
                     />
                   </div>
                 </div>
@@ -870,7 +874,7 @@ const Onzeimpact = () => {
                     alt="Bin Imagebox"
                     width="10"
                     height="10"
-                    
+
                   />
                   <img
                     src={topdustin}
@@ -878,7 +882,7 @@ const Onzeimpact = () => {
                     width="10"
                     className="topdustbinimage"
                     height="10"
-                    
+
                   />
                 </div>
               </div>

@@ -28,6 +28,8 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
+    if (!onzelocaties || loading) return;
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -115,11 +117,11 @@ const Onzelocaties = () => {
 
 
 
-  
+
 
   useEffect(() => {
 
-    if (!onzelocaties) return;
+    if (!onzelocaties || loading) return;
 
     const timelines = gsap.timeline({
       // scrollTrigger: {
@@ -184,7 +186,7 @@ const Onzelocaties = () => {
     );
 
     return () => {
-     // timelines.scrollTrigger.kill();
+      // timelines.scrollTrigger.kill();
     };
   }, [onzelocaties]);
 
@@ -192,7 +194,7 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
-    if (!onzelocaties) return;
+    if (!onzelocaties || loading) return;
 
 
     const animateButton = (e) => {
@@ -213,7 +215,7 @@ const Onzelocaties = () => {
     const animationDelaylocaties = isHardRefreshlocaties ? 300 : 300;
 
     const initiateAnimationsonzlocaties = () => {
-      if (!onzelocaties) return;
+      if (!onzelocaties || loading) return;
 
       let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
         types: 'lines, words, chars',
@@ -318,16 +320,18 @@ const Onzelocaties = () => {
         <div key={locationData._id}>
           <div className="wrapper-onzelocation" ref={wrapperRefonzelocaties}>
             <div className="wrappermain">
-              <img
-                className="media"
-                src={getImageUrl(
-                  locationData.transitionSection.image.asset._ref,
-                )}
-                alt={locationData.transitionSection.image.alt}
-                width="10"
-                height="10"
-               
-              />
+              <div className="wrappermain_inner">
+                <img
+                  className="media"
+                  src={getImageUrl(
+                    locationData.transitionSection.image.asset._ref,
+                  )}
+                  alt={locationData.transitionSection.image.alt}
+                  width="10"
+                  height="10"
+
+                />
+              </div>
             </div>
 
             <div className="roundimages" ref={imgRefonzelocaties}>
@@ -445,7 +449,7 @@ const Onzelocaties = () => {
                                   alt={loc.image.alt}
                                   width="10"
                                   height="10"
-                                 
+
                                 />
                                 <h4>Opening hours</h4>
                                 <p
@@ -514,7 +518,7 @@ const Onzelocaties = () => {
                               width="10"
                               height="10"
                               className="whitewithvideomainboximg"
-                             
+
                             />
                           </div>
                         </div>

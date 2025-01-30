@@ -30,12 +30,12 @@ const Getintouch = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  /* scroll zoom animation start */
   const wrapperRefgetIntouch = useRef(null);
   const imgRefgetIntouch = useRef(null);
   const heroSectiongetIntouch = useRef(null);
-
   useEffect(() => {
-
+    if (!getIntouch || loading) return;
     gsap
       .timeline({
         scrollTrigger: {
@@ -63,10 +63,9 @@ const Getintouch = () => {
         '<'
       );
   }, [getIntouch]);
+  /* scroll zoom animation end */
 
-
-
-
+  /* fatch data start */
   useEffect(() => {
     const fetchData_Getintouch = async () => {
       try {
@@ -84,16 +83,11 @@ const Getintouch = () => {
     };
     fetchData_Getintouch();
   }, [language]);
-
-
-
-
-  
+  /* fatch data end */
 
   useEffect(() => {
 
-    if (!getIntouch) return;
-
+    if (!getIntouch || loading) return;
 
     const timelinegetintouch = gsap.timeline({
       // scrollTrigger: {
@@ -139,10 +133,8 @@ const Getintouch = () => {
       ease: 'power1.inOut',
     });
 
-
-
     return () => {
-    //  timelinegetintouch.scrollTrigger.kill();
+      //  timelinegetintouch.scrollTrigger.kill();
     };
   }, [getIntouch]);
 
@@ -150,7 +142,6 @@ const Getintouch = () => {
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
-
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
     }, 4000);
@@ -166,8 +157,7 @@ const Getintouch = () => {
   };
 
   useEffect(() => {
-    if (!getIntouch) return;
-
+    if (!getIntouch || loading) return;
     const listgetintouch = document.querySelectorAll(
       '.gradient-threeboxgetintouch',
     );
@@ -389,7 +379,7 @@ const Getintouch = () => {
     const isHardRefreshintouch = window.performance.navigation.type === 1;
     const animationDelayintouch = isHardRefreshintouch ? 300 : 300;
     const initiateAnimationsonzintouch = () => {
-      if (!getIntouch) return;
+      if (!getIntouch || loading) return;
       const typeSplitgettouchonzefrienttitle = new SplitType(
         '[data-gettouchonzefrienttitle]',
         {
@@ -571,7 +561,7 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch) return;
+    if (!getIntouch || loading) return;
 
     const pathsstouch = document.querySelector('.line2sstouch');
     if (pathsstouch) {
@@ -614,7 +604,7 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch) return;
+    if (!getIntouch || loading) return;
 
 
     gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
@@ -757,15 +747,17 @@ const Getintouch = () => {
     <section className="panel sixthsection" id="section6">
       <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
         <div className="wrappermain">
-          {getIntouch.transitionSection && (
-            <img
-              className="media"
-              src={getImageUrl(getIntouch.transitionSection.image.asset._ref)}
-              alt="Logo"
-              width="10"
-              height="10"
-            />
-          )}
+          <div className='wrappermain_inner'>
+            {getIntouch.transitionSection && (
+              <img
+                className="media"
+                src={getImageUrl(getIntouch.transitionSection.image.asset._ref)}
+                alt="Logo"
+                width="10"
+                height="10"
+              />
+            )}
+          </div>
         </div>
         <div className="roundimages" ref={imgRefgetIntouch}>
           <div className="roundtext-getintouch" ref={imgRefgetIntouch}>
@@ -788,10 +780,10 @@ const Getintouch = () => {
         <div className="wrappertests">
           <div className="flair flair--3">
             <div className="likeimagelists">
-              <img  src={liek_2} alt="img" className="ball" />
-              <img  src={liek_1} alt="img" className="ball" />
-              <img  src={liek_3} alt="img" className="ball" />
-              <img  src={liek_4} alt="img" className="ball" />
+              <img src={liek_2} alt="img" className="ball" />
+              <img src={liek_1} alt="img" className="ball" />
+              <img src={liek_3} alt="img" className="ball" />
+              <img src={liek_4} alt="img" className="ball" />
             </div>
           </div>
         </div>
@@ -832,7 +824,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
                   muted
                   allow="autoplay"
-                  
+
                   loop
                 ></iframe>
               </li>
@@ -850,7 +842,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
                   muted
                   allow="autoplay"
-                  
+
                   loop
                 ></iframe>
               </li>
@@ -868,7 +860,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
                   muted
                   allow="autoplay"
-                  
+
                   loop
                 ></iframe>
               </li>
