@@ -43,8 +43,8 @@ const Onzeimpact = () => {
       .timeline({
         scrollTrigger: {
           trigger: wrapperRefonzeimpact.current,
-          start: 'top top',
-          end: '+=150%',
+          start: 'center center',
+          //end: '+=150%',
           pin: true,
           scrub: true,
           markers: false
