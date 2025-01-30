@@ -647,7 +647,7 @@ const Onzefriet = () => {
                   </>
                 )}
               </div>
-              <div className="roundimage" ref={imgRef}></div>
+              <div className="roundimage roundimagesround" ref={imgRef}></div>
               <div className="scroll-down">
                 <div className="scroll-down">
                   <div className="icon-scroll"></div>

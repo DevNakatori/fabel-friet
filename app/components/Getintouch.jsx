@@ -800,7 +800,7 @@ const Getintouch = () => {
               dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
             />
           </div>
-          <div className="roundimage-getintouch" ref={imgRefgetIntouch}></div>
+          <div className="roundimage-getintouch roundimagesround" ref={imgRefgetIntouch}></div>
           <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>

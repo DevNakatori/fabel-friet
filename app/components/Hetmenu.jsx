@@ -502,7 +502,7 @@ const Hetmenu = () => {
                 dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
               />
             </div>
-            <div className="roundimage-hetmenu" ref={imgRefhetmenu}></div>
+            <div className="roundimage-hetmenu roundimagesround" ref={imgRefhetmenu}></div>
             <div className="scroll-down">
               <div className="icon-scroll"></div>
               <p>Scroll down</p>
