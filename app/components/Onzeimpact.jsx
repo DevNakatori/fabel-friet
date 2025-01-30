@@ -30,21 +30,90 @@ const Onzeimpact = () => {
   const garbageRef = useRef(null);
   const binContainerRef = useRef(null);
 
+
+  const wrapperRefonzeimpact = useRef(null);
+  const imgRefonzeimpact = useRef(null);
+  const heroSectiononzeimpact = useRef(null);
+
+  useEffect(() => {
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRefonzeimpact.current,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: true,
+          markers: true
+        }
+      })
+      .to(imgRefonzeimpact.current, {
+        scale: 2,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut'
+      })
+      .to(
+        heroSectiononzeimpact.current,
+        {
+          scale: 1.1,
+          transformOrigin: 'center center',
+          ease: 'power1.inOut'
+        },
+        '<'
+      );
+  }, [onzeimpact]);
+
+
+  useEffect(() => {
+    const fetchDataonzeimpactData = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "onzeimpact" && language == $lang]`,
+          { lang: language },
+        );
+
+        setonzeimpact(data);
+        setDataLoadedimpact(true);
+      } catch (err) {
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDataonzeimpactData();
+  }, [language]);
+
+
+
   // useEffect(() => {
   //   const fetchDataonzeimpactData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "onzeimpact" && language == $lang]`,
-  //         { lang: language },
-  //       );
-
-  //       setonzeimpact(data);
-  //       setDataLoadedimpact(true);
-  //     } catch (err) {
-  //       setError('Failed to load data');
-  //     } finally {
+  //     const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
+  //     //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
+  //     if (cachedData) {
+  //       setonzeimpact(JSON.parse(cachedData));
   //       setLoading(false);
+  //     } else {
+  //       try {
+  //         setLoading(true);
+  //         const data = await client.fetch(
+  //           `*[_type == "onzeimpact" && language == $lang]`,
+  //           { lang: language },
+  //         );
+  //         //console.log('Fetched fetchDataonzeimpactData Data:', data);
+  //         localStorage.setItem(
+  //           `onzeimpactData_${language}`,
+  //           JSON.stringify(data),
+  //         );
+  //         setonzeimpact(data);
+  //       } catch (err) {
+  //         console.error('Error fetching Onzeimpact data:', err);
+  //         setError('Failed to load data');
+  //       } finally {
+  //         setLoading(false);
+  //       }
   //     }
   //   };
   //   fetchDataonzeimpactData();
@@ -52,76 +121,45 @@ const Onzeimpact = () => {
 
 
 
-  useEffect(() => {
-    const fetchDataonzeimpactData = async () => {
-      const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-      //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
-      if (cachedData) {
-        setonzeimpact(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "onzeimpact" && language == $lang]`,
-            {lang: language},
-          );
-          //console.log('Fetched fetchDataonzeimpactData Data:', data);
-          localStorage.setItem(
-            `onzeimpactData_${language}`,
-            JSON.stringify(data),
-          );
-          setonzeimpact(data);
-        } catch (err) {
-          console.error('Error fetching Onzeimpact data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-    fetchDataonzeimpactData();
-  }, [language]);
+
+  
 
   useEffect(() => {
 
     if (!onzeimpact) return;
 
     const timelineimpact = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#section5 .wrapper-impact',
-        start: "center center",
-        // end: '+=150%',
-        pin: true,
-        scrub: 0.5,
-        markers: false,
-        smoothTouch: 0.1,
-        toggleActions: "reverse none none play",
-      },
+      // scrollTrigger: {
+      //   trigger: '#section5 .wrapper-impact',
+      //   start: "top top",
+      //   // end: '+=150%',
+      //   pin: true,
+      //   scrub: 0.5,
+      //   markers: false,
+      //   smoothTouch: 0.1,
+      // },
     });
 
-    timelineimpact.to(
-      '#section5 .roundimage-impact, #section5 .roundtext-impact',
-      {
-        scale: 2.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      0,
-    );
+    // timelineimpact.to(
+    //   '#section5 .roundimage-impact, #section5 .roundtext-impact',
+    //   {
+    //     scale: 2.5,
+    //     z: 350,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   0,
+    // );
 
-    timelineimpact.to(
-      '#section5 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      '<',
-    );
+    // timelineimpact.to(
+    //   '#section5 .section.hero',
+    //   {
+    //     scale: 2.5,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   '<',
+    // );
 
 
     timelineimpact.to('.fifthesection .wrappertest', {
@@ -136,7 +174,7 @@ const Onzeimpact = () => {
       ease: 'power1.inOut',
     });
 
-    
+
     timelineimpact.to(
       '#section5 .gradient-purple',
       {
@@ -175,7 +213,7 @@ const Onzeimpact = () => {
     );
 
     return () => {
-      timelineimpact.scrollTrigger.kill();
+      //timelineimpact.scrollTrigger.kill();
     };
   }, [onzeimpact]);
 
@@ -496,7 +534,7 @@ const Onzeimpact = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" loading="lazy"/>
+        <img src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -515,7 +553,7 @@ const Onzeimpact = () => {
 
   return (
     <section className="panel fifthesection" id="section5">
-      <div className="wrapper-impact">
+      <div className="wrapper-impact" ref={wrapperRefonzeimpact}>
         <div className="wrappermain">
           <img
             className="media"
@@ -523,12 +561,12 @@ const Onzeimpact = () => {
             alt={data.transitionSection.image.alt}
             width="10"
             height="10"
-            loading="lazy"
+            
           />
         </div>
 
-        <div className="roundimages">
-          <div className="roundtext-impact">
+        <div className="roundimages" ref={imgRefonzeimpact}>
+          <div className="roundtext-impact" ref={imgRefonzeimpact}>
             <h2
               dangerouslySetInnerHTML={{
                 __html: data.transitionSection.topTitle,
@@ -540,15 +578,16 @@ const Onzeimpact = () => {
               }}
             />
           </div>
-          <div className="roundimage-impact"></div>
+          <div className="roundimage-impact" ref={imgRefonzeimpact}></div>
           <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
           </div>
         </div>
       </div>
+
       <div className="wrappertest">
-        <section className="section hero"></section>
+        <section className="section hero" ref={heroSectiononzeimpact}></section>
         <div className="gradient-purple" id="onzeimpactnonzefriet">
           <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
             {data.contentSection.heading}
@@ -573,7 +612,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
-                        loading="lazy"
+                        
                       />
                     </div>
                   )}
@@ -585,7 +624,7 @@ const Onzeimpact = () => {
                         width="10"
                         height="10"
                         alt="img"
-                        loading="lazy"
+                        
                       />
                     </div>
                   )}
@@ -594,7 +633,7 @@ const Onzeimpact = () => {
                     alt="Descriptive Alt Text"
                     width="10"
                     height="10"
-                    loading="lazy"
+                    
                   />
                 </div>
               ))}
@@ -614,7 +653,7 @@ const Onzeimpact = () => {
                   data-speed="auto"
                   width="10"
                   height="10"
-                  loading="lazy"
+                  
                 />
               </div>
               <div className="whitewithvideomainbox">
@@ -746,7 +785,7 @@ const Onzeimpact = () => {
                       data-speed="auto"
                       width="10"
                       height="10"
-                      loading="lazy"
+                      
                     />
                   </div>
                 </div>
@@ -831,7 +870,7 @@ const Onzeimpact = () => {
                     alt="Bin Imagebox"
                     width="10"
                     height="10"
-                    loading="lazy"
+                    
                   />
                   <img
                     src={topdustin}
@@ -839,7 +878,7 @@ const Onzeimpact = () => {
                     width="10"
                     className="topdustbinimage"
                     height="10"
-                    loading="lazy"
+                    
                   />
                 </div>
               </div>

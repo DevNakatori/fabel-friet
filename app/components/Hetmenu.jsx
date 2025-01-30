@@ -27,56 +27,92 @@ const Hetmenu = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch Data from Sanity for Hetmenu
-  // useEffect(() => {
-  //   const fetchDataHetmenuData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "hetmenu" && language == $lang]`,
-  //         { lang: language },
-  //       );
 
-  //       setHetmenu(data);
-  //     } catch (err) {
-  //       console.error('Error fetching Hetmenu data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchDataHetmenuData();
-  // }, [language]);
-
+  const wrapperRefhetmenu = useRef(null);
+  const imgRefhetmenu = useRef(null);
+  const heroSectionRefhetmenu = useRef(null);
 
   useEffect(() => {
-    const fetchDataHetmenuData = async () => {
-      const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-      if (cachedData) {
-        setHetmenu(JSON.parse(cachedData));
-        setLoading(false);
-      } else {
-        try {
-          setLoading(true);
-          const data = await client.fetch(
-            `*[_type == "hetmenu" && language == $lang]`,
-            {lang: language},
-          );
-          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
-          setHetmenu(data);
-        } catch (err) {
-          console.error('Error fetching Hetmenu data:', err);
-          setError('Failed to load data');
-        } finally {
-          setLoading(false);
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRefhetmenu.current,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: true,
+          markers: true
         }
+      })
+      .to(imgRefhetmenu.current, {
+        scale: 2,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut'
+      })
+      .to(
+        heroSectionRefhetmenu.current,
+        {
+          scale: 1.1,
+          transformOrigin: 'center center',
+          ease: 'power1.inOut'
+        },
+        '<'
+      );
+  }, [hetmenu]);
+
+
+  // Fetch Data from Sanity for Hetmenu
+  useEffect(() => {
+    const fetchDataHetmenuData = async () => {
+      try {
+        setLoading(true);
+        const data = await client.fetch(
+          `*[_type == "hetmenu" && language == $lang]`,
+          { lang: language },
+        );
+
+        setHetmenu(data);
+      } catch (err) {
+        console.error('Error fetching Hetmenu data:', err);
+        setError('Failed to load data');
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchDataHetmenuData();
   }, [language]);
 
+
+  // useEffect(() => {
+  //   const fetchDataHetmenuData = async () => {
+  //     const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+  //     if (cachedData) {
+  //       setHetmenu(JSON.parse(cachedData));
+  //       setLoading(false);
+  //     } else {
+  //       try {
+  //         setLoading(true);
+  //         const data = await client.fetch(
+  //           `*[_type == "hetmenu" && language == $lang]`,
+  //           { lang: language },
+  //         );
+  //         localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+  //         setHetmenu(data);
+  //       } catch (err) {
+  //         console.error('Error fetching Hetmenu data:', err);
+  //         setError('Failed to load data');
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     }
+  //   };
+
+  //   fetchDataHetmenuData();
+  // }, [language]);
+
+  
   // GSAP Animations for Hetmenu
   useEffect(() => {
 
@@ -84,40 +120,37 @@ const Hetmenu = () => {
 
 
     const timelineshetmenu = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#section4 .wrapper-hetmenu',
-        start: "top top",
-        //end: '+=150%',
-        pin: true,
-        scrub: 0.5,
-        markers: false,
-        smoothTouch: 0.1,
-        toggleActions: "reverse none none play",
-      },
+      // scrollTrigger: {
+      //   trigger: '#section4 .wrapper-hetmenu',
+      //   start: "top top",
+      //   // end: '+=150%',
+      //   pin: true,
+      //   scrub: 0.5,
+      //   markers: false,
+      //   smoothTouch: 0.1,
+      // },
     });
 
-    timelineshetmenu.to(
-      '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
-      {
-        scale: 2.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      0,
-    );
+    // timelineshetmenu.to(
+    //   '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
+    //   {
+    //     scale: 2.5,
+    //     z: 350,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   0,
+    // );
 
-    timelineshetmenu.to(
-      '#section4 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      '<',
-    );
+    // timelineshetmenu.to(
+    //   '#section4 .section.hero',
+    //   {
+    //     scale: 2.5,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   '<',
+    // );
 
     timelineshetmenu.to('.fourthsection .wrappertest', {
       scrollTrigger: {
@@ -131,7 +164,7 @@ const Hetmenu = () => {
       ease: 'power1.inOut',
     });
 
-    
+
 
     timelineshetmenu.to(
       '#section4 .gradient-purple',
@@ -149,7 +182,7 @@ const Hetmenu = () => {
     );
 
     return () => {
-      timelineshetmenu.scrollTrigger.kill();
+     // timelineshetmenu.scrollTrigger.kill();
     };
   }, [hetmenu]);
 
@@ -320,7 +353,7 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-    
+
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -348,7 +381,7 @@ const Hetmenu = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -366,7 +399,7 @@ const Hetmenu = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+            Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
@@ -395,14 +428,14 @@ const Hetmenu = () => {
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-     // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [hetmenu]);
 
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img loading="lazy" src={bannerlogo} alt="logo" />
+        <img src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -442,114 +475,130 @@ const Hetmenu = () => {
   return (
     <section className="panel fourthsection" id="section4">
       <div>
-      <div className="wrapper-hetmenu">
-        <div className="wrappermain">
-          <img
-            className="media"
-            src={getImageUrl(transitionSection.image.asset._ref)}
-            alt="Transition Section"
-            width="100"
-            height="100"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="roundimages">
-          <div className="roundtext-hetmenu">
-            <h2
-              dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
-            />
-            <h3
-              dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
+        <div className="wrapper-hetmenu" ref={wrapperRefhetmenu}>
+          <div className="wrappermain">
+            <img
+              className="media"
+              src={getImageUrl(transitionSection.image.asset._ref)}
+              alt="Transition Section"
+              width="100"
+              height="100"
+              
             />
           </div>
-          <div className="roundimage-hetmenu"></div>
-          <div className="scroll-down">
-            <div className="icon-scroll"></div>
-            <p>Scroll down</p>
+
+          <div className="roundimages" ref={imgRefhetmenu}>
+            <div className="roundtext-hetmenu" ref={imgRefhetmenu}>
+              <h2
+                dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
+              />
+              <h3
+                dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
+              />
+            </div>
+            <div className="roundimage-hetmenu" ref={imgRefhetmenu}></div>
+            <div className="scroll-down">
+              <div className="icon-scroll"></div>
+              <p>Scroll down</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="wrappertest" ref={rainContainerRef}>
-        <section className="section hero"></section>
-        <div className="gradient-purple" id="hetmenusection">
-          <h4
-            className="hetmenuntitle"
-            data-menutitle=""
-            dangerouslySetInnerHTML={{ __html: contentSection.heading }}
-          />
-          <p
-            className="hetmenuescription"
-            data-menudescription=""
-            dangerouslySetInnerHTML={{ __html: contentSection.description }}
-          />
+        <div className="wrappertest" ref={rainContainerRef}>
+          <section className="section hero" ref={heroSectionRefhetmenu}></section>
+          <div className="gradient-purple" id="hetmenusection">
+            <h4
+              className="hetmenuntitle"
+              data-menutitle=""
+              dangerouslySetInnerHTML={{ __html: contentSection.heading }}
+            />
+            <p
+              className="hetmenuescription"
+              data-menudescription=""
+              dangerouslySetInnerHTML={{ __html: contentSection.description }}
+            />
 
-          <div className="whitebgbox">
-            <canvas
+            <div className="whitebgbox">
+              <canvas
               className="canvasfries"
               ref={canvasRef}
               style={{ position: 'absolute', top: 0, left: 0 }}
             />
 
-            <div
-              className="menudynamic onlydesktop"
-              data-aos="fade-up"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              <ul className="categotyfilter">
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('friet-section')}
-                    className={
-                      activeSection === 'friet-section' ? 'active' : ''
-                    }
-                  >
-                    Friet
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('snacks-section')}
-                    className={
-                      activeSection === 'snacks-section' ? 'active' : ''
-                    }
-                  >
-                    Snacks
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => handleScrollToSection('drinks-section')}
-                    className={
-                      activeSection === 'drinks-section' ? 'active' : ''
-                    }
-                  >
-                    Drinks
-                  </button>
-                </li>
-              </ul>
+              <div
+                className="menudynamic onlydesktop"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
+                <ul className="categotyfilter">
+                  <li>
+                    <button
+                      onClick={() => handleScrollToSection('friet-section')}
+                      className={
+                        activeSection === 'friet-section' ? 'active' : ''
+                      }
+                    >
+                      Friet
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleScrollToSection('snacks-section')}
+                      className={
+                        activeSection === 'snacks-section' ? 'active' : ''
+                      }
+                    >
+                      Snacks
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => handleScrollToSection('drinks-section')}
+                      className={
+                        activeSection === 'drinks-section' ? 'active' : ''
+                      }
+                    >
+                      Drinks
+                    </button>
+                  </li>
+                </ul>
 
-              <div className="innermenudynamicone">
-                <div className="innermenudynamictwo">
-                  <section className="menu-section">
-                    {/* Display Friet */}
-                    <div id="friet-section">
-                      {menuSection?.friet?.length > 0 ? (
-                        menuSection.friet.map((frietCategory) => (
-                          <div
-                            key={frietCategory._key}
-                            className="friet-category"
-                          >
-                            <h2>{frietCategory.title}</h2>
-                            <h3>{frietCategory.subTitle}</h3>
-                            <div className="menu-item">
-                              {frietCategory.menu.map((frietItem) => (
-                                <div key={frietItem._key}>
-                                  {frietItem.recipedetails ? (
-                                    <details>
-                                      <summary>
+                <div className="innermenudynamicone">
+                  <div className="innermenudynamictwo">
+                    <section className="menu-section">
+                      {/* Display Friet */}
+                      <div id="friet-section">
+                        {menuSection?.friet?.length > 0 ? (
+                          menuSection.friet.map((frietCategory) => (
+                            <div
+                              key={frietCategory._key}
+                              className="friet-category"
+                            >
+                              <h2>{frietCategory.title}</h2>
+                              <h3>{frietCategory.subTitle}</h3>
+                              <div className="menu-item">
+                                {frietCategory.menu.map((frietItem) => (
+                                  <div key={frietItem._key}>
+                                    {frietItem.recipedetails ? (
+                                      <details>
+                                        <summary>
+                                          <p
+                                            className="summerytext"
+                                            dangerouslySetInnerHTML={{
+                                              __html: frietItem.recipe,
+                                            }}
+                                          />
+                                          <span
+                                            dangerouslySetInnerHTML={{
+                                              __html: frietItem.price,
+                                            }}
+                                          />
+                                        </summary>
+                                        <p>{frietItem.recipedetails}</p>
+                                      </details>
+                                    ) : (
+                                      <div className="menutextdetails">
                                         <p
                                           className="summerytext"
                                           dangerouslySetInnerHTML={{
@@ -561,49 +610,49 @@ const Hetmenu = () => {
                                             __html: frietItem.price,
                                           }}
                                         />
-                                      </summary>
-                                      <p>{frietItem.recipedetails}</p>
-                                    </details>
-                                  ) : (
-                                    <div className="menutextdetails">
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: frietItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: frietItem.price,
-                                        }}
-                                      />
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))
-                      ) : (
-                        <p>Data not available</p>
-                      )}
-                    </div>
+                          ))
+                        ) : (
+                          <p>Data not available</p>
+                        )}
+                      </div>
 
-                    {/* Display Snacks */}
-                    <div id="snacks-section">
-                      {menuSection?.snacks?.length > 0 ? (
-                        menuSection.snacks.map((snackCategory) => (
-                          <div
-                            key={snackCategory._key}
-                            className="snack-category"
-                          >
-                            <h2>{snackCategory.title}</h2>
-                            <div className="menu-item">
-                              {snackCategory.menu.map((snackItem) => (
-                                <div key={snackItem._key}>
-                                  {snackItem.recipedetails ? (
-                                    <details>
-                                      <summary>
+                      {/* Display Snacks */}
+                      <div id="snacks-section">
+                        {menuSection?.snacks?.length > 0 ? (
+                          menuSection.snacks.map((snackCategory) => (
+                            <div
+                              key={snackCategory._key}
+                              className="snack-category"
+                            >
+                              <h2>{snackCategory.title}</h2>
+                              <div className="menu-item">
+                                {snackCategory.menu.map((snackItem) => (
+                                  <div key={snackItem._key}>
+                                    {snackItem.recipedetails ? (
+                                      <details>
+                                        <summary>
+                                          <p
+                                            className="summerytext"
+                                            dangerouslySetInnerHTML={{
+                                              __html: snackItem.recipe,
+                                            }}
+                                          />
+                                          <span
+                                            dangerouslySetInnerHTML={{
+                                              __html: snackItem.price,
+                                            }}
+                                          />
+                                        </summary>
+                                        <p>{snackItem.recipedetails}</p>
+                                      </details>
+                                    ) : (
+                                      <div className="menutextdetails">
                                         <p
                                           className="summerytext"
                                           dangerouslySetInnerHTML={{
@@ -615,49 +664,49 @@ const Hetmenu = () => {
                                             __html: snackItem.price,
                                           }}
                                         />
-                                      </summary>
-                                      <p>{snackItem.recipedetails}</p>
-                                    </details>
-                                  ) : (
-                                    <div className="menutextdetails">
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: snackItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: snackItem.price,
-                                        }}
-                                      />
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))
-                      ) : (
-                        <p>Data not available</p>
-                      )}
-                    </div>
+                          ))
+                        ) : (
+                          <p>Data not available</p>
+                        )}
+                      </div>
 
-                    {/* Display Drinks */}
-                    <div id="drinks-section">
-                      {menuSection?.drinks?.length > 0 ? (
-                        menuSection.drinks.map((drinksCategory) => (
-                          <div
-                            key={drinksCategory._key}
-                            className="drinks-category"
-                          >
-                            <h2>{drinksCategory.title}</h2>
-                            <div className="menu-item">
-                              {drinksCategory.menu.map((drinkItem) => (
-                                <div key={drinkItem._key}>
-                                  {drinkItem.recipedetails ? (
-                                    <details>
-                                      <summary>
+                      {/* Display Drinks */}
+                      <div id="drinks-section">
+                        {menuSection?.drinks?.length > 0 ? (
+                          menuSection.drinks.map((drinksCategory) => (
+                            <div
+                              key={drinksCategory._key}
+                              className="drinks-category"
+                            >
+                              <h2>{drinksCategory.title}</h2>
+                              <div className="menu-item">
+                                {drinksCategory.menu.map((drinkItem) => (
+                                  <div key={drinkItem._key}>
+                                    {drinkItem.recipedetails ? (
+                                      <details>
+                                        <summary>
+                                          <p
+                                            className="summerytext"
+                                            dangerouslySetInnerHTML={{
+                                              __html: drinkItem.recipe,
+                                            }}
+                                          />
+                                          <span
+                                            dangerouslySetInnerHTML={{
+                                              __html: drinkItem.price,
+                                            }}
+                                          />
+                                        </summary>
+                                        <p>{drinkItem.recipedetails}</p>
+                                      </details>
+                                    ) : (
+                                      <div className="menutextdetails">
                                         <p
                                           className="summerytext"
                                           dangerouslySetInnerHTML={{
@@ -669,73 +718,57 @@ const Hetmenu = () => {
                                             __html: drinkItem.price,
                                           }}
                                         />
-                                      </summary>
-                                      <p>{drinkItem.recipedetails}</p>
-                                    </details>
-                                  ) : (
-                                    <div className="menutextdetails">
-                                      <p
-                                        className="summerytext"
-                                        dangerouslySetInnerHTML={{
-                                          __html: drinkItem.recipe,
-                                        }}
-                                      />
-                                      <span
-                                        dangerouslySetInnerHTML={{
-                                          __html: drinkItem.price,
-                                        }}
-                                      />
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        ))
-                      ) : (
-                        <p>Data not available</p>
-                      )}
-                    </div>
-                  </section>
+                          ))
+                        ) : (
+                          <p>Data not available</p>
+                        )}
+                      </div>
+                    </section>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="appcontainers">
-              {/* Bottom Section */}
-              <div className="whitewithvideomainbox">
-                <div className="righttextbox">
-                  <h5
-                    data-righttextboxtitle=""
-                    dangerouslySetInnerHTML={{
-                      __html: bottomContentSection.bottomHeading,
-                    }}
-                  />
-                  <p
-                    data-righttextboxdescription=""
-                    dangerouslySetInnerHTML={{
-                      __html: bottomContentSection.bottomDescription,
-                    }}
-                  />
-                </div>
-                <div className="leftvideobox">
-                  <img
-                    src={getImageUrl(
-                      bottomContentSection.bottomImage.asset._ref,
-                    )}
-                    alt="Bottom section image"
-                    data-speed="auto"
-                    loading="lazy"
-                  />
+              <div className="appcontainers">
+                {/* Bottom Section */}
+                <div className="whitewithvideomainbox">
+                  <div className="righttextbox">
+                    <h5
+                      data-righttextboxtitle=""
+                      dangerouslySetInnerHTML={{
+                        __html: bottomContentSection.bottomHeading,
+                      }}
+                    />
+                    <p
+                      data-righttextboxdescription=""
+                      dangerouslySetInnerHTML={{
+                        __html: bottomContentSection.bottomDescription,
+                      }}
+                    />
+                  </div>
+                  <div className="leftvideobox">
+                    <img
+                      src={getImageUrl(
+                        bottomContentSection.bottomImage.asset._ref,
+                      )}
+                      alt="Bottom section image"
+                      data-speed="auto"
+                      
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="hetmenufixed">
-              <div className="overlaybannehand-bottoms"></div>
+              <div className="hetmenufixed">
+                <div className="overlaybannehand-bottoms"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

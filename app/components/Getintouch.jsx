@@ -30,6 +30,42 @@ const Getintouch = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const wrapperRefgetIntouch = useRef(null);
+  const imgRefgetIntouch = useRef(null);
+  const heroSectiongetIntouch = useRef(null);
+
+  useEffect(() => {
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRefgetIntouch.current,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: true,
+          markers: true
+        }
+      })
+      .to(imgRefgetIntouch.current, {
+        scale: 2,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut'
+      })
+      .to(
+        heroSectiongetIntouch.current,
+        {
+          scale: 1.1,
+          transformOrigin: 'center center',
+          ease: 'power1.inOut'
+        },
+        '<'
+      );
+  }, [getIntouch]);
+
+
+
 
   useEffect(() => {
     const fetchData_Getintouch = async () => {
@@ -49,45 +85,47 @@ const Getintouch = () => {
     fetchData_Getintouch();
   }, [language]);
 
+
+
+
+  
+
   useEffect(() => {
 
     if (!getIntouch) return;
 
 
     const timelinegetintouch = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#section6 .wrapper-getintouch',
-        start: "center center",
-        //end: '+=150%',
-        pin: true,
-        scrub: 0.5,
-        markers: false,
-        smoothTouch: 0.1,
-        toggleActions: "reverse none none play",
-      },
+      // scrollTrigger: {
+      //   trigger: '#section6 .wrapper-getintouch',
+      //   start: "top top",
+      //   end: '+=150%',
+      //   pin: true,
+      //   scrub: 0.5,
+      //   markers: false,
+      //   smoothTouch: 0.1,
+      // },
     });
-    timelinegetintouch.to(
-      '#section6 .roundimage-getintouch, #section6 .roundtext-getintouch',
-      {
-        scale: 2.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      0,
-    );
+    // timelinegetintouch.to(
+    //   '#section6 .roundimage-getintouch, #section6 .roundtext-getintouch',
+    //   {
+    //     scale: 2.5,
+    //     z: 350,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   0,
+    // );
 
-    timelinegetintouch.to(
-      '#section6 .section.hero',
-      {
-        scale: 2.5,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-        toggleActions: "reverse none none play",
-      },
-      '<',
-    );
+    // timelinegetintouch.to(
+    //   '#section6 .section.hero',
+    //   {
+    //     scale: 2.5,
+    //     transformOrigin: 'center center',
+    //     ease: 'power1.inOut',
+    //   },
+    //   '<',
+    // );
 
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
@@ -101,10 +139,10 @@ const Getintouch = () => {
       ease: 'power1.inOut',
     });
 
-    
+
 
     return () => {
-      timelinegetintouch.scrollTrigger.kill();
+    //  timelinegetintouch.scrollTrigger.kill();
     };
   }, [getIntouch]);
 
@@ -699,7 +737,7 @@ const Getintouch = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img loading="lazy" src={bannerlogo} alt="logo" />
+        <img src={bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -717,7 +755,7 @@ const Getintouch = () => {
 
   return (
     <section className="panel sixthsection" id="section6">
-      <div className="wrapper-getintouch">
+      <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
         <div className="wrappermain">
           {getIntouch.transitionSection && (
             <img
@@ -729,8 +767,8 @@ const Getintouch = () => {
             />
           )}
         </div>
-        <div className="roundimages">
-          <div className="roundtext-getintouch">
+        <div className="roundimages" ref={imgRefgetIntouch}>
+          <div className="roundtext-getintouch" ref={imgRefgetIntouch}>
             <h2
               dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
             />
@@ -738,7 +776,7 @@ const Getintouch = () => {
               dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
             />
           </div>
-          <div className="roundimage-getintouch"></div>
+          <div className="roundimage-getintouch" ref={imgRefgetIntouch}></div>
           <div className="scroll-down">
             <div className="icon-scroll"></div>
             <p>Scroll down</p>
@@ -746,17 +784,18 @@ const Getintouch = () => {
         </div>
       </div>
       <div className="wrappertest" ref={rainContainerRef}>
+        <section className="section hero" ref={heroSectiongetIntouch}></section>
         <div className="wrappertests">
           <div className="flair flair--3">
             <div className="likeimagelists">
-              <img loading="lazy" src={liek_2} alt="img" className="ball" />
-              <img loading="lazy" src={liek_1} alt="img" className="ball" />
-              <img loading="lazy" src={liek_3} alt="img" className="ball" />
-              <img loading="lazy" src={liek_4} alt="img" className="ball" />
+              <img  src={liek_2} alt="img" className="ball" />
+              <img  src={liek_1} alt="img" className="ball" />
+              <img  src={liek_3} alt="img" className="ball" />
+              <img  src={liek_4} alt="img" className="ball" />
             </div>
           </div>
         </div>
-        <section className="section hero"></section>
+
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
           <canvas
             className="canvasfries"
@@ -793,7 +832,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
+                  
                   loop
                 ></iframe>
               </li>
@@ -811,7 +850,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
+                  
                   loop
                 ></iframe>
               </li>
@@ -829,7 +868,7 @@ const Getintouch = () => {
                   src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
                   muted
                   allow="autoplay"
-                  loading="lazy"
+                  
                   loop
                 ></iframe>
               </li>
