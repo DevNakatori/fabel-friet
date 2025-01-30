@@ -1189,5 +1189,7 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 
 
 
-
+.gradient-purple {
+  border: solid 2px #fff;
+}
 
