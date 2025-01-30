@@ -35,7 +35,7 @@ const Getintouch = () => {
   const imgRefgetIntouch = useRef(null);
   const heroSectiongetIntouch = useRef(null);
   useEffect(() => {
-    if (!getIntouch || loading) return;
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -44,7 +44,7 @@ const Getintouch = () => {
           end: '+=150%',
           pin: true,
           scrub: true,
-          markers: true
+          markers: false
         }
       })
       .to(imgRefgetIntouch.current, {
@@ -83,6 +83,35 @@ const Getintouch = () => {
     };
     fetchData_Getintouch();
   }, [language]);
+
+  // useEffect(() => {
+  //   const fetchData_Getintouch = async () => {
+  //     const cachedData = localStorage.getItem(`getintouchData_${language}`);
+  //     if (cachedData) {
+  //       setGetIntouch(JSON.parse(cachedData));
+  //       setDataLoadedgetintouch(true);
+  //       setLoading(false);
+  //     } else {
+  //       try {
+  //         setLoading(true);
+  //         const data = await client.fetch(
+  //           `*[_type == "getintouch" && language == $lang]`,
+  //           { lang: language },
+  //         );
+  //         localStorage.setItem(`getintouchData_${language}`, JSON.stringify(data));
+  //         setGetIntouch(data[0]);
+  //         setDataLoadedgetintouch(true);
+  //       } catch (err) {
+  //         setError('Failed to load data');
+  //       } finally {
+  //         setLoading(false);
+  //       }
+  //     }
+  //   };
+
+  //   fetchData_Getintouch();
+  // }, [language]);
+
   /* fatch data end */
 
   useEffect(() => {
@@ -756,6 +785,7 @@ const Getintouch = () => {
                 alt="Logo"
                 width="10"
                 height="10"
+                onError={(e) => e.target.src = { bannerlogo }}
               />
             )}
           </div>
@@ -779,7 +809,7 @@ const Getintouch = () => {
       </div>
 
       <div className="wrappertest" ref={rainContainerRef}>
-        
+
         <div className="wrappertests">
           <div className="flair flair--3">
             <div className="likeimagelists">

@@ -33,7 +33,7 @@ const Hetmenu = () => {
   const heroSectionRefhetmenu = useRef(null);
 
   useEffect(() => {
-    if (!hetmenu || loading) return;
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -42,7 +42,7 @@ const Hetmenu = () => {
           end: '+=150%',
           pin: true,
           scrub: true,
-          markers: true
+          markers: false
         }
       })
       .to(imgRefhetmenu.current, {
@@ -64,54 +64,55 @@ const Hetmenu = () => {
 
 
   // Fetch Data from Sanity for Hetmenu
-  useEffect(() => {
-    const fetchDataHetmenuData = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "hetmenu" && language == $lang]`,
-          { lang: language },
-        );
-
-        setHetmenu(data);
-      } catch (err) {
-        console.error('Error fetching Hetmenu data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDataHetmenuData();
-  }, [language]);
-
-
   // useEffect(() => {
   //   const fetchDataHetmenuData = async () => {
-  //     const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-  //     if (cachedData) {
-  //       setHetmenu(JSON.parse(cachedData));
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "hetmenu" && language == $lang]`,
+  //         { lang: language },
+  //       );
+
+  //       setHetmenu(data);
+  //     } catch (err) {
+  //       console.error('Error fetching Hetmenu data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
   //       setLoading(false);
-  //     } else {
-  //       try {
-  //         setLoading(true);
-  //         const data = await client.fetch(
-  //           `*[_type == "hetmenu" && language == $lang]`,
-  //           { lang: language },
-  //         );
-  //         localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
-  //         setHetmenu(data);
-  //       } catch (err) {
-  //         console.error('Error fetching Hetmenu data:', err);
-  //         setError('Failed to load data');
-  //       } finally {
-  //         setLoading(false);
-  //       }
   //     }
   //   };
 
   //   fetchDataHetmenuData();
   // }, [language]);
+
+
+  useEffect(() => {
+    const fetchDataHetmenuData = async () => {
+      const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+      console.log('hetmenuData C Data:', cachedData);
+      if (cachedData) {
+        setHetmenu(JSON.parse(cachedData));
+        setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "hetmenu" && language == $lang]`,
+            { lang: language },
+          );
+          localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+          setHetmenu(data);
+        } catch (err) {
+          console.error('Error fetching Hetmenu data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchDataHetmenuData();
+  }, [language]);
 
 
   // GSAP Animations for Hetmenu
@@ -485,7 +486,7 @@ const Hetmenu = () => {
                 alt="Transition Section"
                 width="100"
                 height="100"
-
+                onError={(e) => e.target.src = { bannerlogo }}
               />
             </div>
           </div>
@@ -509,7 +510,7 @@ const Hetmenu = () => {
         </div>
 
         <div className="wrappertest" ref={rainContainerRef}>
-          
+
           <div className="gradient-purple" id="hetmenusection">
             <h4
               className="hetmenuntitle"
