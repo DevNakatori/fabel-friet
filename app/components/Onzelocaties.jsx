@@ -353,9 +353,10 @@ const Onzelocaties = () => {
                 <p>Scroll down</p>
               </div>
             </div>
+            <section className="section hero" ref={heroSectiononzelocaties}></section>
           </div>
           <div className="wrappertest">
-            <section className="section hero" ref={heroSectiononzelocaties}></section>
+            
             <div className="gradient-purple" id="locationtiononzefriet">
               <h4
                 className="locationtitle"

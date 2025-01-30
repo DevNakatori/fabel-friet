@@ -588,10 +588,11 @@ const Onzeimpact = () => {
             <p>Scroll down</p>
           </div>
         </div>
+        <section className="section hero" ref={heroSectiononzeimpact}></section>
       </div>
 
       <div className="wrappertest">
-        <section className="section hero" ref={heroSectiononzeimpact}></section>
+        
         <div className="gradient-purple" id="onzeimpactnonzefriet">
           <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
             {data.contentSection.heading}
