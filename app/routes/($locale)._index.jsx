@@ -120,7 +120,7 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
-    AOS.refresh();
+   // AOS.refresh();
   }, []);
 
   useEffect(() => {
@@ -215,7 +215,7 @@ export default function Homepage() {
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-        // window.location.reload();
+         window.location.reload();
       }, 2500);
 
       setTimeout(() => {
