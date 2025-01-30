@@ -44,11 +44,13 @@ const Getintouch = () => {
           //end: '+=150%',
           pin: true,
           scrub: true,
-          markers: false
+          markers: false,
+          repeat: 1,
+          delay: 0.5,
         }
       })
       .to(imgRefgetIntouch.current, {
-        scale: 2,
+        scale: 1.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut'
@@ -153,7 +155,7 @@ const Getintouch = () => {
     timelinegetintouch.to('.sixthsection .wrappertest', {
       scrollTrigger: {
         trigger: '.sixthsection',
-        start: '10% 10%',
+        start: '0% 0%',
         end: '30% 30%',
         scrub: true,
         once: false,

@@ -44,11 +44,14 @@ const Onzefriet = () => {
           //end: '+=150%',
           pin: true,
           scrub: true,
-          markers: false
+          markers: false,
+          repeat: 1,
+          delay: 0.5,
+
         }
       })
       .to(imgRef.current, {
-        scale: 2,
+        scale: 1.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut'
@@ -167,7 +170,7 @@ const Onzefriet = () => {
     timelinesonzefriet.to('.secondesection .wrappertest', {
       scrollTrigger: {
         trigger: '.secondesection',
-        start: '10% 10%',
+        start: '0% 0%',
         end: '25% 25%',
         scrub: true,
         once: false,
