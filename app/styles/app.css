@@ -1180,6 +1180,9 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 
 .page.menumainppage .menu-section ul li .sprateline {
   font-weight: 600;
+  font-size: -moz-calc(16 / var(--vw)* var(--multiplier));
+          font-size: calc(16 / var(--vw)* var(--multiplier));
+
 }
 .page.menumainppage .menu-section ul li .englishlang.sprateline {
   font-weight: 400;
