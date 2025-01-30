@@ -358,7 +358,7 @@ const HomePage = () => {
       setTimeout(() => {
         if (!sessionStorage.getItem('pageRefreshed')) {
           sessionStorage.setItem('pageRefreshed', 'true');
-          location.reload(); 
+         // location.reload(); 
       }
       }, 2500);
       document.body.classList.add('hiddenoverflow');

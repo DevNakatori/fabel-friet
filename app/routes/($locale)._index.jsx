@@ -151,71 +151,71 @@ export default function Homepage() {
     setTimeout(() => setShowGetintouch(true), 6); // show after 6 seconds
   }, []);
 
-  useEffect(() => {
-    const app = () => {
-      let Sections = gsap.utils.toArray('section');
+  // useEffect(() => {
+  //   const app = () => {
+  //     let Sections = gsap.utils.toArray('section');
 
-      Sections.forEach((section, index) => {
-        section.classList.add(`panel-${index}`);
-      });
-      const getTotalWidth = () => {
-        let width = 0;
-        Sections.forEach((el) => (width += el.offsetWidth));
-        return width;
-      };
-      let snap;
-      gsap.to(Sections, {
-        x: () => -getTotalWidth() + window.innerWidth,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#smooth-wrapper',
-          pin: false,
-          start: 0,
-          end: () =>
-            '+=' + document.querySelector('#smooth-wrapper').scrollWidth,
-          invalidateOnRefresh: false,
-          onRefresh() {
-            let totalWidth = getTotalWidth(),
-              accumulatedWidth = 0,
-              progressArray = Sections.map((el) => {
-                accumulatedWidth += el.offsetWidth;
-                return accumulatedWidth / totalWidth;
-              });
-            progressArray.unshift(0);
-            snap = gsap.utils.snap(progressArray);
-          },
-          scrub: true,
-          markers: false,
-        },
-      });
-      gsap.to('progress', {
-        value: 100,
-        ease: 'none',
-        scrollTrigger: { scrub: 0.3 },
-      });
-    };
-    const timer = setTimeout(() => {
-      app();
-    }, 0);
+  //     Sections.forEach((section, index) => {
+  //       section.classList.add(`panel-${index}`);
+  //     });
+  //     const getTotalWidth = () => {
+  //       let width = 0;
+  //       Sections.forEach((el) => (width += el.offsetWidth));
+  //       return width;
+  //     };
+  //     let snap;
+  //     gsap.to(Sections, {
+  //       x: () => -getTotalWidth() + window.innerWidth,
+  //       ease: 'none',
+  //       scrollTrigger: {
+  //         trigger: '#smooth-wrapper',
+  //         pin: false,
+  //         start: 0,
+  //         end: () =>
+  //           '+=' + document.querySelector('#smooth-wrapper').scrollWidth,
+  //         invalidateOnRefresh: false,
+  //         onRefresh() {
+  //           let totalWidth = getTotalWidth(),
+  //             accumulatedWidth = 0,
+  //             progressArray = Sections.map((el) => {
+  //               accumulatedWidth += el.offsetWidth;
+  //               return accumulatedWidth / totalWidth;
+  //             });
+  //           progressArray.unshift(0);
+  //           snap = gsap.utils.snap(progressArray);
+  //         },
+  //         scrub: true,
+  //         markers: false,
+  //       },
+  //     });
+  //     gsap.to('progress', {
+  //       value: 100,
+  //       ease: 'none',
+  //       scrollTrigger: { scrub: 0.3 },
+  //     });
+  //   };
+  //   const timer = setTimeout(() => {
+  //     app();
+  //   }, 0);
 
-    //Clean up GSAP instances on component unmount
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-    // gsap.to('progress', {
-    //   value: 100,
-    //   ease: 'none',
-    //   scrollTrigger: { scrub: 0.3 }
-    // });
-  }, []);
+  //   //Clean up GSAP instances on component unmount
+  //   return () => {
+  //     clearTimeout(timer);
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  //   // gsap.to('progress', {
+  //   //   value: 100,
+  //   //   ease: 'none',
+  //   //   scrollTrigger: { scrub: 0.3 }
+  //   // });
+  // }, []);
 
   useEffect(() => {
 
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-         window.location.reload();
+       //  window.location.reload();
       }, 2500);
 
       setTimeout(() => {
@@ -233,7 +233,7 @@ export default function Homepage() {
         );
 
 
-      }, 2500);
+      }, 1000);
     }
   }, []);
 
@@ -283,16 +283,14 @@ export default function Homepage() {
         <LanguageSwitcher />
         <Newheader />
         <Cursor />
-        <div id="smooth-wrapper">
-          <div id="smooth-content">
+        
             {showHomePage && <HomePage />}
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}
             {showOnzeimpact && <Onzeimpact />}
             {showGetintouch && <Getintouch />}
-          </div>
-        </div>
+        
       </LanguageProvider>
     </div>
   );
