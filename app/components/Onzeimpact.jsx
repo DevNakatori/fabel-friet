@@ -47,11 +47,13 @@ const Onzeimpact = () => {
           //end: '+=150%',
           pin: true,
           scrub: true,
-          markers: false
+          markers: false,
+          repeat: 1,
+          delay: 0.5,
         }
       })
       .to(imgRefonzeimpact.current, {
-        scale: 2,
+        scale: 1.5,
         z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut'
@@ -167,7 +169,7 @@ const Onzeimpact = () => {
     timelineimpact.to('.fifthesection .wrappertest', {
       scrollTrigger: {
         trigger: '.fifthesection',
-        start: '10% 10%',
+        start: '0% 0%',
         end: '30% 30%',
         scrub: true,
         once: true,
