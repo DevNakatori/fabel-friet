@@ -28,8 +28,6 @@ const Onzelocaties = () => {
 
   useEffect(() => {
 
-    if (!onzelocaties || loading) return;
-
     gsap
       .timeline({
         scrollTrigger: {
@@ -38,7 +36,7 @@ const Onzelocaties = () => {
           end: '+=150%',
           pin: true,
           scrub: true,
-          markers: true
+          markers: false
         }
       })
       .to(imgRefonzelocaties.current, {
@@ -60,59 +58,59 @@ const Onzelocaties = () => {
 
 
 
-  useEffect(() => {
-    const fetchDataOnzelocaties = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzelocaties" && language == $lang]`,
-          { lang: language },
-        );
-
-        setOnzelocaties(data);
-        setDataLoadedlocaties(true);
-      } catch (err) {
-        console.error('Error fetching Onzelocaties data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDataOnzelocaties();
-  }, [language]);
-
-
   // useEffect(() => {
   //   const fetchDataOnzelocaties = async () => {
-  //     const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
-  //     //console.log('onzelocatiesData Cached Data:', cachedData);
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzelocaties" && language == $lang]`,
+  //         { lang: language },
+  //       );
 
-  //     if (cachedData) {
-  //       setOnzelocaties(JSON.parse(cachedData));
+  //       setOnzelocaties(data);
+  //       setDataLoadedlocaties(true);
+  //     } catch (err) {
+  //       console.error('Error fetching Onzelocaties data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
   //       setLoading(false);
-  //     } else {
-  //       try {
-  //         setLoading(true);
-  //         const data = await client.fetch(
-  //           `*[_type == "onzelocaties" && language == $lang]`,
-  //           { lang: language },
-  //         );
-  //         // console.log('Fetched onzelocatiesData Data:', data);
-  //         localStorage.setItem(
-  //           `onzelocatiesData_${language}`,
-  //           JSON.stringify(data),
-  //         );
-  //         setOnzelocaties(data);
-  //       } catch (err) {
-  //         console.error('Error fetching Onzelocaties data:', err);
-  //         setError('Failed to load data');
-  //       } finally {
-  //         setLoading(false);
-  //       }
   //     }
   //   };
   //   fetchDataOnzelocaties();
   // }, [language]);
+
+
+  useEffect(() => {
+    const fetchDataOnzelocaties = async () => {
+      const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
+      console.log('onzelocatiesData C Data:', cachedData);
+
+      if (cachedData) {
+        setOnzelocaties(JSON.parse(cachedData));
+        setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzelocaties" && language == $lang]`,
+            { lang: language },
+          );
+          // console.log('Fetched onzelocatiesData Data:', data);
+          localStorage.setItem(
+            `onzelocatiesData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzelocaties(data);
+        } catch (err) {
+          console.error('Error fetching Onzelocaties data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+    fetchDataOnzelocaties();
+  }, [language]);
 
 
 
@@ -329,7 +327,7 @@ const Onzelocaties = () => {
                   alt={locationData.transitionSection.image.alt}
                   width="10"
                   height="10"
-
+                  onError={(e) => e.target.src = { bannerlogo }}
                 />
               </div>
             </div>
@@ -356,7 +354,7 @@ const Onzelocaties = () => {
             <section className="section hero" ref={heroSectiononzelocaties}></section>
           </div>
           <div className="wrappertest">
-            
+
             <div className="gradient-purple" id="locationtiononzefriet">
               <h4
                 className="locationtitle"
@@ -392,7 +390,7 @@ const Onzelocaties = () => {
                 <div className="appcontainers">
                   <div className="onlymobile slideraddress">
                     <Swiper
-                      loop={true}
+                      loop={false}
                       scrollbar={{
                         hide: true,
                       }}

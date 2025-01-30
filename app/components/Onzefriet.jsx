@@ -35,7 +35,7 @@ const Onzefriet = () => {
   const heroSectionRef = useRef(null);
 
   useEffect(() => {
-    if (!onzefriet || loading) return;
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -44,7 +44,7 @@ const Onzefriet = () => {
           end: '+=150%',
           pin: true,
           scrub: true,
-          markers: true
+          markers: false
         }
       })
       .to(imgRef.current, {
@@ -66,62 +66,62 @@ const Onzefriet = () => {
 
 
   /* fatch data start */
-  useEffect(() => {
-    const fetchDataonzefriet = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzefriet" && language == $lang]`,
-          { lang: language },
-        );
-        setOnzefriet(data);
-        setDataLoaded(true);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDataonzefriet();
-  }, [language]);
+  // useEffect(() => {
+  //   const fetchDataonzefriet = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzefriet" && language == $lang]`,
+  //         { lang: language },
+  //       );
+  //       setOnzefriet(data);
+  //       setDataLoaded(true);
+  //     } catch (err) {
+  //       console.error('Error fetching data:', err);
+  //       setError('Failed to load data');
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchDataonzefriet();
+  // }, [language]);
 
 
   /* fatch data end */
 
 
   // /* fatch data start */
-  // useEffect(() => {
-  //   const fetchDataonzefriet = async () => {
-  //     const cachedData = localStorage.getItem(`onzefrietData_${language}`);
-  //     //console.log('onzefrietData Cached Data:', cachedData);
+  useEffect(() => {
+    const fetchDataonzefriet = async () => {
+      const cachedData = localStorage.getItem(`onzefrietData_${language}`);
+      console.log('onzefrietData Cached Data:', cachedData);
 
-  //     if (cachedData) {
-  //       setOnzefriet(JSON.parse(cachedData));
-  //       setLoading(false);
-  //     } else {
-  //       try {
-  //         setLoading(true);
-  //         const data = await client.fetch(
-  //           `*[_type == "onzefriet" && language == $lang]`,
-  //           { lang: language },
-  //         );
-  //         //console.log('Fetched Onzefriet Data:', data);
-  //         localStorage.setItem(
-  //           `onzefrietData_${language}`,
-  //           JSON.stringify(data),
-  //         );
-  //         setOnzefriet(data);
-  //       } catch (err) {
-  //         console.error('Error fetching data:', err);
-  //         setError('Failed to load data');
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     }
-  //   };
-  //   fetchDataonzefriet();
-  // }, [language]);
+      if (cachedData) {
+        setOnzefriet(JSON.parse(cachedData));
+        setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzefriet" && language == $lang]`,
+            { lang: language },
+          );
+          //console.log('Fetched Onzefriet Data:', data);
+          localStorage.setItem(
+            `onzefrietData_${language}`,
+            JSON.stringify(data),
+          );
+          setOnzefriet(data);
+        } catch (err) {
+          console.error('Error fetching data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+    fetchDataonzefriet();
+  }, [language]);
   // /* fatch data end */
 
 
@@ -623,6 +623,7 @@ const Onzefriet = () => {
                   alt={content.transitionSection.image.alt}
                   width="10"
                   height="10"
+                  onError={(e) => e.target.src = { bannerlogo }}
                 />
               </div>
             </div>
@@ -655,7 +656,7 @@ const Onzefriet = () => {
           </div>
 
           <div className="wrappertest" ref={rainContainerRef}>
-            
+
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
                 <>

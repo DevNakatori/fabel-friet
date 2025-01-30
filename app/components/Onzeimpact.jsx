@@ -37,7 +37,7 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!onzeimpact || loading) return;
+
 
     gsap
       .timeline({
@@ -47,7 +47,7 @@ const Onzeimpact = () => {
           end: '+=150%',
           pin: true,
           scrub: true,
-          markers: true
+          markers: false
         }
       })
       .to(imgRefonzeimpact.current, {
@@ -68,58 +68,58 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
 
 
-  useEffect(() => {
-    const fetchDataonzeimpactData = async () => {
-      try {
-        setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "onzeimpact" && language == $lang]`,
-          { lang: language },
-        );
-
-        setonzeimpact(data);
-        setDataLoadedimpact(true);
-      } catch (err) {
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchDataonzeimpactData();
-  }, [language]);
-
-
-
   // useEffect(() => {
   //   const fetchDataonzeimpactData = async () => {
-  //     const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-  //     //console.log('Cached fetchDataonzeimpactData Data:', cachedData);
-  //     if (cachedData) {
-  //       setonzeimpact(JSON.parse(cachedData));
+  //     try {
+  //       setLoading(true);
+  //       const data = await client.fetch(
+  //         `*[_type == "onzeimpact" && language == $lang]`,
+  //         { lang: language },
+  //       );
+
+  //       setonzeimpact(data);
+  //       setDataLoadedimpact(true);
+  //     } catch (err) {
+  //       setError('Failed to load data');
+  //     } finally {
   //       setLoading(false);
-  //     } else {
-  //       try {
-  //         setLoading(true);
-  //         const data = await client.fetch(
-  //           `*[_type == "onzeimpact" && language == $lang]`,
-  //           { lang: language },
-  //         );
-  //         //console.log('Fetched fetchDataonzeimpactData Data:', data);
-  //         localStorage.setItem(
-  //           `onzeimpactData_${language}`,
-  //           JSON.stringify(data),
-  //         );
-  //         setonzeimpact(data);
-  //       } catch (err) {
-  //         console.error('Error fetching Onzeimpact data:', err);
-  //         setError('Failed to load data');
-  //       } finally {
-  //         setLoading(false);
-  //       }
   //     }
   //   };
   //   fetchDataonzeimpactData();
   // }, [language]);
+
+
+
+  useEffect(() => {
+    const fetchDataonzeimpactData = async () => {
+      const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
+      console.log('C fetchDataonzeimpactData Data:', cachedData);
+      if (cachedData) {
+        setonzeimpact(JSON.parse(cachedData));
+        setLoading(false);
+      } else {
+        try {
+          setLoading(true);
+          const data = await client.fetch(
+            `*[_type == "onzeimpact" && language == $lang]`,
+            { lang: language },
+          );
+          //console.log('Fetched fetchDataonzeimpactData Data:', data);
+          localStorage.setItem(
+            `onzeimpactData_${language}`,
+            JSON.stringify(data),
+          );
+          setonzeimpact(data);
+        } catch (err) {
+          console.error('Error fetching Onzeimpact data:', err);
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+    fetchDataonzeimpactData();
+  }, [language]);
 
 
 
@@ -564,7 +564,7 @@ const Onzeimpact = () => {
               alt={data.transitionSection.image.alt}
               width="10"
               height="10"
-
+              onError={(e) => e.target.src = { bannerlogo }}
             />
           </div>
         </div>
@@ -592,7 +592,7 @@ const Onzeimpact = () => {
       </div>
 
       <div className="wrappertest">
-        
+
         <div className="gradient-purple" id="onzeimpactnonzefriet">
           <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
             {data.contentSection.heading}
@@ -708,7 +708,7 @@ const Onzeimpact = () => {
                   <div className="onlymobile">
                     <ul className="onzeimpacttwolist">
                       <Swiper
-                        loop={true}
+                        loop={false}
                         scrollbar={{
                           hide: true,
                         }}
