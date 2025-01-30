@@ -981,4 +981,10 @@ body.overflono{touch-action: none;
         width: -moz-calc(100% + 60px);
         width: calc(100% + 60px);
     }
+
+    .page.menumainppage .menu-section ul li .sprateline {
+        font-weight: 600;
+        font-size:10px;
+      
+      }
 }
