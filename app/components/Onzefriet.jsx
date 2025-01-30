@@ -33,8 +33,9 @@ const Onzefriet = () => {
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
   const heroSectionRef = useRef(null);
-  
-useEffect(() => {
+
+  useEffect(() => {
+    if (!onzefriet || loading) return;
     gsap
       .timeline({
         scrollTrigger: {
@@ -63,7 +64,7 @@ useEffect(() => {
       );
   }, [onzefriet]);
 
-  
+
   /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
@@ -87,7 +88,7 @@ useEffect(() => {
 
 
   /* fatch data end */
-  
+
 
   // /* fatch data start */
   // useEffect(() => {
@@ -123,12 +124,12 @@ useEffect(() => {
   // }, [language]);
   // /* fatch data end */
 
-  
+
 
   /* round curcule animation start */
   useEffect(() => {
 
-    if (!onzefriet) return;
+    if (!onzefriet || loading) return;
 
     const timelinesonzefriet = gsap.timeline({
       // scrollTrigger: {
@@ -198,7 +199,7 @@ useEffect(() => {
 
   useEffect(() => {
 
-    if (!onzefriet) return;
+    if (!onzefriet || loading) return;
 
     const path = document.querySelector('.line2');
     if (path) {
@@ -227,7 +228,7 @@ useEffect(() => {
     const animationDelay = isHardRefresh ? 300 : 300;
 
     const initiateAnimations = () => {
-      if (!onzefriet) return;
+      if (!onzefriet || loading) return;
 
       const typeSplit = new SplitType('[data-onzefrienttitle]', {
         types: 'lines, words, chars',
@@ -381,7 +382,7 @@ useEffect(() => {
 
   useEffect(() => {
 
-    //if (!onzefriet) return;
+    //if (!onzefriet || loading) return;
 
     gsap.set(['.image-wrapper'], {
       xPercent: -50,
@@ -615,13 +616,15 @@ useEffect(() => {
         <div key={idx}>
           <div className="wrapper" ref={wrapperRef}>
             <div className="wrappermain">
-              <img
-                className="media"
-                src={getImageUrl(content.transitionSection.image.asset._ref)}
-                alt={content.transitionSection.image.alt}
-                width="10"
-                height="10"
-              />
+              <div className="wrappermain_inner">
+                <img
+                  className="media"
+                  src={getImageUrl(content.transitionSection.image.asset._ref)}
+                  alt={content.transitionSection.image.alt}
+                  width="10"
+                  height="10"
+                />
+              </div>
             </div>
             <div className="roundimages" ref={imgRef}>
               <div className="roundtext" ref={imgRef}>
@@ -684,7 +687,7 @@ useEffect(() => {
                             alt={image.alt}
                             width="10"
                             height="10"
-                            
+
                           />
                         </div>
                       )}
@@ -696,7 +699,7 @@ useEffect(() => {
                             alt={image.alt}
                             width="10"
                             height="10"
-                            
+
                           />
                         </div>
                       )}
@@ -706,7 +709,7 @@ useEffect(() => {
                         alt={image.alt}
                         width="10"
                         height="10"
-                        
+
                       />
                     </div>
                   ))}
@@ -730,7 +733,7 @@ useEffect(() => {
                             alt="img"
                             width="10"
                             height="10"
-                            
+
                           />
                         </div>
                         <div className="revealvideo">
