@@ -651,10 +651,11 @@ const Onzefriet = () => {
                 </div>
               </div>
             </div>
+            <section className="section hero" ref={heroSectionRef}></section>
           </div>
 
           <div className="wrappertest" ref={rainContainerRef}>
-            <section className="section hero" ref={heroSectionRef}></section>
+            
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
                 <>

@@ -505,10 +505,11 @@ const Hetmenu = () => {
               <p>Scroll down</p>
             </div>
           </div>
+          <section className="section hero" ref={heroSectionRefhetmenu}></section>
         </div>
 
         <div className="wrappertest" ref={rainContainerRef}>
-          <section className="section hero" ref={heroSectionRefhetmenu}></section>
+          
           <div className="gradient-purple" id="hetmenusection">
             <h4
               className="hetmenuntitle"

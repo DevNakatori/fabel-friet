@@ -745,6 +745,7 @@ const Getintouch = () => {
 
   return (
     <section className="panel sixthsection" id="section6">
+
       <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
         <div className="wrappermain">
           <div className='wrappermain_inner'>
@@ -774,9 +775,11 @@ const Getintouch = () => {
             <p>Scroll down</p>
           </div>
         </div>
-      </div>
-      <div className="wrappertest" ref={rainContainerRef}>
         <section className="section hero" ref={heroSectiongetIntouch}></section>
+      </div>
+
+      <div className="wrappertest" ref={rainContainerRef}>
+        
         <div className="wrappertests">
           <div className="flair flair--3">
             <div className="likeimagelists">
