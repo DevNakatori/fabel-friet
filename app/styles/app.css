@@ -1218,3 +1218,65 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 
 
 .wrappertest{overflow: hidden !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
+  --base-font-size: 40px;
+  --max-font-size: 130px;
+} */
+
+/* .en {
+  --base-font-size: 40px;
+  --max-font-size: 130px;
+}
+
+.nl {
+  --base-font-size: 45px; 
+  --max-font-size: 140px;  
+}
+
+.de {
+  --base-font-size: 45px; 
+  --max-font-size: 140px;  
+}
+
+.roundtext h2,
+.roundtext h3 {
+  font-size: calc(var(--max-font-size)) !important;
+} */
