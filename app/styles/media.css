@@ -512,4 +512,12 @@ button.skipvideo.hidden{display:none;}
     .tooltip .tooltiptext{padding:5px;top:20px;}
     .thirdesection .whitebgbox{top:0;margin-bottom:0;padding:0 50px;margin-top:0;padding:0 20px;width:-moz-calc(100% + 60px);width:calc(100% + 60px);}
     .page.menumainppage .menu-section ul li .sprateline{font-weight:600;font-size:10px;}
+
+
+    .accordion-item button.accordion-header .faqqestion{width: 90%;}
+    .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item {
+        border: 2.341px solid #53647C;
+        padding: 0px 5px;
+    }
+    .canvas.whatsappcanvas{display: none;}
 }
