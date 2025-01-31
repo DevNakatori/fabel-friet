@@ -192,7 +192,9 @@ span.word span.char:first-child{text-transform:none;}
 .char{-webkit-transition:-webkit-transform .8s;transition:-webkit-transform .8s;-o-transition:-o-transform .8s;-moz-transition:transform .8s,-moz-transform .8s;-moz-transition:transform .8s, -moz-transform .8s;transition:transform .8s;transition:transform .8s, -webkit-transform .8s, -moz-transform .8s, -o-transform .8s;transition:transform .8s,-webkit-transform .8s,-moz-transform .8s,-o-transform .8s;transition:transform .8s,-webkit-transform .8s;}
 
 canvas.canvasfries {
+    height: -moz-calc(100% - 100px);
     height: calc(100% - 100px);
+    width: -moz-calc(100% + 100px);
     width: calc(100% + 100px);
 }
 .accordion-item button.accordion-header .faqqestion{width: 95%;}
