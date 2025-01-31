@@ -475,7 +475,7 @@ summary:before{width:15px;height:15px;top:0;}
 .page.menumainppage.franchise section.menulanding{position:relative;}
 .page.menumainppage.franchise section.menulanding .landingcontainer{padding:160px 0 500px;}
 .page.menumainppage.franchise section.menulanding{background-position:center;background-size:cover;background-repeat:no-repeat;flex-direction:column;}
-.page.menumainppage.franchise #section2 .wrappertest{position:relative;height:100%;z-index:9;}
+.page.menumainppage.franchise #section2 .wrappertest{position:relative;height:100%;z-index:9;overflow: inherit !important;}
 .page.menumainppage.franchise .whitebgbox{background-image:url('/app/assets/resizeimgs/webp/stone-texture.webp');background-repeat:no-repeat;background-size:cover;width:calc(100% + 0px);position:relative;z-index:99;left:-50px;border-top-left-radius:30px;border-top-right-radius:30px;-webkit-box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);padding:0 50px;}
 .page.menumainppage.franchise .img-container{height:700px;display:flex;padding-bottom:0px;justify-content:center;align-items:center;/*                        overflow: hidden;*/position:relative;}
 .page.menumainppage.franchise .image-wrapper{width:100%;max-width:450px;height:600px;object-fit:cover;object-position:center;/*                        overflow: hidden;*/position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
