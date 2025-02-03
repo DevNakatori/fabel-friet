@@ -226,8 +226,9 @@ const Hetmenu = () => {
     new_fries_four,
   ];
 
-
+  if (window.innerWidth > 767) {
   useEffect(() => {
+    
     if (!hetmenu || loading) return;
     const handleScroll = () => {
       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
@@ -245,11 +246,12 @@ const Hetmenu = () => {
       setActiveSection(currentSection);
     };
     window.addEventListener('scroll', handleScroll);
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [hetmenu]);
-
+}
   useEffect(() => {
     const isHardRefreshhetmenu = window.performance.navigation.type === 1;
     const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
