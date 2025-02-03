@@ -764,7 +764,8 @@ const HomePage = () => {
         {bannerData[0].bannerVideo && (
           <video
             id="myVideo"
-            src={bannerData[0].bannerVideo}
+            /*src={bannerData[0].bannerVideo}*/
+            src="https://cdn.shopify.com/videos/c/o/v/219e6b5f1c314a16810a8f0c9005ebc6.mp4"
             autoPlay
             muted
             playsInline
