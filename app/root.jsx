@@ -203,7 +203,7 @@ export function ErrorBoundary() {
 
 <div id="loadersitetrans" className="loadersitetrans">
         <div className="logosvg">
-          <img src={bannerlogo} alt="logo" loading="lazy" />
+          <img src={bannerlogo} alt="logo"  />
         </div>
         <div className="loader1">
           <span></span>

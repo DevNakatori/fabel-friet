@@ -64,7 +64,7 @@ const Newfooter = () => {
     data-aos-duration="2000">
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
-          <img loading="lazy" src={bannerlogo} alt="logo" />
+          <img  src={bannerlogo} alt="logo" />
         </div>
         <div className="allmenulist">
           <div className="footerblock">
@@ -245,7 +245,7 @@ const Newfooter = () => {
           </div>
         </div>
         <div className="footerlogo onlymobile">
-          <img loading="lazy" src={bannerlogo} alt="logo" />
+          <img  src={bannerlogo} alt="logo" />
         </div>
       </div>
     </section>

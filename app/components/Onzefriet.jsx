@@ -20,6 +20,8 @@ import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
+
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {

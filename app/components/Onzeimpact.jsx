@@ -18,12 +18,16 @@ import topdustin from '../assets/resizeimgs/webp/Top.webp';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+import {useMediaQuery} from '@react-hook/media-query';
+
 const Onzeimpact = () => {
   const { language } = useLanguage();
   const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const ismobile = useMediaQuery('(max-width: 767px)');
 
   const [showGarbage, setShowGarbage] = useState(false);
   const binLidRef = useRef(null);
@@ -34,6 +38,7 @@ const Onzeimpact = () => {
   const wrapperRefonzeimpact = useRef(null);
   const imgRefonzeimpact = useRef(null);
   const heroSectiononzeimpact = useRef(null);
+  
 
   useEffect(() => {
 
@@ -680,33 +685,7 @@ const Onzeimpact = () => {
                   data-aos-easing="ease-in-sine"
                   data-aos-duration="500"
                 >
-                  <div className="onlydesktop">
-                    <ul className="onzeimpacttwolist">
-                      {data.cardSection.card.map((card) => (
-                        <li
-                          key={card._key}
-                          data-aos="fade-up"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
-                        >
-                          <div className="onzeimpacttwolistlist">
-                            <h5
-                              data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
-                            />
-
-                            <p
-                              data-onzeimpacttwolistlisttext=""
-                              dangerouslySetInnerHTML={{
-                                __html: card.cardDescription,
-                              }}
-                            />
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
+                  {ismobile ? (    
                   <div className="onlymobile">
                     <ul className="onzeimpacttwolist">
                       <Swiper
@@ -775,7 +754,36 @@ const Onzeimpact = () => {
                       </Swiper>
                     </ul>
                   </div>
-                </div>
+               
+              ) : (
+                <div className="onlydesktop">
+                    <ul className="onzeimpacttwolist">
+                      {data.cardSection.card.map((card) => (
+                        <li
+                          key={card._key}
+                          data-aos="fade-up"
+                          data-aos-easing="ease-out-cubic"
+                          data-aos-duration="2000"
+                        >
+                          <div className="onzeimpacttwolistlist">
+                            <h5
+                              data-onzeimpacttwolistlisttitle=""
+                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
+                            />
+
+                            <p
+                              data-onzeimpacttwolistlisttext=""
+                              dangerouslySetInnerHTML={{
+                                __html: card.cardDescription,
+                              }}
+                            />
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+              )}
+               </div>
               </div>
 
               <div

@@ -740,7 +740,7 @@ const HomePage = () => {
       <>
         <div className="loadersite">
           <div className="logosvg">
-            <img loading="lazy" src={bannerlogo} alt="logo" />
+            <img  src={bannerlogo} alt="logo" />
           </div>
           <div className="loader1">
             <span></span>
@@ -990,7 +990,7 @@ const HomePage = () => {
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
-              loading="lazy"
+              
             />
           </div>
           <div className="banner_title_text">
