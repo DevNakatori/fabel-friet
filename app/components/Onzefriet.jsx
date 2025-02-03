@@ -746,7 +746,8 @@ const Onzefriet = () => {
                         <div className="revealvideo">
                           <video
                             id="myVideos"
-                            src={content.videoSection.videoLink}
+                            // src={content.videoSection.videoLink}
+                            src="https://cdn.shopify.com/videos/c/o/v/558eb6d044f040f1ba690ebb9cf79d93.mp4"
                             autoPlay
                             muted
                             playsInline
