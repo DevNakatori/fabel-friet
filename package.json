@@ -14,6 +14,7 @@
   "prettier": "@shopify/prettier-config",
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@react-hook/media-query": "^1.1.1",
     "@remix-run/react": "^2.10.1",
     "@remix-run/server-runtime": "^2.10.1",
     "@sanity/client": "^6.21.3",

@@ -184,7 +184,7 @@ const Newheader = () => {
           </i>
         </button>
         <div className="logoonlymobilefirstsection">
-          <img loading="lazy" src={bannerlogo} />
+          <img  src={bannerlogo} />
         </div>
         <div
           className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
@@ -254,7 +254,7 @@ const Newheader = () => {
           </ul>
 
           <div className="logosvg">
-            <img loading="lazy" src={bannerlogo} alt="logo" />
+            <img  src={bannerlogo} alt="logo" />
           </div>
         </div>
         {/* <ul className="desktop-menu">
@@ -289,7 +289,7 @@ const Newheader = () => {
             <li>No menu items available</li> // Fallback message in case menu data is not available
           )}
           <li className="bannersectinlogo">
-                <img loading="lazy" src={bannerlogo} />
+                <img  src={bannerlogo} />
           </li>
         </ul>
       </nav>

@@ -13,6 +13,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
+import { useMediaQuery } from '@react-hook/media-query';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
@@ -21,6 +23,8 @@ const Onzelocaties = () => {
   const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const isDesktop = useMediaQuery('(max-width: 767px)');
 
   const wrapperRefonzelocaties = useRef(null);
   const imgRefonzelocaties = useRef(null);
@@ -390,52 +394,149 @@ const Onzelocaties = () => {
               {/* mobile location slider */}
               <div className="whitebgbox ">
                 <div className="appcontainers">
-                  <div className="onlymobile slideraddress">
-                    <Swiper
-                      loop={false}
-                      scrollbar={{
-                        hide: true,
-                      }}
-                      pagination={{
-                        clickable: true,
-                      }}
-                      slidesPerView={1}
-                      centeredSlides={false}
-                      autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                      }}
-                      breakpoints={{
-                        640: {
-                          spaceBetween: 10,
-                          slidesPerView: 1,
-                          centeredSlides: false,
-                          loop: true,
-                        },
-                        768: {
-                          slidesPerView: 1,
-                          spaceBetween: 30,
-                          centeredSlides: false,
-                        },
-                        1024: {
-                          slidesPerView: 1,
-                          spaceBetween: 30,
-                          centeredSlides: false,
-                        },
-                      }}
-                      modules={[Pagination]}
-                      className="mySwiper"
-                    >
+                  {isDesktop ? (
+                    <>
+                      <div className="onlymobile slideraddress">
+                        <Swiper
+                          loop={false}
+                          scrollbar={{
+                            hide: true,
+                          }}
+                          pagination={{
+                            clickable: true,
+                          }}
+                          slidesPerView={1}
+                          centeredSlides={false}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
+                          breakpoints={{
+                            640: {
+                              spaceBetween: 10,
+                              slidesPerView: 1,
+                              centeredSlides: false,
+                              loop: true,
+                            },
+                            768: {
+                              slidesPerView: 1,
+                              spaceBetween: 30,
+                              centeredSlides: false,
+                            },
+                            1024: {
+                              slidesPerView: 1,
+                              spaceBetween: 30,
+                              centeredSlides: false,
+                            },
+                          }}
+                          modules={[Pagination]}
+                          className="mySwiper"
+                        >
+                          {locationData.locationSection.location.map((loc) => (
+                            <SwiperSlide key={loc._key}>
+                              <div
+                                className="module"
+                                data-aos="fade"
+                                ddata-aos-easing="linear"
+                                data-aos-offset="500"
+                                data-aos-duration="500"
+                              >
+                                <div className="wharpeoplebox">
+                                  <h5
+                                    data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000"
+                                  >
+                                    {loc.locationName}
+                                  </h5>
+
+                                  <div className="sliderwhitebg">
+                                    <img
+                                      src={getImageUrl(loc.image.asset._ref)}
+                                      alt={loc.image.alt}
+                                      width="10"
+                                      height="10"
+
+                                    />
+                                    <h4>Opening hours</h4>
+                                    <p
+                                      dangerouslySetInnerHTML={{ __html: loc.info }}
+                                    />
+                                    <div className="locationmaoaddress">
+                                      <div className="locationicon">
+                                        <i className="mapicon"></i>
+                                      </div>
+                                      <div className="locationaddtext">
+                                        <ul>
+                                          <li
+                                            dangerouslySetInnerHTML={{
+                                              __html: loc.address,
+                                            }}
+                                          />
+                                        </ul>
+                                      </div>
+                                    </div>
+
+                                    <a
+                                      href={loc.btn_link}
+                                      className="routbtn bubbly-button swipe-effect"
+                                    >
+                                      <span>{loc.btn_label}</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </SwiperSlide>
+                          ))}
+
+                          <div className="swiper-pagination"></div>
+                        </Swiper>
+
+                        <p className="siwprtext">
+                          Swipe to see the locations{' '}
+                          <i>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="22"
+                              height="10"
+                              viewBox="0 0 22 10"
+                              fill="none"
+                            >
+                              <path
+                                d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9"
+                                stroke="#EFEBE7"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </i>
+                        </p>
+                      </div>
+                    </>
+
+                  ) : (
+                    <>
                       {locationData.locationSection.location.map((loc) => (
-                        <SwiperSlide key={loc._key}>
-                          <div
-                            className="module"
-                            data-aos="fade"
-                            ddata-aos-easing="linear"
-                            data-aos-offset="500"
-                            data-aos-duration="500"
-                          >
-                            <div className="wharpeoplebox">
+                        <div className="onlydesktop" key={loc._key}>
+                          <div className="whitewithvideomainbox">
+                            <div className="leftvideobox">
+                              <div className="reveal">
+                                <img
+                                  src={getImageUrl(loc.image.asset._ref)}
+                                  alt={loc.image.alt}
+                                  width="10"
+                                  height="10"
+                                  className="whitewithvideomainboximg"
+
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="righttextbox"
+                              data-aos="fade-right"
+                              data-aos-easing="ease-in-sine"
+                              data-aos-duration="500"
+                            >
                               <h5
                                 data-aos="fade-up"
                                 data-aos-easing="ease-out-cubic"
@@ -443,140 +544,49 @@ const Onzelocaties = () => {
                               >
                                 {loc.locationName}
                               </h5>
-
-                              <div className="sliderwhitebg">
-                                <img
-                                  src={getImageUrl(loc.image.asset._ref)}
-                                  alt={loc.image.alt}
-                                  width="10"
-                                  height="10"
-
-                                />
-                                <h4>Opening hours</h4>
-                                <p
-                                  dangerouslySetInnerHTML={{ __html: loc.info }}
-                                />
-                                <div className="locationmaoaddress">
-                                  <div className="locationicon">
-                                    <i className="mapicon"></i>
-                                  </div>
-                                  <div className="locationaddtext">
-                                    <ul>
-                                      <li
-                                        dangerouslySetInnerHTML={{
-                                          __html: loc.address,
-                                        }}
-                                      />
-                                    </ul>
-                                  </div>
+                              <div
+                                className="locationmaoaddress"
+                                data-aos="fade-up"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                              >
+                                <div className="locationicon">
+                                  <i className="mapicon bouncemap"></i>
                                 </div>
-
-                                <a
-                                  href={loc.btn_link}
-                                  className="routbtn bubbly-button swipe-effect"
-                                >
-                                  <span>{loc.btn_label}</span>
-                                </a>
+                                <div className="locationaddtext">
+                                  <ul>
+                                    <li
+                                      dangerouslySetInnerHTML={{
+                                        __html: loc.address,
+                                      }}
+                                    />
+                                  </ul>
+                                </div>
                               </div>
+
+                              <p
+                                data-aos="fade-up"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                                dangerouslySetInnerHTML={{ __html: loc.info }}
+                              />
+
+                              <a
+                                href={loc.btn_link}
+                                target="_blank"
+                                className="routbtn bubbly-button swipe-effect"
+                                data-aos="fade-up"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                              >
+                                {loc.btn_label}
+                              </a>
                             </div>
                           </div>
-                        </SwiperSlide>
+                        </div>
                       ))}
-
-                      <div className="swiper-pagination"></div>
-                    </Swiper>
-
-                    <p className="siwprtext">
-                      Swipe to see the locations{' '}
-                      <i>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="22"
-                          height="10"
-                          viewBox="0 0 22 10"
-                          fill="none"
-                        >
-                          <path
-                            d="M1 5L21 5M21 5L13.2222 1M21 5L13.2222 9"
-                            stroke="#EFEBE7"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </i>
-                    </p>
-                  </div>
-                  {/* mobile location slider */}
-
-                  {locationData.locationSection.location.map((loc) => (
-                    <div className="onlydesktop" key={loc._key}>
-                      <div className="whitewithvideomainbox">
-                        <div className="leftvideobox">
-                          <div className="reveal">
-                            <img
-                              src={getImageUrl(loc.image.asset._ref)}
-                              alt={loc.image.alt}
-                              width="10"
-                              height="10"
-                              className="whitewithvideomainboximg"
-
-                            />
-                          </div>
-                        </div>
-                        <div
-                          className="righttextbox"
-                          data-aos="fade-right"
-                          data-aos-easing="ease-in-sine"
-                          data-aos-duration="500"
-                        >
-                          <h5
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            {loc.locationName}
-                          </h5>
-                          <div
-                            className="locationmaoaddress"
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            <div className="locationicon">
-                              <i className="mapicon bouncemap"></i>
-                            </div>
-                            <div className="locationaddtext">
-                              <ul>
-                                <li
-                                  dangerouslySetInnerHTML={{
-                                    __html: loc.address,
-                                  }}
-                                />
-                              </ul>
-                            </div>
-                          </div>
-
-                          <p
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                            dangerouslySetInnerHTML={{ __html: loc.info }}
-                          />
-
-                          <a
-                            href={loc.btn_link}
-                            target="_blank"
-                            className="routbtn bubbly-button swipe-effect"
-                            data-aos="fade-up"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000"
-                          >
-                            {loc.btn_label}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    </>
+                  )}
                 </div>
                 <div className="overlaybannehand-bottoms"></div>
               </div>
