@@ -36,7 +36,7 @@ const HomePage = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [loadings, setLoadings] = useState(true);
   const [currentLanguage, setCurrentLanguage] = useState(language);
-  const skipbuttons = document.getElementById('skipvideobtn');
+
   const extraProgressBarRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
@@ -52,31 +52,11 @@ const HomePage = () => {
   }, [language]);
 
   useEffect(() => {
-    /* animation start */
-    // const smoother = ScrollSmoother.create({
-    //     smooth: 3,
-    //     normalizeScroll: false,
-    //     ignoreMobileResize: true,
-    //     effects: true,
-    //     preventDefault: false,
-    // });
-    // smoother.effects('.allfiressections img', { speed: 'auto' });
-
-    // const smoother = ScrollSmoother.create({
-    //   smooth: 1,
-    //   effects: true,
-    //   smoothTouch: 0.1,
-    //   normalizeScroll: true,
-    //   ignoreMobileResize: true,
-    // });
-
-    /* animation end */
-
     /* data fatched */
     const fetchData_HomePage = async () => {
       const cachedData = localStorage.getItem(`homeBannerData_${language}`);
       //console.log('homeBannerData Cached Data:', cachedData);
-      
+
       if (cachedData) {
         setBanner(JSON.parse(cachedData));
         setLoading(false);
@@ -86,13 +66,18 @@ const HomePage = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "homebanner" && language == $lang]`,
-            { lang: language }
+            {lang: language},
           );
           if (data && data.length > 0) {
-            document.querySelector('.language-switcher').classList.add('nomorelanguage');
+            document
+              .querySelector('.language-switcher')
+              .classList.add('nomorelanguage');
             console.log(`Fetched Data for language ${language}:`, data);
-    
-            localStorage.setItem(`homeBannerData_${language}`, JSON.stringify(data));
+
+            localStorage.setItem(
+              `homeBannerData_${language}`,
+              JSON.stringify(data),
+            );
             setBanner(data);
           } else {
             console.log(`No data found for language: ${language}`);
@@ -106,7 +91,7 @@ const HomePage = () => {
         }
       }
     };
-    
+
     fetchData_HomePage();
   }, [language]);
   /* data fatched */
@@ -122,199 +107,6 @@ const HomePage = () => {
     const dashOffset = pathLength - (percentage / 100) * pathLength;
     extraProgressBarRef.current.style.strokeDasharray = pathLength;
     extraProgressBarRef.current.style.strokeDashoffset = dashOffset;
-  };
-
-  const handleSkipVideo = () => {
-    const videos = document.getElementById('myVideo');
-    const skipbuttons = document.getElementById('skipvideobtn');
-    skipbuttons.classList.add('hidden');
-    if (videos) {
-
-      videos.pause();
-      videos.currentTime = videos.duration;
-      document.body.classList.remove('hiddenoverflow');
-      videos.classList.add('hidden');
-      skipbuttons.classList.add('hidden');
-      document.querySelector('.progress-bar-container').classList.add('hidden');
-      document.querySelector('.percentagebar').classList.add('hidden');
-      document.querySelector('.audioplayer').classList.add('hidden');
-      audioRef.current.pause();
-
-      const video = document.getElementById('myVideo');
-      const overlayMain = document.querySelector('.banner_overlaymain');
-      const overlay = document.querySelector('.banner_overlay');
-      const elements = {
-        logo: document.querySelector('.bannerlogo'),
-        title: document.querySelector('.banner_title_text'),
-        content: document.querySelector('.banner_content_text'),
-        button: document.querySelector('.banner_bottombtn'),
-        rotateText: document.querySelector('.bannerrotate_text'),
-      };
-
-      const languageSwitchers =
-        document.getElementsByClassName('language-switcher');
-      if (languageSwitchers.length > 0) {
-        languageSwitchers[0].style.display = 'block';
-      }
-      const header = document.getElementsByClassName('headernew');
-      if (header.length > 0) {
-        header[0].style.display = 'block';
-      }
-      gsap.fromTo(
-        '.headernew .desktop-menu li',
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          duration: 2,
-          ease: 'power2.out',
-          delay: 2,
-          repeat: 0,
-        },
-      );
-
-      if (overlayMain) {
-        gsap.to('.banner_overlaymain', {
-          duration: 3,
-          delay: 0,
-          autoAlpha: 1,
-          ease: 'expo.inOut',
-          zIndex: 7,
-        });
-      }
-
-      if (overlay) {
-        gsap.to(overlay, {
-          duration: 3,
-          opacity: 1,
-          ease: 'power2.out',
-          delay: 0.2,
-        });
-      }
-
-      gsap.to('.overlaybannehand-bottom', {
-        duration: 1.5,
-        bottom: '0px',
-        ease: 'power1.inOut',
-        delay: 0.1,
-        stagger: 0.1,
-      });
-
-      gsap.fromTo(
-        elements.logo,
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 1,
-          stagger: 0.2,
-        },
-      );
-
-      gsap.fromTo(
-        elements.button,
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 2.5,
-          stagger: 0.5,
-        },
-      );
-
-      gsap.fromTo(
-        elements.rotateText,
-        {opacity: 0, y: -50},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 1,
-          stagger: 2,
-        },
-      );
-
-      gsap.fromTo(
-        elements.rotateText,
-        {text: ''},
-        {
-          text: bannerData[0].bannerText,
-          duration: bannerData[0].bannerText.length * 0.35,
-          ease: 'power2.out',
-          delay: 1,
-          stagger: 2.5,
-        },
-      );
-
-      gsap.to('body', {delay: 3.5, onComplete: removeClass});
-
-      gsap.fromTo(
-        '.banner_content_text p span.bold img.imgerasr_one',
-        {y: '-100%'},
-        {
-          duration: 0.5,
-          y: '0%',
-          ease: 'power2.out',
-          opacity: 1,
-          delay: 5,
-        },
-      );
-
-      gsap.fromTo(
-        '.banner_content_text p span.bold img.imgerasr_two',
-        {y: '-100%'},
-        {
-          duration: 0.5,
-          y: '0%',
-          ease: 'power2.out',
-          opacity: 1,
-          delay: 5.5,
-        },
-      );
-
-      gsap.fromTo(
-        '#target',
-        {drawSVG: '0 0'},
-        {
-          drawSVG: '100% -175%',
-          duration: 1,
-          ease: 'none',
-          repeat: 0,
-          delay: 6,
-        },
-      );
-
-      gsap.fromTo(
-        '#target_one',
-        {drawSVG: '0 0'},
-        {
-          drawSVG: '100% -175%',
-          duration: 1,
-          ease: 'none',
-          repeat: 0,
-          delay: 6.5,
-        },
-      );
-
-      gsap.fromTo(
-        '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.5,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 5.5,
-        },
-      );
-    }
   };
 
   /* loading animation start */
@@ -358,16 +150,15 @@ const HomePage = () => {
       setTimeout(() => {
         if (!sessionStorage.getItem('pageRefreshed')) {
           sessionStorage.setItem('pageRefreshed', 'true');
-         // location.reload(); 
-      }
+          // location.reload();
+        }
       }, 2500);
       document.body.classList.add('hiddenoverflow');
     };
 
     const handleVideoEnd = () => {
       video.classList.add('hidden');
-      const skipbuttons = document.getElementById('skipvideobtn');
-      skipbuttons.classList.add('hidden');
+
       document.querySelector('.progress-bar-container').classList.add('hidden');
       document.querySelector('.percentagebar').classList.add('hidden');
       document.querySelector('.audioplayer').classList.add('hidden');
@@ -740,7 +531,7 @@ const HomePage = () => {
       <>
         <div className="loadersite">
           <div className="logosvg">
-            <img  src={bannerlogo} alt="logo" />
+            <img src={bannerlogo} alt="logo" />
           </div>
           <div className="loader1">
             <span></span>
@@ -772,20 +563,6 @@ const HomePage = () => {
             onTimeUpdate={handleTimeUpdate}
           />
         )}
-
-        {/* <video
-          id="myVideo"
-          autoPlay
-          muted
-          playsInline
-          onTimeUpdate={handleTimeUpdate}
-        >
-          <source
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video> */}
 
         <div className="progress-bar-container">
           <svg
@@ -885,43 +662,6 @@ const HomePage = () => {
           </span>
         </div>
 
-        <button
-          id="skipvideobtn"
-          className="skipvideo"
-          onClick={handleSkipVideo}
-        >
-          <i className="skipicon">
-            <svg
-              width="800px"
-              height="800px"
-              viewBox="0 0 512 512"
-              version="1.1"
-            >
-              <g
-                id="Page-1"
-                stroke="none"
-                strokeWidth="1"
-                fill="none"
-                fillRule="evenodd"
-              >
-                <g
-                  id="skip"
-                  transform="translate(0.000000, 0.000000)"
-                  fill="#000000"
-                >
-                  <g id="add" transform="translate(128.000000, 128.000000)">
-                    <path
-                      d="M213.333333,-2.84217094e-14 L213.333333,256 L256,256 L256,-2.84217094e-14 L213.333333,-2.84217094e-14 Z M2.84217094e-14,-2.84217094e-14 L2.84217094e-14,256 L213.333333,128 L2.84217094e-14,-2.84217094e-14 Z M42.6666667,75.328 L130.432,128 L42.6666667,180.650667 L42.6666667,75.328 Z"
-                      id="Shape"
-                    ></path>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </i>
-          Skip Video
-        </button>
-
         <div className="audioplayer">
           <audio ref={audioRef} src={mp3song} />
           <button className="audioplaypause" onClick={togglePlayPause}>
@@ -991,7 +731,6 @@ const HomePage = () => {
             <img
               src={getImageUrl(bannerData[0].bannerLogo.asset._ref)}
               alt={bannerData[0].bannerLogo.alt}
-              
             />
           </div>
           <div className="banner_title_text">

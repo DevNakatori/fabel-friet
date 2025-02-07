@@ -1,33 +1,32 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
-import { Autoplay } from 'swiper/modules';
+import {Autoplay} from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import { getImageUrl } from '../js/imagesurl';
+import {getImageUrl} from '../js/imagesurl';
 import images from '../js/images';
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
 
-import { useMediaQuery } from '@react-hook/media-query';
+import {useMediaQuery} from '@react-hook/media-query';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
 
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
 
   const wrapperRefhetmenu = useRef(null);
   const imgRefhetmenu = useRef(null);
@@ -48,49 +47,25 @@ const Hetmenu = () => {
             markers: false,
             repeat: 1,
             delay: 0.5,
-          }
+          },
         })
         .to(imgRefhetmenu.current, {
           scale: 1.5,
           z: 350,
           transformOrigin: 'center center',
-          ease: 'power1.inOut'
+          ease: 'power1.inOut',
         })
         .to(
           heroSectionRefhetmenu.current,
           {
             scale: 1.1,
             transformOrigin: 'center center',
-            ease: 'power1.inOut'
+            ease: 'power1.inOut',
           },
-          '<'
+          '<',
         );
     }
   }, [hetmenu]);
-
-
-  // Fetch Data from Sanity for Hetmenu
-  // useEffect(() => {
-  //   const fetchDataHetmenuData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "hetmenu" && language == $lang]`,
-  //         { lang: language },
-  //       );
-
-  //       setHetmenu(data);
-  //     } catch (err) {
-  //       console.error('Error fetching Hetmenu data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchDataHetmenuData();
-  // }, [language]);
-
 
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
@@ -104,7 +79,7 @@ const Hetmenu = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           setHetmenu(data);
@@ -120,45 +95,10 @@ const Hetmenu = () => {
     fetchDataHetmenuData();
   }, [language]);
 
-
   // GSAP Animations for Hetmenu
   useEffect(() => {
-
     if (hetmenu) {
-
-
-      const timelineshetmenu = gsap.timeline({
-        // scrollTrigger: {
-        //   trigger: '#section4 .wrapper-hetmenu',
-        //   start: "top top",
-        //   // end: '+=150%',
-        //   pin: true,
-        //   scrub: 0.5,
-        //   markers: false,
-        //   smoothTouch: 0.1,
-        // },
-      });
-
-      // timelineshetmenu.to(
-      //   '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
-      //   {
-      //     scale: 2.5,
-      //     z: 350,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   0,
-      // );
-
-      // timelineshetmenu.to(
-      //   '#section4 .section.hero',
-      //   {
-      //     scale: 2.5,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   '<',
-      // );
+      const timelineshetmenu = gsap.timeline({});
 
       timelineshetmenu.to('.fourthsection .wrappertest', {
         scrollTrigger: {
@@ -171,8 +111,6 @@ const Hetmenu = () => {
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
       });
-
-
 
       timelineshetmenu.to(
         '#section4 .gradient-purple',
@@ -194,8 +132,6 @@ const Hetmenu = () => {
       };
     }
   }, [hetmenu]);
-
-
 
   useEffect(() => {
     if (hetmenu) {
@@ -234,8 +170,6 @@ const Hetmenu = () => {
 
   if (window.innerWidth > 767) {
     useEffect(() => {
-
-
       const handleScroll = () => {
         const sections = ['friet-section', 'snacks-section', 'drinks-section'];
         let currentSection = 'friet-section';
@@ -263,8 +197,6 @@ const Hetmenu = () => {
     const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
 
     const initiateAnimationsonzhetmenu = () => {
-
-
       let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
@@ -365,7 +297,6 @@ const Hetmenu = () => {
   }, [hetmenu]);
 
   useEffect(() => {
-
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
       const img = new Image();
@@ -393,7 +324,7 @@ const Hetmenu = () => {
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ],
         });
       }
@@ -411,7 +342,7 @@ const Hetmenu = () => {
           fry.x = Math.random() * canvas.width;
           fry.image =
             fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
             ];
         }
         ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
@@ -444,20 +375,23 @@ const Hetmenu = () => {
     };
   }, [hetmenu]);
 
-  if (loading) return <div>
-    <div className="loadersite">
-      <div className="logosvg">
-        <img src={images.bannerlogo} alt="logo" />
+  if (loading)
+    return (
+      <div>
+        <div className="loadersite">
+          <div className="logosvg">
+            <img src={images.bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
-      <div className="loader1">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>;
+    );
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
 
@@ -480,7 +414,7 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({ top: yPosition, behavior: 'smooth' });
+      window.scrollTo({top: yPosition, behavior: 'smooth'});
     }
   };
 
@@ -496,7 +430,6 @@ const Hetmenu = () => {
                 alt="Transition Section"
                 width="100"
                 height="100"
-
               />
             </div>
           </div>
@@ -504,44 +437,50 @@ const Hetmenu = () => {
           <div className="roundimages" ref={imgRefhetmenu}>
             <div className="roundtext-hetmenu" ref={imgRefhetmenu}>
               <h2
-                dangerouslySetInnerHTML={{ __html: transitionSection.topTitle }}
+                dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
               />
               <h3
-                dangerouslySetInnerHTML={{ __html: transitionSection.bottomTitle }}
+                dangerouslySetInnerHTML={{
+                  __html: transitionSection.bottomTitle,
+                }}
               />
             </div>
-            <div className="roundimage-hetmenu roundimagesround" ref={imgRefhetmenu}></div>
+            <div
+              className="roundimage-hetmenu roundimagesround"
+              ref={imgRefhetmenu}
+            ></div>
             <div className="scroll-down">
               <div className="icon-scroll"></div>
               <p>Scroll down</p>
             </div>
           </div>
-          <section className="section hero" ref={heroSectionRefhetmenu}></section>
+          <section
+            className="section hero"
+            ref={heroSectionRefhetmenu}
+          ></section>
         </div>
 
         <div className="wrappertest" ref={rainContainerRef}>
-
           <div className="gradient-purple" id="hetmenusection">
             <h4
               className="hetmenuntitle"
               data-menutitle=""
-              dangerouslySetInnerHTML={{ __html: contentSection.heading }}
+              dangerouslySetInnerHTML={{__html: contentSection.heading}}
             />
             <p
               className="hetmenuescription"
               data-menudescription=""
-              dangerouslySetInnerHTML={{ __html: contentSection.description }}
+              dangerouslySetInnerHTML={{__html: contentSection.description}}
             />
 
             <div className="whitebgbox">
-
               {isDesktopcanvashetmenu ? (
                 <></>
               ) : (
                 <canvas
                   className="canvasfries"
                   ref={canvasRef}
-                  style={{ position: 'absolute', top: 0, left: 0 }}
+                  style={{position: 'absolute', top: 0, left: 0}}
                 />
               )}
 
@@ -778,7 +717,6 @@ const Hetmenu = () => {
                       )}
                       alt="Bottom section image"
                       data-speed="auto"
-
                     />
                   </div>
                 </div>
