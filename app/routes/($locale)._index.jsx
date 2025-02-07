@@ -23,6 +23,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Cursor from '~/components/Cursor';
 
+import {useMediaQuery} from '@react-hook/media-query';
+
 gsap.registerPlugin(ScrollTrigger);
 /**
  * @type {MetaFunction}
@@ -90,6 +92,9 @@ export default function Homepage() {
     nullTargetWarn: false, // Disable warnings for null target
   });
 
+   const ismobileprogress = useMediaQuery('(max-width: 767px)');
+
+
   useEffect(() => {
     const disableKeyboardEvents = (event) => {
       event.preventDefault();
@@ -120,7 +125,7 @@ export default function Homepage() {
       debounceDelay: 50,
       throttleDelay: 99,
     });
-   // AOS.refresh();
+    // AOS.refresh();
   }, []);
 
   useEffect(() => {
@@ -151,75 +156,34 @@ export default function Homepage() {
     setTimeout(() => setShowGetintouch(true), 1000); // show after 6 seconds
   }, []);
 
-  // useEffect(() => {
-  //   if (window.innerWidth < 767) {
-  //     document.body.classList.add('mobile');
-  //   const app = () => {
-  //     let Sections = gsap.utils.toArray('section');
 
-  //     Sections.forEach((section, index) => {
-  //       section.classList.add(`panel-${index}`);
-  //     });
-  //     const getTotalWidth = () => {
-  //       let width = 0;
-  //       Sections.forEach((el) => (width += el.offsetWidth));
-  //       return width;
-  //     };
-  //     let snap;
-  //     gsap.to(Sections, {
-  //       x: () => -getTotalWidth() + window.innerWidth,
-  //       ease: 'none',
-  //       scrollTrigger: {
-  //         trigger: '#smooth-wrapper',
-  //         pin: false,
-  //         start: 0,
-  //         end: () =>
-  //           '+=' + document.querySelector('#smooth-wrapper').scrollWidth,
-  //         invalidateOnRefresh: false,
-  //         onRefresh() {
-  //           let totalWidth = getTotalWidth(),
-  //             accumulatedWidth = 0,
-  //             progressArray = Sections.map((el) => {
-  //               accumulatedWidth += el.offsetWidth;
-  //               return accumulatedWidth / totalWidth;
-  //             });
-  //           progressArray.unshift(0);
-  //           snap = gsap.utils.snap(progressArray);
-  //         },
-  //         scrub: true,
-  //         markers: false,
-  //       },
-  //     });
-  //     gsap.to('progress', {
-  //       value: 100,
-  //       ease: 'none',
-  //       scrollTrigger: { scrub: 0.3 },
-  //     });
-  //   };
-  //   const timer = setTimeout(() => {
-  //     app();
-  //   }, 0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  //   //Clean up GSAP instances on component unmount
-  //   return () => {
-  //     clearTimeout(timer);
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  //   // gsap.to('progress', {
-  //   //   value: 100,
-  //   //   ease: 'none',
-  //   //   scrollTrigger: { scrub: 0.3 }
-  //   // });
-  // }
-  // }, []);
+  const updateScrollProgress = () => {
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPosition = window.scrollY;
+    const progress = (scrollPosition / scrollHeight) * 100;
+    setScrollProgress(progress);
+  };
+
+  useEffect(() => {
+    if (window.innerWidth < 767) 
+      {
+        window.addEventListener('scroll', updateScrollProgress);
+        return () => {
+          window.removeEventListener('scroll', updateScrollProgress);
+        };
+    }
+  }, []);
+  
 
   useEffect(() => {
 
     if (!localStorage.getItem('hasReloaded')) {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
-         window.location.reload();
-       }, 2500);
+        window.location.reload();
+      }, 2500);
 
       setTimeout(() => {
         const videoss = document.querySelector('#myVideo');
@@ -256,7 +220,6 @@ export default function Homepage() {
 
   return (
     <div className="home">
-      
       <div className="mobilerotate">
         <div className="innermobile">
           <div className="phone"></div>
@@ -264,7 +227,9 @@ export default function Homepage() {
         </div>
       </div>
       <div className="footerwithscrollbar onlymobile">
-        {/* <progress max="100" value="0"></progress> */}
+        <div className="scroll-progress-bar">
+          <progress value={scrollProgress} max="100"></progress>
+        </div>
         <div className="scroll-down">
           <p>Scroll down</p>
         </div>
@@ -275,14 +240,14 @@ export default function Homepage() {
         <Newheader />
         <Cursor />
         <div id="smooth-wrapper">
-        <div id="smooth-content">
-            {showHomePage && <HomePage />} 
-            {showOnzefriet && <Onzefriet />}
-            {showOnzelocaties && <Onzelocaties />}
-            {showHetmenu && <Hetmenu />}
-            {showOnzeimpact && <Onzeimpact />}
-            {showGetintouch && <Getintouch />}
-        </div>
+          <div id="smooth-content">
+              {showHomePage && <HomePage />}
+              {showOnzefriet && <Onzefriet />}
+              {showOnzelocaties && <Onzelocaties />}
+              {showHetmenu && <Hetmenu />}
+              {showOnzeimpact && <Onzeimpact />}
+              {showGetintouch && <Getintouch />}
+            </div>
         </div>
       </LanguageProvider>
     </div>
