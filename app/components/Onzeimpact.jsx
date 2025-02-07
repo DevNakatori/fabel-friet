@@ -11,14 +11,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
-import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
-import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
-import bottomdustbin from '../assets/resizeimgs/webp/DustbinBottom.webp';
-import topdustin from '../assets/resizeimgs/webp/Top.webp';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import images from '../js/images';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-import {useMediaQuery} from '@react-hook/media-query';
+import { useMediaQuery } from '@react-hook/media-query';
 
 const Onzeimpact = () => {
   const { language } = useLanguage();
@@ -38,40 +35,41 @@ const Onzeimpact = () => {
   const wrapperRefonzeimpact = useRef(null);
   const imgRefonzeimpact = useRef(null);
   const heroSectiononzeimpact = useRef(null);
-  
+
 
   useEffect(() => {
 
 
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRefonzeimpact.current,
-          start: 'center center',
-          //end: '+=150%',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          delay: 0.5,
-        }
-      })
-      .to(imgRefonzeimpact.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut'
-      })
-      .to(
-        heroSectiononzeimpact.current,
-        {
-          scale: 1.1,
+    if (onzeimpact) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: wrapperRefonzeimpact.current,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
+            scrub: true,
+            markers: false,
+            repeat: 1,
+            delay: 0.5,
+          }
+        })
+        .to(imgRefonzeimpact.current, {
+          scale: 1.5,
+          z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut'
-        },
-        '<'
-      );
+        })
+        .to(
+          heroSectiononzeimpact.current,
+          {
+            scale: 1.1,
+            transformOrigin: 'center center',
+            ease: 'power1.inOut'
+          },
+          '<'
+        );
+    }
   }, [onzeimpact]);
 
 
@@ -135,198 +133,201 @@ const Onzeimpact = () => {
 
   useEffect(() => {
 
-    if (!onzeimpact || loading) return;
+    if (onzeimpact) {
 
-    const timelineimpact = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#section5 .wrapper-impact',
-      //   start: "top top",
-      //   // end: '+=150%',
-      //   pin: true,
-      //   scrub: 0.5,
-      //   markers: false,
-      //   smoothTouch: 0.1,
-      // },
-    });
+      const timelineimpact = gsap.timeline({
+        // scrollTrigger: {
+        //   trigger: '#section5 .wrapper-impact',
+        //   start: "top top",
+        //   // end: '+=150%',
+        //   pin: true,
+        //   scrub: 0.5,
+        //   markers: false,
+        //   smoothTouch: 0.1,
+        // },
+      });
 
-    // timelineimpact.to(
-    //   '#section5 .roundimage-impact, #section5 .roundtext-impact',
-    //   {
-    //     scale: 2.5,
-    //     z: 350,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   0,
-    // );
+      // timelineimpact.to(
+      //   '#section5 .roundimage-impact, #section5 .roundtext-impact',
+      //   {
+      //     scale: 2.5,
+      //     z: 350,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   0,
+      // );
 
-    // timelineimpact.to(
-    //   '#section5 .section.hero',
-    //   {
-    //     scale: 2.5,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   '<',
-    // );
-
-
-    timelineimpact.to('.fifthesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.fifthesection',
-        start: '0% 0%',
-        end: '30% 30%',
-        scrub: true,
-        once: true,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+      // timelineimpact.to(
+      //   '#section5 .section.hero',
+      //   {
+      //     scale: 2.5,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   '<',
+      // );
 
 
-    timelineimpact.to(
-      '#section5 .gradient-purple',
-      {
-        scale: 1,
-        borderRadius: 0,
-        ease: 'power3.easeIn',
+      timelineimpact.to('.fifthesection .wrappertest', {
         scrollTrigger: {
-          trigger: '#section5 .wrappertest',
-          start: 'top top-100',
-          end: 'top top-300',
+          trigger: '.fifthesection',
+          start: '0% 0%',
+          end: '30% 30%',
+          scrub: true,
+          once: true,
         },
-      },
-      0,
-    );
+        borderRadius: '0vw 0vw 0px 0px',
+        ease: 'power1.inOut',
+      });
 
-    gsap.fromTo(
-      '.fifthesection .gradient-threebox',
-      {
-        opacity: 0,
-        y: 50,
-        scale: 1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.fifthesection .gradient-purple',
-          markers: false,
+
+      timelineimpact.to(
+        '#section5 .gradient-purple',
+        {
+          scale: 1,
+          borderRadius: 0,
+          ease: 'power3.easeIn',
+          scrollTrigger: {
+            trigger: '#section5 .wrappertest',
+            start: 'top top-100',
+            end: 'top top-300',
+          },
         },
-      },
-    );
+        0,
+      );
 
-    return () => {
-      //timelineimpact.scrollTrigger.kill();
-    };
+      gsap.fromTo(
+        '.fifthesection .gradient-threebox',
+        {
+          opacity: 0,
+          y: 50,
+          scale: 1,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 1,
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: '.fifthesection .gradient-purple',
+            markers: false,
+          },
+        },
+      );
+
+      return () => {
+        //timelineimpact.scrollTrigger.kill();
+      };
+    }
   }, [onzeimpact]);
 
   useEffect(() => {
 
 
+    if (onzeimpact) {
+      gsap.set(['.image-wrappers'], {
+        xPercent: -50,
+        yPercent: -50,
+      });
 
-    gsap.set(['.image-wrappers'], {
-      xPercent: -50,
-      yPercent: -50,
-    });
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.img-containerss',
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        ease: 'power3.inOut',
-        once: false,
-      },
-    });
-
-    timeline
-      .to('.image-wrappers:first-child', {
-        left: '20%',
-        rotation: -5,
-        duration: 2,
-        ease: 'power3.out',
-        scrollEnd: () => {
-          gsap.to('.image-wrappers .threeboxleftlogobar', {
-            opacity: 1,
-            duration: 3,
-            ease: 'power3.out',
-          });
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.img-containerss',
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          ease: 'power3.inOut',
+          once: false,
         },
-      })
-      .to(
-        '.image-wrappers:nth-child(2)',
-        {
-          left: '50%',
+      });
+
+      timeline
+        .to('.image-wrappers:first-child', {
+          left: '20%',
+          rotation: -5,
           duration: 2,
           ease: 'power3.out',
           scrollEnd: () => {
-            gsap.to('.image-wrappers .threeboxleftlogobar.lastbottomimg ', {
+            gsap.to('.image-wrappers .threeboxleftlogobar', {
               opacity: 1,
               duration: 3,
               ease: 'power3.out',
             });
           },
-        },
-        '<',
-      )
-      .to(
-        '.image-wrappers:last-child',
-        {
-          left: '80%',
-          rotation: 5,
-          duration: 2,
-          ease: 'power3.out',
-        },
-        '<',
-      );
+        })
+        .to(
+          '.image-wrappers:nth-child(2)',
+          {
+            left: '50%',
+            duration: 2,
+            ease: 'power3.out',
+            scrollEnd: () => {
+              gsap.to('.image-wrappers .threeboxleftlogobar.lastbottomimg ', {
+                opacity: 1,
+                duration: 3,
+                ease: 'power3.out',
+              });
+            },
+          },
+          '<',
+        )
+        .to(
+          '.image-wrappers:last-child',
+          {
+            left: '80%',
+            rotation: 5,
+            duration: 2,
+            ease: 'power3.out',
+          },
+          '<',
+        );
 
-    gsap.fromTo(
-      '.image-wrappers .threeboxleftlogobar',
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 3,
-        scrollTrigger: {
-          trigger: '.img-containerss',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1,
-          repeat: -1,
-          yoyo: true,
-          ease: 'power3.inOut',
+      gsap.fromTo(
+        '.image-wrappers .threeboxleftlogobar',
+        {
+          opacity: 0,
         },
-      },
-    );
+        {
+          opacity: 1,
+          duration: 3,
+          scrollTrigger: {
+            trigger: '.img-containerss',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power3.inOut',
+          },
+        },
+      );
+    }
   }, [onzeimpact]);
 
   useEffect(() => {
 
-    if (!onzeimpact || loading) return;
+    if (onzeimpact) {
 
-    const pathss = document.querySelector('.line2ss');
-    if (pathss) {
-      const pathssLength = pathss.getTotalLength();
-      gsap.set(pathss, {
-        strokeDasharray: pathssLength,
-        strokeDashoffset: pathssLength,
-      });
-      gsap.to(pathss, {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: pathss,
-          scrub: true,
-          markers: false,
-        },
-      });
+      const pathss = document.querySelector('.line2ss');
+      if (pathss) {
+        const pathssLength = pathss.getTotalLength();
+        gsap.set(pathss, {
+          strokeDasharray: pathssLength,
+          strokeDashoffset: pathssLength,
+        });
+        gsap.to(pathss, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: pathss,
+            scrub: true,
+            markers: false,
+          },
+        });
+      }
     }
   }, [onzeimpact]);
 
@@ -335,7 +336,7 @@ const Onzeimpact = () => {
     const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
 
     const initiateAnimationsonzimpact = () => {
-      if (!onzeimpact || loading) return;
+
 
       let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
         types: 'lines, words, chars',
@@ -543,7 +544,7 @@ const Onzeimpact = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" />
+        <img src={images.bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -562,6 +563,7 @@ const Onzeimpact = () => {
 
   return (
     <section className="panel fifthesection" id="section5">
+      <div>
       <div className="wrapper-impact" ref={wrapperRefonzeimpact}>
         <div className="wrappermain">
           <div className="wrappermain_inner">
@@ -571,7 +573,7 @@ const Onzeimpact = () => {
               alt={data.transitionSection.image.alt}
               width="10"
               height="10"
-              onError={(e) => e.target.src = { bannerlogo }}
+
             />
           </div>
         </div>
@@ -620,7 +622,7 @@ const Onzeimpact = () => {
                   {index === 0 && (
                     <div className="threeboxleftlogobar">
                       <img
-                        src={fabelfrietsticker2}
+                        src={images.fabelfrietsticker2}
                         width="10"
                         height="10"
                         alt="img"
@@ -632,7 +634,7 @@ const Onzeimpact = () => {
                   {index === 1 && (
                     <div className="threeboxleftlogobar lastbottomimg">
                       <img
-                        src={fabelfrie_bottomlogo}
+                        src={images.fabelfrie_bottomlogo}
                         width="10"
                         height="10"
                         alt="img"
@@ -685,105 +687,105 @@ const Onzeimpact = () => {
                   data-aos-easing="ease-in-sine"
                   data-aos-duration="500"
                 >
-                  {ismobile ? (    
-                  <div className="onlymobile">
-                    <ul className="onzeimpacttwolist">
-                      <Swiper
-                        loop={false}
-                        scrollbar={{
-                          hide: true,
-                        }}
-                        pagination={{
-                          clickable: true,
-                        }}
-                        autoplay={{
-                          delay: 2500,
-                          disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                          640: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                            centeredSlides: true,
-                          },
-                          768: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                            centeredSlides: true,
-                          },
-                          1024: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                            centeredSlides: true,
-                            enabled: false,
-                          },
-                        }}
-                        modules={[Pagination]}
-                        className="mySwiper"
-                      >
-                        {data.cardSection.card.map((card) => (
-                          <SwiperSlide key={card._key}>
-                            <li
-                              data-aos="fade-up"
-                              data-aos-easing="ease-out-cubic"
-                              data-aos-duration="2000"
-                            >
-                              <div className="onzeimpacttwolistlist">
-                                <h5
-                                  data-aos="fade-up"
-                                  data-aos-easing="ease-out-cubic"
-                                  data-aos-duration="2000"
-                                  dangerouslySetInnerHTML={{
-                                    __html: card.cardTitle,
-                                  }}
-                                />
-
-                                <p
-                                  data-aos="fade-up"
-                                  data-aos-easing="ease-out-cubic"
-                                  data-aos-duration="2000"
-                                  dangerouslySetInnerHTML={{
-                                    __html: card.cardDescription,
-                                  }}
-                                />
-                              </div>
-                            </li>
-                          </SwiperSlide>
-                        ))}
-                        <div className="swiper-pagination"></div>
-                      </Swiper>
-                    </ul>
-                  </div>
-               
-              ) : (
-                <div className="onlydesktop">
-                    <ul className="onzeimpacttwolist">
-                      {data.cardSection.card.map((card) => (
-                        <li
-                          key={card._key}
-                          data-aos="fade-up"
-                          data-aos-easing="ease-out-cubic"
-                          data-aos-duration="2000"
+                  {ismobile ? (
+                    <div className="onlymobile">
+                      <ul className="onzeimpacttwolist">
+                        <Swiper
+                          loop={false}
+                          scrollbar={{
+                            hide: true,
+                          }}
+                          pagination={{
+                            clickable: true,
+                          }}
+                          autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                          }}
+                          breakpoints={{
+                            640: {
+                              slidesPerView: 2,
+                              spaceBetween: 30,
+                              centeredSlides: true,
+                            },
+                            768: {
+                              slidesPerView: 2,
+                              spaceBetween: 30,
+                              centeredSlides: true,
+                            },
+                            1024: {
+                              slidesPerView: 2,
+                              spaceBetween: 30,
+                              centeredSlides: true,
+                              enabled: false,
+                            },
+                          }}
+                          modules={[Pagination]}
+                          className="mySwiper"
                         >
-                          <div className="onzeimpacttwolistlist">
-                            <h5
-                              data-onzeimpacttwolistlisttitle=""
-                              dangerouslySetInnerHTML={{ __html: card.cardTitle }}
-                            />
+                          {data.cardSection.card.map((card) => (
+                            <SwiperSlide key={card._key}>
+                              <li
+                                data-aos="fade-up"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="2000"
+                              >
+                                <div className="onzeimpacttwolistlist">
+                                  <h5
+                                    data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000"
+                                    dangerouslySetInnerHTML={{
+                                      __html: card.cardTitle,
+                                    }}
+                                  />
 
-                            <p
-                              data-onzeimpacttwolistlisttext=""
-                              dangerouslySetInnerHTML={{
-                                __html: card.cardDescription,
-                              }}
-                            />
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-              )}
-               </div>
+                                  <p
+                                    data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="2000"
+                                    dangerouslySetInnerHTML={{
+                                      __html: card.cardDescription,
+                                    }}
+                                  />
+                                </div>
+                              </li>
+                            </SwiperSlide>
+                          ))}
+                          <div className="swiper-pagination"></div>
+                        </Swiper>
+                      </ul>
+                    </div>
+
+                  ) : (
+                    <div className="onlydesktop">
+                      <ul className="onzeimpacttwolist">
+                        {data.cardSection.card.map((card) => (
+                          <li
+                            key={card._key}
+                            data-aos="fade-up"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000"
+                          >
+                            <div className="onzeimpacttwolistlist">
+                              <h5
+                                data-onzeimpacttwolistlisttitle=""
+                                dangerouslySetInnerHTML={{ __html: card.cardTitle }}
+                              />
+
+                              <p
+                                data-onzeimpacttwolistlisttext=""
+                                dangerouslySetInnerHTML={{
+                                  __html: card.cardDescription,
+                                }}
+                              />
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div
@@ -881,14 +883,14 @@ const Onzeimpact = () => {
                 </div>
                 <div className="binimagebox">
                   <img
-                    src={bottomdustbin}
+                    src={images.bottomdustbin}
                     alt="Bin Imagebox"
                     width="10"
                     height="10"
 
                   />
                   <img
-                    src={topdustin}
+                    src={images.topdustin}
                     alt="Bin Imagebox"
                     width="10"
                     className="topdustbinimage"
@@ -901,6 +903,7 @@ const Onzeimpact = () => {
             <div className="overlaybannehand-bottoms"></div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
