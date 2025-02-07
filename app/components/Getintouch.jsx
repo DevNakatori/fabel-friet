@@ -762,7 +762,10 @@ const Getintouch = () => {
 
         <div className="wrappertest" ref={rainContainerRef}>
           <div className="wrappertests">
-            <div className="flair flair--3">
+            {isDesktopcanvasetmenu ? (
+              <></>
+            ) : (
+              <div className="flair flair--3">
               <div className="likeimagelists">
                 <img src={liek_2} alt="img" className="ball" />
                 <img src={liek_1} alt="img" className="ball" />
@@ -770,6 +773,7 @@ const Getintouch = () => {
                 <img src={liek_4} alt="img" className="ball" />
               </div>
             </div>
+            )}
           </div>
 
           <div className="gradient-purple" id="onzefriendescriptiononzefriet">
@@ -813,6 +817,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
+                    data-aos="fade"
                   ></iframe>
                 </li>
 
@@ -830,6 +835,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
+                    data-aos="fade"
                   ></iframe>
                 </li>
 
@@ -847,6 +853,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
+                    data-aos="fade"
                   ></iframe>
                 </li>
               </ul>
