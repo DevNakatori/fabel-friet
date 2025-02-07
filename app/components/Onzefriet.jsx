@@ -1,35 +1,33 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useRef, useEffect, useState} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import images from '../js/images';
 
-import { useMediaQuery } from '@react-hook/media-query';
+import {useMediaQuery} from '@react-hook/media-query';
 
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
 
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzefriet = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoaded, setDataLoaded] = useState(false);
   const [onzefriet, setOnzefriet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
 
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
@@ -50,52 +48,25 @@ const Onzefriet = () => {
             markers: false,
             repeat: 1,
             delay: 0.5,
-
-          }
+          },
         })
         .to(imgRef.current, {
           scale: 1.5,
           z: 350,
           transformOrigin: 'center center',
-          ease: 'power1.inOut'
+          ease: 'power1.inOut',
         })
         .to(
           heroSectionRef.current,
           {
             scale: 1.1,
             transformOrigin: 'center center',
-            ease: 'power1.inOut'
+            ease: 'power1.inOut',
           },
-          '<'
+          '<',
         );
     }
   }, [onzefriet]);
-
-
-  /* fatch data start */
-  // useEffect(() => {
-  //   const fetchDataonzefriet = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "onzefriet" && language == $lang]`,
-  //         { lang: language },
-  //       );
-  //       setOnzefriet(data);
-  //       setDataLoaded(true);
-  //     } catch (err) {
-  //       console.error('Error fetching data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchDataonzefriet();
-  // }, [language]);
-
-
-  /* fatch data end */
-
 
   // /* fatch data start */
   useEffect(() => {
@@ -111,7 +82,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -131,45 +102,10 @@ const Onzefriet = () => {
   }, [language]);
   // /* fatch data end */
 
-
-
   /* round curcule animation start */
   useEffect(() => {
-
     if (onzefriet) {
-
-      const timelinesonzefriet = gsap.timeline({
-        // scrollTrigger: {
-        //   trigger: '#section2 .wrapper',
-        //   start: "top top",
-        //   end: '+=150%',
-        //   pin: true,
-        //   scrub: 0.5,
-        //   markers: false,
-        //   smoothTouch: 0.1,
-        // },
-      });
-
-      // timelinesonzefriet.to(
-      //   '#section2 .roundimage, #section2 .roundtext',
-      //   {
-      //     scale: 2.5,
-      //     z: 350,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   0,
-      // );
-
-      // timelinesonzefriet.to(
-      //   '#section2 .section.hero',
-      //   {
-      //     scale: 2.5,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   '<',
-      // );
+      const timelinesonzefriet = gsap.timeline({});
 
       timelinesonzefriet.to('.secondesection .wrappertest', {
         scrollTrigger: {
@@ -206,9 +142,7 @@ const Onzefriet = () => {
   /* round curcule animation start */
 
   useEffect(() => {
-
     if (onzefriet) {
-
       const path = document.querySelector('.line2');
       if (path) {
         const pathLength = path.getTotalLength();
@@ -230,15 +164,11 @@ const Onzefriet = () => {
     }
   }, [onzefriet]);
 
-
-
   useEffect(() => {
     const isHardRefresh = window.performance.navigation.type === 1;
     const animationDelay = isHardRefresh ? 300 : 300;
 
     const initiateAnimations = () => {
-
-
       const typeSplit = new SplitType('[data-onzefrienttitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
@@ -359,7 +289,7 @@ const Onzefriet = () => {
           },
         });
 
-        tlimpact.set(containeonze, { visibility: 'visible' });
+        tlimpact.set(containeonze, {visibility: 'visible'});
         tlimpact.from(containeonze, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -387,10 +317,7 @@ const Onzefriet = () => {
     // };
   }, [onzefriet]);
 
-
-
   useEffect(() => {
-
     //if (!onzefriet || loading) return;
     if (onzefriet) {
       gsap.set(['.image-wrapper'], {
@@ -503,17 +430,12 @@ const Onzefriet = () => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
+      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
       content.classList.add('show');
       trigger.classList.add('active');
     }
   };
   /* accordian end */
-
-
-
-
-
 
   const rainContainerRef = useRef(null);
   const canvasRef = useRef(null);
@@ -529,7 +451,6 @@ const Onzefriet = () => {
 
   if (window.innerWidth >= 1024) {
     useEffect(() => {
-
       if (!rainContainerRef.current || !canvasRef.current) return;
       fryImages.current = fryImageSources.map((src) => {
         const img = new Image();
@@ -557,7 +478,7 @@ const Onzefriet = () => {
             sway: Math.random() * 50 - 25,
             image:
               fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+                Math.floor(Math.random() * fryImages.current.length)
               ], // Random image
           });
         }
@@ -575,7 +496,7 @@ const Onzefriet = () => {
             fry.x = Math.random() * canvas.width;
             fry.image =
               fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
+                Math.floor(Math.random() * fryImages.current.length)
               ];
           }
           ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
@@ -607,25 +528,25 @@ const Onzefriet = () => {
         //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }, [onzefriet]);
-
   }
 
-
-
-  if (loading) return <div>
-    <div className="loadersite">
-      <div className="logosvg">
-        <img src={images.bannerlogo} alt="logo" />
+  if (loading)
+    return (
+      <div>
+        <div className="loadersite">
+          <div className="logosvg">
+            <img src={images.bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
-      <div className="loader1">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>;;
+    );
   if (error) return <div>{error}</div>;
 
   return (
@@ -673,7 +594,6 @@ const Onzefriet = () => {
           </div>
 
           <div className="wrappertest" ref={rainContainerRef}>
-
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
                 <>
@@ -706,7 +626,6 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
-
                           />
                         </div>
                       )}
@@ -718,7 +637,6 @@ const Onzefriet = () => {
                             alt={image.alt}
                             width="10"
                             height="10"
-
                           />
                         </div>
                       )}
@@ -728,14 +646,11 @@ const Onzefriet = () => {
                         alt={image.alt}
                         width="10"
                         height="10"
-
                       />
                     </div>
                   ))}
                 </div>
               </div>
-
-
 
               {isDesktopcanvas ? (
                 <></>
@@ -743,10 +658,9 @@ const Onzefriet = () => {
                 <canvas
                   className="canvasfries"
                   ref={canvasRef}
-                  style={{ position: 'absolute', top: -100, left: -50 }}
+                  style={{position: 'absolute', top: -100, left: -50}}
                 />
               )}
-
 
               <div className="whitebgbox">
                 <div className="appcontainers">
@@ -759,7 +673,6 @@ const Onzefriet = () => {
                             alt="img"
                             width="10"
                             height="10"
-
                           />
                         </div>
                         <div className="revealvideo">
@@ -920,7 +833,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                        Math.floor(review.reviewRating) &&
+                                          Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (

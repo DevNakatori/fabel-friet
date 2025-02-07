@@ -59,24 +59,21 @@ const Newfooter = () => {
   const {contact, logo, menu, socials} = footerData[0];
 
   return (
-    <div className="newfooter" data-aos="fade"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="2000">
+    <div
+      className="newfooter"
+      data-aos="fade"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+    >
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
-          <img  src={bannerlogo} alt="logo" />
+          <img src={bannerlogo} alt="logo" />
         </div>
         <div className="allmenulist">
           <div className="footerblock">
-            <h6
-              
-            >
-              Menu
-            </h6>
+            <h6>Menu</h6>
             <div className="footerlistbox">
-              <ul
-                
-              >
+              <ul>
                 {menu.map((item) => (
                   <li key={item._key}>
                     <a
@@ -95,49 +92,30 @@ const Newfooter = () => {
           </div>
 
           <div className="footerblock">
-            <h6
-              
-            >
-              Contact
-            </h6>
+            <h6>Contact</h6>
             <div className="footerlistbox">
               <ul>
-                <li
-                  
-                >
+                <li>
                   <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                 </li>
-                <li
-                  
-                >
+                <li>
                   <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </li>
               </ul>
 
               <ul>
                 {contact.address.map((addr) => (
-                  <li
-                    key={addr._key}
-                    
-                  >
-                    {addr.text}
-                  </li>
+                  <li key={addr._key}>{addr.text}</li>
                 ))}
               </ul>
             </div>
           </div>
 
           <div className="footerblock">
-            <h6
-              
-            >
-              Socials
-            </h6>
+            <h6>Socials</h6>
             <ul className="footersociallist">
               {socials.facebook && (
-                <li
-                  
-                >
+                <li>
                   <a href="www.whatsup.com" aria-label="socials">
                     <svg
                       fill="#EFEBE7"
@@ -180,9 +158,7 @@ const Newfooter = () => {
                 </li>
               )}
               {socials.facebook && (
-                <li
-                  
-                >
+                <li>
                   <a href={socials.facebook} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -200,9 +176,7 @@ const Newfooter = () => {
                 </li>
               )}
               {socials.insta && (
-                <li
-                  
-                >
+                <li>
                   <a href={socials.insta} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -220,8 +194,7 @@ const Newfooter = () => {
                 </li>
               )}
               {socials.tiktok && (
-                <li
-                >
+                <li>
                   <a href={socials.tiktok} aria-label="socials">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +218,7 @@ const Newfooter = () => {
           </div>
         </div>
         <div className="footerlogo onlymobile">
-          <img  src={bannerlogo} alt="logo" />
+          <img src={bannerlogo} alt="logo" />
         </div>
       </div>
     </div>

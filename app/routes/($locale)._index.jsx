@@ -256,19 +256,7 @@ export default function Homepage() {
 
   return (
     <div className="home">
-      {/* <div id="loadersitetrans" className="loadersitetrans">
-        <div className="logosvg">
-          <img src={bannerlogo} alt="logo" />
-        </div>
-        <div className="loader1">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div> */}
-
+      
       <div className="mobilerotate">
         <div className="innermobile">
           <div className="phone"></div>

@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { client } from '../../sanityClient';
-import { useLanguage } from '~/components/LanguageContext';
+import React, {useEffect, useState, useRef} from 'react';
+import {client} from '../../sanityClient';
+import {useLanguage} from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
-import { getImageUrl } from '../js/imagesurl';
+import {Pagination, Autoplay} from 'swiper/modules';
+import {getImageUrl} from '../js/imagesurl';
 import images from '../js/images';
-import { useMediaQuery } from '@react-hook/media-query';
+import {useMediaQuery} from '@react-hook/media-query';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
-  const { language } = useLanguage();
+  const {language} = useLanguage();
   const [dataLoadedlocaties, setDataLoadedlocaties] = useState(false);
   const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -39,49 +39,25 @@ const Onzelocaties = () => {
             markers: false,
             repeat: 1,
             delay: 0.5,
-          }
+          },
         })
         .to(imgRefonzelocaties.current, {
           scale: 1.5,
           z: 350,
           transformOrigin: 'center center',
-          ease: 'power1.inOut'
+          ease: 'power1.inOut',
         })
         .to(
           heroSectiononzelocaties.current,
           {
             scale: 1.1,
             transformOrigin: 'center center',
-            ease: 'power1.inOut'
+            ease: 'power1.inOut',
           },
-          '<'
+          '<',
         );
     }
   }, [onzelocaties]);
-
-
-
-  // useEffect(() => {
-  //   const fetchDataOnzelocaties = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await client.fetch(
-  //         `*[_type == "onzelocaties" && language == $lang]`,
-  //         { lang: language },
-  //       );
-
-  //       setOnzelocaties(data);
-  //       setDataLoadedlocaties(true);
-  //     } catch (err) {
-  //       console.error('Error fetching Onzelocaties data:', err);
-  //       setError('Failed to load data');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchDataOnzelocaties();
-  // }, [language]);
-
 
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
@@ -96,7 +72,7 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            { lang: language },
+            {lang: language},
           );
           // console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
@@ -116,42 +92,8 @@ const Onzelocaties = () => {
   }, [language]);
 
   useEffect(() => {
-
     if (onzelocaties) {
-
-      const timelines = gsap.timeline({
-        // scrollTrigger: {
-        //   trigger: '#section3 .wrapper-onzelocation',
-        //   start: "top top",
-        //   end: '+=150%',
-        //   pin: true,
-        //   scrub: 0.5,
-        //   markers: false,
-        //   smoothTouch: 0.1,
-        // },
-      });
-
-      // timelines.to(
-      //   '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
-      //   {
-      //     scale: 2.5,
-      //     z: 350,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   0,
-      // );
-
-      // timelines.to(
-      //   '#section3 .section.hero',
-      //   {
-      //     scale: 2.5,
-      //     transformOrigin: 'center center',
-      //     ease: 'power1.inOut',
-      //   },
-      //   '<',
-      // );
-
+      const timelines = gsap.timeline({});
 
       timelines.to('.thirdesection .wrappertest', {
         scrollTrigger: {
@@ -164,7 +106,6 @@ const Onzelocaties = () => {
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
       });
-
 
       timelines.to(
         '#section3 .gradient-purple',
@@ -187,7 +128,6 @@ const Onzelocaties = () => {
     }
   }, [onzelocaties]);
 
-
   useEffect(() => {
     const animateButton = (e) => {
       e.preventDefault();
@@ -202,14 +142,11 @@ const Onzelocaties = () => {
     }
   }, [onzelocaties]);
 
-  
   useEffect(() => {
     const isHardRefreshlocaties = window.performance.navigation.type === 1;
     const animationDelaylocaties = isHardRefreshlocaties ? 300 : 300;
 
     const initiateAnimationsonzlocaties = () => {
-
-
       let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
         types: 'lines, words, chars',
         tagName: 'span',
@@ -267,7 +204,7 @@ const Onzelocaties = () => {
           },
         });
 
-        tl.set(container, { autoAlpha: 1 });
+        tl.set(container, {autoAlpha: 1});
         tl.from(container, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -291,20 +228,23 @@ const Onzelocaties = () => {
     // };
   }, [onzelocaties]);
 
-  if (loading) return <div>
-    <div className="loadersite">
-      <div className="logosvg">
-        <img src={images.bannerlogo} alt="logo" />
+  if (loading)
+    return (
+      <div>
+        <div className="loadersite">
+          <div className="logosvg">
+            <img src={images.bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
-      <div className="loader1">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>;
+    );
   if (error) return <p>{error}</p>;
 
   return (
@@ -322,7 +262,6 @@ const Onzelocaties = () => {
                   alt={locationData.transitionSection.image.alt}
                   width="10"
                   height="10"
-
                 />
               </div>
             </div>
@@ -340,16 +279,21 @@ const Onzelocaties = () => {
                   }}
                 />
               </div>
-              <div className="roundimage-onzelocation roundimagesround" ref={imgRefonzelocaties}></div>
+              <div
+                className="roundimage-onzelocation roundimagesround"
+                ref={imgRefonzelocaties}
+              ></div>
               <div className="scroll-down">
                 <div className="icon-scroll"></div>
                 <p>Scroll down</p>
               </div>
             </div>
-            <section className="section hero" ref={heroSectiononzelocaties}></section>
+            <section
+              className="section hero"
+              ref={heroSectiononzelocaties}
+            ></section>
           </div>
           <div className="wrappertest">
-
             <div className="gradient-purple" id="locationtiononzefriet">
               <h4
                 className="locationtitle"
@@ -445,11 +389,12 @@ const Onzelocaties = () => {
                                       alt={loc.image.alt}
                                       width="10"
                                       height="10"
-
                                     />
                                     <h4>Opening hours</h4>
                                     <p
-                                      dangerouslySetInnerHTML={{ __html: loc.info }}
+                                      dangerouslySetInnerHTML={{
+                                        __html: loc.info,
+                                      }}
                                     />
                                     <div className="locationmaoaddress">
                                       <div className="locationicon">
@@ -502,7 +447,6 @@ const Onzelocaties = () => {
                         </p>
                       </div>
                     </>
-
                   ) : (
                     <>
                       {locationData.locationSection.location.map((loc) => (
@@ -516,7 +460,6 @@ const Onzelocaties = () => {
                                   width="10"
                                   height="10"
                                   className="whitewithvideomainboximg"
-
                                 />
                               </div>
                             </div>
@@ -557,7 +500,7 @@ const Onzelocaties = () => {
                                 data-aos="fade-up"
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
-                                dangerouslySetInnerHTML={{ __html: loc.info }}
+                                dangerouslySetInnerHTML={{__html: loc.info}}
                               />
 
                               <a
