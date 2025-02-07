@@ -44,7 +44,7 @@ const Getintouch = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefgetIntouch.current,
-            start: 'center center',
+            start: 'top top',
            // end: '+=150%',
             pin: true,
             scrub: true,
