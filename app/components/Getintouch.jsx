@@ -27,7 +27,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
   const {language} = useLanguage();
-  const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
+  //const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,8 +44,8 @@ const Getintouch = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefgetIntouch.current,
-            start: 'top top',
-            end: '+=150%',
+            start: 'center center',
+           // end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -73,20 +73,58 @@ const Getintouch = () => {
   /* scroll zoom animation end */
 
   /* fatch data start */
+
+  //  useEffect(() => {
+  //     const fetchDataHetmenuData = async () => {
+  //       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
+  //       console.log('hetmenuData C Data:', cachedData);
+  //       if (cachedData) {
+  //         setHetmenu(JSON.parse(cachedData));
+  //         setLoading(false);
+  //       } else {
+  //         try {
+  //           setLoading(true);
+  //           const data = await client.fetch(
+  //             `*[_type == "hetmenu" && language == $lang]`,
+  //             {lang: language},
+  //           );
+  //           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
+  //           setHetmenu(data);
+  //         } catch (err) {
+  //           console.error('Error fetching Hetmenu data:', err);
+  //           setError('Failed to load data');
+  //         } finally {
+  //           setLoading(false);
+  //         }
+  //       }
+  //     };
+  
+  //     fetchDataHetmenuData();
+  //   }, [language]);
+
+
   useEffect(() => {
     const fetchData_Getintouch = async () => {
+      const cachedData = localStorage.getItem(`getintouch_${language}`);
+      console.log('getintouch C Data:', cachedData);
+      if (cachedData) {
+        setGetIntouch(JSON.parse(cachedData));
+        setLoading(false);
+      } else {
       try {
         const data = await client.fetch(
           `*[_type == "getintouch" && language == $lang]`,
           {lang: language},
         );
+       // localStorage.setItem(`getintouch_${language}`, JSON.stringify(data[0]));
         setGetIntouch(data[0]);
-        setDataLoadedgetintouch(true);
+       // setDataLoadedgetintouch(true);
       } catch (err) {
         setError('Failed to load data');
       } finally {
         setLoading(false);
       }
+    }
     };
     fetchData_Getintouch();
   }, [language]);
@@ -708,7 +746,8 @@ const Getintouch = () => {
       </div>
     );
   if (error) return <p>{error}</p>;
-  if (!getIntouch) return null;
+  
+  if (!getIntouch || getIntouch.length === 0) return <div>No menu available.</div>;
 
   const {contactSection, contentSection, transitionSection} = getIntouch;
 
@@ -722,13 +761,11 @@ const Getintouch = () => {
               {getIntouch.transitionSection && (
                 <img
                   className="media"
-                  src={getImageUrl(
-                    getIntouch.transitionSection.image.asset._ref,
-                  )}
+                  src={getImageUrl(transitionSection.image.asset._ref,)}
                   alt="Logo"
                   width="10"
                   height="10"
-                  onError={(e) => (e.target.src = {bannerlogo})}
+                  //onError={(e) => (e.target.src = {bannerlogo})}
                 />
               )}
             </div>
