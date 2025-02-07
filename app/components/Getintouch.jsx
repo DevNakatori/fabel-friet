@@ -671,7 +671,7 @@ const Getintouch = () => {
 
       return () => {
         window.removeEventListener('resize', resizeCanvas);
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+       // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }, [getIntouch]);
   }
@@ -817,7 +817,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    data-aos="fade"
+                    
                   ></iframe>
                 </li>
 
@@ -835,7 +835,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    data-aos="fade"
+                    
                   ></iframe>
                 </li>
 
@@ -853,7 +853,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    data-aos="fade"
+                    
                   ></iframe>
                 </li>
               </ul>
