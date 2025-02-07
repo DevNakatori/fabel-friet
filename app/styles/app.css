@@ -1305,5 +1305,5 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
   z-index: 99!important;
   perspective: 500px !important;
   overflow: hidden !important;
-  border: solid 2px red !important;
+  border: solid 2px transparent !important;
 }

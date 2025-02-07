@@ -107,27 +107,29 @@ const Getintouch = () => {
     const fetchData_Getintouch = async () => {
       const cachedData = localStorage.getItem(`getintouch_${language}`);
       console.log('getintouch C Data:', cachedData);
+      
       if (cachedData) {
         setGetIntouch(JSON.parse(cachedData));
         setLoading(false);
       } else {
-      try {
-        const data = await client.fetch(
-          `*[_type == "getintouch" && language == $lang]`,
-          {lang: language},
-        );
-       // localStorage.setItem(`getintouch_${language}`, JSON.stringify(data[0]));
-        setGetIntouch(data[0]);
-       // setDataLoadedgetintouch(true);
-      } catch (err) {
-        setError('Failed to load data');
-      } finally {
-        setLoading(false);
+        try {
+          const data = await client.fetch(
+            `*[_type == "getintouch" && language == $lang]`,
+            { lang: language }
+          );
+          localStorage.setItem(`getintouch_${language}`, JSON.stringify(data[0]));
+          setGetIntouch(data[0]);
+        } catch (err) {
+          setError('Failed to load data');
+        } finally {
+          setLoading(false);
+        }
       }
-    }
     };
+
     fetchData_Getintouch();
   }, [language]);
+
 
   useEffect(() => {
     if (getIntouch) {
@@ -749,7 +751,8 @@ const Getintouch = () => {
   
   if (!getIntouch || getIntouch.length === 0) return <div>No menu available.</div>;
 
-  const {contactSection, contentSection, transitionSection} = getIntouch;
+  
+  const { contactSection, contentSection, transitionSection } = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
@@ -854,7 +857,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    
+                    loading="lazy"
                   ></iframe>
                 </li>
 
@@ -872,7 +875,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    
+                    loading="lazy"
                   ></iframe>
                 </li>
 
@@ -890,7 +893,7 @@ const Getintouch = () => {
                     muted
                     allow="autoplay"
                     loop
-                    
+                    loading="lazy"
                   ></iframe>
                 </li>
               </ul>
