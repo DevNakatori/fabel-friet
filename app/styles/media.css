@@ -241,6 +241,8 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .menu-section ul li p{font-size:-moz-calc(14 / var(--vw)* var(--multiplier));font-size:calc(14 / var(--vw)* var(--multiplier));font-family:'Optima';margin:5px 0;}
     .menulanding .landingcontainer .language-popup h2{font-size:-moz-calc(55 / var(--vw)* var(--multiplier));font-size:calc(55 / var(--vw)* var(--multiplier));line-height:2.2;}
     .language-item{font-size:-moz-calc(15 / var(--vw)* var(--multiplier));font-size:calc(15 / var(--vw)* var(--multiplier));}
+
+    section.menu-section p.firsttext{margin-bottom:15px;font-weight: bold;font-size: -moz-calc(16 / var(--vw)* var(--multiplier));font-size: calc(16 / var(--vw)* var(--multiplier));}
 }
 @media (min-width:2100px) and (max-width:5000px){
     body.seconsection .page.menumainppage .menu-section ul li summary:before{top:11px;}
@@ -412,6 +414,13 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .menu-section ul li,.page.menumainppage .menu-section ul li span,section.menu-section p.firsttext{font-size:-moz-calc(44 / var(--vw)* var(--multiplier));font-size:calc(44 / var(--vw)* var(--multiplier));font-family:'Optima';}
     .page.menumainppage .menu-section ul li p{font-size:-moz-calc(36 / var(--vw)* var(--multiplier));font-size:calc(36 / var(--vw)* var(--multiplier));font-family:'Optima';margin:5px 0;}
     .page.menumainppage .tabs button{font-size:-moz-calc(24/var(--vw)*var(--multiplier));font-size:calc(24/var(--vw)*var(--multiplier));}
+
+    .page.menumainppage .menu-section ul li .sprateline{font-size: 17px;}
+    .page.menumainppage .menu-section ul li p span.sprateline,
+    .page.menumainppage .menu-section ul li p .englishlang.sprateline {
+        font-size: 16px;
+    }
+    .page.menumainppage .menu-section ul li span.price{font-size: 16px;}
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
@@ -460,6 +469,12 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .tabs button{font-size:-moz-calc(33/var(--vw)*var(--multiplier));font-size:calc(33/var(--vw)*var(--multiplier));}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist{-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist li{width:100%;}
+    .page.menumainppage .menu-section ul li .sprateline{font-size: 17px;}
+    .page.menumainppage .menu-section ul li p span.sprateline,
+    .page.menumainppage .menu-section ul li p .englishlang.sprateline {
+        font-size: 16px;
+    }
+    .page.menumainppage .menu-section ul li span.price{font-size: 16px;}
 }
 @media (max-width:767px){
     .secondesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar{position:absolute;top:0;left:0;z-index:9;-webkit-transform:rotate(-8deg);-ms-transform:rotate(-8deg);-moz-transform:rotate(-8deg);-o-transform:rotate(-8deg);transform:rotate(-8deg);width:60px;}
@@ -527,4 +542,9 @@ button.skipvideo.hidden{display:none;}
         padding: 0px 5px;
     }
     .canvas.whatsappcanvas{display: none;}
+
+    .page.menumainppage .menu-section ul li p span.sprateline,
+    .page.menumainppage .menu-section ul li p .englishlang.sprateline {
+        font-size: 10px;
+    }
 }

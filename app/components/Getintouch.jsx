@@ -44,8 +44,8 @@ const Getintouch = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefgetIntouch.current,
-            start: 'center center',
-            //end: '+=150%',
+            start: 'top top',
+            end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -716,6 +716,7 @@ const Getintouch = () => {
     <section className="panel sixthsection" id="section6">
       <div>
         <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
+        <div className='image-container'>
           <div className="wrappermain">
             <div className="wrappermain_inner">
               {getIntouch.transitionSection && (
@@ -756,6 +757,7 @@ const Getintouch = () => {
             className="section hero"
             ref={heroSectiongetIntouch}
           ></section>
+          </div>
         </div>
 
         <div className="wrappertest" ref={rainContainerRef}>

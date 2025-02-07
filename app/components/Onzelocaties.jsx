@@ -32,8 +32,8 @@ const Onzelocaties = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefonzelocaties.current,
-            start: 'center center',
-            //end: '+=150%',
+            start: 'top top',
+            end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -252,6 +252,7 @@ const Onzelocaties = () => {
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
           <div className="wrapper-onzelocation" ref={wrapperRefonzelocaties}>
+          <div className='image-container'>
             <div className="wrappermain">
               <div className="wrappermain_inner">
                 <img
@@ -292,6 +293,7 @@ const Onzelocaties = () => {
               className="section hero"
               ref={heroSectiononzelocaties}
             ></section>
+            </div>
           </div>
           <div className="wrappertest">
             <div className="gradient-purple" id="locationtiononzefriet">

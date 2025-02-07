@@ -41,8 +41,8 @@ const Onzefriet = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRef.current,
-            start: 'center center',
-            //end: '+=150%',
+            start: 'top top',
+            end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -554,6 +554,7 @@ const Onzefriet = () => {
       {onzefriet.map((content, idx) => (
         <div key={idx}>
           <div className="wrapper" ref={wrapperRef}>
+            <div className='image-container'>
             <div className="wrappermain">
               <div className="wrappermain_inner">
                 <img
@@ -591,6 +592,7 @@ const Onzefriet = () => {
               </div>
             </div>
             <section className="section hero" ref={heroSectionRef}></section>
+            </div>
           </div>
 
           <div className="wrappertest" ref={rainContainerRef}>
