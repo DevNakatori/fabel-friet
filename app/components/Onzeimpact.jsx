@@ -41,8 +41,8 @@ const Onzeimpact = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefonzeimpact.current,
-            start: 'center center',
-            //end: '+=150%',
+            start: 'top top',
+            end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -495,6 +495,7 @@ const Onzeimpact = () => {
     <section className="panel fifthesection" id="section5">
       <div>
         <div className="wrapper-impact" ref={wrapperRefonzeimpact}>
+        <div className='image-container'>
           <div className="wrappermain">
             <div className="wrappermain_inner">
               <img
@@ -533,6 +534,7 @@ const Onzeimpact = () => {
             className="section hero"
             ref={heroSectiononzeimpact}
           ></section>
+          </div>
         </div>
 
         <div className="wrappertest">

@@ -40,8 +40,8 @@ const Hetmenu = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefhetmenu.current,
-            start: 'center center',
-            //end: '+=150%',
+            start: 'top top',
+            end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
@@ -422,6 +422,7 @@ const Hetmenu = () => {
     <section className="panel fourthsection" id="section4">
       <div>
         <div className="wrapper-hetmenu" ref={wrapperRefhetmenu}>
+        <div className='image-container'>
           <div className="wrappermain">
             <div className="wrappermain_inner">
               <img
@@ -458,6 +459,7 @@ const Hetmenu = () => {
             className="section hero"
             ref={heroSectionRefhetmenu}
           ></section>
+          </div>
         </div>
 
         <div className="wrappertest" ref={rainContainerRef}>
