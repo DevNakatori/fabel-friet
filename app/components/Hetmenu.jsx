@@ -10,12 +10,13 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
 import { getImageUrl } from '../js/imagesurl';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import images from '../js/images';
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
 import new_fries_four from '../assets/new_fries/new_4.webp';
 
+import { useMediaQuery } from '@react-hook/media-query';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -32,36 +33,39 @@ const Hetmenu = () => {
   const imgRefhetmenu = useRef(null);
   const heroSectionRefhetmenu = useRef(null);
 
-  useEffect(() => {
+  const isDesktopcanvashetmenu = useMediaQuery('(max-width: 767px)');
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRefhetmenu.current,
-          start: 'center center',
-          //end: '+=150%',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          delay: 0.5,
-        }
-      })
-      .to(imgRefhetmenu.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut'
-      })
-      .to(
-        heroSectionRefhetmenu.current,
-        {
-          scale: 1.1,
+  useEffect(() => {
+    if (hetmenu) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: wrapperRefhetmenu.current,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
+            scrub: true,
+            markers: false,
+            repeat: 1,
+            delay: 0.5,
+          }
+        })
+        .to(imgRefhetmenu.current, {
+          scale: 1.5,
+          z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut'
-        },
-        '<'
-      );
+        })
+        .to(
+          heroSectionRefhetmenu.current,
+          {
+            scale: 1.1,
+            transformOrigin: 'center center',
+            ease: 'power1.inOut'
+          },
+          '<'
+        );
+    }
   }, [hetmenu]);
 
 
@@ -120,97 +124,99 @@ const Hetmenu = () => {
   // GSAP Animations for Hetmenu
   useEffect(() => {
 
-    if (!hetmenu || loading) return;
+    if (hetmenu) {
 
 
-    const timelineshetmenu = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#section4 .wrapper-hetmenu',
-      //   start: "top top",
-      //   // end: '+=150%',
-      //   pin: true,
-      //   scrub: 0.5,
-      //   markers: false,
-      //   smoothTouch: 0.1,
-      // },
-    });
+      const timelineshetmenu = gsap.timeline({
+        // scrollTrigger: {
+        //   trigger: '#section4 .wrapper-hetmenu',
+        //   start: "top top",
+        //   // end: '+=150%',
+        //   pin: true,
+        //   scrub: 0.5,
+        //   markers: false,
+        //   smoothTouch: 0.1,
+        // },
+      });
 
-    // timelineshetmenu.to(
-    //   '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
-    //   {
-    //     scale: 2.5,
-    //     z: 350,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   0,
-    // );
+      // timelineshetmenu.to(
+      //   '#section4 .roundimage-hetmenu, #section4 .roundtext-hetmenu',
+      //   {
+      //     scale: 2.5,
+      //     z: 350,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   0,
+      // );
 
-    // timelineshetmenu.to(
-    //   '#section4 .section.hero',
-    //   {
-    //     scale: 2.5,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   '<',
-    // );
+      // timelineshetmenu.to(
+      //   '#section4 .section.hero',
+      //   {
+      //     scale: 2.5,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   '<',
+      // );
 
-    timelineshetmenu.to('.fourthsection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.fourthsection',
-        start: '0% 0%',
-        end: '30% 30%',
-        scrub: true,
-        once: true,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
-
-
-
-    timelineshetmenu.to(
-      '#section4 .gradient-purple',
-      {
-        scale: 1,
-        borderRadius: 0,
-        ease: 'power3.easeIn',
+      timelineshetmenu.to('.fourthsection .wrappertest', {
         scrollTrigger: {
-          trigger: '#section4 .wrappertest',
-          start: 'top top-500',
-          end: 'top top-200',
+          trigger: '.fourthsection',
+          start: '0% 0%',
+          end: '30% 30%',
+          scrub: true,
+          once: true,
         },
-      },
-      0,
-    );
+        borderRadius: '0vw 0vw 0px 0px',
+        ease: 'power1.inOut',
+      });
 
-    return () => {
-      // timelineshetmenu.scrollTrigger.kill();
-    };
+
+
+      timelineshetmenu.to(
+        '#section4 .gradient-purple',
+        {
+          scale: 1,
+          borderRadius: 0,
+          ease: 'power3.easeIn',
+          scrollTrigger: {
+            trigger: '#section4 .wrappertest',
+            start: 'top top-500',
+            end: 'top top-200',
+          },
+        },
+        0,
+      );
+
+      return () => {
+        // timelineshetmenu.scrollTrigger.kill();
+      };
+    }
   }, [hetmenu]);
 
 
 
   useEffect(() => {
-    if (!hetmenu || loading) return;
-    const paths = document.querySelector('.line2s');
-    if (paths) {
-      const pathsLength = paths.getTotalLength();
-      gsap.set(paths, {
-        strokeDasharray: pathsLength,
-        strokeDashoffset: pathsLength,
-      });
-      gsap.to(paths, {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: paths,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          markers: false,
-        },
-      });
+    if (hetmenu) {
+      const paths = document.querySelector('.line2s');
+      if (paths) {
+        const pathsLength = paths.getTotalLength();
+        gsap.set(paths, {
+          strokeDasharray: pathsLength,
+          strokeDashoffset: pathsLength,
+        });
+        gsap.to(paths, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: paths,
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+            markers: false,
+          },
+        });
+      }
     }
   }, [hetmenu]);
 
@@ -227,37 +233,37 @@ const Hetmenu = () => {
   ];
 
   if (window.innerWidth > 767) {
-  useEffect(() => {
-    
-    if (!hetmenu || loading) return;
-    const handleScroll = () => {
-      const sections = ['friet-section', 'snacks-section', 'drinks-section'];
-      let currentSection = 'friet-section';
-      sections.forEach((sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (
-          section &&
-          window.scrollY >= section.offsetTop - 10 &&
-          window.scrollY < section.offsetTop + section.offsetHeight
-        ) {
-          currentSection = sectionId;
-        }
-      });
-      setActiveSection(currentSection);
-    };
-    window.addEventListener('scroll', handleScroll);
-  
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [hetmenu]);
-}
+    useEffect(() => {
+
+
+      const handleScroll = () => {
+        const sections = ['friet-section', 'snacks-section', 'drinks-section'];
+        let currentSection = 'friet-section';
+        sections.forEach((sectionId) => {
+          const section = document.getElementById(sectionId);
+          if (
+            section &&
+            window.scrollY >= section.offsetTop - 10 &&
+            window.scrollY < section.offsetTop + section.offsetHeight
+          ) {
+            currentSection = sectionId;
+          }
+        });
+        setActiveSection(currentSection);
+      };
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [hetmenu]);
+  }
   useEffect(() => {
     const isHardRefreshhetmenu = window.performance.navigation.type === 1;
     const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
 
     const initiateAnimationsonzhetmenu = () => {
-      if (!hetmenu || loading) return;
+
 
       let typeSplitmenutitle = new SplitType('[data-menutitle]', {
         types: 'lines, words, chars',
@@ -441,7 +447,7 @@ const Hetmenu = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" />
+        <img src={images.bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -490,7 +496,7 @@ const Hetmenu = () => {
                 alt="Transition Section"
                 width="100"
                 height="100"
-                onError={(e) => e.target.src = { bannerlogo }}
+
               />
             </div>
           </div>
@@ -528,11 +534,16 @@ const Hetmenu = () => {
             />
 
             <div className="whitebgbox">
-              <canvas
-                className="canvasfries"
-                ref={canvasRef}
-                style={{ position: 'absolute', top: 0, left: 0 }}
-              />
+
+              {isDesktopcanvashetmenu ? (
+                <></>
+              ) : (
+                <canvas
+                  className="canvasfries"
+                  ref={canvasRef}
+                  style={{ position: 'absolute', top: 0, left: 0 }}
+                />
+              )}
 
               <div
                 className="menudynamic onlydesktop"

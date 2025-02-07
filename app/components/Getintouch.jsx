@@ -9,7 +9,7 @@ import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
-import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
+import images from '../js/images';
 import facebookIcon from '../assets/resizeimgs/webp/fb.webp';
 import instagramIcon from '../assets/resizeimgs/webp/insta.webp';
 import linkedinIcon from '../assets/resizeimgs/webp/in.webp';
@@ -21,6 +21,8 @@ import liek_3 from '../assets/resizeimgs/webp/like44.webp';
 import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
+import { useMediaQuery } from '@react-hook/media-query';
+
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
@@ -30,40 +32,43 @@ const Getintouch = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const isDesktopcanvasetmenu = useMediaQuery('(max-width: 767px)');
+
   /* scroll zoom animation start */
   const wrapperRefgetIntouch = useRef(null);
   const imgRefgetIntouch = useRef(null);
   const heroSectiongetIntouch = useRef(null);
   useEffect(() => {
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRefgetIntouch.current,
-          start: 'center center',
-          //end: '+=150%',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          delay: 0.5,
-        }
-      })
-      .to(imgRefgetIntouch.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut'
-      })
-      .to(
-        heroSectiongetIntouch.current,
-        {
-          scale: 1.1,
+    if (getIntouch) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: wrapperRefgetIntouch.current,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
+            scrub: true,
+            markers: false,
+            repeat: 1,
+            delay: 0.5,
+          }
+        })
+        .to(imgRefgetIntouch.current, {
+          scale: 1.5,
+          z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut'
-        },
-        '<'
-      );
+        })
+        .to(
+          heroSectiongetIntouch.current,
+          {
+            scale: 1.1,
+            transformOrigin: 'center center',
+            ease: 'power1.inOut'
+          },
+          '<'
+        );
+    }
   }, [getIntouch]);
   /* scroll zoom animation end */
 
@@ -118,55 +123,56 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch || loading) return;
+    if (getIntouch) {
 
-    const timelinegetintouch = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#section6 .wrapper-getintouch',
-      //   start: "top top",
-      //   end: '+=150%',
-      //   pin: true,
-      //   scrub: 0.5,
-      //   markers: false,
-      //   smoothTouch: 0.1,
-      // },
-    });
-    // timelinegetintouch.to(
-    //   '#section6 .roundimage-getintouch, #section6 .roundtext-getintouch',
-    //   {
-    //     scale: 2.5,
-    //     z: 350,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   0,
-    // );
+      const timelinegetintouch = gsap.timeline({
+        // scrollTrigger: {
+        //   trigger: '#section6 .wrapper-getintouch',
+        //   start: "top top",
+        //   end: '+=150%',
+        //   pin: true,
+        //   scrub: 0.5,
+        //   markers: false,
+        //   smoothTouch: 0.1,
+        // },
+      });
+      // timelinegetintouch.to(
+      //   '#section6 .roundimage-getintouch, #section6 .roundtext-getintouch',
+      //   {
+      //     scale: 2.5,
+      //     z: 350,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   0,
+      // );
 
-    // timelinegetintouch.to(
-    //   '#section6 .section.hero',
-    //   {
-    //     scale: 2.5,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   '<',
-    // );
+      // timelinegetintouch.to(
+      //   '#section6 .section.hero',
+      //   {
+      //     scale: 2.5,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   '<',
+      // );
 
-    timelinegetintouch.to('.sixthsection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.sixthsection',
-        start: '0% 0%',
-        end: '30% 30%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+      timelinegetintouch.to('.sixthsection .wrappertest', {
+        scrollTrigger: {
+          trigger: '.sixthsection',
+          start: '0% 0%',
+          end: '30% 30%',
+          scrub: true,
+          once: false,
+        },
+        borderRadius: '0vw 0vw 0px 0px',
+        ease: 'power1.inOut',
+      });
 
-    return () => {
-      //  timelinegetintouch.scrollTrigger.kill();
-    };
+      return () => {
+        //  timelinegetintouch.scrollTrigger.kill();
+      };
+    }
   }, [getIntouch]);
 
   const numSVGs = 20; // Number of SVGs to display
@@ -188,7 +194,7 @@ const Getintouch = () => {
   };
 
   useEffect(() => {
-    if (!getIntouch || loading) return;
+
     const listgetintouch = document.querySelectorAll(
       '.gradient-threeboxgetintouch',
     );
@@ -373,43 +379,43 @@ const Getintouch = () => {
       },
     );
 
-    // gsap.fromTo(
-    //   '.likeimagelist img',
-    //   { y: -50, opacity: 0 },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.5,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     yoyo: true,
-    //     scrollTrigger: {
-    //       trigger: '#section6 .wrappertests',
-    //       start: 'top top',
-    //       end: 'top top',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
-    //     },
-    //   },
-    // );
+    gsap.fromTo(
+      '.likeimagelist img',
+      { y: -50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.5,
+        duration: 1,
+        ease: 'bounce.out',
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section6 .wrappertests',
+          start: 'top top',
+          end: 'top top',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
 
-    // gsap.to('.likeimagelist img', {
-    //   x: 'random(-10, 10)',
-    //   y: 'random(-10, 10)',
-    //   zIndex: 22,
-    //   duration: 1,
-    //   ease: 'none',
-    //   yoyo: true,
-    //   repeat: -1,
-    // });
+    gsap.to('.likeimagelist img', {
+      x: 'random(-10, 10)',
+      y: 'random(-10, 10)',
+      zIndex: 22,
+      duration: 1,
+      ease: 'none',
+      yoyo: true,
+      repeat: -1,
+    });
   }, [getIntouch]);
 
   useEffect(() => {
     const isHardRefreshintouch = window.performance.navigation.type === 1;
     const animationDelayintouch = isHardRefreshintouch ? 300 : 300;
     const initiateAnimationsonzintouch = () => {
-      if (!getIntouch || loading) return;
+
       const typeSplitgettouchonzefrienttitle = new SplitType(
         '[data-gettouchonzefrienttitle]',
         {
@@ -591,44 +597,45 @@ const Getintouch = () => {
 
   useEffect(() => {
 
-    if (!getIntouch || loading) return;
+    if (getIntouch) {
 
-    const pathsstouch = document.querySelector('.line2sstouch');
-    if (pathsstouch) {
-      const pathsstouchLength = pathsstouch.getTotalLength();
-      gsap.set(pathsstouch, {
-        strokeDasharray: pathsstouchLength,
-        strokeDashoffset: pathsstouchLength,
-      });
-      gsap.to(pathsstouch, {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: pathsstouch,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          markers: false,
-        },
-      });
-    }
+      const pathsstouch = document.querySelector('.line2sstouch');
+      if (pathsstouch) {
+        const pathsstouchLength = pathsstouch.getTotalLength();
+        gsap.set(pathsstouch, {
+          strokeDasharray: pathsstouchLength,
+          strokeDashoffset: pathsstouchLength,
+        });
+        gsap.to(pathsstouch, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: pathsstouch,
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+            markers: false,
+          },
+        });
+      }
 
-    const pathsstouchs = document.querySelector('.line2sstouchs');
-    if (pathsstouchs) {
-      const pathsstouchsLength = pathsstouchs.getTotalLength();
-      gsap.set(pathsstouchs, {
-        strokeDasharray: pathsstouchsLength,
-        strokeDashoffset: pathsstouchsLength,
-      });
-      gsap.to(pathsstouchs, {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: pathsstouchs,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          markers: false,
-        },
-      });
+      const pathsstouchs = document.querySelector('.line2sstouchs');
+      if (pathsstouchs) {
+        const pathsstouchsLength = pathsstouchs.getTotalLength();
+        gsap.set(pathsstouchs, {
+          strokeDasharray: pathsstouchsLength,
+          strokeDashoffset: pathsstouchsLength,
+        });
+        gsap.to(pathsstouchs, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: pathsstouchs,
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+            markers: false,
+          },
+        });
+      }
     }
   }, [getIntouch]);
 
@@ -652,7 +659,7 @@ const Getintouch = () => {
     });
   }, [getIntouch]);
 
-  
+
   const rainContainerRef = useRef(null);
   const canvasRef = useRef(null);
   const fries = useRef([]);
@@ -660,88 +667,88 @@ const Getintouch = () => {
   const numberOfFries = 50;
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   if (window.innerWidth > 767) {
-  useEffect(() => {
-    
-    if (!rainContainerRef.current || !canvasRef.current) return;
-    fryImages.current = fryImageSources.map((src) => {
-      const img = new Image();
-      img.src = src;
-      return img;
-    });
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return;
-      canvas.width = rainContainer.offsetWidth;
-      canvas.height = rainContainer.offsetHeight;
-    };
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    const createFries = () => {
-      fries.current = [];
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      for (let i = 0; i < numberOfFries; i++) {
-        fries.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.3,
-          sway: Math.random() * 50 - 25,
-          image:
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ],
-        });
-      }
-    };
-    const renderFries = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      fries.current.forEach((fry) => {
-        fry.y += fry.speed;
-        fry.x += 1;
-        if (fry.x > canvas.width) {
-          fry.x = -100;
-          fry.y = Math.random() * -canvas.height;
-          fry.image =
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ];
-        }
-        ctx.drawImage(fry.image, fry.x, fry.y, 300, 300);
+    useEffect(() => {
+
+      if (!rainContainerRef.current || !canvasRef.current) return;
+      fryImages.current = fryImageSources.map((src) => {
+        const img = new Image();
+        img.src = src;
+        return img;
       });
-      requestAnimationFrame(renderFries);
-    };
-    ScrollTrigger.create({
-      trigger: rainContainerRef.current,
-      start: 'top center',
-      onEnter: () => {
-        createFries();
-        renderFries();
-      },
-      onLeaveBack: () => {
+      const resizeCanvas = () => {
+        const canvas = canvasRef.current;
+        const rainContainer = rainContainerRef.current;
+        if (!canvas || !rainContainer) return;
+        canvas.width = rainContainer.offsetWidth;
+        canvas.height = rainContainer.offsetHeight;
+      };
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      const createFries = () => {
         fries.current = [];
-        const ctx = canvasRef.current.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height,
-          );
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        for (let i = 0; i < numberOfFries; i++) {
+          fries.current.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * -canvas.height,
+            speed: Math.random() * 1 + 0.3,
+            sway: Math.random() * 50 - 25,
+            image:
+              fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+              ],
+          });
         }
-      },
-    });
-  
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-    
-  }, [getIntouch]);
-}
+      };
+      const renderFries = () => {
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+        if (!ctx || !canvas) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fries.current.forEach((fry) => {
+          fry.y += fry.speed;
+          fry.x += 1;
+          if (fry.x > canvas.width) {
+            fry.x = -100;
+            fry.y = Math.random() * -canvas.height;
+            fry.image =
+              fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+              ];
+          }
+          ctx.drawImage(fry.image, fry.x, fry.y, 300, 300);
+        });
+        requestAnimationFrame(renderFries);
+      };
+      ScrollTrigger.create({
+        trigger: rainContainerRef.current,
+        start: 'top center',
+        onEnter: () => {
+          createFries();
+          renderFries();
+        },
+        onLeaveBack: () => {
+          fries.current = [];
+          const ctx = canvasRef.current.getContext('2d');
+          if (ctx) {
+            ctx.clearRect(
+              0,
+              0,
+              canvasRef.current.width,
+              canvasRef.current.height,
+            );
+          }
+        },
+      });
+
+      return () => {
+        window.removeEventListener('resize', resizeCanvas);
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+
+    }, [getIntouch]);
+  }
 
   useEffect(() => {
     const animateButton = (e) => {
@@ -779,7 +786,7 @@ const Getintouch = () => {
 
   return (
     <section className="panel sixthsection" id="section6">
-
+      <div>
       <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
         <div className="wrappermain">
           <div className='wrappermain_inner'>
@@ -827,11 +834,19 @@ const Getintouch = () => {
         </div>
 
         <div className="gradient-purple" id="onzefriendescriptiononzefriet">
-          <canvas
-            className="canvasfries"
-            ref={canvasRef}
-            style={{ position: 'absolute', top: -100, left: 0 }}
-          />
+
+          {isDesktopcanvasetmenu ? (
+            <></>
+          ) : (
+            <canvas
+              className="canvasfries"
+              ref={canvasRef}
+              style={{ position: 'absolute', top: -100, left: 0 }}
+            />
+          )}
+
+
+
 
           <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
             {contentSection.heading}
@@ -851,7 +866,7 @@ const Getintouch = () => {
             >
               <li
                 style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundImage: `url(${images.backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
@@ -869,7 +884,7 @@ const Getintouch = () => {
 
               <li
                 style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundImage: `url(${images.backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
@@ -887,7 +902,7 @@ const Getintouch = () => {
 
               <li
                 style={{
-                  backgroundImage: `url(${backgroundImageUrl})`,
+                  backgroundImage: `url(${images.backgroundImageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
@@ -1377,6 +1392,7 @@ const Getintouch = () => {
         </div>
       </div>
       <Newfooter />
+      </div>
     </section>
   );
 };

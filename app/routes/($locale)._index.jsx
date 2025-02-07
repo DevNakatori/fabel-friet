@@ -143,12 +143,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 1); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 2); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 3); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 4); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 5); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 6); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 1000); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 1000); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 1000); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 1000); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 1000); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 1000); // show after 6 seconds
   }, []);
 
   // useEffect(() => {
@@ -276,7 +276,7 @@ export default function Homepage() {
         </div>
       </div>
       <div className="footerwithscrollbar onlymobile">
-        <progress max="100" value="0"></progress>
+        {/* <progress max="100" value="0"></progress> */}
         <div className="scroll-down">
           <p>Scroll down</p>
         </div>
@@ -288,7 +288,7 @@ export default function Homepage() {
         <Cursor />
         <div id="smooth-wrapper">
         <div id="smooth-content">
-            {showHomePage && <HomePage />}
+            {showHomePage && <HomePage />} 
             {showOnzefriet && <Onzefriet />}
             {showOnzelocaties && <Onzelocaties />}
             {showHetmenu && <Hetmenu />}

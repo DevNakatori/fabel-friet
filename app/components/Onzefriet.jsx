@@ -11,10 +11,9 @@ import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
-import fabelfrietsticker2 from '../assets/resizeimgs/webp/fabelfrietsticker2.webp';
-import fabelfrie_tsticker2 from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
-import fabelfrie_bottomlogo from '../assets/resizeimgs/webp/fabelfriet_sticker2.webp';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
+import images from '../js/images';
+
+import { useMediaQuery } from '@react-hook/media-query';
 
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
@@ -36,37 +35,40 @@ const Onzefriet = () => {
   const imgRef = useRef(null);
   const heroSectionRef = useRef(null);
 
+  const isDesktopcanvas = useMediaQuery('(max-width: 767px)');
+
   useEffect(() => {
+    if (onzefriet) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
+            scrub: true,
+            markers: false,
+            repeat: 1,
+            delay: 0.5,
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: 'center center',
-          //end: '+=150%',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          delay: 0.5,
-
-        }
-      })
-      .to(imgRef.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut'
-      })
-      .to(
-        heroSectionRef.current,
-        {
-          scale: 1.1,
+          }
+        })
+        .to(imgRef.current, {
+          scale: 1.5,
+          z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut'
-        },
-        '<'
-      );
+        })
+        .to(
+          heroSectionRef.current,
+          {
+            scale: 1.1,
+            transformOrigin: 'center center',
+            ease: 'power1.inOut'
+          },
+          '<'
+        );
+    }
   }, [onzefriet]);
 
 
@@ -134,95 +136,97 @@ const Onzefriet = () => {
   /* round curcule animation start */
   useEffect(() => {
 
-    if (!onzefriet || loading) return;
+    if (onzefriet) {
 
-    const timelinesonzefriet = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#section2 .wrapper',
-      //   start: "top top",
-      //   end: '+=150%',
-      //   pin: true,
-      //   scrub: 0.5,
-      //   markers: false,
-      //   smoothTouch: 0.1,
-      // },
-    });
+      const timelinesonzefriet = gsap.timeline({
+        // scrollTrigger: {
+        //   trigger: '#section2 .wrapper',
+        //   start: "top top",
+        //   end: '+=150%',
+        //   pin: true,
+        //   scrub: 0.5,
+        //   markers: false,
+        //   smoothTouch: 0.1,
+        // },
+      });
 
-    // timelinesonzefriet.to(
-    //   '#section2 .roundimage, #section2 .roundtext',
-    //   {
-    //     scale: 2.5,
-    //     z: 350,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   0,
-    // );
+      // timelinesonzefriet.to(
+      //   '#section2 .roundimage, #section2 .roundtext',
+      //   {
+      //     scale: 2.5,
+      //     z: 350,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   0,
+      // );
 
-    // timelinesonzefriet.to(
-    //   '#section2 .section.hero',
-    //   {
-    //     scale: 2.5,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   '<',
-    // );
+      // timelinesonzefriet.to(
+      //   '#section2 .section.hero',
+      //   {
+      //     scale: 2.5,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   '<',
+      // );
 
-    timelinesonzefriet.to('.secondesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.secondesection',
-        start: '0% 0%',
-        end: '25% 25%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
-
-    timelinesonzefriet.to(
-      '#section2 .gradient-purple',
-      {
-        scale: 1,
-        borderRadius: 0,
-        ease: 'power3.easeIn',
+      timelinesonzefriet.to('.secondesection .wrappertest', {
         scrollTrigger: {
-          trigger: '#section2 .wrappertest',
-          start: 'top top-100',
-          end: 'top top-300',
+          trigger: '.secondesection',
+          start: '0% 0%',
+          end: '25% 25%',
+          scrub: true,
+          once: false,
         },
-      },
-      0,
-    );
-    // return () => {
-    //  timelinesonzefriet.scrollTrigger.kill();
-    // };
+        borderRadius: '0vw 0vw 0px 0px',
+        ease: 'power1.inOut',
+      });
+
+      timelinesonzefriet.to(
+        '#section2 .gradient-purple',
+        {
+          scale: 1,
+          borderRadius: 0,
+          ease: 'power3.easeIn',
+          scrollTrigger: {
+            trigger: '#section2 .wrappertest',
+            start: 'top top-100',
+            end: 'top top-300',
+          },
+        },
+        0,
+      );
+      // return () => {
+      //  timelinesonzefriet.scrollTrigger.kill();
+      // };
+    }
   }, [onzefriet]);
 
   /* round curcule animation start */
 
   useEffect(() => {
 
-    if (!onzefriet || loading) return;
+    if (onzefriet) {
 
-    const path = document.querySelector('.line2');
-    if (path) {
-      const pathLength = path.getTotalLength();
-      gsap.set(path, {
-        strokeDasharray: pathLength,
-        strokeDashoffset: pathLength,
-      });
-      gsap.to(path, {
-        strokeDashoffset: 0,
-        scrollTrigger: {
-          trigger: path,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          markers: false,
-        },
-      });
+      const path = document.querySelector('.line2');
+      if (path) {
+        const pathLength = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: pathLength,
+          strokeDashoffset: pathLength,
+        });
+        gsap.to(path, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: path,
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+            markers: false,
+          },
+        });
+      }
     }
   }, [onzefriet]);
 
@@ -233,7 +237,7 @@ const Onzefriet = () => {
     const animationDelay = isHardRefresh ? 300 : 300;
 
     const initiateAnimations = () => {
-      if (!onzefriet || loading) return;
+
 
       const typeSplit = new SplitType('[data-onzefrienttitle]', {
         types: 'lines, words, chars',
@@ -388,83 +392,84 @@ const Onzefriet = () => {
   useEffect(() => {
 
     //if (!onzefriet || loading) return;
+    if (onzefriet) {
+      gsap.set(['.image-wrapper'], {
+        xPercent: -50,
+        yPercent: -50,
+      });
 
-    gsap.set(['.image-wrapper'], {
-      xPercent: -50,
-      yPercent: -50,
-    });
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.img-container',
-        start: 'top center',
-        end: 'bottom bottom',
-        scrub: 2,
-        ease: 'power3.inOut',
-        once: false,
-      },
-    });
-
-    timeline
-      .to('.image-wrapper:first-child', {
-        left: '20%',
-        rotation: -5,
-        duration: 2,
-        ease: 'power3.out',
-        scrollEnd: () => {
-          gsap.to('.image-wrapper .threeboxleftlogobar', {
-            opacity: 1,
-            duration: 3,
-            ease: 'power3.out',
-          });
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.img-container',
+          start: 'top center',
+          end: 'bottom bottom',
+          scrub: 2,
+          ease: 'power3.inOut',
+          once: false,
         },
-      })
-      .to(
-        '.image-wrapper:nth-child(2)',
-        {
-          left: '50%',
+      });
+
+      timeline
+        .to('.image-wrapper:first-child', {
+          left: '20%',
+          rotation: -5,
           duration: 2,
           ease: 'power3.out',
           scrollEnd: () => {
-            gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+            gsap.to('.image-wrapper .threeboxleftlogobar', {
               opacity: 1,
               duration: 3,
               ease: 'power3.out',
             });
           },
-        },
-        '<',
-      )
-      .to(
-        '.image-wrapper:last-child',
-        {
-          left: '80%',
-          rotation: 5,
-          duration: 2,
-          ease: 'power3.out',
-        },
-        '<',
-      );
+        })
+        .to(
+          '.image-wrapper:nth-child(2)',
+          {
+            left: '50%',
+            duration: 2,
+            ease: 'power3.out',
+            scrollEnd: () => {
+              gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+                opacity: 1,
+                duration: 3,
+                ease: 'power3.out',
+              });
+            },
+          },
+          '<',
+        )
+        .to(
+          '.image-wrapper:last-child',
+          {
+            left: '80%',
+            rotation: 5,
+            duration: 2,
+            ease: 'power3.out',
+          },
+          '<',
+        );
 
-    gsap.fromTo(
-      '.image-wrapper .threeboxleftlogobar',
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 3,
-        scrollTrigger: {
-          trigger: '.img-container',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1,
-          repeat: 1,
-          yoyo: true,
-          ease: 'power3.inOut',
+      gsap.fromTo(
+        '.image-wrapper .threeboxleftlogobar',
+        {
+          opacity: 0,
         },
-      },
-    );
+        {
+          opacity: 1,
+          duration: 3,
+          scrollTrigger: {
+            trigger: '.img-container',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1,
+            repeat: 1,
+            yoyo: true,
+            ease: 'power3.inOut',
+          },
+        },
+      );
+    }
   }, [onzefriet]);
 
   /* accordian start */
@@ -506,6 +511,10 @@ const Onzefriet = () => {
   /* accordian end */
 
 
+
+
+
+
   const rainContainerRef = useRef(null);
   const canvasRef = useRef(null);
   const fries = useRef([]);
@@ -518,91 +527,95 @@ const Onzefriet = () => {
     new_fries_four,
   ];
 
-  useEffect(() => {
+  if (window.innerWidth >= 1024) {
+    useEffect(() => {
 
-    if (!rainContainerRef.current || !canvasRef.current) return;
-    fryImages.current = fryImageSources.map((src) => {
-      const img = new Image();
-      img.src = src;
-      return img;
-    });
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return;
-      canvas.width = rainContainer.offsetWidth;
-      canvas.height = rainContainer.offsetHeight;
-    };
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    const createFries = () => {
-      fries.current = [];
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      for (let i = 0; i < numberOfFries; i++) {
-        fries.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
-          sway: Math.random() * 50 - 25,
-          image:
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ], // Random image
-        });
-      }
-    };
-    const renderFries = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      fries.current.forEach((fry) => {
-        fry.y += fry.speed;
-        fry.x += fry.sway * 0.01;
-        if (fry.y > canvas.height) {
-          fry.y = 0;
-          fry.x = Math.random() * canvas.width;
-          fry.image =
-            fryImages.current[
-            Math.floor(Math.random() * fryImages.current.length)
-            ];
-        }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
+      if (!rainContainerRef.current || !canvasRef.current) return;
+      fryImages.current = fryImageSources.map((src) => {
+        const img = new Image();
+        img.src = src;
+        return img;
       });
-      requestAnimationFrame(renderFries);
-    };
-    ScrollTrigger.create({
-      trigger: rainContainerRef.current,
-      start: 'top center',
-      onEnter: () => {
-        createFries();
-        renderFries();
-      },
-      onLeaveBack: () => {
+      const resizeCanvas = () => {
+        const canvas = canvasRef.current;
+        const rainContainer = rainContainerRef.current;
+        if (!canvas || !rainContainer) return;
+        canvas.width = rainContainer.offsetWidth;
+        canvas.height = rainContainer.offsetHeight;
+      };
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      const createFries = () => {
         fries.current = [];
-        const ctx = canvasRef.current.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height,
-          );
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        for (let i = 0; i < numberOfFries; i++) {
+          fries.current.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * -canvas.height,
+            speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+            sway: Math.random() * 50 - 25,
+            image:
+              fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+              ], // Random image
+          });
         }
-      },
-    });
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [onzefriet]);
+      };
+      const renderFries = () => {
+        const canvas = canvasRef.current;
+        const ctx = canvas?.getContext('2d');
+        if (!ctx || !canvas) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fries.current.forEach((fry) => {
+          fry.y += fry.speed;
+          fry.x += fry.sway * 0.01;
+          if (fry.y > canvas.height) {
+            fry.y = 0;
+            fry.x = Math.random() * canvas.width;
+            fry.image =
+              fryImages.current[
+              Math.floor(Math.random() * fryImages.current.length)
+              ];
+          }
+          ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
+        });
+        requestAnimationFrame(renderFries);
+      };
+      ScrollTrigger.create({
+        trigger: rainContainerRef.current,
+        start: 'top center',
+        onEnter: () => {
+          createFries();
+          renderFries();
+        },
+        onLeaveBack: () => {
+          fries.current = [];
+          const ctx = canvasRef.current.getContext('2d');
+          if (ctx) {
+            ctx.clearRect(
+              0,
+              0,
+              canvasRef.current.width,
+              canvasRef.current.height,
+            );
+          }
+        },
+      });
+      return () => {
+        window.removeEventListener('resize', resizeCanvas);
+        //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    }, [onzefriet]);
+
+  }
+
 
 
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" />
+        <img src={images.bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -628,7 +641,6 @@ const Onzefriet = () => {
                   alt={content.transitionSection.image.alt}
                   width="10"
                   height="10"
-                  onError={(e) => e.target.src = { bannerlogo }}
                 />
               </div>
             </div>
@@ -690,7 +702,7 @@ const Onzefriet = () => {
                       {index === 0 && (
                         <div className="threeboxleftlogobar">
                           <img
-                            src={fabelfrietsticker2}
+                            src={images.fabelfrietsticker2}
                             alt={image.alt}
                             width="10"
                             height="10"
@@ -702,7 +714,7 @@ const Onzefriet = () => {
                       {index === 1 && (
                         <div className="threeboxleftlogobar lastbottomimg ">
                           <img
-                            src={fabelfrie_bottomlogo}
+                            src={images.fabelfrie_bottomlogo}
                             alt={image.alt}
                             width="10"
                             height="10"
@@ -723,11 +735,18 @@ const Onzefriet = () => {
                 </div>
               </div>
 
-              <canvas
-                className="canvasfries"
-                ref={canvasRef}
-                style={{ position: 'absolute', top: -100, left: -50 }}
-              />
+
+
+              {isDesktopcanvas ? (
+                <></>
+              ) : (
+                <canvas
+                  className="canvasfries"
+                  ref={canvasRef}
+                  style={{ position: 'absolute', top: -100, left: -50 }}
+                />
+              )}
+
 
               <div className="whitebgbox">
                 <div className="appcontainers">
@@ -736,7 +755,7 @@ const Onzefriet = () => {
                       <div className="leftvideobox">
                         <div className="leftlogobar">
                           <img
-                            src={fabelfrie_tsticker2}
+                            src={images.fabelfrie_tsticker2}
                             alt="img"
                             width="10"
                             height="10"

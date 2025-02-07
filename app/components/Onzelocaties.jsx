@@ -11,10 +11,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { getImageUrl } from '../js/imagesurl';
-import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-
+import images from '../js/images';
 import { useMediaQuery } from '@react-hook/media-query';
-
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Onzelocaties = () => {
@@ -23,43 +21,42 @@ const Onzelocaties = () => {
   const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const isDesktop = useMediaQuery('(max-width: 767px)');
-
   const wrapperRefonzelocaties = useRef(null);
   const imgRefonzelocaties = useRef(null);
   const heroSectiononzelocaties = useRef(null);
 
   useEffect(() => {
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRefonzelocaties.current,
-          start: 'center center',
-          //end: '+=150%',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          delay: 0.5,
-        }
-      })
-      .to(imgRefonzelocaties.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut'
-      })
-      .to(
-        heroSectiononzelocaties.current,
-        {
-          scale: 1.1,
+    if (onzelocaties) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: wrapperRefonzelocaties.current,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
+            scrub: true,
+            markers: false,
+            repeat: 1,
+            delay: 0.5,
+          }
+        })
+        .to(imgRefonzelocaties.current, {
+          scale: 1.5,
+          z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut'
-        },
-        '<'
-      );
+        })
+        .to(
+          heroSectiononzelocaties.current,
+          {
+            scale: 1.1,
+            transformOrigin: 'center center',
+            ease: 'power1.inOut'
+          },
+          '<'
+        );
+    }
   }, [onzelocaties]);
 
 
@@ -118,89 +115,80 @@ const Onzelocaties = () => {
     fetchDataOnzelocaties();
   }, [language]);
 
-
-
-
-
-
   useEffect(() => {
 
-    if (!onzelocaties || loading) return;
+    if (onzelocaties) {
 
-    const timelines = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#section3 .wrapper-onzelocation',
-      //   start: "top top",
-      //   end: '+=150%',
-      //   pin: true,
-      //   scrub: 0.5,
-      //   markers: false,
-      //   smoothTouch: 0.1,
-      // },
-    });
+      const timelines = gsap.timeline({
+        // scrollTrigger: {
+        //   trigger: '#section3 .wrapper-onzelocation',
+        //   start: "top top",
+        //   end: '+=150%',
+        //   pin: true,
+        //   scrub: 0.5,
+        //   markers: false,
+        //   smoothTouch: 0.1,
+        // },
+      });
 
-    // timelines.to(
-    //   '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
-    //   {
-    //     scale: 2.5,
-    //     z: 350,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   0,
-    // );
+      // timelines.to(
+      //   '#section3 .roundimage-onzelocation, #section3 .roundtext-onzelocation',
+      //   {
+      //     scale: 2.5,
+      //     z: 350,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   0,
+      // );
 
-    // timelines.to(
-    //   '#section3 .section.hero',
-    //   {
-    //     scale: 2.5,
-    //     transformOrigin: 'center center',
-    //     ease: 'power1.inOut',
-    //   },
-    //   '<',
-    // );
-
-
-    timelines.to('.thirdesection .wrappertest', {
-      scrollTrigger: {
-        trigger: '.thirdesection',
-        start: '0% 0%',
-        end: '35% 35%',
-        scrub: true,
-        once: false,
-      },
-      borderRadius: '0vw 0vw 0px 0px',
-      ease: 'power1.inOut',
-    });
+      // timelines.to(
+      //   '#section3 .section.hero',
+      //   {
+      //     scale: 2.5,
+      //     transformOrigin: 'center center',
+      //     ease: 'power1.inOut',
+      //   },
+      //   '<',
+      // );
 
 
-    timelines.to(
-      '#section3 .gradient-purple',
-      {
-        scale: 1,
-        borderRadius: 0,
-        ease: 'power3.easeIn',
+      timelines.to('.thirdesection .wrappertest', {
         scrollTrigger: {
-          trigger: '#section3 .wrappertest',
-          start: 'top top-100',
-          end: 'top top-300',
+          trigger: '.thirdesection',
+          start: '0% 0%',
+          end: '35% 35%',
+          scrub: true,
+          once: false,
         },
-      },
-      0,
-    );
+        borderRadius: '0vw 0vw 0px 0px',
+        ease: 'power1.inOut',
+      });
 
-    return () => {
-      // timelines.scrollTrigger.kill();
-    };
+
+      timelines.to(
+        '#section3 .gradient-purple',
+        {
+          scale: 1,
+          borderRadius: 0,
+          ease: 'power3.easeIn',
+          scrollTrigger: {
+            trigger: '#section3 .wrappertest',
+            start: 'top top-100',
+            end: 'top top-300',
+          },
+        },
+        0,
+      );
+
+      return () => {
+        // timelines.scrollTrigger.kill();
+      };
+    }
   }, [onzelocaties]);
 
 
-
   useEffect(() => {
-
-    if (!onzelocaties || loading) return;
-
-
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;
@@ -214,12 +202,13 @@ const Onzelocaties = () => {
     }
   }, [onzelocaties]);
 
+  
   useEffect(() => {
     const isHardRefreshlocaties = window.performance.navigation.type === 1;
     const animationDelaylocaties = isHardRefreshlocaties ? 300 : 300;
 
     const initiateAnimationsonzlocaties = () => {
-      if (!onzelocaties || loading) return;
+
 
       let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
         types: 'lines, words, chars',
@@ -305,7 +294,7 @@ const Onzelocaties = () => {
   if (loading) return <div>
     <div className="loadersite">
       <div className="logosvg">
-        <img src={bannerlogo} alt="logo" />
+        <img src={images.bannerlogo} alt="logo" />
       </div>
       <div className="loader1">
         <span></span>
@@ -333,7 +322,7 @@ const Onzelocaties = () => {
                   alt={locationData.transitionSection.image.alt}
                   width="10"
                   height="10"
-                  onError={(e) => e.target.src = { bannerlogo }}
+
                 />
               </div>
             </div>
