@@ -40,8 +40,8 @@ const Hetmenu = () => {
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefhetmenu.current,
-            start: 'top top',
-            end: '+=150%',
+            start: 'center center',
+            // end: '+=150%',
             pin: true,
             scrub: true,
             markers: false,
