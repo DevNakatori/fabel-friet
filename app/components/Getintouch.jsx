@@ -197,6 +197,12 @@ const Getintouch = () => {
             trigger: '.sixthsection .wrappertest',
             start: 'top top',
             end: 'bottom top',
+         
+            onEnter: () => {
+              addIframe(); // Add the first iframe
+              addIframeone(); // Add the second iframe
+              addIframetwo(); // Add the third iframe
+            }
           },
         });
 
@@ -333,6 +339,47 @@ const Getintouch = () => {
         animateMobilegetintouch();
       } else {
         animateDesktopgetintouch();
+      }
+
+
+
+      function addIframe() {
+        const iframeContainer = document.getElementById('tiktokIframeContainer');
+        if (!iframeContainer.querySelector('iframe')) {
+          const iframe = document.createElement('iframe');
+          iframe.title = "tiktok";
+          iframe.src = "https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1";
+          iframe.muted = true;
+          iframe.allow = "autoplay";
+          iframe.loop = true;
+          iframeContainer.appendChild(iframe); 
+        }
+      }
+
+      function addIframeone() {
+        const iframeContainer = document.getElementById('tiktokIframeContainer1');
+        if (!iframeContainer.querySelector('iframe')) {
+          const iframe = document.createElement('iframe');
+          iframe.title = "tiktok";
+          iframe.src = "https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1";
+          iframe.muted = true;
+          iframe.allow = "autoplay";
+          iframe.loop = true;
+          iframeContainer.appendChild(iframe); 
+        }
+      }
+
+      function addIframetwo() {
+        const iframeContainer = document.getElementById('tiktokIframeContainer2');
+        if (!iframeContainer.querySelector('iframe')) {
+          const iframe = document.createElement('iframe');
+          iframe.title = "tiktok";
+          iframe.src = "https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1";
+          iframe.muted = true;
+          iframe.allow = "autoplay";
+          iframe.loop = true;
+          iframeContainer.appendChild(iframe); 
+        }
       }
     });
 
@@ -866,7 +913,7 @@ const Getintouch = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
-                  className="gradientgetintouchlist"
+                  className="gradientgetintouchlist" id="tiktokIframeContainer"
                 >
                   {/* <iframe
                     title="tiktok"
@@ -884,7 +931,7 @@ const Getintouch = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
-                  className="gradientgetintouchlist"
+                  className="gradientgetintouchlist" id="tiktokIframeContainer1"
                 >
                   {/* <iframe
                     title="tiktok"
@@ -902,7 +949,7 @@ const Getintouch = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
-                  className="gradientgetintouchlist"
+                  className="gradientgetintouchlist" id="tiktokIframeContainer2"
                 >
                   {/* <iframe
                     title="tiktok"
