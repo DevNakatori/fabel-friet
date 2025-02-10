@@ -37,7 +37,7 @@ const Getintouch = () => {
   /* scroll zoom animation start */
   const wrapperRefgetIntouch = useRef(null);
   const imgRefgetIntouch = useRef(null);
-  const heroSectiongetIntouch = useRef(null);
+//  const heroSectiongetIntouch = useRef(null);
   useEffect(() => {
     if (getIntouch) {
       gsap
@@ -59,15 +59,15 @@ const Getintouch = () => {
           transformOrigin: 'center center',
           ease: 'power1.inOut',
         })
-        .to(
-          heroSectiongetIntouch.current,
-          {
-            scale: 1.1,
-            transformOrigin: 'center center',
-            ease: 'power1.inOut',
-          },
-          '<',
-        );
+        // .to(
+        //   heroSectiongetIntouch.current,
+        //   {
+        //     scale: 1.1,
+        //     transformOrigin: 'center center',
+        //     ease: 'power1.inOut',
+        //   },
+        //   '<',
+        // );
     }
   }, [getIntouch]);
   /* scroll zoom animation end */
@@ -730,6 +730,23 @@ const Getintouch = () => {
     }
   }, [getIntouch]);
 
+
+  useEffect(() => 
+          {
+            if (window.innerWidth >= 1024) 
+              {
+                  if (getIntouch) 
+                  {
+                    const h3Elementget = document.querySelector(".roundtext-getintouch h3");
+                    const clientWidthH3get = h3Elementget.clientWidth;
+                    h3Elementget.style.right = `-${clientWidthH3get - 120}px`;
+                    const h2Elementget = document.querySelector(".roundtext-getintouch h2");
+                    const clientWidthH2get = h2Elementget.clientWidth;
+                    h2Elementget.style.left = `-${clientWidthH2get - 90}px`;       
+                  }
+              }
+          }, [getIntouch]);
+
   if (loading)
     return (
       <div>
@@ -793,10 +810,10 @@ const Getintouch = () => {
               <p>Scroll down</p>
             </div>
           </div>
-          <section
+          {/* <section
             className="section hero"
             ref={heroSectiongetIntouch}
-          ></section>
+          ></section> */}
           </div>
         </div>
 

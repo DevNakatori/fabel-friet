@@ -33,7 +33,7 @@ const Onzeimpact = () => {
 
   const wrapperRefonzeimpact = useRef(null);
   const imgRefonzeimpact = useRef(null);
-  const heroSectiononzeimpact = useRef(null);
+  //const heroSectiononzeimpact = useRef(null);
 
   useEffect(() => {
     if (onzeimpact) {
@@ -56,15 +56,15 @@ const Onzeimpact = () => {
           transformOrigin: 'center center',
           ease: 'power1.inOut',
         })
-        .to(
-          heroSectiononzeimpact.current,
-          {
-            scale: 1.1,
-            transformOrigin: 'center center',
-            ease: 'power1.inOut',
-          },
-          '<',
-        );
+        // .to(
+        //   heroSectiononzeimpact.current,
+        //   {
+        //     scale: 1.1,
+        //     transformOrigin: 'center center',
+        //     ease: 'power1.inOut',
+        //   },
+        //   '<',
+        // );
     }
   }, [onzeimpact]);
 
@@ -468,6 +468,23 @@ const Onzeimpact = () => {
     // };
   }, [onzeimpact]);
 
+
+  useEffect(() => 
+        {
+          if (window.innerWidth >= 1024) 
+            {
+                if (onzeimpact) 
+                {
+                  const h3Elementimpact = document.querySelector(".roundtext-impact h3");
+                  const clientWidthH3impact = h3Elementimpact.clientWidth;
+                  h3Elementimpact.style.right = `-${clientWidthH3impact - 120}px`;
+                  const h2Elementimpact = document.querySelector(".roundtext-impact h2");
+                  const clientWidthH2impact = h2Elementimpact.clientWidth;
+                  h2Elementimpact.style.left = `-${clientWidthH2impact - 90}px`;       
+                }
+            }
+        }, [onzeimpact]);
+
   if (loading)
     return (
       <div>
@@ -530,10 +547,10 @@ const Onzeimpact = () => {
               <p>Scroll down</p>
             </div>
           </div>
-          <section
+          {/* <section
             className="section hero"
             ref={heroSectiononzeimpact}
-          ></section>
+          ></section> */}
           </div>
         </div>
 

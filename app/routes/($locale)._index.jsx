@@ -183,6 +183,8 @@ export default function Homepage() {
       localStorage.setItem('hasReloaded', 'true');
       setTimeout(() => {
         window.location.reload();
+        ScrollTrigger.refresh();
+        console.log('ScrollTrigger page');
       }, 4000);
 
       setTimeout(() => {
@@ -202,6 +204,11 @@ export default function Homepage() {
 
       }, 3000);
     }
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+    console.log('refresh page');
   }, []);
 
 
