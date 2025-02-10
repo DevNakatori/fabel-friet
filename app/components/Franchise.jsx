@@ -56,7 +56,7 @@ const Franchise = () => {
     gsap.set(['.image-wrapperfranch'], {
       xPercent: -50,
       yPercent: -50,
-    });
+    }); 
 
     const timelinefranchise = gsap.timeline({
       scrollTrigger: {
@@ -77,6 +77,13 @@ const Franchise = () => {
         rotation: -5, // Tilt first image
         duration: 2,
         ease: 'power3.out',
+        scrollEnd: () => {
+          gsap.to('.image-wrapper .threeboxleftlogobar', {
+            opacity: 1,
+            duration: 3,
+            ease: 'power3.out',
+          });
+        },
       })
       .to(
         '.image-wrapperfranch:nth-child(2)',
@@ -84,6 +91,13 @@ const Franchise = () => {
           left: '50%',
           duration: 2,
           ease: 'power3.out',
+          scrollEnd: () => {
+            gsap.to('.image-wrapper .threeboxleftlogobar.lastbottomimg ', {
+              opacity: 1,
+              duration: 3,
+              ease: 'power3.out',
+            });
+          },
         },
         '<',
       )
@@ -96,6 +110,26 @@ const Franchise = () => {
           ease: 'power3.out',
         },
         '<',
+      );
+
+      gsap.fromTo(
+        '.image-wrapper .threeboxleftlogobar',
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 3,
+          scrollTrigger: {
+            trigger: '.img-container',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1,
+            repeat: 1,
+            yoyo: true,
+            ease: 'power3.inOut',
+          },
+        },
       );
   });
 
