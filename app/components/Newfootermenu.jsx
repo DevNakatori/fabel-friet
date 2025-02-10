@@ -65,17 +65,17 @@ const Newfootermenu = () => {
         <div className="allmenulist">
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              // data-aos="fade-down"
+              // data-aos-easing="ease-out-cubic"
+              // data-aos-duration="500"
             >
               Menu
             </h6>
             <div className="footerlistbox">
               <ul
-                data-aos="fade-down"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="500"
+                // data-aos="fade-down"
+                // data-aos-easing="ease-out-cubic"
+                // data-aos-duration="500"
               >
                 {menu.map((item, index, array) => (
                   <li key={item._key}>
@@ -107,9 +107,9 @@ const Newfootermenu = () => {
           </div>
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              // data-aos="fade-down"
+              // data-aos-easing="ease-out-cubic"
+              // data-aos-duration="500"
             >
               Contact
             </h6>
@@ -146,18 +146,18 @@ const Newfootermenu = () => {
           </div>
           <div className="footerblock">
             <h6
-              data-aos="fade-down"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="500"
+              // data-aos="fade-down"
+              // data-aos-easing="ease-out-cubic"
+              // data-aos-duration="500"
             >
               Socials
             </h6>
             <ul className="footersociallist">
               {socials.facebook && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  // data-aos="fade-down"
+                  // data-aos-easing="ease-out-cubic"
+                  // data-aos-duration="500"
                 >
                   <a href="www.whatsup.com" aria-label="socials">
                     <svg
@@ -202,9 +202,9 @@ const Newfootermenu = () => {
               )}
               {socials.facebook && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  // data-aos="fade-down"
+                  // data-aos-easing="ease-out-cubic"
+                  // data-aos-duration="500"
                 >
                   <a href={socials.facebook} aria-label="socials">
                     <svg
@@ -224,9 +224,9 @@ const Newfootermenu = () => {
               )}
               {socials.insta && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  // data-aos="fade-down"
+                  // data-aos-easing="ease-out-cubic"
+                  // data-aos-duration="500"
                 >
                   <a href={socials.insta} aria-label="socials">
                     <svg
@@ -246,9 +246,9 @@ const Newfootermenu = () => {
               )}
               {socials.tiktok && (
                 <li
-                  data-aos="fade-down"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
+                  // data-aos="fade-down"
+                  // data-aos-easing="ease-out-cubic"
+                  // data-aos-duration="500"
                 >
                   <a href={socials.tiktok} aria-label="socials">
                     <svg

@@ -61,9 +61,9 @@ const Newfooter = () => {
   return (
     <div
       className="newfooter"
-      data-aos="fade"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="2000"
+      // data-aos="fade"
+      // data-aos-easing="ease-out-cubic"
+      // data-aos-duration="2000"
     >
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
