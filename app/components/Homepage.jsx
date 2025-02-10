@@ -72,7 +72,7 @@ const HomePage = () => {
             document
               .querySelector('.language-switcher')
               .classList.add('nomorelanguage');
-            console.log(`Fetched Data for language ${language}:`, data);
+            //console.log(`Fetched Data for language ${language}:`, data);
 
             localStorage.setItem(
               `homeBannerData_${language}`,
@@ -80,10 +80,10 @@ const HomePage = () => {
             );
             setBanner(data);
           } else {
-            console.log(`No data found for language: ${language}`);
+            //console.log(`No data found for language: ${language}`);
           }
         } catch (err) {
-          console.error('Error fetching data:', err);
+          //console.error('Error fetching data:', err);
           setError('Failed to load data');
         } finally {
           setLoading(false);

@@ -71,7 +71,7 @@ const Onzeimpact = () => {
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
-      console.log('C fetchDataonzeimpactData Data:', cachedData);
+      //console.log('C fetchDataonzeimpactData Data:', cachedData);
       if (cachedData) {
         setonzeimpact(JSON.parse(cachedData));
         setLoading(false);

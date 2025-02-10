@@ -106,7 +106,7 @@ const Getintouch = () => {
   useEffect(() => {
     const fetchData_Getintouch = async () => {
       const cachedData = localStorage.getItem(`getintouch_${language}`);
-      console.log('getintouch C Data:', cachedData);
+      //console.log('getintouch C Data:', cachedData);
       
       if (cachedData) {
         setGetIntouch(JSON.parse(cachedData));

@@ -62,7 +62,7 @@ const Onzelocaties = () => {
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
       const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
-      console.log('onzelocatiesData C Data:', cachedData);
+      //console.log('onzelocatiesData C Data:', cachedData);
 
       if (cachedData) {
         setOnzelocaties(JSON.parse(cachedData));
