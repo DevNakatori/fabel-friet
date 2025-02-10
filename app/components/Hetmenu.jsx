@@ -70,7 +70,7 @@ const Hetmenu = () => {
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
-      console.log('hetmenuData C Data:', cachedData);
+      //console.log('hetmenuData C Data:', cachedData);
       if (cachedData) {
         setHetmenu(JSON.parse(cachedData));
         setLoading(false);

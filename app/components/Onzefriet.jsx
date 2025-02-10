@@ -72,7 +72,7 @@ const Onzefriet = () => {
   useEffect(() => {
     const fetchDataonzefriet = async () => {
       const cachedData = localStorage.getItem(`onzefrietData_${language}`);
-      console.log('onzefrietData Cached Data:', cachedData);
+      //console.log('onzefrietData Cached Data:', cachedData);
 
       if (cachedData) {
         setOnzefriet(JSON.parse(cachedData));
