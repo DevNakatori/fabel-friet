@@ -766,9 +766,7 @@ const Onzeimpact = () => {
 
                 <div
                   className="binimageboxmain"
-                  data-aos="fade-up"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
+                 
                 >
                   <div className="binimageboxieft">
                     <h6
@@ -780,9 +778,7 @@ const Onzeimpact = () => {
                     </h6>
                     <div
                       className="binarrowimg"
-                      data-aos="fade-up"
-                      data-aos-easing="ease-out-cubic"
-                      data-aos-duration="2000"
+                      
                     >
                       <div className="arrowimageimpect">
                         <svg
