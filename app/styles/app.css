@@ -1016,6 +1016,12 @@ section.menu-section p.firsttext{margin-bottom:15px;font-weight: bold;font-size:
   .language-popup{width:-moz-calc(100% - 40px);width:calc(100% - 40px);}
   .menulanding .landingcontainer .language-popup h2{font-size:-moz-calc(80 / var(--vw)* var(--multiplier));font-size:calc(80 / var(--vw)* var(--multiplier));}
   .language-popup{width: 100%;}
+
+  .page.menumainppage.franchise div#img-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.page.menumainppage.franchise .image-wrapper:nth-child(2) .threeboxleftlogobar.lastbottomimg{width: 50px;}
 }
 .languagee-list{overflow-x:hidden;list-style:none;
   & li{opacity:0;-webkit-transform:translateX(100px);-moz-transform:translateX(100px);-ms-transform:translateX(100px);-o-transform:translateX(100px);transform:translateX(100px);}
