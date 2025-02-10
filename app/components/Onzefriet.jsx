@@ -31,7 +31,7 @@ const Onzefriet = () => {
 
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
-  const heroSectionRef = useRef(null);
+  // const heroSectionRef = useRef(null);
 
   const isDesktopcanvas = useMediaQuery('(max-width: 767px)');
 
@@ -56,15 +56,15 @@ const Onzefriet = () => {
           transformOrigin: 'center center',
           ease: 'power1.inOut',
         })
-        .to(
-          heroSectionRef.current,
-          {
-            scale: 1.1,
-            transformOrigin: 'center center',
-            ease: 'power1.inOut',
-          },
-          '<',
-        );
+        // .to(
+        //   heroSectionRef.current,
+        //   {
+        //     scale: 1.1,
+        //     transformOrigin: 'center center',
+        //     ease: 'power1.inOut',
+        //   },
+        //   '<',
+        // );
     }
   }, [onzefriet]);
 
@@ -399,6 +399,22 @@ const Onzefriet = () => {
     }
   }, [onzefriet]);
 
+  useEffect(() => 
+  {
+    if (window.innerWidth >= 1024) 
+      {
+          if (onzefriet) 
+          {
+                const h3Element = document.querySelector(".roundtext h3");
+                const clientWidthH3 = h3Element.clientWidth;
+                h3Element.style.right = `-${clientWidthH3 - 120}px`;
+                const h2Element = document.querySelector(".roundtext h2");
+                const clientWidthH2 = h2Element.clientWidth;
+                h2Element.style.left = `-${clientWidthH2 - 90}px`;     
+          }
+      }
+  }, [onzefriet]);
+
   /* accordian start */
   const toggleAccordion = (e) => {
     const trigger = e.currentTarget;
@@ -591,7 +607,7 @@ const Onzefriet = () => {
                 </div>
               </div>
             </div>
-            <section className="section hero" ref={heroSectionRef}></section>
+            {/* <section className="section hero" ref={heroSectionRef}></section> */}
             </div>
           </div>
 

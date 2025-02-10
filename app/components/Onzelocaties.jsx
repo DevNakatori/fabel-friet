@@ -24,7 +24,7 @@ const Onzelocaties = () => {
   const isDesktop = useMediaQuery('(max-width: 767px)');
   const wrapperRefonzelocaties = useRef(null);
   const imgRefonzelocaties = useRef(null);
-  const heroSectiononzelocaties = useRef(null);
+  // const heroSectiononzelocaties = useRef(null);
 
   useEffect(() => {
     if (onzelocaties) {
@@ -47,15 +47,15 @@ const Onzelocaties = () => {
           transformOrigin: 'center center',
           ease: 'power1.inOut',
         })
-        .to(
-          heroSectiononzelocaties.current,
-          {
-            scale: 1.1,
-            transformOrigin: 'center center',
-            ease: 'power1.inOut',
-          },
-          '<',
-        );
+        // .to(
+        //   heroSectiononzelocaties.current,
+        //   {
+        //     scale: 1.1,
+        //     transformOrigin: 'center center',
+        //     ease: 'power1.inOut',
+        //   },
+        //   '<',
+        // );
     }
   }, [onzelocaties]);
 
@@ -228,6 +228,23 @@ const Onzelocaties = () => {
     // };
   }, [onzelocaties]);
 
+
+  useEffect(() => 
+    {
+      if (window.innerWidth >= 1024) 
+        {
+            if (onzelocaties) 
+            {
+                  const h3Elementloc = document.querySelector(".roundtext-onzelocation h3");
+                  const clientWidthH3loc = h3Elementloc.clientWidth;
+                  h3Elementloc.style.right = `-${clientWidthH3loc - 120}px`;
+                  const h2Elementloc = document.querySelector(".roundtext-onzelocation h2");
+                  const clientWidthH2loc = h2Elementloc.clientWidth;
+                  h2Elementloc.style.left = `-${clientWidthH2loc - 90}px`;     
+            }
+        }
+    }, [onzelocaties]);
+
   if (loading)
     return (
       <div>
@@ -289,10 +306,10 @@ const Onzelocaties = () => {
                 <p>Scroll down</p>
               </div>
             </div>
-            <section
+            {/* <section
               className="section hero"
               ref={heroSectiononzelocaties}
-            ></section>
+            ></section> */}
             </div>
           </div>
           <div className="wrappertest">

@@ -30,7 +30,7 @@ const Hetmenu = () => {
 
   const wrapperRefhetmenu = useRef(null);
   const imgRefhetmenu = useRef(null);
-  const heroSectionRefhetmenu = useRef(null);
+  // const heroSectionRefhetmenu = useRef(null);
 
   const isDesktopcanvashetmenu = useMediaQuery('(max-width: 767px)');
 
@@ -55,15 +55,15 @@ const Hetmenu = () => {
           transformOrigin: 'center center',
           ease: 'power1.inOut',
         })
-        .to(
-          heroSectionRefhetmenu.current,
-          {
-            scale: 1.1,
-            transformOrigin: 'center center',
-            ease: 'power1.inOut',
-          },
-          '<',
-        );
+        // .to(
+        //   heroSectionRefhetmenu.current,
+        //   {
+        //     scale: 1.1,
+        //     transformOrigin: 'center center',
+        //     ease: 'power1.inOut',
+        //   },
+        //   '<',
+        // );
     }
   }, [hetmenu]);
 
@@ -156,17 +156,7 @@ const Hetmenu = () => {
     }
   }, [hetmenu]);
 
-  const rainContainerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const fries = useRef([]);
-  const fryImages = useRef([]);
-  const numberOfFries = 40;
-  const fryImageSources = [
-    new_fries_one,
-    new_fries_two,
-    new_fries_three,
-    new_fries_four,
-  ];
+  
 
   if (window.innerWidth > 767) {
     useEffect(() => {
@@ -296,6 +286,18 @@ const Hetmenu = () => {
     // };
   }, [hetmenu]);
 
+
+  const rainContainerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const fries = useRef([]);
+  const fryImages = useRef([]);
+  const numberOfFries = 40;
+  const fryImageSources = [
+    new_fries_one,
+    new_fries_two,
+    new_fries_three,
+    new_fries_four,
+  ];
   useEffect(() => {
     if (!rainContainerRef.current || !canvasRef.current) return;
     fryImages.current = fryImageSources.map((src) => {
@@ -371,9 +373,26 @@ const Hetmenu = () => {
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [hetmenu]);
+
+
+  useEffect(() => 
+      {
+        if (window.innerWidth >= 1024) 
+          {
+              if (hetmenu) 
+              {
+                const h3Elementmenu = document.querySelector(".roundtext-hetmenu h3");
+                const clientWidthH3menu = h3Elementmenu.clientWidth;
+                h3Elementmenu.style.right = `-${clientWidthH3menu - 120}px`;
+                const h2Elementmenu = document.querySelector(".roundtext-hetmenu h2");
+                const clientWidthH2menu = h2Elementmenu.clientWidth;
+                h2Elementmenu.style.left = `-${clientWidthH2menu - 90}px`;      
+              }
+          }
+      }, [hetmenu]);
 
   if (loading)
     return (
@@ -455,10 +474,10 @@ const Hetmenu = () => {
               <p>Scroll down</p>
             </div>
           </div>
-          <section
+          {/* <section
             className="section hero"
             ref={heroSectionRefhetmenu}
-          ></section>
+          ></section> */}
           </div>
         </div>
 
