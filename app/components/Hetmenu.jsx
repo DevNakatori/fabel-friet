@@ -14,7 +14,7 @@ import images from '../js/images';
 import new_fries_one from '../assets/new_fries/new_1.webp';
 import new_fries_two from '../assets/new_fries/new_2.webp';
 import new_fries_three from '../assets/new_fries/new_3.webp';
-import new_fries_four from '../assets/new_fries/new_4.webp';
+import new_fries_four from '../assets/new_fries/new_1.webp';
 
 import {useMediaQuery} from '@react-hook/media-query';
 
@@ -295,7 +295,11 @@ const Hetmenu = () => {
   const canvasRef = useRef(null);
   const fries = useRef([]);
   const fryImages = useRef([]);
-  const numberOfFries = 40;
+  
+
+  if (window.innerWidth >= 1024) {
+
+      const numberOfFries = 40;
   const fryImageSources = [
     new_fries_one,
     new_fries_two,
@@ -326,7 +330,7 @@ const Hetmenu = () => {
         fries.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.3, // Slower speed: 0.5 to 1.5 pixels per frame
+          speed: Math.random() * 1 + 0.1, // Slower speed: 0.5 to 1.5 pixels per frame
           sway: Math.random() * 50 - 25,
           image:
             fryImages.current[
@@ -351,7 +355,7 @@ const Hetmenu = () => {
               Math.floor(Math.random() * fryImages.current.length)
             ];
         }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 250);
+        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
       });
       requestAnimationFrame(renderFries);
     };
@@ -362,25 +366,26 @@ const Hetmenu = () => {
         createFries();
         renderFries();
       },
-      onLeaveBack: () => {
-        fries.current = [];
-        const ctx = canvasRef.current.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(
-            0,
-            0,
-            canvasRef.current.width,
-            canvasRef.current.height,
-          );
-        }
-      },
+      // onLeaveBack: () => {
+      //   fries.current = [];
+      //   const ctx = canvasRef.current.getContext('2d');
+      //   if (ctx) {
+      //     ctx.clearRect(
+      //       0,
+      //       0,
+      //       canvasRef.current.width,
+      //       canvasRef.current.height,
+      //     );
+      //   }
+      // },
     });
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [hetmenu]);
-
+  
+}
 
   useEffect(() => 
       {

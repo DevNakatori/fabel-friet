@@ -154,7 +154,7 @@ useEffect(() => {
   useEffect(() => {
     const interval = setInterval(() => {
       setSvgKey((prev) => prev + 1);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -677,6 +677,8 @@ useEffect(() => {
   const numberOfFries = 50;
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   if (window.innerWidth > 767) {
+
+    
     useEffect(() => {
       if (!rainContainerRef.current || !canvasRef.current) return;
       fryImages.current = fryImageSources.map((src) => {
@@ -701,7 +703,7 @@ useEffect(() => {
           fries.current.push({
             x: Math.random() * canvas.width,
             y: Math.random() * -canvas.height,
-            speed: Math.random() * 1 + 0.3,
+            speed: Math.random() * 1 + 0.01,
             sway: Math.random() * 50 - 25,
             image:
               fryImages.current[
@@ -717,7 +719,7 @@ useEffect(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         fries.current.forEach((fry) => {
           fry.y += fry.speed;
-          fry.x += 1;
+          fry.x += fry.sway * 0.01;
           if (fry.x > canvas.width) {
             fry.x = -100;
             fry.y = Math.random() * -canvas.height;
@@ -737,18 +739,18 @@ useEffect(() => {
           createFries();
           renderFries();
         },
-        onLeaveBack: () => {
-          fries.current = [];
-          const ctx = canvasRef.current.getContext('2d');
-          if (ctx) {
-            ctx.clearRect(
-              0,
-              0,
-              canvasRef.current.width,
-              canvasRef.current.height,
-            );
-          }
-        },
+        // onLeaveBack: () => {
+        //   fries.current = [];
+        //   const ctx = canvasRef.current.getContext('2d');
+        //   if (ctx) {
+        //     ctx.clearRect(
+        //       0,
+        //       0,
+        //       canvasRef.current.width,
+        //       canvasRef.current.height,
+        //     );
+        //   }
+        // },
       });
 
       return () => {
@@ -756,7 +758,8 @@ useEffect(() => {
        // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }, [getIntouch]);
-  }
+  
+}
 
   useEffect(() => {
     const animateButton = (e) => {
@@ -1133,8 +1136,8 @@ useEffect(() => {
                               key={i + svgKey}
                               className="fly-svg-wrapper"
                               style={{
-                                animation: `moveAndFade 50s linear infinite`,
-                                animationDelay: `${i * 3}s`,
+                                animation: `moveAndFade 40s linear infinite`,
+                                animationDelay: `${i * 5}s`,
                               }}
                             >
                               <svg

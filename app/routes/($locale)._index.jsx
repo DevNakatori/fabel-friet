@@ -185,7 +185,7 @@ export default function Homepage() {
         window.location.reload();
         ScrollTrigger.refresh();
         console.log('ScrollTrigger page');
-      }, 4000);
+      }, 4500);
 
       setTimeout(() => {
         const videoss = document.querySelector('#myVideo');
@@ -248,12 +248,12 @@ export default function Homepage() {
         <Cursor />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-              {showHomePage && <HomePage />} 
+              {showHomePage && <HomePage />}
               {showOnzefriet && <Onzefriet />}
               {showOnzelocaties && <Onzelocaties />}
               {showHetmenu && <Hetmenu />} 
               {showOnzeimpact && <Onzeimpact />}
-              {showGetintouch && <Getintouch />}
+              {showGetintouch && <Getintouch />} 
             </div>
         </div>
       </LanguageProvider>
