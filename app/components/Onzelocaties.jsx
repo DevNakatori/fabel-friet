@@ -38,7 +38,7 @@ const Onzelocaties = () => {
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+           // delay: 0.5,
           },
         })
         .to(imgRefonzelocaties.current, {
@@ -46,7 +46,7 @@ const Onzelocaties = () => {
           z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut',
-        })
+        });
         // .to(
         //   heroSectiononzelocaties.current,
         //   {
@@ -56,7 +56,11 @@ const Onzelocaties = () => {
         //   },
         //   '<',
         // );
+        return () => {
+          timeline.scrollTrigger.kill();
+        };
     }
+  
   }, [onzelocaties]);
 
   useEffect(() => {

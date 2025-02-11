@@ -38,38 +38,33 @@ const Getintouch = () => {
   const wrapperRefgetIntouch = useRef(null);
   const imgRefgetIntouch = useRef(null);
 //  const heroSectiongetIntouch = useRef(null);
-  useEffect(() => {
-    if (getIntouch) {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: wrapperRefgetIntouch.current,
-            start: 'top top',
-           // end: '+=150%',
-            pin: true,
-            scrub: true,
-            markers: false,
-            repeat: 1,
-            delay: 0.5,
-          },
-        })
-        .to(imgRefgetIntouch.current, {
-          scale: 1.5,
-          z: 350,
-          transformOrigin: 'center center',
-          ease: 'power1.inOut',
-        })
-        // .to(
-        //   heroSectiongetIntouch.current,
-        //   {
-        //     scale: 1.1,
-        //     transformOrigin: 'center center',
-        //     ease: 'power1.inOut',
-        //   },
-        //   '<',
-        // );
-    }
-  }, [getIntouch]);
+useEffect(() => {
+  if (getIntouch) {
+    const timeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRefgetIntouch.current,
+          start: 'top top',
+          pin: true,
+          scrub: true,
+          markers: false,
+          repeat: 1,
+         // delay: 0.5,
+        },
+      })
+      .to(imgRefgetIntouch.current, {
+        scale: 1.5,
+        z: 350,
+        transformOrigin: 'center center',
+        ease: 'power1.inOut',
+      });
+
+    return () => {
+      timeline.scrollTrigger.kill();
+    };
+  }
+}, [getIntouch]);
+
   /* scroll zoom animation end */
 
   /* fatch data start */

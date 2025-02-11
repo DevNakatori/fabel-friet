@@ -281,4 +281,5 @@ footer.footer{display:none;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(1),.newfooter .newcontainer .allmenulist .footerblock:nth-child(3){max-width:320px;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(2) {width: 100%;padding:0px;}
   .newfooter .newcontainer .allmenulist .footerblock:nth-child(2):before,.newfooter .newcontainer .allmenulist .footerblock:nth-child(2):after{display: none;}
+  .overlaybannehand-bottomsmenu {background-image: url(/app/assets/resizeimgs/webp/mobilepotatos.webp);background-repeat: no-repeat no-repeat;background-position: center center;width: -moz-calc(100% + 150px);width: calc(100% + 150px);height: 103px;left: 0;}
 }

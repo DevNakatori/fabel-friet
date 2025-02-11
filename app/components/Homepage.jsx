@@ -553,15 +553,34 @@ const HomePage = () => {
     <section className="bannersection" id="section1">
       <div className="banner_video">
         {bannerData[0].bannerVideo && (
+          // <video
+          //   id="myVideo"
+          //   /*src={bannerData[0].bannerVideo}*/
+          //   src="https://cdn.shopify.com/videos/c/o/v/219e6b5f1c314a16810a8f0c9005ebc6.mp4" type="video/mp4"
+          //   src="https://cdn.shopify.com/s/files/1/0698/4443/5191/files/219e6b5f1c314a16810a8f0c9005ebc6.ogg" type="video/ogg"
+          //   autoPlay
+          //   muted
+          //   playsInline
+          //   onTimeUpdate={handleTimeUpdate}
+          // />
           <video
-            id="myVideo"
-            /*src={bannerData[0].bannerVideo}*/
-            src="https://cdn.shopify.com/videos/c/o/v/219e6b5f1c314a16810a8f0c9005ebc6.mp4"
-            autoPlay
-            muted
-            playsInline
-            onTimeUpdate={handleTimeUpdate}
-          />
+  id="myVideo"
+  autoPlay
+  muted
+  playsInline
+  onTimeUpdate={handleTimeUpdate}
+>
+  <source 
+    src="https://cdn.shopify.com/videos/c/o/v/219e6b5f1c314a16810a8f0c9005ebc6.mp4" 
+    type="video/mp4" 
+  />
+  <source 
+    src="https://cdn.shopify.com/s/files/1/0698/4443/5191/files/219e6b5f1c314a16810a8f0c9005ebc6.ogg" 
+    type="video/ogg" 
+  />
+  Your browser does not support the video tag.
+</video>
+
         )}
 
         <div className="progress-bar-container">
