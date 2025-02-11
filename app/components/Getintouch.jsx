@@ -192,11 +192,15 @@ useEffect(() => {
             trigger: '.sixthsection .wrappertest',
             start: 'top top',
             end: 'bottom top',
-         
             onEnter: () => {
-              addIframe(); // Add the first iframe
-              addIframeone(); // Add the second iframe
-              addIframetwo(); // Add the third iframe
+              if (document.body.classList.contains('india')) 
+              {
+                  
+              } else {
+                  addIframe(); 
+                  addIframeone(); 
+                  addIframetwo(); 
+              }              
             }
           },
         });
