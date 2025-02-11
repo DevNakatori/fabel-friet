@@ -44,7 +44,7 @@ useEffect(() => {
       .timeline({
         scrollTrigger: {
           trigger: wrapperRefgetIntouch.current,
-          start: 'top top',
+          start: 'center center',
           pin: true,
           scrub: true,
           markers: false,
