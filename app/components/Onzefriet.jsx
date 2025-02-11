@@ -47,7 +47,7 @@ const Onzefriet = () => {
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+           // delay: 0.5,
           },
         })
         .to(imgRef.current, {
@@ -55,7 +55,7 @@ const Onzefriet = () => {
           z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut',
-        })
+        });
         // .to(
         //   heroSectionRef.current,
         //   {
@@ -65,6 +65,9 @@ const Onzefriet = () => {
         //   },
         //   '<',
         // );
+        return () => {
+          timeline.scrollTrigger.kill();
+        };
     }
   }, [onzefriet]);
 

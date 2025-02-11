@@ -47,7 +47,7 @@ const Onzeimpact = () => {
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+           // delay: 0.5,
           },
         })
         .to(imgRefonzeimpact.current, {
@@ -55,7 +55,7 @@ const Onzeimpact = () => {
           z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut',
-        })
+        });
         // .to(
         //   heroSectiononzeimpact.current,
         //   {
@@ -65,7 +65,11 @@ const Onzeimpact = () => {
         //   },
         //   '<',
         // );
+        return () => {
+          timeline.scrollTrigger.kill();
+        };
     }
+    
   }, [onzeimpact]);
 
   useEffect(() => {

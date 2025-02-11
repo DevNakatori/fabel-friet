@@ -46,7 +46,7 @@ const Hetmenu = () => {
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+           // delay: 0.5,
           },
         })
         .to(imgRefhetmenu.current, {
@@ -54,7 +54,7 @@ const Hetmenu = () => {
           z: 350,
           transformOrigin: 'center center',
           ease: 'power1.inOut',
-        })
+        });
         // .to(
         //   heroSectionRefhetmenu.current,
         //   {
@@ -64,7 +64,11 @@ const Hetmenu = () => {
         //   },
         //   '<',
         // );
+        return () => {
+          timeline.scrollTrigger.kill();
+        };
     }
+    
   }, [hetmenu]);
 
   useEffect(() => {
