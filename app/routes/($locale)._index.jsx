@@ -129,6 +129,26 @@ export default function Homepage() {
   }, []);
 
   useEffect(() => {
+    const detectLanguage = async () => {
+        const browserLanguage = navigator.language || navigator.userLanguage;
+        if (browserLanguage) {
+          const langCode = browserLanguage.split('-')[0];
+        }
+        try {
+          const response = await fetch('https://ipapi.co/json/');
+          const data = await response.json();
+          const country = data.country_code;
+          if (country === 'IN') {
+            document.body.classList.add('india'); 
+          } 
+        } catch (error) {
+        }
+    };
+    detectLanguage();
+  }, []);
+  
+
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024) {
         window.location.reload();
