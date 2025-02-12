@@ -37,21 +37,18 @@ const Onzefriet = () => {
 
   useEffect(() => {
     if (onzefriet) {
-      const panels = document.querySelector(".wrapper");
+     
       gsap
         .timeline({
           scrollTrigger: {
             trigger: wrapperRef.current,
-            //start: 'center center',
-           // end: '+=150%',
-           start: () => panels.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-           pin: true, 
-           pinSpacing: true,
-           // pin: true,
+            start: 'center center',
+            // end: '+=150%',
+            pin: true,
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+            //delay: 0.5,
           },
         })
         .to(imgRef.current, {

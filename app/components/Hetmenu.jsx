@@ -36,21 +36,18 @@ const Hetmenu = () => {
 
   useEffect(() => {
     if (hetmenu) {
-      const panelsmenu = document.querySelector(".fourthsection");
+     
       gsap
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefhetmenu.current,
-           // start: 'center center',
-            // end: '+=150%',
-           // pin: true,
-           start: () => panelsmenu.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", 
-           pin: true, 
-           pinSpacing: true,
+            start: 'center center',
+            //end: '+=150%',
+            pin: true,
             scrub: true,
             markers: false,
             repeat: 1,
-           delay: 0.5,
+            //delay: 0.5,
           },
         })
         .to(imgRefhetmenu.current, {

@@ -37,21 +37,18 @@ const Onzeimpact = () => {
 
   useEffect(() => {
     if (onzeimpact) {
-      const panelimpact = document.querySelector(".wrapper-impact");
+      
       gsap
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefonzeimpact.current,
-           // start: 'center center',
+            start: 'center center',
             // end: '+=150%',
-          //  pin: true,
-          start: () => panelimpact.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-          pin: true, 
-          pinSpacing: true,
+            pin: true,
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+           // delay: 0.5,
           },
         })
         .to(imgRefonzeimpact.current, {
