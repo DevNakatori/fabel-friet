@@ -40,16 +40,20 @@ const Getintouch = () => {
 //  const heroSectiongetIntouch = useRef(null);
 useEffect(() => {
   if (getIntouch) {
+    const paneltouch = document.querySelector(".wrapper-getintouch");
     const timeline = gsap
       .timeline({
         scrollTrigger: {
           trigger: wrapperRefgetIntouch.current,
-          start: 'center center',
-          pin: true,
+          //start: 'center center',
+         // pin: true,
+         start: () => paneltouch.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+         pin: true, 
+         pinSpacing: true,
           scrub: true,
           markers: false,
           repeat: 1,
-         // delay: 0.5,
+          delay: 0.5,
         },
       })
       .to(imgRefgetIntouch.current, {
