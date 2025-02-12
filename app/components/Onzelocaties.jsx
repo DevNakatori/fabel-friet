@@ -28,23 +28,18 @@ const Onzelocaties = () => {
 
   useEffect(() => {
     if (onzelocaties) {
-      const panellocati = document.querySelector(".wrapper-onzelocation");
+      
       gsap
         .timeline({
           scrollTrigger: {
             trigger: wrapperRefonzelocaties.current,
-           // start: 'center center',
+            start: 'center center',
             // end: '+=150%',
-          //  pin: true,
-
-          start: () => panellocati.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", 
-          pin: true, 
-          pinSpacing: true,
-
+            pin: true,
             scrub: true,
             markers: false,
             repeat: 1,
-            delay: 0.5,
+            //delay: 0.5,
           },
         })
         .to(imgRefonzelocaties.current, {
