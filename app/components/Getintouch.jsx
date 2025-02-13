@@ -46,7 +46,6 @@ useEffect(() => {
           trigger: wrapperRefgetIntouch.current,
           start: 'center center',
           pin: true,
-          anticipatePin: 1,
           scrub: true,
           markers: false,
           repeat: 1,
