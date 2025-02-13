@@ -45,6 +45,7 @@ const Onzeimpact = () => {
             start: 'center center',
             // end: '+=150%',
             pin: true,
+            anticipatePin: 1,
             scrub: true,
             markers: false,
             repeat: 1,
