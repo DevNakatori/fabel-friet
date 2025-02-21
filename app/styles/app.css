@@ -282,7 +282,7 @@ details summary::-webkit-details-marker {display:none;}
 section.mainmenusection .topmenublock{padding:90px 0px;}
 .topmenublock{margin-bottom:252px;}
 .whightimagebf{background-image:url('/app/assets/resizeimgs/webp/stone-texture.webp');background-repeat:no-repeat;background-size:cover;width:calc(100% - 60px);position:relative;z-index:99;left:0;border-top-left-radius:30px;border-top-right-radius:30px;-webkit-box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);box-shadow:0px 4px 20px 5px rgba(0,0,0,0.25);top:-28px;margin-bottom:0px;padding:30px 30px 0;background-position:center center;margin-bottom:-28px;}
-section.menu-section{padding-bottom:40px;border-bottom:solid 1px #0d1e4d;margin-bottom:40px;}
+section.menu-section{padding-bottom:40px;border-bottom:solid 0px #0d1e4d;margin-bottom:40px;}
 /* section.menu-section:last-child{padding-bottom:0px;border-bottom:none;margin-bottom:40px;} */
 
 #drinks-section section.menu-section{padding-bottom:0px;border-bottom:none;margin-bottom:40px;}
@@ -1322,8 +1322,18 @@ li.language-item.active{background:#0d1e4d;pointer-events:none;display:none;}
 
 
 
+.img-container,
+.img-containerss {
+  margin-bottom: -100px;
+}
 
+.gradient-threebox.gradient-threeboxgetintouch {
+  margin-bottom: -150px;
+}
 
+.wrapper {
+  position: relative;
+}
 
 @media (max-width:767px){
 .page.menumainppage.franchise .overlaybannehand-bottoms {

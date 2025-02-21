@@ -1,78 +1,32 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
+import ZoomSection from '~/components/ZoomSection';
 import '../styles/onzeimpact.css';
-import {getImageUrl} from '../js/imagesurl';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { getImageUrl } from '../js/imagesurl';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import images from '../js/images';
-
+import alltitleAnimation from '../js/alltitleAnimation.js';
+import alldescription from '../js/alldescription.js';
+import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
-
-import {useMediaQuery} from '@react-hook/media-query';
-
+import { useMediaQuery } from '@react-hook/media-query';
+  /* --------------------------------------------------------------------------------------------------------------------- */
 const Onzeimpact = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
   const [onzeimpact, setonzeimpact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const ismobile = useMediaQuery('(max-width: 767px)');
-
-  const [showGarbage, setShowGarbage] = useState(false);
-  const binLidRef = useRef(null);
-  const garbageRef = useRef(null);
-  const binContainerRef = useRef(null);
-
-  const wrapperRefonzeimpact = useRef(null);
-  const imgRefonzeimpact = useRef(null);
-  //const heroSectiononzeimpact = useRef(null);
-
-  useEffect(() => {
-    if (onzeimpact) {
-      
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: wrapperRefonzeimpact.current,
-            start: 'center center',
-            // end: '+=150%',
-            pin: true,
-            scrub: true,
-            markers: false,
-            repeat: 1,
-           // delay: 0.5,
-          },
-        })
-        .to(imgRefonzeimpact.current, {
-          scale: 1.5,
-          z: 350,
-          transformOrigin: 'center center',
-          ease: 'power1.inOut',
-        });
-        // .to(
-        //   heroSectiononzeimpact.current,
-        //   {
-        //     scale: 1.1,
-        //     transformOrigin: 'center center',
-        //     ease: 'power1.inOut',
-        //   },
-        //   '<',
-        // );
-        return () => {
-          timeline.scrollTrigger.kill();
-        };
-    }
-    
-  }, [onzeimpact]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */  
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
@@ -85,7 +39,7 @@ const Onzeimpact = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzeimpact" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           //console.log('Fetched fetchDataonzeimpactData Data:', data);
           localStorage.setItem(
@@ -103,7 +57,7 @@ const Onzeimpact = () => {
     };
     fetchDataonzeimpactData();
   }, [language]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       const timelineimpact = gsap.timeline({});
@@ -112,7 +66,7 @@ const Onzeimpact = () => {
         scrollTrigger: {
           trigger: '.fifthesection',
           start: '0% 0%',
-          end: '30% 30%',
+          end: '8% 8%',
           scrub: true,
           once: true,
         },
@@ -158,11 +112,14 @@ const Onzeimpact = () => {
       );
 
       return () => {
-        //timelineimpact.scrollTrigger.kill();
+        if (timelineimpact.scrollTrigger) 
+          {
+        timelineimpact.scrollTrigger.kill();
+          }
       };
     }
   }, [onzeimpact]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       gsap.set(['.image-wrappers'], {
@@ -243,7 +200,7 @@ const Onzeimpact = () => {
       );
     }
   }, [onzeimpact]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       const pathss = document.querySelector('.line2ss');
@@ -264,7 +221,7 @@ const Onzeimpact = () => {
       }
     }
   }, [onzeimpact]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     const isHardRefreshimpact = window.performance.navigation.type === 1;
     const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
@@ -444,7 +401,7 @@ const Onzeimpact = () => {
           },
         });
 
-        tlimpact.set(containerimpact, {autoAlpha: 1});
+        tlimpact.set(containerimpact, { autoAlpha: 1 });
         tlimpact.from(containerimpact, 1.5, {
           xPercent: 0,
           ease: 'Power2.out',
@@ -473,22 +430,22 @@ const Onzeimpact = () => {
     // };
   }, [onzeimpact]);
 
-
-  useEffect(() => 
-        {
-          if (window.innerWidth >= 1024) 
-            {
-                if (onzeimpact) 
-                {
-                  const h3Elementimpact = document.querySelector(".roundtext-impact h3");
-                  const clientWidthH3impact = h3Elementimpact.clientWidth;
-                  h3Elementimpact.style.right = `-${clientWidthH3impact - 120}px`;
-                  const h2Elementimpact = document.querySelector(".roundtext-impact h2");
-                  const clientWidthH2impact = h2Elementimpact.clientWidth;
-                  h2Elementimpact.style.left = `-${clientWidthH2impact - 90}px`;       
-                }
-            }
-        }, [onzeimpact]);
+/* --------------------------------------------------------------------------------------------------------------------- */
+  // useEffect(() => 
+  //       {
+  //         if (window.innerWidth >= 1024) 
+  //           {
+  //               if (onzeimpact) 
+  //               {
+  //                 const h3Elementimpact = document.querySelector(".roundtext-impact h3");
+  //                 const clientWidthH3impact = h3Elementimpact.clientWidth;
+  //                 h3Elementimpact.style.right = `-${clientWidthH3impact - 120}px`;
+  //                 const h2Elementimpact = document.querySelector(".roundtext-impact h2");
+  //                 const clientWidthH2impact = h2Elementimpact.clientWidth;
+  //                 h2Elementimpact.style.left = `-${clientWidthH2impact - 90}px`;       
+  //               }
+  //           }
+  //       }, [onzeimpact]);
 
   if (loading)
     return (
@@ -508,57 +465,19 @@ const Onzeimpact = () => {
       </div>
     );
   if (error) return <p>{error}</p>;
-
   if (!onzeimpact || onzeimpact.length === 0) return <p>No data available</p>;
-
   const data = onzeimpact[0];
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel fifthesection" id="section5">
       <div>
-        <div className="wrapper-impact" ref={wrapperRefonzeimpact}>
-        <div className='image-container'>
-          <div className="wrappermain">
-            <div className="wrappermain_inner">
-              <img
-                className="media"
-                src={getImageUrl(data.transitionSection.image.asset._ref)}
-                alt={data.transitionSection.image.alt}
-                width="10"
-                height="10"
-              />
-            </div>
-          </div>
-
-          <div className="roundimages" ref={imgRefonzeimpact}>
-            <div className="roundtext-impact" ref={imgRefonzeimpact}>
-              <h2
-                dangerouslySetInnerHTML={{
-                  __html: data.transitionSection.topTitle,
-                }}
-              />
-              <h3
-                dangerouslySetInnerHTML={{
-                  __html: data.transitionSection.bottomTitle,
-                }}
-              />
-            </div>
-            <div
-              className="roundimage-impact roundimagesround"
-              ref={imgRefonzeimpact}
-            ></div>
-            <div className="scroll-down">
-              <div className="icon-scroll"></div>
-              <p>Scroll down</p>
-            </div>
-          </div>
-          {/* <section
-            className="section hero"
-            ref={heroSectiononzeimpact}
-          ></section> */}
-          </div>
-        </div>
-
+        <ZoomSection
+          image={getImageUrl(data.transitionSection.image.asset._ref)}
+          alt={data.transitionSection.image.alt}
+          h2Text={data.transitionSection.topTitle}
+          h3Text={data.transitionSection.bottomTitle}
+        />
+ {/* --------------------------------------------------------------------------------------------------------------------- */}
         <div className="wrappertest">
           <div className="gradient-purple" id="onzeimpactnonzefriet">
             <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
@@ -571,7 +490,6 @@ const Onzeimpact = () => {
                 __html: data.contentSection.description,
               }}
             />
-
             <div className="gradient-threebox gradient-threeboxonzeimpact">
               <div className="img-containerss">
                 {data.imageSection.image.map((img, index) => (
@@ -589,7 +507,6 @@ const Onzeimpact = () => {
                         />
                       </div>
                     )}
-
                     {index === 1 && (
                       <div className="threeboxleftlogobar lastbottomimg">
                         <img
@@ -610,6 +527,7 @@ const Onzeimpact = () => {
                 ))}
               </div>
             </div>
+             {/* --------------------------------------------------------------------------------------------------------------------- */}
             <div className="whitebgbox">
               <div className="appcontainers">
                 <div
@@ -744,7 +662,7 @@ const Onzeimpact = () => {
                     )}
                   </div>
                 </div>
-
+                {/* --------------------------------------------------------------------------------------------------------------------- */}
                 <div
                   className="whitewithvideomainboxs"
                   data-aos="fade-up"
@@ -788,7 +706,7 @@ const Onzeimpact = () => {
 
                 <div
                   className="binimageboxmain"
-                 
+
                 >
                   <div className="binimageboxieft">
                     <h6
@@ -800,7 +718,7 @@ const Onzeimpact = () => {
                     </h6>
                     <div
                       className="binarrowimg"
-                      
+
                     >
                       <div className="arrowimageimpect">
                         <svg
@@ -850,7 +768,9 @@ const Onzeimpact = () => {
                   </div>
                 </div>
               </div>
-              <div className="overlaybannehand-bottoms"></div>
+              <div className="overlaybannehand-bottomss">
+                <img src={images.bottompotetoes} />
+              </div>
             </div>
           </div>
         </div>

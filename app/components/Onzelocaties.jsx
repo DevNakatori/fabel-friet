@@ -1,22 +1,26 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useEffect, useState, useRef } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzelocations.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
-import {useMediaQuery} from '@react-hook/media-query';
+import { useMediaQuery } from '@react-hook/media-query';
+import ZoomSection from '~/components/ZoomSection';
+import alltitleAnimation from '../js/alltitleAnimation.js';
+import alldescription from '../js/alldescription.js';
+import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
 const Onzelocaties = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [dataLoadedlocaties, setDataLoadedlocaties] = useState(false);
   const [onzelocaties, setOnzelocaties] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,46 +28,8 @@ const Onzelocaties = () => {
   const isDesktop = useMediaQuery('(max-width: 767px)');
   const wrapperRefonzelocaties = useRef(null);
   const imgRefonzelocaties = useRef(null);
-  // const heroSectiononzelocaties = useRef(null);
-
-  useEffect(() => {
-    if (onzelocaties) {
-      
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: wrapperRefonzelocaties.current,
-            start: 'center center',
-            // end: '+=150%',
-            pin: true,
-            scrub: true,
-            markers: false,
-            repeat: 1,
-            //delay: 0.5,
-          },
-        })
-        .to(imgRefonzelocaties.current, {
-          scale: 1.5,
-          z: 350,
-          transformOrigin: 'center center',
-          ease: 'power1.inOut',
-        });
-        // .to(
-        //   heroSectiononzelocaties.current,
-        //   {
-        //     scale: 1.1,
-        //     transformOrigin: 'center center',
-        //     ease: 'power1.inOut',
-        //   },
-        //   '<',
-        // );
-        return () => {
-          timeline.scrollTrigger.kill();
-        };
-    }
-  
-  }, [onzelocaties]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* fatch data start */
   useEffect(() => {
     const fetchDataOnzelocaties = async () => {
       const cachedData = localStorage.getItem(`onzelocatiesData_${language}`);
@@ -77,7 +43,7 @@ const Onzelocaties = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzelocaties" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           // console.log('Fetched onzelocatiesData Data:', data);
           localStorage.setItem(
@@ -95,23 +61,22 @@ const Onzelocaties = () => {
     };
     fetchDataOnzelocaties();
   }, [language]);
-
+  /* fatch data end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzelocaties) {
       const timelines = gsap.timeline({});
-
       timelines.to('.thirdesection .wrappertest', {
         scrollTrigger: {
           trigger: '.thirdesection',
           start: '0% 0%',
-          end: '35% 35%',
+          end: '8% 8%',
           scrub: true,
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
       });
-
       timelines.to(
         '#section3 .gradient-purple',
         {
@@ -126,130 +91,70 @@ const Onzelocaties = () => {
         },
         0,
       );
-
       return () => {
-        // timelines.scrollTrigger.kill();
+        if (timelines.scrollTrigger) 
+          {
+            timelines.scrollTrigger.kill();
+          }  
       };
     }
   }, [onzelocaties]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* gold title start */
+  useEffect(() => {
+    if (onzelocaties) {
+      alltitleAnimation();
+      alldescription();
+      allinnerlinedescriptn();
+    }
+  }, [onzelocaties]);
+  /* gold title start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     const animateButton = (e) => {
       e.preventDefault();
       const button = e.target;
+      const link = button.closest('a');
       button.classList.remove('animate');
       button.classList.add('animate');
-      setTimeout(() => button.classList.remove('animate'), 400);
+      setTimeout(() => {
+        button.classList.remove('animate');
+        if (link) {
+          window.open(link.href, '_blank');
+        }
+      }, 400);
     };
     const bubblyButtons = document.getElementsByClassName('bubbly-button');
     for (let i = 0; i < bubblyButtons.length; i++) {
       bubblyButtons[i].addEventListener('click', animateButton);
     }
   }, [onzelocaties]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
-    const isHardRefreshlocaties = window.performance.navigation.type === 1;
-    const animationDelaylocaties = isHardRefreshlocaties ? 300 : 300;
-
-    const initiateAnimationsonzlocaties = () => {
-      let typeSplitlocationtitle = new SplitType('[data-locationtitle]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-      var charslocationtitle = typeSplitlocationtitle.chars;
-      gsap.from('[data-locationtitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
+    const revealContainers = document.querySelectorAll('.reveal');
+    revealContainers.forEach((containerlocaltion) => {
+      let location = containerlocaltion.querySelector('.reveal img');
+      let tllocation = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-locationtitle]',
-        },
-        onUpdate: function () {
-          charslocationtitle.forEach((typeSplitlocationtitle) => {
-            typeSplitlocationtitle.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeSplitlocationtitle.style.webkitBackgroundClip = 'text';
-            typeSplitlocationtitle.style.webkitTextFillColor = 'transparent';
-            typeSplitlocationtitle.style.backgroundPosition = '97px -83px';
-          });
+          trigger: containerlocaltion,
+          start: 'top bottom',
+          end: 'bottom top',
         },
       });
-
-      const typeSplitlocationdescription = new SplitType(
-        '[data-locationdescription]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-
-      gsap.from('[data-locationdescription] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.45,
-        ease: 'none.inOut',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-locationdescription]',
-          start: 'top center',
-          once: false,
-        },
+      tllocation.set(containerlocaltion, { autoAlpha: 1 });
+      tllocation.from(containerlocaltion, 1.5, {
+        xPercent: 0,
+        ease: 'Power2.out',
       });
-
-      let revealContainers = document.querySelectorAll('.reveal');
-      revealContainers.forEach((container) => {
-        let image = container.querySelector('.reveal img');
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            start: 'top bottom',
-            end: 'bottom top',
-          },
-        });
-
-        tl.set(container, {autoAlpha: 1});
-        tl.from(container, 1.5, {
-          xPercent: 0,
-          ease: 'Power2.out',
-        });
-        tl.from(image, 1.5, {
-          xPercent: -100,
-          scale: 1.3,
-          delay: -1.5,
-          ease: 'Power2.out',
-        });
+      tllocation.from(location, 1.5, {
+        xPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'Power2.out',
       });
-    };
-
-    setTimeout(() => {
-      initiateAnimationsonzlocaties();
-    }, animationDelaylocaties);
-
-    // return () => {
-    //   gsap.killTweensOf('[data-locationtitle] .line');
-    //   gsap.killTweensOf('[data-locationdescription] .line');
-    // };
+    });
   }, [onzelocaties]);
-
-
-  useEffect(() => 
-    {
-      if (window.innerWidth >= 1024) 
-        {
-            if (onzelocaties) 
-            {
-                  const h3Elementloc = document.querySelector(".roundtext-onzelocation h3");
-                  const clientWidthH3loc = h3Elementloc.clientWidth;
-                  h3Elementloc.style.right = `-${clientWidthH3loc - 120}px`;
-                  const h2Elementloc = document.querySelector(".roundtext-onzelocation h2");
-                  const clientWidthH2loc = h2Elementloc.clientWidth;
-                  h2Elementloc.style.left = `-${clientWidthH2loc - 90}px`;     
-            }
-        }
-    }, [onzelocaties]);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
     return (
       <div>
@@ -273,62 +178,28 @@ const Onzelocaties = () => {
     <section className="panel thirdesection" id="section3">
       {onzelocaties.map((locationData) => (
         <div key={locationData._id}>
-          <div className="wrapper-onzelocation" ref={wrapperRefonzelocaties}>
-          <div className='image-container'>
-            <div className="wrappermain">
-              <div className="wrappermain_inner">
-                <img
-                  className="media"
-                  src={getImageUrl(
-                    locationData.transitionSection.image.asset._ref,
-                  )}
-                  alt={locationData.transitionSection.image.alt}
-                  width="10"
-                  height="10"
-                />
-              </div>
-            </div>
-
-            <div className="roundimages" ref={imgRefonzelocaties}>
-              <div className="roundtext-onzelocation" ref={imgRefonzelocaties}>
-                <h2
-                  dangerouslySetInnerHTML={{
-                    __html: locationData.transitionSection.topTitle,
-                  }}
-                />
-                <h3
-                  dangerouslySetInnerHTML={{
-                    __html: locationData.transitionSection.bottomTitle,
-                  }}
-                />
-              </div>
-              <div
-                className="roundimage-onzelocation roundimagesround"
-                ref={imgRefonzelocaties}
-              ></div>
-              <div className="scroll-down">
-                <div className="icon-scroll"></div>
-                <p>Scroll down</p>
-              </div>
-            </div>
-            {/* <section
-              className="section hero"
-              ref={heroSectiononzelocaties}
-            ></section> */}
-            </div>
-          </div>
+          <ZoomSection
+            image={getImageUrl(
+              locationData.transitionSection.image.asset._ref,
+            )}
+            alt={locationData.transitionSection.image.alt}
+            h2Text={locationData.transitionSection.topTitle}
+            h3Text={locationData.transitionSection.bottomTitle}
+          />
           <div className="wrappertest">
             <div className="gradient-purple" id="locationtiononzefriet">
               <h4
                 className="locationtitle"
-                data-locationtitle=""
+                data-title=""
+                data-speed="auto"
                 dangerouslySetInnerHTML={{
                   __html: locationData.contentSection.heading,
                 }}
               />
               <p
                 className="locationescription onlydesktop"
-                data-locationdescription=""
+                data-description=""
+                data-speed="auto"
                 dangerouslySetInnerHTML={{
                   __html: locationData.contentSection.description,
                 }}
@@ -524,7 +395,7 @@ const Onzelocaties = () => {
                                 data-aos="fade-up"
                                 data-aos-easing="ease-out-cubic"
                                 data-aos-duration="2000"
-                                dangerouslySetInnerHTML={{__html: loc.info}}
+                                dangerouslySetInnerHTML={{ __html: loc.info }}
                               />
 
                               <a
@@ -544,7 +415,9 @@ const Onzelocaties = () => {
                     </>
                   )}
                 </div>
-                <div className="overlaybannehand-bottoms"></div>
+                <div className="overlaybannehand-bottomss">
+                  <img src={images.bottompotetoes} />
+                </div>
               </div>
             </div>
           </div>

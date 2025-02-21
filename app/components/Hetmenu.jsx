@@ -1,77 +1,33 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/hetmenu.css';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
-import new_fries_one from '../assets/new_fries/new_1.webp';
-import new_fries_two from '../assets/new_fries/new_2.webp';
-import new_fries_three from '../assets/new_fries/new_3.webp';
-import new_fries_four from '../assets/new_fries/new_1.webp';
-
-import {useMediaQuery} from '@react-hook/media-query';
-
+import { useMediaQuery } from '@react-hook/media-query';
+import Friesanimation from '~/components/Friesanimation';
+import alltitleAnimation from '../js/alltitleAnimation.js';
+import alldescription from '../js/alldescription.js';
+import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
+import blutextanimationtext from '../js/blutextanimationtext.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
 const Hetmenu = () => {
   const [activeSection, setActiveSection] = useState('friet-section');
-
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   const [hetmenu, setHetmenu] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const wrapperRefhetmenu = useRef(null);
-  const imgRefhetmenu = useRef(null);
-  // const heroSectionRefhetmenu = useRef(null);
-
   const isDesktopcanvashetmenu = useMediaQuery('(max-width: 767px)');
-
-  useEffect(() => {
-    if (hetmenu) {
-     
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: wrapperRefhetmenu.current,
-            start: 'center center',
-            //end: '+=150%',
-            pin: true,
-            scrub: true,
-            markers: false,
-            repeat: 1,
-            //delay: 0.5,
-          },
-        })
-        .to(imgRefhetmenu.current, {
-          scale: 1.5,
-          z: 350,
-          transformOrigin: 'center center',
-          ease: 'power1.inOut',
-        });
-        // .to(
-        //   heroSectionRefhetmenu.current,
-        //   {
-        //     scale: 1.1,
-        //     transformOrigin: 'center center',
-        //     ease: 'power1.inOut',
-        //   },
-        //   '<',
-        // );
-        return () => {
-          timeline.scrollTrigger.kill();
-        };
-    }
-    
-  }, [hetmenu]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     const fetchDataHetmenuData = async () => {
       const cachedData = localStorage.getItem(`hetmenuData_${language}`);
@@ -84,7 +40,7 @@ const Hetmenu = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "hetmenu" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           localStorage.setItem(`hetmenuData_${language}`, JSON.stringify(data));
           setHetmenu(data);
@@ -96,27 +52,24 @@ const Hetmenu = () => {
         }
       }
     };
-
     fetchDataHetmenuData();
   }, [language]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   // GSAP Animations for Hetmenu
   useEffect(() => {
     if (hetmenu) {
       const timelineshetmenu = gsap.timeline({});
-
       timelineshetmenu.to('.fourthsection .wrappertest', {
         scrollTrigger: {
           trigger: '.fourthsection',
           start: '0% 0%',
-          end: '30% 30%',
+          end: '8% 8%',
           scrub: true,
           once: true,
         },
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
       });
-
       timelineshetmenu.to(
         '#section4 .gradient-purple',
         {
@@ -131,13 +84,15 @@ const Hetmenu = () => {
         },
         0,
       );
-
       return () => {
-        // timelineshetmenu.scrollTrigger.kill();
+        if (timelineshetmenu.scrollTrigger) 
+          {
+        timelineshetmenu.scrollTrigger.kill();
+          }
       };
     }
   }, [hetmenu]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (hetmenu) {
       const paths = document.querySelector('.line2s');
@@ -160,250 +115,43 @@ const Hetmenu = () => {
       }
     }
   }, [hetmenu]);
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  // if (window.innerWidth > 767) {
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //       const sections = ['friet-section', 'snacks-section', 'drinks-section'];
+  //       let currentSection = 'friet-section';
+  //       sections.forEach((sectionId) => {
+  //         const section = document.getElementById(sectionId);
+  //         if (
+  //           section &&
+  //           window.scrollY >= section.offsetTop - 10 &&
+  //           window.scrollY < section.offsetTop + section.offsetHeight
+  //         ) {
+  //           currentSection = sectionId;
+  //         }
+  //       });
+  //       setActiveSection(currentSection);
+  //     };
+  //     window.addEventListener('scroll', handleScroll);
 
-  
-
-  if (window.innerWidth > 767) {
-    useEffect(() => {
-      const handleScroll = () => {
-        const sections = ['friet-section', 'snacks-section', 'drinks-section'];
-        let currentSection = 'friet-section';
-        sections.forEach((sectionId) => {
-          const section = document.getElementById(sectionId);
-          if (
-            section &&
-            window.scrollY >= section.offsetTop - 10 &&
-            window.scrollY < section.offsetTop + section.offsetHeight
-          ) {
-            currentSection = sectionId;
-          }
-        });
-        setActiveSection(currentSection);
-      };
-      window.addEventListener('scroll', handleScroll);
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, [hetmenu]);
-  }
+  //     return () => {
+  //       window.removeEventListener('scroll', handleScroll);
+  //     };
+  //   }, [hetmenu]);
+  // }
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* gold title start */
   useEffect(() => {
-    const isHardRefreshhetmenu = window.performance.navigation.type === 1;
-    const animationDelayhetmenu = isHardRefreshhetmenu ? 300 : 300;
-
-    const initiateAnimationsonzhetmenu = () => {
-      let typeSplitmenutitle = new SplitType('[data-menutitle]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-      var charsmenutitle = typeSplitmenutitle.chars;
-      gsap.from('[data-menutitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-menutitle]',
-        },
-        onUpdate: function () {
-          charsmenutitle.forEach((typeSplithetmenuititle) => {
-            typeSplithetmenuititle.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeSplithetmenuititle.style.webkitBackgroundClip = 'text';
-            typeSplithetmenuititle.style.webkitTextFillColor = 'transparent';
-            typeSplithetmenuititle.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitmenudescription = new SplitType('[data-menudescription]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-
-      gsap.from('[data-menudescription] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.45,
-        ease: 'none.inOut',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-menudescription]',
-          start: 'top center',
-          once: false,
-        },
-      });
-
-      const typeSplitmenutitleright = new SplitType(
-        '[data-righttextboxtitle]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charsmenutitleright = typeSplitmenutitleright.chars;
-      gsap.from('[data-righttextboxtitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-righttextboxtitle]',
-        },
-        onUpdate: function () {
-          charsmenutitleright.forEach((typeSplithetmenuititleright) => {
-            typeSplithetmenuititleright.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitmenudescriptionright = new SplitType(
-        '[data-righttextboxdescription]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-
-      gsap.from('[data-righttextboxdescription] .line', {
-        opacity: 0.3,
-        duration: 0.5,
-        ease: 'power1.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-righttextboxdescription]',
-          scrub: true,
-        },
-      });
-    };
-
-    setTimeout(() => {
-      initiateAnimationsonzhetmenu();
-    }, animationDelayhetmenu);
-
-    // return () => {
-    //   gsap.killTweensOf('[data-menutitle] .line');
-    //   gsap.killTweensOf('[data-menudescription] .line');
-    //   gsap.killTweensOf('[data-righttextboxtitle] .line');
-    //   gsap.killTweensOf('[data-righttextboxdescription] .line');
-    // };
+    if (hetmenu) {
+      alltitleAnimation();
+      alldescription();
+      allinnerlinedescriptn();
+      blutextanimationtext();
+    }
   }, [hetmenu]);
-
-
-  const rainContainerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const fries = useRef([]);
-  const fryImages = useRef([]);
-  
-
-  if (window.innerWidth >= 1024) {
-
-      const numberOfFries = 40;
-  const fryImageSources = [
-    new_fries_one,
-    new_fries_two,
-    new_fries_three,
-    new_fries_four,
-  ];
-  useEffect(() => {
-    if (!rainContainerRef.current || !canvasRef.current) return;
-    fryImages.current = fryImageSources.map((src) => {
-      const img = new Image();
-      img.src = src;
-      return img;
-    });
-    const resizeCanvas = () => {
-      const canvas = canvasRef.current;
-      const rainContainer = rainContainerRef.current;
-      if (!canvas || !rainContainer) return;
-      canvas.width = rainContainer.offsetWidth;
-      canvas.height = rainContainer.offsetHeight;
-    };
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    const createFries = () => {
-      fries.current = [];
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      for (let i = 0; i < numberOfFries; i++) {
-        fries.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * -canvas.height,
-          speed: Math.random() * 1 + 0.1, // Slower speed: 0.5 to 1.5 pixels per frame
-          sway: Math.random() * 50 - 25,
-          image:
-            fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
-            ],
-        });
-      }
-    };
-    const renderFries = () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext('2d');
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      fries.current.forEach((fry) => {
-        fry.y += fry.speed;
-        fry.x += fry.sway * 0.01;
-        if (fry.y > canvas.height) {
-          fry.y = 0;
-          fry.x = Math.random() * canvas.width;
-          fry.image =
-            fryImages.current[
-              Math.floor(Math.random() * fryImages.current.length)
-            ];
-        }
-        ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
-      });
-      requestAnimationFrame(renderFries);
-    };
-    ScrollTrigger.create({
-      trigger: rainContainerRef.current,
-      start: 'top center',
-      onEnter: () => {
-        createFries();
-        renderFries();
-      },
-      // onLeaveBack: () => {
-      //   fries.current = [];
-      //   const ctx = canvasRef.current.getContext('2d');
-      //   if (ctx) {
-      //     ctx.clearRect(
-      //       0,
-      //       0,
-      //       canvasRef.current.width,
-      //       canvasRef.current.height,
-      //     );
-      //   }
-      // },
-    });
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, [hetmenu]);
-  
-}
-
-  useEffect(() => 
-      {
-        if (window.innerWidth >= 1024) 
-          {
-              if (hetmenu) 
-              {
-                const h3Elementmenu = document.querySelector(".roundtext-hetmenu h3");
-                const clientWidthH3menu = h3Elementmenu.clientWidth;
-                h3Elementmenu.style.right = `-${clientWidthH3menu - 120}px`;
-                const h2Elementmenu = document.querySelector(".roundtext-hetmenu h2");
-                const clientWidthH2menu = h2Elementmenu.clientWidth;
-                h2Elementmenu.style.left = `-${clientWidthH2menu - 90}px`;      
-              }
-          }
-      }, [hetmenu]);
-
+  /* gold title start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
     return (
       <div>
@@ -423,7 +171,7 @@ const Hetmenu = () => {
     );
   if (error) return <div>{error}</div>;
   if (!hetmenu || hetmenu.length === 0) return <div>No menu available.</div>;
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   const {
     contentSection,
     bottomContentSection,
@@ -443,76 +191,45 @@ const Hetmenu = () => {
       const yOffset = window.innerWidth <= 768 ? 20 : 100;
       const yPosition =
         section.getBoundingClientRect().top + window.pageYOffset - yOffset;
-      window.scrollTo({top: yPosition, behavior: 'smooth'});
+      window.scrollTo({ top: yPosition, behavior: 'smooth' });
     }
   };
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel fourthsection" id="section4">
       <div>
-        <div className="wrapper-hetmenu" ref={wrapperRefhetmenu}>
-        <div className='image-container'>
-          <div className="wrappermain">
-            <div className="wrappermain_inner">
-              <img
-                className="media"
-                src={getImageUrl(transitionSection.image.asset._ref)}
-                alt="Transition Section"
-                width="100"
-                height="100"
-              />
-            </div>
-          </div>
-
-          <div className="roundimages" ref={imgRefhetmenu}>
-            <div className="roundtext-hetmenu" ref={imgRefhetmenu}>
-              <h2
-                dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
-              />
-              <h3
-                dangerouslySetInnerHTML={{
-                  __html: transitionSection.bottomTitle,
-                }}
-              />
-            </div>
-            <div
-              className="roundimage-hetmenu roundimagesround"
-              ref={imgRefhetmenu}
-            ></div>
-            <div className="scroll-down">
-              <div className="icon-scroll"></div>
-              <p>Scroll down</p>
-            </div>
-          </div>
-          {/* <section
-            className="section hero"
-            ref={heroSectionRefhetmenu}
-          ></section> */}
-          </div>
-        </div>
-
-        <div className="wrappertest" ref={rainContainerRef}>
+        <ZoomSection
+          image={getImageUrl(transitionSection.image.asset._ref)}
+          alt="Transition Section"
+          h2Text={transitionSection.topTitle}
+          h3Text={transitionSection.bottomTitle}
+        />
+        {/* --------------------------------------------------------------------------------------------------------------------- */}
+        <div className="wrappertest">
           <div className="gradient-purple" id="hetmenusection">
             <h4
               className="hetmenuntitle"
-              data-menutitle=""
-              dangerouslySetInnerHTML={{__html: contentSection.heading}}
+              data-title=""
+              data-speed="auto"
+              dangerouslySetInnerHTML={{ __html: contentSection.heading }}
             />
             <p
               className="hetmenuescription"
-              data-menudescription=""
-              dangerouslySetInnerHTML={{__html: contentSection.description}}
+              data-description=""
+              data-speed="auto"
+              dangerouslySetInnerHTML={{ __html: contentSection.description }}
             />
 
             <div className="whitebgbox">
               {isDesktopcanvashetmenu ? (
                 <></>
               ) : (
-                <canvas
-                  className="canvasfries"
-                  ref={canvasRef}
-                  style={{position: 'absolute', top: 0, left: 0}}
-                />
+                // <canvas
+                //   className="canvasfries"
+                //   ref={canvasRef}
+                //   style={{position: 'absolute', top: -100, left: -50}}
+                // />
+                <Friesanimation />
               )}
 
               <div
@@ -553,7 +270,7 @@ const Hetmenu = () => {
                     </button>
                   </li>
                 </ul>
-
+                {/* --------------------------------------------------------------------------------------------------------------------- */}
                 <div className="innermenudynamicone">
                   <div className="innermenudynamictwo">
                     <section className="menu-section">
@@ -611,7 +328,7 @@ const Hetmenu = () => {
                           <p>Data not available</p>
                         )}
                       </div>
-
+                      {/* --------------------------------------------------------------------------------------------------------------------- */}
                       {/* Display Snacks */}
                       <div id="snacks-section">
                         {menuSection?.snacks?.length > 0 ? (
@@ -665,7 +382,7 @@ const Hetmenu = () => {
                           <p>Data not available</p>
                         )}
                       </div>
-
+                      {/* --------------------------------------------------------------------------------------------------------------------- */}
                       {/* Display Drinks */}
                       <div id="drinks-section">
                         {menuSection?.drinks?.length > 0 ? (
@@ -723,19 +440,19 @@ const Hetmenu = () => {
                   </div>
                 </div>
               </div>
-
+              {/* --------------------------------------------------------------------------------------------------------------------- */}
               <div className="appcontainers">
                 {/* Bottom Section */}
                 <div className="whitewithvideomainbox">
                   <div className="righttextbox">
                     <h5
-                      data-righttextboxtitle=""
+                      data-bluetitle=""
                       dangerouslySetInnerHTML={{
                         __html: bottomContentSection.bottomHeading,
                       }}
                     />
                     <p
-                      data-righttextboxdescription=""
+                      data-allinnerdescription=""
                       dangerouslySetInnerHTML={{
                         __html: bottomContentSection.bottomDescription,
                       }}
@@ -752,8 +469,9 @@ const Hetmenu = () => {
                   </div>
                 </div>
               </div>
-              <div className="hetmenufixed">
-                <div className="overlaybannehand-bottoms"></div>
+              {/* --------------------------------------------------------------------------------------------------------------------- */}
+              <div className="overlaybannehand-bottomss">
+                <img src={images.bottompotetoes} />
               </div>
             </div>
           </div>

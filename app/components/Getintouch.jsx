@@ -1,12 +1,13 @@
-import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import { client } from '../../sanityClient';
+import { useLanguage } from '~/components/LanguageContext';
 import Newfooter from '~/components/Newfooter';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
+import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 import images from '../js/images';
@@ -21,12 +22,12 @@ import liek_3 from '../assets/resizeimgs/webp/like44.webp';
 import liek_4 from '../assets/resizeimgs/webp/like55.webp';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 
-import {useMediaQuery} from '@react-hook/media-query';
+import { useMediaQuery } from '@react-hook/media-query';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Getintouch = () => {
-  const {language} = useLanguage();
+  const { language } = useLanguage();
   //const [dataLoadedgetintouch, setDataLoadedgetintouch] = useState(false);
   const [getIntouch, setGetIntouch] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,35 +36,35 @@ const Getintouch = () => {
   const isDesktopcanvasetmenu = useMediaQuery('(max-width: 767px)');
 
   /* scroll zoom animation start */
-  const wrapperRefgetIntouch = useRef(null);
-  const imgRefgetIntouch = useRef(null);
-//  const heroSectiongetIntouch = useRef(null);
-useEffect(() => {
-  if (getIntouch) {
-    const timeline = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: wrapperRefgetIntouch.current,
-          start: 'center center',
-          pin: true,
-          scrub: true,
-          markers: false,
-          repeat: 1,
-          //delay: 0.5,
-        },
-      })
-      .to(imgRefgetIntouch.current, {
-        scale: 1.5,
-        z: 350,
-        transformOrigin: 'center center',
-        ease: 'power1.inOut',
-      });
+  //const wrapperRefgetIntouch = useRef(null);
+  // const imgRefgetIntouch = useRef(null);
+  //  const heroSectiongetIntouch = useRef(null);
+  // useEffect(() => {
+  //   if (getIntouch) {
+  //     const timeline = gsap
+  //       .timeline({
+  //         scrollTrigger: {
+  //           trigger: wrapperRefgetIntouch.current,
+  //           start: 'center center',
+  //           pin: true,
+  //           scrub: true,
+  //           markers: false,
+  //           repeat: 1,
+  //           //delay: 0.5,
+  //         },
+  //       })
+  //       .to(imgRefgetIntouch.current, {
+  //         scale: 1.5,
+  //         z: 350,
+  //         transformOrigin: 'center center',
+  //         ease: 'power1.inOut',
+  //       });
 
-    return () => {
-      timeline.scrollTrigger.kill();
-    };
-  }
-}, [getIntouch]);
+  //     return () => {
+  //       timeline.scrollTrigger.kill();
+  //     };
+  //   }
+  // }, [getIntouch]);
 
   /* scroll zoom animation end */
 
@@ -93,7 +94,7 @@ useEffect(() => {
   //         }
   //       }
   //     };
-  
+
   //     fetchDataHetmenuData();
   //   }, [language]);
 
@@ -102,7 +103,7 @@ useEffect(() => {
     const fetchData_Getintouch = async () => {
       const cachedData = localStorage.getItem(`getintouch_${language}`);
       //console.log('getintouch C Data:', cachedData);
-      
+
       if (cachedData) {
         setGetIntouch(JSON.parse(cachedData));
         setLoading(false);
@@ -134,7 +135,7 @@ useEffect(() => {
         scrollTrigger: {
           trigger: '.sixthsection',
           start: '0% 0%',
-          end: '30% 30%',
+          end: '8% 8%',
           scrub: true,
           once: false,
         },
@@ -143,7 +144,10 @@ useEffect(() => {
       });
 
       return () => {
-        //  timelinegetintouch.scrollTrigger.kill();
+        if (timelinegetintouch.scrollTrigger) 
+          {
+         timelinegetintouch.scrollTrigger.kill();
+          }
       };
     }
   }, [getIntouch]);
@@ -193,21 +197,20 @@ useEffect(() => {
             start: 'top top',
             end: 'bottom top',
             onEnter: () => {
-              if (document.body.classList.contains('india')) 
-              {
-                  
+              if (document.body.classList.contains('india')) {
+
               } else {
-                  addIframe(); 
-                  addIframeone(); 
-                  addIframetwo(); 
-              }              
+                addIframe();
+                addIframeone();
+                addIframetwo();
+              }
             }
           },
         });
 
         onzefritthreeimagecentergetintouch.fromTo(
           middleItemgetintouch,
-          {bottom: '-55vh', rotation: 0, opacity: 0},
+          { bottom: '-55vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 1,
@@ -226,7 +229,7 @@ useEffect(() => {
         onzefritthreeimageleftgetintouch
           .fromTo(
             firstItemgetintouch,
-            {left: '-50vw', rotation: 0, opacity: 0},
+            { left: '-50vw', rotation: 0, opacity: 0 },
             {
               left: '-9vw',
               opacity: 1,
@@ -250,7 +253,7 @@ useEffect(() => {
         onzefritthreeimagerightgetintouch
           .fromTo(
             lastItemgetintouch,
-            {right: '-50vw', rotation: 0, opacity: 0},
+            { right: '-50vw', rotation: 0, opacity: 0 },
             {
               right: '-9vw',
               opacity: 1,
@@ -277,7 +280,7 @@ useEffect(() => {
 
         mobileTimelineCenter.fromTo(
           middleItemgetintouch,
-          {bottom: '-30vh', rotation: 0, opacity: 0},
+          { bottom: '-30vh', rotation: 0, opacity: 0 },
           {
             bottom: '0vh',
             duration: 0.7,
@@ -296,7 +299,7 @@ useEffect(() => {
         mobileTimelineLeft
           .fromTo(
             firstItemgetintouch,
-            {left: '-30vw', rotation: 0, opacity: 0},
+            { left: '-30vw', rotation: 0, opacity: 0 },
             {
               left: '0vw',
               opacity: 1,
@@ -320,7 +323,7 @@ useEffect(() => {
         mobileTimelineRight
           .fromTo(
             lastItemgetintouch,
-            {right: '-30vw', rotation: 0, opacity: 0},
+            { right: '-30vw', rotation: 0, opacity: 0 },
             {
               right: '0vw',
               opacity: 1,
@@ -351,7 +354,7 @@ useEffect(() => {
           iframe.muted = true;
           iframe.allow = "autoplay";
           iframe.loop = true;
-          iframeContainer.appendChild(iframe); 
+          iframeContainer.appendChild(iframe);
         }
       }
 
@@ -364,7 +367,7 @@ useEffect(() => {
           iframe.muted = true;
           iframe.allow = "autoplay";
           iframe.loop = true;
-          iframeContainer.appendChild(iframe); 
+          iframeContainer.appendChild(iframe);
         }
       }
 
@@ -377,7 +380,7 @@ useEffect(() => {
           iframe.muted = true;
           iframe.allow = "autoplay";
           iframe.loop = true;
-          iframeContainer.appendChild(iframe); 
+          iframeContainer.appendChild(iframe);
         }
       }
     });
@@ -387,7 +390,7 @@ useEffect(() => {
     const duration = textLength * 0.05;
     gsap.fromTo(
       '.sixthsection #animated-text',
-      {text: ''},
+      { text: '' },
       {
         text: textContent,
         duration: duration,
@@ -608,7 +611,7 @@ useEffect(() => {
     } else {
       content.style.display = 'block';
       let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
+      gsap.fromTo(content, { height: 0 }, { height: contentHeight, duration: 0.5 });
       content.classList.add('show');
       trigger.classList.add('active');
     }
@@ -658,7 +661,7 @@ useEffect(() => {
   }, [getIntouch]);
 
   useEffect(() => {
-    gsap.set('.likeimagelists .ball', {xPercent: -50, yPercent: -50});
+    gsap.set('.likeimagelists .ball', { xPercent: -50, yPercent: -50 });
 
     let targets = gsap.utils.toArray('.likeimagelists .ball');
 
@@ -682,7 +685,7 @@ useEffect(() => {
   const fryImageSources = [liek_2, liek_1, liek_3, liek_4];
   if (window.innerWidth > 767) {
 
-    
+
     useEffect(() => {
       if (!rainContainerRef.current || !canvasRef.current) return;
       fryImages.current = fryImageSources.map((src) => {
@@ -711,7 +714,7 @@ useEffect(() => {
             sway: Math.random() * 50 - 25,
             image:
               fryImages.current[
-                Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
               ],
           });
         }
@@ -729,7 +732,7 @@ useEffect(() => {
             fry.y = Math.random() * -canvas.height;
             fry.image =
               fryImages.current[
-                Math.floor(Math.random() * fryImages.current.length)
+              Math.floor(Math.random() * fryImages.current.length)
               ];
           }
           ctx.drawImage(fry.image, fry.x, fry.y, 300, 300);
@@ -759,11 +762,11 @@ useEffect(() => {
 
       return () => {
         window.removeEventListener('resize', resizeCanvas);
-       // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     }, [getIntouch]);
-  
-}
+
+  }
 
   useEffect(() => {
     const animateButton = (e) => {
@@ -780,21 +783,21 @@ useEffect(() => {
   }, [getIntouch]);
 
 
-  useEffect(() => 
-          {
-            if (window.innerWidth >= 1024) 
-              {
-                  if (getIntouch) 
-                  {
-                    const h3Elementget = document.querySelector(".roundtext-getintouch h3");
-                    const clientWidthH3get = h3Elementget.clientWidth;
-                    h3Elementget.style.right = `-${clientWidthH3get - 120}px`;
-                    const h2Elementget = document.querySelector(".roundtext-getintouch h2");
-                    const clientWidthH2get = h2Elementget.clientWidth;
-                    h2Elementget.style.left = `-${clientWidthH2get - 90}px`;       
-                  }
-              }
-          }, [getIntouch]);
+  // useEffect(() => 
+  //         {
+  //           if (window.innerWidth >= 1024) 
+  //             {
+  //                 if (getIntouch) 
+  //                 {
+  //                   const h3Elementget = document.querySelector(".roundtext-getintouch h3");
+  //                   const clientWidthH3get = h3Elementget.clientWidth;
+  //                   h3Elementget.style.right = `-${clientWidthH3get - 120}px`;
+  //                   const h2Elementget = document.querySelector(".roundtext-getintouch h2");
+  //                   const clientWidthH2get = h2Elementget.clientWidth;
+  //                   h2Elementget.style.left = `-${clientWidthH2get - 90}px`;       
+  //                 }
+  //             }
+  //         }, [getIntouch]);
 
   if (loading)
     return (
@@ -814,57 +817,23 @@ useEffect(() => {
       </div>
     );
   if (error) return <p>{error}</p>;
-  
+
   if (!getIntouch || getIntouch.length === 0) return <div>No menu available.</div>;
 
-  
+
   const { contactSection, contentSection, transitionSection } = getIntouch;
 
   return (
     <section className="panel sixthsection" id="section6">
+
+      <ZoomSection
+        image={getImageUrl(transitionSection.image.asset._ref,)}
+        alt="Logo"
+        h2Text={transitionSection.topTitle}
+        h3Text={transitionSection.bottomTitle}
+      />
+
       <div>
-        <div className="wrapper-getintouch" ref={wrapperRefgetIntouch}>
-        <div className='image-container'>
-          <div className="wrappermain">
-            <div className="wrappermain_inner">
-              {getIntouch.transitionSection && (
-                <img
-                  className="media"
-                  src={getImageUrl(transitionSection.image.asset._ref,)}
-                  alt="Logo"
-                  width="10"
-                  height="10"
-                  //onError={(e) => (e.target.src = {bannerlogo})}
-                />
-              )}
-            </div>
-          </div>
-          <div className="roundimages" ref={imgRefgetIntouch}>
-            <div className="roundtext-getintouch" ref={imgRefgetIntouch}>
-              <h2
-                dangerouslySetInnerHTML={{__html: transitionSection.topTitle}}
-              />
-              <h3
-                dangerouslySetInnerHTML={{
-                  __html: transitionSection.bottomTitle,
-                }}
-              />
-            </div>
-            <div
-              className="roundimage-getintouch roundimagesround"
-              ref={imgRefgetIntouch}
-            ></div>
-            <div className="scroll-down">
-              <div className="icon-scroll"></div>
-              <p>Scroll down</p>
-            </div>
-          </div>
-          {/* <section
-            className="section hero"
-            ref={heroSectiongetIntouch}
-          ></section> */}
-          </div>
-        </div>
 
         <div className="wrappertest" ref={rainContainerRef}>
           <div className="wrappertests">
@@ -872,13 +841,13 @@ useEffect(() => {
               <></>
             ) : (
               <div className="flair flair--3">
-              <div className="likeimagelists">
-                <img src={liek_2} alt="img" className="ball" />
-                <img src={liek_1} alt="img" className="ball" />
-                <img src={liek_3} alt="img" className="ball" />
-                <img src={liek_4} alt="img" className="ball" />
+                <div className="likeimagelists">
+                  <img src={liek_2} alt="img" className="ball" />
+                  <img src={liek_1} alt="img" className="ball" />
+                  <img src={liek_3} alt="img" className="ball" />
+                  <img src={liek_4} alt="img" className="ball" />
+                </div>
               </div>
-            </div>
             )}
           </div>
 
@@ -889,7 +858,7 @@ useEffect(() => {
               <canvas
                 className="canvasfries"
                 ref={canvasRef}
-                style={{position: 'absolute', top: -100, left: 0}}
+                style={{ position: 'absolute', top: -100, left: 0 }}
               />
             )}
 
@@ -899,7 +868,7 @@ useEffect(() => {
             <p
               className="onzefriendescription"
               data-gettouchonzefrientdescription=""
-              dangerouslySetInnerHTML={{__html: contentSection.description}}
+              dangerouslySetInnerHTML={{ __html: contentSection.description }}
             />
 
             <div className="gradient-threebox gradient-threeboxgetintouch">
@@ -1135,7 +1104,7 @@ useEffect(() => {
                           {contactSection.contactDetails.whatsAppLabel}
                         </a>
                         <div className="canvas whatsappcanvas">
-                          {Array.from({length: numSVGs}).map((_, i) => (
+                          {Array.from({ length: numSVGs }).map((_, i) => (
                             <div
                               key={i + svgKey}
                               className="fly-svg-wrapper"
@@ -1306,7 +1275,7 @@ useEffect(() => {
                             <g clipPath="url(#clip0_887_340)">
                               <mask
                                 id="mask0_887_340"
-                                style={{maskType: 'luminance'}}
+                                style={{ maskType: 'luminance' }}
                                 maskUnits="userSpaceOnUse"
                                 x="0"
                                 y="0"
@@ -1416,7 +1385,7 @@ useEffect(() => {
                     data-aos-duration="500"
                   >
                     {contactSection.contactDetails?.faqSection?.faq?.length >
-                    0 ? (
+                      0 ? (
                       contactSection.contactDetails.faqSection.faq.map(
                         (faq) => (
                           <div className="accordion-item" key={faq._key}>
@@ -1440,7 +1409,9 @@ useEffect(() => {
                   </div>
                 </div>
               </div>
-              <div className="overlaybannehand-bottoms"></div>
+              <div className="overlaybannehand-bottomss">
+                <img src={images.bottompotetoes} />
+              </div>
             </div>
           </div>
         </div>

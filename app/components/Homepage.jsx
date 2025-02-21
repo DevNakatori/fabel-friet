@@ -147,12 +147,12 @@ const HomePage = () => {
     };
 
     const handlePlay = () => {
-      setTimeout(() => {
-        if (!sessionStorage.getItem('pageRefreshed')) {
-          sessionStorage.setItem('pageRefreshed', 'true');
-          // location.reload();
-        }
-      }, 2500);
+      // setTimeout(() => {
+      //   if (!sessionStorage.getItem('pageRefreshed')) {
+      //     sessionStorage.setItem('pageRefreshed', 'true');
+      //     // location.reload();
+      //   }
+      // }, 2500);
       document.body.classList.add('hiddenoverflow');
     };
 
@@ -764,7 +764,7 @@ const HomePage = () => {
           {bannerData[0].bannerButton && (
             <a
               className="bubbly-button banner_bottombtn swipe-effect"
-              href={bannerData[0].bannerButton.buttonLink || '#'}
+              href={bannerData[0].bannerButton.buttonLink || '#section2'}
               dangerouslySetInnerHTML={{
                 __html: bannerData[0].bannerButton.buttonText,
               }}
