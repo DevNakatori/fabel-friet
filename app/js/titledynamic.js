@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import SplitType from 'split-type';
 
 const titledynamic = () => {
-
+    
   const titledynamictitle = gsap.utils.toArray('.roundtext');
   titledynamictitle.forEach((titledynamictitles) => {
     if (window.innerWidth >= 1024) {
@@ -20,7 +20,6 @@ const titledynamic = () => {
         }
       }
   });
-  
 };
 
 export default titledynamic;
