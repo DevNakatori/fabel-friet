@@ -1,5 +1,10 @@
 import gsap from 'gsap';
 import SplitType from 'split-type';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+
 const alltitleAnimation = () => {
   const sectionsalltitle = gsap.utils.toArray('[data-title]');
   sectionsalltitle.forEach((sectionalltitle) => {
@@ -29,5 +34,6 @@ const alltitleAnimation = () => {
       },
     });
   });
+  ScrollTrigger.refresh();
 };
 export default alltitleAnimation;

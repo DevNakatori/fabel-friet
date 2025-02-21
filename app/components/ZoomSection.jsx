@@ -21,12 +21,12 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         repeat: 1,
         delay: 0.5,
         pinSpacing: false,
-        snap: {
-          snapTo: 1,
-          duration: 1.5,
-          directional: true,
-          ease: "power1.in",
-        },
+        // snap: {
+        //   snapTo: 1,
+        //   duration: 1.5,
+        //   directional: true,
+        //   ease: "power1.in",
+        // },
         onEnterBack: () => {
           ScrollTrigger.refresh();
         },
