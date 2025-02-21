@@ -1,83 +1,40 @@
-import React, {useRef, useEffect, useState} from 'react';
-import {client} from '../../sanityClient';
-import {useLanguage} from '~/components/LanguageContext';
+import React, { useRef, useEffect, useState } from 'react';
+import { client } from '../../sanityClient';
+import { useMediaQuery } from '@react-hook/media-query';
+import { useLanguage } from '~/components/LanguageContext';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import Friesanimation from '~/components/Friesanimation';
+import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
-import {Pagination, Autoplay} from 'swiper/modules';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
-
-import {useMediaQuery} from '@react-hook/media-query';
-
-import new_fries_one from '../assets/new_fries/new_1.webp';
-import new_fries_two from '../assets/new_fries/new_2.webp';
-import new_fries_three from '../assets/new_fries/new_3.webp';
-import new_fries_four from '../assets/new_fries/new_1.webp';
-
+import toggleAccordion from '../js/accordion.js';
+import alltitleAnimation from '../js/alltitleAnimation.js';
+import alldescription from '../js/alldescription.js';
+import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
+import titledynamic from '../js/titledynamic.js';
+/* --------------------------------------------------------------------------------------------------------------------- */
 gsap.registerPlugin(ScrollTrigger, SplitText);
-
+/* --------------------------------------------------------------------------------------------------------------------- */
 const Onzefriet = () => {
-  const {language} = useLanguage();
-  const [dataLoaded, setDataLoaded] = useState(false);
+  const { language } = useLanguage();
   const [onzefriet, setOnzefriet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const wrapperRef = useRef(null);
-  const imgRef = useRef(null);
-  // const heroSectionRef = useRef(null);
-
   const isDesktopcanvas = useMediaQuery('(max-width: 767px)');
-
-  useEffect(() => {
-    if (onzefriet) {
-     
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: wrapperRef.current,
-            start: 'center center',
-            // end: '+=150%',
-            pin: true,
-            scrub: true,
-            markers: false,
-            repeat: 1,
-            //delay: 0.5,
-          },
-        })
-        .to(imgRef.current, {
-          scale: 1.5,
-          z: 350,
-          transformOrigin: 'center center',
-          ease: 'power1.inOut',
-        });
-        // .to(
-        //   heroSectionRef.current,
-        //   {
-        //     scale: 1.1,
-        //     transformOrigin: 'center center',
-        //     ease: 'power1.inOut',
-        //   },
-        //   '<',
-        // );
-        return () => {
-          timeline.scrollTrigger.kill();
-        };
-    }
-  }, [onzefriet]);
-
-  // /* fatch data start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* fatch data start */
   useEffect(() => {
     const fetchDataonzefriet = async () => {
       const cachedData = localStorage.getItem(`onzefrietData_${language}`);
       //console.log('onzefrietData Cached Data:', cachedData);
-
       if (cachedData) {
         setOnzefriet(JSON.parse(cachedData));
         setLoading(false);
@@ -86,7 +43,7 @@ const Onzefriet = () => {
           setLoading(true);
           const data = await client.fetch(
             `*[_type == "onzefriet" && language == $lang]`,
-            {lang: language},
+            { lang: language },
           );
           //console.log('Fetched Onzefriet Data:', data);
           localStorage.setItem(
@@ -104,25 +61,23 @@ const Onzefriet = () => {
     };
     fetchDataonzefriet();
   }, [language]);
-  // /* fatch data end */
-
+  /* fatch data end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   /* round curcule animation start */
   useEffect(() => {
     if (onzefriet) {
       const timelinesonzefriet = gsap.timeline({});
-
       timelinesonzefriet.to('.secondesection .wrappertest', {
         scrollTrigger: {
           trigger: '.secondesection',
-          start: '0% 0%',
-          end: '25% 25%',
+          start: '0 0',
+          end: '8% 8%',
           scrub: true,
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
       });
-
       timelinesonzefriet.to(
         '#section2 .gradient-purple',
         {
@@ -137,198 +92,48 @@ const Onzefriet = () => {
         },
         0,
       );
-      // return () => {
-      //  timelinesonzefriet.scrollTrigger.kill();
-      // };
+      return () => {
+        if (timelinesonzefriet.scrollTrigger) 
+        {
+          timelinesonzefriet.scrollTrigger.kill();
+        }
+      };
     }
   }, [onzefriet]);
-
-  /* round curcule animation start */
-
+  /* round curcule animation end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* accordian start */
   useEffect(() => {
-    if (onzefriet) {
-      const path = document.querySelector('.line2');
-      if (path) {
-        const pathLength = path.getTotalLength();
-        gsap.set(path, {
-          strokeDasharray: pathLength,
-          strokeDashoffset: pathLength,
-        });
-        gsap.to(path, {
-          strokeDashoffset: 0,
-          scrollTrigger: {
-            trigger: path,
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-            markers: false,
-          },
-        });
-      }
-    }
-  }, [onzefriet]);
-
-  useEffect(() => {
-    const isHardRefresh = window.performance.navigation.type === 1;
-    const animationDelay = isHardRefresh ? 300 : 300;
-
-    const initiateAnimations = () => {
-      const typeSplit = new SplitType('[data-onzefrienttitle]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-      var charsOnzefrienttitle = typeSplit.chars;
-      gsap.from('[data-onzefrienttitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-onzefrienttitle]',
-        },
-        onUpdate: function () {
-          charsOnzefrienttitle.forEach((typeSplit) => {
-            typeSplit.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeSplit.style.webkitBackgroundClip = 'text';
-            typeSplit.style.webkitTextFillColor = 'transparent';
-            typeSplit.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitonzefriendescription = new SplitType(
-        '[data-onzefriendescription]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-
-      gsap.from('[data-onzefriendescription] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.45,
-        ease: 'none.inOut',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-onzefriendescription]',
-          start: 'top center',
-          once: false,
-        },
-      });
-
-      const typeSplitvideoDescription = new SplitType('.onzeptag', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-
-      gsap.from('.onzeptag .line', {
-        opacity: 0.3,
-        duration: 0.5,
-        ease: 'power1.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.onzeptag',
-          start: 'top center',
-          scrub: true,
-        },
-      });
-
-      const typeSplitwhatpeoplesection = new SplitType(
-        '[data-whatpeoplesection]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charswhatpeoplesection = typeSplitwhatpeoplesection.chars;
-      gsap.from('[data-whatpeoplesection] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.1,
-        ease: 'circ.in',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-whatpeoplesection]',
-        },
-        onUpdate: function () {
-          charswhatpeoplesection.forEach((typeswhatpeoplesection) => {
-            typeswhatpeoplesection.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitaccordionSection = new SplitType(
-        '[data-accordionsection]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charsaccordionSection = typeSplitaccordionSection.chars;
-      gsap.from('[data-accordionsection] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-accordionsection]',
-        },
-        onUpdate: function () {
-          charsaccordionSection.forEach((typesaccordionSection) => {
-            typesaccordionSection.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      const revealcontaineronze = document.querySelectorAll('.revealvideo');
-      revealcontaineronze.forEach((containeonze) => {
-        let imageimpactonze = containeonze.querySelector('.revealvideo video');
-        let tlimpact = gsap.timeline({
-          scrollTrigger: {
-            trigger: containeonze,
-          },
-        });
-
-        tlimpact.set(containeonze, {visibility: 'visible'});
-        tlimpact.from(containeonze, 1.5, {
-          xPercent: 0,
-          ease: 'Power2.out',
-        });
-        tlimpact.from(imageimpactonze, 1.5, {
-          xPercent: -100,
-          scale: 1.3,
-          delay: -1.5,
-          ease: 'Power2.out',
-        });
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach((header) => {
+      header.addEventListener('click', toggleAccordion);
+    });
+    return () => {
+      accordionHeaders.forEach((header) => {
+        header.removeEventListener('click', toggleAccordion);
       });
     };
-
-    setTimeout(() => {
-      initiateAnimations();
-    }, animationDelay);
-
-    // return () => {
-    //   gsap.killTweensOf('[data-onzefrienttitle] .line');
-    //   gsap.killTweensOf('[data-onzefriendescription] .line');
-    //   gsap.killTweensOf('.onzeptag .line');
-    //   gsap.killTweensOf('[data-whatpeoplesection] .line');
-    //   gsap.killTweensOf('[data-accordionsection] .line');
-    //   gsap.killTweensOf('[data-onzefriendescription]');
-    // };
-  }, [onzefriet]);
-
+  }, []);
+  /* accordian end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* gold title start */
   useEffect(() => {
-    //if (!onzefriet || loading) return;
+    if (onzefriet) {
+      alltitleAnimation();
+      alldescription();
+      allinnerlinedescriptn();
+      titledynamic();
+    }
+  }, [onzefriet]);
+  /* gold title start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* three image animation start */
+  useEffect(() => {
     if (onzefriet) {
       gsap.set(['.image-wrapper'], {
         xPercent: -50,
         yPercent: -50,
       });
-
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: '.img-container',
@@ -339,7 +144,6 @@ const Onzefriet = () => {
           once: false,
         },
       });
-
       timeline
         .to('.image-wrapper:first-child', {
           left: '20%',
@@ -380,7 +184,6 @@ const Onzefriet = () => {
           },
           '<',
         );
-
       gsap.fromTo(
         '.image-wrapper .threeboxleftlogobar',
         {
@@ -402,161 +205,60 @@ const Onzefriet = () => {
       );
     }
   }, [onzefriet]);
-
-  useEffect(() => 
-  {
-    if (window.innerWidth >= 1024) 
-      {
-          if (onzefriet) 
-          {
-                const h3Element = document.querySelector(".roundtext h3");
-                const clientWidthH3 = h3Element.clientWidth;
-                h3Element.style.right = `-${clientWidthH3 - 120}px`;
-                const h2Element = document.querySelector(".roundtext h2");
-                const clientWidthH2 = h2Element.clientWidth;
-                h2Element.style.left = `-${clientWidthH2 - 90}px`;     
-          }
-      }
-  }, [onzefriet]);
-
-  /* accordian start */
-  const toggleAccordion = (e) => {
-    const trigger = e.currentTarget;
-    const content = trigger.nextElementSibling;
-    document.querySelectorAll('.accordion-content').forEach((accordion) => {
-      if (accordion !== content) {
-        gsap.to(accordion, {
-          height: 0,
-          duration: 0.5,
-          onComplete: () => (accordion.style.display = 'none'),
+  /* three image animation end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* svg animation start */
+  useEffect(() => {
+    if (onzefriet) {
+      const path = document.querySelector('.line2');
+      if (path) {
+        const pathLength = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: pathLength,
+          strokeDashoffset: pathLength,
         });
-        accordion.classList.remove('show');
-        trigger.classList.remove('active');
+        gsap.to(path, {
+          strokeDashoffset: 0,
+          scrollTrigger: {
+            trigger: path,
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+            markers: false,
+          },
+        });
       }
-    });
-    document.querySelectorAll('.accordion-header').forEach((item) => {
-      if (item !== trigger) {
-        item.classList.remove('active');
-      }
-    });
-    if (content.classList.contains('show')) {
-      gsap.to(content, {
-        height: 0,
-        duration: 0.5,
-        onComplete: () => (content.style.display = 'none'),
-      });
-      content.classList.remove('show');
-      trigger.classList.remove('active');
-    } else {
-      content.style.display = 'block';
-      let contentHeight = content.scrollHeight;
-      gsap.fromTo(content, {height: 0}, {height: contentHeight, duration: 0.5});
-      content.classList.add('show');
-      trigger.classList.add('active');
     }
-  };
-  /* accordian end */
-
-  
-  const rainContainerRef = useRef(null);
-  const canvasRef = useRef(null);
-  const fries = useRef([]);
-  const fryImages = useRef([]);
-
-  
-  if (window.innerWidth >= 1024) {
-
-    
-  
-  const numberOfFries = 40;
-  const fryImageSources = [
-    new_fries_one,
-    new_fries_two,
-    new_fries_three,
-    new_fries_four,
-  ];
-
-    useEffect(() => {
-      if (!rainContainerRef.current || !canvasRef.current) return;
-      fryImages.current = fryImageSources.map((src) => {
-        const img = new Image();
-        img.src = src;
-        return img;
-      });
-      const resizeCanvas = () => {
-        const canvas = canvasRef.current;
-        const rainContainer = rainContainerRef.current;
-        if (!canvas || !rainContainer) return;
-        canvas.width = rainContainer.offsetWidth;
-        canvas.height = rainContainer.offsetHeight;
-      };
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-      const createFries = () => {
-        fries.current = [];
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        for (let i = 0; i < numberOfFries; i++) {
-          fries.current.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * -canvas.height,
-            speed: Math.random() * 1 + 0.1, // Slower speed: 0.5 to 1.5 pixels per frame
-            sway: Math.random() * 50 - 25,
-            image:
-              fryImages.current[
-                Math.floor(Math.random() * fryImages.current.length)
-              ], // Random image
-          });
-        }
-      };
-      const renderFries = () => {
-        const canvas = canvasRef.current;
-        const ctx = canvas?.getContext('2d');
-        if (!ctx || !canvas) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        fries.current.forEach((fry) => {
-          fry.y += fry.speed;
-          fry.x += fry.sway * 0.01;
-          if (fry.y > canvas.height) {
-            fry.y = 0;
-            fry.x = Math.random() * canvas.width;
-            fry.image =
-              fryImages.current[
-                Math.floor(Math.random() * fryImages.current.length)
-              ];
-          }
-          ctx.drawImage(fry.image, fry.x, fry.y, 200, 300);
+  }, [onzefriet]);
+  /* svg animation end */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* video left to right start */
+  useEffect(() => {
+    if (onzefriet) {
+      const revealcontaineronze = document.querySelectorAll('.revealvideo');
+      revealcontaineronze.forEach((containeonze) => {
+        let imageimpactonze = containeonze.querySelector('.revealvideo video');
+        let tlimpact = gsap.timeline({
+          scrollTrigger: {
+            trigger: containeonze,
+          },
         });
-        requestAnimationFrame(renderFries);
-      };
-      ScrollTrigger.create({
-        trigger: rainContainerRef.current,
-        start: 'top center',
-        onEnter: () => {
-          createFries();
-          renderFries();
-        },
-        // onLeaveBack: () => {
-        //   fries.current = [];
-        //   const ctx = canvasRef.current.getContext('2d');
-        //   if (ctx) {
-        //     ctx.clearRect(
-        //       0,
-        //       0,
-        //       canvasRef.current.width,
-        //       canvasRef.current.height,
-        //     );
-        //   }
-        // },
+        tlimpact.set(containeonze, { visibility: 'visible' });
+        tlimpact.from(containeonze, 1.5, {
+          xPercent: 0,
+          ease: 'Power2.out',
+        });
+        tlimpact.from(imageimpactonze, 1.5, {
+          xPercent: -100,
+          scale: 1.3,
+          delay: -1.5,
+          ease: 'Power2.out',
+        });
       });
-      return () => {
-        window.removeEventListener('resize', resizeCanvas);
-        //ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    }, [onzefriet]);
-  
-}
-
+    }
+  }, [onzefriet]);
+  /* video left to right start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
     return (
       <div>
@@ -575,61 +277,28 @@ const Onzefriet = () => {
       </div>
     );
   if (error) return <div>{error}</div>;
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel secondesection" id="section2">
       {onzefriet.map((content, idx) => (
         <div key={idx}>
-          <div className="wrapper" ref={wrapperRef}>
-            <div className='image-container'>
-            <div className="wrappermain">
-              <div className="wrappermain_inner">
-                <img
-                  className="media"
-                  src={getImageUrl(content.transitionSection.image.asset._ref)}
-                  alt={content.transitionSection.image.alt}
-                  width="10"
-                  height="10"
-                />
-              </div>
-            </div>
-            <div className="roundimages" ref={imgRef}>
-              <div className="roundtext" ref={imgRef}>
-                {content.transitionSection && (
-                  <>
-                    <h2
-                      dangerouslySetInnerHTML={{
-                        __html: content.transitionSection.topTitle,
-                      }}
-                    />
-                    <h3
-                      dangerouslySetInnerHTML={{
-                        __html: content.transitionSection.bottomTitle,
-                      }}
-                    />
-                  </>
-                )}
-              </div>
-              <div className="roundimage roundimagesround" ref={imgRef}></div>
-              <div className="scroll-down">
-                <div className="scroll-down">
-                  <div className="icon-scroll"></div>
-                  <p>Scroll down</p>
-                </div>
-              </div>
-            </div>
-            {/* <section className="section hero" ref={heroSectionRef}></section> */}
-            </div>
-          </div>
-
-          <div className="wrappertest" ref={rainContainerRef}>
+{/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
+          <ZoomSection
+            image={getImageUrl(content.transitionSection.image.asset._ref)}
+            alt={content.transitionSection.image.alt}
+            h2Text={content.transitionSection.topTitle}
+            h3Text={content.transitionSection.bottomTitle}
+          />
+          {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
+          <div className="wrappertest" /*ref={rainContainerRef}*/>
             <div className="gradient-purple" id="onzefriendescriptiononzefriet">
               {content.contentSection && (
                 <>
                   <div className="line">
                     <h4
                       className="onzefrienttitle"
-                      data-onzefrienttitle=""
+                      data-title=""
+                      data-speed="auto"
                       dangerouslySetInnerHTML={{
                         __html: content.contentSection.heading,
                       }}
@@ -637,7 +306,8 @@ const Onzefriet = () => {
                   </div>
                   <p
                     className="onzefriendescription"
-                    data-onzefriendescription=""
+                    data-description=""
+                    data-speed="auto"
                     dangerouslySetInnerHTML={{
                       __html: content.contentSection.description,
                     }}
@@ -658,7 +328,6 @@ const Onzefriet = () => {
                           />
                         </div>
                       )}
-
                       {index === 1 && (
                         <div className="threeboxleftlogobar lastbottomimg ">
                           <img
@@ -669,7 +338,6 @@ const Onzefriet = () => {
                           />
                         </div>
                       )}
-
                       <img
                         src={getImageUrl(image.asset._ref)}
                         alt={image.alt}
@@ -680,17 +348,18 @@ const Onzefriet = () => {
                   ))}
                 </div>
               </div>
-
+              {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               {isDesktopcanvas ? (
                 <></>
               ) : (
-                <canvas
-                  className="canvasfries"
-                  ref={canvasRef}
-                  style={{position: 'absolute', top: -100, left: -50}}
-                />
+                // <canvas
+                //   className="canvasfries"
+                //   ref={canvasRef}
+                //   style={{position: 'absolute', top: -100, left: -50}}
+                // />
+                <Friesanimation />
               )}
-
+              {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">
                 <div className="appcontainers">
                   {content.videoSection && (
@@ -707,8 +376,8 @@ const Onzefriet = () => {
                         <div className="revealvideo">
                           <video
                             id="myVideos"
-                            // src={content.videoSection.videoLink}
-                            src="https://cdn.shopify.com/videos/c/o/v/558eb6d044f040f1ba690ebb9cf79d93.mp4"
+                            src={content.videoSection.videoLink}
+                            //src="https://cdn.shopify.com/videos/c/o/v/558eb6d044f040f1ba690ebb9cf79d93.mp4"
                             autoPlay
                             muted
                             playsInline
@@ -722,11 +391,12 @@ const Onzefriet = () => {
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
                           data-aos-duration="500"
+                          data-aos-mirror="true"
+                          data-speed="auto"
                           dangerouslySetInnerHTML={{
                             __html: content.videoSection.videoHandwritingText,
                           }}
                         />
-
                         <div className="arrowimage">
                           <svg
                             width="100"
@@ -759,7 +429,6 @@ const Onzefriet = () => {
                             </defs>
                           </svg>
                         </div>
-
                         <h5
                           data-aos="fade"
                           data-aos-easing="ease-in-sine"
@@ -768,10 +437,9 @@ const Onzefriet = () => {
                             __html: content.videoSection.videoHeading,
                           }}
                         />
-
                         <p
                           className="onzeptag"
-                          data-videodescription=""
+                          data-allinnerdescription=""
                           dangerouslySetInnerHTML={{
                             __html: content.videoSection.videoDescription,
                           }}
@@ -779,7 +447,7 @@ const Onzefriet = () => {
                       </div>
                     </div>
                   )}
-
+                  {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
                   {content.reviewSection && (
                     <div className="whatpeople-section">
                       <h6
@@ -791,7 +459,6 @@ const Onzefriet = () => {
                           __html: content.reviewSection.reviewHeading,
                         }}
                       />
-
                       <div
                         className="fl-tests"
                         data-aos="fade"
@@ -862,7 +529,7 @@ const Onzefriet = () => {
                                         ); // Full star
                                       } else if (
                                         index ===
-                                          Math.floor(review.reviewRating) &&
+                                        Math.floor(review.reviewRating) &&
                                         review.reviewRating % 1 !== 0
                                       ) {
                                         return (
@@ -883,13 +550,12 @@ const Onzefriet = () => {
                               </div>
                             </SwiperSlide>
                           ))}
-
                           <div className="swiper-pagination"></div>
                         </Swiper>
                       </div>
                     </div>
                   )}
-
+                  {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
                   {content.accordionSection && (
                     <div className="main-accordian">
                       <h6 data-accordionsection="">
@@ -920,7 +586,11 @@ const Onzefriet = () => {
                     </div>
                   )}
                 </div>
-                <div className="overlaybannehand-bottoms"></div>
+                {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
+                <div className="overlaybannehand-bottomss">
+                  <img src={images.bottompotetoes} />
+                </div>
+                {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               </div>
             </div>
           </div>

@@ -93,7 +93,7 @@ const Newheader = () => {
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        targetElement.scrollIntoView({ behavior: 'auto' });
       }
     } else {
       window.location.href = link;

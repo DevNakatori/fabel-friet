@@ -23,7 +23,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Cursor from '~/components/Cursor';
 
-import {useMediaQuery} from '@react-hook/media-query';
+
+
+import { useMediaQuery } from '@react-hook/media-query';
 
 gsap.registerPlugin(ScrollTrigger);
 /**
@@ -90,75 +92,101 @@ export default function Homepage() {
   gsap.config({
     force3D: false, // Forces 3D transformations for better performance
     nullTargetWarn: false, // Disable warnings for null target
+    autoSleep: 0,
   });
 
-   const ismobileprogress = useMediaQuery('(max-width: 767px)');
-
-
-  useEffect(() => {
-    const disableKeyboardEvents = (event) => {
-      event.preventDefault();
-    };
-    document.addEventListener('keydown', disableKeyboardEvents);
-    document.addEventListener('keyup', disableKeyboardEvents);
-    return () => {
-      document.removeEventListener('keydown', disableKeyboardEvents);
-      document.removeEventListener('keyup', disableKeyboardEvents);
-    };
-  }, []);
+  const ismobileprogress = useMediaQuery('(max-width: 767px)');
+  // useEffect(() => {
+  //   const disableKeyboardEvents = (event) => {
+  //     event.preventDefault();
+  //   };
+  //   document.addEventListener('keydown', disableKeyboardEvents);
+  //   document.addEventListener('keyup', disableKeyboardEvents);
+  //   return () => {
+  //     document.removeEventListener('keydown', disableKeyboardEvents);
+  //     document.removeEventListener('keyup', disableKeyboardEvents);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       // Check if the screen width is greater than or equal to 1024px (desktop)
-      // const smoother = ScrollSmoother.create({
-      //   smooth: 1,
-      //   smoothTouch: 0.2,
-      // });
-      // smoother.effects("img", { speed: "auto" });
-      // smoother.effects("video", { speed: "auto" });
+      const smoother = ScrollSmoother.create({
+        //smooth: 2,
+        speed: 1,
+        //effects: true,
+        ease: 'expo',
+        smooth: 1.5,
+        effects: true
+      });
+      smoother.effects("img", { speed: "auto" });
+      smoother.effects("video", { speed: "auto" });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault(); // Prevent default anchor scroll
+      
+          const targetId = anchor.getAttribute('href').substring(1); // Get target ID
+          const targetElement = document.getElementById(targetId);
+      
+          if (targetElement) {
+            smoother.scrollTo(targetElement, {
+              // Optional parameters, adjust as needed
+              speed: 1.5,
+              easing: 'expo',
+            });
+          }
+        });
+      });
     }
 
-    AOS.init({
-      once: true,
-      duration: 1200,
-      mirror: true,
-      debounceDelay: 50,
-      throttleDelay: 99,
-    });
-    // AOS.refresh();
+
+    setTimeout(() => {
+      AOS.init({
+        once: true,
+        duration: 1200,
+        mirror: true,
+        debounceDelay: 50,
+        throttleDelay: 99,
+      });
+    }, 0);
+
+
+    AOS.refresh();
   }, []);
 
-  useEffect(() => {
-    const detectLanguage = async () => {
-        const browserLanguage = navigator.language || navigator.userLanguage;
-        if (browserLanguage) {
-          const langCode = browserLanguage.split('-')[0];
-        }
-        try {
-          const response = await fetch('https://ipapi.co/json/');
-          const data = await response.json();
-          const country = data.country_code;
-          if (country === 'IN') {
-            document.body.classList.add('india'); 
-          } 
-        } catch (error) {
-        }
-    };
-    detectLanguage();
-  }, []);
-  
+  // useEffect(() => {
+  //   const detectLanguage = async () => {
+  //       const browserLanguage = navigator.language || navigator.userLanguage;
+  //       if (browserLanguage) {
+  //         const langCode = browserLanguage.split('-')[0];
+  //       }
+  //       try {
+  //         const response = await fetch('https://ipapi.co/json/');
+  //         const data = await response.json();
+  //         const country = data.country_code;
+  //         if (country === 'IN') {
+  //           document.body.classList.add('india'); 
+  //         } 
+  //       } catch (error) {
+  //       }
+  //   };
+  //   detectLanguage();
+  // }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1024) {
-        window.location.reload();
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth > 1024) {
+  //       window.location.reload();
+  //     }
+  //   };
+  //   window.addEventListener('resize', handleResize);
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
+
 
   const [showHomePage, setShowHomePage] = useState(false);
   const [showOnzefriet, setShowOnzefriet] = useState(false);
@@ -168,12 +196,12 @@ export default function Homepage() {
   const [showGetintouch, setShowGetintouch] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShowHomePage(true), 1000); // show after 1 second
-    setTimeout(() => setShowOnzefriet(true), 1000); // show after 2 seconds
-    setTimeout(() => setShowOnzelocaties(true), 1000); // show after 3 seconds
-    setTimeout(() => setShowHetmenu(true), 1000); // show after 4 seconds
-    setTimeout(() => setShowOnzeimpact(true), 1000); // show after 5 seconds
-    setTimeout(() => setShowGetintouch(true), 1000); // show after 6 seconds
+    setTimeout(() => setShowHomePage(true), 0); // show after 1 second
+    setTimeout(() => setShowOnzefriet(true), 0); // show after 2 seconds
+    setTimeout(() => setShowOnzelocaties(true), 0); // show after 3 seconds
+    setTimeout(() => setShowHetmenu(true), 0); // show after 4 seconds
+    setTimeout(() => setShowOnzeimpact(true), 0); // show after 5 seconds
+    setTimeout(() => setShowGetintouch(true), 0); // show after 6 seconds
   }, []);
 
 
@@ -187,48 +215,60 @@ export default function Homepage() {
   };
 
   useEffect(() => {
-    if (window.innerWidth < 767) 
-      {
-        window.addEventListener('scroll', updateScrollProgress);
-        return () => {
-          window.removeEventListener('scroll', updateScrollProgress);
-        };
-    }
-  }, []);
-  
-
-  useEffect(() => {
-
-    if (!localStorage.getItem('hasReloaded')) {
-      localStorage.setItem('hasReloaded', 'true');
-      setTimeout(() => {
-        window.location.reload();
-        ScrollTrigger.refresh();
-        console.log('ScrollTrigger page');
-      }, 4500);
-
-      setTimeout(() => {
-        const videoss = document.querySelector('#myVideo');
-        if (videoss) {
-          videoss.style.opacity = '1';
-        }
-
-        gsap.fromTo(
-          '#myVideo',
-          { opacity: 0 },
-          {
-            opacity: 1,
-          },
-        );
-
-
-      }, 3000);
+    if (window.innerWidth < 767) {
+      window.addEventListener('scroll', updateScrollProgress);
+      return () => {
+        window.removeEventListener('scroll', updateScrollProgress);
+      };
     }
   }, []);
 
   useEffect(() => {
-    ScrollTrigger.refresh();
-    console.log('refresh page');
+    // setTimeout(() => {
+    //   const videoss = document.querySelector('#myVideo');
+    //   if (videoss) {
+    //     videoss.style.opacity = '1';
+    //   }
+    //   gsap.fromTo(
+    //     '#myVideo',
+    //     { opacity: 0 },
+    //     {
+    //       opacity: 1,
+    //     },
+    //   );
+    // }, 2000);
+
+    // if (!localStorage.getItem('hasReloaded')) {
+    //   localStorage.setItem('hasReloaded', 'true');
+    //   setTimeout(() => {
+    //     // window.location.reload();
+    //     ScrollTrigger.refresh();
+    //     console.log('ScrollTrigger page');
+    //   }, 4500);
+
+    //   setTimeout(() => {
+    //     const videoss = document.querySelector('#myVideo');
+    //     if (videoss) {
+    //       videoss.style.opacity = '1';
+    //     }
+
+    //     gsap.fromTo(
+    //       '#myVideo',
+    //       { opacity: 0 },
+    //       {
+    //         opacity: 1,
+    //       },
+    //     );
+
+
+    //   }, 3000);
+    // }
+  }, []);
+
+  useEffect(() => {
+    // ScrollTrigger.refresh();
+    // console.log('refresh page');
+
   }, []);
 
 
@@ -237,7 +277,6 @@ export default function Homepage() {
     let portrait = window.matchMedia('(orientation: portrait)');
     portrait.addEventListener('change', function (e) {
       if (e.matches) {
-
         window.location.reload();
       } else {
 
@@ -268,13 +307,35 @@ export default function Homepage() {
         <Cursor />
         <div id="smooth-wrapper">
           <div id="smooth-content">
-              {showHomePage && <HomePage />}
-              {showOnzefriet && <Onzefriet />}
-              {showOnzelocaties && <Onzelocaties />}
-              {showHetmenu && <Hetmenu />} 
-              {showOnzeimpact && <Onzeimpact />}
-              {showGetintouch && <Getintouch />} 
-            </div>
+            {loading ? (
+
+              <>
+                {showHomePage && <HomePage />}
+                {showOnzefriet && <Onzefriet />}
+                {showOnzelocaties && <Onzelocaties />}
+                {showHetmenu && <Hetmenu />}
+                {showOnzeimpact && <Onzeimpact />}
+                {showGetintouch && <Getintouch />}  
+              </>
+
+
+
+            ) : (
+
+              <div className="loadersite">
+                <div className="logosvg">
+                  <img src={bannerlogo} alt="logo" />
+                </div>
+                <div className="loader1">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </LanguageProvider>
     </div>

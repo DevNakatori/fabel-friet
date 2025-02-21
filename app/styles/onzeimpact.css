@@ -49,7 +49,7 @@ p.onzeimpactdescription.aos-init.aos-animate{width:100%;max-width:920px;}
 .binimageboxmain{max-width:650px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;position:absolute;right:-10px;bottom:0px;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;-ms-flex-line-pack:center;-webkit-align-content:center;align-content:center;}
 .binimageboxmain .binimageboxieft{width:275px;margin-top:-45px;}
 .binimageboxmain .binimageboxieft .binarrowimg{width:96px;left:60%;position:relative;margin-top:0px;}
-.binimageboxmain .binimageboxieft h6{color:#0D1E4D;text-align:left;font-family:'Permanent Marker',cursive;font-size:30px;font-style:normal;font-weight:400;line-height:35px;margin:0;width:73%;position:relative;left:25%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.binimageboxmain .binimageboxieft h6{color:#0D1E4D;text-align:left;font-family:'Permanent Marker',cursive;font-size:30px;font-style:normal;font-weight:400;line-height:35px;margin:0;width:100%;position:relative;left:0%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .binimagebox img{width:100%;height:auto;}
 .fifthesection .gradient-threebox ul li:nth-child(2) .threeboxleftlogobar.lastbottomimg{position:absolute;z-index:2;right:-15px;bottom:10px;top:inherit;left:inherit;-webkit-transform:inherit;-ms-transform:inherit;-moz-transform:inherit;-o-transform:inherit;transform:inherit;}
 .binimageboxmain .binimageboxieft .binarrowimg img{width:100%;height:auto;}

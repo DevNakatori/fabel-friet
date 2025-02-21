@@ -18,7 +18,7 @@ import like_1 from '../assets/resizeimgs/webp/like11.webp';
 import like_2 from '../assets/resizeimgs/webp/like33.webp';
 import like_3 from '../assets/resizeimgs/webp/like44.webp';
 import like_4 from '../assets/resizeimgs/webp/like55.webp';
-
+import bottompotetoes from '../assets/resizeimgs/webp/PotatoesDisplay_FabelFriet.webp';
 
 
 const images = {
@@ -42,6 +42,7 @@ const images = {
     like_2,
     like_3,
     like_4,
+    bottompotetoes,
 };
 
 export default images;
