@@ -119,25 +119,25 @@ export default function Homepage() {
         smooth: 1.5,
         effects: true
       });
-      smoother.effects("img", { speed: "auto" });
-      smoother.effects("video", { speed: "auto" });
+      //smoother.effects("img", { speed: "auto" });
+      //smoother.effects("video", { speed: "auto" });
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-          e.preventDefault(); // Prevent default anchor scroll
+      // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      //   anchor.addEventListener('click', (e) => {
+      //     e.preventDefault(); // Prevent default anchor scroll
       
-          const targetId = anchor.getAttribute('href').substring(1); // Get target ID
-          const targetElement = document.getElementById(targetId);
+      //     const targetId = anchor.getAttribute('href').substring(1); // Get target ID
+      //     const targetElement = document.getElementById(targetId);
       
-          if (targetElement) {
-            smoother.scrollTo(targetElement, {
-              // Optional parameters, adjust as needed
-              speed: 1.5,
-              easing: 'expo',
-            });
-          }
-        });
-      });
+      //     if (targetElement) {
+      //       smoother.scrollTo(targetElement, {
+      //         // Optional parameters, adjust as needed
+      //         speed: 1.5,
+      //         easing: 'expo',
+      //       });
+      //     }
+      //   });
+      // });
     }
 
 
