@@ -9,7 +9,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Friesanimation from '~/components/Friesanimation';
+import FrenchFriesRain from '~/components/FrenchFriesRain';
 import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
@@ -357,7 +357,7 @@ const Onzefriet = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                <Friesanimation />
+                <FrenchFriesRain />
               )}
               {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">

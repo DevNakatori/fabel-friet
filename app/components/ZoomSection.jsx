@@ -36,8 +36,8 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
       },
     })
       .to(zoomSectionRef.current, {
-        scale: 1.2,
-        z: 350,
+        scale: 1.1,
+        z: 300,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       });

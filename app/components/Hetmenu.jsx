@@ -13,7 +13,7 @@ import '../styles/hetmenu.css';
 import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
 import { useMediaQuery } from '@react-hook/media-query';
-import Friesanimation from '~/components/Friesanimation';
+import FrenchFriesRain from '~/components/FrenchFriesRain';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
@@ -229,7 +229,7 @@ const Hetmenu = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                <Friesanimation />
+                <FrenchFriesRain />
               )}
 
               <div
