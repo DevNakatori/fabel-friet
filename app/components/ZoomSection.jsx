@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getImageUrl } from '../js/imagesurl';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,8 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         repeat: 1,
         delay: 0.5,
         pinSpacing: false,
+        pinReparent: true,
+        anticipatePin: 1,
         // snap: {
         //   snapTo: 1,
         //   duration: 1.5,
@@ -28,10 +31,14 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         //   ease: "power1.in",
         // },
         onEnterBack: () => {
-          ScrollTrigger.refresh();
+          if (!isManualScroll) {
+            ScrollTrigger.refresh();
+          }  
         },
         onLeave: () => {
-          ScrollTrigger.refresh();
+          if (!isManualScroll) {
+            ScrollTrigger.refresh();
+          }  
         },
       },
     })

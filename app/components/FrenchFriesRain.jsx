@@ -34,8 +34,8 @@ const FrenchFriesRain = () => {
             fry.src = randomImage;
 
             const leftPosition = Math.random() * 100;
-            const animationDuration = Math.random() * 1 + 90;
-            const delay = Math.random() * 0;
+            const animationDuration = Math.random() * 3 + 20; // Speed random between 2 to 5 seconds
+            const delay = Math.random() * 2;
             const rotation = Math.random() * 360;
             const drift = Math.random() * 20 - 10;
             fry.style.left = `${leftPosition}%`;
@@ -56,7 +56,7 @@ const FrenchFriesRain = () => {
                     opacity: 1,
                     rotation: rotation + (Math.random() * 20 - 10),
                     x: drift + (Math.random() * 20 - 5),
-                    duration: animationDuration,
+                    duration: animationDuration, // Random duration for each fry
                     delay: delay,
                     ease: 'slow(0.7,0.7,false)',
                     onComplete: () => fry.remove(),

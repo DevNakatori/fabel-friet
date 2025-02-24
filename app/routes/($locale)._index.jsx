@@ -89,6 +89,8 @@ export default function Homepage() {
   const data = useLoaderData();
   const [loading, setLoading] = useState(true);
 
+
+
   gsap.config({
     force3D: false, // Forces 3D transformations for better performance
     nullTargetWarn: false, // Disable warnings for null target
@@ -111,24 +113,24 @@ export default function Homepage() {
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       // Check if the screen width is greater than or equal to 1024px (desktop)
-      const smoother = ScrollSmoother.create({
-        //smooth: 2,
-        speed: 1,
-        //effects: true,
-        ease: 'expo',
-        smooth: 1.5,
-        effects: true
-      });
+      // const smoother = ScrollSmoother.create({
+      //   //smooth: 2,
+      //   speed: 1,
+      //   //effects: true,
+      //   ease: 'expo',
+      //   smooth: 1.5,
+      //   effects: true
+      // });
       //smoother.effects("img", { speed: "auto" });
       //smoother.effects("video", { speed: "auto" });
 
       // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       //   anchor.addEventListener('click', (e) => {
       //     e.preventDefault(); // Prevent default anchor scroll
-      
+
       //     const targetId = anchor.getAttribute('href').substring(1); // Get target ID
       //     const targetElement = document.getElementById(targetId);
-      
+
       //     if (targetElement) {
       //       smoother.scrollTo(targetElement, {
       //         // Optional parameters, adjust as needed
@@ -138,6 +140,22 @@ export default function Homepage() {
       //     }
       //   });
       // });
+
+
+
+
+      // Initialize ScrollSmoother
+      // const smoother = ScrollSmoother.create({
+      //   speed: 1,
+      //   ease: 'expo',
+      //   smooth: 1.5,
+      //   effects: true,
+      // });
+
+
+
+
+
     }
 
 
@@ -153,6 +171,12 @@ export default function Homepage() {
 
 
     AOS.refresh();
+    // return () => {
+    //   // Cleanup when the component is unmounted
+    //   if (smoother) {
+    //     smoother.kill(); // Kill the smoother instance to avoid memory leaks
+    //   }
+    // };
   }, []);
 
   // useEffect(() => {
@@ -315,7 +339,7 @@ export default function Homepage() {
                 {showOnzelocaties && <Onzelocaties />}
                 {showHetmenu && <Hetmenu />}
                 {showOnzeimpact && <Onzeimpact />}
-                {showGetintouch && <Getintouch />}  
+                {showGetintouch && <Getintouch />}
               </>
 
 

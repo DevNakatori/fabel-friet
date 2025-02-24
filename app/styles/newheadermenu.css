@@ -44,3 +44,26 @@
   .headernew nav ul.desktop-menu .bannersectinlogo img{width:auto;height:auto;}
   .headernew nav ul.desktop-menu .bannersectinlogo{position:absolute;left:50%;-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);top:5px;width:0px;height:auto;}
 }
+
+.loadersite.loadersitessd {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+}
+.loadersite.loadersitessd .logosvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.loadersite.loadersitessd .loader1 {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%,0%);
+}
