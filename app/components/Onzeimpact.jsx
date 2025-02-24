@@ -16,9 +16,11 @@ import images from '../js/images';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
+import titledynamic from '../js/titledynamic.js';
+import blutextanimationtext from '../js/blutextanimationtext.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 import { useMediaQuery } from '@react-hook/media-query';
-  /* --------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------- */
 const Onzeimpact = () => {
   const { language } = useLanguage();
   const [dataLoadedimpact, setDataLoadedimpact] = useState(false);
@@ -26,7 +28,7 @@ const Onzeimpact = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const ismobile = useMediaQuery('(max-width: 767px)');
-/* --------------------------------------------------------------------------------------------------------------------- */  
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     const fetchDataonzeimpactData = async () => {
       const cachedData = localStorage.getItem(`onzeimpactData_${language}`);
@@ -57,7 +59,7 @@ const Onzeimpact = () => {
     };
     fetchDataonzeimpactData();
   }, [language]);
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       const timelineimpact = gsap.timeline({});
@@ -112,14 +114,13 @@ const Onzeimpact = () => {
       );
 
       return () => {
-        if (timelineimpact.scrollTrigger) 
-          {
-        timelineimpact.scrollTrigger.kill();
-          }
+        if (timelineimpact.scrollTrigger) {
+          timelineimpact.scrollTrigger.kill();
+        }
       };
     }
   }, [onzeimpact]);
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       gsap.set(['.image-wrappers'], {
@@ -200,7 +201,19 @@ const Onzeimpact = () => {
       );
     }
   }, [onzeimpact]);
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  /* gold title start */
+  useEffect(() => {
+    if (onzeimpact) {
+      alltitleAnimation();
+      alldescription();
+      allinnerlinedescriptn();
+      titledynamic();
+      blutextanimationtext();
+    }
+  }, [onzeimpact]);
+  /* gold title start */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       const pathss = document.querySelector('.line2ss');
@@ -221,232 +234,33 @@ const Onzeimpact = () => {
       }
     }
   }, [onzeimpact]);
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
-    const isHardRefreshimpact = window.performance.navigation.type === 1;
-    const animationDelayimpact = isHardRefreshimpact ? 300 : 300;
-
-    const initiateAnimationsonzimpact = () => {
-      let typeSplitonzeimpacttitle = new SplitType('[data-onzeimpacttitle]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
-      var charsonzeimpacttitle = typeSplitonzeimpacttitle.chars;
-      gsap.from('[data-onzeimpacttitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
+    let revealcontainerimpactsimpact = document.querySelectorAll('.reveal');
+    revealcontainerimpactsimpact.forEach((containerimpact) => {
+      let imageimpact = containerimpact.querySelector('.reveal img');
+      let tlimpact = gsap.timeline({
         scrollTrigger: {
-          trigger: '[data-onzeimpacttitle]',
-        },
-        onUpdate: function () {
-          charsonzeimpacttitle.forEach((typeSplitcharsonzeimpacttitleas) => {
-            typeSplitcharsonzeimpacttitleas.style.backgroundImage =
-              "url('/assets/plain-gold-background-C9ahylQT.webp')";
-            typeSplitcharsonzeimpacttitleas.style.webkitBackgroundClip = 'text';
-            typeSplitcharsonzeimpacttitleas.style.webkitTextFillColor =
-              'transparent';
-            typeSplitcharsonzeimpacttitleas.style.backgroundPosition =
-              '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitonzeimpactdescription = new SplitType(
-        '[data-onzeimpactdescription]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-
-      gsap.from('[data-onzeimpactdescription] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.45,
-        ease: 'none.inOut',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-onzeimpactdescription]',
-          start: 'top center',
-          once: false,
-        },
-      });
-
-      const typeSplitleftvideoboxsectitle = new SplitType(
-        '[data-leftvideoboxsectitle]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charsleftvideoboxsectitle = typeSplitleftvideoboxsectitle.chars;
-      gsap.from('[data-leftvideoboxsectitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-leftvideoboxsectitle]',
-        },
-        onUpdate: function () {
-          charsleftvideoboxsectitle.forEach((typeSplitleftvideoboxsectitle) => {
-            typeSplitleftvideoboxsectitle.style.backgroundPosition =
-              '97px -83px';
-          });
-        },
-      });
-
-      const typeSplitrighttextboxtitle = new SplitType(
-        '[data-righttextboxtitle]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charsrighttextboxtitle = typeSplitrighttextboxtitle.chars;
-      gsap.from('[data-righttextboxtitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 1,
-        ease: 'circ.in',
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: '[data-righttextboxtitle]',
-        },
-        onUpdate: function () {
-          charsrighttextboxtitle.forEach((typeSplitrighttextboxtitlse) => {
-            typeSplitrighttextboxtitlse.style.backgroundPosition = '97px -83px';
-          });
-        },
-      });
-
-      document
-        .querySelectorAll('[data-onzeimpacttwolistlisttext]')
-        .forEach((element) => {
-          new SplitType(element, {
-            types: 'lines, words, chars',
-            tagName: 'span',
-          });
-        });
-
-      gsap.from('[data-onzeimpacttwolistlisttext] .line', {
-        opacity: 0.3,
-        duration: 0.5,
-        ease: 'power1.out',
-        stagger: 0,
-        scrollTrigger: {
-          trigger: '[data-onzeimpacttwolistlisttext]',
-          scrub: true,
+          trigger: containerimpact,
           start: 'top bottom',
           end: 'bottom top',
-          markers: false,
         },
       });
 
-      const typeSplitsecdescription = new SplitType('[data-secdescription]', {
-        types: 'lines, words, chars',
-        tagName: 'span',
+      tlimpact.set(containerimpact, { autoAlpha: 1 });
+      tlimpact.from(containerimpact, 1.5, {
+        xPercent: 0,
+        ease: 'Power2.out',
       });
-
-      gsap.from('[data-secdescription] .line', {
-        opacity: 0.3,
-        duration: 0.5,
-        ease: 'power1.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-secdescription]',
-          scrub: true,
-        },
+      tlimpact.from(imageimpact, 1.5, {
+        xPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: 'Power2.out',
       });
-
-      const onzeimpacttwolistlisttitle = new SplitType(
-        '[data-onzeimpacttwolistlisttitle]',
-        {
-          types: 'lines, words, chars',
-          tagName: 'span',
-        },
-      );
-      var charsimpacttwolistlisttitle = onzeimpacttwolistlisttitle.chars;
-      gsap.from('[data-onzeimpacttwolistlisttitle] .line', {
-        y: '100%',
-        opacity: 0,
-        duration: 0.5,
-        ease: 'sine.inOut',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '[data-onzeimpacttwolistlisttitle]',
-        },
-        onUpdate: function () {
-          charsimpacttwolistlisttitle.forEach(
-            (typeSplitimpacttwolistlisttitle) => {
-              typeSplitimpacttwolistlisttitle.style.backgroundPosition =
-                '97px -83px';
-            },
-          );
-        },
-      });
-
-      let revealcontainerimpactsimpact = document.querySelectorAll('.reveal');
-      revealcontainerimpactsimpact.forEach((containerimpact) => {
-        let imageimpact = containerimpact.querySelector('.reveal img');
-        let tlimpact = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerimpact,
-            start: 'top bottom',
-            end: 'bottom top',
-          },
-        });
-
-        tlimpact.set(containerimpact, { autoAlpha: 1 });
-        tlimpact.from(containerimpact, 1.5, {
-          xPercent: 0,
-          ease: 'Power2.out',
-        });
-        tlimpact.from(imageimpact, 1.5, {
-          xPercent: -100,
-          scale: 1.3,
-          delay: -1.5,
-          ease: 'Power2.out',
-        });
-      });
-    };
-
-    setTimeout(() => {
-      initiateAnimationsonzimpact();
-    }, animationDelayimpact);
-
-    // return () => {
-    //   gsap.killTweensOf('[data-onzeimpacttitle] .line');
-    //   gsap.killTweensOf('[data-onzeimpactdescription] .line');
-    //   gsap.killTweensOf('[data-leftvideoboxsectitle] .line');
-    //   gsap.killTweensOf('[data-righttextboxtitle] .line');
-    //   gsap.killTweensOf('[data-onzeimpacttwolistlisttext] .line');
-    //   gsap.killTweensOf('[data-secdescription] .line');
-    //   gsap.killTweensOf('[data-onzeimpacttwolistlisttitle] .line');
-    // };
+    });
   }, [onzeimpact]);
-
-/* --------------------------------------------------------------------------------------------------------------------- */
-  // useEffect(() => 
-  //       {
-  //         if (window.innerWidth >= 1024) 
-  //           {
-  //               if (onzeimpact) 
-  //               {
-  //                 const h3Elementimpact = document.querySelector(".roundtext-impact h3");
-  //                 const clientWidthH3impact = h3Elementimpact.clientWidth;
-  //                 h3Elementimpact.style.right = `-${clientWidthH3impact - 120}px`;
-  //                 const h2Elementimpact = document.querySelector(".roundtext-impact h2");
-  //                 const clientWidthH2impact = h2Elementimpact.clientWidth;
-  //                 h2Elementimpact.style.left = `-${clientWidthH2impact - 90}px`;       
-  //               }
-  //           }
-  //       }, [onzeimpact]);
-
+  /* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
     return (
       <div>
@@ -467,7 +281,7 @@ const Onzeimpact = () => {
   if (error) return <p>{error}</p>;
   if (!onzeimpact || onzeimpact.length === 0) return <p>No data available</p>;
   const data = onzeimpact[0];
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel fifthesection" id="section5">
       <div>
@@ -477,15 +291,16 @@ const Onzeimpact = () => {
           h2Text={data.transitionSection.topTitle}
           h3Text={data.transitionSection.bottomTitle}
         />
- {/* --------------------------------------------------------------------------------------------------------------------- */}
+        {/* --------------------------------------------------------------------------------------------------------------------- */}
         <div className="wrappertest">
           <div className="gradient-purple" id="onzeimpactnonzefriet">
-            <h4 className="onzeimpacttitle" data-onzeimpacttitle="">
+            <h4 className="onzeimpacttitle" data-title="" data-speed="auto">
               {data.contentSection.heading}
             </h4>
             <p
               className="onzeimpactdescription"
-              data-onzeimpactdescription=""
+              data-description=""
+              data-speed="auto"
               dangerouslySetInnerHTML={{
                 __html: data.contentSection.description,
               }}
@@ -527,7 +342,7 @@ const Onzeimpact = () => {
                 ))}
               </div>
             </div>
-             {/* --------------------------------------------------------------------------------------------------------------------- */}
+            {/* --------------------------------------------------------------------------------------------------------------------- */}
             <div className="whitebgbox">
               <div className="appcontainers">
                 <div
@@ -551,7 +366,7 @@ const Onzeimpact = () => {
                     data-aos-easing="ease-in-sine"
                     data-aos-duration="500"
                   >
-                    <h4 data-leftvideoboxsectitle="">
+                    <h4 data-blutextanimationtext="">
                       {data.cardSection.secTitle}
                     </h4>
                   </div>
@@ -642,14 +457,14 @@ const Onzeimpact = () => {
                             >
                               <div className="onzeimpacttwolistlist">
                                 <h5
-                                  data-onzeimpacttwolistlisttitle=""
+                                  data-blutextanimationtext=""
                                   dangerouslySetInnerHTML={{
                                     __html: card.cardTitle,
                                   }}
                                 />
 
                                 <p
-                                  data-onzeimpacttwolistlisttext=""
+                                  data-allinnerdescription=""
                                   dangerouslySetInnerHTML={{
                                     __html: card.cardDescription,
                                   }}
@@ -689,14 +504,14 @@ const Onzeimpact = () => {
                     data-aos-duration="500"
                   >
                     <h3
-                      data-righttextboxtitle=""
+                      data-blutextanimationtext=""
                       dangerouslySetInnerHTML={{
                         __html: data.bottomSection.secTitle,
                       }}
                     />
 
                     <p
-                      data-secdescription=""
+                      data-allinnerdescription=""
                       dangerouslySetInnerHTML={{
                         __html: data.bottomSection.secDescription,
                       }}

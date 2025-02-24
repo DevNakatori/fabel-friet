@@ -5,16 +5,22 @@ import { client } from '../../sanityClient';
 import { useLanguage } from '~/components/LanguageContext';
 import '../styles/newheadermenu.css';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
-
+import ScrollToPlugin from 'gsap/all';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+gsap.registerPlugin(ScrollToPlugin);
 
 const Newheader = () => {
   const { language } = useLanguage();
   const [headerData, setHeaderData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingss, setLoadingss] = useState(false);
   const [error, setError] = useState(null);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null); // Reference for the mobile menu
 
+  const [isManualScroll, setIsManualScroll] = useState(false);
+
+  
   useEffect(() => {
     const fetchData_newheader = async () => {
       const cachedData = localStorage.getItem(`header_${language}`);
@@ -61,21 +67,21 @@ const Newheader = () => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
-    if (window.innerWidth >= 1024) { 
+    if (window.innerWidth >= 1024) {
       gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: ".headernew,.language-switcher",
-      start: 'top -150',
-      end: 99999,
-      onUpdate: self => {
-        let { direction } = self;
-        if (direction == -1) {
-          gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
-        } else if (direction == 1) {
-          gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
+      ScrollTrigger.create({
+        trigger: ".headernew,.language-switcher",
+        start: 'top -150',
+        end: 99999,
+        onUpdate: self => {
+          let { direction } = self;
+          if (direction == -1) {
+            gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
+          } else if (direction == 1) {
+            gsap.to('.headernew,.language-switcher', { duration: 0.6, autoAlpha: 1, y: 0, ease: 'sine' });
+          }
         }
-      }
-    });
+      });
     }
 
     return () => {
@@ -86,22 +92,63 @@ const Newheader = () => {
   if (loading) return <div></div>;
   if (error) return <div>{error}</div>;
 
+  // const handleMenuItemClick = (event, link) => {
+  //   event.preventDefault();
+  //   setMobileMenuOpen(false); 
+  //   setLoadingss(true);
+  
+  //   if (link.startsWith('#')) {
+  //     const targetElement = document.querySelector(link);
+  //     if (targetElement) {
+  //       targetElement.scrollIntoView({ behavior: 'auto' });
+  //       setTimeout(() => {
+  //         setLoadingss(false);
+  //       }, 1500);
+  //     }
+  //   } else {
+  //     window.location.href = link;
+  //   }
+  // };
+
+
   const handleMenuItemClick = (event, link) => {
     event.preventDefault();
-    setMobileMenuOpen(false); // Close the mobile menu immediately
-
+    setMobileMenuOpen(false);
+    setLoadingss(true);
+    
     if (link.startsWith('#')) {
+      setIsManualScroll(true);  // Track manual scroll
       const targetElement = document.querySelector(link);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'auto' });
+        setTimeout(() => {
+          setLoadingss(false);
+        }, 1000);
       }
     } else {
       window.location.href = link;
     }
   };
 
+  
+
   return (
     <div className="headernew main-menu is-at-top">
+      {loadingss && (
+        <div className="loadersite loadersitessd">
+          <div className="logosvg">
+            <img src={bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      )}
+
       <nav>
         <button
           className="menu-toggle"
@@ -184,7 +231,7 @@ const Newheader = () => {
           </i>
         </button>
         <div className="logoonlymobilefirstsection">
-          <img  src={bannerlogo} />
+          <img src={bannerlogo} />
         </div>
         <div
           className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}
@@ -254,7 +301,7 @@ const Newheader = () => {
           </ul>
 
           <div className="logosvg">
-            <img  src={bannerlogo} alt="logo" />
+            <img src={bannerlogo} alt="logo" />
           </div>
         </div>
         {/* <ul className="desktop-menu">
@@ -289,7 +336,7 @@ const Newheader = () => {
             <li>No menu items available</li> // Fallback message in case menu data is not available
           )}
           <li className="bannersectinlogo">
-                <img  src={bannerlogo} />
+            <img src={bannerlogo} />
           </li>
         </ul>
       </nav>

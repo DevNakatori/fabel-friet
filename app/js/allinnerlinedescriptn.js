@@ -16,17 +16,18 @@ const allinnerlinedescriptn = () => {
         types: 'lines, words, chars',
         tagName: 'span',
       });
-      gsap.from(sectionallinnerlinedescriptn.querySelectorAll('.line'), {
-        opacity: 0.3,
-        duration: 0.3,
-        ease: 'power1.out',
-        stagger: 0.2,
+      gsap.from(sectionallinnerlinedescriptn.querySelectorAll('.word'), {
+        y: '100%',
+        opacity: 0,
+        duration: 0.5,
+        ease: 'sine.inOut',
+        stagger: 0.1,
         scrollTrigger: {
           trigger: sectionallinnerlinedescriptn,
           start: 'top center',
-          scrub: true,
-          once: false,
-          toggleActions: "restart none none none",
+         // scrub: true,
+         // once: false,
+          //toggleActions: "restart none none none",
         },
       });
     });

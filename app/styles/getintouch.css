@@ -423,7 +423,18 @@ a.locatebutton.bubbly-button.whatsapp-btn.secondwhatsapp {
 }
 
 
-.canvas.whatsappcanvas{position:absolute;width:0;height:0;overflow:inherit;left:50%;top:27px;}
+/* .canvas.whatsappcanvas{position:absolute;width:0;height:0;overflow:inherit;left:50%;top:27px;} */
+
+.canvas.whatsappcanvas {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: inherit;
+  left: 92%;
+  top: 63px;
+}
+
+
 .fly-svg-wrapper{position:absolute;-webkit-animation:moveAndFade 200s linear infinite;-moz-animation:moveAndFade 200s linear infinite;-o-animation:moveAndFade 200s linear infinite;animation:moveAndFade 200s linear infinite;-webkit-transition-delay:10s;-moz-transition-delay:10s;-o-transition-delay:10s;transition-delay:10s;opacity:1;}
 @-webkit-keyframes moveAndFade{
   0%{-webkit-transform:translateX(-100%) translateY(0);transform:translateX(-100%) translateY(0);opacity:1;}
@@ -448,3 +459,15 @@ a.locatebutton.bubbly-button.whatsapp-btn.secondwhatsapp {
 
 /* SVG itself */
 .fly-svg{width:30px;height:30px;-webkit-transition:-webkit-transform 20s ease;transition:-webkit-transform 20s ease;-o-transition:-o-transform 20s ease;-moz-transition:transform 20s ease,-moz-transform 20s ease;-moz-transition:transform 20s ease, -moz-transform 20s ease;transition:transform 20s ease;transition:transform 20s ease, -webkit-transform 20s ease, -moz-transform 20s ease, -o-transform 20s ease;transition:transform 20s ease,-webkit-transform 20s ease,-moz-transform 20s ease,-o-transform 20s ease;-webkit-transition-delay:20s;-moz-transition-delay:20s;-o-transition-delay:20s;transition-delay:20s;}
+
+
+.whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0%;
+  left: 100%;
+  transform: translateX(-0%);
+  opacity: 0;
+  z-index: -1;
+}
