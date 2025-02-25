@@ -70,7 +70,7 @@ const Onzeimpact = () => {
           start: '0% 0%',
           end: '8% 8%',
           scrub: true,
-          once: true,
+          once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
         ease: 'power1.inOut',
