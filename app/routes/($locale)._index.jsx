@@ -89,6 +89,8 @@ export default function Homepage() {
   const data = useLoaderData();
   const [loading, setLoading] = useState(true);
 
+   const [isManualScroll, setIsManualScroll] = useState(false);
+
 
 
   gsap.config({
