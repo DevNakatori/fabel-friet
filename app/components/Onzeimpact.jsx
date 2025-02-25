@@ -214,6 +214,62 @@ const Onzeimpact = () => {
   }, [onzeimpact]);
   /* gold title start */
   /* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  useEffect(() => {
+    const isHardRefreshonzeptagss = window.performance.navigation.type === 1;
+    const animationDelayonzeptagss = isHardRefreshonzeptagss ? 300 : 300;
+
+    const initiateAnimationsonzeptagss = () => {
+
+      document.querySelectorAll('.onzeptagss')
+        .forEach((element) => {
+          new SplitType(element, {
+            types: 'lines, words, chars',
+            tagName: 'span',
+          });
+        });
+
+      gsap.from('.onzeptagss .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0,
+        scrollTrigger: {
+          trigger: '.onzeptagss',
+          scrub: true,
+          start: 'top bottom',
+          end: 'bottom top',
+          markers: false,
+        },
+      });
+    };
+
+
+    const typeSplitsecdescription = new SplitType('[data-secdescription]', {
+      types: 'lines, words, chars',
+      tagName: 'span',
+    });
+
+    gsap.from('[data-secdescription] .line', {
+      opacity: 0.3,
+      duration: 0.5,
+      ease: 'power1.out',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '[data-secdescription]',
+        scrub: true,
+      },
+    });
+
+    setTimeout(() => {
+      initiateAnimationsonzeptagss();
+    }, animationDelayonzeptagss);
+    
+    return () => {
+     gsap.killTweensOf('.onzeptagss .line');
+   };
+  }, [onzeimpact]);
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (onzeimpact) {
       const pathss = document.querySelector('.line2ss');
@@ -464,7 +520,7 @@ const Onzeimpact = () => {
                                 />
 
                                 <p
-                                  data-allinnerdescription=""
+                                  className='onzeptagss'
                                   dangerouslySetInnerHTML={{
                                     __html: card.cardDescription,
                                   }}
@@ -511,7 +567,7 @@ const Onzeimpact = () => {
                     />
 
                     <p
-                      data-allinnerdescription=""
+                      data-secdescription=""
                       dangerouslySetInnerHTML={{
                         __html: data.bottomSection.secDescription,
                       }}

@@ -93,8 +93,7 @@ const Onzefriet = () => {
         0,
       );
       return () => {
-        if (timelinesonzefriet.scrollTrigger) 
-        {
+        if (timelinesonzefriet.scrollTrigger) {
           timelinesonzefriet.scrollTrigger.kill();
         }
       };
@@ -207,6 +206,38 @@ const Onzefriet = () => {
   }, [onzefriet]);
   /* three image animation end */
   /* --------------------------------------------------------------------------------------------------------------------- */
+  useEffect(() => {
+    const isHardRefreshonzeptag = window.performance.navigation.type === 1;
+    const animationDelayonzeptag = isHardRefreshonzeptag ? 300 : 300;
+
+    const initiateAnimationsonzeptag = () => {
+      const typeSplitvideoDescription = new SplitType('.onzeptag', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+
+      gsap.from('.onzeptag .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.onzeptag',
+          start: 'top center',
+          scrub: true,
+        },
+      });
+    };
+
+    setTimeout(() => {
+      initiateAnimationsonzeptag();
+    }, animationDelayonzeptag);
+    
+    return () => {
+     gsap.killTweensOf('.onzeptag .line');
+   };
+  }, [onzefriet]);
+  /* --------------------------------------------------------------------------------------------------------------------- */
   /* svg animation start */
   useEffect(() => {
     if (onzefriet) {
@@ -282,7 +313,7 @@ const Onzefriet = () => {
     <section className="panel secondesection" id="section2">
       {onzefriet.map((content, idx) => (
         <div key={idx}>
-{/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
+          {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
           <ZoomSection
             image={getImageUrl(content.transitionSection.image.asset._ref)}
             alt={content.transitionSection.image.alt}
@@ -439,7 +470,7 @@ const Onzefriet = () => {
                         />
                         <p
                           className="onzeptag"
-                          data-allinnerdescription=""
+
                           dangerouslySetInnerHTML={{
                             __html: content.videoSection.videoDescription,
                           }}

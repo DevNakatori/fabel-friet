@@ -110,25 +110,25 @@ const Onzelocaties = () => {
   }, [onzelocaties]);
   /* gold title start */
   /* --------------------------------------------------------------------------------------------------------------------- */
-  useEffect(() => {
-    const animateButton = (e) => {
-      e.preventDefault();
-      const button = e.target;
-      const link = button.closest('a');
-      button.classList.remove('animate');
-      button.classList.add('animate');
-      setTimeout(() => {
-        button.classList.remove('animate');
-        if (link) {
-          window.open(link.href, '_blank');
-        }
-      }, 400);
-    };
-    const bubblyButtons = document.getElementsByClassName('bubbly-button');
-    for (let i = 0; i < bubblyButtons.length; i++) {
-      bubblyButtons[i].addEventListener('click', animateButton);
-    }
-  }, [onzelocaties]);
+  // useEffect(() => {
+  //   const animateButton = (e) => {
+  //     e.preventDefault();
+  //     const button = e.target;
+  //     const link = button.closest('a');
+  //     button.classList.remove('animate');
+  //     button.classList.add('animate');
+  //     setTimeout(() => {
+  //       button.classList.remove('animate');
+  //       if (link) {
+  //         window.open(link.href, '_blank');
+  //       }
+  //     }, 400);
+  //   };
+  //   const bubblyButtons = document.getElementsByClassName('bubbly-button');
+  //   for (let i = 0; i < bubblyButtons.length; i++) {
+  //     bubblyButtons[i].addEventListener('click', animateButton);
+  //   }
+  // }, [onzelocaties]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     const revealContainers = document.querySelectorAll('.reveal');

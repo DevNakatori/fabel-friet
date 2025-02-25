@@ -34,7 +34,7 @@ const FrenchFriesRain = () => {
             fry.src = randomImage;
 
             const leftPosition = Math.random() * 100;
-            const animationDuration = Math.random() * 3 + 20; // Speed random between 2 to 5 seconds
+            const animationDuration = Math.random() * 5 + 20; // Speed random between 2 to 5 seconds
             const delay = Math.random() * 2;
             const rotation = Math.random() * 360;
             const drift = Math.random() * 20 - 10;
@@ -64,7 +64,7 @@ const FrenchFriesRain = () => {
             );
         }
 
-        const friesInterval = setInterval(createFry, 250);
+        const friesInterval = setInterval(createFry, 450);
         return () => clearInterval(friesInterval);
     }, []);
 
