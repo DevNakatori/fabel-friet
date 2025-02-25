@@ -93,6 +93,39 @@ const Hetmenu = () => {
     }
   }, [hetmenu]);
   /* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
+  useEffect(() => {
+    const isHardRefreshonzeptags = window.performance.navigation.type === 1;
+    const animationDelayonzeptags = isHardRefreshonzeptags ? 300 : 300;
+
+    const initiateAnimationsonzeptags = () => {
+      const typeSplitvideoDescriptions = new SplitType('.onzeptags', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+
+      gsap.from('.onzeptags .line', {
+        opacity: 0.3,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.onzeptags',
+          start: 'top center',
+          scrub: true,
+        },
+      });
+    };
+
+    setTimeout(() => {
+      initiateAnimationsonzeptags();
+    }, animationDelayonzeptags);
+    
+    return () => {
+     gsap.killTweensOf('.onzeptags .line');
+   };
+  }, [hetmenu]);
+  /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
     if (hetmenu) {
       const paths = document.querySelector('.line2s');
@@ -452,7 +485,7 @@ const Hetmenu = () => {
                       }}
                     />
                     <p
-                      data-allinnerdescription=""
+                      className='onzeptags'
                       dangerouslySetInnerHTML={{
                         __html: bottomContentSection.bottomDescription,
                       }}

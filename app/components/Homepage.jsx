@@ -504,18 +504,32 @@ const HomePage = () => {
   }, [bannerData]);
 
   useEffect(() => {
-    const animateButton = (e) => {
+    const animateButtonbannerData = (e) => {
       e.preventDefault();
       const button = e.target;
+      const link = button.closest('a');
       button.classList.remove('animate');
       button.classList.add('animate');
-      setTimeout(() => button.classList.remove('animate'), 400);
+      setTimeout(() => {
+        button.classList.remove('animate');
+        if (link) {
+          window.location.href = link.href;
+        }
+      }, 400);
     };
-    const bubblyButtons = document.getElementsByClassName('bubbly-button');
-    for (let i = 0; i < bubblyButtons.length; i++) {
-      bubblyButtons[i].addEventListener('click', animateButton);
+    const bubblyButtonsbanner = document.getElementsByClassName('bubbly-button');
+    for (let i = 0; i < bubblyButtonsbanner.length; i++) {
+      bubblyButtonsbanner[i].addEventListener('click', animateButtonbannerData);
     }
+    return () => {
+      for (let i = 0; i < bubblyButtonsbanner.length; i++) {
+        bubblyButtonsbanner[i].removeEventListener('click', animateButtonbannerData);
+      }
+    };
   }, [bannerData]);
+  
+
+
   /* forcefully scroll top */
   const togglePlayPause = () => {
     if (isPlaying) {

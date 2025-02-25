@@ -16,16 +16,15 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         trigger: wrapperRef.current,
         start: 'top top',
         //end: () => `+=${wrapperRef.current.offsetHeight}`,
-        end: "+=150%",
         pin: true,
         pinnedContainer: wrapperRef.current,
         scrub: true,
         markers: false,
         repeat: 1,
-        delay: 0.5,
+        delay: 0.8,
         pinSpacing: false,
-        // pinReparent: true,
-        // anticipatePin: 1,
+       // pinReparent: true,
+       // anticipatePin: 1,
         // snap: {
         //   snapTo: 1,
         //   duration: 1.5,
@@ -46,7 +45,7 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
     })
       .to(zoomSectionRef.current, {
         scale: 1.1,
-        z: 300,
+        z: 200,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       });

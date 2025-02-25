@@ -18,12 +18,12 @@ const allinnerlinedescriptn = () => {
       });
       gsap.from(sectionallinnerlinedescriptn.querySelectorAll('.line'), {
         opacity: 0.3,
-        duration: 0.5,
-        ease: 'power1.out',
+        duration: 0.1,
+        ease: 'power1',
         stagger: 0.1,
-      scrollTrigger: {
+        scrollTrigger: {
         trigger: sectionallinnerlinedescriptn,
-        start: 'top 80%',
+        start: 'top 50%',
         scrub: true,
         once: false,
         toggleActions: "restart none none none",
