@@ -221,13 +221,15 @@ const Onzefriet = () => {
 
       gsap.from('.onzeptag .line', {
         opacity: 0.3,
-        duration: 0.1,
+        duration: 0.8,
         ease: 'power1.out',
         stagger: 0.1,
         scrollTrigger: {
           trigger: '.whitewithvideomainbox',
-          start: 'top 20',
+          start: 'top 10%',
+          end:'40% 40%',
           scrub: true,
+          markers:false,
         },
       });
     };
@@ -314,6 +316,7 @@ const Onzefriet = () => {
   /* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel secondesection" id="section2">
+    
       {onzefriet.map((content, idx) => (
         <div key={idx}>
           {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
@@ -631,6 +634,7 @@ const Onzefriet = () => {
           </div>
         </div>
       ))}
+    
     </section>
   );
 };

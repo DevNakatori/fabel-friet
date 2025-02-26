@@ -23,6 +23,8 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         repeat: 1,
         delay: 0.5,
         pinSpacing: false,
+        pinSpacer:true,
+        anticipatePin: 1,
        // pinReparent: true,
          //anticipatePin: 1,
         // snap: {

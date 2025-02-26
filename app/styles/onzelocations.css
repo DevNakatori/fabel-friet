@@ -120,7 +120,7 @@ a.routbtn:hover:before,a.routbtn:hover:after{top:0;} */
     .thirdesection .star,.thirdesection .blackstar{width:20px;height:20px;}
     .thirdesection .gradient-purple .bottomsection .scroll-down p{font-size:12px;line-height:14px;max-width:315px;margin:5px auto 0;}
     .thirdesection .whitebgbox{background-image:none;-webkit-box-shadow:none;box-shadow:none;}
-    .thirdesection h4.locationtitle{padding-bottom:40px;border-bottom:solid 1px #EFEBE7;}
+    .thirdesection h4.locationtitle{padding-bottom:40px;border-bottom:solid 1px #EFEBE7;margin-top: 50px;}
     .slideraddress .wharpeoplebox h5{overflow:hidden;text-align:center;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:25px;font-style:normal;font-weight:700;line-height:65px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-transform:capitalize;background:url(/app/assets/resizeimgs/webp/plain-gold-background.webp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
     .sliderwhitebg h4{overflow:hidden;text-align:center;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:25px;font-style:normal;font-weight:700;line-height:65px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-transform:capitalize;background:url(/app/assets/resizeimgs/webp/plain-gold-background.webp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:1;margin:0;}
     .sliderwhitebg p{color:#0D1E4D;font-family:"Work Sans";font-size:12px;font-style:normal;font-weight:400;line-height:normal;}

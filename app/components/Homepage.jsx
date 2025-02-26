@@ -12,7 +12,8 @@ import Cookies from 'js-cookie';
 import bannerlogo from '../assets/resizeimgs/webp/logobanner.webp';
 import writingicon from '../assets/resizeimgs/writingicon.png';
 import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
-import {getImageUrl} from '../js/imagesurl';
+import { getImageUrl } from '../js/imagesurl';
+import images from '../js/images';
 import SplitType from 'split-type';
 
 import mp3song from '../assets/SoundsofAmsterdamCity.mp3';
@@ -206,7 +207,7 @@ const HomePage = () => {
         });
       }
 
-      gsap.to('.overlaybannehand-bottom', {
+      gsap.to('.overlaybannehand-bottomss', {
         duration: 1.5,
         bottom: '0px',
         ease: 'power1.inOut',
@@ -406,18 +407,7 @@ const HomePage = () => {
         },
       );
 
-      gsap.fromTo(
-        '.rightsidebullets ul li',
-        {opacity: 0, y: -30},
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.5,
-          duration: 1,
-          ease: 'power2.out',
-          delay: 5.5,
-        },
-      );
+    
 
       gsap.to('#section1 .bannerlogo', {
         duration: 0.1,
@@ -431,7 +421,7 @@ const HomePage = () => {
       });
 
       gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
-        duration: 1,
+        duration: 0.05,
         x: '-50%',
         y: '0%',
         width: '80px',
@@ -783,13 +773,14 @@ const HomePage = () => {
                 __html: bannerData[0].bannerButton.buttonText,
               }}
             ></a>
+            
           )}
           <div className="bannerrotate_text">
             <p dangerouslySetInnerHTML={{__html: bannerData[0].bannerText}} />
           </div>
         </div>
-        <div className="overlaybannehand">
-          <div className="overlaybannehand-bottom"></div>
+        <div className="overlaybannehand overlaybannehand-bottomss">
+          <img src={images.bottompotetoes} />
         </div>
       </div>
     </section>
