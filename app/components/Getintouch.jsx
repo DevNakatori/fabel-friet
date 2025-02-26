@@ -71,7 +71,6 @@ const Getintouch = () => {
     if (getIntouch) {
       const timelinegetintouch = gsap.timeline({});
       timelinegetintouch.to('.sixthsection .wrappertest', {
-        zIndex:9,
         scrollTrigger: {
           trigger: '.sixthsection',
           start: '0% 0%',
@@ -80,6 +79,7 @@ const Getintouch = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
+        zIndex:9,
         ease: 'power1.inOut',
       });
 

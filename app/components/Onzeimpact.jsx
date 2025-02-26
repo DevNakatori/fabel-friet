@@ -74,6 +74,7 @@ const Onzeimpact = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
+        zIndex:9,
         ease: 'power1.inOut',
       });
 
@@ -82,6 +83,7 @@ const Onzeimpact = () => {
         {
           scale: 1,
           borderRadius: 0,
+          zIndex:0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section5 .wrappertest',
