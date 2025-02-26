@@ -68,6 +68,7 @@ const Onzefriet = () => {
     if (onzefriet) {
       const timelinesonzefriet = gsap.timeline({});
       timelinesonzefriet.to('.secondesection .wrappertest', {
+        zIndex:9,
         scrollTrigger: {
           trigger: '.secondesection',
           start: '0 0',

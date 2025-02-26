@@ -67,6 +67,7 @@ const Onzelocaties = () => {
     if (onzelocaties) {
       const timelines = gsap.timeline({});
       timelines.to('.thirdesection .wrappertest', {
+        zIndex:9,
         scrollTrigger: {
           trigger: '.thirdesection',
           start: '0% 0%',

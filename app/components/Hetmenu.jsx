@@ -60,6 +60,7 @@ const Hetmenu = () => {
     if (hetmenu) {
       const timelineshetmenu = gsap.timeline({});
       timelineshetmenu.to('.fourthsection .wrappertest', {
+        zIndex:9,
         scrollTrigger: {
           trigger: '.fourthsection',
           start: '0% 0%',

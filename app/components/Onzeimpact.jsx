@@ -65,6 +65,7 @@ const Onzeimpact = () => {
       const timelineimpact = gsap.timeline({});
 
       timelineimpact.to('.fifthesection .wrappertest', {
+        zIndex:9,
         scrollTrigger: {
           trigger: '.fifthesection',
           start: '0% 0%',
