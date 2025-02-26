@@ -24,7 +24,7 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         delay: 0.5,
         pinSpacing: false,
        // pinReparent: true,
-       // anticipatePin: 1,
+         //anticipatePin: 1,
         // snap: {
         //   snapTo: 1,
         //   duration: 1.5,
@@ -32,14 +32,10 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         //   ease: "power1.in",
         // },
         onEnterBack: () => {
-          if (!isManualScroll) {
-            ScrollTrigger.refresh();
-          }  
+          ScrollTrigger.refresh(); 
         },
         onLeave: () => {
-          if (!isManualScroll) {
-            ScrollTrigger.refresh();
-          }  
+          ScrollTrigger.refresh();  
         },
       },
     })

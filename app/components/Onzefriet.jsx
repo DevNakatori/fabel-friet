@@ -221,12 +221,12 @@ const Onzefriet = () => {
 
       gsap.from('.onzeptag .line', {
         opacity: 0.3,
-        duration: 0.6,
+        duration: 0.1,
         ease: 'power1.out',
         stagger: 0.1,
         scrollTrigger: {
-          trigger: '.whitebgbox',
-          start: 'top 40%',
+          trigger: '.whitewithvideomainbox',
+          start: 'top 20',
           scrub: true,
         },
       });
@@ -548,7 +548,7 @@ const Onzefriet = () => {
                                 data-aos-duration="500"
                               >
                                 <div className="wharpeoplebox">
-                                  <p className="onzeptag">
+                                  <p >
                                     "{review.reviewContent}"
                                   </p>
                                   <b>- {review.reviewCustName}</b>
