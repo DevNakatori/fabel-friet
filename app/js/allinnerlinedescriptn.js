@@ -23,7 +23,7 @@ const allinnerlinedescriptn = () => {
         stagger: 0.1,
         scrollTrigger: {
         trigger: sectionallinnerlinedescriptn,
-        start: 'top 50%',
+        start: 'top center',
         scrub: true,
         once: false,
         toggleActions: "restart none none none",

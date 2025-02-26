@@ -309,7 +309,7 @@
     .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox p,.fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox p{font-size:12px;line-height:16px;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox img{display:none;}
     .fourthsection .whitebgbox .whitewithvideomainbox .leftvideobox .bluearrowbottom{position:relative;top:0;left:0;margin-bottom:0;}
-    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom:0;line-height:15px;}
+    .fourthsection .whitebgbox .whitewithvideomainbox .righttextbox h5{margin-bottom:0;line-height:auto;}
     .fourthsection .gradient-purple h4{font-size:30px;}
     .fourthsection .gradient-purple p{font-size:12px;line-height:14px;max-width:315px;margin:15px 0;}
     .fourthsection .whitebgbox .tabs button{width:-moz-calc((100% / 3) - 5px);width:calc((100% / 3) - 5px);margin:0;font-size:12px;padding:5px 0;}
@@ -366,6 +366,20 @@
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item details[open] summary::before {background-image: none;content: '-';line-height: 8px;height: auto;left: 0px;} */
     .fourthsection .whitebgbox .menudynamic.onlydesktop .innermenudynamicone .innermenudynamictwo .drinks-category .menu-item div:last-child .menutextdetails p small {display: inline-block;width: auto;color: #FFF;font-family:'Optima';font-size: 3.757px;font-style: normal;font-weight: 400;line-height: 8.766px;}    
 
+
+    .fourthsection .whitebgbox{position: relative;
+        top: 60px;
+        margin-bottom: 60px;}
+        .fourthsection .whitebgbox .menudynamic.onlydesktop {
+            max-width: 1412px;
+            margin: 0vh auto 0;
+            display: block!important;
+            padding: 8px;
+            width: -moz-calc(100% - 16px)!important;
+            width: calc(100% - 16px)!important;
+            top: -160px;
+            margin-bottom: -160px;
+        }
     /* .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-section .menu-item summary::before {
         background-image: none;
         content: '\002B';

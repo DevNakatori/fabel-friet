@@ -409,7 +409,19 @@ a.locatebutton.bubbly-button.whatsapp-btn.secondwhatsapp {
     .socialiconlist ul li a:hover.Linkedin:after{        width: 15px;
       height: 15px;}
     .locationbox p i.location{margin-left:0px;}  
+    a.locatebutton {font-size: 16px;}
       
+    .gradient-threebox.gradient-threeboxgetintouch {
+      margin-bottom: -110px;
+  }
+  .locationbox .locationtext i.location {
+    width: 30px;
+    height: 30px;
+}
+.sixthsection .gradient-purple p {
+  margin: 7px 0;
+}
+
 }
 
 @media (min-width:395px) and (max-width:414px)

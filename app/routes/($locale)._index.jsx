@@ -164,15 +164,14 @@ export default function Homepage() {
 
 
     const lenis = new Lenis({
-      duration: 2.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.05,
-      smooth: 5,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      wheelMultiplier: 1,
-      infinite: false,
-      autoResize: true,
+      duration: 1.2, // duration of the scroll animation in seconds
+  easing: (t) => Math.pow(t, 3), // easing function for smooth scroll
+  smooth: true, // enables smooth scrolling
+  lerp: 0.1,
+  wheelMultiplier: 0.7,
+  gestureOrientation: "vertical",
+  normalizeWheel: false,
+  smoothTouch: false,
     });
     
     
