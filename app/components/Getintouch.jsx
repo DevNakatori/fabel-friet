@@ -787,7 +787,7 @@ const Getintouch = () => {
                   }}
                   className="gradientgetintouchlist" id="tiktokIframeContainer"
                 >
-                  <video src="https://cdn.shopify.com/videos/c/o/v/6a8710d0b59e43c1bb1d565f2985b813.mp4" autoPlay loop muted playsInline/>
+                  <video controls preload="true" src="https://cdn.shopify.com/videos/c/o/v/6a8710d0b59e43c1bb1d565f2985b813.mp4" loop muted playsInline/>
                   {/* <iframe
                     title="tiktok"
                     src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
@@ -806,7 +806,7 @@ const Getintouch = () => {
                   }}
                   className="gradientgetintouchlist" id="tiktokIframeContainer1"
                 >
-                  <video src="https://cdn.shopify.com/videos/c/o/v/69ee51f392084784994b1ca6b5ef227a.mp4" autoPlay loop muted playsInline />
+                  <video controls preload="true" src="https://cdn.shopify.com/videos/c/o/v/69ee51f392084784994b1ca6b5ef227a.mp4" loop muted playsInline />
                   {/* <iframe
                     title="tiktok"
                     src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
@@ -825,7 +825,7 @@ const Getintouch = () => {
                   }}
                   className="gradientgetintouchlist" id="tiktokIframeContainer2"
                 >
-                  <video src="https://cdn.shopify.com/videos/c/o/v/6b07ae8f50764096a2c77ec414f5442f.mp4" autoPlay loop muted playsInline />
+                  <video controls preload="true" src="https://cdn.shopify.com/videos/c/o/v/6b07ae8f50764096a2c77ec414f5442f.mp4" loop muted playsInline />
                   {/* <iframe
                     title="tiktok"
                     src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
