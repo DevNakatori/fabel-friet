@@ -21,7 +21,7 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         scrub: true,
         markers: false,
         repeat: 1,
-        delay: 0.8,
+        delay: 0.5,
         pinSpacing: false,
        // pinReparent: true,
        // anticipatePin: 1,
@@ -45,7 +45,7 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
     })
       .to(zoomSectionRef.current, {
         scale: 1.1,
-        z: 200,
+        z: 350,
         transformOrigin: 'center center',
         ease: 'power1.inOut',
       });

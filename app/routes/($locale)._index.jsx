@@ -22,6 +22,7 @@ import AOS from 'aos';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Cursor from '~/components/Cursor';
+import Lenis from '@studio-freight/lenis';
 
 
 
@@ -112,6 +113,7 @@ export default function Homepage() {
   //   };
   // }, []);
 
+  const lenis = useRef(null);
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       // Check if the screen width is greater than or equal to 1024px (desktop)
@@ -161,23 +163,52 @@ export default function Homepage() {
     }
 
 
-    setTimeout(() => {
-      AOS.init({
-        once: true,
-        duration: 1200,
-        mirror: true,
-        debounceDelay: 50,
-        throttleDelay: 99,
-      });
-    }, 0);
+    const lenis = new Lenis({
+      duration: 2.5,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.05,
+      smooth: 5,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      wheelMultiplier: 1,
+      infinite: false,
+      autoResize: true,
+    });
+    
+    
+    lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000)
+})
 
-
-    AOS.refresh();
+    // lenis.on('scroll', (e) => {
+    //   console.log(e)
+    // })
+  
+    
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 1200,
+      mirror: true,
+      debounceDelay: 50,
+      throttleDelay: 99,
+    });
+    
+    // Function to handle requestAnimationFrame for Lenis and AOS
+    function raf(time) {
+      lenis.raf(time);
+      AOS.refresh(); // Refresh AOS so it detects scroll changes
+      requestAnimationFrame(raf);
+    };
+    
+    
+    // Start the animation frame loop
+    requestAnimationFrame(raf);
+    
+    // Clean up the Lenis instance when the component unmounts
     // return () => {
-    //   // Cleanup when the component is unmounted
-    //   if (smoother) {
-    //     smoother.kill(); // Kill the smoother instance to avoid memory leaks
-    //   }
+    //   lenis.destroy(); // clean up the instance when the component unmounts
     // };
   }, []);
 
@@ -332,7 +363,7 @@ export default function Homepage() {
         <Newheader />
         <Cursor />
         <div id="smooth-wrapper">
-          <div id="smooth-content">
+          <div id="smooth-content" data-lenis-prevent>
             {loading ? (
 
               <>

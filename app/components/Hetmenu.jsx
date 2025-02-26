@@ -13,7 +13,8 @@ import '../styles/hetmenu.css';
 import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
 import { useMediaQuery } from '@react-hook/media-query';
-import FrenchFriesRain from '~/components/FrenchFriesRain';
+// import FrenchFriesRain from '~/components/FrenchFriesRain';
+import SnowAnimation from '~/components/SnowAnimation';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
@@ -60,7 +61,6 @@ const Hetmenu = () => {
     if (hetmenu) {
       const timelineshetmenu = gsap.timeline({});
       timelineshetmenu.to('.fourthsection .wrappertest', {
-        zIndex:9,
         scrollTrigger: {
           trigger: '.fourthsection',
           start: '0% 0%',
@@ -69,6 +69,7 @@ const Hetmenu = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
+        zIndex:9,
         ease: 'power1.inOut',
       });
       timelineshetmenu.to(
@@ -76,6 +77,7 @@ const Hetmenu = () => {
         {
           scale: 1,
           borderRadius: 0,
+          zIndex:0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section4 .wrappertest',
@@ -263,7 +265,7 @@ const Hetmenu = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                <FrenchFriesRain />
+                <SnowAnimation />
               )}
 
               <div

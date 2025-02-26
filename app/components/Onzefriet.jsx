@@ -9,7 +9,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import FrenchFriesRain from '~/components/FrenchFriesRain';
+// import FrenchFriesRain from '~/components/FrenchFriesRain';
+import SnowAnimation from '~/components/SnowAnimation';
 import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
@@ -68,15 +69,15 @@ const Onzefriet = () => {
     if (onzefriet) {
       const timelinesonzefriet = gsap.timeline({});
       timelinesonzefriet.to('.secondesection .wrappertest', {
-        zIndex:9,
         scrollTrigger: {
           trigger: '.secondesection',
           start: '0 0',
           end: '8% 8%',
-          scrub: true,
+          scrub: 1,
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
+        zIndex:9,
         ease: 'power1.inOut',
       });
       timelinesonzefriet.to(
@@ -84,6 +85,7 @@ const Onzefriet = () => {
         {
           scale: 1,
           borderRadius: 0,
+          zIndex:0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section2 .wrappertest',
@@ -219,12 +221,12 @@ const Onzefriet = () => {
 
       gsap.from('.onzeptag .line', {
         opacity: 0.3,
-        duration: 0.5,
+        duration: 0.6,
         ease: 'power1.out',
         stagger: 0.1,
         scrollTrigger: {
-          trigger: '.onzeptag',
-          start: 'top center',
+          trigger: '.whitebgbox',
+          start: 'top 40%',
           scrub: true,
         },
       });
@@ -389,7 +391,8 @@ const Onzefriet = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                <FrenchFriesRain />
+                // <FrenchFriesRain />
+                <SnowAnimation/>
               )}
               {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">

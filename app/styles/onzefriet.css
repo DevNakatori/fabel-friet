@@ -120,9 +120,56 @@
 .scrollbar{display:block;width:679px;height:10px;border-radius:5px;background:#e2e2e2;position:absolute;z-index:10;left:50%;bottom:-40px;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);-moz-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);}
 .scrollbar__handler{width:113px;height:100%;background:#000;border-radius:5px;position:absolute;top:0;left:0;z-index:20;}
 .fl-tests .module:last-child{margin-right:100px;}
-.star{background-image:url('../assets/resizeimgs/webp/Intersect-yellow.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;}
-.blackstar{background-image:url('../assets/resizeimgs/webp/Intersect-black.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;}
-.halfstar{background-image:url('../assets/resizeimgs/webp/halfstar.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;}
+.star{background-image:url('../assets/resizeimgs/webp/Intersect-yellow.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;-webkit-animation: 1s star-animation ease-out infinite;
+    animation: 1s star-animation ease-out infinite; }
+
+/* Star Animation */
+@-webkit-keyframes star-animation {
+    0% {
+      transform: scale(1) rotate(-72deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    65% {
+      transform: scale(0.5);
+    }
+    80% {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes star-animation {
+    0% {
+      transform: scale(1) rotate(-72deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    65% {
+      transform: scale(0.5);
+    }
+    80% {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+/* Circle Animation */
+
+
+
+.blackstar{background-image:url('../assets/resizeimgs/webp/Intersect-black.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;-webkit-animation: 1s star-animation ease-out infinite;
+    animation: 1s star-animation ease-out infinite;}
+.halfstar{background-image:url('../assets/resizeimgs/webp/halfstar.webp');background-repeat:no-repeat no-repeat;background-position:center center;-o-background-size:cover;background-size:cover;width:29.819px;height:27.831px;display:block;-webkit-animation: 1s star-animation ease-out infinite;
+    animation: 1s star-animation ease-out infinite;}
 .whatpeople-section h6{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:50px;font-style:normal;font-weight:700;line-height:normal;-webkit-transition:0.5s;color:#0d1e4d;;-o-transition:0.5s;-moz-transition:0.5s;transition:0.5s;margin:0;}
 .whitebgbox .whitewithvideomainbox .righttextbox h5{overflow:hidden;color:#0d1e4d;-o-text-overflow:ellipsis;text-overflow:ellipsis;font-family:'Rufina',serif;font-size:clamp(20px,5vw,80px);font-style:normal;font-weight:700;line-height:85px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;text-transform:none;-webkit-transition:0.5s;-o-transition:0.5s;-moz-transition:0.5s;transition:0.5s;margin:0;max-width:500px;-o-background-size:contain;background-size:contain;background-position:0px -20px;}
 .gradient-purple h4{text-align:center;font-family:'Rufina',serif;font-optical-sizing:auto;font-size:clamp(20px,10vw,120px);font-style:normal;font-weight:700;line-height:120%;text-transform:capitalize;background:url('../assets/resizeimgs/webp/plain-gold-background.webp');-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:25px 0 0px;opacity:0;}
