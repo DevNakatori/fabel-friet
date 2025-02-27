@@ -223,8 +223,7 @@ const Onzeimpact = () => {
     const animationDelayonzeptagss = isHardRefreshonzeptagss ? 300 : 300;
 
     const initiateAnimationsonzeptagss = () => {
-
-      document.querySelectorAll('.onzeptagss')
+     document.querySelectorAll('.onzeptagssthe')
         .forEach((element) => {
           new SplitType(element, {
             types: 'lines, words, chars',
@@ -232,35 +231,45 @@ const Onzeimpact = () => {
           });
         });
 
-      gsap.from('.onzeptagss .line', {
+        // const typeSplitsecdescriptionss = new SplitType('.onzeptagssthe', {
+        //   types: 'lines, words, chars',
+        //   tagName: 'span',
+        // });
+    
+      gsap.from('.onzeptagssthe .line', {
         opacity: 0.3,
-        duration: 0.5,
+        duration: 1,
         ease: 'power1.out',
         stagger: 0,
         scrollTrigger: {
-          trigger: '.onzeptagss',
+          id:'whitewithvideomainboxtag',
+          trigger: '.onzeptagssthe',
           scrub: true,
-          start: 'top bottom',
-          end: 'bottom top',
-          markers: false,
+          // start: '0% 0%',
+          // end: '200% 200%',
+          markers: false,  
         },
       });
     };
 
 
-    const typeSplitsecdescription = new SplitType('[data-secdescription]', {
+    const typeSplitsecdescription = new SplitType('.hetmenubottom', {
       types: 'lines, words, chars',
       tagName: 'span',
     });
 
-    gsap.from('[data-secdescription] .line', {
+    gsap.from('.hetmenubottom .line', {
       opacity: 0.3,
-      duration: 0.5,
+      duration: 0.1,
       ease: 'power1.out',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: '[data-secdescription]',
+        id:'whitewithvideomainboxs',
+        trigger: '.whitewithvideomainboxs',
         scrub: true,
+        start: '0% 0%',
+        end: '2% 2%',
+        markers: false,  
       },
     });
 
@@ -269,7 +278,8 @@ const Onzeimpact = () => {
     }, animationDelayonzeptagss);
     
     return () => {
-     gsap.killTweensOf('.onzeptagss .line');
+     gsap.killTweensOf('.onzeptagssthe .line');
+     gsap.killTweensOf('.hetmenubottom .line');
    };
   }, [onzeimpact]);
   /* --------------------------------------------------------------------------------------------------------------------- */
@@ -364,7 +374,7 @@ const Onzeimpact = () => {
                 __html: data.contentSection.description,
               }}
             />
-            <div className="gradient-threebox gradient-threeboxonzeimpact">
+            <div className="gradient-threebox gradient-threeboxonzeimpact whitewithvideomainboxtag">
               <div className="img-containerss">
                 {data.imageSection.image.map((img, index) => (
                   <div
@@ -523,7 +533,7 @@ const Onzeimpact = () => {
                                 />
 
                                 <p
-                                  className='onzeptagss'
+                                  className='onzeptagssthe'
                                   dangerouslySetInnerHTML={{
                                     __html: card.cardDescription,
                                   }}
@@ -570,7 +580,7 @@ const Onzeimpact = () => {
                     />
 
                     <p
-                      data-secdescription=""
+                      className='hetmenubottom'
                       dangerouslySetInnerHTML={{
                         __html: data.bottomSection.secDescription,
                       }}

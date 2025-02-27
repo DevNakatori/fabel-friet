@@ -14,6 +14,7 @@ const Newfooter = () => {
   const [footerData, setFooterData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [loadingss, setLoadingss] = useState(false);
 
   useEffect(() => {
     const fetchFooterData = async () => {
@@ -41,17 +42,35 @@ const Newfooter = () => {
     fetchFooterData();
   }, [language]);
 
+
   const handleMenuItemClicks = (event, link) => {
     event.preventDefault();
+    setLoadingss(true);
     if (link.startsWith('#')) {
       const targetElement = document.querySelector(link);
       if (targetElement) {
-        targetElement.scrollIntoView({behavior: 'smooth'});
+        targetElement.scrollIntoView({ behavior: 'auto' });
+        setTimeout(() => {
+          setLoadingss(false);
+        }, 1000);
       }
     } else {
       window.location.href = link;
     }
   };
+
+
+  // const handleMenuItemClicks = (event, link) => {
+  //   event.preventDefault();
+  //   if (link.startsWith('#')) {
+  //     const targetElement = document.querySelector(link);
+  //     if (targetElement) {
+  //       targetElement.scrollIntoView({behavior: 'smooth'});
+  //     }
+  //   } else {
+  //     window.location.href = link;
+  //   }
+  // };
 
   if (loading) return <div></div>;
   if (error) return <div>{error}</div>;
@@ -65,6 +84,21 @@ const Newfooter = () => {
       // data-aos-easing="ease-out-cubic"
       // data-aos-duration="2000"
     >
+      {loadingss && (
+        <div className="loadersite loadersitessd">
+          <div className="logosvg">
+            <img src={bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      )}
+
       <div className="newcontainer">
         <div className="footerlogo onlydesktop">
           <img src={bannerlogo} alt="logo" />

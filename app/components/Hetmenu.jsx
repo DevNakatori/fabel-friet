@@ -19,6 +19,7 @@ import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 import blutextanimationtext from '../js/blutextanimationtext.js';
+import titledynamic from '../js/titledynamic.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 /* --------------------------------------------------------------------------------------------------------------------- */
 const Hetmenu = () => {
@@ -102,19 +103,21 @@ const Hetmenu = () => {
     const animationDelayonzeptags = isHardRefreshonzeptags ? 300 : 300;
 
     const initiateAnimationsonzeptags = () => {
-      const typeSplitvideoDescriptions = new SplitType('.onzeptags', {
+      const typeSplitvideoDescriptions = new SplitType('.hrtmenutags', {
         types: 'lines, words, chars',
         tagName: 'span',
       });
 
-      gsap.from('.onzeptags .line', {
+      gsap.from('.hrtmenutags .line', {
         opacity: 0.3,
-        duration: 0.5,
+        duration: 0.9,
         ease: 'power1.out',
         stagger: 0.1,
         scrollTrigger: {
-          trigger: '.onzeptags',
-          start: 'top center',
+          id:"ptag",
+          trigger: '.menudynamic',
+          start: '95% 95%',
+          end:'150% 150%',
           scrub: true,
         },
       });
@@ -125,7 +128,7 @@ const Hetmenu = () => {
     }, animationDelayonzeptags);
     
     return () => {
-     gsap.killTweensOf('.onzeptags .line');
+     gsap.killTweensOf('.hrtmenutags .line');
    };
   }, [hetmenu]);
   /* --------------------------------------------------------------------------------------------------------------------- */
@@ -184,6 +187,7 @@ const Hetmenu = () => {
       alldescription();
       allinnerlinedescriptn();
       blutextanimationtext();
+      titledynamic();
     }
   }, [hetmenu]);
   /* gold title start */
@@ -488,7 +492,7 @@ const Hetmenu = () => {
                       }}
                     />
                     <p
-                      className='onzeptags'
+                      className='hrtmenutags'
                       dangerouslySetInnerHTML={{
                         __html: bottomContentSection.bottomDescription,
                       }}

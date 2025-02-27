@@ -8,6 +8,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { getImageUrl } from '../js/imagesurl';
 import Contactform from '~/components/Contactform';
 import ZoomSection from '~/components/ZoomSection';
+import GradientGetInTouch from '~/components/GradientGetInTouch';
 import SplitText from 'gsap/SplitText';
 import '../styles/getintouch.css';
 import images from '../js/images';
@@ -110,276 +111,58 @@ const Getintouch = () => {
     twitter: twitterIcon,
     tiktok: tiktokIcon,
   };
-
   useEffect(() => {
-    const listgetintouch = document.querySelectorAll(
-      '.gradient-threeboxgetintouch',
-    );
-    listgetintouch.forEach((listgetintouch) => {
-      const itemsgetintouch = listgetintouch.querySelectorAll(
-        'ul li.gradientgetintouchlist',
-      );
-      const firstItemgetintouch = itemsgetintouch[0];
-      const lastItemgetintouch = itemsgetintouch[itemsgetintouch.length - 1];
-      const middleItemgetintouch = itemsgetintouch[1];
-
-      const mobileMediaQuerygetintouch =
-        window.matchMedia('(max-width: 768px)');
-
-      let animateMobileTimeline;
-      let animateDesktopTimeline;
-
-      const animateDesktopgetintouch = () => {
-        if (animateMobileTimeline) animateMobileTimeline.scrollTrigger.kill();
-
-        const onzefritthreeimagecentergetintouch = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection .wrappertest',
-            start: 'top top',
-            end: 'bottom top',
-            onEnter: () => {
-              // if (document.body.classList.contains('india')) {
-
-              // } else {
-              //   addIframe();
-              //   addIframeone();
-              //   addIframetwo();
-              // }
-              const videos = document.querySelectorAll('.tiktokvidoe');
-              videos.forEach(video => {
-                video.play();
-              });
-            }
-          },
-        });
-
-        onzefritthreeimagecentergetintouch.fromTo(
-          middleItemgetintouch,
-          { bottom: '-55vh', rotation: 0, opacity: 0 },
-          {
-            bottom: '0vh',
-            duration: 1,
-            opacity: 1,
-          },
-        );
-
-        const onzefritthreeimageleftgetintouch = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection  .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimageleftgetintouch
-          .fromTo(
-            firstItemgetintouch,
-            { left: '-50vw', rotation: 0, opacity: 0 },
-            {
-              left: '-9vw',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(firstItemgetintouch, {
-            rotation: -8,
-            duration: 1,
-            delay: 1,
-          });
-
-        const onzefritthreeimagerightgetintouch = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        onzefritthreeimagerightgetintouch
-          .fromTo(
-            lastItemgetintouch,
-            { right: '-50vw', rotation: 0, opacity: 0 },
-            {
-              right: '-9vw',
-              opacity: 1,
-              duration: 1,
-            },
-          )
-          .to(lastItemgetintouch, {
-            rotation: 8,
-            duration: 1,
-            delay: 1,
-          });
-      };
-
-      const animateMobilegetintouch = () => {
-        if (animateDesktopTimeline) animateDesktopTimeline.scrollTrigger.kill();
-
-        const mobileTimelineCenter = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection .wrappertest',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        mobileTimelineCenter.fromTo(
-          middleItemgetintouch,
-          { bottom: '-30vh', rotation: 0, opacity: 0 },
-          {
-            bottom: '0vh',
-            duration: 0.7,
-            opacity: 1,
-          },
-        );
-
-        const mobileTimelineLeft = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        mobileTimelineLeft
-          .fromTo(
-            firstItemgetintouch,
-            { left: '-30vw', rotation: 0, opacity: 0 },
-            {
-              left: '0vw',
-              opacity: 1,
-              duration: 0.7,
-            },
-          )
-          .to(firstItemgetintouch, {
-            rotation: -4,
-            duration: 0.7,
-            delay: 1,
-          });
-
-        const mobileTimelineRight = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.sixthsection .gradient-purple',
-            start: 'top top',
-            end: 'bottom top',
-          },
-        });
-
-        mobileTimelineRight
-          .fromTo(
-            lastItemgetintouch,
-            { right: '-30vw', rotation: 0, opacity: 0 },
-            {
-              right: '0vw',
-              opacity: 1,
-              duration: 0.7,
-            },
-          )
-          .to(lastItemgetintouch, {
-            rotation: 4,
-            duration: 0.7,
-            delay: 1,
-          });
-      };
-
-      if (mobileMediaQuerygetintouch.matches) {
-        animateMobilegetintouch();
-      } else {
-        animateDesktopgetintouch();
-      }
-
-
-
-      // function addIframe() {
-      //   const iframeContainer = document.getElementById('tiktokIframeContainer');
-      //   if (!iframeContainer.querySelector('iframe')) {
-      //     const iframe = document.createElement('iframe');
-      //     iframe.title = "tiktok";
-      //     iframe.src = "https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1";
-      //     iframe.muted = true;
-      //     iframe.allow = "autoplay";
-      //     iframe.loop = true;
-      //     iframeContainer.appendChild(iframe);
-      //   }
-      // }
-
-      // function addIframeone() {
-      //   const iframeContainer = document.getElementById('tiktokIframeContainer1');
-      //   if (!iframeContainer.querySelector('iframe')) {
-      //     const iframe = document.createElement('iframe');
-      //     iframe.title = "tiktok";
-      //     iframe.src = "https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1";
-      //     iframe.muted = true;
-      //     iframe.allow = "autoplay";
-      //     iframe.loop = true;
-      //     iframeContainer.appendChild(iframe);
-      //   }
-      // }
-
-      // function addIframetwo() {
-      //   const iframeContainer = document.getElementById('tiktokIframeContainer2');
-      //   if (!iframeContainer.querySelector('iframe')) {
-      //     const iframe = document.createElement('iframe');
-      //     iframe.title = "tiktok";
-      //     iframe.src = "https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1";
-      //     iframe.muted = true;
-      //     iframe.allow = "autoplay";
-      //     iframe.loop = true;
-      //     iframeContainer.appendChild(iframe);
-      //   }
-      // }
-    });
     /* --------------------------------------------------------------------------------------------------------------------- */
-    const textContent = 'lekkerste friet van Amsterdam!';
-    const textLength = textContent.length;
-    const duration = textLength * 0.05;
-    gsap.fromTo(
-      '.sixthsection #animated-text',
-      { text: '' },
-      {
-        text: textContent,
-        duration: duration,
-        ease: 'none',
-        delay: 2,
-        scrollTrigger: {
-          trigger: '.whitewithvideomainbox',
-          start: 'top 75%',
-          end: 'top 25%',
-          toggleActions: 'play none none none',
-        },
-      },
-    );
-    /* --------------------------------------------------------------------------------------------------------------------- */
+    // const textContent = 'lekkerste friet van Amsterdam!';
+    // const textLength = textContent.length;
+    // const duration = textLength * 0.05;
     // gsap.fromTo(
-    //   '.likeimagelist img',
-    //   {y: -50, opacity: 0},
+    //   '.sixthsection #animated-text',
+    //   { text: '' },
     //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.5,
-    //     duration: 1,
-    //     ease: 'bounce.out',
-    //     yoyo: true,
+    //     text: textContent,
+    //     duration: duration,
+    //     ease: 'none',
+    //     delay: 2,
     //     scrollTrigger: {
-    //       trigger: '#section6 .wrappertests',
-    //       start: 'top top',
-    //       end: 'top top',
-    //       pin: true,
-    //       once: true,
-    //       markers: false,
+    //       trigger: '.whitewithvideomainbox',
+    //       start: 'top 75%',
+    //       end: 'top 25%',
+    //       toggleActions: 'play none none none',
     //     },
     //   },
     // );
+    /* --------------------------------------------------------------------------------------------------------------------- */
+    gsap.fromTo(
+      '.likeimagelist img',
+      {y: -50, opacity: 0},
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.5,
+        duration: 1,
+        ease: 'bounce.out',
+        yoyo: true,
+        scrollTrigger: {
+          trigger: '#section6 .wrappertests',
+          start: 'top top',
+          end: 'top top',
+          pin: true,
+          once: true,
+          markers: false,
+        },
+      },
+    );
 
-    // gsap.to('.likeimagelist img', {
-    //   x: 'random(-10, 10)',
-    //   y: 'random(-10, 10)',
-    //   zIndex: 22,
-    //   duration: 1,
-    //   ease: 'none',
-    //   yoyo: true,
-    //   repeat: -1,
-    // });
+    gsap.to('.likeimagelist img', {
+      x: 'random(-10, 10)',
+      y: 'random(-10, 10)',
+      zIndex: 22,
+      duration: 1,
+      ease: 'none',
+      yoyo: true,
+      repeat: -1,
+    });
   }, [getIntouch]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
@@ -777,68 +560,8 @@ const Getintouch = () => {
             />
 
             <div className="gradient-threebox gradient-threeboxgetintouch">
-              <ul
-                data-aos="fade-up"
-                data-aos-anchor-placement="top-center"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-              >
-                <li
-                  style={{
-                    backgroundImage: `url(${images.backgroundImageUrl})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  className="gradientgetintouchlist" id="tiktokIframeContainer"
-                >
-                  <video className='tiktokvidoe' controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6a8710d0b59e43c1bb1d565f2985b813.mp4" loop muted playsInline/>
-                  {/* <iframe
-                    title="tiktok"
-                    src="https://www.tiktok.com/player/v1/7423012263239388449?autoplay=1"
-                    muted
-                    allow="autoplay"
-                    loop
-                    
-                  ></iframe> */}
-                </li>
-
-                <li
-                  style={{
-                    backgroundImage: `url(${images.backgroundImageUrl})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  className="gradientgetintouchlist" id="tiktokIframeContainer1"
-                >
-                  <video className='tiktokvidoe' controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/69ee51f392084784994b1ca6b5ef227a.mp4" loop muted playsInline />
-                  {/* <iframe
-                    title="tiktok"
-                    src="https://www.tiktok.com/player/v1/7405587642248662304?autoplay=1"
-                    muted
-                    allow="autoplay"
-                    loop
-                    
-                  ></iframe> */}
-                </li>
-
-                <li
-                  style={{
-                    backgroundImage: `url(${images.backgroundImageUrl})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                  className="gradientgetintouchlist" id="tiktokIframeContainer2"
-                >
-                  <video className='tiktokvidoe' controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6b07ae8f50764096a2c77ec414f5442f.mp4" loop muted playsInline />
-                  {/* <iframe
-                    title="tiktok"
-                    src="https://www.tiktok.com/player/v1/7359908172418665761?autoplay=1"
-                    muted
-                    allow="autoplay"
-                    loop
-                  ></iframe> */}
-                </li>
-              </ul>
+            
+              <GradientGetInTouch/>
 
               <div className="lefttiktoktext">
                 <div className="arrowimagetouchone">

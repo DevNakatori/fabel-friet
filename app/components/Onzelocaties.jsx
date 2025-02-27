@@ -17,6 +17,7 @@ import ZoomSection from '~/components/ZoomSection';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
+import titledynamic from '../js/titledynamic.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 /* --------------------------------------------------------------------------------------------------------------------- */
 const Onzelocaties = () => {
@@ -108,6 +109,7 @@ const Onzelocaties = () => {
       alltitleAnimation();
       alldescription();
       allinnerlinedescriptn();
+      titledynamic();
     }
   }, [onzelocaties]);
   /* gold title start */

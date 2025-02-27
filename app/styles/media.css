@@ -421,6 +421,10 @@ button.skipvideo.hidden{display:none;}
         font-size: 16px;
     }
     .page.menumainppage .menu-section ul li span.price{font-size: 16px;}
+
+    .roundtext {
+        max-width: 42vw;
+    }
 }
 @media (min-width:768px) and (max-width:991px){
     .rightsidebullets{display:none;}
