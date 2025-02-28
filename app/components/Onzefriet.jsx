@@ -212,6 +212,8 @@ const Onzefriet = () => {
   useEffect(() => {
     const isHardRefreshonzeptag = window.performance.navigation.type === 1;
     const animationDelayonzeptag = isHardRefreshonzeptag ? 300 : 300;
+    const isMobile = window.innerWidth <= 768;
+
 
     const initiateAnimationsonzeptag = () => {
       const typeSplitvideoDescription = new SplitType('.onzeptag', {
@@ -226,8 +228,11 @@ const Onzefriet = () => {
         stagger: 0.1,
         scrollTrigger: {
           trigger: '.whitewithvideomainbox',
-          start: 'top 10%',
-          end:'40% 40%',
+          // start: 'top 10%',
+          // end:'40% 40%',
+          start: isMobile ? 'top center' : 'top 10%', 
+          //start: 'top 10%',
+          end: isMobile ? '' : '40% 40%',
           scrub: true,
           markers:false,
         },
