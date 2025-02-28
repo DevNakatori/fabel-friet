@@ -11,6 +11,10 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
   const zoomSectionRef = useRef(null);
 
   useEffect(() => {
+
+    const isMobile = window.innerWidth <= 768;
+
+
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
@@ -24,7 +28,7 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         delay: 0.5,
         pinSpacing: false,
         pinSpacer:true,
-        anticipatePin: 1,
+        anticipatePin: isMobile ? 0 : 1,
        // pinReparent: true,
          //anticipatePin: 1,
         // snap: {
