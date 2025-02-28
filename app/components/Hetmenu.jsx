@@ -70,7 +70,7 @@ const Hetmenu = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex:9,
+        zIndex: 9,
         ease: 'power1.inOut',
       });
       timelineshetmenu.to(
@@ -78,7 +78,7 @@ const Hetmenu = () => {
         {
           scale: 1,
           borderRadius: 0,
-          zIndex:0,
+          zIndex: 0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section4 .wrappertest',
@@ -89,47 +89,48 @@ const Hetmenu = () => {
         0,
       );
       return () => {
-        if (timelineshetmenu.scrollTrigger) 
-          {
-        timelineshetmenu.scrollTrigger.kill();
-          }
+        if (timelineshetmenu.scrollTrigger) {
+          timelineshetmenu.scrollTrigger.kill();
+        }
       };
     }
   }, [hetmenu]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
-    const isHardRefreshonzeptags = window.performance.navigation.type === 1;
-    const animationDelayonzeptags = isHardRefreshonzeptags ? 300 : 300;
+    if (window.innerWidth >= 1024) {
+      const isHardRefreshonzeptags = window.performance.navigation.type === 1;
+      const animationDelayonzeptags = isHardRefreshonzeptags ? 300 : 300;
 
-    const initiateAnimationsonzeptags = () => {
-      const typeSplitvideoDescriptions = new SplitType('.hrtmenutags', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
+      const initiateAnimationsonzeptags = () => {
+        const typeSplitvideoDescriptions = new SplitType('.hrtmenutags', {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        });
 
-      gsap.from('.hrtmenutags .line', {
-        opacity: 0.3,
-        duration: 0.9,
-        ease: 'power1.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          id:"ptag",
-          trigger: '.menudynamic',
-          start: '95% 95%',
-          end:'150% 150%',
-          scrub: true,
-        },
-      });
-    };
+        gsap.from('.hrtmenutags .line', {
+          opacity: 0.3,
+          duration: 0.9,
+          ease: 'power1.out',
+          stagger: 0.1,
+          scrollTrigger: {
+            id: "ptag",
+            trigger: '.menudynamic',
+            start: '95% 95%',
+            end: '150% 150%',
+            scrub: true,
+          },
+        });
+      };
 
-    setTimeout(() => {
-      initiateAnimationsonzeptags();
-    }, animationDelayonzeptags);
-    
-    return () => {
-     gsap.killTweensOf('.hrtmenutags .line');
-   };
+      setTimeout(() => {
+        initiateAnimationsonzeptags();
+      }, animationDelayonzeptags);
+
+      return () => {
+        gsap.killTweensOf('.hrtmenutags .line');
+      };
+    }
   }, [hetmenu]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
@@ -253,13 +254,17 @@ const Hetmenu = () => {
               data-speed="auto"
               dangerouslySetInnerHTML={{ __html: contentSection.heading }}
             />
-            <p
-              className="hetmenuescription"
-              data-description=""
-              data-speed="auto"
-              dangerouslySetInnerHTML={{ __html: contentSection.description }}
-            />
 
+            {isDesktopcanvashetmenu ? (
+              <></>
+            ) : (
+              <p
+                className="hetmenuescription"
+                data-description=""
+                data-speed="auto"
+                dangerouslySetInnerHTML={{ __html: contentSection.description }}
+              />
+            )}
             <div className="whitebgbox">
               {isDesktopcanvashetmenu ? (
                 <></>
@@ -498,15 +503,19 @@ const Hetmenu = () => {
                       }}
                     />
                   </div>
-                  <div className="leftvideobox">
-                    <img
-                      src={getImageUrl(
-                        bottomContentSection.bottomImage.asset._ref,
-                      )}
-                      alt="Bottom section image"
-                      data-speed="auto"
-                    />
-                  </div>
+                  {isDesktopcanvashetmenu ? (
+                    <></>
+                  ) : (
+                    <div className="leftvideobox">
+                      <img
+                        src={getImageUrl(
+                          bottomContentSection.bottomImage.asset._ref,
+                        )}
+                        alt="Bottom section image"
+                        data-speed="auto"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
               {/* --------------------------------------------------------------------------------------------------------------------- */}

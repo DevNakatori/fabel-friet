@@ -553,11 +553,16 @@ const Getintouch = () => {
             <h4 className="onzefrienttitle" data-gettouchonzefrienttitle="">
               {contentSection.heading}
             </h4>
-            <p
+            {isDesktopcanvasetmenu ? (
+              <></>
+            ) : (
+              <p
               className="onzefriendescription"
               data-gettouchonzefrientdescription=""
               dangerouslySetInnerHTML={{ __html: contentSection.description }}
             />
+            )}
+            
 
             <div className="gradient-threebox gradient-threeboxgetintouch">
             

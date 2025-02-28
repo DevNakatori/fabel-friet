@@ -76,7 +76,7 @@ const Onzelocaties = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex:9,
+        zIndex: 9,
         ease: 'power1.inOut',
       });
       timelines.to(
@@ -84,7 +84,7 @@ const Onzelocaties = () => {
         {
           scale: 1,
           borderRadius: 0,
-          zIndex:0,
+          zIndex: 0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section3 .wrappertest',
@@ -95,10 +95,9 @@ const Onzelocaties = () => {
         0,
       );
       return () => {
-        if (timelines.scrollTrigger) 
-          {
-            timelines.scrollTrigger.kill();
-          }  
+        if (timelines.scrollTrigger) {
+          timelines.scrollTrigger.kill();
+        }
       };
     }
   }, [onzelocaties]);
@@ -158,7 +157,7 @@ const Onzelocaties = () => {
       });
     });
   }, [onzelocaties]);
-/* --------------------------------------------------------------------------------------------------------------------- */
+  /* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
     return (
       <div>
@@ -200,16 +199,23 @@ const Onzelocaties = () => {
                   __html: locationData.contentSection.heading,
                 }}
               />
-              <p
-                className="locationescription onlydesktop"
-                data-description=""
-                data-speed="auto"
-                dangerouslySetInnerHTML={{
-                  __html: locationData.contentSection.description,
-                }}
-              />
+              {isDesktop ? (
+                <></>
+              ) : (
+                <p
+                  className="locationescription onlydesktop"
+                  data-description=""
+                  data-speed="auto"
+                  dangerouslySetInnerHTML={{
+                    __html: locationData.contentSection.description,
+                  }}
+                />
+              )}
 
-              <div
+              {isDesktop ? (
+                <></>
+              ) : (
+                <div
                 data-aos="fade-up"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
@@ -222,7 +228,8 @@ const Onzelocaties = () => {
                   {locationData.contentSection.btn_label}
                 </a>
               </div>
-
+              )}
+              
               {/* mobile location slider */}
               <div className="whitebgbox ">
                 <div className="appcontainers">
