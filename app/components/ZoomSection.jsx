@@ -36,10 +36,18 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         //   ease: "power1.in",
         // },
         onEnterBack: () => {
-          ScrollTrigger.refresh(); 
+          if (isMobile) {
+            ScrollTrigger.update();  
+          } else {
+            ScrollTrigger.refresh(); 
+          }
         },
         onLeave: () => {
-          ScrollTrigger.refresh();  
+          if (isMobile) {
+            ScrollTrigger.update();  
+          } else {
+            ScrollTrigger.refresh(); 
+          }
         },
       },
     })
