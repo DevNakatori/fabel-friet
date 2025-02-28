@@ -259,4 +259,5 @@ button.audioplaypause {
 @media (max-width:767px)
 {
   button.audioplaypause{position:fixed;right:15px;bottom:15px;z-index:99999999999;cursor:pointer;width:40px;height:40px;border-radius:50%;}
+  .progress-bar-container{position:fixed;width:100%;bottom:-3px;border-radius:0;margin-top:0px;height:auto;z-index:1;}
 }
