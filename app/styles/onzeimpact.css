@@ -92,12 +92,15 @@ div#onzeimpactnonzefriet h4.onzeimpacttitle{opacity:1;margin-top:0;margin-bottom
     #section5 .whitebgbox .whitewithvideomainboxs .leftvideobox{max-width:874px;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;width:100%;position:relative;}
     #section5 .whitebgbox .whitewithvideomainboxs .righttextbox{max-width:735px;width:100%;padding-left:0;position:relative;}
     .qrcodeimagebox{position:absolute;left:0px;top:39%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);width:35%;}
-    .binimagebox{position:relative;right:0px;bottom:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;width:210px;}
+    .binimagebox{position:relative;right:0px;bottom:0;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;width:210px;z-index: -1;}
     #section5 .whitewithvideomainbox{-ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
     #section5 .whitebgbox .whitewithvideomainbox .leftvideobox{max-width:100%;-ms-flex-negative:0;-webkit-flex-shrink:0;flex-shrink:0;width:100%;position:relative;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox{max-width:100%;margin-right:0;padding-left:0;width:inherit;}
     .qrcodeimagebox{position:absolute;left:0px;top:30%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-moz-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);width:35%;}
-    #section5 .whitewithvideomainboxs{padding-bottom: 170px;}
+    #section5 .whitewithvideomainboxs{padding-bottom: 300px;}
+    .lefttiktoktext p, .righttiktoktext p {
+        font-size: 16px;
+    }
 }
 @media (min-width:768px) and (max-width:991px){
     .roundtext-impact h2{position:absolute;left:-230px;top:14px;z-index:1;margin:0;}
