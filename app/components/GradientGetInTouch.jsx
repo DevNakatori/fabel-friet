@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import backgroundImageUrl from '../assets/resizeimgs/webp/tiktiokbg.webp';
+import videoone from '../assets/1.webp';
+import videotwo from '../assets/2.webp';
+import videothree from '../assets/3.webp';
 
 const GradientGetInTouch = ({ images }) => {
 
@@ -209,7 +212,7 @@ const GradientGetInTouch = ({ images }) => {
                 className="gradientgetintouchlist"
                 id="tiktokIframeContainer"
             >
-                <video className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6a8710d0b59e43c1bb1d565f2985b813.mp4" loop muted playsInline />
+                <video poster={videoone} className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6a8710d0b59e43c1bb1d565f2985b813.mp4" loop muted playsInline />
             </li>
             <li
                 style={{
@@ -220,7 +223,7 @@ const GradientGetInTouch = ({ images }) => {
                 className="gradientgetintouchlist"
                 id="tiktokIframeContainer1"
             >
-                <video className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/69ee51f392084784994b1ca6b5ef227a.mp4" loop muted playsInline />
+                <video poster={videotwo} className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/69ee51f392084784994b1ca6b5ef227a.mp4" loop muted playsInline />
             </li>
             <li
                 style={{
@@ -231,7 +234,7 @@ const GradientGetInTouch = ({ images }) => {
                 className="gradientgetintouchlist"
                 id="tiktokIframeContainer2"
             >
-                <video className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6b07ae8f50764096a2c77ec414f5442f.mp4" loop muted playsInline />
+                <video poster={videothree} className="tiktokvidoe" controls preload="true" disablePictureInPicture controlsList="nofullscreen nodownload noremoteplayback noplaybackrate foobar" src="https://cdn.shopify.com/videos/c/o/v/6b07ae8f50764096a2c77ec414f5442f.mp4" loop muted playsInline />
             </li>
         </ul>
 
