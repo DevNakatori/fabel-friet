@@ -219,6 +219,7 @@ const Onzeimpact = () => {
   /* --------------------------------------------------------------------------------------------------------------------- */
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
+    if (window.innerWidth >= 1024) {
     const isHardRefreshonzeptagss = window.performance.navigation.type === 1;
     const animationDelayonzeptagss = isHardRefreshonzeptagss ? 300 : 300;
 
@@ -281,6 +282,7 @@ const Onzeimpact = () => {
      gsap.killTweensOf('.onzeptagssthe .line');
      gsap.killTweensOf('.hetmenubottom .line');
    };
+  }
   }, [onzeimpact]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {

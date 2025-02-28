@@ -77,7 +77,7 @@ const Onzefriet = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex:9,
+        zIndex: 9,
         ease: 'power1.inOut',
       });
       timelinesonzefriet.to(
@@ -85,7 +85,7 @@ const Onzefriet = () => {
         {
           scale: 1,
           borderRadius: 0,
-          zIndex:0,
+          zIndex: 0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section2 .wrappertest',
@@ -210,37 +210,39 @@ const Onzefriet = () => {
   /* three image animation end */
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
-    const isHardRefreshonzeptag = window.performance.navigation.type === 1;
-    const animationDelayonzeptag = isHardRefreshonzeptag ? 300 : 300;
+    if (window.innerWidth >= 1024) {
+      const isHardRefreshonzeptag = window.performance.navigation.type === 1;
+      const animationDelayonzeptag = isHardRefreshonzeptag ? 300 : 300;
 
-    const initiateAnimationsonzeptag = () => {
-      const typeSplitvideoDescription = new SplitType('.onzeptag', {
-        types: 'lines, words, chars',
-        tagName: 'span',
-      });
+      const initiateAnimationsonzeptag = () => {
+        const typeSplitvideoDescription = new SplitType('.onzeptag', {
+          types: 'lines, words, chars',
+          tagName: 'span',
+        });
 
-      gsap.from('.onzeptag .line', {
-        opacity: 0.3,
-        duration: 0.8,
-        ease: 'power1.out',
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.whitewithvideomainbox',
-          start: 'top 10%',
-          end:'40% 40%',
-          scrub: true,
-          markers:false,
-        },
-      });
-    };
+        gsap.from('.onzeptag .line', {
+          opacity: 0.3,
+          duration: 0.8,
+          ease: 'power1.out',
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: '.whitewithvideomainbox',
+            start: 'top 10%',
+            end: '40% 40%',
+            scrub: true,
+            markers: false,
+          },
+        });
+      };
 
-    setTimeout(() => {
-      initiateAnimationsonzeptag();
-    }, animationDelayonzeptag);
-    
-    return () => {
-     gsap.killTweensOf('.onzeptag .line');
-   };
+      setTimeout(() => {
+        initiateAnimationsonzeptag();
+      }, animationDelayonzeptag);
+
+      return () => {
+        gsap.killTweensOf('.onzeptag .line');
+      };
+    }
   }, [onzefriet]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   /* svg animation start */
@@ -316,7 +318,7 @@ const Onzefriet = () => {
   /* --------------------------------------------------------------------------------------------------------------------- */
   return (
     <section className="panel secondesection" id="section2">
-    
+
       {onzefriet.map((content, idx) => (
         <div key={idx}>
           {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
@@ -341,14 +343,18 @@ const Onzefriet = () => {
                       }}
                     />
                   </div>
-                  <p
-                    className="onzefriendescription"
-                    data-description=""
-                    data-speed="auto"
-                    dangerouslySetInnerHTML={{
-                      __html: content.contentSection.description,
-                    }}
-                  />
+                  {isDesktopcanvas ? (
+                    <></>
+                  ) : (
+                    <p
+                      className="onzefriendescription"
+                      data-description=""
+                      data-speed="auto"
+                      dangerouslySetInnerHTML={{
+                        __html: content.contentSection.description,
+                      }}
+                    />
+                  )}
                 </>
               )}
               <div className="gradient-threebox gradient-threeboxonzefritimgli">
@@ -395,7 +401,7 @@ const Onzefriet = () => {
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
                 // <FrenchFriesRain />
-                <SnowAnimation/>
+                <SnowAnimation />
               )}
               {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">
@@ -477,7 +483,6 @@ const Onzefriet = () => {
                         />
                         <p
                           className="onzeptag"
-
                           dangerouslySetInnerHTML={{
                             __html: content.videoSection.videoDescription,
                           }}
@@ -634,7 +639,7 @@ const Onzefriet = () => {
           </div>
         </div>
       ))}
-    
+
     </section>
   );
 };
