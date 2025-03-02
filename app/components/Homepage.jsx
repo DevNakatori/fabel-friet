@@ -36,6 +36,7 @@ const HomePage = () => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [loadings, setLoadings] = useState(true);
+  const [loadingsbtn, setLoadingsbtn] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(language);
 
   const extraProgressBarRef = useRef(null);
@@ -43,6 +44,19 @@ const HomePage = () => {
   const audioRef = useRef(null);
 
   
+  const handleClick = (event) => {
+    event.preventDefault(); 
+    setLoadingsbtn(true);
+    setTimeout(() => {
+      setLoadingsbtn(false);
+      window.location.href = bannerData[0].bannerButton.buttonLink || '#section2';
+      if (window.location.hash === '#section2') {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      
+    }, 1500);
+  };
+
 
   useEffect(() => {
     document.body.classList.add(currentLanguage);
@@ -722,14 +736,18 @@ const HomePage = () => {
             />
           </div>
           {bannerData[0].bannerButton && (
+            <>
             <a
               className="bubbly-button banner_bottombtn swipe-effect"
               href={bannerData[0].bannerButton.buttonLink || '#section2'}
+              onClick={handleClick}
               dangerouslySetInnerHTML={{
                 __html: bannerData[0].bannerButton.buttonText,
               }}
             ></a>
             
+            
+            </>
           )}
           <div className="bannerrotate_text">
             <p dangerouslySetInnerHTML={{__html: bannerData[0].bannerText}} />
@@ -739,6 +757,23 @@ const HomePage = () => {
           <img src={images.bottompotetoes} />
         </div>
       </div>
+
+      
+      {loadingsbtn && <div className="loaderbuttonss">
+        <div className="lodinbtnsss">
+          <div className="logosvg">
+            <img src={bannerlogo} alt="logo" />
+          </div>
+          <div className="loader1">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+              </div>}
+
     </section>
   );
 };
