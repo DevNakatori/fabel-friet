@@ -77,7 +77,7 @@ const Onzefriet = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex: 9,
+        //zIndex: 9,
         ease: 'power1.inOut',
       });
       timelinesonzefriet.to(
@@ -85,7 +85,7 @@ const Onzefriet = () => {
         {
           scale: 1,
           borderRadius: 0,
-          zIndex: 0,
+          //zIndex: 0,
           ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section2 .wrappertest',
@@ -567,7 +567,9 @@ const Onzefriet = () => {
                                       ) {
                                         return (
                                           <li key={index}>
-                                            <i className="star"></i>
+                                            <i className="star">
+                                            <svg version="1.1" className="bh-star bh-star--1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlSpace="preserve"><path className="outline" d="M12,4.2L14.5,9l0.2,0.5l0.5,0.1l5.5,0.8L16.8,14l-0.4,0.4l0.1,0.5l1,5.3l-5-2.5L12,17.5l-0.4,0.2l-5,2.5L7.5,15l0.1-0.5 L7.2,14l-4-3.7l5.5-0.8l0.5-0.1L9.5,9L12,4.2 M11.9,2L8.6,8.6L1,9.7l5.5,5.1L5.2,22l6.8-3.4l6.8,3.4l-1.3-7.2L23,9.6l-7.6-1L11.9,2 L11.9,2z"/><polygon className="full" points="18.8,22 12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2 15.4,8.6 23,9.6 17.5,14.7"/><polyline className="full"  points="12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2"/></svg>
+                                            </i>
                                           </li>
                                         ); // Full star
                                       } else if (
@@ -577,13 +579,17 @@ const Onzefriet = () => {
                                       ) {
                                         return (
                                           <li key={index}>
-                                            <i className="halfstar"></i>
+                                            <i className="halfstar">
+                                            <svg version="1.1" className="bh-star bh-star--3" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlSpace="preserve"><path className="outline" d="M12,4.2L14.5,9l0.2,0.5l0.5,0.1l5.5,0.8L16.8,14l-0.4,0.4l0.1,0.5l1,5.3l-5-2.5L12,17.5l-0.4,0.2l-5,2.5L7.5,15l0.1-0.5 L7.2,14l-4-3.7l5.5-0.8l0.5-0.1L9.5,9L12,4.2 M11.9,2L8.6,8.6L1,9.7l5.5,5.1L5.2,22l6.8-3.4l6.8,3.4l-1.3-7.2L23,9.6l-7.6-1L11.9,2 L11.9,2z"></path><polygon className="full" points="18.8,22 12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2 15.4,8.6 23,9.6 17.5,14.7"></polygon><polyline className="left-half" points="12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2"></polyline></svg>
+                                            </i>
                                           </li>
                                         ); // Half star
                                       } else {
                                         return (
                                           <li key={index}>
-                                            <i className="blackstar"></i>
+                                            <i className="blackstar">
+                                            <svg version="1.1" className="bh-star bh-star--5" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xmlSpace="preserve"><path className="outline" d="M12,4.2L14.5,9l0.2,0.5l0.5,0.1l5.5,0.8L16.8,14l-0.4,0.4l0.1,0.5l1,5.3l-5-2.5L12,17.5l-0.4,0.2l-5,2.5L7.5,15l0.1-0.5 L7.2,14l-4-3.7l5.5-0.8l0.5-0.1L9.5,9L12,4.2 M11.9,2L8.6,8.6L1,9.7l5.5,5.1L5.2,22l6.8-3.4l6.8,3.4l-1.3-7.2L23,9.6l-7.6-1L11.9,2 L11.9,2z"></path><polygon className="full" points="18.8,22 12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2 15.4,8.6 23,9.6 17.5,14.7"></polygon><polyline className="left-half" points="12,18.6 5.2,22 6.5,14.8 1,9.7 8.6,8.6 11.9,2"></polyline></svg>
+                                            </i>
                                           </li>
                                         ); // Empty star
                                       }

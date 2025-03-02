@@ -100,7 +100,7 @@ button.skipvideo.hidden{display:none;}
     .banner_content_text p{font-size:-moz-calc(20 / var(--vw)* var(--multiplier) - 25%);font-size:calc(20 / var(--vw)* var(--multiplier) - 25%);}
 }
 @media (max-width:767px){
-    #section2 .wrappertest,#section3 .wrappertest,#section5 .wrappertest,#section6 .wrappertest,#section4 .wrappertest{z-index:99;}
+    #section2 .wrappertest,#section3 .wrappertest,#section5 .wrappertest,#section6 .wrappertest,#section4 .wrappertest{z-index:99 !important;}
     .cursor,.cursor2,.arrowimage{display:none;}
     #section5 .whitebgbox .whitewithvideomainbox .righttextbox ul.onzeimpacttwolist li{width: calc((100% - 30px) + 0px);padding: 0 15px;}
     a.Whatsappbtn{height:auto;}

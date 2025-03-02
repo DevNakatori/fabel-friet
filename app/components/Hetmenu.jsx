@@ -117,7 +117,7 @@ const Hetmenu = () => {
             id: "ptag",
             trigger: '.menudynamic',
             start: '95% 95%',
-            end: '150% 150%',
+            end: '100% 100%',
             scrub: true,
           },
         });
