@@ -8,6 +8,7 @@
     height: 100%;
     filter: drop-shadow(0 0 1px #F99332);
     pointer-events: none;
+    z-index: -1;
 }
 
 .snows {
@@ -27,7 +28,7 @@
 
 @function random_ranges($min, $max) {
     $rands: random();
-    $random_ranges: $min + floor($rands * (($max - $min) + 5));
+    $random_ranges: $min + floor($rands * (($max - $min) + 10));
     @return $random_ranges;
   }
   
@@ -42,16 +43,16 @@
       $randoms-yoyo-time: random_ranges(10000, 10000) / 100000;
       $randoms-yoyo-y: $randoms-yoyo-time * 300vh;
       $randoms-scale: random(10000) * 0.0001;
-      $fall-durations: random_ranges(10, 80) * 1s;
-      $fall-delays: random(1) * -1s;
+      $falls-durations: random_ranges(10, 80) * 2s;
+      $falls-delays: random(1) * -0.1s;
   
       &:nth-child(#{$i}) {
         opacity: 1;
         transform: translate($randoms-x, -10px) scale(1);
-        animation: fall-#{$i} $fall-durations $fall-delays linear infinite;
+        animation: falls-#{$i} $falls-durations $falls-delays linear infinite;
       }
   
-      @keyframes fall-#{$i} {
+      @keyframes falls-#{$i} {
         #{percentage($randoms-yoyo-time)} {
           transform: translate($randoms-x-end, $randoms-yoyo-y) scale(1);
         }

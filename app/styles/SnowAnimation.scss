@@ -1,65 +1,65 @@
 .snow-container {
-    position: absolute;
-    top: -100px;
-    left: -50px;
-    right: 0;
-    bottom: 0;
-    width: calc(100% + 100px);
-    height: 100%;
-    filter: drop-shadow(0 0 1px #F99332);
-    pointer-events: none;
+  position: absolute;
+  top: -100px;
+  left: -50px;
+  right: 0;
+  bottom: 0;
+  width: calc(100% + 100px);
+  height: 100%;
+  filter: drop-shadow(0 0 1px #F99332);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .snow {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    /* background: white; */
-    border-radius: 5px;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  /* background: white; */
+  border-radius: 5px;
 }
 
 .snow img {
-    object-fit: contain;
-    object-position: center center;
+  object-fit: contain;
+  object-position: center center;
 }
 
 
 
 @function random_range($min, $max) {
-    $rand: random();
-    $random_range: $min + floor($rand * (($max - $min) + 5));
-    @return $random_range;
-  }
-  
-  .snow {
-    opacity: 1;
-  
-    @for $i from 1 through 80 { // Generate 200 snowflakes
-      $random-x: random(1000000) * 0.0001vw;
-      $random-offset: random_range(-100000, 100000) * 0.0001vw;
-      $random-x-end: $random-x + $random-offset;
-      $random-x-end-yoyo: $random-x + ($random-offset / 1);
-      $random-yoyo-time: random_range(30000, 80000) / 100000;
-      $random-yoyo-y: $random-yoyo-time * 300vh;
-      $random-scale: random(10000) * 0.0001;
-      $fall-duration: random_range(10, 80) * 1s;
-      $fall-delay: random(1) * -1s;
-  
-      &:nth-child(#{$i}) {
-        opacity: 1;
-        transform: translate($random-x, -10px) scale(1);
-        animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 10));
+  @return $random_range;
+}
+
+.snow {
+  opacity: 1;
+
+  @for $i from 1 through 60 { // Generate 200 snowflakes
+    $random-x: random(1000000) * 0.0001vw;
+    $random-offset: random_range(-100000, 100000) * 0.0001vw;
+    $random-x-end: $random-x + $random-offset;
+    $random-x-end-yoyo: $random-x + ($random-offset / 2);
+    $random-yoyo-time: random_range(30000, 80000) / 100000;
+    $random-yoyo-y: $random-yoyo-time * 300vh;
+    $random-scale: random(10000) * 0.0001;
+    $fall-duration: random_range(10, 60) * 2s;
+    $fall-delay: random(1) * -0.1s;
+
+    &:nth-child(#{$i}) {
+      opacity: 1;
+      transform: translate($random-x, -10px) scale(1);
+      animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+    }
+
+    @keyframes fall-#{$i} {
+      #{percentage($random-yoyo-time)} {
+        transform: translate($random-x-end, $random-yoyo-y) scale(1);
       }
-  
-      @keyframes fall-#{$i} {
-        #{percentage($random-yoyo-time)} {
-          transform: translate($random-x-end, $random-yoyo-y) scale(1);
-        }
-  
-        to {
-          transform: translate($random-x-end-yoyo, 300vh) scale(1.2);
-        }
+
+      to {
+        transform: translate($random-x-end-yoyo, 300vh) scale(1);
       }
     }
   }
-  
+}

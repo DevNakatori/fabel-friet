@@ -447,12 +447,12 @@ const HomePage = () => {
     
 
       gsap.to('#section1 .bannerlogo', {
-        duration: 1,
+        duration: 0.5,
         width: '0px',
         ease: 'power1.in',
         scrollTrigger: {
           trigger: '#smooth-content',
-          scrub: true,
+          scrub: 1,
           once: false,
           start: '0.1% 0.1%',
           end: '0.2% 0.2%',
@@ -460,7 +460,7 @@ const HomePage = () => {
       });
 
       gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
-        duration: 1,
+        duration: 0.5,
         x: '-50%',
         y: '0%',
         width: '80px',
@@ -468,7 +468,7 @@ const HomePage = () => {
         transformOrigin: 'center center',
         scrollTrigger: {
           trigger: '#smooth-content',
-          scrub: true,
+          scrub: 1,
           start: '0.1% 0.1%',
           end: '0.2% 0.2%',
           once: false,
