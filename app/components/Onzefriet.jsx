@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 // import FrenchFriesRain from '~/components/FrenchFriesRain';
-import SnowAnimation from '~/components/SnowAnimation';
+//import SnowAnimation from '~/components/SnowAnimation';
 import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
@@ -403,7 +403,8 @@ const Onzefriet = () => {
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
                 // <FrenchFriesRain />
-                <SnowAnimation />
+                // <SnowAnimation />
+                <></>
               )}
               {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">
