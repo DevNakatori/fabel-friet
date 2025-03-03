@@ -83,6 +83,10 @@ button.skipvideo.hidden{display:none;}
     .menulanding .landingcontainer .language-popup h2{font-size:-moz-calc(21 / var(--vw)* var(--multiplier))!important;font-size:calc(21 / var(--vw)* var(--multiplier))!important;line-height:2.2;}
     .language-item{font-size:-moz-calc(8 / var(--vw)* var(--multiplier))!important;font-size:calc(8 / var(--vw)* var(--multiplier))!important;}
     .binimageboxmain{    bottom: 60px;}
+    .binimageboxmain .binimageboxieft {
+        width: 375px;
+        margin-top: -45px;
+    }
 }
 @media (min-width:2500px) and (max-width:3000px){
     .fl-tests .swiper-pagination{bottom:0px;}
@@ -100,6 +104,11 @@ button.skipvideo.hidden{display:none;}
     body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20 / var(--vw)* var(--multiplier))!important;font-size:calc(20 / var(--vw)* var(--multiplier))!important;}
     .banner_content_text p{font-size:-moz-calc(20 / var(--vw)* var(--multiplier) - 25%);font-size:calc(20 / var(--vw)* var(--multiplier) - 25%);}
     .binimageboxmain{    bottom: 60px;}
+    .binimageboxmain .binimageboxieft {
+        width: 375px;
+        margin-top: -45px;
+    }
+
 }
 @media (max-width:767px){
     #section2 .wrappertest,#section3 .wrappertest,#section5 .wrappertest,#section6 .wrappertest,#section4 .wrappertest{z-index:99 !important;}
@@ -165,6 +174,10 @@ button.skipvideo.hidden{display:none;}
     .page.menumainppage .tabs button{font-size:-moz-calc(15/var(--vw)*var(--multiplier));font-size:calc(15/var(--vw)*var(--multiplier));}
     .menulanding .landingcontainer .language-popup h2{font-size:-moz-calc(55 / var(--vw)* var(--multiplier));font-size:calc(55 / var(--vw)* var(--multiplier));line-height:2.2;}
     .language-item{font-size:-moz-calc(15 / var(--vw)* var(--multiplier));font-size:calc(15 / var(--vw)* var(--multiplier));}
+    .binimageboxmain .binimageboxieft {
+        width: 360px;
+        margin-top: -100px;
+    }
 }
 @media (min-width:1201px) and (max-width:1600px){
     .roundtext-onzelocation h2,.roundtext-onzelocation h3,.roundtext-getintouch h2,.roundtext-getintouch h3,.roundtext-hetmenu h2,.roundtext-hetmenu h3,.roundtext-impact h2,.roundtext-impact h3{font-size:clamp(20px,10vw,80px)!important;}
