@@ -22,6 +22,7 @@
   .menu-toggle{cursor:pointer;padding:0;background-color:transparent;color:white;border:none;border-radius:5px;display:block;}
   .headernew nav ul{display:block;list-style:none;padding:0;margin:0;}
   .close-menu{background:transparent;border:none;color:#333;font-size:16px;cursor:pointer;margin:1rem;}
+  .close-menu svg{display: block;width: 100%;height: 100%;}
   .mobile-menu button.close-menu{width:20px;height:20px;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:-moz-box;display:flex;padding:0;margin:20px 20px 45px;}
   .headernew nav ul.desktop-menu{display:none;}
   .menu-toggle i svg{width:100%;height:100%;}

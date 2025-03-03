@@ -48,25 +48,26 @@ const HomePage = () => {
     event.preventDefault(); 
     setLoadingsbtn(true);
     setTimeout(() => {
-      setLoadingsbtn(false);
-      const link = bannerData[0]?.bannerButton?.buttonLink || '#onzefriendescriptiononzefriet';
+      
+      const link = bannerData[0]?.bannerButton?.buttonLink || '#wrappertestmenu';
       window.location.href = link;
-      if (window.location.hash === '#onzefriendescriptiononzefriet') {
+      if (window.location.hash === '#wrappertestmenu') {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
-      const targetElement = document.getElementById('onzefriendescriptiononzefriet');
+      const targetElement = document.getElementById('wrappertestmenu');
       if (targetElement) {
-        //console.log("Scrolling to position:", targetElement.offsetTop + 350);
+        //console.log("Scrolling to position:", targetElement.offsetTop + 10);
         window.scrollTo({
-          top: targetElement.offsetTop + 350, 
-          behavior: 'smooth', 
+          top: targetElement.offsetTop + 10, 
+          behavior: 'auto', 
         });
       }
        else {
       //console.error("Target element not found!");
     }
     document.body.classList.remove('hiddenoverflow');
-    }, 1700);
+    setLoadingsbtn(false);
+    }, 2000);
   };
 
 
@@ -446,28 +447,30 @@ const HomePage = () => {
     
 
       gsap.to('#section1 .bannerlogo', {
-        duration: 0.1,
+        duration: 1,
         width: '0px',
-        ease: 'power1.inOut',
+        ease: 'power1.in',
         scrollTrigger: {
-          trigger: '#section1',
+          trigger: '#smooth-content',
           scrub: true,
           once: false,
+          start: '0.1% 0.1%',
+          end: '0.2% 0.2%',
         },
       });
 
       gsap.to('.headernew nav ul.desktop-menu .bannersectinlogo', {
-        duration: 0.05,
+        duration: 1,
         x: '-50%',
         y: '0%',
         width: '80px',
-        ease: 'power1.inOut',
+        ease: 'power1.in',
         transformOrigin: 'center center',
         scrollTrigger: {
           trigger: '#smooth-content',
           scrub: true,
           start: '0.1% 0.1%',
-          end: '1% 1%',
+          end: '0.2% 0.2%',
           once: false,
         },
       });
@@ -754,7 +757,7 @@ const HomePage = () => {
             <>
             <a
               className="bubbly-button banner_bottombtn swipe-effect"
-              href={bannerData[0].bannerButton.buttonLink || '#onzefriendescriptiononzefriet'}
+              href={bannerData[0].bannerButton.buttonLink || '#wrappertestmenu'}
               onClick={handleClick}
               dangerouslySetInnerHTML={{
                 __html: bannerData[0].bannerButton.buttonText,

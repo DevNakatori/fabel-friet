@@ -14,7 +14,7 @@ import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
 import { useMediaQuery } from '@react-hook/media-query';
 // import FrenchFriesRain from '~/components/FrenchFriesRain';
-import SnowAnimation from '~/components/SnowAnimation';
+import SnowAnimations from '~/components/SnowAnimations';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
@@ -103,7 +103,7 @@ const Hetmenu = () => {
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       const isHardRefreshonzeptags = window.performance.navigation.type === 1;
-      const animationDelayonzeptags = isHardRefreshonzeptags ? 300 : 300;
+      const animationDelayonzeptags = isHardRefreshonzeptags ? 100 : 100;
 
       const initiateAnimationsonzeptags = () => {
         const typeSplitvideoDescriptions = new SplitType('.hrtmenutags', {
@@ -279,7 +279,7 @@ const Hetmenu = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                <SnowAnimation />
+                <SnowAnimations />
               )}
 
               <div

@@ -68,7 +68,7 @@ const Contactform = () => {
 
           <div className="halfinput">
             <input
-              className="inputboxgroup"
+              className="inputboxgroup sfariform"
               id="email"
               type="email"
               placeholder="Email*"
@@ -85,7 +85,7 @@ const Contactform = () => {
 
           <div className="fullinput">
             <input
-              className="inputboxgroup"
+              className="inputboxgroup sfariform"
               id="subject"
               type="text"
               placeholder="Subject*"
@@ -96,7 +96,7 @@ const Contactform = () => {
 
           <div className="fullinput lastchildtextbox">
             <textarea
-              className="inputboxgroup"
+              className="inputboxgroup sfariform"
               id="message"
               placeholder="Bericht*"
               {...register('message', {required: 'Message is required'})}
