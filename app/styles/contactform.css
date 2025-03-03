@@ -27,6 +27,60 @@
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .fullinput.lastchildtextbox {margin-bottom: 0;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform p.successfulmsg{color:green;margin:15px 0 0;width:100%;}
 .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform p.errormsg{color:red;margin:15px 0 0;width:100%;}
+
+
+
+.contactfomrbtn {
+    display: block;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    height: auto;
+    line-height: 46px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    color: #efebe7;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    overflow: hidden;
+    color: #0D1E4D;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-family: "Work Sans";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    border: solid 2px #f6c738;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 40px;
+    width: 100%;
+    background-color: transparent;
+    background-color: #ffc621 !important;
+    color: #0d1e4d !important;
+    padding: 10px 15px !important;
+    line-height: 1 !important;
+    -webkit-box-shadow: 0 2px 25px rgba(236, 196, 75, 0.5);
+    box-shadow: 0 2px 25px rgba(236, 196, 75, 0.5);
+}
+
+.contactfomrbtn:hover {
+    color: #fff!important;
+    background-color: #0d1e4d!important;
+    border-color: #0d1e4d!important;
+}
+
 @media (max-width:767px)
 {
     .sixthsection .whitewithvideomainboxss .leftvideobox .leftvideoboxinner .leftvideoboxinnerinnerform .halfinput{width:100%;margin:0 0 20px;max-width:100%;}
