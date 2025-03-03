@@ -28,7 +28,7 @@
 
 @function random_ranges($min, $max) {
     $rands: random();
-    $random_ranges: $min + floor($rands * (($max - $min) + 10));
+    $random_ranges: $min + floor($rands * (($max - $min) + 1));
     @return $random_ranges;
   }
   
@@ -43,8 +43,8 @@
       $randoms-yoyo-time: random_ranges(10000, 10000) / 100000;
       $randoms-yoyo-y: $randoms-yoyo-time * 300vh;
       $randoms-scale: random(10000) * 0.0001;
-      $falls-durations: random_ranges(10, 80) * 2s;
-      $falls-delays: random(1) * -0.1s;
+      $falls-durations: random_ranges(10, 80) * 1s;
+      $falls-delays: random(20) * -1s;
   
       &:nth-child(#{$i}) {
         opacity: 1;
