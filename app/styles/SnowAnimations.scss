@@ -1,0 +1,65 @@
+.fourthsection .snows-containers {
+    position: absolute;
+    top: 0px;
+    left: -50px;
+    right: 0;
+    bottom: 0;
+    width: calc(100% + 100px);
+    height: 100%;
+    filter: drop-shadow(0 0 1px #F99332);
+    pointer-events: none;
+}
+
+.snows {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /* background: white; */
+    border-radius: 5px;
+}
+
+.snows img {
+    object-fit: contain;
+    object-position: center center;
+}
+
+
+
+@function random_ranges($min, $max) {
+    $rands: random();
+    $random_ranges: $min + floor($rands * (($max - $min) + 5));
+    @return $random_ranges;
+  }
+  
+  .snows {
+    opacity: 1;
+  
+    @for $i from 1 through 100 { // Generate 200 snowsflakes
+      $randoms-x: random(1000000) * 0.0001vw;
+      $randoms-offset: random_ranges(-100000, 100000) * 0.0001vw;
+      $randoms-x-end: $randoms-x + $randoms-offset;
+      $randoms-x-end-yoyo: $randoms-x + ($randoms-offset / 1);
+      $randoms-yoyo-time: random_ranges(10000, 10000) / 100000;
+      $randoms-yoyo-y: $randoms-yoyo-time * 300vh;
+      $randoms-scale: random(10000) * 0.0001;
+      $fall-durations: random_ranges(10, 80) * 1s;
+      $fall-delays: random(1) * -1s;
+  
+      &:nth-child(#{$i}) {
+        opacity: 1;
+        transform: translate($randoms-x, -10px) scale(1);
+        animation: fall-#{$i} $fall-durations $fall-delays linear infinite;
+      }
+  
+      @keyframes fall-#{$i} {
+        #{percentage($randoms-yoyo-time)} {
+          transform: translate($randoms-x-end, $randoms-yoyo-y) scale(1);
+        }
+  
+        to {
+          transform: translate($randoms-x-end-yoyo, 300vh) scale(1.2);
+        }
+      }
+    }
+  }
+  

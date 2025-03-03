@@ -15,7 +15,8 @@ const potetoanimation = () => {
                 repeat: 1,
                 once: false,
             },
-            filter: "blur(5px)",
+            filter: "blur(2px)",
+            zIndex:1
         });
     });
     ScrollTrigger.refresh();
