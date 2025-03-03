@@ -18,6 +18,7 @@ import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 import titledynamic from '../js/titledynamic.js';
+import potetoanimation from '../js/potetoanimation.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 /* --------------------------------------------------------------------------------------------------------------------- */
 const Onzelocaties = () => {
@@ -76,16 +77,18 @@ const Onzelocaties = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex: 9,
+       // zIndex: 9,
         ease: 'power1.inOut',
       });
       timelines.to(
         '#section3 .gradient-purple',
         {
           scale: 1,
-          borderRadius: 0,
-          zIndex: 0,
-          ease: 'power3.easeIn',
+          borderRadius: '100vw 100vw 0px 0px',
+          //zIndex: 0,
+          ease: 'power1.inOut',
+        //  zIndex: 0,
+         // ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section3 .wrappertest',
             start: 'top top-100',
@@ -109,6 +112,7 @@ const Onzelocaties = () => {
       alldescription();
       allinnerlinedescriptn();
       titledynamic();
+      potetoanimation();
     }
   }, [onzelocaties]);
   /* gold title start */
@@ -221,12 +225,12 @@ const Onzelocaties = () => {
                 data-aos-duration="2000"
                 data-aos-delay="1000"
               >
-                <a
+                {/* <a
                   href=""
                   className="locatebutton onlydesktop bubbly-button swipe-effect"
                 >
                   {locationData.contentSection.btn_label}
-                </a>
+                </a> */}
               </div>
               )}
               

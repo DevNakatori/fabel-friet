@@ -34,12 +34,12 @@
   .snow {
     opacity: 1;
   
-    @for $i from 1 through 80 { // Generate 200 snowflakes
+    @for $i from 1 through 60 { // Generate 200 snowflakes
       $random-x: random(1000000) * 0.0001vw;
       $random-offset: random_range(-100000, 100000) * 0.0001vw;
       $random-x-end: $random-x + $random-offset;
-      $random-x-end-yoyo: $random-x + ($random-offset / 2);
-      $random-yoyo-time: random_range(30000, 80000) / 100000;
+      $random-x-end-yoyo: $random-x + ($random-offset / 1);
+      $random-yoyo-time: random_range(10000, 10000) / 100000;
       $random-yoyo-y: $random-yoyo-time * 300vh;
       $random-scale: random(10000) * 0.0001;
       $fall-duration: random_range(10, 60) * 1s;
@@ -47,17 +47,17 @@
   
       &:nth-child(#{$i}) {
         opacity: 1;
-        transform: translate($random-x, -10px) scale($random-scale);
+        transform: translate($random-x, -10px) scale(1);
         animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
       }
   
       @keyframes fall-#{$i} {
         #{percentage($random-yoyo-time)} {
-          transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
+          transform: translate($random-x-end, $random-yoyo-y) scale(1);
         }
   
         to {
-          transform: translate($random-x-end-yoyo, 300vh) scale($random-scale);
+          transform: translate($random-x-end-yoyo, 300vh) scale(1.2);
         }
       }
     }

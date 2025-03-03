@@ -15,6 +15,7 @@ import posterimg from '../assets/resizeimgs/Fabel-3D-Preview.png';
 import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
 import SplitType from 'split-type';
+import potetoanimation from '../js/potetoanimation.js';
 
 import mp3song from '../assets/SoundsofAmsterdamCity.mp3';
 
@@ -43,18 +44,29 @@ const HomePage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  
   const handleClick = (event) => {
     event.preventDefault(); 
     setLoadingsbtn(true);
     setTimeout(() => {
       setLoadingsbtn(false);
-      window.location.href = bannerData[0].bannerButton.buttonLink || '#section2';
-      if (window.location.hash === '#section2') {
+      const link = bannerData[0]?.bannerButton?.buttonLink || '#onzefriendescriptiononzefriet';
+      window.location.href = link;
+      if (window.location.hash === '#onzefriendescriptiononzefriet') {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
-      
-    }, 1500);
+      const targetElement = document.getElementById('onzefriendescriptiononzefriet');
+      if (targetElement) {
+        //console.log("Scrolling to position:", targetElement.offsetTop + 350);
+        window.scrollTo({
+          top: targetElement.offsetTop + 350, 
+          behavior: 'smooth', 
+        });
+      }
+       else {
+      //console.error("Target element not found!");
+    }
+    document.body.classList.remove('hiddenoverflow');
+    }, 1700);
   };
 
 
@@ -544,6 +556,9 @@ const HomePage = () => {
   }, [bannerData]);
   
 
+  useEffect(() => {
+    potetoanimation();
+  }, [bannerData]);
 
   /* forcefully scroll top */
   const togglePlayPause = () => {
@@ -739,7 +754,7 @@ const HomePage = () => {
             <>
             <a
               className="bubbly-button banner_bottombtn swipe-effect"
-              href={bannerData[0].bannerButton.buttonLink || '#section2'}
+              href={bannerData[0].bannerButton.buttonLink || '#onzefriendescriptiononzefriet'}
               onClick={handleClick}
               dangerouslySetInnerHTML={{
                 __html: bannerData[0].bannerButton.buttonText,

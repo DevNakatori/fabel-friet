@@ -21,6 +21,7 @@ import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 import titledynamic from '../js/titledynamic.js';
+import potetoanimation from '../js/potetoanimation.js';
 /* --------------------------------------------------------------------------------------------------------------------- */
 gsap.registerPlugin(ScrollTrigger, SplitText);
 /* --------------------------------------------------------------------------------------------------------------------- */
@@ -84,9 +85,9 @@ const Onzefriet = () => {
         '#section2 .gradient-purple',
         {
           scale: 1,
-          borderRadius: 0,
+          borderRadius: '100vw 100vw 0px 0px',
           //zIndex: 0,
-          ease: 'power3.easeIn',
+          ease: 'power1.inOut',
           scrollTrigger: {
             trigger: '#section2 .wrappertest',
             start: 'top top-100',
@@ -125,6 +126,7 @@ const Onzefriet = () => {
       alldescription();
       allinnerlinedescriptn();
       titledynamic();
+      potetoanimation();
     }
   }, [onzefriet]);
   /* gold title start */
@@ -294,7 +296,7 @@ const Onzefriet = () => {
         });
       });
     }
-  }, [onzefriet]);
+  }, [onzefriet]);  
   /* video left to right start */
   /* --------------------------------------------------------------------------------------------------------------------- */
   if (loading)
@@ -334,7 +336,7 @@ const Onzefriet = () => {
               {content.contentSection && (
                 <>
                   <div className="line">
-                    <h4
+                    <h4 id="onzefrienttitle"
                       className="onzefrienttitle"
                       data-title=""
                       data-speed="auto"

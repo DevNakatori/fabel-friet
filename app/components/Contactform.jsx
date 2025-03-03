@@ -4,6 +4,21 @@ import useWeb3Forms from '@web3forms/react';
 import '../styles/contactform.css';
 
 const Contactform = () => {
+
+
+  // const animateButton = (e) => {
+  //   //e.preventDefault();
+  //   const button = e.target;
+  //   button.classList.remove('animate');
+  //   button.classList.add('animate');
+  //   setTimeout(() => button.classList.remove('animate'), 400);
+  // };
+  // const bubblyButtons = document.getElementsByClassName('bubbly-button');
+  // for (let i = 0; i < bubblyButtons.length; i++) {
+  //   bubblyButtons[i].addEventListener('click', animateButton);
+  // }
+
+
   const {
     register,
     reset,
@@ -33,17 +48,7 @@ const Contactform = () => {
   });
 
 
-  const animateButton = (e) => {
-    e.preventDefault();
-    const button = e.target;
-    button.classList.remove('animate');
-    button.classList.add('animate');
-    setTimeout(() => button.classList.remove('animate'), 400);
-  };
-  const bubblyButtons = document.getElementsByClassName('bubbly-button');
-  for (let i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton);
-  }
+  
 
 
   return (
