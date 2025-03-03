@@ -223,9 +223,10 @@ const Onzeimpact = () => {
   /* --------------------------------------------------------------------------------------------------------------------- */
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {
+    if (onzeimpact) {
     if (window.innerWidth >= 1024) {
     const isHardRefreshonzeptagss = window.performance.navigation.type === 1;
-    const animationDelayonzeptagss = isHardRefreshonzeptagss ? 0 : 0;
+    const animationDelayonzeptagss = isHardRefreshonzeptagss ? 20 : 20;
 
     const initiateAnimationsonzeptagss = () => {
      document.querySelectorAll('.onzeptagssthe')
@@ -255,28 +256,30 @@ const Onzeimpact = () => {
           markers: false,  
         },
       });
+
+
+      const typeSplitsecdescription = new SplitType('.hetmenubottom', {
+        types: 'lines, words, chars',
+        tagName: 'span',
+      });
+  
+      gsap.from('.hetmenubottom .line', {
+        opacity: 0.3,
+        duration: 0.3,
+        ease: 'power1.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          id:'whitewithvideomainboxs',
+          trigger: '.appcontainersimpppact',
+          scrub: true,
+          start: '0% 0%',
+          end: '30% 30%',
+          markers: false,  
+        },
+      });
+
+
     };
-
-
-    const typeSplitsecdescription = new SplitType('.hetmenubottom', {
-      types: 'lines, words, chars',
-      tagName: 'span',
-    });
-
-    gsap.from('.hetmenubottom .line', {
-      opacity: 0.3,
-      duration: 0.3,
-      ease: 'power1.out',
-      stagger: 0.1,
-      scrollTrigger: {
-        id:'whitewithvideomainboxs',
-        trigger: '.whitewithvideomainboxsimpact',
-        scrub: true,
-        start: '0% 0%',
-        end: '1% 1%',
-        markers: false,  
-      },
-    });
 
     setTimeout(() => {
       initiateAnimationsonzeptagss();
@@ -287,6 +290,7 @@ const Onzeimpact = () => {
      gsap.killTweensOf('.hetmenubottom .line');
    };
   }
+}
   }, [onzeimpact]);
   /* --------------------------------------------------------------------------------------------------------------------- */
   useEffect(() => {

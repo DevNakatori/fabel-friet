@@ -82,6 +82,7 @@ button.skipvideo.hidden{display:none;}
     .bottomsection .scroll-down p,.scroll-down p{height:22px;position:absolute;bottom:15px;margin:0;width:110px;}
     .menulanding .landingcontainer .language-popup h2{font-size:-moz-calc(21 / var(--vw)* var(--multiplier))!important;font-size:calc(21 / var(--vw)* var(--multiplier))!important;line-height:2.2;}
     .language-item{font-size:-moz-calc(8 / var(--vw)* var(--multiplier))!important;font-size:calc(8 / var(--vw)* var(--multiplier))!important;}
+    .binimageboxmain{    bottom: 60px;}
 }
 @media (min-width:2500px) and (max-width:3000px){
     .fl-tests .swiper-pagination{bottom:0px;}
@@ -98,6 +99,7 @@ button.skipvideo.hidden{display:none;}
     .fourthsection .whitebgbox .menudynamic.onlydesktop .menu-item .menutextdetails p.summerytext small{font-size:-moz-calc(12 / var(--vw)* var(--multiplier))!important;font-size:calc(12 / var(--vw)* var(--multiplier))!important;}
     body .fourthsection .menudynamic.onlydesktop .menu-section .friet-category h2,body .fourthsection .menudynamic.onlydesktop .menu-section .snack-category h2,.fourthsection .menudynamic.onlydesktop .menu-section .drinks-category h2{font-size:-moz-calc(20 / var(--vw)* var(--multiplier))!important;font-size:calc(20 / var(--vw)* var(--multiplier))!important;}
     .banner_content_text p{font-size:-moz-calc(20 / var(--vw)* var(--multiplier) - 25%);font-size:calc(20 / var(--vw)* var(--multiplier) - 25%);}
+    .binimageboxmain{    bottom: 60px;}
 }
 @media (max-width:767px){
     #section2 .wrappertest,#section3 .wrappertest,#section5 .wrappertest,#section6 .wrappertest,#section4 .wrappertest{z-index:99 !important;}
