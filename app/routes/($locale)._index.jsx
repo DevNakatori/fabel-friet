@@ -204,11 +204,11 @@ export default function Homepage() {
     }
     
     const lenis = new Lenis({
-      duration: 1.2, // duration of the scroll animation in seconds
-  easing: (t) => Math.pow(t, 3), // easing function for smooth scroll
-  smooth: true, // enables smooth scrolling
-  lerp: 0.1,
-  wheelMultiplier: 0.7,
+      duration: 0.2,
+  easing: (t) => Math.pow(t, 1), 
+  smooth: true, 
+  lerp: 1,
+  wheelMultiplier: 1,
   gestureOrientation: "vertical",
   normalizeWheel: false,
   smoothTouch: true,
@@ -216,9 +216,9 @@ export default function Homepage() {
     
     
     lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000)
-})
+// gsap.ticker.add((time) => {
+//   lenis.raf(time * 1000)
+// })
 
     // lenis.on('scroll', (e) => {
     //   console.log(e)
@@ -226,24 +226,24 @@ gsap.ticker.add((time) => {
   
     
     // Initialize AOS
-    AOS.init({
-      once: true,
-      duration: 1200,
-      mirror: true,
-      debounceDelay: 50,
-      throttleDelay: 99,
-    });
+    // AOS.init({
+    //   once: true,
+    //   duration: 1200,
+    //   mirror: true,
+    //   debounceDelay: 50,
+    //   throttleDelay: 99,
+    // });
     
     // Function to handle requestAnimationFrame for Lenis and AOS
-    function raf(time) {
-      lenis.raf(time);
+    function animationraf() {
+      lenis.raf();
       AOS.refresh(); // Refresh AOS so it detects scroll changes
-      requestAnimationFrame(raf);
+      requestAnimationFrame(animationraf);
     };
     
     
     // Start the animation frame loop
-    requestAnimationFrame(raf);
+    animationraf();
     AOS.init({
       once: true,
       duration: 1200,

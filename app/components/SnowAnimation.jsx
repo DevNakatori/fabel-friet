@@ -18,7 +18,7 @@ const fryImages = [
 const SnowAnimation = () => {
     useEffect(() => {
     }, []);
-    const snowflakes = Array(30).fill(0).map(() => {
+    const snowflakes = Array(20).fill(0).map(() => {
         const randomImage = fryImages[Math.floor(Math.random() * fryImages.length)];
         return randomImage;
     });
