@@ -20,13 +20,14 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
         //end: () => `+=${wrapperRef.current.offsetHeight}`,
         pin: true,
         pinnedContainer: isMobile ? '' : wrapperRef.current,
-        scrub: true,
+        scrub: 0.5,
         markers: false,
         repeat: 1,
-        delay: 0.5,
+        delay: 0.2,
         pinSpacing: false,
         pinSpacer:isMobile ? false : true,
-        anticipatePin: isMobile ? 0 : 1,
+        anticipatePin: isMobile ? 1 : 1,
+        stagger: 0.1,
        // pinReparent: true,
          //anticipatePin: 1,
         // snap: {
@@ -54,9 +55,10 @@ const ZoomSection = ({ image, alt, h2Text, h3Text }) => {
       .to(zoomSectionRef.current, {
         //scale: 1.1,
         scale: isMobile ? 1.3 : 1.1,
-        z: 350,
+        z: 300,
+        stagger: 0.1,
         transformOrigin: 'center center',
-        ease: 'power1.inOut',
+        ease: 'power1.in',
       });
     // Cleanup when component unmounts
     return () => {

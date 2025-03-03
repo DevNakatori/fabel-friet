@@ -14,7 +14,7 @@ import { getImageUrl } from '../js/imagesurl';
 import images from '../js/images';
 import { useMediaQuery } from '@react-hook/media-query';
 // import FrenchFriesRain from '~/components/FrenchFriesRain';
-// import SnowAnimations from '~/components/SnowAnimations';
+import SnowAnimations from '~/components/SnowAnimations';
 import alltitleAnimation from '../js/alltitleAnimation.js';
 import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
@@ -279,8 +279,7 @@ const Hetmenu = () => {
                 //   ref={canvasRef}
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
-                // <SnowAnimations />
-                <></>
+                <SnowAnimations />
               )}
 
               <div

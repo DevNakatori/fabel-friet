@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 // import FrenchFriesRain from '~/components/FrenchFriesRain';
-//import SnowAnimation from '~/components/SnowAnimation';
+import SnowAnimation from '~/components/SnowAnimation';
 import ZoomSection from '~/components/ZoomSection';
 import SplitText from 'gsap/SplitText';
 import '../styles/onzefriet.css';
@@ -143,7 +143,7 @@ const Onzefriet = () => {
           trigger: '.img-container',
           start: 'top center',
           end: 'bottom bottom',
-          scrub: 2,
+          scrub: 0.5,
           ease: 'power3.inOut',
           once: false,
         },
@@ -200,7 +200,7 @@ const Onzefriet = () => {
             trigger: '.img-container',
             start: 'top center',
             end: 'bottom center',
-            scrub: 1,
+            scrub: 0.5,
             repeat: 1,
             yoyo: true,
             ease: 'power3.inOut',
@@ -403,8 +403,7 @@ const Onzefriet = () => {
                 //   style={{position: 'absolute', top: -100, left: -50}}
                 // />
                 // <FrenchFriesRain />
-                // <SnowAnimation />
-                <></>
+                <SnowAnimation />
               )}
               {/* <!-- -------------------------------------------------------------------------------------------------------------------- -> */}
               <div className="whitebgbox">

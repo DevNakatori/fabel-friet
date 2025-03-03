@@ -13,8 +13,8 @@
 
 .snows {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     /* background: white; */
     border-radius: 5px;
 }
@@ -35,16 +35,16 @@
   .snows {
     opacity: 1;
   
-    @for $i from 1 through 100 { // Generate 200 snowsflakes
+    @for $i from 1 through 80 { // Generate 200 snowsflakes
       $randoms-x: random(1000000) * 0.0001vw;
       $randoms-offset: random_ranges(-100000, 100000) * 0.0001vw;
       $randoms-x-end: $randoms-x + $randoms-offset;
-      $randoms-x-end-yoyo: $randoms-x + ($randoms-offset / 1);
-      $randoms-yoyo-time: random_ranges(10000, 10000) / 100000;
+      $randoms-x-end-yoyo: $randoms-x + ($randoms-offset / 2);
+      $randoms-yoyo-time: random_ranges(30000, 80000) / 100000;
       $randoms-yoyo-y: $randoms-yoyo-time * 300vh;
       $randoms-scale: random(10000) * 0.0001;
       $falls-durations: random_ranges(10, 80) * 1s;
-      $falls-delays: random(20) * -1s;
+      $falls-delays: random(30) * -1s;
   
       &:nth-child(#{$i}) {
         opacity: 1;
