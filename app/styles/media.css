@@ -489,7 +489,8 @@ button.skipvideo.hidden{display:none;}
     .binimageboxmain {
         position: relative;
         justify-content: end;
-        right: -70px;
+        right: -60px;
+        max-width: 100%;
     }
     .binimageboxmain .binimageboxieft {
         width: 500px;

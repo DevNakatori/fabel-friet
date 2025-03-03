@@ -80,7 +80,7 @@ const Getintouch = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex:9,
+       // zIndex:9,
         ease: 'power1.inOut',
       });
 

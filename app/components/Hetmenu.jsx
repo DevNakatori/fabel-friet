@@ -20,6 +20,7 @@ import alldescription from '../js/alldescription.js';
 import allinnerlinedescriptn from '../js/allinnerlinedescriptn.js';
 import blutextanimationtext from '../js/blutextanimationtext.js';
 import titledynamic from '../js/titledynamic.js';
+import potetoanimation from '../js/potetoanimation.js';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 /* --------------------------------------------------------------------------------------------------------------------- */
 const Hetmenu = () => {
@@ -70,16 +71,18 @@ const Hetmenu = () => {
           once: false,
         },
         borderRadius: '0vw 0vw 0px 0px',
-        zIndex: 9,
+       // zIndex: 9,
         ease: 'power1.inOut',
       });
       timelineshetmenu.to(
         '#section4 .gradient-purple',
         {
           scale: 1,
-          borderRadius: 0,
-          zIndex: 0,
-          ease: 'power3.easeIn',
+          borderRadius: '100vw 100vw 0px 0px',
+          //zIndex: 0,
+          ease: 'power1.inOut',
+         // zIndex: 0,
+          //ease: 'power3.easeIn',
           scrollTrigger: {
             trigger: '#section4 .wrappertest',
             start: 'top top-500',
@@ -110,15 +113,16 @@ const Hetmenu = () => {
 
         gsap.from('.hrtmenutags .line', {
           opacity: 0.3,
-          duration: 0.9,
+          duration: 0.4,
           ease: 'power1.out',
           stagger: 0.1,
           scrollTrigger: {
             id: "ptag",
-            trigger: '.menudynamic',
-            start: '95% 95%',
-            end: '100% 100%',
+            trigger: '.menuappcontainers',
+            start: 'center center',
+            end: '50% 50%',
             scrub: true,
+            markers:false,
           },
         });
       };
@@ -189,6 +193,7 @@ const Hetmenu = () => {
       allinnerlinedescriptn();
       blutextanimationtext();
       titledynamic();
+      potetoanimation();
     }
   }, [hetmenu]);
   /* gold title start */
@@ -486,7 +491,7 @@ const Hetmenu = () => {
                 </div>
               </div>
               {/* --------------------------------------------------------------------------------------------------------------------- */}
-              <div className="appcontainers">
+              <div className="appcontainers menuappcontainers">
                 {/* Bottom Section */}
                 <div className="whitewithvideomainbox">
                   <div className="righttextbox">
